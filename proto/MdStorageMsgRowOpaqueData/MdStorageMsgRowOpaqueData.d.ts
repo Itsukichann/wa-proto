@@ -134,121 +134,121 @@ export namespace MdStorageMsgRowOpaqueData {
         constructor(properties?: MdStorageMsgRowOpaqueData.IMsgOpaqueData);
 
         /** MsgOpaqueData body. */
-        public body: string;
+        public body?: (string|null);
 
         /** MsgOpaqueData caption. */
-        public caption: string;
+        public caption?: (string|null);
 
         /** MsgOpaqueData lng. */
-        public lng: number;
+        public lng?: (number|null);
 
         /** MsgOpaqueData isLive. */
-        public isLive: boolean;
+        public isLive?: (boolean|null);
 
         /** MsgOpaqueData lat. */
-        public lat: number;
+        public lat?: (number|null);
 
         /** MsgOpaqueData paymentAmount1000. */
-        public paymentAmount1000: number;
+        public paymentAmount1000?: (number|null);
 
         /** MsgOpaqueData paymentNoteMsgBody. */
-        public paymentNoteMsgBody: string;
+        public paymentNoteMsgBody?: (string|null);
 
         /** MsgOpaqueData matchedText. */
-        public matchedText: string;
+        public matchedText?: (string|null);
 
         /** MsgOpaqueData title. */
-        public title: string;
+        public title?: (string|null);
 
         /** MsgOpaqueData description. */
-        public description: string;
+        public description?: (string|null);
 
         /** MsgOpaqueData futureproofBuffer. */
-        public futureproofBuffer: Uint8Array;
+        public futureproofBuffer?: (Uint8Array|null);
 
         /** MsgOpaqueData clientUrl. */
-        public clientUrl: string;
+        public clientUrl?: (string|null);
 
         /** MsgOpaqueData loc. */
-        public loc: string;
+        public loc?: (string|null);
 
         /** MsgOpaqueData pollName. */
-        public pollName: string;
+        public pollName?: (string|null);
 
         /** MsgOpaqueData pollOptions. */
         public pollOptions: MdStorageMsgRowOpaqueData.MsgOpaqueData.IPollOption[];
 
         /** MsgOpaqueData pollSelectableOptionsCount. */
-        public pollSelectableOptionsCount: number;
+        public pollSelectableOptionsCount?: (number|null);
 
         /** MsgOpaqueData messageSecret. */
-        public messageSecret: Uint8Array;
+        public messageSecret?: (Uint8Array|null);
 
         /** MsgOpaqueData originalSelfAuthor. */
-        public originalSelfAuthor: string;
+        public originalSelfAuthor?: (string|null);
 
         /** MsgOpaqueData senderTimestampMs. */
-        public senderTimestampMs: (number|Long);
+        public senderTimestampMs?: (number|Long|null);
 
         /** MsgOpaqueData pollUpdateParentKey. */
-        public pollUpdateParentKey: string;
+        public pollUpdateParentKey?: (string|null);
 
         /** MsgOpaqueData encPollVote. */
         public encPollVote?: (E2E.Message.IPollEncValue|null);
 
         /** MsgOpaqueData isSentCagPollCreation. */
-        public isSentCagPollCreation: boolean;
+        public isSentCagPollCreation?: (boolean|null);
 
         /** MsgOpaqueData pollContentType. */
-        public pollContentType: MdStorageMsgRowOpaqueData.MsgOpaqueData.PollContentType;
+        public pollContentType?: (MdStorageMsgRowOpaqueData.MsgOpaqueData.PollContentType|null);
 
         /** MsgOpaqueData pollVotesSnapshot. */
         public pollVotesSnapshot?: (MdStorageMsgRowOpaqueData.MsgOpaqueData.IPollVotesSnapshot|null);
 
         /** MsgOpaqueData encReactionTargetMessageKey. */
-        public encReactionTargetMessageKey: string;
+        public encReactionTargetMessageKey?: (string|null);
 
         /** MsgOpaqueData encReactionEncPayload. */
-        public encReactionEncPayload: Uint8Array;
+        public encReactionEncPayload?: (Uint8Array|null);
 
         /** MsgOpaqueData encReactionEncIv. */
-        public encReactionEncIv: Uint8Array;
+        public encReactionEncIv?: (Uint8Array|null);
 
         /** MsgOpaqueData botMessageSecret. */
-        public botMessageSecret: Uint8Array;
+        public botMessageSecret?: (Uint8Array|null);
 
         /** MsgOpaqueData targetMessageKey. */
-        public targetMessageKey: string;
+        public targetMessageKey?: (string|null);
 
         /** MsgOpaqueData encPayload. */
-        public encPayload: Uint8Array;
+        public encPayload?: (Uint8Array|null);
 
         /** MsgOpaqueData encIv. */
-        public encIv: Uint8Array;
+        public encIv?: (Uint8Array|null);
 
         /** MsgOpaqueData eventName. */
-        public eventName: string;
+        public eventName?: (string|null);
 
         /** MsgOpaqueData isEventCanceled. */
-        public isEventCanceled: boolean;
+        public isEventCanceled?: (boolean|null);
 
         /** MsgOpaqueData eventDescription. */
-        public eventDescription: string;
+        public eventDescription?: (string|null);
 
         /** MsgOpaqueData eventJoinLink. */
-        public eventJoinLink: string;
+        public eventJoinLink?: (string|null);
 
         /** MsgOpaqueData eventStartTime. */
-        public eventStartTime: (number|Long);
+        public eventStartTime?: (number|Long|null);
 
         /** MsgOpaqueData eventLocation. */
         public eventLocation?: (MdStorageMsgRowOpaqueData.MsgOpaqueData.IEventLocation|null);
 
         /** MsgOpaqueData eventEndTime. */
-        public eventEndTime: (number|Long);
+        public eventEndTime?: (number|Long|null);
 
         /** MsgOpaqueData plainProtobufBytes. */
-        public plainProtobufBytes: Uint8Array;
+        public plainProtobufBytes?: (Uint8Array|null);
 
         /**
          * Creates a new MsgOpaqueData instance using the specified properties.
@@ -362,22 +362,22 @@ export namespace MdStorageMsgRowOpaqueData {
             constructor(properties?: MdStorageMsgRowOpaqueData.MsgOpaqueData.IEventLocation);
 
             /** EventLocation degreesLatitude. */
-            public degreesLatitude: number;
+            public degreesLatitude?: (number|null);
 
             /** EventLocation degreesLongitude. */
-            public degreesLongitude: number;
+            public degreesLongitude?: (number|null);
 
             /** EventLocation name. */
-            public name: string;
+            public name?: (string|null);
 
             /** EventLocation address. */
-            public address: string;
+            public address?: (string|null);
 
             /** EventLocation url. */
-            public url: string;
+            public url?: (string|null);
 
             /** EventLocation jpegThumbnail. */
-            public jpegThumbnail: Uint8Array;
+            public jpegThumbnail?: (Uint8Array|null);
 
             /**
              * Creates a new EventLocation instance using the specified properties.
@@ -484,10 +484,10 @@ export namespace MdStorageMsgRowOpaqueData {
             constructor(properties?: MdStorageMsgRowOpaqueData.MsgOpaqueData.IPollOption);
 
             /** PollOption name. */
-            public name: string;
+            public name?: (string|null);
 
             /** PollOption hash. */
-            public hash: string;
+            public hash?: (string|null);
 
             /**
              * Creates a new PollOption instance using the specified properties.
@@ -590,7 +590,7 @@ export namespace MdStorageMsgRowOpaqueData {
             public option?: (MdStorageMsgRowOpaqueData.MsgOpaqueData.IPollOption|null);
 
             /** PollVoteSnapshot optionVoteCount. */
-            public optionVoteCount: number;
+            public optionVoteCount?: (number|null);
 
             /**
              * Creates a new PollVoteSnapshot instance using the specified properties.
@@ -788,10 +788,10 @@ export namespace MdStorageMsgRowOpaqueData {
         constructor(properties?: MdStorageMsgRowOpaqueData.IPollEncValue);
 
         /** PollEncValue encPayload. */
-        public encPayload: Uint8Array;
+        public encPayload?: (Uint8Array|null);
 
         /** PollEncValue encIv. */
-        public encIv: Uint8Array;
+        public encIv?: (Uint8Array|null);
 
         /**
          * Creates a new PollEncValue instance using the specified properties.
@@ -998,10 +998,10 @@ export namespace E2E {
         constructor(properties?: E2E.IMemberLabel);
 
         /** MemberLabel label. */
-        public label: string;
+        public label?: (string|null);
 
         /** MemberLabel labelTimestamp. */
-        public labelTimestamp: (number|Long);
+        public labelTimestamp?: (number|Long|null);
 
         /**
          * Creates a new MemberLabel instance using the specified properties.
@@ -1110,7 +1110,7 @@ export namespace E2E {
         public message?: (E2E.IMessage|null);
 
         /** AIQueryFanout timestamp. */
-        public timestamp: (number|Long);
+        public timestamp?: (number|Long|null);
 
         /**
          * Creates a new AIQueryFanout instance using the specified properties.
@@ -1315,16 +1315,16 @@ export namespace E2E {
             constructor(properties?: E2E.UrlTrackingMap.IUrlTrackingMapElement);
 
             /** UrlTrackingMapElement originalUrl. */
-            public originalUrl: string;
+            public originalUrl?: (string|null);
 
             /** UrlTrackingMapElement unconsentedUsersUrl. */
-            public unconsentedUsersUrl: string;
+            public unconsentedUsersUrl?: (string|null);
 
             /** UrlTrackingMapElement consentedUsersUrl. */
-            public consentedUsersUrl: string;
+            public consentedUsersUrl?: (string|null);
 
             /** UrlTrackingMapElement cardIndex. */
-            public cardIndex: number;
+            public cardIndex?: (number|null);
 
             /**
              * Creates a new UrlTrackingMapElement instance using the specified properties.
@@ -1443,25 +1443,25 @@ export namespace E2E {
         constructor(properties?: E2E.IProcessedVideo);
 
         /** ProcessedVideo directPath. */
-        public directPath: string;
+        public directPath?: (string|null);
 
         /** ProcessedVideo fileSha256. */
-        public fileSha256: Uint8Array;
+        public fileSha256?: (Uint8Array|null);
 
         /** ProcessedVideo height. */
-        public height: number;
+        public height?: (number|null);
 
         /** ProcessedVideo width. */
-        public width: number;
+        public width?: (number|null);
 
         /** ProcessedVideo fileLength. */
-        public fileLength: (number|Long);
+        public fileLength?: (number|Long|null);
 
         /** ProcessedVideo bitrate. */
-        public bitrate: number;
+        public bitrate?: (number|null);
 
         /** ProcessedVideo quality. */
-        public quality: E2E.ProcessedVideo.VideoQuality;
+        public quality?: (E2E.ProcessedVideo.VideoQuality|null);
 
         /** ProcessedVideo capabilities. */
         public capabilities: string[];
@@ -1572,7 +1572,7 @@ export namespace E2E {
         constructor(properties?: E2E.ILIDMigrationMappingSyncMessage);
 
         /** LIDMigrationMappingSyncMessage encodedMappingPayload. */
-        public encodedMappingPayload: Uint8Array;
+        public encodedMappingPayload?: (Uint8Array|null);
 
         /**
          * Creates a new LIDMigrationMappingSyncMessage instance using the specified properties.
@@ -1675,13 +1675,13 @@ export namespace E2E {
         constructor(properties?: E2E.IMediaNotifyMessage);
 
         /** MediaNotifyMessage expressPathUrl. */
-        public expressPathUrl: string;
+        public expressPathUrl?: (string|null);
 
         /** MediaNotifyMessage fileEncSha256. */
-        public fileEncSha256: Uint8Array;
+        public fileEncSha256?: (Uint8Array|null);
 
         /** MediaNotifyMessage fileLength. */
-        public fileLength: (number|Long);
+        public fileLength?: (number|Long|null);
 
         /**
          * Creates a new MediaNotifyMessage instance using the specified properties.
@@ -1784,13 +1784,13 @@ export namespace E2E {
         constructor(properties?: E2E.IMessageSecretMessage);
 
         /** MessageSecretMessage version. */
-        public version: number;
+        public version?: (number|null);
 
         /** MessageSecretMessage encIv. */
-        public encIv: Uint8Array;
+        public encIv?: (Uint8Array|null);
 
         /** MessageSecretMessage encPayload. */
-        public encPayload: Uint8Array;
+        public encPayload?: (Uint8Array|null);
 
         /**
          * Creates a new MessageSecretMessage instance using the specified properties.
@@ -1890,10 +1890,10 @@ export namespace E2E {
         constructor(properties?: E2E.IGroupMention);
 
         /** GroupMention groupJid. */
-        public groupJid: string;
+        public groupJid?: (string|null);
 
         /** GroupMention groupSubject. */
-        public groupSubject: string;
+        public groupSubject?: (string|null);
 
         /**
          * Creates a new GroupMention instance using the specified properties.
@@ -1993,10 +1993,10 @@ export namespace E2E {
         constructor(properties?: E2E.IActionLink);
 
         /** ActionLink url. */
-        public url: string;
+        public url?: (string|null);
 
         /** ActionLink buttonTitle. */
-        public buttonTitle: string;
+        public buttonTitle?: (string|null);
 
         /**
          * Creates a new ActionLink instance using the specified properties.
@@ -2102,16 +2102,16 @@ export namespace E2E {
         constructor(properties?: E2E.IDisappearingMode);
 
         /** DisappearingMode initiator. */
-        public initiator: E2E.DisappearingMode.Initiator;
+        public initiator?: (E2E.DisappearingMode.Initiator|null);
 
         /** DisappearingMode trigger. */
-        public trigger: E2E.DisappearingMode.Trigger;
+        public trigger?: (E2E.DisappearingMode.Trigger|null);
 
         /** DisappearingMode initiatorDeviceJid. */
-        public initiatorDeviceJid: string;
+        public initiatorDeviceJid?: (string|null);
 
         /** DisappearingMode initiatedByMe. */
-        public initiatedByMe: boolean;
+        public initiatedByMe?: (boolean|null);
 
         /**
          * Creates a new DisappearingMode instance using the specified properties.
@@ -2256,34 +2256,34 @@ export namespace E2E {
         constructor(properties?: E2E.IPaymentBackground);
 
         /** PaymentBackground id. */
-        public id: string;
+        public id?: (string|null);
 
         /** PaymentBackground fileLength. */
-        public fileLength: (number|Long);
+        public fileLength?: (number|Long|null);
 
         /** PaymentBackground width. */
-        public width: number;
+        public width?: (number|null);
 
         /** PaymentBackground height. */
-        public height: number;
+        public height?: (number|null);
 
         /** PaymentBackground mimetype. */
-        public mimetype: string;
+        public mimetype?: (string|null);
 
         /** PaymentBackground placeholderArgb. */
-        public placeholderArgb: number;
+        public placeholderArgb?: (number|null);
 
         /** PaymentBackground textArgb. */
-        public textArgb: number;
+        public textArgb?: (number|null);
 
         /** PaymentBackground subtextArgb. */
-        public subtextArgb: number;
+        public subtextArgb?: (number|null);
 
         /** PaymentBackground mediaData. */
         public mediaData?: (E2E.PaymentBackground.IMediaData|null);
 
         /** PaymentBackground type. */
-        public type: E2E.PaymentBackground.Type;
+        public type?: (E2E.PaymentBackground.Type|null);
 
         /**
          * Creates a new PaymentBackground instance using the specified properties.
@@ -2394,19 +2394,19 @@ export namespace E2E {
             constructor(properties?: E2E.PaymentBackground.IMediaData);
 
             /** MediaData mediaKey. */
-            public mediaKey: Uint8Array;
+            public mediaKey?: (Uint8Array|null);
 
             /** MediaData mediaKeyTimestamp. */
-            public mediaKeyTimestamp: (number|Long);
+            public mediaKeyTimestamp?: (number|Long|null);
 
             /** MediaData fileSha256. */
-            public fileSha256: Uint8Array;
+            public fileSha256?: (Uint8Array|null);
 
             /** MediaData fileEncSha256. */
-            public fileEncSha256: Uint8Array;
+            public fileEncSha256?: (Uint8Array|null);
 
             /** MediaData directPath. */
-            public directPath: string;
+            public directPath?: (string|null);
 
             /**
              * Creates a new MediaData instance using the specified properties.
@@ -2516,13 +2516,13 @@ export namespace E2E {
         constructor(properties?: E2E.IMoney);
 
         /** Money value. */
-        public value: (number|Long);
+        public value?: (number|Long|null);
 
         /** Money offset. */
-        public offset: number;
+        public offset?: (number|null);
 
         /** Money currencyCode. */
-        public currencyCode: string;
+        public currencyCode?: (string|null);
 
         /**
          * Creates a new Money instance using the specified properties.
@@ -2628,7 +2628,7 @@ export namespace E2E {
         constructor(properties?: E2E.IHydratedTemplateButton);
 
         /** HydratedTemplateButton index. */
-        public index: number;
+        public index?: (number|null);
 
         /** HydratedTemplateButton quickReplyButton. */
         public quickReplyButton?: (E2E.HydratedTemplateButton.IHydratedQuickReplyButton|null);
@@ -2742,10 +2742,10 @@ export namespace E2E {
             constructor(properties?: E2E.HydratedTemplateButton.IHydratedCallButton);
 
             /** HydratedCallButton displayText. */
-            public displayText: string;
+            public displayText?: (string|null);
 
             /** HydratedCallButton phoneNumber. */
-            public phoneNumber: string;
+            public phoneNumber?: (string|null);
 
             /**
              * Creates a new HydratedCallButton instance using the specified properties.
@@ -2845,10 +2845,10 @@ export namespace E2E {
             constructor(properties?: E2E.HydratedTemplateButton.IHydratedQuickReplyButton);
 
             /** HydratedQuickReplyButton displayText. */
-            public displayText: string;
+            public displayText?: (string|null);
 
             /** HydratedQuickReplyButton id. */
-            public id: string;
+            public id?: (string|null);
 
             /**
              * Creates a new HydratedQuickReplyButton instance using the specified properties.
@@ -2954,16 +2954,16 @@ export namespace E2E {
             constructor(properties?: E2E.HydratedTemplateButton.IHydratedURLButton);
 
             /** HydratedURLButton displayText. */
-            public displayText: string;
+            public displayText?: (string|null);
 
             /** HydratedURLButton url. */
-            public url: string;
+            public url?: (string|null);
 
             /** HydratedURLButton consentedUsersUrl. */
-            public consentedUsersUrl: string;
+            public consentedUsersUrl?: (string|null);
 
             /** HydratedURLButton webviewPresentation. */
-            public webviewPresentation: E2E.HydratedTemplateButton.HydratedURLButton.WebviewPresentationType;
+            public webviewPresentation?: (E2E.HydratedTemplateButton.HydratedURLButton.WebviewPresentationType|null);
 
             /**
              * Creates a new HydratedURLButton instance using the specified properties.
@@ -3080,7 +3080,7 @@ export namespace E2E {
         constructor(properties?: E2E.ITemplateButton);
 
         /** TemplateButton index. */
-        public index: number;
+        public index?: (number|null);
 
         /** TemplateButton quickReplyButton. */
         public quickReplyButton?: (E2E.TemplateButton.IQuickReplyButton|null);
@@ -3300,7 +3300,7 @@ export namespace E2E {
             public displayText?: (E2E.Message.IHighlyStructuredMessage|null);
 
             /** QuickReplyButton id. */
-            public id: string;
+            public id?: (string|null);
 
             /**
              * Creates a new QuickReplyButton instance using the specified properties.
@@ -3507,13 +3507,13 @@ export namespace E2E {
         constructor(properties?: E2E.ILocation);
 
         /** Location degreesLatitude. */
-        public degreesLatitude: number;
+        public degreesLatitude?: (number|null);
 
         /** Location degreesLongitude. */
-        public degreesLongitude: number;
+        public degreesLongitude?: (number|null);
 
         /** Location name. */
-        public name: string;
+        public name?: (string|null);
 
         /**
          * Creates a new Location instance using the specified properties.
@@ -3619,16 +3619,16 @@ export namespace E2E {
         constructor(properties?: E2E.IPoint);
 
         /** Point xDeprecated. */
-        public xDeprecated: number;
+        public xDeprecated?: (number|null);
 
         /** Point yDeprecated. */
-        public yDeprecated: number;
+        public yDeprecated?: (number|null);
 
         /** Point x. */
-        public x: number;
+        public x?: (number|null);
 
         /** Point y. */
-        public y: number;
+        public y?: (number|null);
 
         /**
          * Creates a new Point instance using the specified properties.
@@ -3749,13 +3749,13 @@ export namespace E2E {
         public polygonVertices: E2E.IPoint[];
 
         /** InteractiveAnnotation shouldSkipConfirmation. */
-        public shouldSkipConfirmation: boolean;
+        public shouldSkipConfirmation?: (boolean|null);
 
         /** InteractiveAnnotation embeddedContent. */
         public embeddedContent?: (E2E.IEmbeddedContent|null);
 
         /** InteractiveAnnotation statusLinkType. */
-        public statusLinkType: E2E.InteractiveAnnotation.StatusLinkType;
+        public statusLinkType?: (E2E.InteractiveAnnotation.StatusLinkType|null);
 
         /** InteractiveAnnotation location. */
         public location?: (E2E.ILocation|null);
@@ -3880,10 +3880,10 @@ export namespace E2E {
         constructor(properties?: E2E.ITapLinkAction);
 
         /** TapLinkAction title. */
-        public title: string;
+        public title?: (string|null);
 
         /** TapLinkAction tapUrl. */
-        public tapUrl: string;
+        public tapUrl?: (string|null);
 
         /**
          * Creates a new TapLinkAction instance using the specified properties.
@@ -4116,37 +4116,37 @@ export namespace E2E {
         constructor(properties?: E2E.IEmbeddedMusic);
 
         /** EmbeddedMusic musicContentMediaId. */
-        public musicContentMediaId: string;
+        public musicContentMediaId?: (string|null);
 
         /** EmbeddedMusic songId. */
-        public songId: string;
+        public songId?: (string|null);
 
         /** EmbeddedMusic author. */
-        public author: string;
+        public author?: (string|null);
 
         /** EmbeddedMusic title. */
-        public title: string;
+        public title?: (string|null);
 
         /** EmbeddedMusic artworkDirectPath. */
-        public artworkDirectPath: string;
+        public artworkDirectPath?: (string|null);
 
         /** EmbeddedMusic artworkSha256. */
-        public artworkSha256: Uint8Array;
+        public artworkSha256?: (Uint8Array|null);
 
         /** EmbeddedMusic artworkEncSha256. */
-        public artworkEncSha256: Uint8Array;
+        public artworkEncSha256?: (Uint8Array|null);
 
         /** EmbeddedMusic artworkMediaKey. */
-        public artworkMediaKey: Uint8Array;
+        public artworkMediaKey?: (Uint8Array|null);
 
         /** EmbeddedMusic artistAttribution. */
-        public artistAttribution: string;
+        public artistAttribution?: (string|null);
 
         /** EmbeddedMusic countryBlocklist. */
-        public countryBlocklist: Uint8Array;
+        public countryBlocklist?: (Uint8Array|null);
 
         /** EmbeddedMusic isExplicit. */
-        public isExplicit: boolean;
+        public isExplicit?: (boolean|null);
 
         /**
          * Creates a new EmbeddedMusic instance using the specified properties.
@@ -4246,7 +4246,7 @@ export namespace E2E {
         constructor(properties?: E2E.IEmbeddedMessage);
 
         /** EmbeddedMessage stanzaId. */
-        public stanzaId: string;
+        public stanzaId?: (string|null);
 
         /** EmbeddedMessage message. */
         public message?: (E2E.IMessage|null);
@@ -4367,25 +4367,25 @@ export namespace E2E {
         constructor(properties?: E2E.IDeviceListMetadata);
 
         /** DeviceListMetadata senderKeyHash. */
-        public senderKeyHash: Uint8Array;
+        public senderKeyHash?: (Uint8Array|null);
 
         /** DeviceListMetadata senderTimestamp. */
-        public senderTimestamp: (number|Long);
+        public senderTimestamp?: (number|Long|null);
 
         /** DeviceListMetadata senderKeyIndexes. */
         public senderKeyIndexes: number[];
 
         /** DeviceListMetadata senderAccountType. */
-        public senderAccountType: Adv.ADVEncryptionType;
+        public senderAccountType?: (Adv.ADVEncryptionType|null);
 
         /** DeviceListMetadata receiverAccountType. */
-        public receiverAccountType: Adv.ADVEncryptionType;
+        public receiverAccountType?: (Adv.ADVEncryptionType|null);
 
         /** DeviceListMetadata recipientKeyHash. */
-        public recipientKeyHash: Uint8Array;
+        public recipientKeyHash?: (Uint8Array|null);
 
         /** DeviceListMetadata recipientTimestamp. */
-        public recipientTimestamp: (number|Long);
+        public recipientTimestamp?: (number|Long|null);
 
         /** DeviceListMetadata recipientKeyIndexes. */
         public recipientKeyIndexes: number[];
@@ -4527,37 +4527,37 @@ export namespace E2E {
         public deviceListMetadata?: (E2E.IDeviceListMetadata|null);
 
         /** MessageContextInfo deviceListMetadataVersion. */
-        public deviceListMetadataVersion: number;
+        public deviceListMetadataVersion?: (number|null);
 
         /** MessageContextInfo messageSecret. */
-        public messageSecret: Uint8Array;
+        public messageSecret?: (Uint8Array|null);
 
         /** MessageContextInfo paddingBytes. */
-        public paddingBytes: Uint8Array;
+        public paddingBytes?: (Uint8Array|null);
 
         /** MessageContextInfo messageAddOnDurationInSecs. */
-        public messageAddOnDurationInSecs: number;
+        public messageAddOnDurationInSecs?: (number|null);
 
         /** MessageContextInfo botMessageSecret. */
-        public botMessageSecret: Uint8Array;
+        public botMessageSecret?: (Uint8Array|null);
 
         /** MessageContextInfo botMetadata. */
         public botMetadata?: (E2E.IBotMetadata|null);
 
         /** MessageContextInfo reportingTokenVersion. */
-        public reportingTokenVersion: number;
+        public reportingTokenVersion?: (number|null);
 
         /** MessageContextInfo messageAddOnExpiryType. */
-        public messageAddOnExpiryType: E2E.MessageContextInfo.MessageAddonExpiryType;
+        public messageAddOnExpiryType?: (E2E.MessageContextInfo.MessageAddonExpiryType|null);
 
         /** MessageContextInfo messageAssociation. */
         public messageAssociation?: (E2E.IMessageAssociation|null);
 
         /** MessageContextInfo capiCreatedGroup. */
-        public capiCreatedGroup: boolean;
+        public capiCreatedGroup?: (boolean|null);
 
         /** MessageContextInfo supportPayload. */
-        public supportPayload: string;
+        public supportPayload?: (string|null);
 
         /** MessageContextInfo limitSharing. */
         public limitSharing?: (Protocol.ILimitSharing|null);
@@ -4675,13 +4675,13 @@ export namespace E2E {
         constructor(properties?: E2E.IMessageAssociation);
 
         /** MessageAssociation associationType. */
-        public associationType: E2E.MessageAssociation.AssociationType;
+        public associationType?: (E2E.MessageAssociation.AssociationType|null);
 
         /** MessageAssociation parentMessageKey. */
         public parentMessageKey?: (Protocol.IMessageKey|null);
 
         /** MessageAssociation messageIndex. */
-        public messageIndex: number;
+        public messageIndex?: (number|null);
 
         /**
          * Creates a new MessageAssociation instance using the specified properties.
@@ -4872,7 +4872,7 @@ export namespace E2E {
         public avatarMetadata?: (E2E.IBotAvatarMetadata|null);
 
         /** BotMetadata personaId. */
-        public personaId: string;
+        public personaId?: (string|null);
 
         /** BotMetadata pluginMetadata. */
         public pluginMetadata?: (E2E.IBotPluginMetadata|null);
@@ -4881,7 +4881,7 @@ export namespace E2E {
         public suggestedPromptMetadata?: (E2E.IBotSuggestedPromptMetadata|null);
 
         /** BotMetadata invokerJid. */
-        public invokerJid: string;
+        public invokerJid?: (string|null);
 
         /** BotMetadata sessionMetadata. */
         public sessionMetadata?: (E2E.IBotSessionMetadata|null);
@@ -4890,7 +4890,7 @@ export namespace E2E {
         public memuMetadata?: (E2E.IBotMemuMetadata|null);
 
         /** BotMetadata timezone. */
-        public timezone: string;
+        public timezone?: (string|null);
 
         /** BotMetadata reminderMetadata. */
         public reminderMetadata?: (E2E.IBotReminderMetadata|null);
@@ -4899,7 +4899,7 @@ export namespace E2E {
         public modelMetadata?: (E2E.IBotModelMetadata|null);
 
         /** BotMetadata messageDisclaimerText. */
-        public messageDisclaimerText: string;
+        public messageDisclaimerText?: (string|null);
 
         /** BotMetadata progressIndicatorMetadata. */
         public progressIndicatorMetadata?: (E2E.IBotProgressIndicatorMetadata|null);
@@ -4926,7 +4926,7 @@ export namespace E2E {
         public richResponseSourcesMetadata?: (E2E.IBotSourcesMetadata|null);
 
         /** BotMetadata aiConversationContext. */
-        public aiConversationContext: Uint8Array;
+        public aiConversationContext?: (Uint8Array|null);
 
         /** BotMetadata botPromotionMessageMetadata. */
         public botPromotionMessageMetadata?: (E2E.IBotPromotionMessageMetadata|null);
@@ -5149,22 +5149,22 @@ export namespace E2E {
             constructor(properties?: E2E.BotSourcesMetadata.IBotSourceItem);
 
             /** BotSourceItem provider. */
-            public provider: E2E.BotSourcesMetadata.BotSourceItem.SourceProvider;
+            public provider?: (E2E.BotSourcesMetadata.BotSourceItem.SourceProvider|null);
 
             /** BotSourceItem thumbnailCdnUrl. */
-            public thumbnailCdnUrl: string;
+            public thumbnailCdnUrl?: (string|null);
 
             /** BotSourceItem sourceProviderUrl. */
-            public sourceProviderUrl: string;
+            public sourceProviderUrl?: (string|null);
 
             /** BotSourceItem sourceQuery. */
-            public sourceQuery: string;
+            public sourceQuery?: (string|null);
 
             /** BotSourceItem faviconCdnUrl. */
-            public faviconCdnUrl: string;
+            public faviconCdnUrl?: (string|null);
 
             /** BotSourceItem citationNumber. */
-            public citationNumber: number;
+            public citationNumber?: (number|null);
 
             /**
              * Creates a new BotSourceItem instance using the specified properties.
@@ -5276,10 +5276,10 @@ export namespace E2E {
         constructor(properties?: E2E.IBotAgeCollectionMetadata);
 
         /** BotAgeCollectionMetadata ageCollectionEligible. */
-        public ageCollectionEligible: boolean;
+        public ageCollectionEligible?: (boolean|null);
 
         /** BotAgeCollectionMetadata shouldTriggerAgeCollectionOnClient. */
-        public shouldTriggerAgeCollectionOnClient: boolean;
+        public shouldTriggerAgeCollectionOnClient?: (boolean|null);
 
         /**
          * Creates a new BotAgeCollectionMetadata instance using the specified properties.
@@ -5376,7 +5376,7 @@ export namespace E2E {
         constructor(properties?: E2E.IBotImagineMetadata);
 
         /** BotImagineMetadata imagineType. */
-        public imagineType: E2E.BotImagineMetadata.ImagineType;
+        public imagineType?: (E2E.BotImagineMetadata.ImagineType|null);
 
         /**
          * Creates a new BotImagineMetadata instance using the specified properties.
@@ -5590,13 +5590,13 @@ export namespace E2E {
             constructor(properties?: E2E.BotQuotaMetadata.IBotFeatureQuotaMetadata);
 
             /** BotFeatureQuotaMetadata featureType. */
-            public featureType: E2E.BotQuotaMetadata.BotFeatureQuotaMetadata.BotFeatureType;
+            public featureType?: (E2E.BotQuotaMetadata.BotFeatureQuotaMetadata.BotFeatureType|null);
 
             /** BotFeatureQuotaMetadata remainingQuota. */
-            public remainingQuota: number;
+            public remainingQuota?: (number|null);
 
             /** BotFeatureQuotaMetadata expirationTimestamp. */
-            public expirationTimestamp: (number|Long);
+            public expirationTimestamp?: (number|Long|null);
 
             /**
              * Creates a new BotFeatureQuotaMetadata instance using the specified properties.
@@ -5952,7 +5952,7 @@ export namespace E2E {
         constructor(properties?: E2E.IBotProgressIndicatorMetadata);
 
         /** BotProgressIndicatorMetadata progressDescription. */
-        public progressDescription: string;
+        public progressDescription?: (string|null);
 
         /** BotProgressIndicatorMetadata stepsMetadata. */
         public stepsMetadata: E2E.BotProgressIndicatorMetadata.IBotPlanningStepMetadata[];
@@ -6072,22 +6072,22 @@ export namespace E2E {
             constructor(properties?: E2E.BotProgressIndicatorMetadata.IBotPlanningStepMetadata);
 
             /** BotPlanningStepMetadata statusTitle. */
-            public statusTitle: string;
+            public statusTitle?: (string|null);
 
             /** BotPlanningStepMetadata statusBody. */
-            public statusBody: string;
+            public statusBody?: (string|null);
 
             /** BotPlanningStepMetadata sourcesMetadata. */
             public sourcesMetadata: E2E.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningSearchSourcesMetadata[];
 
             /** BotPlanningStepMetadata status. */
-            public status: E2E.BotProgressIndicatorMetadata.BotPlanningStepMetadata.PlanningStepStatus;
+            public status?: (E2E.BotProgressIndicatorMetadata.BotPlanningStepMetadata.PlanningStepStatus|null);
 
             /** BotPlanningStepMetadata isReasoning. */
-            public isReasoning: boolean;
+            public isReasoning?: (boolean|null);
 
             /** BotPlanningStepMetadata isEnhancedSearch. */
-            public isEnhancedSearch: boolean;
+            public isEnhancedSearch?: (boolean|null);
 
             /** BotPlanningStepMetadata sections. */
             public sections: E2E.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningStepSectionMetadata[];
@@ -6198,16 +6198,16 @@ export namespace E2E {
                 constructor(properties?: E2E.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningSearchSourceMetadata);
 
                 /** BotPlanningSearchSourceMetadata title. */
-                public title: string;
+                public title?: (string|null);
 
                 /** BotPlanningSearchSourceMetadata provider. */
-                public provider: E2E.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotSearchSourceProvider;
+                public provider?: (E2E.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotSearchSourceProvider|null);
 
                 /** BotPlanningSearchSourceMetadata sourceUrl. */
-                public sourceUrl: string;
+                public sourceUrl?: (string|null);
 
                 /** BotPlanningSearchSourceMetadata favIconUrl. */
-                public favIconUrl: string;
+                public favIconUrl?: (string|null);
 
                 /**
                  * Creates a new BotPlanningSearchSourceMetadata instance using the specified properties.
@@ -6310,13 +6310,13 @@ export namespace E2E {
                 constructor(properties?: E2E.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningSearchSourcesMetadata);
 
                 /** BotPlanningSearchSourcesMetadata sourceTitle. */
-                public sourceTitle: string;
+                public sourceTitle?: (string|null);
 
                 /** BotPlanningSearchSourcesMetadata provider. */
-                public provider: E2E.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.BotPlanningSearchSourceProvider;
+                public provider?: (E2E.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.BotPlanningSearchSourceProvider|null);
 
                 /** BotPlanningSearchSourcesMetadata sourceUrl. */
-                public sourceUrl: string;
+                public sourceUrl?: (string|null);
 
                 /**
                  * Creates a new BotPlanningSearchSourcesMetadata instance using the specified properties.
@@ -6430,10 +6430,10 @@ export namespace E2E {
                 constructor(properties?: E2E.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningStepSectionMetadata);
 
                 /** BotPlanningStepSectionMetadata sectionTitle. */
-                public sectionTitle: string;
+                public sectionTitle?: (string|null);
 
                 /** BotPlanningStepSectionMetadata sectionBody. */
-                public sectionBody: string;
+                public sectionBody?: (string|null);
 
                 /** BotPlanningStepSectionMetadata sourcesMetadata. */
                 public sourcesMetadata: E2E.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningSearchSourceMetadata[];
@@ -6554,10 +6554,10 @@ export namespace E2E {
         constructor(properties?: E2E.IBotModelMetadata);
 
         /** BotModelMetadata modelType. */
-        public modelType: E2E.BotModelMetadata.ModelType;
+        public modelType?: (E2E.BotModelMetadata.ModelType|null);
 
         /** BotModelMetadata premiumModelStatus. */
-        public premiumModelStatus: E2E.BotModelMetadata.PremiumModelStatus;
+        public premiumModelStatus?: (E2E.BotModelMetadata.PremiumModelStatus|null);
 
         /**
          * Creates a new BotModelMetadata instance using the specified properties.
@@ -6686,16 +6686,16 @@ export namespace E2E {
         public requestMessageKey?: (Protocol.IMessageKey|null);
 
         /** BotReminderMetadata action. */
-        public action: E2E.BotReminderMetadata.ReminderAction;
+        public action?: (E2E.BotReminderMetadata.ReminderAction|null);
 
         /** BotReminderMetadata name. */
-        public name: string;
+        public name?: (string|null);
 
         /** BotReminderMetadata nextTriggerTimestamp. */
-        public nextTriggerTimestamp: (number|Long);
+        public nextTriggerTimestamp?: (number|Long|null);
 
         /** BotReminderMetadata frequency. */
-        public frequency: E2E.BotReminderMetadata.ReminderFrequency;
+        public frequency?: (E2E.BotReminderMetadata.ReminderFrequency|null);
 
         /**
          * Creates a new BotReminderMetadata instance using the specified properties.
@@ -6927,25 +6927,25 @@ export namespace E2E {
         constructor(properties?: E2E.IBotMediaMetadata);
 
         /** BotMediaMetadata fileSha256. */
-        public fileSha256: string;
+        public fileSha256?: (string|null);
 
         /** BotMediaMetadata mediaKey. */
-        public mediaKey: string;
+        public mediaKey?: (string|null);
 
         /** BotMediaMetadata fileEncSha256. */
-        public fileEncSha256: string;
+        public fileEncSha256?: (string|null);
 
         /** BotMediaMetadata directPath. */
-        public directPath: string;
+        public directPath?: (string|null);
 
         /** BotMediaMetadata mediaKeyTimestamp. */
-        public mediaKeyTimestamp: (number|Long);
+        public mediaKeyTimestamp?: (number|Long|null);
 
         /** BotMediaMetadata mimetype. */
-        public mimetype: string;
+        public mimetype?: (string|null);
 
         /** BotMediaMetadata orientationType. */
-        public orientationType: E2E.BotMediaMetadata.OrientationType;
+        public orientationType?: (E2E.BotMediaMetadata.OrientationType|null);
 
         /**
          * Creates a new BotMediaMetadata instance using the specified properties.
@@ -7055,10 +7055,10 @@ export namespace E2E {
         constructor(properties?: E2E.IBotSessionMetadata);
 
         /** BotSessionMetadata sessionId. */
-        public sessionId: string;
+        public sessionId?: (string|null);
 
         /** BotSessionMetadata sessionSource. */
-        public sessionSource: E2E.BotSessionSource;
+        public sessionSource?: (E2E.BotSessionSource|null);
 
         /**
          * Creates a new BotSessionMetadata instance using the specified properties.
@@ -7161,13 +7161,13 @@ export namespace E2E {
         constructor(properties?: E2E.IBotMetricsMetadata);
 
         /** BotMetricsMetadata destinationId. */
-        public destinationId: string;
+        public destinationId?: (string|null);
 
         /** BotMetricsMetadata destinationEntryPoint. */
-        public destinationEntryPoint: E2E.BotMetricsEntryPoint;
+        public destinationEntryPoint?: (E2E.BotMetricsEntryPoint|null);
 
         /** BotMetricsMetadata threadOrigin. */
-        public threadOrigin: E2E.BotMetricsThreadEntryPoint;
+        public threadOrigin?: (E2E.BotMetricsThreadEntryPoint|null);
 
         /**
          * Creates a new BotMetricsMetadata instance using the specified properties.
@@ -7366,7 +7366,7 @@ export namespace E2E {
             constructor(properties?: E2E.BotRenderingMetadata.IKeyword);
 
             /** Keyword value. */
-            public value: string;
+            public value?: (string|null);
 
             /** Keyword associatedPrompts. */
             public associatedPrompts: string[];
@@ -7470,10 +7470,10 @@ export namespace E2E {
         constructor(properties?: E2E.IBotPromotionMessageMetadata);
 
         /** BotPromotionMessageMetadata promotionType. */
-        public promotionType: E2E.BotPromotionMessageMetadata.BotPromotionType;
+        public promotionType?: (E2E.BotPromotionMessageMetadata.BotPromotionType|null);
 
         /** BotPromotionMessageMetadata buttonTitle. */
-        public buttonTitle: string;
+        public buttonTitle?: (string|null);
 
         /**
          * Creates a new BotPromotionMessageMetadata instance using the specified properties.
@@ -7585,7 +7585,7 @@ export namespace E2E {
         constructor(properties?: E2E.IAIRichResponseMessage);
 
         /** AIRichResponseMessage messageType. */
-        public messageType: E2E.AIRichResponseMessage.AIRichResponseMessageType;
+        public messageType?: (E2E.AIRichResponseMessage.AIRichResponseMessageType|null);
 
         /** AIRichResponseMessage submessages. */
         public submessages: E2E.AIRichResponseMessage.IAIRichResponseSubMessage[];
@@ -7693,7 +7693,7 @@ export namespace E2E {
             constructor(properties?: E2E.AIRichResponseMessage.IAIRichResponseCodeMetadata);
 
             /** AIRichResponseCodeMetadata codeLanguage. */
-            public codeLanguage: string;
+            public codeLanguage?: (string|null);
 
             /** AIRichResponseCodeMetadata codeBlocks. */
             public codeBlocks: E2E.AIRichResponseMessage.AIRichResponseCodeMetadata.IAIRichResponseCodeBlock[];
@@ -7798,10 +7798,10 @@ export namespace E2E {
                 constructor(properties?: E2E.AIRichResponseMessage.AIRichResponseCodeMetadata.IAIRichResponseCodeBlock);
 
                 /** AIRichResponseCodeBlock highlightType. */
-                public highlightType: E2E.AIRichResponseMessage.AIRichResponseCodeMetadata.AIRichResponseCodeHighlightType;
+                public highlightType?: (E2E.AIRichResponseMessage.AIRichResponseCodeMetadata.AIRichResponseCodeHighlightType|null);
 
                 /** AIRichResponseCodeBlock codeContent. */
-                public codeContent: string;
+                public codeContent?: (string|null);
 
                 /**
                  * Creates a new AIRichResponseCodeBlock instance using the specified properties.
@@ -7915,7 +7915,7 @@ export namespace E2E {
             public itemsMetadata: E2E.AIRichResponseMessage.AIRichResponseContentItemsMetadata.IAIRichResponseContentItemMetadata[];
 
             /** AIRichResponseContentItemsMetadata contentType. */
-            public contentType: E2E.AIRichResponseMessage.AIRichResponseContentItemsMetadata.ContentType;
+            public contentType?: (E2E.AIRichResponseMessage.AIRichResponseContentItemsMetadata.ContentType|null);
 
             /**
              * Creates a new AIRichResponseContentItemsMetadata instance using the specified properties.
@@ -8123,16 +8123,16 @@ export namespace E2E {
                 constructor(properties?: E2E.AIRichResponseMessage.AIRichResponseContentItemsMetadata.IAIRichResponseReelItem);
 
                 /** AIRichResponseReelItem title. */
-                public title: string;
+                public title?: (string|null);
 
                 /** AIRichResponseReelItem profileIconUrl. */
-                public profileIconUrl: string;
+                public profileIconUrl?: (string|null);
 
                 /** AIRichResponseReelItem thumbnailUrl. */
-                public thumbnailUrl: string;
+                public thumbnailUrl?: (string|null);
 
                 /** AIRichResponseReelItem videoUrl. */
-                public videoUrl: string;
+                public videoUrl?: (string|null);
 
                 /**
                  * Creates a new AIRichResponseReelItem instance using the specified properties.
@@ -8245,16 +8245,16 @@ export namespace E2E {
             constructor(properties?: E2E.AIRichResponseMessage.IAIRichResponseDynamicMetadata);
 
             /** AIRichResponseDynamicMetadata type. */
-            public type: E2E.AIRichResponseMessage.AIRichResponseDynamicMetadata.AIRichResponseDynamicMetadataType;
+            public type?: (E2E.AIRichResponseMessage.AIRichResponseDynamicMetadata.AIRichResponseDynamicMetadataType|null);
 
             /** AIRichResponseDynamicMetadata version. */
-            public version: (number|Long);
+            public version?: (number|Long|null);
 
             /** AIRichResponseDynamicMetadata url. */
-            public url: string;
+            public url?: (string|null);
 
             /** AIRichResponseDynamicMetadata loopCount. */
-            public loopCount: number;
+            public loopCount?: (number|null);
 
             /**
              * Creates a new AIRichResponseDynamicMetadata instance using the specified properties.
@@ -8470,13 +8470,13 @@ export namespace E2E {
             constructor(properties?: E2E.AIRichResponseMessage.IAIRichResponseImageURL);
 
             /** AIRichResponseImageURL imagePreviewUrl. */
-            public imagePreviewUrl: string;
+            public imagePreviewUrl?: (string|null);
 
             /** AIRichResponseImageURL imageHighResUrl. */
-            public imageHighResUrl: string;
+            public imageHighResUrl?: (string|null);
 
             /** AIRichResponseImageURL sourceUrl. */
-            public sourceUrl: string;
+            public sourceUrl?: (string|null);
 
             /**
              * Creates a new AIRichResponseImageURL instance using the specified properties.
@@ -8585,13 +8585,13 @@ export namespace E2E {
             public imageUrl?: (E2E.AIRichResponseMessage.IAIRichResponseImageURL|null);
 
             /** AIRichResponseInlineImageMetadata imageText. */
-            public imageText: string;
+            public imageText?: (string|null);
 
             /** AIRichResponseInlineImageMetadata alignment. */
-            public alignment: E2E.AIRichResponseMessage.AIRichResponseInlineImageMetadata.AIRichResponseImageAlignment;
+            public alignment?: (E2E.AIRichResponseMessage.AIRichResponseInlineImageMetadata.AIRichResponseImageAlignment|null);
 
             /** AIRichResponseInlineImageMetadata tapLinkUrl. */
-            public tapLinkUrl: string;
+            public tapLinkUrl?: (string|null);
 
             /**
              * Creates a new AIRichResponseInlineImageMetadata instance using the specified properties.
@@ -8701,7 +8701,7 @@ export namespace E2E {
             constructor(properties?: E2E.AIRichResponseMessage.IAIRichResponseLatexMetadata);
 
             /** AIRichResponseLatexMetadata text. */
-            public text: string;
+            public text?: (string|null);
 
             /** AIRichResponseLatexMetadata expressions. */
             public expressions: E2E.AIRichResponseMessage.AIRichResponseLatexMetadata.IAIRichResponseLatexExpression[];
@@ -8827,31 +8827,31 @@ export namespace E2E {
                 constructor(properties?: E2E.AIRichResponseMessage.AIRichResponseLatexMetadata.IAIRichResponseLatexExpression);
 
                 /** AIRichResponseLatexExpression latexExpression. */
-                public latexExpression: string;
+                public latexExpression?: (string|null);
 
                 /** AIRichResponseLatexExpression url. */
-                public url: string;
+                public url?: (string|null);
 
                 /** AIRichResponseLatexExpression width. */
-                public width: number;
+                public width?: (number|null);
 
                 /** AIRichResponseLatexExpression height. */
-                public height: number;
+                public height?: (number|null);
 
                 /** AIRichResponseLatexExpression fontHeight. */
-                public fontHeight: number;
+                public fontHeight?: (number|null);
 
                 /** AIRichResponseLatexExpression imageTopPadding. */
-                public imageTopPadding: number;
+                public imageTopPadding?: (number|null);
 
                 /** AIRichResponseLatexExpression imageLeadingPadding. */
-                public imageLeadingPadding: number;
+                public imageLeadingPadding?: (number|null);
 
                 /** AIRichResponseLatexExpression imageBottomPadding. */
-                public imageBottomPadding: number;
+                public imageBottomPadding?: (number|null);
 
                 /** AIRichResponseLatexExpression imageTrailingPadding. */
-                public imageTrailingPadding: number;
+                public imageTrailingPadding?: (number|null);
 
                 /**
                  * Creates a new AIRichResponseLatexExpression instance using the specified properties.
@@ -8964,22 +8964,22 @@ export namespace E2E {
             constructor(properties?: E2E.AIRichResponseMessage.IAIRichResponseMapMetadata);
 
             /** AIRichResponseMapMetadata centerLatitude. */
-            public centerLatitude: number;
+            public centerLatitude?: (number|null);
 
             /** AIRichResponseMapMetadata centerLongitude. */
-            public centerLongitude: number;
+            public centerLongitude?: (number|null);
 
             /** AIRichResponseMapMetadata latitudeDelta. */
-            public latitudeDelta: number;
+            public latitudeDelta?: (number|null);
 
             /** AIRichResponseMapMetadata longitudeDelta. */
-            public longitudeDelta: number;
+            public longitudeDelta?: (number|null);
 
             /** AIRichResponseMapMetadata annotations. */
             public annotations: E2E.AIRichResponseMessage.AIRichResponseMapMetadata.IAIRichResponseMapAnnotation[];
 
             /** AIRichResponseMapMetadata showInfoList. */
-            public showInfoList: boolean;
+            public showInfoList?: (boolean|null);
 
             /**
              * Creates a new AIRichResponseMapMetadata instance using the specified properties.
@@ -9090,19 +9090,19 @@ export namespace E2E {
                 constructor(properties?: E2E.AIRichResponseMessage.AIRichResponseMapMetadata.IAIRichResponseMapAnnotation);
 
                 /** AIRichResponseMapAnnotation annotationNumber. */
-                public annotationNumber: number;
+                public annotationNumber?: (number|null);
 
                 /** AIRichResponseMapAnnotation latitude. */
-                public latitude: number;
+                public latitude?: (number|null);
 
                 /** AIRichResponseMapAnnotation longitude. */
-                public longitude: number;
+                public longitude?: (number|null);
 
                 /** AIRichResponseMapAnnotation title. */
-                public title: string;
+                public title?: (string|null);
 
                 /** AIRichResponseMapAnnotation body. */
-                public body: string;
+                public body?: (string|null);
 
                 /**
                  * Creates a new AIRichResponseMapAnnotation instance using the specified properties.
@@ -9233,13 +9233,13 @@ export namespace E2E {
             constructor(properties?: E2E.AIRichResponseMessage.IAIRichResponseSubMessage);
 
             /** AIRichResponseSubMessage messageType. */
-            public messageType: E2E.AIRichResponseMessage.AIRichResponseSubMessageType;
+            public messageType?: (E2E.AIRichResponseMessage.AIRichResponseSubMessageType|null);
 
             /** AIRichResponseSubMessage gridImageMetadata. */
             public gridImageMetadata?: (E2E.AIRichResponseMessage.IAIRichResponseGridImageMetadata|null);
 
             /** AIRichResponseSubMessage messageText. */
-            public messageText: string;
+            public messageText?: (string|null);
 
             /** AIRichResponseSubMessage imageMetadata. */
             public imageMetadata?: (E2E.AIRichResponseMessage.IAIRichResponseInlineImageMetadata|null);
@@ -9476,7 +9476,7 @@ export namespace E2E {
                 public items: string[];
 
                 /** AIRichResponseTableRow isHeading. */
-                public isHeading: boolean;
+                public isHeading?: (boolean|null);
 
                 /**
                  * Creates a new AIRichResponseTableRow instance using the specified properties.
@@ -9574,7 +9574,7 @@ export namespace E2E {
             constructor(properties?: E2E.AIRichResponseMessage.IAIRichResponseUnifiedResponse);
 
             /** AIRichResponseUnifiedResponse data. */
-            public data: Uint8Array;
+            public data?: (Uint8Array|null);
 
             /**
              * Creates a new AIRichResponseUnifiedResponse instance using the specified properties.
@@ -9675,10 +9675,10 @@ export namespace E2E {
         constructor(properties?: E2E.IBotMemoryFact);
 
         /** BotMemoryFact fact. */
-        public fact: string;
+        public fact?: (string|null);
 
         /** BotMemoryFact factId. */
-        public factId: string;
+        public factId?: (string|null);
 
         /**
          * Creates a new BotMemoryFact instance using the specified properties.
@@ -9787,7 +9787,7 @@ export namespace E2E {
         public removedFacts: E2E.IBotMemoryFact[];
 
         /** BotMemoryMetadata disclaimer. */
-        public disclaimer: string;
+        public disclaimer?: (string|null);
 
         /**
          * Creates a new BotMemoryMetadata instance using the specified properties.
@@ -9884,7 +9884,7 @@ export namespace E2E {
         constructor(properties?: E2E.IBotLinkedAccount);
 
         /** BotLinkedAccount type. */
-        public type: E2E.BotLinkedAccount.BotLinkedAccountType;
+        public type?: (E2E.BotLinkedAccount.BotLinkedAccountType|null);
 
         /**
          * Creates a new BotLinkedAccount instance using the specified properties.
@@ -9998,10 +9998,10 @@ export namespace E2E {
         public accounts: E2E.IBotLinkedAccount[];
 
         /** BotLinkedAccountsMetadata acAuthTokens. */
-        public acAuthTokens: Uint8Array;
+        public acAuthTokens?: (Uint8Array|null);
 
         /** BotLinkedAccountsMetadata acErrorCode. */
-        public acErrorCode: number;
+        public acErrorCode?: (number|null);
 
         /**
          * Creates a new BotLinkedAccountsMetadata instance using the specified properties.
@@ -10101,10 +10101,10 @@ export namespace E2E {
         constructor(properties?: E2E.IBotPromptSuggestion);
 
         /** BotPromptSuggestion prompt. */
-        public prompt: string;
+        public prompt?: (string|null);
 
         /** BotPromptSuggestion promptId. */
-        public promptId: string;
+        public promptId?: (string|null);
 
         /**
          * Creates a new BotPromptSuggestion instance using the specified properties.
@@ -10310,13 +10310,13 @@ export namespace E2E {
         public suggestedPrompts: string[];
 
         /** BotSuggestedPromptMetadata selectedPromptIndex. */
-        public selectedPromptIndex: number;
+        public selectedPromptIndex?: (number|null);
 
         /** BotSuggestedPromptMetadata promptSuggestions. */
         public promptSuggestions?: (E2E.IBotPromptSuggestions|null);
 
         /** BotSuggestedPromptMetadata selectedPromptId. */
-        public selectedPromptId: string;
+        public selectedPromptId?: (string|null);
 
         /**
          * Creates a new BotSuggestedPromptMetadata instance using the specified properties.
@@ -10446,40 +10446,40 @@ export namespace E2E {
         constructor(properties?: E2E.IBotPluginMetadata);
 
         /** BotPluginMetadata provider. */
-        public provider: E2E.BotPluginMetadata.SearchProvider;
+        public provider?: (E2E.BotPluginMetadata.SearchProvider|null);
 
         /** BotPluginMetadata pluginType. */
-        public pluginType: E2E.BotPluginMetadata.PluginType;
+        public pluginType?: (E2E.BotPluginMetadata.PluginType|null);
 
         /** BotPluginMetadata thumbnailCdnUrl. */
-        public thumbnailCdnUrl: string;
+        public thumbnailCdnUrl?: (string|null);
 
         /** BotPluginMetadata profilePhotoCdnUrl. */
-        public profilePhotoCdnUrl: string;
+        public profilePhotoCdnUrl?: (string|null);
 
         /** BotPluginMetadata searchProviderUrl. */
-        public searchProviderUrl: string;
+        public searchProviderUrl?: (string|null);
 
         /** BotPluginMetadata referenceIndex. */
-        public referenceIndex: number;
+        public referenceIndex?: (number|null);
 
         /** BotPluginMetadata expectedLinksCount. */
-        public expectedLinksCount: number;
+        public expectedLinksCount?: (number|null);
 
         /** BotPluginMetadata searchQuery. */
-        public searchQuery: string;
+        public searchQuery?: (string|null);
 
         /** BotPluginMetadata parentPluginMessageKey. */
         public parentPluginMessageKey?: (Protocol.IMessageKey|null);
 
         /** BotPluginMetadata deprecatedField. */
-        public deprecatedField: E2E.BotPluginMetadata.PluginType;
+        public deprecatedField?: (E2E.BotPluginMetadata.PluginType|null);
 
         /** BotPluginMetadata parentPluginType. */
-        public parentPluginType: E2E.BotPluginMetadata.PluginType;
+        public parentPluginType?: (E2E.BotPluginMetadata.PluginType|null);
 
         /** BotPluginMetadata faviconCdnUrl. */
-        public faviconCdnUrl: string;
+        public faviconCdnUrl?: (string|null);
 
         /**
          * Creates a new BotPluginMetadata instance using the specified properties.
@@ -10606,19 +10606,19 @@ export namespace E2E {
         constructor(properties?: E2E.IBotAvatarMetadata);
 
         /** BotAvatarMetadata sentiment. */
-        public sentiment: number;
+        public sentiment?: (number|null);
 
         /** BotAvatarMetadata behaviorGraph. */
-        public behaviorGraph: string;
+        public behaviorGraph?: (string|null);
 
         /** BotAvatarMetadata action. */
-        public action: number;
+        public action?: (number|null);
 
         /** BotAvatarMetadata intensity. */
-        public intensity: number;
+        public intensity?: (number|null);
 
         /** BotAvatarMetadata wordCount. */
-        public wordCount: number;
+        public wordCount?: (number|null);
 
         /**
          * Creates a new BotAvatarMetadata instance using the specified properties.
@@ -10853,34 +10853,34 @@ export namespace E2E {
         constructor(properties?: E2E.IContextInfo);
 
         /** ContextInfo stanzaId. */
-        public stanzaId: string;
+        public stanzaId?: (string|null);
 
         /** ContextInfo participant. */
-        public participant: string;
+        public participant?: (string|null);
 
         /** ContextInfo quotedMessage. */
         public quotedMessage?: (E2E.IMessage|null);
 
         /** ContextInfo remoteJid. */
-        public remoteJid: string;
+        public remoteJid?: (string|null);
 
         /** ContextInfo mentionedJid. */
         public mentionedJid: string[];
 
         /** ContextInfo conversionSource. */
-        public conversionSource: string;
+        public conversionSource?: (string|null);
 
         /** ContextInfo conversionData. */
-        public conversionData: Uint8Array;
+        public conversionData?: (Uint8Array|null);
 
         /** ContextInfo conversionDelaySeconds. */
-        public conversionDelaySeconds: number;
+        public conversionDelaySeconds?: (number|null);
 
         /** ContextInfo forwardingScore. */
-        public forwardingScore: number;
+        public forwardingScore?: (number|null);
 
         /** ContextInfo isForwarded. */
-        public isForwarded: boolean;
+        public isForwarded?: (boolean|null);
 
         /** ContextInfo quotedAd. */
         public quotedAd?: (E2E.ContextInfo.IAdReplyInfo|null);
@@ -10889,25 +10889,25 @@ export namespace E2E {
         public placeholderKey?: (Protocol.IMessageKey|null);
 
         /** ContextInfo expiration. */
-        public expiration: number;
+        public expiration?: (number|null);
 
         /** ContextInfo ephemeralSettingTimestamp. */
-        public ephemeralSettingTimestamp: (number|Long);
+        public ephemeralSettingTimestamp?: (number|Long|null);
 
         /** ContextInfo ephemeralSharedSecret. */
-        public ephemeralSharedSecret: Uint8Array;
+        public ephemeralSharedSecret?: (Uint8Array|null);
 
         /** ContextInfo externalAdReply. */
         public externalAdReply?: (E2E.ContextInfo.IExternalAdReplyInfo|null);
 
         /** ContextInfo entryPointConversionSource. */
-        public entryPointConversionSource: string;
+        public entryPointConversionSource?: (string|null);
 
         /** ContextInfo entryPointConversionApp. */
-        public entryPointConversionApp: string;
+        public entryPointConversionApp?: (string|null);
 
         /** ContextInfo entryPointConversionDelaySeconds. */
-        public entryPointConversionDelaySeconds: number;
+        public entryPointConversionDelaySeconds?: (number|null);
 
         /** ContextInfo disappearingMode. */
         public disappearingMode?: (E2E.IDisappearingMode|null);
@@ -10916,19 +10916,19 @@ export namespace E2E {
         public actionLink?: (E2E.IActionLink|null);
 
         /** ContextInfo groupSubject. */
-        public groupSubject: string;
+        public groupSubject?: (string|null);
 
         /** ContextInfo parentGroupJid. */
-        public parentGroupJid: string;
+        public parentGroupJid?: (string|null);
 
         /** ContextInfo trustBannerType. */
-        public trustBannerType: string;
+        public trustBannerType?: (string|null);
 
         /** ContextInfo trustBannerAction. */
-        public trustBannerAction: number;
+        public trustBannerAction?: (number|null);
 
         /** ContextInfo isSampled. */
-        public isSampled: boolean;
+        public isSampled?: (boolean|null);
 
         /** ContextInfo groupMentions. */
         public groupMentions: E2E.IGroupMention[];
@@ -10943,55 +10943,55 @@ export namespace E2E {
         public businessMessageForwardInfo?: (E2E.ContextInfo.IBusinessMessageForwardInfo|null);
 
         /** ContextInfo smbClientCampaignId. */
-        public smbClientCampaignId: string;
+        public smbClientCampaignId?: (string|null);
 
         /** ContextInfo smbServerCampaignId. */
-        public smbServerCampaignId: string;
+        public smbServerCampaignId?: (string|null);
 
         /** ContextInfo dataSharingContext. */
         public dataSharingContext?: (E2E.ContextInfo.IDataSharingContext|null);
 
         /** ContextInfo alwaysShowAdAttribution. */
-        public alwaysShowAdAttribution: boolean;
+        public alwaysShowAdAttribution?: (boolean|null);
 
         /** ContextInfo featureEligibilities. */
         public featureEligibilities?: (E2E.ContextInfo.IFeatureEligibilities|null);
 
         /** ContextInfo entryPointConversionExternalSource. */
-        public entryPointConversionExternalSource: string;
+        public entryPointConversionExternalSource?: (string|null);
 
         /** ContextInfo entryPointConversionExternalMedium. */
-        public entryPointConversionExternalMedium: string;
+        public entryPointConversionExternalMedium?: (string|null);
 
         /** ContextInfo ctwaSignals. */
-        public ctwaSignals: string;
+        public ctwaSignals?: (string|null);
 
         /** ContextInfo ctwaPayload. */
-        public ctwaPayload: Uint8Array;
+        public ctwaPayload?: (Uint8Array|null);
 
         /** ContextInfo forwardedAiBotMessageInfo. */
         public forwardedAiBotMessageInfo?: (E2E.ContextInfo.IForwardedAIBotMessageInfo|null);
 
         /** ContextInfo statusAttributionType. */
-        public statusAttributionType: E2E.ContextInfo.StatusAttributionType;
+        public statusAttributionType?: (E2E.ContextInfo.StatusAttributionType|null);
 
         /** ContextInfo urlTrackingMap. */
         public urlTrackingMap?: (E2E.IUrlTrackingMap|null);
 
         /** ContextInfo pairedMediaType. */
-        public pairedMediaType: E2E.ContextInfo.PairedMediaType;
+        public pairedMediaType?: (E2E.ContextInfo.PairedMediaType|null);
 
         /** ContextInfo rankingVersion. */
-        public rankingVersion: number;
+        public rankingVersion?: (number|null);
 
         /** ContextInfo memberLabel. */
         public memberLabel?: (E2E.IMemberLabel|null);
 
         /** ContextInfo isQuestion. */
-        public isQuestion: boolean;
+        public isQuestion?: (boolean|null);
 
         /** ContextInfo statusSourceType. */
-        public statusSourceType: E2E.ContextInfo.StatusSourceType;
+        public statusSourceType?: (E2E.ContextInfo.StatusSourceType|null);
 
         /**
          * Creates a new ContextInfo instance using the specified properties.
@@ -11099,16 +11099,16 @@ export namespace E2E {
             constructor(properties?: E2E.ContextInfo.IAdReplyInfo);
 
             /** AdReplyInfo advertiserName. */
-            public advertiserName: string;
+            public advertiserName?: (string|null);
 
             /** AdReplyInfo mediaType. */
-            public mediaType: E2E.ContextInfo.AdReplyInfo.MediaType;
+            public mediaType?: (E2E.ContextInfo.AdReplyInfo.MediaType|null);
 
             /** AdReplyInfo jpegThumbnail. */
-            public jpegThumbnail: Uint8Array;
+            public jpegThumbnail?: (Uint8Array|null);
 
             /** AdReplyInfo caption. */
-            public caption: string;
+            public caption?: (string|null);
 
             /**
              * Creates a new AdReplyInfo instance using the specified properties.
@@ -11215,7 +11215,7 @@ export namespace E2E {
             constructor(properties?: E2E.ContextInfo.IBusinessMessageForwardInfo);
 
             /** BusinessMessageForwardInfo businessOwnerJid. */
-            public businessOwnerJid: string;
+            public businessOwnerJid?: (string|null);
 
             /**
              * Creates a new BusinessMessageForwardInfo instance using the specified properties.
@@ -11318,10 +11318,10 @@ export namespace E2E {
             constructor(properties?: E2E.ContextInfo.IDataSharingContext);
 
             /** DataSharingContext showMmDisclosure. */
-            public showMmDisclosure: boolean;
+            public showMmDisclosure?: (boolean|null);
 
             /** DataSharingContext encryptedSignalTokenConsented. */
-            public encryptedSignalTokenConsented: string;
+            public encryptedSignalTokenConsented?: (string|null);
 
             /** DataSharingContext parameters. */
             public parameters: E2E.ContextInfo.DataSharingContext.IParameters[];
@@ -11435,16 +11435,16 @@ export namespace E2E {
                 constructor(properties?: E2E.ContextInfo.DataSharingContext.IParameters);
 
                 /** Parameters key. */
-                public key: string;
+                public key?: (string|null);
 
                 /** Parameters stringData. */
-                public stringData: string;
+                public stringData?: (string|null);
 
                 /** Parameters intData. */
-                public intData: (number|Long);
+                public intData?: (number|Long|null);
 
                 /** Parameters floatData. */
-                public floatData: number;
+                public floatData?: (number|null);
 
                 /** Parameters contents. */
                 public contents?: (E2E.ContextInfo.DataSharingContext.IParameters|null);
@@ -11617,79 +11617,79 @@ export namespace E2E {
             constructor(properties?: E2E.ContextInfo.IExternalAdReplyInfo);
 
             /** ExternalAdReplyInfo title. */
-            public title: string;
+            public title?: (string|null);
 
             /** ExternalAdReplyInfo body. */
-            public body: string;
+            public body?: (string|null);
 
             /** ExternalAdReplyInfo mediaType. */
-            public mediaType: E2E.ContextInfo.ExternalAdReplyInfo.MediaType;
+            public mediaType?: (E2E.ContextInfo.ExternalAdReplyInfo.MediaType|null);
 
             /** ExternalAdReplyInfo thumbnailUrl. */
-            public thumbnailUrl: string;
+            public thumbnailUrl?: (string|null);
 
             /** ExternalAdReplyInfo mediaUrl. */
-            public mediaUrl: string;
+            public mediaUrl?: (string|null);
 
             /** ExternalAdReplyInfo thumbnail. */
-            public thumbnail: Uint8Array;
+            public thumbnail?: (Uint8Array|null);
 
             /** ExternalAdReplyInfo sourceType. */
-            public sourceType: string;
+            public sourceType?: (string|null);
 
             /** ExternalAdReplyInfo sourceId. */
-            public sourceId: string;
+            public sourceId?: (string|null);
 
             /** ExternalAdReplyInfo sourceUrl. */
-            public sourceUrl: string;
+            public sourceUrl?: (string|null);
 
             /** ExternalAdReplyInfo containsAutoReply. */
-            public containsAutoReply: boolean;
+            public containsAutoReply?: (boolean|null);
 
             /** ExternalAdReplyInfo renderLargerThumbnail. */
-            public renderLargerThumbnail: boolean;
+            public renderLargerThumbnail?: (boolean|null);
 
             /** ExternalAdReplyInfo showAdAttribution. */
-            public showAdAttribution: boolean;
+            public showAdAttribution?: (boolean|null);
 
             /** ExternalAdReplyInfo ctwaClid. */
-            public ctwaClid: string;
+            public ctwaClid?: (string|null);
 
             /** ExternalAdReplyInfo ref. */
-            public ref: string;
+            public ref?: (string|null);
 
             /** ExternalAdReplyInfo clickToWhatsappCall. */
-            public clickToWhatsappCall: boolean;
+            public clickToWhatsappCall?: (boolean|null);
 
             /** ExternalAdReplyInfo adContextPreviewDismissed. */
-            public adContextPreviewDismissed: boolean;
+            public adContextPreviewDismissed?: (boolean|null);
 
             /** ExternalAdReplyInfo sourceApp. */
-            public sourceApp: string;
+            public sourceApp?: (string|null);
 
             /** ExternalAdReplyInfo automatedGreetingMessageShown. */
-            public automatedGreetingMessageShown: boolean;
+            public automatedGreetingMessageShown?: (boolean|null);
 
             /** ExternalAdReplyInfo greetingMessageBody. */
-            public greetingMessageBody: string;
+            public greetingMessageBody?: (string|null);
 
             /** ExternalAdReplyInfo ctaPayload. */
-            public ctaPayload: string;
+            public ctaPayload?: (string|null);
 
             /** ExternalAdReplyInfo disableNudge. */
-            public disableNudge: boolean;
+            public disableNudge?: (boolean|null);
 
             /** ExternalAdReplyInfo originalImageUrl. */
-            public originalImageUrl: string;
+            public originalImageUrl?: (string|null);
 
             /** ExternalAdReplyInfo automatedGreetingMessageCtaType. */
-            public automatedGreetingMessageCtaType: string;
+            public automatedGreetingMessageCtaType?: (string|null);
 
             /** ExternalAdReplyInfo wtwaAdFormat. */
-            public wtwaAdFormat: boolean;
+            public wtwaAdFormat?: (boolean|null);
 
             /** ExternalAdReplyInfo adType. */
-            public adType: E2E.ContextInfo.ExternalAdReplyInfo.AdType;
+            public adType?: (E2E.ContextInfo.ExternalAdReplyInfo.AdType|null);
 
             /**
              * Creates a new ExternalAdReplyInfo instance using the specified properties.
@@ -11811,16 +11811,16 @@ export namespace E2E {
             constructor(properties?: E2E.ContextInfo.IFeatureEligibilities);
 
             /** FeatureEligibilities cannotBeReactedTo. */
-            public cannotBeReactedTo: boolean;
+            public cannotBeReactedTo?: (boolean|null);
 
             /** FeatureEligibilities cannotBeRanked. */
-            public cannotBeRanked: boolean;
+            public cannotBeRanked?: (boolean|null);
 
             /** FeatureEligibilities canRequestFeedback. */
-            public canRequestFeedback: boolean;
+            public canRequestFeedback?: (boolean|null);
 
             /** FeatureEligibilities canBeReshared. */
-            public canBeReshared: boolean;
+            public canBeReshared?: (boolean|null);
 
             /**
              * Creates a new FeatureEligibilities instance using the specified properties.
@@ -11923,13 +11923,13 @@ export namespace E2E {
             constructor(properties?: E2E.ContextInfo.IForwardedAIBotMessageInfo);
 
             /** ForwardedAIBotMessageInfo botName. */
-            public botName: string;
+            public botName?: (string|null);
 
             /** ForwardedAIBotMessageInfo botJid. */
-            public botJid: string;
+            public botJid?: (string|null);
 
             /** ForwardedAIBotMessageInfo creatorName. */
-            public creatorName: string;
+            public creatorName?: (string|null);
 
             /**
              * Creates a new ForwardedAIBotMessageInfo instance using the specified properties.
@@ -12038,19 +12038,19 @@ export namespace E2E {
             constructor(properties?: E2E.ContextInfo.IForwardedNewsletterMessageInfo);
 
             /** ForwardedNewsletterMessageInfo newsletterJid. */
-            public newsletterJid: string;
+            public newsletterJid?: (string|null);
 
             /** ForwardedNewsletterMessageInfo serverMessageId. */
-            public serverMessageId: number;
+            public serverMessageId?: (number|null);
 
             /** ForwardedNewsletterMessageInfo newsletterName. */
-            public newsletterName: string;
+            public newsletterName?: (string|null);
 
             /** ForwardedNewsletterMessageInfo contentType. */
-            public contentType: E2E.ContextInfo.ForwardedNewsletterMessageInfo.ContentType;
+            public contentType?: (E2E.ContextInfo.ForwardedNewsletterMessageInfo.ContentType|null);
 
             /** ForwardedNewsletterMessageInfo accessibilityText. */
-            public accessibilityText: string;
+            public accessibilityText?: (string|null);
 
             /**
              * Creates a new ForwardedNewsletterMessageInfo instance using the specified properties.
@@ -12188,10 +12188,10 @@ export namespace E2E {
             constructor(properties?: E2E.ContextInfo.IUTMInfo);
 
             /** UTMInfo utmSource. */
-            public utmSource: string;
+            public utmSource?: (string|null);
 
             /** UTMInfo utmCampaign. */
-            public utmCampaign: string;
+            public utmCampaign?: (string|null);
 
             /**
              * Creates a new UTMInfo instance using the specified properties.
@@ -12544,7 +12544,7 @@ export namespace E2E {
         constructor(properties?: E2E.IMessage);
 
         /** Message conversation. */
-        public conversation: string;
+        public conversation?: (string|null);
 
         /** Message senderKeyDistributionMessage. */
         public senderKeyDistributionMessage?: (E2E.Message.ISenderKeyDistributionMessage|null);
@@ -12904,10 +12904,10 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IAlbumMessage);
 
             /** AlbumMessage expectedImageCount. */
-            public expectedImageCount: number;
+            public expectedImageCount?: (number|null);
 
             /** AlbumMessage expectedVideoCount. */
-            public expectedVideoCount: number;
+            public expectedVideoCount?: (number|null);
 
             /** AlbumMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
@@ -13013,7 +13013,7 @@ export namespace E2E {
             public collectionNames: string[];
 
             /** AppStateFatalExceptionNotification timestamp. */
-            public timestamp: (number|Long);
+            public timestamp?: (number|Long|null);
 
             /**
              * Creates a new AppStateFatalExceptionNotification instance using the specified properties.
@@ -13219,13 +13219,13 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IAppStateSyncKeyData);
 
             /** AppStateSyncKeyData keyData. */
-            public keyData: Uint8Array;
+            public keyData?: (Uint8Array|null);
 
             /** AppStateSyncKeyData fingerprint. */
             public fingerprint?: (E2E.Message.IAppStateSyncKeyFingerprint|null);
 
             /** AppStateSyncKeyData timestamp. */
-            public timestamp: (number|Long);
+            public timestamp?: (number|Long|null);
 
             /**
              * Creates a new AppStateSyncKeyData instance using the specified properties.
@@ -13328,10 +13328,10 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IAppStateSyncKeyFingerprint);
 
             /** AppStateSyncKeyFingerprint rawId. */
-            public rawId: number;
+            public rawId?: (number|null);
 
             /** AppStateSyncKeyFingerprint currentIndex. */
-            public currentIndex: number;
+            public currentIndex?: (number|null);
 
             /** AppStateSyncKeyFingerprint deviceIndexes. */
             public deviceIndexes: number[];
@@ -13431,7 +13431,7 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IAppStateSyncKeyId);
 
             /** AppStateSyncKeyId keyId. */
-            public keyId: Uint8Array;
+            public keyId?: (Uint8Array|null);
 
             /**
              * Creates a new AppStateSyncKeyId instance using the specified properties.
@@ -13767,52 +13767,52 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IAudioMessage);
 
             /** AudioMessage url. */
-            public url: string;
+            public url?: (string|null);
 
             /** AudioMessage mimetype. */
-            public mimetype: string;
+            public mimetype?: (string|null);
 
             /** AudioMessage fileSha256. */
-            public fileSha256: Uint8Array;
+            public fileSha256?: (Uint8Array|null);
 
             /** AudioMessage fileLength. */
-            public fileLength: (number|Long);
+            public fileLength?: (number|Long|null);
 
             /** AudioMessage seconds. */
-            public seconds: number;
+            public seconds?: (number|null);
 
             /** AudioMessage ptt. */
-            public ptt: boolean;
+            public ptt?: (boolean|null);
 
             /** AudioMessage mediaKey. */
-            public mediaKey: Uint8Array;
+            public mediaKey?: (Uint8Array|null);
 
             /** AudioMessage fileEncSha256. */
-            public fileEncSha256: Uint8Array;
+            public fileEncSha256?: (Uint8Array|null);
 
             /** AudioMessage directPath. */
-            public directPath: string;
+            public directPath?: (string|null);
 
             /** AudioMessage mediaKeyTimestamp. */
-            public mediaKeyTimestamp: (number|Long);
+            public mediaKeyTimestamp?: (number|Long|null);
 
             /** AudioMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
 
             /** AudioMessage streamingSidecar. */
-            public streamingSidecar: Uint8Array;
+            public streamingSidecar?: (Uint8Array|null);
 
             /** AudioMessage waveform. */
-            public waveform: Uint8Array;
+            public waveform?: (Uint8Array|null);
 
             /** AudioMessage backgroundArgb. */
-            public backgroundArgb: number;
+            public backgroundArgb?: (number|null);
 
             /** AudioMessage viewOnce. */
-            public viewOnce: boolean;
+            public viewOnce?: (boolean|null);
 
             /** AudioMessage accessibilityLabel. */
-            public accessibilityLabel: string;
+            public accessibilityLabel?: (string|null);
 
             /**
              * Creates a new AudioMessage instance using the specified properties.
@@ -13918,16 +13918,16 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IBCallMessage);
 
             /** BCallMessage sessionId. */
-            public sessionId: string;
+            public sessionId?: (string|null);
 
             /** BCallMessage mediaType. */
-            public mediaType: E2E.Message.BCallMessage.MediaType;
+            public mediaType?: (E2E.Message.BCallMessage.MediaType|null);
 
             /** BCallMessage masterKey. */
-            public masterKey: Uint8Array;
+            public masterKey?: (Uint8Array|null);
 
             /** BCallMessage caption. */
-            public caption: string;
+            public caption?: (string|null);
 
             /**
              * Creates a new BCallMessage instance using the specified properties.
@@ -14052,19 +14052,19 @@ export namespace E2E {
             public messageKey?: (Protocol.IMessageKey|null);
 
             /** BotFeedbackMessage kind. */
-            public kind: E2E.Message.BotFeedbackMessage.BotFeedbackKind;
+            public kind?: (E2E.Message.BotFeedbackMessage.BotFeedbackKind|null);
 
             /** BotFeedbackMessage text. */
-            public text: string;
+            public text?: (string|null);
 
             /** BotFeedbackMessage kindNegative. */
-            public kindNegative: (number|Long);
+            public kindNegative?: (number|Long|null);
 
             /** BotFeedbackMessage kindPositive. */
-            public kindPositive: (number|Long);
+            public kindPositive?: (number|Long|null);
 
             /** BotFeedbackMessage kindReport. */
-            public kindReport: E2E.Message.BotFeedbackMessage.ReportKind;
+            public kindReport?: (E2E.Message.BotFeedbackMessage.ReportKind|null);
 
             /**
              * Creates a new BotFeedbackMessage instance using the specified properties.
@@ -14233,10 +14233,10 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IButtonsMessage);
 
             /** ButtonsMessage contentText. */
-            public contentText: string;
+            public contentText?: (string|null);
 
             /** ButtonsMessage footerText. */
-            public footerText: string;
+            public footerText?: (string|null);
 
             /** ButtonsMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
@@ -14245,7 +14245,7 @@ export namespace E2E {
             public buttons: E2E.Message.ButtonsMessage.IButton[];
 
             /** ButtonsMessage headerType. */
-            public headerType: E2E.Message.ButtonsMessage.HeaderType;
+            public headerType?: (E2E.Message.ButtonsMessage.HeaderType|null);
 
             /** ButtonsMessage text. */
             public text?: (string|null);
@@ -14371,13 +14371,13 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.ButtonsMessage.IButton);
 
                 /** Button buttonId. */
-                public buttonId: string;
+                public buttonId?: (string|null);
 
                 /** Button buttonText. */
                 public buttonText?: (E2E.Message.ButtonsMessage.Button.IButtonText|null);
 
                 /** Button type. */
-                public type: E2E.Message.ButtonsMessage.Button.Type;
+                public type?: (E2E.Message.ButtonsMessage.Button.Type|null);
 
                 /** Button nativeFlowInfo. */
                 public nativeFlowInfo?: (E2E.Message.ButtonsMessage.Button.INativeFlowInfo|null);
@@ -14479,7 +14479,7 @@ export namespace E2E {
                     constructor(properties?: E2E.Message.ButtonsMessage.Button.IButtonText);
 
                     /** ButtonText displayText. */
-                    public displayText: string;
+                    public displayText?: (string|null);
 
                     /**
                      * Creates a new ButtonText instance using the specified properties.
@@ -14579,10 +14579,10 @@ export namespace E2E {
                     constructor(properties?: E2E.Message.ButtonsMessage.Button.INativeFlowInfo);
 
                     /** NativeFlowInfo name. */
-                    public name: string;
+                    public name?: (string|null);
 
                     /** NativeFlowInfo paramsJson. */
-                    public paramsJson: string;
+                    public paramsJson?: (string|null);
 
                     /**
                      * Creates a new NativeFlowInfo instance using the specified properties.
@@ -14708,13 +14708,13 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IButtonsResponseMessage);
 
             /** ButtonsResponseMessage selectedButtonId. */
-            public selectedButtonId: string;
+            public selectedButtonId?: (string|null);
 
             /** ButtonsResponseMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
 
             /** ButtonsResponseMessage type. */
-            public type: E2E.Message.ButtonsResponseMessage.Type;
+            public type?: (E2E.Message.ButtonsResponseMessage.Type|null);
 
             /** ButtonsResponseMessage selectedDisplayText. */
             public selectedDisplayText?: (string|null);
@@ -14844,22 +14844,22 @@ export namespace E2E {
             constructor(properties?: E2E.Message.ICall);
 
             /** Call callKey. */
-            public callKey: Uint8Array;
+            public callKey?: (Uint8Array|null);
 
             /** Call conversionSource. */
-            public conversionSource: string;
+            public conversionSource?: (string|null);
 
             /** Call conversionData. */
-            public conversionData: Uint8Array;
+            public conversionData?: (Uint8Array|null);
 
             /** Call conversionDelaySeconds. */
-            public conversionDelaySeconds: number;
+            public conversionDelaySeconds?: (number|null);
 
             /** Call ctwaSignals. */
-            public ctwaSignals: string;
+            public ctwaSignals?: (string|null);
 
             /** Call ctwaPayload. */
-            public ctwaPayload: Uint8Array;
+            public ctwaPayload?: (Uint8Array|null);
 
             /** Call contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
@@ -14971,16 +14971,16 @@ export namespace E2E {
             constructor(properties?: E2E.Message.ICallLogMessage);
 
             /** CallLogMessage isVideo. */
-            public isVideo: boolean;
+            public isVideo?: (boolean|null);
 
             /** CallLogMessage callOutcome. */
-            public callOutcome: E2E.Message.CallLogMessage.CallOutcome;
+            public callOutcome?: (E2E.Message.CallLogMessage.CallOutcome|null);
 
             /** CallLogMessage durationSecs. */
-            public durationSecs: (number|Long);
+            public durationSecs?: (number|Long|null);
 
             /** CallLogMessage callType. */
-            public callType: E2E.Message.CallLogMessage.CallType;
+            public callType?: (E2E.Message.CallLogMessage.CallType|null);
 
             /** CallLogMessage participants. */
             public participants: E2E.Message.CallLogMessage.ICallParticipant[];
@@ -15097,10 +15097,10 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.CallLogMessage.ICallParticipant);
 
                 /** CallParticipant jid. */
-                public jid: string;
+                public jid?: (string|null);
 
                 /** CallParticipant callOutcome. */
-                public callOutcome: E2E.Message.CallLogMessage.CallOutcome;
+                public callOutcome?: (E2E.Message.CallLogMessage.CallOutcome|null);
 
                 /**
                  * Creates a new CallParticipant instance using the specified properties.
@@ -15305,10 +15305,10 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IChat);
 
             /** Chat displayName. */
-            public displayName: string;
+            public displayName?: (string|null);
 
             /** Chat id. */
-            public id: string;
+            public id?: (string|null);
 
             /**
              * Creates a new Chat instance using the specified properties.
@@ -15417,16 +15417,16 @@ export namespace E2E {
             constructor(properties?: E2E.Message.ICloudAPIThreadControlNotification);
 
             /** CloudAPIThreadControlNotification status. */
-            public status: E2E.Message.CloudAPIThreadControlNotification.CloudAPIThreadControl;
+            public status?: (E2E.Message.CloudAPIThreadControlNotification.CloudAPIThreadControl|null);
 
             /** CloudAPIThreadControlNotification senderNotificationTimestampMs. */
-            public senderNotificationTimestampMs: (number|Long);
+            public senderNotificationTimestampMs?: (number|Long|null);
 
             /** CloudAPIThreadControlNotification consumerLid. */
-            public consumerLid: string;
+            public consumerLid?: (string|null);
 
             /** CloudAPIThreadControlNotification consumerPhoneNumber. */
-            public consumerPhoneNumber: string;
+            public consumerPhoneNumber?: (string|null);
 
             /** CloudAPIThreadControlNotification notificationContent. */
             public notificationContent?: (E2E.Message.CloudAPIThreadControlNotification.ICloudAPIThreadControlNotificationContent|null);
@@ -15538,10 +15538,10 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.CloudAPIThreadControlNotification.ICloudAPIThreadControlNotificationContent);
 
                 /** CloudAPIThreadControlNotificationContent handoffNotificationText. */
-                public handoffNotificationText: string;
+                public handoffNotificationText?: (string|null);
 
                 /** CloudAPIThreadControlNotificationContent extraJson. */
-                public extraJson: string;
+                public extraJson?: (string|null);
 
                 /**
                  * Creates a new CloudAPIThreadControlNotificationContent instance using the specified properties.
@@ -15748,10 +15748,10 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IContactMessage);
 
             /** ContactMessage displayName. */
-            public displayName: string;
+            public displayName?: (string|null);
 
             /** ContactMessage vcard. */
-            public vcard: string;
+            public vcard?: (string|null);
 
             /** ContactMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
@@ -15857,7 +15857,7 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IContactsArrayMessage);
 
             /** ContactsArrayMessage displayName. */
-            public displayName: string;
+            public displayName?: (string|null);
 
             /** ContactsArrayMessage contacts. */
             public contacts: E2E.Message.IContactMessage[];
@@ -16063,13 +16063,13 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IDeviceSentMessage);
 
             /** DeviceSentMessage destinationJid. */
-            public destinationJid: string;
+            public destinationJid?: (string|null);
 
             /** DeviceSentMessage message. */
             public message?: (E2E.IMessage|null);
 
             /** DeviceSentMessage phash. */
-            public phash: string;
+            public phash?: (string|null);
 
             /**
              * Creates a new DeviceSentMessage instance using the specified properties.
@@ -16226,67 +16226,67 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IDocumentMessage);
 
             /** DocumentMessage url. */
-            public url: string;
+            public url?: (string|null);
 
             /** DocumentMessage mimetype. */
-            public mimetype: string;
+            public mimetype?: (string|null);
 
             /** DocumentMessage title. */
-            public title: string;
+            public title?: (string|null);
 
             /** DocumentMessage fileSha256. */
-            public fileSha256: Uint8Array;
+            public fileSha256?: (Uint8Array|null);
 
             /** DocumentMessage fileLength. */
-            public fileLength: (number|Long);
+            public fileLength?: (number|Long|null);
 
             /** DocumentMessage pageCount. */
-            public pageCount: number;
+            public pageCount?: (number|null);
 
             /** DocumentMessage mediaKey. */
-            public mediaKey: Uint8Array;
+            public mediaKey?: (Uint8Array|null);
 
             /** DocumentMessage fileName. */
-            public fileName: string;
+            public fileName?: (string|null);
 
             /** DocumentMessage fileEncSha256. */
-            public fileEncSha256: Uint8Array;
+            public fileEncSha256?: (Uint8Array|null);
 
             /** DocumentMessage directPath. */
-            public directPath: string;
+            public directPath?: (string|null);
 
             /** DocumentMessage mediaKeyTimestamp. */
-            public mediaKeyTimestamp: (number|Long);
+            public mediaKeyTimestamp?: (number|Long|null);
 
             /** DocumentMessage contactVcard. */
-            public contactVcard: boolean;
+            public contactVcard?: (boolean|null);
 
             /** DocumentMessage thumbnailDirectPath. */
-            public thumbnailDirectPath: string;
+            public thumbnailDirectPath?: (string|null);
 
             /** DocumentMessage thumbnailSha256. */
-            public thumbnailSha256: Uint8Array;
+            public thumbnailSha256?: (Uint8Array|null);
 
             /** DocumentMessage thumbnailEncSha256. */
-            public thumbnailEncSha256: Uint8Array;
+            public thumbnailEncSha256?: (Uint8Array|null);
 
             /** DocumentMessage jpegThumbnail. */
-            public jpegThumbnail: Uint8Array;
+            public jpegThumbnail?: (Uint8Array|null);
 
             /** DocumentMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
 
             /** DocumentMessage thumbnailHeight. */
-            public thumbnailHeight: number;
+            public thumbnailHeight?: (number|null);
 
             /** DocumentMessage thumbnailWidth. */
-            public thumbnailWidth: number;
+            public thumbnailWidth?: (number|null);
 
             /** DocumentMessage caption. */
-            public caption: string;
+            public caption?: (string|null);
 
             /** DocumentMessage accessibilityLabel. */
-            public accessibilityLabel: string;
+            public accessibilityLabel?: (string|null);
 
             /**
              * Creates a new DocumentMessage instance using the specified properties.
@@ -16392,10 +16392,10 @@ export namespace E2E {
             public targetMessageKey?: (Protocol.IMessageKey|null);
 
             /** EncCommentMessage encPayload. */
-            public encPayload: Uint8Array;
+            public encPayload?: (Uint8Array|null);
 
             /** EncCommentMessage encIv. */
-            public encIv: Uint8Array;
+            public encIv?: (Uint8Array|null);
 
             /**
              * Creates a new EncCommentMessage instance using the specified properties.
@@ -16501,10 +16501,10 @@ export namespace E2E {
             public eventCreationMessageKey?: (Protocol.IMessageKey|null);
 
             /** EncEventResponseMessage encPayload. */
-            public encPayload: Uint8Array;
+            public encPayload?: (Uint8Array|null);
 
             /** EncEventResponseMessage encIv. */
-            public encIv: Uint8Array;
+            public encIv?: (Uint8Array|null);
 
             /**
              * Creates a new EncEventResponseMessage instance using the specified properties.
@@ -16610,10 +16610,10 @@ export namespace E2E {
             public targetMessageKey?: (Protocol.IMessageKey|null);
 
             /** EncReactionMessage encPayload. */
-            public encPayload: Uint8Array;
+            public encPayload?: (Uint8Array|null);
 
             /** EncReactionMessage encIv. */
-            public encIv: Uint8Array;
+            public encIv?: (Uint8Array|null);
 
             /**
              * Creates a new EncReactionMessage instance using the specified properties.
@@ -16740,31 +16740,31 @@ export namespace E2E {
             public contextInfo?: (E2E.IContextInfo|null);
 
             /** EventMessage isCanceled. */
-            public isCanceled: boolean;
+            public isCanceled?: (boolean|null);
 
             /** EventMessage name. */
-            public name: string;
+            public name?: (string|null);
 
             /** EventMessage description. */
-            public description: string;
+            public description?: (string|null);
 
             /** EventMessage location. */
             public location?: (E2E.Message.ILocationMessage|null);
 
             /** EventMessage joinLink. */
-            public joinLink: string;
+            public joinLink?: (string|null);
 
             /** EventMessage startTime. */
-            public startTime: (number|Long);
+            public startTime?: (number|Long|null);
 
             /** EventMessage endTime. */
-            public endTime: (number|Long);
+            public endTime?: (number|Long|null);
 
             /** EventMessage extraGuestsAllowed. */
-            public extraGuestsAllowed: boolean;
+            public extraGuestsAllowed?: (boolean|null);
 
             /** EventMessage isScheduleCall. */
-            public isScheduleCall: boolean;
+            public isScheduleCall?: (boolean|null);
 
             /**
              * Creates a new EventMessage instance using the specified properties.
@@ -16867,13 +16867,13 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IEventResponseMessage);
 
             /** EventResponseMessage response. */
-            public response: E2E.Message.EventResponseMessage.EventResponseType;
+            public response?: (E2E.Message.EventResponseMessage.EventResponseType|null);
 
             /** EventResponseMessage timestampMs. */
-            public timestampMs: (number|Long);
+            public timestampMs?: (number|Long|null);
 
             /** EventResponseMessage extraGuestCount. */
-            public extraGuestCount: number;
+            public extraGuestCount?: (number|null);
 
             /**
              * Creates a new EventResponseMessage instance using the specified properties.
@@ -17062,79 +17062,79 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IExtendedTextMessage);
 
             /** ExtendedTextMessage text. */
-            public text: string;
+            public text?: (string|null);
 
             /** ExtendedTextMessage matchedText. */
-            public matchedText: string;
+            public matchedText?: (string|null);
 
             /** ExtendedTextMessage description. */
-            public description: string;
+            public description?: (string|null);
 
             /** ExtendedTextMessage title. */
-            public title: string;
+            public title?: (string|null);
 
             /** ExtendedTextMessage textArgb. */
-            public textArgb: number;
+            public textArgb?: (number|null);
 
             /** ExtendedTextMessage backgroundArgb. */
-            public backgroundArgb: number;
+            public backgroundArgb?: (number|null);
 
             /** ExtendedTextMessage font. */
-            public font: E2E.Message.ExtendedTextMessage.FontType;
+            public font?: (E2E.Message.ExtendedTextMessage.FontType|null);
 
             /** ExtendedTextMessage previewType. */
-            public previewType: E2E.Message.ExtendedTextMessage.PreviewType;
+            public previewType?: (E2E.Message.ExtendedTextMessage.PreviewType|null);
 
             /** ExtendedTextMessage jpegThumbnail. */
-            public jpegThumbnail: Uint8Array;
+            public jpegThumbnail?: (Uint8Array|null);
 
             /** ExtendedTextMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
 
             /** ExtendedTextMessage doNotPlayInline. */
-            public doNotPlayInline: boolean;
+            public doNotPlayInline?: (boolean|null);
 
             /** ExtendedTextMessage thumbnailDirectPath. */
-            public thumbnailDirectPath: string;
+            public thumbnailDirectPath?: (string|null);
 
             /** ExtendedTextMessage thumbnailSha256. */
-            public thumbnailSha256: Uint8Array;
+            public thumbnailSha256?: (Uint8Array|null);
 
             /** ExtendedTextMessage thumbnailEncSha256. */
-            public thumbnailEncSha256: Uint8Array;
+            public thumbnailEncSha256?: (Uint8Array|null);
 
             /** ExtendedTextMessage mediaKey. */
-            public mediaKey: Uint8Array;
+            public mediaKey?: (Uint8Array|null);
 
             /** ExtendedTextMessage mediaKeyTimestamp. */
-            public mediaKeyTimestamp: (number|Long);
+            public mediaKeyTimestamp?: (number|Long|null);
 
             /** ExtendedTextMessage thumbnailHeight. */
-            public thumbnailHeight: number;
+            public thumbnailHeight?: (number|null);
 
             /** ExtendedTextMessage thumbnailWidth. */
-            public thumbnailWidth: number;
+            public thumbnailWidth?: (number|null);
 
             /** ExtendedTextMessage inviteLinkGroupType. */
-            public inviteLinkGroupType: E2E.Message.ExtendedTextMessage.InviteLinkGroupType;
+            public inviteLinkGroupType?: (E2E.Message.ExtendedTextMessage.InviteLinkGroupType|null);
 
             /** ExtendedTextMessage inviteLinkParentGroupSubjectV2. */
-            public inviteLinkParentGroupSubjectV2: string;
+            public inviteLinkParentGroupSubjectV2?: (string|null);
 
             /** ExtendedTextMessage inviteLinkParentGroupThumbnailV2. */
-            public inviteLinkParentGroupThumbnailV2: Uint8Array;
+            public inviteLinkParentGroupThumbnailV2?: (Uint8Array|null);
 
             /** ExtendedTextMessage inviteLinkGroupTypeV2. */
-            public inviteLinkGroupTypeV2: E2E.Message.ExtendedTextMessage.InviteLinkGroupType;
+            public inviteLinkGroupTypeV2?: (E2E.Message.ExtendedTextMessage.InviteLinkGroupType|null);
 
             /** ExtendedTextMessage viewOnce. */
-            public viewOnce: boolean;
+            public viewOnce?: (boolean|null);
 
             /** ExtendedTextMessage videoHeight. */
-            public videoHeight: number;
+            public videoHeight?: (number|null);
 
             /** ExtendedTextMessage videoWidth. */
-            public videoWidth: number;
+            public videoWidth?: (number|null);
 
             /** ExtendedTextMessage faviconMMSMetadata. */
             public faviconMMSMetadata?: (E2E.Message.IMMSThumbnailMetadata|null);
@@ -17273,7 +17273,7 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IFullHistorySyncOnDemandRequestMetadata);
 
             /** FullHistorySyncOnDemandRequestMetadata requestId. */
-            public requestId: string;
+            public requestId?: (string|null);
 
             /**
              * Creates a new FullHistorySyncOnDemandRequestMetadata instance using the specified properties.
@@ -17488,28 +17488,28 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IGroupInviteMessage);
 
             /** GroupInviteMessage groupJid. */
-            public groupJid: string;
+            public groupJid?: (string|null);
 
             /** GroupInviteMessage inviteCode. */
-            public inviteCode: string;
+            public inviteCode?: (string|null);
 
             /** GroupInviteMessage inviteExpiration. */
-            public inviteExpiration: (number|Long);
+            public inviteExpiration?: (number|Long|null);
 
             /** GroupInviteMessage groupName. */
-            public groupName: string;
+            public groupName?: (string|null);
 
             /** GroupInviteMessage jpegThumbnail. */
-            public jpegThumbnail: Uint8Array;
+            public jpegThumbnail?: (Uint8Array|null);
 
             /** GroupInviteMessage caption. */
-            public caption: string;
+            public caption?: (string|null);
 
             /** GroupInviteMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
 
             /** GroupInviteMessage groupType. */
-            public groupType: E2E.Message.GroupInviteMessage.GroupType;
+            public groupType?: (E2E.Message.GroupInviteMessage.GroupType|null);
 
             /**
              * Creates a new GroupInviteMessage instance using the specified properties.
@@ -17639,28 +17639,28 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IHighlyStructuredMessage);
 
             /** HighlyStructuredMessage namespace. */
-            public namespace: string;
+            public namespace?: (string|null);
 
             /** HighlyStructuredMessage elementName. */
-            public elementName: string;
+            public elementName?: (string|null);
 
             /** HighlyStructuredMessage params. */
             public params: string[];
 
             /** HighlyStructuredMessage fallbackLg. */
-            public fallbackLg: string;
+            public fallbackLg?: (string|null);
 
             /** HighlyStructuredMessage fallbackLc. */
-            public fallbackLc: string;
+            public fallbackLc?: (string|null);
 
             /** HighlyStructuredMessage localizableParams. */
             public localizableParams: E2E.Message.HighlyStructuredMessage.IHSMLocalizableParameter[];
 
             /** HighlyStructuredMessage deterministicLg. */
-            public deterministicLg: string;
+            public deterministicLg?: (string|null);
 
             /** HighlyStructuredMessage deterministicLc. */
-            public deterministicLc: string;
+            public deterministicLc?: (string|null);
 
             /** HighlyStructuredMessage hydratedHsm. */
             public hydratedHsm?: (E2E.Message.ITemplateMessage|null);
@@ -17768,7 +17768,7 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.HighlyStructuredMessage.IHSMLocalizableParameter);
 
                 /** HSMLocalizableParameter default. */
-                public default: string;
+                public default?: (string|null);
 
                 /** HSMLocalizableParameter currency. */
                 public currency?: (E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.IHSMCurrency|null);
@@ -17879,10 +17879,10 @@ export namespace E2E {
                     constructor(properties?: E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.IHSMCurrency);
 
                     /** HSMCurrency currencyCode. */
-                    public currencyCode: string;
+                    public currencyCode?: (string|null);
 
                     /** HSMCurrency amount1000. */
-                    public amount1000: (number|Long);
+                    public amount1000?: (number|Long|null);
 
                     /**
                      * Creates a new HSMCurrency instance using the specified properties.
@@ -18105,25 +18105,25 @@ export namespace E2E {
                         constructor(properties?: E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.IHSMDateTimeComponent);
 
                         /** HSMDateTimeComponent dayOfWeek. */
-                        public dayOfWeek: E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent.DayOfWeekType;
+                        public dayOfWeek?: (E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent.DayOfWeekType|null);
 
                         /** HSMDateTimeComponent year. */
-                        public year: number;
+                        public year?: (number|null);
 
                         /** HSMDateTimeComponent month. */
-                        public month: number;
+                        public month?: (number|null);
 
                         /** HSMDateTimeComponent dayOfMonth. */
-                        public dayOfMonth: number;
+                        public dayOfMonth?: (number|null);
 
                         /** HSMDateTimeComponent hour. */
-                        public hour: number;
+                        public hour?: (number|null);
 
                         /** HSMDateTimeComponent minute. */
-                        public minute: number;
+                        public minute?: (number|null);
 
                         /** HSMDateTimeComponent calendar. */
-                        public calendar: E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent.CalendarType;
+                        public calendar?: (E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent.CalendarType|null);
 
                         /**
                          * Creates a new HSMDateTimeComponent instance using the specified properties.
@@ -18240,7 +18240,7 @@ export namespace E2E {
                         constructor(properties?: E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.IHSMDateTimeUnixEpoch);
 
                         /** HSMDateTimeUnixEpoch timestamp. */
-                        public timestamp: (number|Long);
+                        public timestamp?: (number|Long|null);
 
                         /**
                          * Creates a new HSMDateTimeUnixEpoch instance using the specified properties.
@@ -18379,46 +18379,46 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IHistorySyncNotification);
 
             /** HistorySyncNotification fileSha256. */
-            public fileSha256: Uint8Array;
+            public fileSha256?: (Uint8Array|null);
 
             /** HistorySyncNotification fileLength. */
-            public fileLength: (number|Long);
+            public fileLength?: (number|Long|null);
 
             /** HistorySyncNotification mediaKey. */
-            public mediaKey: Uint8Array;
+            public mediaKey?: (Uint8Array|null);
 
             /** HistorySyncNotification fileEncSha256. */
-            public fileEncSha256: Uint8Array;
+            public fileEncSha256?: (Uint8Array|null);
 
             /** HistorySyncNotification directPath. */
-            public directPath: string;
+            public directPath?: (string|null);
 
             /** HistorySyncNotification syncType. */
-            public syncType: E2E.Message.HistorySyncNotification.HistorySyncType;
+            public syncType?: (E2E.Message.HistorySyncNotification.HistorySyncType|null);
 
             /** HistorySyncNotification chunkOrder. */
-            public chunkOrder: number;
+            public chunkOrder?: (number|null);
 
             /** HistorySyncNotification originalMessageId. */
-            public originalMessageId: string;
+            public originalMessageId?: (string|null);
 
             /** HistorySyncNotification progress. */
-            public progress: number;
+            public progress?: (number|null);
 
             /** HistorySyncNotification oldestMsgInChunkTimestampSec. */
-            public oldestMsgInChunkTimestampSec: (number|Long);
+            public oldestMsgInChunkTimestampSec?: (number|Long|null);
 
             /** HistorySyncNotification initialHistBootstrapInlinePayload. */
-            public initialHistBootstrapInlinePayload: Uint8Array;
+            public initialHistBootstrapInlinePayload?: (Uint8Array|null);
 
             /** HistorySyncNotification peerDataRequestSessionId. */
-            public peerDataRequestSessionId: string;
+            public peerDataRequestSessionId?: (string|null);
 
             /** HistorySyncNotification fullHistorySyncOnDemandRequestMetadata. */
             public fullHistorySyncOnDemandRequestMetadata?: (E2E.Message.IFullHistorySyncOnDemandRequestMetadata|null);
 
             /** HistorySyncNotification encHandle. */
-            public encHandle: string;
+            public encHandle?: (string|null);
 
             /**
              * Creates a new HistorySyncNotification instance using the specified properties.
@@ -18614,91 +18614,91 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IImageMessage);
 
             /** ImageMessage url. */
-            public url: string;
+            public url?: (string|null);
 
             /** ImageMessage mimetype. */
-            public mimetype: string;
+            public mimetype?: (string|null);
 
             /** ImageMessage caption. */
-            public caption: string;
+            public caption?: (string|null);
 
             /** ImageMessage fileSha256. */
-            public fileSha256: Uint8Array;
+            public fileSha256?: (Uint8Array|null);
 
             /** ImageMessage fileLength. */
-            public fileLength: (number|Long);
+            public fileLength?: (number|Long|null);
 
             /** ImageMessage height. */
-            public height: number;
+            public height?: (number|null);
 
             /** ImageMessage width. */
-            public width: number;
+            public width?: (number|null);
 
             /** ImageMessage mediaKey. */
-            public mediaKey: Uint8Array;
+            public mediaKey?: (Uint8Array|null);
 
             /** ImageMessage fileEncSha256. */
-            public fileEncSha256: Uint8Array;
+            public fileEncSha256?: (Uint8Array|null);
 
             /** ImageMessage interactiveAnnotations. */
             public interactiveAnnotations: E2E.IInteractiveAnnotation[];
 
             /** ImageMessage directPath. */
-            public directPath: string;
+            public directPath?: (string|null);
 
             /** ImageMessage mediaKeyTimestamp. */
-            public mediaKeyTimestamp: (number|Long);
+            public mediaKeyTimestamp?: (number|Long|null);
 
             /** ImageMessage jpegThumbnail. */
-            public jpegThumbnail: Uint8Array;
+            public jpegThumbnail?: (Uint8Array|null);
 
             /** ImageMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
 
             /** ImageMessage firstScanSidecar. */
-            public firstScanSidecar: Uint8Array;
+            public firstScanSidecar?: (Uint8Array|null);
 
             /** ImageMessage firstScanLength. */
-            public firstScanLength: number;
+            public firstScanLength?: (number|null);
 
             /** ImageMessage experimentGroupId. */
-            public experimentGroupId: number;
+            public experimentGroupId?: (number|null);
 
             /** ImageMessage scansSidecar. */
-            public scansSidecar: Uint8Array;
+            public scansSidecar?: (Uint8Array|null);
 
             /** ImageMessage scanLengths. */
             public scanLengths: number[];
 
             /** ImageMessage midQualityFileSha256. */
-            public midQualityFileSha256: Uint8Array;
+            public midQualityFileSha256?: (Uint8Array|null);
 
             /** ImageMessage midQualityFileEncSha256. */
-            public midQualityFileEncSha256: Uint8Array;
+            public midQualityFileEncSha256?: (Uint8Array|null);
 
             /** ImageMessage viewOnce. */
-            public viewOnce: boolean;
+            public viewOnce?: (boolean|null);
 
             /** ImageMessage thumbnailDirectPath. */
-            public thumbnailDirectPath: string;
+            public thumbnailDirectPath?: (string|null);
 
             /** ImageMessage thumbnailSha256. */
-            public thumbnailSha256: Uint8Array;
+            public thumbnailSha256?: (Uint8Array|null);
 
             /** ImageMessage thumbnailEncSha256. */
-            public thumbnailEncSha256: Uint8Array;
+            public thumbnailEncSha256?: (Uint8Array|null);
 
             /** ImageMessage staticUrl. */
-            public staticUrl: string;
+            public staticUrl?: (string|null);
 
             /** ImageMessage annotations. */
             public annotations: E2E.IInteractiveAnnotation[];
 
             /** ImageMessage imageSourceType. */
-            public imageSourceType: E2E.Message.ImageMessage.ImageSourceType;
+            public imageSourceType?: (E2E.Message.ImageMessage.ImageSourceType|null);
 
             /** ImageMessage accessibilityLabel. */
-            public accessibilityLabel: string;
+            public accessibilityLabel?: (string|null);
 
             /**
              * Creates a new ImageMessage instance using the specified properties.
@@ -18806,7 +18806,7 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IInitialSecurityNotificationSettingSync);
 
             /** InitialSecurityNotificationSettingSync securityNotificationEnabled. */
-            public securityNotificationEnabled: boolean;
+            public securityNotificationEnabled?: (boolean|null);
 
             /**
              * Creates a new InitialSecurityNotificationSettingSync instance using the specified properties.
@@ -19053,7 +19053,7 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.InteractiveMessage.IBody);
 
                 /** Body text. */
-                public text: string;
+                public text?: (string|null);
 
                 /**
                  * Creates a new Body instance using the specified properties.
@@ -19156,7 +19156,7 @@ export namespace E2E {
                 public cards: E2E.Message.IInteractiveMessage[];
 
                 /** CarouselMessage messageVersion. */
-                public messageVersion: number;
+                public messageVersion?: (number|null);
 
                 /**
                  * Creates a new CarouselMessage instance using the specified properties.
@@ -19259,13 +19259,13 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.InteractiveMessage.ICollectionMessage);
 
                 /** CollectionMessage bizJid. */
-                public bizJid: string;
+                public bizJid?: (string|null);
 
                 /** CollectionMessage id. */
-                public id: string;
+                public id?: (string|null);
 
                 /** CollectionMessage messageVersion. */
-                public messageVersion: number;
+                public messageVersion?: (number|null);
 
                 /**
                  * Creates a new CollectionMessage instance using the specified properties.
@@ -19362,7 +19362,7 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.InteractiveMessage.IFooter);
 
                 /** Footer text. */
-                public text: string;
+                public text?: (string|null);
 
                 /**
                  * Creates a new Footer instance using the specified properties.
@@ -19483,13 +19483,13 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.InteractiveMessage.IHeader);
 
                 /** Header title. */
-                public title: string;
+                public title?: (string|null);
 
                 /** Header subtitle. */
-                public subtitle: string;
+                public subtitle?: (string|null);
 
                 /** Header hasMediaAttachment. */
-                public hasMediaAttachment: boolean;
+                public hasMediaAttachment?: (boolean|null);
 
                 /** Header documentMessage. */
                 public documentMessage?: (E2E.Message.IDocumentMessage|null);
@@ -19616,10 +19616,10 @@ export namespace E2E {
                 public buttons: E2E.Message.InteractiveMessage.NativeFlowMessage.INativeFlowButton[];
 
                 /** NativeFlowMessage messageParamsJson. */
-                public messageParamsJson: string;
+                public messageParamsJson?: (string|null);
 
                 /** NativeFlowMessage messageVersion. */
-                public messageVersion: number;
+                public messageVersion?: (number|null);
 
                 /**
                  * Creates a new NativeFlowMessage instance using the specified properties.
@@ -19721,10 +19721,10 @@ export namespace E2E {
                     constructor(properties?: E2E.Message.InteractiveMessage.NativeFlowMessage.INativeFlowButton);
 
                     /** NativeFlowButton name. */
-                    public name: string;
+                    public name?: (string|null);
 
                     /** NativeFlowButton buttonParamsJson. */
-                    public buttonParamsJson: string;
+                    public buttonParamsJson?: (string|null);
 
                     /**
                      * Creates a new NativeFlowButton instance using the specified properties.
@@ -19828,13 +19828,13 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.InteractiveMessage.IShopMessage);
 
                 /** ShopMessage id. */
-                public id: string;
+                public id?: (string|null);
 
                 /** ShopMessage surface. */
-                public surface: E2E.Message.InteractiveMessage.ShopMessage.Surface;
+                public surface?: (E2E.Message.InteractiveMessage.ShopMessage.Surface|null);
 
                 /** ShopMessage messageVersion. */
-                public messageVersion: number;
+                public messageVersion?: (number|null);
 
                 /**
                  * Creates a new ShopMessage instance using the specified properties.
@@ -20060,10 +20060,10 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.InteractiveResponseMessage.IBody);
 
                 /** Body text. */
-                public text: string;
+                public text?: (string|null);
 
                 /** Body format. */
-                public format: E2E.Message.InteractiveResponseMessage.Body.Format;
+                public format?: (E2E.Message.InteractiveResponseMessage.Body.Format|null);
 
                 /**
                  * Creates a new Body instance using the specified properties.
@@ -20175,13 +20175,13 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.InteractiveResponseMessage.INativeFlowResponseMessage);
 
                 /** NativeFlowResponseMessage name. */
-                public name: string;
+                public name?: (string|null);
 
                 /** NativeFlowResponseMessage paramsJson. */
-                public paramsJson: string;
+                public paramsJson?: (string|null);
 
                 /** NativeFlowResponseMessage version. */
-                public version: number;
+                public version?: (number|null);
 
                 /**
                  * Creates a new NativeFlowResponseMessage instance using the specified properties.
@@ -20306,34 +20306,34 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IInvoiceMessage);
 
             /** InvoiceMessage note. */
-            public note: string;
+            public note?: (string|null);
 
             /** InvoiceMessage token. */
-            public token: string;
+            public token?: (string|null);
 
             /** InvoiceMessage attachmentType. */
-            public attachmentType: E2E.Message.InvoiceMessage.AttachmentType;
+            public attachmentType?: (E2E.Message.InvoiceMessage.AttachmentType|null);
 
             /** InvoiceMessage attachmentMimetype. */
-            public attachmentMimetype: string;
+            public attachmentMimetype?: (string|null);
 
             /** InvoiceMessage attachmentMediaKey. */
-            public attachmentMediaKey: Uint8Array;
+            public attachmentMediaKey?: (Uint8Array|null);
 
             /** InvoiceMessage attachmentMediaKeyTimestamp. */
-            public attachmentMediaKeyTimestamp: (number|Long);
+            public attachmentMediaKeyTimestamp?: (number|Long|null);
 
             /** InvoiceMessage attachmentFileSha256. */
-            public attachmentFileSha256: Uint8Array;
+            public attachmentFileSha256?: (Uint8Array|null);
 
             /** InvoiceMessage attachmentFileEncSha256. */
-            public attachmentFileEncSha256: Uint8Array;
+            public attachmentFileEncSha256?: (Uint8Array|null);
 
             /** InvoiceMessage attachmentDirectPath. */
-            public attachmentDirectPath: string;
+            public attachmentDirectPath?: (string|null);
 
             /** InvoiceMessage attachmentJpegThumbnail. */
-            public attachmentJpegThumbnail: Uint8Array;
+            public attachmentJpegThumbnail?: (Uint8Array|null);
 
             /**
              * Creates a new InvoiceMessage instance using the specified properties.
@@ -20448,10 +20448,10 @@ export namespace E2E {
             public key?: (Protocol.IMessageKey|null);
 
             /** KeepInChatMessage keepType. */
-            public keepType: E2E.KeepType;
+            public keepType?: (E2E.KeepType|null);
 
             /** KeepInChatMessage timestampMs. */
-            public timestampMs: (number|Long);
+            public timestampMs?: (number|Long|null);
 
             /**
              * Creates a new KeepInChatMessage instance using the specified properties.
@@ -20560,7 +20560,7 @@ export namespace E2E {
             public urlMetadata?: (E2E.Message.IURLMetadata|null);
 
             /** LinkPreviewMetadata fbExperimentId. */
-            public fbExperimentId: number;
+            public fbExperimentId?: (number|null);
 
             /**
              * Creates a new LinkPreviewMetadata instance using the specified properties.
@@ -20678,16 +20678,16 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IListMessage);
 
             /** ListMessage title. */
-            public title: string;
+            public title?: (string|null);
 
             /** ListMessage description. */
-            public description: string;
+            public description?: (string|null);
 
             /** ListMessage buttonText. */
-            public buttonText: string;
+            public buttonText?: (string|null);
 
             /** ListMessage listType. */
-            public listType: E2E.Message.ListMessage.ListType;
+            public listType?: (E2E.Message.ListMessage.ListType|null);
 
             /** ListMessage sections. */
             public sections: E2E.Message.ListMessage.ISection[];
@@ -20696,7 +20696,7 @@ export namespace E2E {
             public productListInfo?: (E2E.Message.ListMessage.IProductListInfo|null);
 
             /** ListMessage footerText. */
-            public footerText: string;
+            public footerText?: (string|null);
 
             /** ListMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
@@ -20805,7 +20805,7 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.ListMessage.IProduct);
 
                 /** Product productId. */
-                public productId: string;
+                public productId?: (string|null);
 
                 /**
                  * Creates a new Product instance using the specified properties.
@@ -20905,10 +20905,10 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.ListMessage.IProductListHeaderImage);
 
                 /** ProductListHeaderImage productId. */
-                public productId: string;
+                public productId?: (string|null);
 
                 /** ProductListHeaderImage jpegThumbnail. */
-                public jpegThumbnail: Uint8Array;
+                public jpegThumbnail?: (Uint8Array|null);
 
                 /**
                  * Creates a new ProductListHeaderImage instance using the specified properties.
@@ -21017,7 +21017,7 @@ export namespace E2E {
                 public headerImage?: (E2E.Message.ListMessage.IProductListHeaderImage|null);
 
                 /** ProductListInfo businessOwnerJid. */
-                public businessOwnerJid: string;
+                public businessOwnerJid?: (string|null);
 
                 /**
                  * Creates a new ProductListInfo instance using the specified properties.
@@ -21117,7 +21117,7 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.ListMessage.IProductSection);
 
                 /** ProductSection title. */
-                public title: string;
+                public title?: (string|null);
 
                 /** ProductSection products. */
                 public products: E2E.Message.ListMessage.IProduct[];
@@ -21223,13 +21223,13 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.ListMessage.IRow);
 
                 /** Row title. */
-                public title: string;
+                public title?: (string|null);
 
                 /** Row description. */
-                public description: string;
+                public description?: (string|null);
 
                 /** Row rowId. */
-                public rowId: string;
+                public rowId?: (string|null);
 
                 /**
                  * Creates a new Row instance using the specified properties.
@@ -21329,7 +21329,7 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.ListMessage.ISection);
 
                 /** Section title. */
-                public title: string;
+                public title?: (string|null);
 
                 /** Section rows. */
                 public rows: E2E.Message.ListMessage.IRow[];
@@ -21442,10 +21442,10 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IListResponseMessage);
 
             /** ListResponseMessage title. */
-            public title: string;
+            public title?: (string|null);
 
             /** ListResponseMessage listType. */
-            public listType: E2E.Message.ListResponseMessage.ListType;
+            public listType?: (E2E.Message.ListResponseMessage.ListType|null);
 
             /** ListResponseMessage singleSelectReply. */
             public singleSelectReply?: (E2E.Message.ListResponseMessage.ISingleSelectReply|null);
@@ -21454,7 +21454,7 @@ export namespace E2E {
             public contextInfo?: (E2E.IContextInfo|null);
 
             /** ListResponseMessage description. */
-            public description: string;
+            public description?: (string|null);
 
             /**
              * Creates a new ListResponseMessage instance using the specified properties.
@@ -21559,7 +21559,7 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.ListResponseMessage.ISingleSelectReply);
 
                 /** SingleSelectReply selectedRowId. */
-                public selectedRowId: string;
+                public selectedRowId?: (string|null);
 
                 /**
                  * Creates a new SingleSelectReply instance using the specified properties.
@@ -21684,31 +21684,31 @@ export namespace E2E {
             constructor(properties?: E2E.Message.ILiveLocationMessage);
 
             /** LiveLocationMessage degreesLatitude. */
-            public degreesLatitude: number;
+            public degreesLatitude?: (number|null);
 
             /** LiveLocationMessage degreesLongitude. */
-            public degreesLongitude: number;
+            public degreesLongitude?: (number|null);
 
             /** LiveLocationMessage accuracyInMeters. */
-            public accuracyInMeters: number;
+            public accuracyInMeters?: (number|null);
 
             /** LiveLocationMessage speedInMps. */
-            public speedInMps: number;
+            public speedInMps?: (number|null);
 
             /** LiveLocationMessage degreesClockwiseFromMagneticNorth. */
-            public degreesClockwiseFromMagneticNorth: number;
+            public degreesClockwiseFromMagneticNorth?: (number|null);
 
             /** LiveLocationMessage caption. */
-            public caption: string;
+            public caption?: (string|null);
 
             /** LiveLocationMessage sequenceNumber. */
-            public sequenceNumber: (number|Long);
+            public sequenceNumber?: (number|Long|null);
 
             /** LiveLocationMessage timeOffset. */
-            public timeOffset: number;
+            public timeOffset?: (number|null);
 
             /** LiveLocationMessage jpegThumbnail. */
-            public jpegThumbnail: Uint8Array;
+            public jpegThumbnail?: (Uint8Array|null);
 
             /** LiveLocationMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
@@ -21841,37 +21841,37 @@ export namespace E2E {
             constructor(properties?: E2E.Message.ILocationMessage);
 
             /** LocationMessage degreesLatitude. */
-            public degreesLatitude: number;
+            public degreesLatitude?: (number|null);
 
             /** LocationMessage degreesLongitude. */
-            public degreesLongitude: number;
+            public degreesLongitude?: (number|null);
 
             /** LocationMessage name. */
-            public name: string;
+            public name?: (string|null);
 
             /** LocationMessage address. */
-            public address: string;
+            public address?: (string|null);
 
             /** LocationMessage url. */
-            public url: string;
+            public url?: (string|null);
 
             /** LocationMessage isLive. */
-            public isLive: boolean;
+            public isLive?: (boolean|null);
 
             /** LocationMessage accuracyInMeters. */
-            public accuracyInMeters: number;
+            public accuracyInMeters?: (number|null);
 
             /** LocationMessage speedInMps. */
-            public speedInMps: number;
+            public speedInMps?: (number|null);
 
             /** LocationMessage degreesClockwiseFromMagneticNorth. */
-            public degreesClockwiseFromMagneticNorth: number;
+            public degreesClockwiseFromMagneticNorth?: (number|null);
 
             /** LocationMessage comment. */
-            public comment: string;
+            public comment?: (string|null);
 
             /** LocationMessage jpegThumbnail. */
-            public jpegThumbnail: Uint8Array;
+            public jpegThumbnail?: (Uint8Array|null);
 
             /** LocationMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
@@ -21989,25 +21989,25 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IMMSThumbnailMetadata);
 
             /** MMSThumbnailMetadata thumbnailDirectPath. */
-            public thumbnailDirectPath: string;
+            public thumbnailDirectPath?: (string|null);
 
             /** MMSThumbnailMetadata thumbnailSha256. */
-            public thumbnailSha256: Uint8Array;
+            public thumbnailSha256?: (Uint8Array|null);
 
             /** MMSThumbnailMetadata thumbnailEncSha256. */
-            public thumbnailEncSha256: Uint8Array;
+            public thumbnailEncSha256?: (Uint8Array|null);
 
             /** MMSThumbnailMetadata mediaKey. */
-            public mediaKey: Uint8Array;
+            public mediaKey?: (Uint8Array|null);
 
             /** MMSThumbnailMetadata mediaKeyTimestamp. */
-            public mediaKeyTimestamp: (number|Long);
+            public mediaKeyTimestamp?: (number|Long|null);
 
             /** MMSThumbnailMetadata thumbnailHeight. */
-            public thumbnailHeight: number;
+            public thumbnailHeight?: (number|null);
 
             /** MMSThumbnailMetadata thumbnailWidth. */
-            public thumbnailWidth: number;
+            public thumbnailWidth?: (number|null);
 
             /**
              * Creates a new MMSThumbnailMetadata instance using the specified properties.
@@ -22125,22 +22125,22 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IMessageHistoryBundle);
 
             /** MessageHistoryBundle mimetype. */
-            public mimetype: string;
+            public mimetype?: (string|null);
 
             /** MessageHistoryBundle fileSha256. */
-            public fileSha256: Uint8Array;
+            public fileSha256?: (Uint8Array|null);
 
             /** MessageHistoryBundle mediaKey. */
-            public mediaKey: Uint8Array;
+            public mediaKey?: (Uint8Array|null);
 
             /** MessageHistoryBundle fileEncSha256. */
-            public fileEncSha256: Uint8Array;
+            public fileEncSha256?: (Uint8Array|null);
 
             /** MessageHistoryBundle directPath. */
-            public directPath: string;
+            public directPath?: (string|null);
 
             /** MessageHistoryBundle mediaKeyTimestamp. */
-            public mediaKeyTimestamp: (number|Long);
+            public mediaKeyTimestamp?: (number|Long|null);
 
             /** MessageHistoryBundle contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
@@ -22252,10 +22252,10 @@ export namespace E2E {
             public historyReceivers: string[];
 
             /** MessageHistoryMetadata firstMessageTimestamp. */
-            public firstMessageTimestamp: (number|Long);
+            public firstMessageTimestamp?: (number|Long|null);
 
             /** MessageHistoryMetadata messageCount. */
-            public messageCount: (number|Long);
+            public messageCount?: (number|Long|null);
 
             /**
              * Creates a new MessageHistoryMetadata instance using the specified properties.
@@ -22470,19 +22470,19 @@ export namespace E2E {
             constructor(properties?: E2E.Message.INewsletterAdminInviteMessage);
 
             /** NewsletterAdminInviteMessage newsletterJid. */
-            public newsletterJid: string;
+            public newsletterJid?: (string|null);
 
             /** NewsletterAdminInviteMessage newsletterName. */
-            public newsletterName: string;
+            public newsletterName?: (string|null);
 
             /** NewsletterAdminInviteMessage jpegThumbnail. */
-            public jpegThumbnail: Uint8Array;
+            public jpegThumbnail?: (Uint8Array|null);
 
             /** NewsletterAdminInviteMessage caption. */
-            public caption: string;
+            public caption?: (string|null);
 
             /** NewsletterAdminInviteMessage inviteExpiration. */
-            public inviteExpiration: (number|Long);
+            public inviteExpiration?: (number|Long|null);
 
             /** NewsletterAdminInviteMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
@@ -22624,49 +22624,49 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IOrderMessage);
 
             /** OrderMessage orderId. */
-            public orderId: string;
+            public orderId?: (string|null);
 
             /** OrderMessage thumbnail. */
-            public thumbnail: Uint8Array;
+            public thumbnail?: (Uint8Array|null);
 
             /** OrderMessage itemCount. */
-            public itemCount: number;
+            public itemCount?: (number|null);
 
             /** OrderMessage status. */
-            public status: E2E.Message.OrderMessage.OrderStatus;
+            public status?: (E2E.Message.OrderMessage.OrderStatus|null);
 
             /** OrderMessage surface. */
-            public surface: E2E.Message.OrderMessage.OrderSurface;
+            public surface?: (E2E.Message.OrderMessage.OrderSurface|null);
 
             /** OrderMessage message. */
-            public message: string;
+            public message?: (string|null);
 
             /** OrderMessage orderTitle. */
-            public orderTitle: string;
+            public orderTitle?: (string|null);
 
             /** OrderMessage sellerJid. */
-            public sellerJid: string;
+            public sellerJid?: (string|null);
 
             /** OrderMessage token. */
-            public token: string;
+            public token?: (string|null);
 
             /** OrderMessage totalAmount1000. */
-            public totalAmount1000: (number|Long);
+            public totalAmount1000?: (number|Long|null);
 
             /** OrderMessage totalCurrencyCode. */
-            public totalCurrencyCode: string;
+            public totalCurrencyCode?: (string|null);
 
             /** OrderMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
 
             /** OrderMessage messageVersion. */
-            public messageVersion: number;
+            public messageVersion?: (number|null);
 
             /** OrderMessage orderRequestMessageId. */
             public orderRequestMessageId?: (Protocol.IMessageKey|null);
 
             /** OrderMessage catalogType. */
-            public catalogType: string;
+            public catalogType?: (string|null);
 
             /**
              * Creates a new OrderMessage instance using the specified properties.
@@ -22781,10 +22781,10 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IPaymentInviteMessage);
 
             /** PaymentInviteMessage serviceType. */
-            public serviceType: E2E.Message.PaymentInviteMessage.ServiceType;
+            public serviceType?: (E2E.Message.PaymentInviteMessage.ServiceType|null);
 
             /** PaymentInviteMessage expiryTimestamp. */
-            public expiryTimestamp: (number|Long);
+            public expiryTimestamp?: (number|Long|null);
 
             /**
              * Creates a new PaymentInviteMessage instance using the specified properties.
@@ -22997,7 +22997,7 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.PaymentLinkMetadata.IPaymentLinkButton);
 
                 /** PaymentLinkButton displayText. */
-                public displayText: string;
+                public displayText?: (string|null);
 
                 /**
                  * Creates a new PaymentLinkButton instance using the specified properties.
@@ -23094,7 +23094,7 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.PaymentLinkMetadata.IPaymentLinkHeader);
 
                 /** PaymentLinkHeader headerType. */
-                public headerType: E2E.Message.PaymentLinkMetadata.PaymentLinkHeader.PaymentLinkHeaderType;
+                public headerType?: (E2E.Message.PaymentLinkMetadata.PaymentLinkHeader.PaymentLinkHeaderType|null);
 
                 /**
                  * Creates a new PaymentLinkHeader instance using the specified properties.
@@ -23219,7 +23219,7 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IPeerDataOperationRequestMessage);
 
             /** PeerDataOperationRequestMessage peerDataOperationRequestType. */
-            public peerDataOperationRequestType: E2E.Message.PeerDataOperationRequestType;
+            public peerDataOperationRequestType?: (E2E.Message.PeerDataOperationRequestType|null);
 
             /** PeerDataOperationRequestMessage requestStickerReupload. */
             public requestStickerReupload: E2E.Message.PeerDataOperationRequestMessage.IRequestStickerReupload[];
@@ -23454,22 +23454,22 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.PeerDataOperationRequestMessage.IHistorySyncOnDemandRequest);
 
                 /** HistorySyncOnDemandRequest chatJid. */
-                public chatJid: string;
+                public chatJid?: (string|null);
 
                 /** HistorySyncOnDemandRequest oldestMsgId. */
-                public oldestMsgId: string;
+                public oldestMsgId?: (string|null);
 
                 /** HistorySyncOnDemandRequest oldestMsgFromMe. */
-                public oldestMsgFromMe: boolean;
+                public oldestMsgFromMe?: (boolean|null);
 
                 /** HistorySyncOnDemandRequest onDemandMsgCount. */
-                public onDemandMsgCount: number;
+                public onDemandMsgCount?: (number|null);
 
                 /** HistorySyncOnDemandRequest oldestMsgTimestampMs. */
-                public oldestMsgTimestampMs: (number|Long);
+                public oldestMsgTimestampMs?: (number|Long|null);
 
                 /** HistorySyncOnDemandRequest accountLid. */
-                public accountLid: string;
+                public accountLid?: (string|null);
 
                 /**
                  * Creates a new HistorySyncOnDemandRequest instance using the specified properties.
@@ -23663,7 +23663,7 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.PeerDataOperationRequestMessage.IRequestStickerReupload);
 
                 /** RequestStickerReupload fileSha256. */
-                public fileSha256: string;
+                public fileSha256?: (string|null);
 
                 /**
                  * Creates a new RequestStickerReupload instance using the specified properties.
@@ -23763,10 +23763,10 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.PeerDataOperationRequestMessage.IRequestUrlPreview);
 
                 /** RequestUrlPreview url. */
-                public url: string;
+                public url?: (string|null);
 
                 /** RequestUrlPreview includeHqThumbnail. */
-                public includeHqThumbnail: boolean;
+                public includeHqThumbnail?: (boolean|null);
 
                 /**
                  * Creates a new RequestUrlPreview instance using the specified properties.
@@ -23866,10 +23866,10 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.PeerDataOperationRequestMessage.ISyncDCollectionFatalRecoveryRequest);
 
                 /** SyncDCollectionFatalRecoveryRequest collectionName. */
-                public collectionName: string;
+                public collectionName?: (string|null);
 
                 /** SyncDCollectionFatalRecoveryRequest timestamp. */
-                public timestamp: (number|Long);
+                public timestamp?: (number|Long|null);
 
                 /**
                  * Creates a new SyncDCollectionFatalRecoveryRequest instance using the specified properties.
@@ -23973,10 +23973,10 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IPeerDataOperationRequestResponseMessage);
 
             /** PeerDataOperationRequestResponseMessage peerDataOperationRequestType. */
-            public peerDataOperationRequestType: E2E.Message.PeerDataOperationRequestType;
+            public peerDataOperationRequestType?: (E2E.Message.PeerDataOperationRequestType|null);
 
             /** PeerDataOperationRequestResponseMessage stanzaId. */
-            public stanzaId: string;
+            public stanzaId?: (string|null);
 
             /** PeerDataOperationRequestResponseMessage peerDataOperationResult. */
             public peerDataOperationResult: E2E.Message.PeerDataOperationRequestResponseMessage.IPeerDataOperationResult[];
@@ -24099,7 +24099,7 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.PeerDataOperationRequestResponseMessage.IPeerDataOperationResult);
 
                 /** PeerDataOperationResult mediaUploadResult. */
-                public mediaUploadResult: MmsRetry.MediaRetryNotification.ResultType;
+                public mediaUploadResult?: (MmsRetry.MediaRetryNotification.ResultType|null);
 
                 /** PeerDataOperationResult stickerMessage. */
                 public stickerMessage?: (E2E.Message.IStickerMessage|null);
@@ -24219,7 +24219,7 @@ export namespace E2E {
                     constructor(properties?: E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.ICompanionMetaNonceFetchResponse);
 
                     /** CompanionMetaNonceFetchResponse nonce. */
-                    public nonce: string;
+                    public nonce?: (string|null);
 
                     /**
                      * Creates a new CompanionMetaNonceFetchResponse instance using the specified properties.
@@ -24322,7 +24322,7 @@ export namespace E2E {
                     public requestMetadata?: (E2E.Message.IFullHistorySyncOnDemandRequestMetadata|null);
 
                     /** FullHistorySyncOnDemandRequestResponse responseCode. */
-                    public responseCode: E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.FullHistorySyncOnDemandResponseCode;
+                    public responseCode?: (E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.FullHistorySyncOnDemandResponseCode|null);
 
                     /**
                      * Creates a new FullHistorySyncOnDemandRequestResponse instance using the specified properties.
@@ -24448,22 +24448,22 @@ export namespace E2E {
                     constructor(properties?: E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.ILinkPreviewResponse);
 
                     /** LinkPreviewResponse url. */
-                    public url: string;
+                    public url?: (string|null);
 
                     /** LinkPreviewResponse title. */
-                    public title: string;
+                    public title?: (string|null);
 
                     /** LinkPreviewResponse description. */
-                    public description: string;
+                    public description?: (string|null);
 
                     /** LinkPreviewResponse thumbData. */
-                    public thumbData: Uint8Array;
+                    public thumbData?: (Uint8Array|null);
 
                     /** LinkPreviewResponse matchText. */
-                    public matchText: string;
+                    public matchText?: (string|null);
 
                     /** LinkPreviewResponse previewType. */
-                    public previewType: string;
+                    public previewType?: (string|null);
 
                     /** LinkPreviewResponse hqThumbnail. */
                     public hqThumbnail?: (E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.ILinkPreviewHighQualityThumbnail|null);
@@ -24583,25 +24583,25 @@ export namespace E2E {
                         constructor(properties?: E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.ILinkPreviewHighQualityThumbnail);
 
                         /** LinkPreviewHighQualityThumbnail directPath. */
-                        public directPath: string;
+                        public directPath?: (string|null);
 
                         /** LinkPreviewHighQualityThumbnail thumbHash. */
-                        public thumbHash: string;
+                        public thumbHash?: (string|null);
 
                         /** LinkPreviewHighQualityThumbnail encThumbHash. */
-                        public encThumbHash: string;
+                        public encThumbHash?: (string|null);
 
                         /** LinkPreviewHighQualityThumbnail mediaKey. */
-                        public mediaKey: Uint8Array;
+                        public mediaKey?: (Uint8Array|null);
 
                         /** LinkPreviewHighQualityThumbnail mediaKeyTimestampMs. */
-                        public mediaKeyTimestampMs: (number|Long);
+                        public mediaKeyTimestampMs?: (number|Long|null);
 
                         /** LinkPreviewHighQualityThumbnail thumbWidth. */
-                        public thumbWidth: number;
+                        public thumbWidth?: (number|null);
 
                         /** LinkPreviewHighQualityThumbnail thumbHeight. */
-                        public thumbHeight: number;
+                        public thumbHeight?: (number|null);
 
                         /**
                          * Creates a new LinkPreviewHighQualityThumbnail instance using the specified properties.
@@ -24699,7 +24699,7 @@ export namespace E2E {
                     constructor(properties?: E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.IPlaceholderMessageResendResponse);
 
                     /** PlaceholderMessageResendResponse webMessageInfoBytes. */
-                    public webMessageInfoBytes: Uint8Array;
+                    public webMessageInfoBytes?: (Uint8Array|null);
 
                     /**
                      * Creates a new PlaceholderMessageResendResponse instance using the specified properties.
@@ -24799,10 +24799,10 @@ export namespace E2E {
                     constructor(properties?: E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.ISyncDSnapshotFatalRecoveryResponse);
 
                     /** SyncDSnapshotFatalRecoveryResponse collectionSnapshot. */
-                    public collectionSnapshot: Uint8Array;
+                    public collectionSnapshot?: (Uint8Array|null);
 
                     /** SyncDSnapshotFatalRecoveryResponse isCompressed. */
-                    public isCompressed: boolean;
+                    public isCompressed?: (boolean|null);
 
                     /**
                      * Creates a new SyncDSnapshotFatalRecoveryResponse instance using the specified properties.
@@ -24902,10 +24902,10 @@ export namespace E2E {
                     constructor(properties?: E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.IWaffleNonceFetchResponse);
 
                     /** WaffleNonceFetchResponse nonce. */
-                    public nonce: string;
+                    public nonce?: (string|null);
 
                     /** WaffleNonceFetchResponse waEntFbid. */
-                    public waEntFbid: string;
+                    public waEntFbid?: (string|null);
 
                     /**
                      * Creates a new WaffleNonceFetchResponse instance using the specified properties.
@@ -25026,10 +25026,10 @@ export namespace E2E {
             public key?: (Protocol.IMessageKey|null);
 
             /** PinInChatMessage type. */
-            public type: E2E.Message.PinInChatMessage.Type;
+            public type?: (E2E.Message.PinInChatMessage.Type|null);
 
             /** PinInChatMessage senderTimestampMs. */
-            public senderTimestampMs: (number|Long);
+            public senderTimestampMs?: (number|Long|null);
 
             /**
              * Creates a new PinInChatMessage instance using the specified properties.
@@ -25136,7 +25136,7 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IPlaceholderMessage);
 
             /** PlaceholderMessage type. */
-            public type: E2E.Message.PlaceholderMessage.PlaceholderType;
+            public type?: (E2E.Message.PlaceholderMessage.PlaceholderType|null);
 
             /**
              * Creates a new PlaceholderMessage instance using the specified properties.
@@ -25269,25 +25269,25 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IPollCreationMessage);
 
             /** PollCreationMessage encKey. */
-            public encKey: Uint8Array;
+            public encKey?: (Uint8Array|null);
 
             /** PollCreationMessage name. */
-            public name: string;
+            public name?: (string|null);
 
             /** PollCreationMessage options. */
             public options: E2E.Message.PollCreationMessage.IOption[];
 
             /** PollCreationMessage selectableOptionsCount. */
-            public selectableOptionsCount: number;
+            public selectableOptionsCount?: (number|null);
 
             /** PollCreationMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
 
             /** PollCreationMessage pollContentType. */
-            public pollContentType: E2E.Message.PollContentType;
+            public pollContentType?: (E2E.Message.PollContentType|null);
 
             /** PollCreationMessage pollType. */
-            public pollType: E2E.Message.PollCreationMessage.PollType;
+            public pollType?: (E2E.Message.PollCreationMessage.PollType|null);
 
             /** PollCreationMessage correctAnswer. */
             public correctAnswer?: (E2E.Message.PollCreationMessage.IOption|null);
@@ -25392,10 +25392,10 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.PollCreationMessage.IOption);
 
                 /** Option optionName. */
-                public optionName: string;
+                public optionName?: (string|null);
 
                 /** Option optionHash. */
-                public optionHash: string;
+                public optionHash?: (string|null);
 
                 /**
                  * Creates a new Option instance using the specified properties.
@@ -25502,10 +25502,10 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IPollEncValue);
 
             /** PollEncValue encPayload. */
-            public encPayload: Uint8Array;
+            public encPayload?: (Uint8Array|null);
 
             /** PollEncValue encIv. */
-            public encIv: Uint8Array;
+            public encIv?: (Uint8Array|null);
 
             /**
              * Creates a new PollEncValue instance using the specified properties.
@@ -25608,7 +25608,7 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IPollResultSnapshotMessage);
 
             /** PollResultSnapshotMessage name. */
-            public name: string;
+            public name?: (string|null);
 
             /** PollResultSnapshotMessage pollVotes. */
             public pollVotes: E2E.Message.PollResultSnapshotMessage.IPollVote[];
@@ -25716,10 +25716,10 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.PollResultSnapshotMessage.IPollVote);
 
                 /** PollVote optionName. */
-                public optionName: string;
+                public optionName?: (string|null);
 
                 /** PollVote optionVoteCount. */
-                public optionVoteCount: (number|Long);
+                public optionVoteCount?: (number|Long|null);
 
                 /**
                  * Creates a new PollVote instance using the specified properties.
@@ -25835,7 +25835,7 @@ export namespace E2E {
             public metadata?: (E2E.Message.IPollUpdateMessageMetadata|null);
 
             /** PollUpdateMessage senderTimestampMs. */
-            public senderTimestampMs: (number|Long);
+            public senderTimestampMs?: (number|Long|null);
 
             /**
              * Creates a new PollUpdateMessage instance using the specified properties.
@@ -26138,16 +26138,16 @@ export namespace E2E {
             public product?: (E2E.Message.ProductMessage.IProductSnapshot|null);
 
             /** ProductMessage businessOwnerJid. */
-            public businessOwnerJid: string;
+            public businessOwnerJid?: (string|null);
 
             /** ProductMessage catalog. */
             public catalog?: (E2E.Message.ProductMessage.ICatalogSnapshot|null);
 
             /** ProductMessage body. */
-            public body: string;
+            public body?: (string|null);
 
             /** ProductMessage footer. */
-            public footer: string;
+            public footer?: (string|null);
 
             /** ProductMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
@@ -26258,10 +26258,10 @@ export namespace E2E {
                 public catalogImage?: (E2E.Message.IImageMessage|null);
 
                 /** CatalogSnapshot title. */
-                public title: string;
+                public title?: (string|null);
 
                 /** CatalogSnapshot description. */
-                public description: string;
+                public description?: (string|null);
 
                 /**
                  * Creates a new CatalogSnapshot instance using the specified properties.
@@ -26394,37 +26394,37 @@ export namespace E2E {
                 public productImage?: (E2E.Message.IImageMessage|null);
 
                 /** ProductSnapshot productId. */
-                public productId: string;
+                public productId?: (string|null);
 
                 /** ProductSnapshot title. */
-                public title: string;
+                public title?: (string|null);
 
                 /** ProductSnapshot description. */
-                public description: string;
+                public description?: (string|null);
 
                 /** ProductSnapshot currencyCode. */
-                public currencyCode: string;
+                public currencyCode?: (string|null);
 
                 /** ProductSnapshot priceAmount1000. */
-                public priceAmount1000: (number|Long);
+                public priceAmount1000?: (number|Long|null);
 
                 /** ProductSnapshot retailerId. */
-                public retailerId: string;
+                public retailerId?: (string|null);
 
                 /** ProductSnapshot url. */
-                public url: string;
+                public url?: (string|null);
 
                 /** ProductSnapshot productImageCount. */
-                public productImageCount: number;
+                public productImageCount?: (number|null);
 
                 /** ProductSnapshot firstImageId. */
-                public firstImageId: string;
+                public firstImageId?: (string|null);
 
                 /** ProductSnapshot salePriceAmount1000. */
-                public salePriceAmount1000: (number|Long);
+                public salePriceAmount1000?: (number|Long|null);
 
                 /** ProductSnapshot signedUrl. */
-                public signedUrl: string;
+                public signedUrl?: (string|null);
 
                 /**
                  * Creates a new ProductSnapshot instance using the specified properties.
@@ -26594,13 +26594,13 @@ export namespace E2E {
             public key?: (Protocol.IMessageKey|null);
 
             /** ProtocolMessage type. */
-            public type: E2E.Message.ProtocolMessage.Type;
+            public type?: (E2E.Message.ProtocolMessage.Type|null);
 
             /** ProtocolMessage ephemeralExpiration. */
-            public ephemeralExpiration: number;
+            public ephemeralExpiration?: (number|null);
 
             /** ProtocolMessage ephemeralSettingTimestamp. */
-            public ephemeralSettingTimestamp: (number|Long);
+            public ephemeralSettingTimestamp?: (number|Long|null);
 
             /** ProtocolMessage historySyncNotification. */
             public historySyncNotification?: (E2E.Message.IHistorySyncNotification|null);
@@ -26624,7 +26624,7 @@ export namespace E2E {
             public editedMessage?: (E2E.IMessage|null);
 
             /** ProtocolMessage timestampMs. */
-            public timestampMs: (number|Long);
+            public timestampMs?: (number|Long|null);
 
             /** ProtocolMessage peerDataOperationRequestMessage. */
             public peerDataOperationRequestMessage?: (E2E.Message.IPeerDataOperationRequestMessage|null);
@@ -26636,7 +26636,7 @@ export namespace E2E {
             public botFeedbackMessage?: (E2E.Message.IBotFeedbackMessage|null);
 
             /** ProtocolMessage invokerJid. */
-            public invokerJid: string;
+            public invokerJid?: (string|null);
 
             /** ProtocolMessage requestWelcomeMessageMetadata. */
             public requestWelcomeMessageMetadata?: (E2E.Message.IRequestWelcomeMessageMetadata|null);
@@ -26654,7 +26654,7 @@ export namespace E2E {
             public limitSharing?: (Protocol.ILimitSharing|null);
 
             /** ProtocolMessage aiPsiMetadata. */
-            public aiPsiMetadata: Uint8Array;
+            public aiPsiMetadata?: (Uint8Array|null);
 
             /** ProtocolMessage aiQueryFanout. */
             public aiQueryFanout?: (E2E.IAIQueryFanout|null);
@@ -26802,13 +26802,13 @@ export namespace E2E {
             public key?: (Protocol.IMessageKey|null);
 
             /** ReactionMessage text. */
-            public text: string;
+            public text?: (string|null);
 
             /** ReactionMessage groupingKey. */
-            public groupingKey: string;
+            public groupingKey?: (string|null);
 
             /** ReactionMessage senderTimestampMs. */
-            public senderTimestampMs: (number|Long);
+            public senderTimestampMs?: (number|Long|null);
 
             /**
              * Creates a new ReactionMessage instance using the specified properties.
@@ -26926,16 +26926,16 @@ export namespace E2E {
             public noteMessage?: (E2E.IMessage|null);
 
             /** RequestPaymentMessage currencyCodeIso4217. */
-            public currencyCodeIso4217: string;
+            public currencyCodeIso4217?: (string|null);
 
             /** RequestPaymentMessage amount1000. */
-            public amount1000: (number|Long);
+            public amount1000?: (number|Long|null);
 
             /** RequestPaymentMessage requestFrom. */
-            public requestFrom: string;
+            public requestFrom?: (string|null);
 
             /** RequestPaymentMessage expiryTimestamp. */
-            public expiryTimestamp: (number|Long);
+            public expiryTimestamp?: (number|Long|null);
 
             /** RequestPaymentMessage amount. */
             public amount?: (E2E.IMoney|null);
@@ -27135,7 +27135,7 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IRequestWelcomeMessageMetadata);
 
             /** RequestWelcomeMessageMetadata localChatState. */
-            public localChatState: E2E.Message.RequestWelcomeMessageMetadata.LocalChatState;
+            public localChatState?: (E2E.Message.RequestWelcomeMessageMetadata.LocalChatState|null);
 
             /**
              * Creates a new RequestWelcomeMessageMetadata instance using the specified properties.
@@ -27247,13 +27247,13 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IScheduledCallCreationMessage);
 
             /** ScheduledCallCreationMessage scheduledTimestampMs. */
-            public scheduledTimestampMs: (number|Long);
+            public scheduledTimestampMs?: (number|Long|null);
 
             /** ScheduledCallCreationMessage callType. */
-            public callType: E2E.Message.ScheduledCallCreationMessage.CallType;
+            public callType?: (E2E.Message.ScheduledCallCreationMessage.CallType|null);
 
             /** ScheduledCallCreationMessage title. */
-            public title: string;
+            public title?: (string|null);
 
             /**
              * Creates a new ScheduledCallCreationMessage instance using the specified properties.
@@ -27366,7 +27366,7 @@ export namespace E2E {
             public key?: (Protocol.IMessageKey|null);
 
             /** ScheduledCallEditMessage editType. */
-            public editType: E2E.Message.ScheduledCallEditMessage.EditType;
+            public editType?: (E2E.Message.ScheduledCallEditMessage.EditType|null);
 
             /**
              * Creates a new ScheduledCallEditMessage instance using the specified properties.
@@ -27484,13 +27484,13 @@ export namespace E2E {
             public targetMessageKey?: (Protocol.IMessageKey|null);
 
             /** SecretEncryptedMessage encPayload. */
-            public encPayload: Uint8Array;
+            public encPayload?: (Uint8Array|null);
 
             /** SecretEncryptedMessage encIv. */
-            public encIv: Uint8Array;
+            public encIv?: (Uint8Array|null);
 
             /** SecretEncryptedMessage secretEncType. */
-            public secretEncType: E2E.Message.SecretEncryptedMessage.SecretEncType;
+            public secretEncType?: (E2E.Message.SecretEncryptedMessage.SecretEncType|null);
 
             /**
              * Creates a new SecretEncryptedMessage instance using the specified properties.
@@ -27709,10 +27709,10 @@ export namespace E2E {
             constructor(properties?: E2E.Message.ISenderKeyDistributionMessage);
 
             /** SenderKeyDistributionMessage groupId. */
-            public groupId: string;
+            public groupId?: (string|null);
 
             /** SenderKeyDistributionMessage axolotlSenderKeyDistributionMessage. */
-            public axolotlSenderKeyDistributionMessage: Uint8Array;
+            public axolotlSenderKeyDistributionMessage?: (Uint8Array|null);
 
             /**
              * Creates a new SenderKeyDistributionMessage instance using the specified properties.
@@ -27821,7 +27821,7 @@ export namespace E2E {
             public originalMessageKey?: (Protocol.IMessageKey|null);
 
             /** StatusNotificationMessage type. */
-            public type: E2E.Message.StatusNotificationMessage.StatusNotificationType;
+            public type?: (E2E.Message.StatusNotificationMessage.StatusNotificationType|null);
 
             /**
              * Creates a new StatusNotificationMessage instance using the specified properties.
@@ -27985,64 +27985,64 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IStickerMessage);
 
             /** StickerMessage url. */
-            public url: string;
+            public url?: (string|null);
 
             /** StickerMessage fileSha256. */
-            public fileSha256: Uint8Array;
+            public fileSha256?: (Uint8Array|null);
 
             /** StickerMessage fileEncSha256. */
-            public fileEncSha256: Uint8Array;
+            public fileEncSha256?: (Uint8Array|null);
 
             /** StickerMessage mediaKey. */
-            public mediaKey: Uint8Array;
+            public mediaKey?: (Uint8Array|null);
 
             /** StickerMessage mimetype. */
-            public mimetype: string;
+            public mimetype?: (string|null);
 
             /** StickerMessage height. */
-            public height: number;
+            public height?: (number|null);
 
             /** StickerMessage width. */
-            public width: number;
+            public width?: (number|null);
 
             /** StickerMessage directPath. */
-            public directPath: string;
+            public directPath?: (string|null);
 
             /** StickerMessage fileLength. */
-            public fileLength: (number|Long);
+            public fileLength?: (number|Long|null);
 
             /** StickerMessage mediaKeyTimestamp. */
-            public mediaKeyTimestamp: (number|Long);
+            public mediaKeyTimestamp?: (number|Long|null);
 
             /** StickerMessage firstFrameLength. */
-            public firstFrameLength: number;
+            public firstFrameLength?: (number|null);
 
             /** StickerMessage firstFrameSidecar. */
-            public firstFrameSidecar: Uint8Array;
+            public firstFrameSidecar?: (Uint8Array|null);
 
             /** StickerMessage isAnimated. */
-            public isAnimated: boolean;
+            public isAnimated?: (boolean|null);
 
             /** StickerMessage pngThumbnail. */
-            public pngThumbnail: Uint8Array;
+            public pngThumbnail?: (Uint8Array|null);
 
             /** StickerMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
 
             /** StickerMessage stickerSentTs. */
-            public stickerSentTs: (number|Long);
+            public stickerSentTs?: (number|Long|null);
 
             /** StickerMessage isAvatar. */
-            public isAvatar: boolean;
+            public isAvatar?: (boolean|null);
 
             /** StickerMessage isAiSticker. */
-            public isAiSticker: boolean;
+            public isAiSticker?: (boolean|null);
 
             /** StickerMessage isLottie. */
-            public isLottie: boolean;
+            public isLottie?: (boolean|null);
 
             /** StickerMessage accessibilityLabel. */
-            public accessibilityLabel: string;
+            public accessibilityLabel?: (string|null);
 
             /**
              * Creates a new StickerMessage instance using the specified properties.
@@ -28202,70 +28202,70 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IStickerPackMessage);
 
             /** StickerPackMessage stickerPackId. */
-            public stickerPackId: string;
+            public stickerPackId?: (string|null);
 
             /** StickerPackMessage name. */
-            public name: string;
+            public name?: (string|null);
 
             /** StickerPackMessage publisher. */
-            public publisher: string;
+            public publisher?: (string|null);
 
             /** StickerPackMessage stickers. */
             public stickers: E2E.Message.StickerPackMessage.ISticker[];
 
             /** StickerPackMessage fileLength. */
-            public fileLength: (number|Long);
+            public fileLength?: (number|Long|null);
 
             /** StickerPackMessage fileSha256. */
-            public fileSha256: Uint8Array;
+            public fileSha256?: (Uint8Array|null);
 
             /** StickerPackMessage fileEncSha256. */
-            public fileEncSha256: Uint8Array;
+            public fileEncSha256?: (Uint8Array|null);
 
             /** StickerPackMessage mediaKey. */
-            public mediaKey: Uint8Array;
+            public mediaKey?: (Uint8Array|null);
 
             /** StickerPackMessage directPath. */
-            public directPath: string;
+            public directPath?: (string|null);
 
             /** StickerPackMessage caption. */
-            public caption: string;
+            public caption?: (string|null);
 
             /** StickerPackMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
 
             /** StickerPackMessage packDescription. */
-            public packDescription: string;
+            public packDescription?: (string|null);
 
             /** StickerPackMessage mediaKeyTimestamp. */
-            public mediaKeyTimestamp: (number|Long);
+            public mediaKeyTimestamp?: (number|Long|null);
 
             /** StickerPackMessage trayIconFileName. */
-            public trayIconFileName: string;
+            public trayIconFileName?: (string|null);
 
             /** StickerPackMessage thumbnailDirectPath. */
-            public thumbnailDirectPath: string;
+            public thumbnailDirectPath?: (string|null);
 
             /** StickerPackMessage thumbnailSha256. */
-            public thumbnailSha256: Uint8Array;
+            public thumbnailSha256?: (Uint8Array|null);
 
             /** StickerPackMessage thumbnailEncSha256. */
-            public thumbnailEncSha256: Uint8Array;
+            public thumbnailEncSha256?: (Uint8Array|null);
 
             /** StickerPackMessage thumbnailHeight. */
-            public thumbnailHeight: number;
+            public thumbnailHeight?: (number|null);
 
             /** StickerPackMessage thumbnailWidth. */
-            public thumbnailWidth: number;
+            public thumbnailWidth?: (number|null);
 
             /** StickerPackMessage imageDataHash. */
-            public imageDataHash: string;
+            public imageDataHash?: (string|null);
 
             /** StickerPackMessage stickerPackSize. */
-            public stickerPackSize: (number|Long);
+            public stickerPackSize?: (number|Long|null);
 
             /** StickerPackMessage stickerPackOrigin. */
-            public stickerPackOrigin: E2E.Message.StickerPackMessage.StickerPackOrigin;
+            public stickerPackOrigin?: (E2E.Message.StickerPackMessage.StickerPackOrigin|null);
 
             /**
              * Creates a new StickerPackMessage instance using the specified properties.
@@ -28379,22 +28379,22 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.StickerPackMessage.ISticker);
 
                 /** Sticker fileName. */
-                public fileName: string;
+                public fileName?: (string|null);
 
                 /** Sticker isAnimated. */
-                public isAnimated: boolean;
+                public isAnimated?: (boolean|null);
 
                 /** Sticker emojis. */
                 public emojis: string[];
 
                 /** Sticker accessibilityLabel. */
-                public accessibilityLabel: string;
+                public accessibilityLabel?: (string|null);
 
                 /** Sticker isLottie. */
-                public isLottie: boolean;
+                public isLottie?: (boolean|null);
 
                 /** Sticker mimetype. */
-                public mimetype: string;
+                public mimetype?: (string|null);
 
                 /**
                  * Creates a new Sticker instance using the specified properties.
@@ -28508,10 +28508,10 @@ export namespace E2E {
             public filehash: string[];
 
             /** StickerSyncRMRMessage rmrSource. */
-            public rmrSource: string;
+            public rmrSource?: (string|null);
 
             /** StickerSyncRMRMessage requestTimestamp. */
-            public requestTimestamp: (number|Long);
+            public requestTimestamp?: (number|Long|null);
 
             /**
              * Creates a new StickerSyncRMRMessage instance using the specified properties.
@@ -28620,19 +28620,19 @@ export namespace E2E {
             constructor(properties?: E2E.Message.ITemplateButtonReplyMessage);
 
             /** TemplateButtonReplyMessage selectedId. */
-            public selectedId: string;
+            public selectedId?: (string|null);
 
             /** TemplateButtonReplyMessage selectedDisplayText. */
-            public selectedDisplayText: string;
+            public selectedDisplayText?: (string|null);
 
             /** TemplateButtonReplyMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
 
             /** TemplateButtonReplyMessage selectedIndex. */
-            public selectedIndex: number;
+            public selectedIndex?: (number|null);
 
             /** TemplateButtonReplyMessage selectedCarouselCardIndex. */
-            public selectedCarouselCardIndex: number;
+            public selectedCarouselCardIndex?: (number|null);
 
             /**
              * Creates a new TemplateButtonReplyMessage instance using the specified properties.
@@ -28750,7 +28750,7 @@ export namespace E2E {
             public hydratedTemplate?: (E2E.Message.TemplateMessage.IHydratedFourRowTemplate|null);
 
             /** TemplateMessage templateId. */
-            public templateId: string;
+            public templateId?: (string|null);
 
             /** TemplateMessage fourRowTemplate. */
             public fourRowTemplate?: (E2E.Message.TemplateMessage.IFourRowTemplate|null);
@@ -29030,19 +29030,19 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.TemplateMessage.IHydratedFourRowTemplate);
 
                 /** HydratedFourRowTemplate hydratedContentText. */
-                public hydratedContentText: string;
+                public hydratedContentText?: (string|null);
 
                 /** HydratedFourRowTemplate hydratedFooterText. */
-                public hydratedFooterText: string;
+                public hydratedFooterText?: (string|null);
 
                 /** HydratedFourRowTemplate hydratedButtons. */
                 public hydratedButtons: E2E.IHydratedTemplateButton[];
 
                 /** HydratedFourRowTemplate templateId. */
-                public templateId: string;
+                public templateId?: (string|null);
 
                 /** HydratedFourRowTemplate maskLinkedDevices. */
-                public maskLinkedDevices: boolean;
+                public maskLinkedDevices?: (boolean|null);
 
                 /** HydratedFourRowTemplate documentMessage. */
                 public documentMessage?: (E2E.Message.IDocumentMessage|null);
@@ -29158,7 +29158,7 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IURLMetadata);
 
             /** URLMetadata fbExperimentId. */
-            public fbExperimentId: number;
+            public fbExperimentId?: (number|null);
 
             /**
              * Creates a new URLMetadata instance using the specified properties.
@@ -29333,85 +29333,85 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IVideoMessage);
 
             /** VideoMessage url. */
-            public url: string;
+            public url?: (string|null);
 
             /** VideoMessage mimetype. */
-            public mimetype: string;
+            public mimetype?: (string|null);
 
             /** VideoMessage fileSha256. */
-            public fileSha256: Uint8Array;
+            public fileSha256?: (Uint8Array|null);
 
             /** VideoMessage fileLength. */
-            public fileLength: (number|Long);
+            public fileLength?: (number|Long|null);
 
             /** VideoMessage seconds. */
-            public seconds: number;
+            public seconds?: (number|null);
 
             /** VideoMessage mediaKey. */
-            public mediaKey: Uint8Array;
+            public mediaKey?: (Uint8Array|null);
 
             /** VideoMessage caption. */
-            public caption: string;
+            public caption?: (string|null);
 
             /** VideoMessage gifPlayback. */
-            public gifPlayback: boolean;
+            public gifPlayback?: (boolean|null);
 
             /** VideoMessage height. */
-            public height: number;
+            public height?: (number|null);
 
             /** VideoMessage width. */
-            public width: number;
+            public width?: (number|null);
 
             /** VideoMessage fileEncSha256. */
-            public fileEncSha256: Uint8Array;
+            public fileEncSha256?: (Uint8Array|null);
 
             /** VideoMessage interactiveAnnotations. */
             public interactiveAnnotations: E2E.IInteractiveAnnotation[];
 
             /** VideoMessage directPath. */
-            public directPath: string;
+            public directPath?: (string|null);
 
             /** VideoMessage mediaKeyTimestamp. */
-            public mediaKeyTimestamp: (number|Long);
+            public mediaKeyTimestamp?: (number|Long|null);
 
             /** VideoMessage jpegThumbnail. */
-            public jpegThumbnail: Uint8Array;
+            public jpegThumbnail?: (Uint8Array|null);
 
             /** VideoMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
 
             /** VideoMessage streamingSidecar. */
-            public streamingSidecar: Uint8Array;
+            public streamingSidecar?: (Uint8Array|null);
 
             /** VideoMessage gifAttribution. */
-            public gifAttribution: E2E.Message.VideoMessage.Attribution;
+            public gifAttribution?: (E2E.Message.VideoMessage.Attribution|null);
 
             /** VideoMessage viewOnce. */
-            public viewOnce: boolean;
+            public viewOnce?: (boolean|null);
 
             /** VideoMessage thumbnailDirectPath. */
-            public thumbnailDirectPath: string;
+            public thumbnailDirectPath?: (string|null);
 
             /** VideoMessage thumbnailSha256. */
-            public thumbnailSha256: Uint8Array;
+            public thumbnailSha256?: (Uint8Array|null);
 
             /** VideoMessage thumbnailEncSha256. */
-            public thumbnailEncSha256: Uint8Array;
+            public thumbnailEncSha256?: (Uint8Array|null);
 
             /** VideoMessage staticUrl. */
-            public staticUrl: string;
+            public staticUrl?: (string|null);
 
             /** VideoMessage annotations. */
             public annotations: E2E.IInteractiveAnnotation[];
 
             /** VideoMessage accessibilityLabel. */
-            public accessibilityLabel: string;
+            public accessibilityLabel?: (string|null);
 
             /** VideoMessage processedVideos. */
             public processedVideos: E2E.IProcessedVideo[];
 
             /** VideoMessage externalShareFullVideoDurationInSeconds. */
-            public externalShareFullVideoDurationInSeconds: number;
+            public externalShareFullVideoDurationInSeconds?: (number|null);
 
             /**
              * Creates a new VideoMessage instance using the specified properties.
@@ -29587,16 +29587,16 @@ export namespace Protocol {
         constructor(properties?: Protocol.ILimitSharing);
 
         /** LimitSharing sharingLimited. */
-        public sharingLimited: boolean;
+        public sharingLimited?: (boolean|null);
 
         /** LimitSharing trigger. */
-        public trigger: Protocol.LimitSharing.TriggerType;
+        public trigger?: (Protocol.LimitSharing.TriggerType|null);
 
         /** LimitSharing limitSharingSettingTimestamp. */
-        public limitSharingSettingTimestamp: (number|Long);
+        public limitSharingSettingTimestamp?: (number|Long|null);
 
         /** LimitSharing initiatedByMe. */
-        public initiatedByMe: boolean;
+        public initiatedByMe?: (boolean|null);
 
         /**
          * Creates a new LimitSharing instance using the specified properties.
@@ -29713,16 +29713,16 @@ export namespace Protocol {
         constructor(properties?: Protocol.IMessageKey);
 
         /** MessageKey remoteJid. */
-        public remoteJid: string;
+        public remoteJid?: (string|null);
 
         /** MessageKey fromMe. */
-        public fromMe: boolean;
+        public fromMe?: (boolean|null);
 
         /** MessageKey id. */
-        public id: string;
+        public id?: (string|null);
 
         /** MessageKey participant. */
-        public participant: string;
+        public participant?: (string|null);
 
         /**
          * Creates a new MessageKey instance using the specified properties.
@@ -29829,13 +29829,13 @@ export namespace Adv {
         constructor(properties?: Adv.IADVSignedDeviceIdentityHMAC);
 
         /** ADVSignedDeviceIdentityHMAC details. */
-        public details: Uint8Array;
+        public details?: (Uint8Array|null);
 
         /** ADVSignedDeviceIdentityHMAC hmac. */
-        public hmac: Uint8Array;
+        public hmac?: (Uint8Array|null);
 
         /** ADVSignedDeviceIdentityHMAC accountType. */
-        public accountType: Adv.ADVEncryptionType;
+        public accountType?: (Adv.ADVEncryptionType|null);
 
         /**
          * Creates a new ADVSignedDeviceIdentityHMAC instance using the specified properties.
@@ -29941,16 +29941,16 @@ export namespace Adv {
         constructor(properties?: Adv.IADVSignedDeviceIdentity);
 
         /** ADVSignedDeviceIdentity details. */
-        public details: Uint8Array;
+        public details?: (Uint8Array|null);
 
         /** ADVSignedDeviceIdentity accountSignatureKey. */
-        public accountSignatureKey: Uint8Array;
+        public accountSignatureKey?: (Uint8Array|null);
 
         /** ADVSignedDeviceIdentity accountSignature. */
-        public accountSignature: Uint8Array;
+        public accountSignature?: (Uint8Array|null);
 
         /** ADVSignedDeviceIdentity deviceSignature. */
-        public deviceSignature: Uint8Array;
+        public deviceSignature?: (Uint8Array|null);
 
         /**
          * Creates a new ADVSignedDeviceIdentity instance using the specified properties.
@@ -30059,19 +30059,19 @@ export namespace Adv {
         constructor(properties?: Adv.IADVDeviceIdentity);
 
         /** ADVDeviceIdentity rawId. */
-        public rawId: number;
+        public rawId?: (number|null);
 
         /** ADVDeviceIdentity timestamp. */
-        public timestamp: (number|Long);
+        public timestamp?: (number|Long|null);
 
         /** ADVDeviceIdentity keyIndex. */
-        public keyIndex: number;
+        public keyIndex?: (number|null);
 
         /** ADVDeviceIdentity accountType. */
-        public accountType: Adv.ADVEncryptionType;
+        public accountType?: (Adv.ADVEncryptionType|null);
 
         /** ADVDeviceIdentity deviceType. */
-        public deviceType: Adv.ADVEncryptionType;
+        public deviceType?: (Adv.ADVEncryptionType|null);
 
         /**
          * Creates a new ADVDeviceIdentity instance using the specified properties.
@@ -30174,13 +30174,13 @@ export namespace Adv {
         constructor(properties?: Adv.IADVSignedKeyIndexList);
 
         /** ADVSignedKeyIndexList details. */
-        public details: Uint8Array;
+        public details?: (Uint8Array|null);
 
         /** ADVSignedKeyIndexList accountSignature. */
-        public accountSignature: Uint8Array;
+        public accountSignature?: (Uint8Array|null);
 
         /** ADVSignedKeyIndexList accountSignatureKey. */
-        public accountSignatureKey: Uint8Array;
+        public accountSignatureKey?: (Uint8Array|null);
 
         /**
          * Creates a new ADVSignedKeyIndexList instance using the specified properties.
@@ -30289,19 +30289,19 @@ export namespace Adv {
         constructor(properties?: Adv.IADVKeyIndexList);
 
         /** ADVKeyIndexList rawId. */
-        public rawId: number;
+        public rawId?: (number|null);
 
         /** ADVKeyIndexList timestamp. */
-        public timestamp: (number|Long);
+        public timestamp?: (number|Long|null);
 
         /** ADVKeyIndexList currentIndex. */
-        public currentIndex: number;
+        public currentIndex?: (number|null);
 
         /** ADVKeyIndexList validIndexes. */
         public validIndexes: number[];
 
         /** ADVKeyIndexList accountType. */
-        public accountType: Adv.ADVEncryptionType;
+        public accountType?: (Adv.ADVEncryptionType|null);
 
         /**
          * Creates a new ADVKeyIndexList instance using the specified properties.
@@ -30411,10 +30411,10 @@ export namespace CompanionReg {
         constructor(properties?: CompanionReg.IClientPairingProps);
 
         /** ClientPairingProps isChatDbLidMigrated. */
-        public isChatDbLidMigrated: boolean;
+        public isChatDbLidMigrated?: (boolean|null);
 
         /** ClientPairingProps isSyncdPureLidSession. */
-        public isSyncdPureLidSession: boolean;
+        public isSyncdPureLidSession?: (boolean|null);
 
         /**
          * Creates a new ClientPairingProps instance using the specified properties.
@@ -30514,10 +30514,10 @@ export namespace CompanionReg {
         constructor(properties?: CompanionReg.IEncryptedPairingRequest);
 
         /** EncryptedPairingRequest encryptedPayload. */
-        public encryptedPayload: Uint8Array;
+        public encryptedPayload?: (Uint8Array|null);
 
         /** EncryptedPairingRequest iv. */
-        public iv: Uint8Array;
+        public iv?: (Uint8Array|null);
 
         /**
          * Creates a new EncryptedPairingRequest instance using the specified properties.
@@ -30620,13 +30620,13 @@ export namespace CompanionReg {
         constructor(properties?: CompanionReg.IPairingRequest);
 
         /** PairingRequest companionPublicKey. */
-        public companionPublicKey: Uint8Array;
+        public companionPublicKey?: (Uint8Array|null);
 
         /** PairingRequest companionIdentityKey. */
-        public companionIdentityKey: Uint8Array;
+        public companionIdentityKey?: (Uint8Array|null);
 
         /** PairingRequest advSecret. */
-        public advSecret: Uint8Array;
+        public advSecret?: (Uint8Array|null);
 
         /**
          * Creates a new PairingRequest instance using the specified properties.
@@ -30726,10 +30726,10 @@ export namespace CompanionReg {
         constructor(properties?: CompanionReg.IPrimaryEphemeralIdentity);
 
         /** PrimaryEphemeralIdentity publicKey. */
-        public publicKey: Uint8Array;
+        public publicKey?: (Uint8Array|null);
 
         /** PrimaryEphemeralIdentity nonce. */
-        public nonce: Uint8Array;
+        public nonce?: (Uint8Array|null);
 
         /**
          * Creates a new PrimaryEphemeralIdentity instance using the specified properties.
@@ -30829,7 +30829,7 @@ export namespace CompanionReg {
         constructor(properties?: CompanionReg.IProloguePayload);
 
         /** ProloguePayload companionEphemeralIdentity. */
-        public companionEphemeralIdentity: Uint8Array;
+        public companionEphemeralIdentity?: (Uint8Array|null);
 
         /** ProloguePayload commitment. */
         public commitment?: (CompanionReg.ICompanionCommitment|null);
@@ -30929,7 +30929,7 @@ export namespace CompanionReg {
         constructor(properties?: CompanionReg.ICompanionCommitment);
 
         /** CompanionCommitment hash. */
-        public hash: Uint8Array;
+        public hash?: (Uint8Array|null);
 
         /**
          * Creates a new CompanionCommitment instance using the specified properties.
@@ -31032,13 +31032,13 @@ export namespace CompanionReg {
         constructor(properties?: CompanionReg.ICompanionEphemeralIdentity);
 
         /** CompanionEphemeralIdentity publicKey. */
-        public publicKey: Uint8Array;
+        public publicKey?: (Uint8Array|null);
 
         /** CompanionEphemeralIdentity deviceType. */
-        public deviceType: CompanionReg.DeviceProps.PlatformType;
+        public deviceType?: (CompanionReg.DeviceProps.PlatformType|null);
 
         /** CompanionEphemeralIdentity ref. */
-        public ref: string;
+        public ref?: (string|null);
 
         /**
          * Creates a new CompanionEphemeralIdentity instance using the specified properties.
@@ -31147,16 +31147,16 @@ export namespace CompanionReg {
         constructor(properties?: CompanionReg.IDeviceProps);
 
         /** DeviceProps os. */
-        public os: string;
+        public os?: (string|null);
 
         /** DeviceProps version. */
         public version?: (CompanionReg.DeviceProps.IAppVersion|null);
 
         /** DeviceProps platformType. */
-        public platformType: CompanionReg.DeviceProps.PlatformType;
+        public platformType?: (CompanionReg.DeviceProps.PlatformType|null);
 
         /** DeviceProps requireFullSync. */
-        public requireFullSync: boolean;
+        public requireFullSync?: (boolean|null);
 
         /** DeviceProps historySyncConfig. */
         public historySyncConfig?: (CompanionReg.DeviceProps.IHistorySyncConfig|null);
@@ -31270,19 +31270,19 @@ export namespace CompanionReg {
             constructor(properties?: CompanionReg.DeviceProps.IAppVersion);
 
             /** AppVersion primary. */
-            public primary: number;
+            public primary?: (number|null);
 
             /** AppVersion secondary. */
-            public secondary: number;
+            public secondary?: (number|null);
 
             /** AppVersion tertiary. */
-            public tertiary: number;
+            public tertiary?: (number|null);
 
             /** AppVersion quaternary. */
-            public quaternary: number;
+            public quaternary?: (number|null);
 
             /** AppVersion quinary. */
-            public quinary: number;
+            public quinary?: (number|null);
 
             /**
              * Creates a new AppVersion instance using the specified properties.
@@ -31418,46 +31418,46 @@ export namespace CompanionReg {
             constructor(properties?: CompanionReg.DeviceProps.IHistorySyncConfig);
 
             /** HistorySyncConfig fullSyncDaysLimit. */
-            public fullSyncDaysLimit: number;
+            public fullSyncDaysLimit?: (number|null);
 
             /** HistorySyncConfig fullSyncSizeMbLimit. */
-            public fullSyncSizeMbLimit: number;
+            public fullSyncSizeMbLimit?: (number|null);
 
             /** HistorySyncConfig storageQuotaMb. */
-            public storageQuotaMb: number;
+            public storageQuotaMb?: (number|null);
 
             /** HistorySyncConfig inlineInitialPayloadInE2EeMsg. */
-            public inlineInitialPayloadInE2EeMsg: boolean;
+            public inlineInitialPayloadInE2EeMsg?: (boolean|null);
 
             /** HistorySyncConfig recentSyncDaysLimit. */
-            public recentSyncDaysLimit: number;
+            public recentSyncDaysLimit?: (number|null);
 
             /** HistorySyncConfig supportCallLogHistory. */
-            public supportCallLogHistory: boolean;
+            public supportCallLogHistory?: (boolean|null);
 
             /** HistorySyncConfig supportBotUserAgentChatHistory. */
-            public supportBotUserAgentChatHistory: boolean;
+            public supportBotUserAgentChatHistory?: (boolean|null);
 
             /** HistorySyncConfig supportCagReactionsAndPolls. */
-            public supportCagReactionsAndPolls: boolean;
+            public supportCagReactionsAndPolls?: (boolean|null);
 
             /** HistorySyncConfig supportBizHostedMsg. */
-            public supportBizHostedMsg: boolean;
+            public supportBizHostedMsg?: (boolean|null);
 
             /** HistorySyncConfig supportRecentSyncChunkMessageCountTuning. */
-            public supportRecentSyncChunkMessageCountTuning: boolean;
+            public supportRecentSyncChunkMessageCountTuning?: (boolean|null);
 
             /** HistorySyncConfig supportHostedGroupMsg. */
-            public supportHostedGroupMsg: boolean;
+            public supportHostedGroupMsg?: (boolean|null);
 
             /** HistorySyncConfig supportFbidBotChatHistory. */
-            public supportFbidBotChatHistory: boolean;
+            public supportFbidBotChatHistory?: (boolean|null);
 
             /** HistorySyncConfig supportAddOnHistorySyncMigration. */
-            public supportAddOnHistorySyncMigration: boolean;
+            public supportAddOnHistorySyncMigration?: (boolean|null);
 
             /** HistorySyncConfig supportMessageAssociation. */
-            public supportMessageAssociation: boolean;
+            public supportMessageAssociation?: (boolean|null);
 
             /**
              * Creates a new HistorySyncConfig instance using the specified properties.
@@ -31588,7 +31588,7 @@ export namespace MmsRetry {
         constructor(properties?: MmsRetry.IServerErrorReceipt);
 
         /** ServerErrorReceipt stanzaId. */
-        public stanzaId: string;
+        public stanzaId?: (string|null);
 
         /**
          * Creates a new ServerErrorReceipt instance using the specified properties.
@@ -31694,16 +31694,16 @@ export namespace MmsRetry {
         constructor(properties?: MmsRetry.IMediaRetryNotification);
 
         /** MediaRetryNotification stanzaId. */
-        public stanzaId: string;
+        public stanzaId?: (string|null);
 
         /** MediaRetryNotification directPath. */
-        public directPath: string;
+        public directPath?: (string|null);
 
         /** MediaRetryNotification result. */
-        public result: MmsRetry.MediaRetryNotification.ResultType;
+        public result?: (MmsRetry.MediaRetryNotification.ResultType|null);
 
         /** MediaRetryNotification messageSecret. */
-        public messageSecret: Uint8Array;
+        public messageSecret?: (Uint8Array|null);
 
         /**
          * Creates a new MediaRetryNotification instance using the specified properties.

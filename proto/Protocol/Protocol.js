@@ -76,7 +76,7 @@ $root.Protocol = (function() {
          * @instance
          */
         LimitSharing.prototype.initiatedByMe = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -91,13 +91,13 @@ $root.Protocol = (function() {
             get: $util.oneOfGetter($oneOfFields = ["trigger"]),
             set: $util.oneOfSetter($oneOfFields)
         });
-        
+
         // Virtual OneOf for proto3 optional field
         Object.defineProperty(LimitSharing.prototype, "_limitSharingSettingTimestamp", {
             get: $util.oneOfGetter($oneOfFields = ["limitSharingSettingTimestamp"]),
             set: $util.oneOfSetter($oneOfFields)
         });
-        
+
         // Virtual OneOf for proto3 optional field
         Object.defineProperty(LimitSharing.prototype, "_initiatedByMe", {
             get: $util.oneOfGetter($oneOfFields = ["initiatedByMe"]),
@@ -323,7 +323,7 @@ $root.Protocol = (function() {
                     object._sharingLimited = "sharingLimited";
             }
             if (message.trigger != null && message.hasOwnProperty("trigger")) {
-                object.trigger = options.enums === String ? $root.proto.LimitSharing.TriggerType[message.trigger] === undefined ? message.trigger : $root.proto.LimitSharing.TriggerType[message.trigger] : message.trigger;
+                object.trigger = options.enums === String ? $root.Protocol.LimitSharing.TriggerType[message.trigger] === undefined ? message.trigger : $root.Protocol.LimitSharing.TriggerType[message.trigger] : message.trigger;
                 if (options.oneofs)
                     object._trigger = "trigger";
             }
@@ -370,7 +370,7 @@ $root.Protocol = (function() {
         };
 
         /**
-         * Trigger enum.
+         * TriggerType enum.
          * @name Protocol.LimitSharing.TriggerType
          * @enum {number}
          * @property {number} UNKNOWN=0 UNKNOWN value
@@ -448,7 +448,7 @@ $root.Protocol = (function() {
          * @instance
          */
         MessageKey.prototype.participant = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 

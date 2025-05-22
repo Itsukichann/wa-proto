@@ -49,7 +49,7 @@ $root.MmsRetry = (function() {
          * @instance
          */
         ServerErrorReceipt.prototype.stanzaId = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -292,7 +292,7 @@ $root.MmsRetry = (function() {
          * @instance
          */
         MediaRetryNotification.prototype.messageSecret = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 

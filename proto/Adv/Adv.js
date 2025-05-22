@@ -67,7 +67,7 @@ $root.Adv = (function() {
          * @instance
          */
         ADVSignedDeviceIdentityHMAC.prototype.accountType = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -383,7 +383,7 @@ $root.Adv = (function() {
          * @instance
          */
         ADVSignedDeviceIdentity.prototype.deviceSignature = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -719,7 +719,7 @@ $root.Adv = (function() {
          * @instance
          */
         ADVDeviceIdentity.prototype.deviceType = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -1097,7 +1097,7 @@ $root.Adv = (function() {
          * @instance
          */
         ADVSignedKeyIndexList.prototype.accountSignatureKey = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -1407,7 +1407,7 @@ $root.Adv = (function() {
          * @instance
          */
         ADVKeyIndexList.prototype.accountType = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -1632,7 +1632,7 @@ $root.Adv = (function() {
                 message.currentIndex = object.currentIndex >>> 0;
             if (object.validIndexes) {
                 if (!Array.isArray(object.validIndexes))
-                    throw TypeError(".proto.ADVKeyIndexList.validIndexes: array expected");
+                    throw TypeError(".Adv.ADVKeyIndexList.validIndexes: array expected");
                 message.validIndexes = [];
                 for (var i = 0; i < object.validIndexes.length; ++i)
                     message.validIndexes[i] = object.validIndexes[i] >>> 0;

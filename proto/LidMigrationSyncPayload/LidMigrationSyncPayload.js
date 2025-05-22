@@ -60,6 +60,15 @@ $root.LidMigrationSyncPayload = (function() {
          */
         LIDMigrationMappingSyncPayload.prototype.chatDbMigrationTimestamp = null;
 
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(LIDMigrationMappingSyncPayload.prototype, "_chatDbMigrationTimestamp", {
+            get: $util.oneOfGetter($oneOfFields = ["chatDbMigrationTimestamp"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new LIDMigrationMappingSyncPayload instance using the specified properties.
          * @function create
@@ -168,6 +177,7 @@ $root.LidMigrationSyncPayload = (function() {
         LIDMigrationMappingSyncPayload.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            var properties = {};
             if (message.pnToLidMappings != null && message.hasOwnProperty("pnToLidMappings")) {
                 if (!Array.isArray(message.pnToLidMappings))
                     return "pnToLidMappings: array expected";
@@ -178,8 +188,9 @@ $root.LidMigrationSyncPayload = (function() {
                 }
             }
             if (message.chatDbMigrationTimestamp != null && message.hasOwnProperty("chatDbMigrationTimestamp")) {
+                properties._chatDbMigrationTimestamp = 1;
                 if (!$util.isInteger(message.chatDbMigrationTimestamp) && !(message.chatDbMigrationTimestamp && $util.isInteger(message.chatDbMigrationTimestamp.low) && $util.isInteger(message.chatDbMigrationTimestamp.high)))
-                    return "fileLength: integer|Long expected";
+                    return "chatDbMigrationTimestamp: integer|Long expected";
             }
             return null;
         };
@@ -238,11 +249,14 @@ $root.LidMigrationSyncPayload = (function() {
                 for (var j = 0; j < message.pnToLidMappings.length; ++j)
                     object.pnToLidMappings[j] = $root.LidMigrationSyncPayload.LIDMigrationMapping.toObject(message.pnToLidMappings[j], options);
             }
-            if (message.chatDbMigrationTimestamp != null && message.hasOwnProperty("chatDbMigrationTimestamp"))
+            if (message.chatDbMigrationTimestamp != null && message.hasOwnProperty("chatDbMigrationTimestamp")) {
                 if (typeof message.chatDbMigrationTimestamp === "number")
                     object.chatDbMigrationTimestamp = options.longs === String ? String(message.chatDbMigrationTimestamp) : message.chatDbMigrationTimestamp;
                 else
                     object.chatDbMigrationTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.chatDbMigrationTimestamp) : options.longs === Number ? new $util.LongBits(message.chatDbMigrationTimestamp.low >>> 0, message.chatDbMigrationTimestamp.high >>> 0).toNumber(true) : message.chatDbMigrationTimestamp;
+                if (options.oneofs)
+                    object._chatDbMigrationTimestamp = "chatDbMigrationTimestamp";
+            }
             return object;
         };
 
@@ -307,7 +321,7 @@ $root.LidMigrationSyncPayload = (function() {
          * @memberof LidMigrationSyncPayload.LIDMigrationMapping
          * @instance
          */
-        LIDMigrationMapping.prototype.pn = $util.Long ? $util.Long.fromBits(0,0,true) : 0;;
+        LIDMigrationMapping.prototype.pn = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
         /**
          * LIDMigrationMapping assignedLid.
@@ -315,7 +329,7 @@ $root.LidMigrationSyncPayload = (function() {
          * @memberof LidMigrationSyncPayload.LIDMigrationMapping
          * @instance
          */
-        LIDMigrationMapping.prototype.assignedLid = $util.Long ? $util.Long.fromBits(0,0,true) : 0;;
+        LIDMigrationMapping.prototype.assignedLid = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
         /**
          * LIDMigrationMapping latestLid.
@@ -324,7 +338,7 @@ $root.LidMigrationSyncPayload = (function() {
          * @instance
          */
         LIDMigrationMapping.prototype.latestLid = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 

@@ -35,22 +35,22 @@ export namespace HistorySync {
         constructor(properties?: HistorySync.INotificationSettings);
 
         /** NotificationSettings messageVibrate. */
-        public messageVibrate: string;
+        public messageVibrate?: (string|null);
 
         /** NotificationSettings messagePopup. */
-        public messagePopup: string;
+        public messagePopup?: (string|null);
 
         /** NotificationSettings messageLight. */
-        public messageLight: string;
+        public messageLight?: (string|null);
 
         /** NotificationSettings lowPriorityNotifications. */
-        public lowPriorityNotifications: boolean;
+        public lowPriorityNotifications?: (boolean|null);
 
         /** NotificationSettings reactionsMuted. */
-        public reactionsMuted: boolean;
+        public reactionsMuted?: (boolean|null);
 
         /** NotificationSettings callVibrate. */
-        public callVibrate: string;
+        public callVibrate?: (string|null);
 
         /**
          * Creates a new NotificationSettings instance using the specified properties.
@@ -150,10 +150,10 @@ export namespace HistorySync {
         constructor(properties?: HistorySync.IAvatarUserSettings);
 
         /** AvatarUserSettings fbid. */
-        public fbid: string;
+        public fbid?: (string|null);
 
         /** AvatarUserSettings password. */
-        public password: string;
+        public password?: (string|null);
 
         /**
          * Creates a new AvatarUserSettings instance using the specified properties.
@@ -256,13 +256,13 @@ export namespace HistorySync {
         constructor(properties?: HistorySync.IPastParticipant);
 
         /** PastParticipant userJid. */
-        public userJid: string;
+        public userJid?: (string|null);
 
         /** PastParticipant leaveReason. */
-        public leaveReason: HistorySync.PastParticipant.LeaveReason;
+        public leaveReason?: (HistorySync.PastParticipant.LeaveReason|null);
 
         /** PastParticipant leaveTs. */
-        public leaveTs: (number|Long);
+        public leaveTs?: (number|Long|null);
 
         /**
          * Creates a new PastParticipant instance using the specified properties.
@@ -371,7 +371,7 @@ export namespace HistorySync {
         constructor(properties?: HistorySync.IPastParticipants);
 
         /** PastParticipants groupJid. */
-        public groupJid: string;
+        public groupJid?: (string|null);
 
         /** PastParticipants pastParticipants. */
         public pastParticipants: HistorySync.IPastParticipant[];
@@ -504,40 +504,40 @@ export namespace HistorySync {
         constructor(properties?: HistorySync.IStickerMetadata);
 
         /** StickerMetadata url. */
-        public url: string;
+        public url?: (string|null);
 
         /** StickerMetadata fileSha256. */
-        public fileSha256: Uint8Array;
+        public fileSha256?: (Uint8Array|null);
 
         /** StickerMetadata fileEncSha256. */
-        public fileEncSha256: Uint8Array;
+        public fileEncSha256?: (Uint8Array|null);
 
         /** StickerMetadata mediaKey. */
-        public mediaKey: Uint8Array;
+        public mediaKey?: (Uint8Array|null);
 
         /** StickerMetadata mimetype. */
-        public mimetype: string;
+        public mimetype?: (string|null);
 
         /** StickerMetadata height. */
-        public height: number;
+        public height?: (number|null);
 
         /** StickerMetadata width. */
-        public width: number;
+        public width?: (number|null);
 
         /** StickerMetadata directPath. */
-        public directPath: string;
+        public directPath?: (string|null);
 
         /** StickerMetadata fileLength. */
-        public fileLength: (number|Long);
+        public fileLength?: (number|Long|null);
 
         /** StickerMetadata weight. */
-        public weight: number;
+        public weight?: (number|null);
 
         /** StickerMetadata lastStickerSentTs. */
-        public lastStickerSentTs: (number|Long);
+        public lastStickerSentTs?: (number|Long|null);
 
         /** StickerMetadata isLottie. */
-        public isLottie: boolean;
+        public isLottie?: (boolean|null);
 
         /**
          * Creates a new StickerMetadata instance using the specified properties.
@@ -643,16 +643,16 @@ export namespace HistorySync {
         constructor(properties?: HistorySync.IAutoDownloadSettings);
 
         /** AutoDownloadSettings downloadImages. */
-        public downloadImages: boolean;
+        public downloadImages?: (boolean|null);
 
         /** AutoDownloadSettings downloadAudio. */
-        public downloadAudio: boolean;
+        public downloadAudio?: (boolean|null);
 
         /** AutoDownloadSettings downloadVideo. */
-        public downloadVideo: boolean;
+        public downloadVideo?: (boolean|null);
 
         /** AutoDownloadSettings downloadDocuments. */
-        public downloadDocuments: boolean;
+        public downloadDocuments?: (boolean|null);
 
         /**
          * Creates a new AutoDownloadSettings instance using the specified properties.
@@ -791,6 +791,9 @@ export namespace HistorySync {
 
         /** GlobalSettings chatLockSettings */
         chatLockSettings?: (ChatLockSettings.IChatLockSettings|null);
+
+        /** GlobalSettings chatDbLidMigrationTimestamp */
+        chatDbLidMigrationTimestamp?: (number|Long|null);
     }
 
     /** Represents a GlobalSettings. */
@@ -806,7 +809,7 @@ export namespace HistorySync {
         public lightThemeWallpaper?: (HistorySync.IWallpaperSettings|null);
 
         /** GlobalSettings mediaVisibility. */
-        public mediaVisibility: HistorySync.MediaVisibility;
+        public mediaVisibility?: (HistorySync.MediaVisibility|null);
 
         /** GlobalSettings darkThemeWallpaper. */
         public darkThemeWallpaper?: (HistorySync.IWallpaperSettings|null);
@@ -821,34 +824,34 @@ export namespace HistorySync {
         public autoDownloadRoaming?: (HistorySync.IAutoDownloadSettings|null);
 
         /** GlobalSettings showIndividualNotificationsPreview. */
-        public showIndividualNotificationsPreview: boolean;
+        public showIndividualNotificationsPreview?: (boolean|null);
 
         /** GlobalSettings showGroupNotificationsPreview. */
-        public showGroupNotificationsPreview: boolean;
+        public showGroupNotificationsPreview?: (boolean|null);
 
         /** GlobalSettings disappearingModeDuration. */
-        public disappearingModeDuration: number;
+        public disappearingModeDuration?: (number|null);
 
         /** GlobalSettings disappearingModeTimestamp. */
-        public disappearingModeTimestamp: (number|Long);
+        public disappearingModeTimestamp?: (number|Long|null);
 
         /** GlobalSettings avatarUserSettings. */
         public avatarUserSettings?: (HistorySync.IAvatarUserSettings|null);
 
         /** GlobalSettings fontSize. */
-        public fontSize: number;
+        public fontSize?: (number|null);
 
         /** GlobalSettings securityNotifications. */
-        public securityNotifications: boolean;
+        public securityNotifications?: (boolean|null);
 
         /** GlobalSettings autoUnarchiveChats. */
-        public autoUnarchiveChats: boolean;
+        public autoUnarchiveChats?: (boolean|null);
 
         /** GlobalSettings videoQualityMode. */
-        public videoQualityMode: number;
+        public videoQualityMode?: (number|null);
 
         /** GlobalSettings photoQualityMode. */
-        public photoQualityMode: number;
+        public photoQualityMode?: (number|null);
 
         /** GlobalSettings individualNotificationSettings. */
         public individualNotificationSettings?: (HistorySync.INotificationSettings|null);
@@ -858,6 +861,9 @@ export namespace HistorySync {
 
         /** GlobalSettings chatLockSettings. */
         public chatLockSettings?: (ChatLockSettings.IChatLockSettings|null);
+
+        /** GlobalSettings chatDbLidMigrationTimestamp. */
+        public chatDbLidMigrationTimestamp?: (number|Long|null);
 
         /**
          * Creates a new GlobalSettings instance using the specified properties.
@@ -957,10 +963,10 @@ export namespace HistorySync {
         constructor(properties?: HistorySync.IWallpaperSettings);
 
         /** WallpaperSettings filename. */
-        public filename: string;
+        public filename?: (string|null);
 
         /** WallpaperSettings opacity. */
-        public opacity: number;
+        public opacity?: (number|null);
 
         /**
          * Creates a new WallpaperSettings instance using the specified properties.
@@ -1063,7 +1069,7 @@ export namespace HistorySync {
         public userJid: string;
 
         /** GroupParticipant rank. */
-        public rank: HistorySync.GroupParticipant.Rank;
+        public rank?: (HistorySync.GroupParticipant.Rank|null);
 
         /**
          * Creates a new GroupParticipant instance using the specified properties.
@@ -1173,10 +1179,10 @@ export namespace HistorySync {
         constructor(properties?: HistorySync.IPushname);
 
         /** Pushname id. */
-        public id: string;
+        public id?: (string|null);
 
         /** Pushname pushname. */
-        public pushname: string;
+        public pushname?: (string|null);
 
         /**
          * Creates a new Pushname instance using the specified properties.
@@ -1279,7 +1285,7 @@ export namespace HistorySync {
         public message?: (Web.IWebMessageInfo|null);
 
         /** HistorySyncMsg msgOrderId. */
-        public msgOrderId: (number|Long);
+        public msgOrderId?: (number|Long|null);
 
         /**
          * Creates a new HistorySyncMsg instance using the specified properties.
@@ -1385,16 +1391,16 @@ export namespace HistorySync {
         constructor(properties?: HistorySync.IAccount);
 
         /** Account lid. */
-        public lid: string;
+        public lid?: (string|null);
 
         /** Account username. */
-        public username: string;
+        public username?: (string|null);
 
         /** Account countryCode. */
-        public countryCode: string;
+        public countryCode?: (string|null);
 
         /** Account isUsernameDeleted. */
-        public isUsernameDeleted: boolean;
+        public isUsernameDeleted?: (boolean|null);
 
         /**
          * Creates a new Account instance using the specified properties.
@@ -1494,10 +1500,10 @@ export namespace HistorySync {
         constructor(properties?: HistorySync.IPhoneNumberToLIDMapping);
 
         /** PhoneNumberToLIDMapping pnJid. */
-        public pnJid: string;
+        public pnJid?: (string|null);
 
         /** PhoneNumberToLIDMapping lidJid. */
-        public lidJid: string;
+        public lidJid?: (string|null);
 
         /**
          * Creates a new PhoneNumberToLIDMapping instance using the specified properties.
@@ -1732,6 +1738,12 @@ export namespace HistorySync {
 
         /** Conversation limitSharingSettingTimestamp */
         limitSharingSettingTimestamp?: (number|Long|null);
+
+        /** Conversation limitSharingTrigger */
+        limitSharingTrigger?: (Protocol.LimitSharing.TriggerType|null);
+
+        /** Conversation limitSharingInitiatedByMe */
+        limitSharingInitiatedByMe?: (boolean|null);
     }
 
     /** Represents a Conversation. */
@@ -1750,151 +1762,157 @@ export namespace HistorySync {
         public messages: HistorySync.IHistorySyncMsg[];
 
         /** Conversation newJid. */
-        public newJid: string;
+        public newJid?: (string|null);
 
         /** Conversation oldJid. */
-        public oldJid: string;
+        public oldJid?: (string|null);
 
         /** Conversation lastMsgTimestamp. */
-        public lastMsgTimestamp: (number|Long);
+        public lastMsgTimestamp?: (number|Long|null);
 
         /** Conversation unreadCount. */
-        public unreadCount: number;
+        public unreadCount?: (number|null);
 
         /** Conversation readOnly. */
-        public readOnly: boolean;
+        public readOnly?: (boolean|null);
 
         /** Conversation endOfHistoryTransfer. */
-        public endOfHistoryTransfer: boolean;
+        public endOfHistoryTransfer?: (boolean|null);
 
         /** Conversation ephemeralExpiration. */
-        public ephemeralExpiration: number;
+        public ephemeralExpiration?: (number|null);
 
         /** Conversation ephemeralSettingTimestamp. */
-        public ephemeralSettingTimestamp: (number|Long);
+        public ephemeralSettingTimestamp?: (number|Long|null);
 
         /** Conversation endOfHistoryTransferType. */
-        public endOfHistoryTransferType: HistorySync.Conversation.EndOfHistoryTransferType;
+        public endOfHistoryTransferType?: (HistorySync.Conversation.EndOfHistoryTransferType|null);
 
         /** Conversation conversationTimestamp. */
-        public conversationTimestamp: (number|Long);
+        public conversationTimestamp?: (number|Long|null);
 
         /** Conversation name. */
-        public name: string;
+        public name?: (string|null);
 
         /** Conversation pHash. */
-        public pHash: string;
+        public pHash?: (string|null);
 
         /** Conversation notSpam. */
-        public notSpam: boolean;
+        public notSpam?: (boolean|null);
 
         /** Conversation archived. */
-        public archived: boolean;
+        public archived?: (boolean|null);
 
         /** Conversation disappearingMode. */
         public disappearingMode?: (E2E.IDisappearingMode|null);
 
         /** Conversation unreadMentionCount. */
-        public unreadMentionCount: number;
+        public unreadMentionCount?: (number|null);
 
         /** Conversation markedAsUnread. */
-        public markedAsUnread: boolean;
+        public markedAsUnread?: (boolean|null);
 
         /** Conversation participant. */
         public participant: HistorySync.IGroupParticipant[];
 
         /** Conversation tcToken. */
-        public tcToken: Uint8Array;
+        public tcToken?: (Uint8Array|null);
 
         /** Conversation tcTokenTimestamp. */
-        public tcTokenTimestamp: (number|Long);
+        public tcTokenTimestamp?: (number|Long|null);
 
         /** Conversation contactPrimaryIdentityKey. */
-        public contactPrimaryIdentityKey: Uint8Array;
+        public contactPrimaryIdentityKey?: (Uint8Array|null);
 
         /** Conversation pinned. */
-        public pinned: number;
+        public pinned?: (number|null);
 
         /** Conversation muteEndTime. */
-        public muteEndTime: (number|Long);
+        public muteEndTime?: (number|Long|null);
 
         /** Conversation wallpaper. */
         public wallpaper?: (HistorySync.IWallpaperSettings|null);
 
         /** Conversation mediaVisibility. */
-        public mediaVisibility: HistorySync.MediaVisibility;
+        public mediaVisibility?: (HistorySync.MediaVisibility|null);
 
         /** Conversation tcTokenSenderTimestamp. */
-        public tcTokenSenderTimestamp: (number|Long);
+        public tcTokenSenderTimestamp?: (number|Long|null);
 
         /** Conversation suspended. */
-        public suspended: boolean;
+        public suspended?: (boolean|null);
 
         /** Conversation terminated. */
-        public terminated: boolean;
+        public terminated?: (boolean|null);
 
         /** Conversation createdAt. */
-        public createdAt: (number|Long);
+        public createdAt?: (number|Long|null);
 
         /** Conversation createdBy. */
-        public createdBy: string;
+        public createdBy?: (string|null);
 
         /** Conversation description. */
-        public description: string;
+        public description?: (string|null);
 
         /** Conversation support. */
-        public support: boolean;
+        public support?: (boolean|null);
 
         /** Conversation isParentGroup. */
-        public isParentGroup: boolean;
+        public isParentGroup?: (boolean|null);
 
         /** Conversation parentGroupId. */
-        public parentGroupId: string;
+        public parentGroupId?: (string|null);
 
         /** Conversation isDefaultSubgroup. */
-        public isDefaultSubgroup: boolean;
+        public isDefaultSubgroup?: (boolean|null);
 
         /** Conversation displayName. */
-        public displayName: string;
+        public displayName?: (string|null);
 
         /** Conversation pnJid. */
-        public pnJid: string;
+        public pnJid?: (string|null);
 
         /** Conversation shareOwnPn. */
-        public shareOwnPn: boolean;
+        public shareOwnPn?: (boolean|null);
 
         /** Conversation pnhDuplicateLidThread. */
-        public pnhDuplicateLidThread: boolean;
+        public pnhDuplicateLidThread?: (boolean|null);
 
         /** Conversation lidJid. */
-        public lidJid: string;
+        public lidJid?: (string|null);
 
         /** Conversation username. */
-        public username: string;
+        public username?: (string|null);
 
         /** Conversation lidOriginType. */
-        public lidOriginType: string;
+        public lidOriginType?: (string|null);
 
         /** Conversation commentsCount. */
-        public commentsCount: number;
+        public commentsCount?: (number|null);
 
         /** Conversation locked. */
-        public locked: boolean;
+        public locked?: (boolean|null);
 
         /** Conversation systemMessageToInsert. */
-        public systemMessageToInsert: HistorySync.PrivacySystemMessage;
+        public systemMessageToInsert?: (HistorySync.PrivacySystemMessage|null);
 
         /** Conversation capiCreatedGroup. */
-        public capiCreatedGroup: boolean;
+        public capiCreatedGroup?: (boolean|null);
 
         /** Conversation accountLid. */
-        public accountLid: string;
+        public accountLid?: (string|null);
 
         /** Conversation limitSharing. */
-        public limitSharing: boolean;
+        public limitSharing?: (boolean|null);
 
         /** Conversation limitSharingSettingTimestamp. */
-        public limitSharingSettingTimestamp: (number|Long);
+        public limitSharingSettingTimestamp?: (number|Long|null);
+
+        /** Conversation limitSharingTrigger. */
+        public limitSharingTrigger?: (Protocol.LimitSharing.TriggerType|null);
+
+        /** Conversation limitSharingInitiatedByMe. */
+        public limitSharingInitiatedByMe?: (boolean|null);
 
         /**
          * Creates a new Conversation instance using the specified properties.
@@ -2058,10 +2076,10 @@ export namespace HistorySync {
         public statusV3Messages: Web.IWebMessageInfo[];
 
         /** HistorySync chunkOrder. */
-        public chunkOrder: number;
+        public chunkOrder?: (number|null);
 
         /** HistorySync progress. */
-        public progress: number;
+        public progress?: (number|null);
 
         /** HistorySync pushnames. */
         public pushnames: HistorySync.IPushname[];
@@ -2070,10 +2088,10 @@ export namespace HistorySync {
         public globalSettings?: (HistorySync.IGlobalSettings|null);
 
         /** HistorySync threadIdUserSecret. */
-        public threadIdUserSecret: Uint8Array;
+        public threadIdUserSecret?: (Uint8Array|null);
 
         /** HistorySync threadDsTimeframeOffset. */
-        public threadDsTimeframeOffset: number;
+        public threadDsTimeframeOffset?: (number|null);
 
         /** HistorySync recentStickers. */
         public recentStickers: HistorySync.IStickerMetadata[];
@@ -2085,16 +2103,16 @@ export namespace HistorySync {
         public callLogRecords: SyncAction.ICallLogRecord[];
 
         /** HistorySync aiWaitListState. */
-        public aiWaitListState: HistorySync.HistorySync.BotAIWaitListState;
+        public aiWaitListState?: (HistorySync.HistorySync.BotAIWaitListState|null);
 
         /** HistorySync phoneNumberToLidMappings. */
         public phoneNumberToLidMappings: HistorySync.IPhoneNumberToLIDMapping[];
 
         /** HistorySync companionMetaNonce. */
-        public companionMetaNonce: string;
+        public companionMetaNonce?: (string|null);
 
         /** HistorySync shareableChatIdentifierEncryptionKey. */
-        public shareableChatIdentifierEncryptionKey: Uint8Array;
+        public shareableChatIdentifierEncryptionKey?: (Uint8Array|null);
 
         /** HistorySync accounts. */
         public accounts: HistorySync.IAccount[];
@@ -2235,7 +2253,7 @@ export namespace ChatLockSettings {
         constructor(properties?: ChatLockSettings.IChatLockSettings);
 
         /** ChatLockSettings hideLockedChats. */
-        public hideLockedChats: boolean;
+        public hideLockedChats?: (boolean|null);
 
         /** ChatLockSettings secretCode. */
         public secretCode?: (UserPassword.IUserPassword|null);
@@ -2348,16 +2366,16 @@ export namespace UserPassword {
         constructor(properties?: UserPassword.IUserPassword);
 
         /** UserPassword encoding. */
-        public encoding: UserPassword.UserPassword.Encoding;
+        public encoding?: (UserPassword.UserPassword.Encoding|null);
 
         /** UserPassword transformer. */
-        public transformer: UserPassword.UserPassword.Transformer;
+        public transformer?: (UserPassword.UserPassword.Transformer|null);
 
         /** UserPassword transformerArg. */
         public transformerArg: UserPassword.UserPassword.ITransformerArg[];
 
         /** UserPassword transformedData. */
-        public transformedData: Uint8Array;
+        public transformedData?: (Uint8Array|null);
 
         /**
          * Creates a new UserPassword instance using the specified properties.
@@ -2472,7 +2490,7 @@ export namespace UserPassword {
             constructor(properties?: UserPassword.UserPassword.ITransformerArg);
 
             /** TransformerArg key. */
-            public key: string;
+            public key?: (string|null);
 
             /** TransformerArg value. */
             public value?: (UserPassword.UserPassword.TransformerArg.IValue|null);
@@ -2919,19 +2937,19 @@ export namespace Web {
         constructor(properties?: Web.IMessageAddOn);
 
         /** MessageAddOn messageAddOnType. */
-        public messageAddOnType: Web.MessageAddOn.MessageAddOnType;
+        public messageAddOnType?: (Web.MessageAddOn.MessageAddOnType|null);
 
         /** MessageAddOn messageAddOn. */
         public messageAddOn?: (E2E.IMessage|null);
 
         /** MessageAddOn senderTimestampMs. */
-        public senderTimestampMs: (number|Long);
+        public senderTimestampMs?: (number|Long|null);
 
         /** MessageAddOn serverTimestampMs. */
-        public serverTimestampMs: (number|Long);
+        public serverTimestampMs?: (number|Long|null);
 
         /** MessageAddOn status. */
-        public status: Web.WebMessageInfo.Status;
+        public status?: (Web.WebMessageInfo.Status|null);
 
         /** MessageAddOn addOnContextInfo. */
         public addOnContextInfo?: (Web.IMessageAddOnContextInfo|null);
@@ -3164,13 +3182,13 @@ export namespace Web {
         public eventResponseMessageKey?: (Protocol.IMessageKey|null);
 
         /** EventResponse timestampMs. */
-        public timestampMs: (number|Long);
+        public timestampMs?: (number|Long|null);
 
         /** EventResponse eventResponseMessage. */
         public eventResponseMessage?: (E2E.Message.IEventResponseMessage|null);
 
         /** EventResponse unread. */
-        public unread: boolean;
+        public unread?: (boolean|null);
 
         /**
          * Creates a new EventResponse instance using the specified properties.
@@ -3267,7 +3285,7 @@ export namespace Web {
         constructor(properties?: Web.IPremiumMessageInfo);
 
         /** PremiumMessageInfo serverCampaignId. */
-        public serverCampaignId: string;
+        public serverCampaignId?: (string|null);
 
         /**
          * Creates a new PremiumMessageInfo instance using the specified properties.
@@ -3367,10 +3385,10 @@ export namespace Web {
         constructor(properties?: Web.IMessageAddOnContextInfo);
 
         /** MessageAddOnContextInfo messageAddOnDurationInSecs. */
-        public messageAddOnDurationInSecs: number;
+        public messageAddOnDurationInSecs?: (number|null);
 
         /** MessageAddOnContextInfo messageAddOnExpiryType. */
-        public messageAddOnExpiryType: E2E.MessageContextInfo.MessageAddonExpiryType;
+        public messageAddOnExpiryType?: (E2E.MessageContextInfo.MessageAddonExpiryType|null);
 
         /**
          * Creates a new MessageAddOnContextInfo instance using the specified properties.
@@ -3479,16 +3497,16 @@ export namespace Web {
         constructor(properties?: Web.IPinInChat);
 
         /** PinInChat type. */
-        public type: Web.PinInChat.Type;
+        public type?: (Web.PinInChat.Type|null);
 
         /** PinInChat key. */
         public key?: (Protocol.IMessageKey|null);
 
         /** PinInChat senderTimestampMs. */
-        public senderTimestampMs: (number|Long);
+        public senderTimestampMs?: (number|Long|null);
 
         /** PinInChat serverTimestampMs. */
-        public serverTimestampMs: (number|Long);
+        public serverTimestampMs?: (number|Long|null);
 
         /** PinInChat messageAddOnContextInfo. */
         public messageAddOnContextInfo?: (Web.IMessageAddOnContextInfo|null);
@@ -3613,22 +3631,22 @@ export namespace Web {
         constructor(properties?: Web.IKeepInChat);
 
         /** KeepInChat keepType. */
-        public keepType: E2E.KeepType;
+        public keepType?: (E2E.KeepType|null);
 
         /** KeepInChat serverTimestamp. */
-        public serverTimestamp: (number|Long);
+        public serverTimestamp?: (number|Long|null);
 
         /** KeepInChat key. */
         public key?: (Protocol.IMessageKey|null);
 
         /** KeepInChat deviceJid. */
-        public deviceJid: string;
+        public deviceJid?: (string|null);
 
         /** KeepInChat clientTimestampMs. */
-        public clientTimestampMs: (number|Long);
+        public clientTimestampMs?: (number|Long|null);
 
         /** KeepInChat serverTimestampMs. */
-        public serverTimestampMs: (number|Long);
+        public serverTimestampMs?: (number|Long|null);
 
         /**
          * Creates a new KeepInChat instance using the specified properties.
@@ -3725,7 +3743,7 @@ export namespace Web {
         constructor(properties?: Web.IEventAdditionalMetadata);
 
         /** EventAdditionalMetadata isStale. */
-        public isStale: boolean;
+        public isStale?: (boolean|null);
 
         /**
          * Creates a new EventAdditionalMetadata instance using the specified properties.
@@ -3822,7 +3840,7 @@ export namespace Web {
         constructor(properties?: Web.IPollAdditionalMetadata);
 
         /** PollAdditionalMetadata pollInvalidated. */
-        public pollInvalidated: boolean;
+        public pollInvalidated?: (boolean|null);
 
         /**
          * Creates a new PollAdditionalMetadata instance using the specified properties.
@@ -3937,13 +3955,13 @@ export namespace Web {
         public vote?: (E2E.Message.IPollVoteMessage|null);
 
         /** PollUpdate senderTimestampMs. */
-        public senderTimestampMs: (number|Long);
+        public senderTimestampMs?: (number|Long|null);
 
         /** PollUpdate serverTimestampMs. */
-        public serverTimestampMs: (number|Long);
+        public serverTimestampMs?: (number|Long|null);
 
         /** PollUpdate unread. */
-        public unread: boolean;
+        public unread?: (boolean|null);
 
         /**
          * Creates a new PollUpdate instance using the specified properties.
@@ -4055,16 +4073,16 @@ export namespace Web {
         public key?: (Protocol.IMessageKey|null);
 
         /** Reaction text. */
-        public text: string;
+        public text?: (string|null);
 
         /** Reaction groupingKey. */
-        public groupingKey: string;
+        public groupingKey?: (string|null);
 
         /** Reaction senderTimestampMs. */
-        public senderTimestampMs: (number|Long);
+        public senderTimestampMs?: (number|Long|null);
 
         /** Reaction unread. */
-        public unread: boolean;
+        public unread?: (boolean|null);
 
         /**
          * Creates a new Reaction instance using the specified properties.
@@ -4179,13 +4197,13 @@ export namespace Web {
         public userJid: string;
 
         /** UserReceipt receiptTimestamp. */
-        public receiptTimestamp: (number|Long);
+        public receiptTimestamp?: (number|Long|null);
 
         /** UserReceipt readTimestamp. */
-        public readTimestamp: (number|Long);
+        public readTimestamp?: (number|Long|null);
 
         /** UserReceipt playedTimestamp. */
-        public playedTimestamp: (number|Long);
+        public playedTimestamp?: (number|Long|null);
 
         /** UserReceipt pendingDeviceJid. */
         public pendingDeviceJid: string[];
@@ -4294,7 +4312,7 @@ export namespace Web {
         public campaignId: (number|Long);
 
         /** StatusPSA campaignExpirationTimestamp. */
-        public campaignExpirationTimestamp: (number|Long);
+        public campaignExpirationTimestamp?: (number|Long|null);
 
         /**
          * Creates a new StatusPSA instance using the specified properties.
@@ -4397,13 +4415,13 @@ export namespace Web {
         constructor(properties?: Web.IPhotoChange);
 
         /** PhotoChange oldPhoto. */
-        public oldPhoto: Uint8Array;
+        public oldPhoto?: (Uint8Array|null);
 
         /** PhotoChange newPhoto. */
-        public newPhoto: Uint8Array;
+        public newPhoto?: (Uint8Array|null);
 
         /** PhotoChange newPhotoId. */
-        public newPhotoId: number;
+        public newPhotoId?: (number|null);
 
         /**
          * Creates a new PhotoChange instance using the specified properties.
@@ -4500,7 +4518,7 @@ export namespace Web {
         constructor(properties?: Web.IMediaData);
 
         /** MediaData localPath. */
-        public localPath: string;
+        public localPath?: (string|null);
 
         /**
          * Creates a new MediaData instance using the specified properties.
@@ -4597,7 +4615,7 @@ export namespace Web {
         constructor(properties?: Web.IReportingTokenInfo);
 
         /** ReportingTokenInfo reportingTag. */
-        public reportingTag: Uint8Array;
+        public reportingTag?: (Uint8Array|null);
 
         /**
          * Creates a new ReportingTokenInfo instance using the specified properties.
@@ -4826,139 +4844,139 @@ export namespace Web {
         constructor(properties?: Web.IWebFeatures);
 
         /** WebFeatures labelsDisplay. */
-        public labelsDisplay: Web.WebFeatures.Flag;
+        public labelsDisplay?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures voipIndividualOutgoing. */
-        public voipIndividualOutgoing: Web.WebFeatures.Flag;
+        public voipIndividualOutgoing?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures groupsV3. */
-        public groupsV3: Web.WebFeatures.Flag;
+        public groupsV3?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures groupsV3Create. */
-        public groupsV3Create: Web.WebFeatures.Flag;
+        public groupsV3Create?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures changeNumberV2. */
-        public changeNumberV2: Web.WebFeatures.Flag;
+        public changeNumberV2?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures queryStatusV3Thumbnail. */
-        public queryStatusV3Thumbnail: Web.WebFeatures.Flag;
+        public queryStatusV3Thumbnail?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures liveLocations. */
-        public liveLocations: Web.WebFeatures.Flag;
+        public liveLocations?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures queryVname. */
-        public queryVname: Web.WebFeatures.Flag;
+        public queryVname?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures voipIndividualIncoming. */
-        public voipIndividualIncoming: Web.WebFeatures.Flag;
+        public voipIndividualIncoming?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures quickRepliesQuery. */
-        public quickRepliesQuery: Web.WebFeatures.Flag;
+        public quickRepliesQuery?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures payments. */
-        public payments: Web.WebFeatures.Flag;
+        public payments?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures stickerPackQuery. */
-        public stickerPackQuery: Web.WebFeatures.Flag;
+        public stickerPackQuery?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures liveLocationsFinal. */
-        public liveLocationsFinal: Web.WebFeatures.Flag;
+        public liveLocationsFinal?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures labelsEdit. */
-        public labelsEdit: Web.WebFeatures.Flag;
+        public labelsEdit?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures mediaUpload. */
-        public mediaUpload: Web.WebFeatures.Flag;
+        public mediaUpload?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures mediaUploadRichQuickReplies. */
-        public mediaUploadRichQuickReplies: Web.WebFeatures.Flag;
+        public mediaUploadRichQuickReplies?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures vnameV2. */
-        public vnameV2: Web.WebFeatures.Flag;
+        public vnameV2?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures videoPlaybackUrl. */
-        public videoPlaybackUrl: Web.WebFeatures.Flag;
+        public videoPlaybackUrl?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures statusRanking. */
-        public statusRanking: Web.WebFeatures.Flag;
+        public statusRanking?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures voipIndividualVideo. */
-        public voipIndividualVideo: Web.WebFeatures.Flag;
+        public voipIndividualVideo?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures thirdPartyStickers. */
-        public thirdPartyStickers: Web.WebFeatures.Flag;
+        public thirdPartyStickers?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures frequentlyForwardedSetting. */
-        public frequentlyForwardedSetting: Web.WebFeatures.Flag;
+        public frequentlyForwardedSetting?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures groupsV4JoinPermission. */
-        public groupsV4JoinPermission: Web.WebFeatures.Flag;
+        public groupsV4JoinPermission?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures recentStickers. */
-        public recentStickers: Web.WebFeatures.Flag;
+        public recentStickers?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures catalog. */
-        public catalog: Web.WebFeatures.Flag;
+        public catalog?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures starredStickers. */
-        public starredStickers: Web.WebFeatures.Flag;
+        public starredStickers?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures voipGroupCall. */
-        public voipGroupCall: Web.WebFeatures.Flag;
+        public voipGroupCall?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures templateMessage. */
-        public templateMessage: Web.WebFeatures.Flag;
+        public templateMessage?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures templateMessageInteractivity. */
-        public templateMessageInteractivity: Web.WebFeatures.Flag;
+        public templateMessageInteractivity?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures ephemeralMessages. */
-        public ephemeralMessages: Web.WebFeatures.Flag;
+        public ephemeralMessages?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures e2ENotificationSync. */
-        public e2ENotificationSync: Web.WebFeatures.Flag;
+        public e2ENotificationSync?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures recentStickersV2. */
-        public recentStickersV2: Web.WebFeatures.Flag;
+        public recentStickersV2?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures recentStickersV3. */
-        public recentStickersV3: Web.WebFeatures.Flag;
+        public recentStickersV3?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures userNotice. */
-        public userNotice: Web.WebFeatures.Flag;
+        public userNotice?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures support. */
-        public support: Web.WebFeatures.Flag;
+        public support?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures groupUiiCleanup. */
-        public groupUiiCleanup: Web.WebFeatures.Flag;
+        public groupUiiCleanup?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures groupDogfoodingInternalOnly. */
-        public groupDogfoodingInternalOnly: Web.WebFeatures.Flag;
+        public groupDogfoodingInternalOnly?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures settingsSync. */
-        public settingsSync: Web.WebFeatures.Flag;
+        public settingsSync?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures archiveV2. */
-        public archiveV2: Web.WebFeatures.Flag;
+        public archiveV2?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures ephemeralAllowGroupMembers. */
-        public ephemeralAllowGroupMembers: Web.WebFeatures.Flag;
+        public ephemeralAllowGroupMembers?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures ephemeral24HDuration. */
-        public ephemeral24HDuration: Web.WebFeatures.Flag;
+        public ephemeral24HDuration?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures mdForceUpgrade. */
-        public mdForceUpgrade: Web.WebFeatures.Flag;
+        public mdForceUpgrade?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures disappearingMode. */
-        public disappearingMode: Web.WebFeatures.Flag;
+        public disappearingMode?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures externalMdOptInAvailable. */
-        public externalMdOptInAvailable: Web.WebFeatures.Flag;
+        public externalMdOptInAvailable?: (Web.WebFeatures.Flag|null);
 
         /** WebFeatures noDeleteMessageTimeLimit. */
-        public noDeleteMessageTimeLimit: Web.WebFeatures.Flag;
+        public noDeleteMessageTimeLimit?: (Web.WebFeatures.Flag|null);
 
         /**
          * Creates a new WebFeatures instance using the specified properties.
@@ -5081,10 +5099,10 @@ export namespace Web {
         public message?: (E2E.IMessage|null);
 
         /** NotificationMessageInfo messageTimestamp. */
-        public messageTimestamp: (number|Long);
+        public messageTimestamp?: (number|Long|null);
 
         /** NotificationMessageInfo participant. */
-        public participant: string;
+        public participant?: (string|null);
 
         /**
          * Creates a new NotificationMessageInfo instance using the specified properties.
@@ -5190,13 +5208,13 @@ export namespace Web {
         constructor(properties?: Web.IWebNotificationsInfo);
 
         /** WebNotificationsInfo timestamp. */
-        public timestamp: (number|Long);
+        public timestamp?: (number|Long|null);
 
         /** WebNotificationsInfo unreadChats. */
-        public unreadChats: number;
+        public unreadChats?: (number|null);
 
         /** WebNotificationsInfo notifyMessageCount. */
-        public notifyMessageCount: number;
+        public notifyMessageCount?: (number|null);
 
         /** WebNotificationsInfo notifyMessages. */
         public notifyMessages: Web.IWebMessageInfo[];
@@ -5332,37 +5350,37 @@ export namespace Web {
         constructor(properties?: Web.IPaymentInfo);
 
         /** PaymentInfo currencyDeprecated. */
-        public currencyDeprecated: Web.PaymentInfo.Currency;
+        public currencyDeprecated?: (Web.PaymentInfo.Currency|null);
 
         /** PaymentInfo amount1000. */
-        public amount1000: (number|Long);
+        public amount1000?: (number|Long|null);
 
         /** PaymentInfo receiverJid. */
-        public receiverJid: string;
+        public receiverJid?: (string|null);
 
         /** PaymentInfo status. */
-        public status: Web.PaymentInfo.Status;
+        public status?: (Web.PaymentInfo.Status|null);
 
         /** PaymentInfo transactionTimestamp. */
-        public transactionTimestamp: (number|Long);
+        public transactionTimestamp?: (number|Long|null);
 
         /** PaymentInfo requestMessageKey. */
         public requestMessageKey?: (Protocol.IMessageKey|null);
 
         /** PaymentInfo expiryTimestamp. */
-        public expiryTimestamp: (number|Long);
+        public expiryTimestamp?: (number|Long|null);
 
         /** PaymentInfo futureproofed. */
-        public futureproofed: boolean;
+        public futureproofed?: (boolean|null);
 
         /** PaymentInfo currency. */
-        public currency: string;
+        public currency?: (string|null);
 
         /** PaymentInfo txnStatus. */
-        public txnStatus: Web.PaymentInfo.TxnStatus;
+        public txnStatus?: (Web.PaymentInfo.TxnStatus|null);
 
         /** PaymentInfo useNoviFiatFormat. */
-        public useNoviFiatFormat: boolean;
+        public useNoviFiatFormat?: (boolean|null);
 
         /** PaymentInfo primaryAmount. */
         public primaryAmount?: (E2E.IMoney|null);
@@ -5532,7 +5550,7 @@ export namespace Web {
         public commentParentKey?: (Protocol.IMessageKey|null);
 
         /** CommentMetadata replyCount. */
-        public replyCount: number;
+        public replyCount?: (number|null);
 
         /**
          * Creates a new CommentMetadata instance using the specified properties.
@@ -5818,52 +5836,52 @@ export namespace Web {
         public message?: (E2E.IMessage|null);
 
         /** WebMessageInfo messageTimestamp. */
-        public messageTimestamp: (number|Long);
+        public messageTimestamp?: (number|Long|null);
 
         /** WebMessageInfo status. */
-        public status: Web.WebMessageInfo.Status;
+        public status?: (Web.WebMessageInfo.Status|null);
 
         /** WebMessageInfo participant. */
-        public participant: string;
+        public participant?: (string|null);
 
         /** WebMessageInfo messageC2STimestamp. */
-        public messageC2STimestamp: (number|Long);
+        public messageC2STimestamp?: (number|Long|null);
 
         /** WebMessageInfo ignore. */
-        public ignore: boolean;
+        public ignore?: (boolean|null);
 
         /** WebMessageInfo starred. */
-        public starred: boolean;
+        public starred?: (boolean|null);
 
         /** WebMessageInfo broadcast. */
-        public broadcast: boolean;
+        public broadcast?: (boolean|null);
 
         /** WebMessageInfo pushName. */
-        public pushName: string;
+        public pushName?: (string|null);
 
         /** WebMessageInfo mediaCiphertextSha256. */
-        public mediaCiphertextSha256: Uint8Array;
+        public mediaCiphertextSha256?: (Uint8Array|null);
 
         /** WebMessageInfo multicast. */
-        public multicast: boolean;
+        public multicast?: (boolean|null);
 
         /** WebMessageInfo urlText. */
-        public urlText: boolean;
+        public urlText?: (boolean|null);
 
         /** WebMessageInfo urlNumber. */
-        public urlNumber: boolean;
+        public urlNumber?: (boolean|null);
 
         /** WebMessageInfo messageStubType. */
-        public messageStubType: Web.WebMessageInfo.StubType;
+        public messageStubType?: (Web.WebMessageInfo.StubType|null);
 
         /** WebMessageInfo clearMedia. */
-        public clearMedia: boolean;
+        public clearMedia?: (boolean|null);
 
         /** WebMessageInfo messageStubParameters. */
         public messageStubParameters: string[];
 
         /** WebMessageInfo duration. */
-        public duration: number;
+        public duration?: (number|null);
 
         /** WebMessageInfo labels. */
         public labels: string[];
@@ -5878,22 +5896,22 @@ export namespace Web {
         public quotedPaymentInfo?: (Web.IPaymentInfo|null);
 
         /** WebMessageInfo ephemeralStartTimestamp. */
-        public ephemeralStartTimestamp: (number|Long);
+        public ephemeralStartTimestamp?: (number|Long|null);
 
         /** WebMessageInfo ephemeralDuration. */
-        public ephemeralDuration: number;
+        public ephemeralDuration?: (number|null);
 
         /** WebMessageInfo ephemeralOffToOn. */
-        public ephemeralOffToOn: boolean;
+        public ephemeralOffToOn?: (boolean|null);
 
         /** WebMessageInfo ephemeralOutOfSync. */
-        public ephemeralOutOfSync: boolean;
+        public ephemeralOutOfSync?: (boolean|null);
 
         /** WebMessageInfo bizPrivacyStatus. */
-        public bizPrivacyStatus: Web.WebMessageInfo.BizPrivacyStatus;
+        public bizPrivacyStatus?: (Web.WebMessageInfo.BizPrivacyStatus|null);
 
         /** WebMessageInfo verifiedBizName. */
-        public verifiedBizName: string;
+        public verifiedBizName?: (string|null);
 
         /** WebMessageInfo mediaData. */
         public mediaData?: (E2E.PaymentBackground.IMediaData|null);
@@ -5911,7 +5929,7 @@ export namespace Web {
         public quotedStickerData?: (E2E.PaymentBackground.IMediaData|null);
 
         /** WebMessageInfo futureproofData. */
-        public futureproofData: Uint8Array;
+        public futureproofData?: (Uint8Array|null);
 
         /** WebMessageInfo statusPsa. */
         public statusPsa?: (Web.IStatusPSA|null);
@@ -5923,22 +5941,22 @@ export namespace Web {
         public pollAdditionalMetadata?: (Web.IPollAdditionalMetadata|null);
 
         /** WebMessageInfo agentId. */
-        public agentId: string;
+        public agentId?: (string|null);
 
         /** WebMessageInfo statusAlreadyViewed. */
-        public statusAlreadyViewed: boolean;
+        public statusAlreadyViewed?: (boolean|null);
 
         /** WebMessageInfo messageSecret. */
-        public messageSecret: Uint8Array;
+        public messageSecret?: (Uint8Array|null);
 
         /** WebMessageInfo keepInChat. */
         public keepInChat?: (Web.IKeepInChat|null);
 
         /** WebMessageInfo originalSelfAuthorUserJidString. */
-        public originalSelfAuthorUserJidString: string;
+        public originalSelfAuthorUserJidString?: (string|null);
 
         /** WebMessageInfo revokeMessageTimestamp. */
-        public revokeMessageTimestamp: (number|Long);
+        public revokeMessageTimestamp?: (number|Long|null);
 
         /** WebMessageInfo pinInChat. */
         public pinInChat?: (Web.IPinInChat|null);
@@ -5947,13 +5965,13 @@ export namespace Web {
         public premiumMessageInfo?: (Web.IPremiumMessageInfo|null);
 
         /** WebMessageInfo is1PBizBotMessage. */
-        public is1PBizBotMessage: boolean;
+        public is1PBizBotMessage?: (boolean|null);
 
         /** WebMessageInfo isGroupHistoryMessage. */
-        public isGroupHistoryMessage: boolean;
+        public isGroupHistoryMessage?: (boolean|null);
 
         /** WebMessageInfo botMessageInvokerJid. */
-        public botMessageInvokerJid: string;
+        public botMessageInvokerJid?: (string|null);
 
         /** WebMessageInfo commentMetadata. */
         public commentMetadata?: (Web.ICommentMetadata|null);
@@ -5965,13 +5983,13 @@ export namespace Web {
         public reportingTokenInfo?: (Web.IReportingTokenInfo|null);
 
         /** WebMessageInfo newsletterServerId. */
-        public newsletterServerId: (number|Long);
+        public newsletterServerId?: (number|Long|null);
 
         /** WebMessageInfo eventAdditionalMetadata. */
         public eventAdditionalMetadata?: (Web.IEventAdditionalMetadata|null);
 
         /** WebMessageInfo isMentionedInStatus. */
-        public isMentionedInStatus: boolean;
+        public isMentionedInStatus?: (boolean|null);
 
         /** WebMessageInfo statusMentions. */
         public statusMentions: string[];
@@ -5986,7 +6004,7 @@ export namespace Web {
         public statusMentionMessageInfo?: (Web.IStatusMentionMessage|null);
 
         /** WebMessageInfo isSupportAiMessage. */
-        public isSupportAiMessage: boolean;
+        public isSupportAiMessage?: (boolean|null);
 
         /** WebMessageInfo statusMentionSources. */
         public statusMentionSources: string[];
@@ -5995,7 +6013,7 @@ export namespace Web {
         public supportAiCitations: Web.ICitation[];
 
         /** WebMessageInfo botTargetId. */
-        public botTargetId: string;
+        public botTargetId?: (string|null);
 
         /**
          * Creates a new WebMessageInfo instance using the specified properties.
@@ -6312,13 +6330,228 @@ export namespace Web {
             SUPPORT_SYSTEM_MESSAGE = 212,
             CHANGE_LID = 213,
             BIZ_CUSTOMER_3PD_DATA_SHARING_OPT_IN_MESSAGE = 214,
-            BIZ_CUSTOMER_3PD_DATA_SHARING_OPT_OUT_MESSAGE = 215
+            BIZ_CUSTOMER_3PD_DATA_SHARING_OPT_OUT_MESSAGE = 215,
+            CHANGE_LIMIT_SHARING = 216,
+            GROUP_MEMBER_LINK_MODE = 217,
+            BIZ_AUTOMATICALLY_LABELED_CHAT_SYSTEM_MESSAGE = 218
         }
     }
 }
 
 /** Namespace E2E. */
 export namespace E2E {
+
+    /** Properties of a MemberLabel. */
+    interface IMemberLabel {
+
+        /** MemberLabel label */
+        label?: (string|null);
+
+        /** MemberLabel labelTimestamp */
+        labelTimestamp?: (number|Long|null);
+    }
+
+    /** Represents a MemberLabel. */
+    class MemberLabel implements IMemberLabel {
+
+        /**
+         * Constructs a new MemberLabel.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: E2E.IMemberLabel);
+
+        /** MemberLabel label. */
+        public label?: (string|null);
+
+        /** MemberLabel labelTimestamp. */
+        public labelTimestamp?: (number|Long|null);
+
+        /**
+         * Creates a new MemberLabel instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns MemberLabel instance
+         */
+        public static create(properties?: E2E.IMemberLabel): E2E.MemberLabel;
+
+        /**
+         * Encodes the specified MemberLabel message. Does not implicitly {@link E2E.MemberLabel.verify|verify} messages.
+         * @param message MemberLabel message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: E2E.IMemberLabel, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified MemberLabel message, length delimited. Does not implicitly {@link E2E.MemberLabel.verify|verify} messages.
+         * @param message MemberLabel message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: E2E.IMemberLabel, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a MemberLabel message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns MemberLabel
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): E2E.MemberLabel;
+
+        /**
+         * Decodes a MemberLabel message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns MemberLabel
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): E2E.MemberLabel;
+
+        /**
+         * Verifies a MemberLabel message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a MemberLabel message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns MemberLabel
+         */
+        public static fromObject(object: { [k: string]: any }): E2E.MemberLabel;
+
+        /**
+         * Creates a plain object from a MemberLabel message. Also converts values to other types if specified.
+         * @param message MemberLabel
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: E2E.MemberLabel, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this MemberLabel to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for MemberLabel
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
+    }
+
+    /** Properties of a AIQueryFanout. */
+    interface IAIQueryFanout {
+
+        /** AIQueryFanout messageKey */
+        messageKey?: (Protocol.IMessageKey|null);
+
+        /** AIQueryFanout message */
+        message?: (E2E.IMessage|null);
+
+        /** AIQueryFanout timestamp */
+        timestamp?: (number|Long|null);
+    }
+
+    /** Represents a AIQueryFanout. */
+    class AIQueryFanout implements IAIQueryFanout {
+
+        /**
+         * Constructs a new AIQueryFanout.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: E2E.IAIQueryFanout);
+
+        /** AIQueryFanout messageKey. */
+        public messageKey?: (Protocol.IMessageKey|null);
+
+        /** AIQueryFanout message. */
+        public message?: (E2E.IMessage|null);
+
+        /** AIQueryFanout timestamp. */
+        public timestamp?: (number|Long|null);
+
+        /**
+         * Creates a new AIQueryFanout instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns AIQueryFanout instance
+         */
+        public static create(properties?: E2E.IAIQueryFanout): E2E.AIQueryFanout;
+
+        /**
+         * Encodes the specified AIQueryFanout message. Does not implicitly {@link E2E.AIQueryFanout.verify|verify} messages.
+         * @param message AIQueryFanout message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: E2E.IAIQueryFanout, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified AIQueryFanout message, length delimited. Does not implicitly {@link E2E.AIQueryFanout.verify|verify} messages.
+         * @param message AIQueryFanout message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: E2E.IAIQueryFanout, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a AIQueryFanout message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns AIQueryFanout
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): E2E.AIQueryFanout;
+
+        /**
+         * Decodes a AIQueryFanout message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns AIQueryFanout
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): E2E.AIQueryFanout;
+
+        /**
+         * Verifies a AIQueryFanout message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a AIQueryFanout message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns AIQueryFanout
+         */
+        public static fromObject(object: { [k: string]: any }): E2E.AIQueryFanout;
+
+        /**
+         * Creates a plain object from a AIQueryFanout message. Also converts values to other types if specified.
+         * @param message AIQueryFanout
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: E2E.AIQueryFanout, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this AIQueryFanout to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for AIQueryFanout
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
+    }
 
     /** Properties of an UrlTrackingMap. */
     interface IUrlTrackingMap {
@@ -6445,16 +6678,16 @@ export namespace E2E {
             constructor(properties?: E2E.UrlTrackingMap.IUrlTrackingMapElement);
 
             /** UrlTrackingMapElement originalUrl. */
-            public originalUrl: string;
+            public originalUrl?: (string|null);
 
             /** UrlTrackingMapElement unconsentedUsersUrl. */
-            public unconsentedUsersUrl: string;
+            public unconsentedUsersUrl?: (string|null);
 
             /** UrlTrackingMapElement consentedUsersUrl. */
-            public consentedUsersUrl: string;
+            public consentedUsersUrl?: (string|null);
 
             /** UrlTrackingMapElement cardIndex. */
-            public cardIndex: number;
+            public cardIndex?: (number|null);
 
             /**
              * Creates a new UrlTrackingMapElement instance using the specified properties.
@@ -6573,25 +6806,25 @@ export namespace E2E {
         constructor(properties?: E2E.IProcessedVideo);
 
         /** ProcessedVideo directPath. */
-        public directPath: string;
+        public directPath?: (string|null);
 
         /** ProcessedVideo fileSha256. */
-        public fileSha256: Uint8Array;
+        public fileSha256?: (Uint8Array|null);
 
         /** ProcessedVideo height. */
-        public height: number;
+        public height?: (number|null);
 
         /** ProcessedVideo width. */
-        public width: number;
+        public width?: (number|null);
 
         /** ProcessedVideo fileLength. */
-        public fileLength: (number|Long);
+        public fileLength?: (number|Long|null);
 
         /** ProcessedVideo bitrate. */
-        public bitrate: number;
+        public bitrate?: (number|null);
 
         /** ProcessedVideo quality. */
-        public quality: E2E.ProcessedVideo.VideoQuality;
+        public quality?: (E2E.ProcessedVideo.VideoQuality|null);
 
         /** ProcessedVideo capabilities. */
         public capabilities: string[];
@@ -6702,7 +6935,7 @@ export namespace E2E {
         constructor(properties?: E2E.ILIDMigrationMappingSyncMessage);
 
         /** LIDMigrationMappingSyncMessage encodedMappingPayload. */
-        public encodedMappingPayload: Uint8Array;
+        public encodedMappingPayload?: (Uint8Array|null);
 
         /**
          * Creates a new LIDMigrationMappingSyncMessage instance using the specified properties.
@@ -6805,13 +7038,13 @@ export namespace E2E {
         constructor(properties?: E2E.IMediaNotifyMessage);
 
         /** MediaNotifyMessage expressPathUrl. */
-        public expressPathUrl: string;
+        public expressPathUrl?: (string|null);
 
         /** MediaNotifyMessage fileEncSha256. */
-        public fileEncSha256: Uint8Array;
+        public fileEncSha256?: (Uint8Array|null);
 
         /** MediaNotifyMessage fileLength. */
-        public fileLength: (number|Long);
+        public fileLength?: (number|Long|null);
 
         /**
          * Creates a new MediaNotifyMessage instance using the specified properties.
@@ -6914,13 +7147,13 @@ export namespace E2E {
         constructor(properties?: E2E.IMessageSecretMessage);
 
         /** MessageSecretMessage version. */
-        public version: number;
+        public version?: (number|null);
 
         /** MessageSecretMessage encIv. */
-        public encIv: Uint8Array;
+        public encIv?: (Uint8Array|null);
 
         /** MessageSecretMessage encPayload. */
-        public encPayload: Uint8Array;
+        public encPayload?: (Uint8Array|null);
 
         /**
          * Creates a new MessageSecretMessage instance using the specified properties.
@@ -7020,10 +7253,10 @@ export namespace E2E {
         constructor(properties?: E2E.IGroupMention);
 
         /** GroupMention groupJid. */
-        public groupJid: string;
+        public groupJid?: (string|null);
 
         /** GroupMention groupSubject. */
-        public groupSubject: string;
+        public groupSubject?: (string|null);
 
         /**
          * Creates a new GroupMention instance using the specified properties.
@@ -7123,10 +7356,10 @@ export namespace E2E {
         constructor(properties?: E2E.IActionLink);
 
         /** ActionLink url. */
-        public url: string;
+        public url?: (string|null);
 
         /** ActionLink buttonTitle. */
-        public buttonTitle: string;
+        public buttonTitle?: (string|null);
 
         /**
          * Creates a new ActionLink instance using the specified properties.
@@ -7232,16 +7465,16 @@ export namespace E2E {
         constructor(properties?: E2E.IDisappearingMode);
 
         /** DisappearingMode initiator. */
-        public initiator: E2E.DisappearingMode.Initiator;
+        public initiator?: (E2E.DisappearingMode.Initiator|null);
 
         /** DisappearingMode trigger. */
-        public trigger: E2E.DisappearingMode.Trigger;
+        public trigger?: (E2E.DisappearingMode.Trigger|null);
 
         /** DisappearingMode initiatorDeviceJid. */
-        public initiatorDeviceJid: string;
+        public initiatorDeviceJid?: (string|null);
 
         /** DisappearingMode initiatedByMe. */
-        public initiatedByMe: boolean;
+        public initiatedByMe?: (boolean|null);
 
         /**
          * Creates a new DisappearingMode instance using the specified properties.
@@ -7386,34 +7619,34 @@ export namespace E2E {
         constructor(properties?: E2E.IPaymentBackground);
 
         /** PaymentBackground id. */
-        public id: string;
+        public id?: (string|null);
 
         /** PaymentBackground fileLength. */
-        public fileLength: (number|Long);
+        public fileLength?: (number|Long|null);
 
         /** PaymentBackground width. */
-        public width: number;
+        public width?: (number|null);
 
         /** PaymentBackground height. */
-        public height: number;
+        public height?: (number|null);
 
         /** PaymentBackground mimetype. */
-        public mimetype: string;
+        public mimetype?: (string|null);
 
         /** PaymentBackground placeholderArgb. */
-        public placeholderArgb: number;
+        public placeholderArgb?: (number|null);
 
         /** PaymentBackground textArgb. */
-        public textArgb: number;
+        public textArgb?: (number|null);
 
         /** PaymentBackground subtextArgb. */
-        public subtextArgb: number;
+        public subtextArgb?: (number|null);
 
         /** PaymentBackground mediaData. */
         public mediaData?: (E2E.PaymentBackground.IMediaData|null);
 
         /** PaymentBackground type. */
-        public type: E2E.PaymentBackground.Type;
+        public type?: (E2E.PaymentBackground.Type|null);
 
         /**
          * Creates a new PaymentBackground instance using the specified properties.
@@ -7524,19 +7757,19 @@ export namespace E2E {
             constructor(properties?: E2E.PaymentBackground.IMediaData);
 
             /** MediaData mediaKey. */
-            public mediaKey: Uint8Array;
+            public mediaKey?: (Uint8Array|null);
 
             /** MediaData mediaKeyTimestamp. */
-            public mediaKeyTimestamp: (number|Long);
+            public mediaKeyTimestamp?: (number|Long|null);
 
             /** MediaData fileSha256. */
-            public fileSha256: Uint8Array;
+            public fileSha256?: (Uint8Array|null);
 
             /** MediaData fileEncSha256. */
-            public fileEncSha256: Uint8Array;
+            public fileEncSha256?: (Uint8Array|null);
 
             /** MediaData directPath. */
-            public directPath: string;
+            public directPath?: (string|null);
 
             /**
              * Creates a new MediaData instance using the specified properties.
@@ -7646,13 +7879,13 @@ export namespace E2E {
         constructor(properties?: E2E.IMoney);
 
         /** Money value. */
-        public value: (number|Long);
+        public value?: (number|Long|null);
 
         /** Money offset. */
-        public offset: number;
+        public offset?: (number|null);
 
         /** Money currencyCode. */
-        public currencyCode: string;
+        public currencyCode?: (string|null);
 
         /**
          * Creates a new Money instance using the specified properties.
@@ -7758,7 +7991,7 @@ export namespace E2E {
         constructor(properties?: E2E.IHydratedTemplateButton);
 
         /** HydratedTemplateButton index. */
-        public index: number;
+        public index?: (number|null);
 
         /** HydratedTemplateButton quickReplyButton. */
         public quickReplyButton?: (E2E.HydratedTemplateButton.IHydratedQuickReplyButton|null);
@@ -7872,10 +8105,10 @@ export namespace E2E {
             constructor(properties?: E2E.HydratedTemplateButton.IHydratedCallButton);
 
             /** HydratedCallButton displayText. */
-            public displayText: string;
+            public displayText?: (string|null);
 
             /** HydratedCallButton phoneNumber. */
-            public phoneNumber: string;
+            public phoneNumber?: (string|null);
 
             /**
              * Creates a new HydratedCallButton instance using the specified properties.
@@ -7975,10 +8208,10 @@ export namespace E2E {
             constructor(properties?: E2E.HydratedTemplateButton.IHydratedQuickReplyButton);
 
             /** HydratedQuickReplyButton displayText. */
-            public displayText: string;
+            public displayText?: (string|null);
 
             /** HydratedQuickReplyButton id. */
-            public id: string;
+            public id?: (string|null);
 
             /**
              * Creates a new HydratedQuickReplyButton instance using the specified properties.
@@ -8084,16 +8317,16 @@ export namespace E2E {
             constructor(properties?: E2E.HydratedTemplateButton.IHydratedURLButton);
 
             /** HydratedURLButton displayText. */
-            public displayText: string;
+            public displayText?: (string|null);
 
             /** HydratedURLButton url. */
-            public url: string;
+            public url?: (string|null);
 
             /** HydratedURLButton consentedUsersUrl. */
-            public consentedUsersUrl: string;
+            public consentedUsersUrl?: (string|null);
 
             /** HydratedURLButton webviewPresentation. */
-            public webviewPresentation: E2E.HydratedTemplateButton.HydratedURLButton.WebviewPresentationType;
+            public webviewPresentation?: (E2E.HydratedTemplateButton.HydratedURLButton.WebviewPresentationType|null);
 
             /**
              * Creates a new HydratedURLButton instance using the specified properties.
@@ -8210,7 +8443,7 @@ export namespace E2E {
         constructor(properties?: E2E.ITemplateButton);
 
         /** TemplateButton index. */
-        public index: number;
+        public index?: (number|null);
 
         /** TemplateButton quickReplyButton. */
         public quickReplyButton?: (E2E.TemplateButton.IQuickReplyButton|null);
@@ -8430,7 +8663,7 @@ export namespace E2E {
             public displayText?: (E2E.Message.IHighlyStructuredMessage|null);
 
             /** QuickReplyButton id. */
-            public id: string;
+            public id?: (string|null);
 
             /**
              * Creates a new QuickReplyButton instance using the specified properties.
@@ -8637,13 +8870,13 @@ export namespace E2E {
         constructor(properties?: E2E.ILocation);
 
         /** Location degreesLatitude. */
-        public degreesLatitude: number;
+        public degreesLatitude?: (number|null);
 
         /** Location degreesLongitude. */
-        public degreesLongitude: number;
+        public degreesLongitude?: (number|null);
 
         /** Location name. */
-        public name: string;
+        public name?: (string|null);
 
         /**
          * Creates a new Location instance using the specified properties.
@@ -8749,16 +8982,16 @@ export namespace E2E {
         constructor(properties?: E2E.IPoint);
 
         /** Point xDeprecated. */
-        public xDeprecated: number;
+        public xDeprecated?: (number|null);
 
         /** Point yDeprecated. */
-        public yDeprecated: number;
+        public yDeprecated?: (number|null);
 
         /** Point x. */
-        public x: number;
+        public x?: (number|null);
 
         /** Point y. */
-        public y: number;
+        public y?: (number|null);
 
         /**
          * Creates a new Point instance using the specified properties.
@@ -8879,13 +9112,13 @@ export namespace E2E {
         public polygonVertices: E2E.IPoint[];
 
         /** InteractiveAnnotation shouldSkipConfirmation. */
-        public shouldSkipConfirmation: boolean;
+        public shouldSkipConfirmation?: (boolean|null);
 
         /** InteractiveAnnotation embeddedContent. */
         public embeddedContent?: (E2E.IEmbeddedContent|null);
 
         /** InteractiveAnnotation statusLinkType. */
-        public statusLinkType: E2E.InteractiveAnnotation.StatusLinkType;
+        public statusLinkType?: (E2E.InteractiveAnnotation.StatusLinkType|null);
 
         /** InteractiveAnnotation location. */
         public location?: (E2E.ILocation|null);
@@ -9010,10 +9243,10 @@ export namespace E2E {
         constructor(properties?: E2E.ITapLinkAction);
 
         /** TapLinkAction title. */
-        public title: string;
+        public title?: (string|null);
 
         /** TapLinkAction tapUrl. */
-        public tapUrl: string;
+        public tapUrl?: (string|null);
 
         /**
          * Creates a new TapLinkAction instance using the specified properties.
@@ -9246,37 +9479,37 @@ export namespace E2E {
         constructor(properties?: E2E.IEmbeddedMusic);
 
         /** EmbeddedMusic musicContentMediaId. */
-        public musicContentMediaId: string;
+        public musicContentMediaId?: (string|null);
 
         /** EmbeddedMusic songId. */
-        public songId: string;
+        public songId?: (string|null);
 
         /** EmbeddedMusic author. */
-        public author: string;
+        public author?: (string|null);
 
         /** EmbeddedMusic title. */
-        public title: string;
+        public title?: (string|null);
 
         /** EmbeddedMusic artworkDirectPath. */
-        public artworkDirectPath: string;
+        public artworkDirectPath?: (string|null);
 
         /** EmbeddedMusic artworkSha256. */
-        public artworkSha256: Uint8Array;
+        public artworkSha256?: (Uint8Array|null);
 
         /** EmbeddedMusic artworkEncSha256. */
-        public artworkEncSha256: Uint8Array;
+        public artworkEncSha256?: (Uint8Array|null);
 
         /** EmbeddedMusic artworkMediaKey. */
-        public artworkMediaKey: Uint8Array;
+        public artworkMediaKey?: (Uint8Array|null);
 
         /** EmbeddedMusic artistAttribution. */
-        public artistAttribution: string;
+        public artistAttribution?: (string|null);
 
         /** EmbeddedMusic countryBlocklist. */
-        public countryBlocklist: Uint8Array;
+        public countryBlocklist?: (Uint8Array|null);
 
         /** EmbeddedMusic isExplicit. */
-        public isExplicit: boolean;
+        public isExplicit?: (boolean|null);
 
         /**
          * Creates a new EmbeddedMusic instance using the specified properties.
@@ -9376,7 +9609,7 @@ export namespace E2E {
         constructor(properties?: E2E.IEmbeddedMessage);
 
         /** EmbeddedMessage stanzaId. */
-        public stanzaId: string;
+        public stanzaId?: (string|null);
 
         /** EmbeddedMessage message. */
         public message?: (E2E.IMessage|null);
@@ -9497,25 +9730,25 @@ export namespace E2E {
         constructor(properties?: E2E.IDeviceListMetadata);
 
         /** DeviceListMetadata senderKeyHash. */
-        public senderKeyHash: Uint8Array;
+        public senderKeyHash?: (Uint8Array|null);
 
         /** DeviceListMetadata senderTimestamp. */
-        public senderTimestamp: (number|Long);
+        public senderTimestamp?: (number|Long|null);
 
         /** DeviceListMetadata senderKeyIndexes. */
         public senderKeyIndexes: number[];
 
         /** DeviceListMetadata senderAccountType. */
-        public senderAccountType: Adv.ADVEncryptionType;
+        public senderAccountType?: (Adv.ADVEncryptionType|null);
 
         /** DeviceListMetadata receiverAccountType. */
-        public receiverAccountType: Adv.ADVEncryptionType;
+        public receiverAccountType?: (Adv.ADVEncryptionType|null);
 
         /** DeviceListMetadata recipientKeyHash. */
-        public recipientKeyHash: Uint8Array;
+        public recipientKeyHash?: (Uint8Array|null);
 
         /** DeviceListMetadata recipientTimestamp. */
-        public recipientTimestamp: (number|Long);
+        public recipientTimestamp?: (number|Long|null);
 
         /** DeviceListMetadata recipientKeyIndexes. */
         public recipientKeyIndexes: number[];
@@ -9636,6 +9869,12 @@ export namespace E2E {
 
         /** MessageContextInfo supportPayload */
         supportPayload?: (string|null);
+
+        /** MessageContextInfo limitSharing */
+        limitSharing?: (Protocol.ILimitSharing|null);
+
+        /** MessageContextInfo limitSharingV2 */
+        limitSharingV2?: (Protocol.ILimitSharing|null);
     }
 
     /** Represents a MessageContextInfo. */
@@ -9651,37 +9890,43 @@ export namespace E2E {
         public deviceListMetadata?: (E2E.IDeviceListMetadata|null);
 
         /** MessageContextInfo deviceListMetadataVersion. */
-        public deviceListMetadataVersion: number;
+        public deviceListMetadataVersion?: (number|null);
 
         /** MessageContextInfo messageSecret. */
-        public messageSecret: Uint8Array;
+        public messageSecret?: (Uint8Array|null);
 
         /** MessageContextInfo paddingBytes. */
-        public paddingBytes: Uint8Array;
+        public paddingBytes?: (Uint8Array|null);
 
         /** MessageContextInfo messageAddOnDurationInSecs. */
-        public messageAddOnDurationInSecs: number;
+        public messageAddOnDurationInSecs?: (number|null);
 
         /** MessageContextInfo botMessageSecret. */
-        public botMessageSecret: Uint8Array;
+        public botMessageSecret?: (Uint8Array|null);
 
         /** MessageContextInfo botMetadata. */
         public botMetadata?: (E2E.IBotMetadata|null);
 
         /** MessageContextInfo reportingTokenVersion. */
-        public reportingTokenVersion: number;
+        public reportingTokenVersion?: (number|null);
 
         /** MessageContextInfo messageAddOnExpiryType. */
-        public messageAddOnExpiryType: E2E.MessageContextInfo.MessageAddonExpiryType;
+        public messageAddOnExpiryType?: (E2E.MessageContextInfo.MessageAddonExpiryType|null);
 
         /** MessageContextInfo messageAssociation. */
         public messageAssociation?: (E2E.IMessageAssociation|null);
 
         /** MessageContextInfo capiCreatedGroup. */
-        public capiCreatedGroup: boolean;
+        public capiCreatedGroup?: (boolean|null);
 
         /** MessageContextInfo supportPayload. */
-        public supportPayload: string;
+        public supportPayload?: (string|null);
+
+        /** MessageContextInfo limitSharing. */
+        public limitSharing?: (Protocol.ILimitSharing|null);
+
+        /** MessageContextInfo limitSharingV2. */
+        public limitSharingV2?: (Protocol.ILimitSharing|null);
 
         /**
          * Creates a new MessageContextInfo instance using the specified properties.
@@ -9793,13 +10038,13 @@ export namespace E2E {
         constructor(properties?: E2E.IMessageAssociation);
 
         /** MessageAssociation associationType. */
-        public associationType: E2E.MessageAssociation.AssociationType;
+        public associationType?: (E2E.MessageAssociation.AssociationType|null);
 
         /** MessageAssociation parentMessageKey. */
         public parentMessageKey?: (Protocol.IMessageKey|null);
 
         /** MessageAssociation messageIndex. */
-        public messageIndex: number;
+        public messageIndex?: (number|null);
 
         /**
          * Creates a new MessageAssociation instance using the specified properties.
@@ -9960,6 +10205,21 @@ export namespace E2E {
 
         /** BotMetadata richResponseSourcesMetadata */
         richResponseSourcesMetadata?: (E2E.IBotSourcesMetadata|null);
+
+        /** BotMetadata aiConversationContext */
+        aiConversationContext?: (Uint8Array|null);
+
+        /** BotMetadata botPromotionMessageMetadata */
+        botPromotionMessageMetadata?: (E2E.IBotPromotionMessageMetadata|null);
+
+        /** BotMetadata botModeSelectionMetadata */
+        botModeSelectionMetadata?: (E2E.IBotModeSelectionMetadata|null);
+
+        /** BotMetadata botQuotaMetadata */
+        botQuotaMetadata?: (E2E.IBotQuotaMetadata|null);
+
+        /** BotMetadata botAgeCollectionMetadata */
+        botAgeCollectionMetadata?: (E2E.IBotAgeCollectionMetadata|null);
     }
 
     /** Represents a BotMetadata. */
@@ -9975,7 +10235,7 @@ export namespace E2E {
         public avatarMetadata?: (E2E.IBotAvatarMetadata|null);
 
         /** BotMetadata personaId. */
-        public personaId: string;
+        public personaId?: (string|null);
 
         /** BotMetadata pluginMetadata. */
         public pluginMetadata?: (E2E.IBotPluginMetadata|null);
@@ -9984,7 +10244,7 @@ export namespace E2E {
         public suggestedPromptMetadata?: (E2E.IBotSuggestedPromptMetadata|null);
 
         /** BotMetadata invokerJid. */
-        public invokerJid: string;
+        public invokerJid?: (string|null);
 
         /** BotMetadata sessionMetadata. */
         public sessionMetadata?: (E2E.IBotSessionMetadata|null);
@@ -9993,7 +10253,7 @@ export namespace E2E {
         public memuMetadata?: (E2E.IBotMemuMetadata|null);
 
         /** BotMetadata timezone. */
-        public timezone: string;
+        public timezone?: (string|null);
 
         /** BotMetadata reminderMetadata. */
         public reminderMetadata?: (E2E.IBotReminderMetadata|null);
@@ -10002,7 +10262,7 @@ export namespace E2E {
         public modelMetadata?: (E2E.IBotModelMetadata|null);
 
         /** BotMetadata messageDisclaimerText. */
-        public messageDisclaimerText: string;
+        public messageDisclaimerText?: (string|null);
 
         /** BotMetadata progressIndicatorMetadata. */
         public progressIndicatorMetadata?: (E2E.IBotProgressIndicatorMetadata|null);
@@ -10027,6 +10287,21 @@ export namespace E2E {
 
         /** BotMetadata richResponseSourcesMetadata. */
         public richResponseSourcesMetadata?: (E2E.IBotSourcesMetadata|null);
+
+        /** BotMetadata aiConversationContext. */
+        public aiConversationContext?: (Uint8Array|null);
+
+        /** BotMetadata botPromotionMessageMetadata. */
+        public botPromotionMessageMetadata?: (E2E.IBotPromotionMessageMetadata|null);
+
+        /** BotMetadata botModeSelectionMetadata. */
+        public botModeSelectionMetadata?: (E2E.IBotModeSelectionMetadata|null);
+
+        /** BotMetadata botQuotaMetadata. */
+        public botQuotaMetadata?: (E2E.IBotQuotaMetadata|null);
+
+        /** BotMetadata botAgeCollectionMetadata. */
+        public botAgeCollectionMetadata?: (E2E.IBotAgeCollectionMetadata|null);
 
         /**
          * Creates a new BotMetadata instance using the specified properties.
@@ -10237,22 +10512,22 @@ export namespace E2E {
             constructor(properties?: E2E.BotSourcesMetadata.IBotSourceItem);
 
             /** BotSourceItem provider. */
-            public provider: E2E.BotSourcesMetadata.BotSourceItem.SourceProvider;
+            public provider?: (E2E.BotSourcesMetadata.BotSourceItem.SourceProvider|null);
 
             /** BotSourceItem thumbnailCdnUrl. */
-            public thumbnailCdnUrl: string;
+            public thumbnailCdnUrl?: (string|null);
 
             /** BotSourceItem sourceProviderUrl. */
-            public sourceProviderUrl: string;
+            public sourceProviderUrl?: (string|null);
 
             /** BotSourceItem sourceQuery. */
-            public sourceQuery: string;
+            public sourceQuery?: (string|null);
 
             /** BotSourceItem faviconCdnUrl. */
-            public faviconCdnUrl: string;
+            public faviconCdnUrl?: (string|null);
 
             /** BotSourceItem citationNumber. */
-            public citationNumber: number;
+            public citationNumber?: (number|null);
 
             /**
              * Creates a new BotSourceItem instance using the specified properties.
@@ -10344,6 +10619,109 @@ export namespace E2E {
         }
     }
 
+    /** Properties of a BotAgeCollectionMetadata. */
+    interface IBotAgeCollectionMetadata {
+
+        /** BotAgeCollectionMetadata ageCollectionEligible */
+        ageCollectionEligible?: (boolean|null);
+
+        /** BotAgeCollectionMetadata shouldTriggerAgeCollectionOnClient */
+        shouldTriggerAgeCollectionOnClient?: (boolean|null);
+    }
+
+    /** Represents a BotAgeCollectionMetadata. */
+    class BotAgeCollectionMetadata implements IBotAgeCollectionMetadata {
+
+        /**
+         * Constructs a new BotAgeCollectionMetadata.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: E2E.IBotAgeCollectionMetadata);
+
+        /** BotAgeCollectionMetadata ageCollectionEligible. */
+        public ageCollectionEligible?: (boolean|null);
+
+        /** BotAgeCollectionMetadata shouldTriggerAgeCollectionOnClient. */
+        public shouldTriggerAgeCollectionOnClient?: (boolean|null);
+
+        /**
+         * Creates a new BotAgeCollectionMetadata instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns BotAgeCollectionMetadata instance
+         */
+        public static create(properties?: E2E.IBotAgeCollectionMetadata): E2E.BotAgeCollectionMetadata;
+
+        /**
+         * Encodes the specified BotAgeCollectionMetadata message. Does not implicitly {@link E2E.BotAgeCollectionMetadata.verify|verify} messages.
+         * @param message BotAgeCollectionMetadata message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: E2E.IBotAgeCollectionMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified BotAgeCollectionMetadata message, length delimited. Does not implicitly {@link E2E.BotAgeCollectionMetadata.verify|verify} messages.
+         * @param message BotAgeCollectionMetadata message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: E2E.IBotAgeCollectionMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a BotAgeCollectionMetadata message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns BotAgeCollectionMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): E2E.BotAgeCollectionMetadata;
+
+        /**
+         * Decodes a BotAgeCollectionMetadata message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns BotAgeCollectionMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): E2E.BotAgeCollectionMetadata;
+
+        /**
+         * Verifies a BotAgeCollectionMetadata message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a BotAgeCollectionMetadata message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns BotAgeCollectionMetadata
+         */
+        public static fromObject(object: { [k: string]: any }): E2E.BotAgeCollectionMetadata;
+
+        /**
+         * Creates a plain object from a BotAgeCollectionMetadata message. Also converts values to other types if specified.
+         * @param message BotAgeCollectionMetadata
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: E2E.BotAgeCollectionMetadata, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this BotAgeCollectionMetadata to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for BotAgeCollectionMetadata
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
+    }
+
     /** Properties of a BotImagineMetadata. */
     interface IBotImagineMetadata {
 
@@ -10361,7 +10739,7 @@ export namespace E2E {
         constructor(properties?: E2E.IBotImagineMetadata);
 
         /** BotImagineMetadata imagineType. */
-        public imagineType: E2E.BotImagineMetadata.ImagineType;
+        public imagineType?: (E2E.BotImagineMetadata.ImagineType|null);
 
         /**
          * Creates a new BotImagineMetadata instance using the specified properties.
@@ -10450,6 +10828,330 @@ export namespace E2E {
             MEMU = 2,
             FLASH = 3,
             EDIT = 4
+        }
+    }
+
+    /** Properties of a BotQuotaMetadata. */
+    interface IBotQuotaMetadata {
+
+        /** BotQuotaMetadata botFeatureQuotaMetadata */
+        botFeatureQuotaMetadata?: (E2E.BotQuotaMetadata.IBotFeatureQuotaMetadata[]|null);
+    }
+
+    /** Represents a BotQuotaMetadata. */
+    class BotQuotaMetadata implements IBotQuotaMetadata {
+
+        /**
+         * Constructs a new BotQuotaMetadata.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: E2E.IBotQuotaMetadata);
+
+        /** BotQuotaMetadata botFeatureQuotaMetadata. */
+        public botFeatureQuotaMetadata: E2E.BotQuotaMetadata.IBotFeatureQuotaMetadata[];
+
+        /**
+         * Creates a new BotQuotaMetadata instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns BotQuotaMetadata instance
+         */
+        public static create(properties?: E2E.IBotQuotaMetadata): E2E.BotQuotaMetadata;
+
+        /**
+         * Encodes the specified BotQuotaMetadata message. Does not implicitly {@link E2E.BotQuotaMetadata.verify|verify} messages.
+         * @param message BotQuotaMetadata message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: E2E.IBotQuotaMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified BotQuotaMetadata message, length delimited. Does not implicitly {@link E2E.BotQuotaMetadata.verify|verify} messages.
+         * @param message BotQuotaMetadata message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: E2E.IBotQuotaMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a BotQuotaMetadata message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns BotQuotaMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): E2E.BotQuotaMetadata;
+
+        /**
+         * Decodes a BotQuotaMetadata message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns BotQuotaMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): E2E.BotQuotaMetadata;
+
+        /**
+         * Verifies a BotQuotaMetadata message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a BotQuotaMetadata message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns BotQuotaMetadata
+         */
+        public static fromObject(object: { [k: string]: any }): E2E.BotQuotaMetadata;
+
+        /**
+         * Creates a plain object from a BotQuotaMetadata message. Also converts values to other types if specified.
+         * @param message BotQuotaMetadata
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: E2E.BotQuotaMetadata, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this BotQuotaMetadata to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for BotQuotaMetadata
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
+    }
+
+    namespace BotQuotaMetadata {
+
+        /** Properties of a BotFeatureQuotaMetadata. */
+        interface IBotFeatureQuotaMetadata {
+
+            /** BotFeatureQuotaMetadata featureType */
+            featureType?: (E2E.BotQuotaMetadata.BotFeatureQuotaMetadata.BotFeatureType|null);
+
+            /** BotFeatureQuotaMetadata remainingQuota */
+            remainingQuota?: (number|null);
+
+            /** BotFeatureQuotaMetadata expirationTimestamp */
+            expirationTimestamp?: (number|Long|null);
+        }
+
+        /** Represents a BotFeatureQuotaMetadata. */
+        class BotFeatureQuotaMetadata implements IBotFeatureQuotaMetadata {
+
+            /**
+             * Constructs a new BotFeatureQuotaMetadata.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: E2E.BotQuotaMetadata.IBotFeatureQuotaMetadata);
+
+            /** BotFeatureQuotaMetadata featureType. */
+            public featureType?: (E2E.BotQuotaMetadata.BotFeatureQuotaMetadata.BotFeatureType|null);
+
+            /** BotFeatureQuotaMetadata remainingQuota. */
+            public remainingQuota?: (number|null);
+
+            /** BotFeatureQuotaMetadata expirationTimestamp. */
+            public expirationTimestamp?: (number|Long|null);
+
+            /**
+             * Creates a new BotFeatureQuotaMetadata instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns BotFeatureQuotaMetadata instance
+             */
+            public static create(properties?: E2E.BotQuotaMetadata.IBotFeatureQuotaMetadata): E2E.BotQuotaMetadata.BotFeatureQuotaMetadata;
+
+            /**
+             * Encodes the specified BotFeatureQuotaMetadata message. Does not implicitly {@link E2E.BotQuotaMetadata.BotFeatureQuotaMetadata.verify|verify} messages.
+             * @param message BotFeatureQuotaMetadata message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: E2E.BotQuotaMetadata.IBotFeatureQuotaMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified BotFeatureQuotaMetadata message, length delimited. Does not implicitly {@link E2E.BotQuotaMetadata.BotFeatureQuotaMetadata.verify|verify} messages.
+             * @param message BotFeatureQuotaMetadata message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: E2E.BotQuotaMetadata.IBotFeatureQuotaMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a BotFeatureQuotaMetadata message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns BotFeatureQuotaMetadata
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): E2E.BotQuotaMetadata.BotFeatureQuotaMetadata;
+
+            /**
+             * Decodes a BotFeatureQuotaMetadata message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns BotFeatureQuotaMetadata
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): E2E.BotQuotaMetadata.BotFeatureQuotaMetadata;
+
+            /**
+             * Verifies a BotFeatureQuotaMetadata message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a BotFeatureQuotaMetadata message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns BotFeatureQuotaMetadata
+             */
+            public static fromObject(object: { [k: string]: any }): E2E.BotQuotaMetadata.BotFeatureQuotaMetadata;
+
+            /**
+             * Creates a plain object from a BotFeatureQuotaMetadata message. Also converts values to other types if specified.
+             * @param message BotFeatureQuotaMetadata
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: E2E.BotQuotaMetadata.BotFeatureQuotaMetadata, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this BotFeatureQuotaMetadata to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for BotFeatureQuotaMetadata
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        namespace BotFeatureQuotaMetadata {
+
+            /** BotFeatureType enum. */
+            enum BotFeatureType {
+                UNKNOWN_FEATURE = 0,
+                REASONING_FEATURE = 1
+            }
+        }
+    }
+
+    /** Properties of a BotModeSelectionMetadata. */
+    interface IBotModeSelectionMetadata {
+
+        /** BotModeSelectionMetadata mode */
+        mode?: (E2E.BotModeSelectionMetadata.BotUserSelectionMode[]|null);
+    }
+
+    /** Represents a BotModeSelectionMetadata. */
+    class BotModeSelectionMetadata implements IBotModeSelectionMetadata {
+
+        /**
+         * Constructs a new BotModeSelectionMetadata.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: E2E.IBotModeSelectionMetadata);
+
+        /** BotModeSelectionMetadata mode. */
+        public mode: E2E.BotModeSelectionMetadata.BotUserSelectionMode[];
+
+        /**
+         * Creates a new BotModeSelectionMetadata instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns BotModeSelectionMetadata instance
+         */
+        public static create(properties?: E2E.IBotModeSelectionMetadata): E2E.BotModeSelectionMetadata;
+
+        /**
+         * Encodes the specified BotModeSelectionMetadata message. Does not implicitly {@link E2E.BotModeSelectionMetadata.verify|verify} messages.
+         * @param message BotModeSelectionMetadata message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: E2E.IBotModeSelectionMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified BotModeSelectionMetadata message, length delimited. Does not implicitly {@link E2E.BotModeSelectionMetadata.verify|verify} messages.
+         * @param message BotModeSelectionMetadata message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: E2E.IBotModeSelectionMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a BotModeSelectionMetadata message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns BotModeSelectionMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): E2E.BotModeSelectionMetadata;
+
+        /**
+         * Decodes a BotModeSelectionMetadata message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns BotModeSelectionMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): E2E.BotModeSelectionMetadata;
+
+        /**
+         * Verifies a BotModeSelectionMetadata message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a BotModeSelectionMetadata message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns BotModeSelectionMetadata
+         */
+        public static fromObject(object: { [k: string]: any }): E2E.BotModeSelectionMetadata;
+
+        /**
+         * Creates a plain object from a BotModeSelectionMetadata message. Also converts values to other types if specified.
+         * @param message BotModeSelectionMetadata
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: E2E.BotModeSelectionMetadata, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this BotModeSelectionMetadata to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for BotModeSelectionMetadata
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
+    }
+
+    namespace BotModeSelectionMetadata {
+
+        /** BotUserSelectionMode enum. */
+        enum BotUserSelectionMode {
+            UNKNOWN_MODE = 0,
+            REASONING_MODE = 1
         }
     }
 
@@ -10583,7 +11285,13 @@ export namespace E2E {
             RICH_RESPONSE_INLINE_REELS = 26,
             AGENTIC_PLANNING = 27,
             ACCOUNT_LINKING = 28,
-            STREAMING_DISAGGREGATION = 29
+            STREAMING_DISAGGREGATION = 29,
+            RICH_RESPONSE_GRID_IMAGE_3P = 30,
+            RICH_RESPONSE_LATEX_INLINE = 31,
+            QUERY_PLAN = 32,
+            PROACTIVE_MESSAGE = 33,
+            RICH_RESPONSE_UNIFIED_RESPONSE = 34,
+            PROMOTION_MESSAGE = 35
         }
     }
 
@@ -10607,7 +11315,7 @@ export namespace E2E {
         constructor(properties?: E2E.IBotProgressIndicatorMetadata);
 
         /** BotProgressIndicatorMetadata progressDescription. */
-        public progressDescription: string;
+        public progressDescription?: (string|null);
 
         /** BotProgressIndicatorMetadata stepsMetadata. */
         public stepsMetadata: E2E.BotProgressIndicatorMetadata.IBotPlanningStepMetadata[];
@@ -10727,22 +11435,22 @@ export namespace E2E {
             constructor(properties?: E2E.BotProgressIndicatorMetadata.IBotPlanningStepMetadata);
 
             /** BotPlanningStepMetadata statusTitle. */
-            public statusTitle: string;
+            public statusTitle?: (string|null);
 
             /** BotPlanningStepMetadata statusBody. */
-            public statusBody: string;
+            public statusBody?: (string|null);
 
             /** BotPlanningStepMetadata sourcesMetadata. */
             public sourcesMetadata: E2E.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningSearchSourcesMetadata[];
 
             /** BotPlanningStepMetadata status. */
-            public status: E2E.BotProgressIndicatorMetadata.BotPlanningStepMetadata.PlanningStepStatus;
+            public status?: (E2E.BotProgressIndicatorMetadata.BotPlanningStepMetadata.PlanningStepStatus|null);
 
             /** BotPlanningStepMetadata isReasoning. */
-            public isReasoning: boolean;
+            public isReasoning?: (boolean|null);
 
             /** BotPlanningStepMetadata isEnhancedSearch. */
-            public isEnhancedSearch: boolean;
+            public isEnhancedSearch?: (boolean|null);
 
             /** BotPlanningStepMetadata sections. */
             public sections: E2E.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningStepSectionMetadata[];
@@ -10853,16 +11561,16 @@ export namespace E2E {
                 constructor(properties?: E2E.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningSearchSourceMetadata);
 
                 /** BotPlanningSearchSourceMetadata title. */
-                public title: string;
+                public title?: (string|null);
 
                 /** BotPlanningSearchSourceMetadata provider. */
-                public provider: E2E.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotSearchSourceProvider;
+                public provider?: (E2E.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotSearchSourceProvider|null);
 
                 /** BotPlanningSearchSourceMetadata sourceUrl. */
-                public sourceUrl: string;
+                public sourceUrl?: (string|null);
 
                 /** BotPlanningSearchSourceMetadata favIconUrl. */
-                public favIconUrl: string;
+                public favIconUrl?: (string|null);
 
                 /**
                  * Creates a new BotPlanningSearchSourceMetadata instance using the specified properties.
@@ -10965,13 +11673,13 @@ export namespace E2E {
                 constructor(properties?: E2E.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningSearchSourcesMetadata);
 
                 /** BotPlanningSearchSourcesMetadata sourceTitle. */
-                public sourceTitle: string;
+                public sourceTitle?: (string|null);
 
                 /** BotPlanningSearchSourcesMetadata provider. */
-                public provider: E2E.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.BotPlanningSearchSourceProvider;
+                public provider?: (E2E.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.BotPlanningSearchSourceProvider|null);
 
                 /** BotPlanningSearchSourcesMetadata sourceUrl. */
-                public sourceUrl: string;
+                public sourceUrl?: (string|null);
 
                 /**
                  * Creates a new BotPlanningSearchSourcesMetadata instance using the specified properties.
@@ -11085,10 +11793,10 @@ export namespace E2E {
                 constructor(properties?: E2E.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningStepSectionMetadata);
 
                 /** BotPlanningStepSectionMetadata sectionTitle. */
-                public sectionTitle: string;
+                public sectionTitle?: (string|null);
 
                 /** BotPlanningStepSectionMetadata sectionBody. */
-                public sectionBody: string;
+                public sectionBody?: (string|null);
 
                 /** BotPlanningStepSectionMetadata sourcesMetadata. */
                 public sourcesMetadata: E2E.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningSearchSourceMetadata[];
@@ -11209,10 +11917,10 @@ export namespace E2E {
         constructor(properties?: E2E.IBotModelMetadata);
 
         /** BotModelMetadata modelType. */
-        public modelType: E2E.BotModelMetadata.ModelType;
+        public modelType?: (E2E.BotModelMetadata.ModelType|null);
 
         /** BotModelMetadata premiumModelStatus. */
-        public premiumModelStatus: E2E.BotModelMetadata.PremiumModelStatus;
+        public premiumModelStatus?: (E2E.BotModelMetadata.PremiumModelStatus|null);
 
         /**
          * Creates a new BotModelMetadata instance using the specified properties.
@@ -11341,16 +12049,16 @@ export namespace E2E {
         public requestMessageKey?: (Protocol.IMessageKey|null);
 
         /** BotReminderMetadata action. */
-        public action: E2E.BotReminderMetadata.ReminderAction;
+        public action?: (E2E.BotReminderMetadata.ReminderAction|null);
 
         /** BotReminderMetadata name. */
-        public name: string;
+        public name?: (string|null);
 
         /** BotReminderMetadata nextTriggerTimestamp. */
-        public nextTriggerTimestamp: (number|Long);
+        public nextTriggerTimestamp?: (number|Long|null);
 
         /** BotReminderMetadata frequency. */
-        public frequency: E2E.BotReminderMetadata.ReminderFrequency;
+        public frequency?: (E2E.BotReminderMetadata.ReminderFrequency|null);
 
         /**
          * Creates a new BotReminderMetadata instance using the specified properties.
@@ -11582,25 +12290,25 @@ export namespace E2E {
         constructor(properties?: E2E.IBotMediaMetadata);
 
         /** BotMediaMetadata fileSha256. */
-        public fileSha256: string;
+        public fileSha256?: (string|null);
 
         /** BotMediaMetadata mediaKey. */
-        public mediaKey: string;
+        public mediaKey?: (string|null);
 
         /** BotMediaMetadata fileEncSha256. */
-        public fileEncSha256: string;
+        public fileEncSha256?: (string|null);
 
         /** BotMediaMetadata directPath. */
-        public directPath: string;
+        public directPath?: (string|null);
 
         /** BotMediaMetadata mediaKeyTimestamp. */
-        public mediaKeyTimestamp: (number|Long);
+        public mediaKeyTimestamp?: (number|Long|null);
 
         /** BotMediaMetadata mimetype. */
-        public mimetype: string;
+        public mimetype?: (string|null);
 
         /** BotMediaMetadata orientationType. */
-        public orientationType: E2E.BotMediaMetadata.OrientationType;
+        public orientationType?: (E2E.BotMediaMetadata.OrientationType|null);
 
         /**
          * Creates a new BotMediaMetadata instance using the specified properties.
@@ -11710,10 +12418,10 @@ export namespace E2E {
         constructor(properties?: E2E.IBotSessionMetadata);
 
         /** BotSessionMetadata sessionId. */
-        public sessionId: string;
+        public sessionId?: (string|null);
 
         /** BotSessionMetadata sessionSource. */
-        public sessionSource: E2E.BotSessionSource;
+        public sessionSource?: (E2E.BotSessionSource|null);
 
         /**
          * Creates a new BotSessionMetadata instance using the specified properties.
@@ -11816,13 +12524,13 @@ export namespace E2E {
         constructor(properties?: E2E.IBotMetricsMetadata);
 
         /** BotMetricsMetadata destinationId. */
-        public destinationId: string;
+        public destinationId?: (string|null);
 
         /** BotMetricsMetadata destinationEntryPoint. */
-        public destinationEntryPoint: E2E.BotMetricsEntryPoint;
+        public destinationEntryPoint?: (E2E.BotMetricsEntryPoint|null);
 
         /** BotMetricsMetadata threadOrigin. */
-        public threadOrigin: E2E.BotMetricsThreadEntryPoint;
+        public threadOrigin?: (E2E.BotMetricsThreadEntryPoint|null);
 
         /**
          * Creates a new BotMetricsMetadata instance using the specified properties.
@@ -12021,7 +12729,7 @@ export namespace E2E {
             constructor(properties?: E2E.BotRenderingMetadata.IKeyword);
 
             /** Keyword value. */
-            public value: string;
+            public value?: (string|null);
 
             /** Keyword associatedPrompts. */
             public associatedPrompts: string[];
@@ -12105,6 +12813,118 @@ export namespace E2E {
         }
     }
 
+    /** Properties of a BotPromotionMessageMetadata. */
+    interface IBotPromotionMessageMetadata {
+
+        /** BotPromotionMessageMetadata promotionType */
+        promotionType?: (E2E.BotPromotionMessageMetadata.BotPromotionType|null);
+
+        /** BotPromotionMessageMetadata buttonTitle */
+        buttonTitle?: (string|null);
+    }
+
+    /** Represents a BotPromotionMessageMetadata. */
+    class BotPromotionMessageMetadata implements IBotPromotionMessageMetadata {
+
+        /**
+         * Constructs a new BotPromotionMessageMetadata.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: E2E.IBotPromotionMessageMetadata);
+
+        /** BotPromotionMessageMetadata promotionType. */
+        public promotionType?: (E2E.BotPromotionMessageMetadata.BotPromotionType|null);
+
+        /** BotPromotionMessageMetadata buttonTitle. */
+        public buttonTitle?: (string|null);
+
+        /**
+         * Creates a new BotPromotionMessageMetadata instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns BotPromotionMessageMetadata instance
+         */
+        public static create(properties?: E2E.IBotPromotionMessageMetadata): E2E.BotPromotionMessageMetadata;
+
+        /**
+         * Encodes the specified BotPromotionMessageMetadata message. Does not implicitly {@link E2E.BotPromotionMessageMetadata.verify|verify} messages.
+         * @param message BotPromotionMessageMetadata message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: E2E.IBotPromotionMessageMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified BotPromotionMessageMetadata message, length delimited. Does not implicitly {@link E2E.BotPromotionMessageMetadata.verify|verify} messages.
+         * @param message BotPromotionMessageMetadata message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: E2E.IBotPromotionMessageMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a BotPromotionMessageMetadata message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns BotPromotionMessageMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): E2E.BotPromotionMessageMetadata;
+
+        /**
+         * Decodes a BotPromotionMessageMetadata message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns BotPromotionMessageMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): E2E.BotPromotionMessageMetadata;
+
+        /**
+         * Verifies a BotPromotionMessageMetadata message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a BotPromotionMessageMetadata message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns BotPromotionMessageMetadata
+         */
+        public static fromObject(object: { [k: string]: any }): E2E.BotPromotionMessageMetadata;
+
+        /**
+         * Creates a plain object from a BotPromotionMessageMetadata message. Also converts values to other types if specified.
+         * @param message BotPromotionMessageMetadata
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: E2E.BotPromotionMessageMetadata, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this BotPromotionMessageMetadata to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for BotPromotionMessageMetadata
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
+    }
+
+    namespace BotPromotionMessageMetadata {
+
+        /** BotPromotionType enum. */
+        enum BotPromotionType {
+            UNKNOWN_TYPE = 0,
+            C50 = 1
+        }
+    }
+
     /** Properties of a AIRichResponseMessage. */
     interface IAIRichResponseMessage {
 
@@ -12114,8 +12934,8 @@ export namespace E2E {
         /** AIRichResponseMessage submessages */
         submessages?: (E2E.AIRichResponseMessage.IAIRichResponseSubMessage[]|null);
 
-        /** AIRichResponseMessage abstractData */
-        abstractData?: (E2E.AIRichResponseMessage.IAIRichResponseAbstractData|null);
+        /** AIRichResponseMessage unifiedResponse */
+        unifiedResponse?: (E2E.AIRichResponseMessage.IAIRichResponseUnifiedResponse|null);
     }
 
     /** Represents a AIRichResponseMessage. */
@@ -12128,13 +12948,13 @@ export namespace E2E {
         constructor(properties?: E2E.IAIRichResponseMessage);
 
         /** AIRichResponseMessage messageType. */
-        public messageType: E2E.AIRichResponseMessage.AIRichResponseMessageType;
+        public messageType?: (E2E.AIRichResponseMessage.AIRichResponseMessageType|null);
 
         /** AIRichResponseMessage submessages. */
         public submessages: E2E.AIRichResponseMessage.IAIRichResponseSubMessage[];
 
-        /** AIRichResponseMessage abstractData. */
-        public abstractData?: (E2E.AIRichResponseMessage.IAIRichResponseAbstractData|null);
+        /** AIRichResponseMessage unifiedResponse. */
+        public unifiedResponse?: (E2E.AIRichResponseMessage.IAIRichResponseUnifiedResponse|null);
 
         /**
          * Creates a new AIRichResponseMessage instance using the specified properties.
@@ -12216,103 +13036,6 @@ export namespace E2E {
 
     namespace AIRichResponseMessage {
 
-        /** Properties of a AIRichResponseAbstractData. */
-        interface IAIRichResponseAbstractData {
-
-            /** AIRichResponseAbstractData data */
-            data?: (Uint8Array|null);
-        }
-
-        /** Represents a AIRichResponseAbstractData. */
-        class AIRichResponseAbstractData implements IAIRichResponseAbstractData {
-
-            /**
-             * Constructs a new AIRichResponseAbstractData.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: E2E.AIRichResponseMessage.IAIRichResponseAbstractData);
-
-            /** AIRichResponseAbstractData data. */
-            public data: Uint8Array;
-
-            /**
-             * Creates a new AIRichResponseAbstractData instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns AIRichResponseAbstractData instance
-             */
-            public static create(properties?: E2E.AIRichResponseMessage.IAIRichResponseAbstractData): E2E.AIRichResponseMessage.AIRichResponseAbstractData;
-
-            /**
-             * Encodes the specified AIRichResponseAbstractData message. Does not implicitly {@link E2E.AIRichResponseMessage.AIRichResponseAbstractData.verify|verify} messages.
-             * @param message AIRichResponseAbstractData message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: E2E.AIRichResponseMessage.IAIRichResponseAbstractData, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified AIRichResponseAbstractData message, length delimited. Does not implicitly {@link E2E.AIRichResponseMessage.AIRichResponseAbstractData.verify|verify} messages.
-             * @param message AIRichResponseAbstractData message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: E2E.AIRichResponseMessage.IAIRichResponseAbstractData, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a AIRichResponseAbstractData message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns AIRichResponseAbstractData
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): E2E.AIRichResponseMessage.AIRichResponseAbstractData;
-
-            /**
-             * Decodes a AIRichResponseAbstractData message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns AIRichResponseAbstractData
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): E2E.AIRichResponseMessage.AIRichResponseAbstractData;
-
-            /**
-             * Verifies a AIRichResponseAbstractData message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a AIRichResponseAbstractData message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns AIRichResponseAbstractData
-             */
-            public static fromObject(object: { [k: string]: any }): E2E.AIRichResponseMessage.AIRichResponseAbstractData;
-
-            /**
-             * Creates a plain object from a AIRichResponseAbstractData message. Also converts values to other types if specified.
-             * @param message AIRichResponseAbstractData
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: E2E.AIRichResponseMessage.AIRichResponseAbstractData, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this AIRichResponseAbstractData to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-
-            /**
-             * Gets the default type url for AIRichResponseAbstractData
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
-             */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
-        }
-
         /** Properties of a AIRichResponseCodeMetadata. */
         interface IAIRichResponseCodeMetadata {
 
@@ -12333,7 +13056,7 @@ export namespace E2E {
             constructor(properties?: E2E.AIRichResponseMessage.IAIRichResponseCodeMetadata);
 
             /** AIRichResponseCodeMetadata codeLanguage. */
-            public codeLanguage: string;
+            public codeLanguage?: (string|null);
 
             /** AIRichResponseCodeMetadata codeBlocks. */
             public codeBlocks: E2E.AIRichResponseMessage.AIRichResponseCodeMetadata.IAIRichResponseCodeBlock[];
@@ -12438,10 +13161,10 @@ export namespace E2E {
                 constructor(properties?: E2E.AIRichResponseMessage.AIRichResponseCodeMetadata.IAIRichResponseCodeBlock);
 
                 /** AIRichResponseCodeBlock highlightType. */
-                public highlightType: E2E.AIRichResponseMessage.AIRichResponseCodeMetadata.AIRichResponseCodeHighlightType;
+                public highlightType?: (E2E.AIRichResponseMessage.AIRichResponseCodeMetadata.AIRichResponseCodeHighlightType|null);
 
                 /** AIRichResponseCodeBlock codeContent. */
-                public codeContent: string;
+                public codeContent?: (string|null);
 
                 /**
                  * Creates a new AIRichResponseCodeBlock instance using the specified properties.
@@ -12555,7 +13278,7 @@ export namespace E2E {
             public itemsMetadata: E2E.AIRichResponseMessage.AIRichResponseContentItemsMetadata.IAIRichResponseContentItemMetadata[];
 
             /** AIRichResponseContentItemsMetadata contentType. */
-            public contentType: E2E.AIRichResponseMessage.AIRichResponseContentItemsMetadata.ContentType;
+            public contentType?: (E2E.AIRichResponseMessage.AIRichResponseContentItemsMetadata.ContentType|null);
 
             /**
              * Creates a new AIRichResponseContentItemsMetadata instance using the specified properties.
@@ -12763,16 +13486,16 @@ export namespace E2E {
                 constructor(properties?: E2E.AIRichResponseMessage.AIRichResponseContentItemsMetadata.IAIRichResponseReelItem);
 
                 /** AIRichResponseReelItem title. */
-                public title: string;
+                public title?: (string|null);
 
                 /** AIRichResponseReelItem profileIconUrl. */
-                public profileIconUrl: string;
+                public profileIconUrl?: (string|null);
 
                 /** AIRichResponseReelItem thumbnailUrl. */
-                public thumbnailUrl: string;
+                public thumbnailUrl?: (string|null);
 
                 /** AIRichResponseReelItem videoUrl. */
-                public videoUrl: string;
+                public videoUrl?: (string|null);
 
                 /**
                  * Creates a new AIRichResponseReelItem instance using the specified properties.
@@ -12885,16 +13608,16 @@ export namespace E2E {
             constructor(properties?: E2E.AIRichResponseMessage.IAIRichResponseDynamicMetadata);
 
             /** AIRichResponseDynamicMetadata type. */
-            public type: E2E.AIRichResponseMessage.AIRichResponseDynamicMetadata.AIRichResponseDynamicMetadataType;
+            public type?: (E2E.AIRichResponseMessage.AIRichResponseDynamicMetadata.AIRichResponseDynamicMetadataType|null);
 
             /** AIRichResponseDynamicMetadata version. */
-            public version: (number|Long);
+            public version?: (number|Long|null);
 
             /** AIRichResponseDynamicMetadata url. */
-            public url: string;
+            public url?: (string|null);
 
             /** AIRichResponseDynamicMetadata loopCount. */
-            public loopCount: number;
+            public loopCount?: (number|null);
 
             /**
              * Creates a new AIRichResponseDynamicMetadata instance using the specified properties.
@@ -13110,13 +13833,13 @@ export namespace E2E {
             constructor(properties?: E2E.AIRichResponseMessage.IAIRichResponseImageURL);
 
             /** AIRichResponseImageURL imagePreviewUrl. */
-            public imagePreviewUrl: string;
+            public imagePreviewUrl?: (string|null);
 
             /** AIRichResponseImageURL imageHighResUrl. */
-            public imageHighResUrl: string;
+            public imageHighResUrl?: (string|null);
 
             /** AIRichResponseImageURL sourceUrl. */
-            public sourceUrl: string;
+            public sourceUrl?: (string|null);
 
             /**
              * Creates a new AIRichResponseImageURL instance using the specified properties.
@@ -13225,13 +13948,13 @@ export namespace E2E {
             public imageUrl?: (E2E.AIRichResponseMessage.IAIRichResponseImageURL|null);
 
             /** AIRichResponseInlineImageMetadata imageText. */
-            public imageText: string;
+            public imageText?: (string|null);
 
             /** AIRichResponseInlineImageMetadata alignment. */
-            public alignment: E2E.AIRichResponseMessage.AIRichResponseInlineImageMetadata.AIRichResponseImageAlignment;
+            public alignment?: (E2E.AIRichResponseMessage.AIRichResponseInlineImageMetadata.AIRichResponseImageAlignment|null);
 
             /** AIRichResponseInlineImageMetadata tapLinkUrl. */
-            public tapLinkUrl: string;
+            public tapLinkUrl?: (string|null);
 
             /**
              * Creates a new AIRichResponseInlineImageMetadata instance using the specified properties.
@@ -13341,7 +14064,7 @@ export namespace E2E {
             constructor(properties?: E2E.AIRichResponseMessage.IAIRichResponseLatexMetadata);
 
             /** AIRichResponseLatexMetadata text. */
-            public text: string;
+            public text?: (string|null);
 
             /** AIRichResponseLatexMetadata expressions. */
             public expressions: E2E.AIRichResponseMessage.AIRichResponseLatexMetadata.IAIRichResponseLatexExpression[];
@@ -13443,6 +14166,18 @@ export namespace E2E {
 
                 /** AIRichResponseLatexExpression fontHeight */
                 fontHeight?: (number|null);
+
+                /** AIRichResponseLatexExpression imageTopPadding */
+                imageTopPadding?: (number|null);
+
+                /** AIRichResponseLatexExpression imageLeadingPadding */
+                imageLeadingPadding?: (number|null);
+
+                /** AIRichResponseLatexExpression imageBottomPadding */
+                imageBottomPadding?: (number|null);
+
+                /** AIRichResponseLatexExpression imageTrailingPadding */
+                imageTrailingPadding?: (number|null);
             }
 
             /** Represents a AIRichResponseLatexExpression. */
@@ -13455,19 +14190,31 @@ export namespace E2E {
                 constructor(properties?: E2E.AIRichResponseMessage.AIRichResponseLatexMetadata.IAIRichResponseLatexExpression);
 
                 /** AIRichResponseLatexExpression latexExpression. */
-                public latexExpression: string;
+                public latexExpression?: (string|null);
 
                 /** AIRichResponseLatexExpression url. */
-                public url: string;
+                public url?: (string|null);
 
                 /** AIRichResponseLatexExpression width. */
-                public width: number;
+                public width?: (number|null);
 
                 /** AIRichResponseLatexExpression height. */
-                public height: number;
+                public height?: (number|null);
 
                 /** AIRichResponseLatexExpression fontHeight. */
-                public fontHeight: number;
+                public fontHeight?: (number|null);
+
+                /** AIRichResponseLatexExpression imageTopPadding. */
+                public imageTopPadding?: (number|null);
+
+                /** AIRichResponseLatexExpression imageLeadingPadding. */
+                public imageLeadingPadding?: (number|null);
+
+                /** AIRichResponseLatexExpression imageBottomPadding. */
+                public imageBottomPadding?: (number|null);
+
+                /** AIRichResponseLatexExpression imageTrailingPadding. */
+                public imageTrailingPadding?: (number|null);
 
                 /**
                  * Creates a new AIRichResponseLatexExpression instance using the specified properties.
@@ -13580,22 +14327,22 @@ export namespace E2E {
             constructor(properties?: E2E.AIRichResponseMessage.IAIRichResponseMapMetadata);
 
             /** AIRichResponseMapMetadata centerLatitude. */
-            public centerLatitude: number;
+            public centerLatitude?: (number|null);
 
             /** AIRichResponseMapMetadata centerLongitude. */
-            public centerLongitude: number;
+            public centerLongitude?: (number|null);
 
             /** AIRichResponseMapMetadata latitudeDelta. */
-            public latitudeDelta: number;
+            public latitudeDelta?: (number|null);
 
             /** AIRichResponseMapMetadata longitudeDelta. */
-            public longitudeDelta: number;
+            public longitudeDelta?: (number|null);
 
             /** AIRichResponseMapMetadata annotations. */
             public annotations: E2E.AIRichResponseMessage.AIRichResponseMapMetadata.IAIRichResponseMapAnnotation[];
 
             /** AIRichResponseMapMetadata showInfoList. */
-            public showInfoList: boolean;
+            public showInfoList?: (boolean|null);
 
             /**
              * Creates a new AIRichResponseMapMetadata instance using the specified properties.
@@ -13706,19 +14453,19 @@ export namespace E2E {
                 constructor(properties?: E2E.AIRichResponseMessage.AIRichResponseMapMetadata.IAIRichResponseMapAnnotation);
 
                 /** AIRichResponseMapAnnotation annotationNumber. */
-                public annotationNumber: number;
+                public annotationNumber?: (number|null);
 
                 /** AIRichResponseMapAnnotation latitude. */
-                public latitude: number;
+                public latitude?: (number|null);
 
                 /** AIRichResponseMapAnnotation longitude. */
-                public longitude: number;
+                public longitude?: (number|null);
 
                 /** AIRichResponseMapAnnotation title. */
-                public title: string;
+                public title?: (string|null);
 
                 /** AIRichResponseMapAnnotation body. */
-                public body: string;
+                public body?: (string|null);
 
                 /**
                  * Creates a new AIRichResponseMapAnnotation instance using the specified properties.
@@ -13849,13 +14596,13 @@ export namespace E2E {
             constructor(properties?: E2E.AIRichResponseMessage.IAIRichResponseSubMessage);
 
             /** AIRichResponseSubMessage messageType. */
-            public messageType: E2E.AIRichResponseMessage.AIRichResponseSubMessageType;
+            public messageType?: (E2E.AIRichResponseMessage.AIRichResponseSubMessageType|null);
 
             /** AIRichResponseSubMessage gridImageMetadata. */
             public gridImageMetadata?: (E2E.AIRichResponseMessage.IAIRichResponseGridImageMetadata|null);
 
             /** AIRichResponseSubMessage messageText. */
-            public messageText: string;
+            public messageText?: (string|null);
 
             /** AIRichResponseSubMessage imageMetadata. */
             public imageMetadata?: (E2E.AIRichResponseMessage.IAIRichResponseInlineImageMetadata|null);
@@ -14092,7 +14839,7 @@ export namespace E2E {
                 public items: string[];
 
                 /** AIRichResponseTableRow isHeading. */
-                public isHeading: boolean;
+                public isHeading?: (boolean|null);
 
                 /**
                  * Creates a new AIRichResponseTableRow instance using the specified properties.
@@ -14172,6 +14919,103 @@ export namespace E2E {
                 public static getTypeUrl(typeUrlPrefix?: string): string;
             }
         }
+
+        /** Properties of a AIRichResponseUnifiedResponse. */
+        interface IAIRichResponseUnifiedResponse {
+
+            /** AIRichResponseUnifiedResponse data */
+            data?: (Uint8Array|null);
+        }
+
+        /** Represents a AIRichResponseUnifiedResponse. */
+        class AIRichResponseUnifiedResponse implements IAIRichResponseUnifiedResponse {
+
+            /**
+             * Constructs a new AIRichResponseUnifiedResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: E2E.AIRichResponseMessage.IAIRichResponseUnifiedResponse);
+
+            /** AIRichResponseUnifiedResponse data. */
+            public data?: (Uint8Array|null);
+
+            /**
+             * Creates a new AIRichResponseUnifiedResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns AIRichResponseUnifiedResponse instance
+             */
+            public static create(properties?: E2E.AIRichResponseMessage.IAIRichResponseUnifiedResponse): E2E.AIRichResponseMessage.AIRichResponseUnifiedResponse;
+
+            /**
+             * Encodes the specified AIRichResponseUnifiedResponse message. Does not implicitly {@link E2E.AIRichResponseMessage.AIRichResponseUnifiedResponse.verify|verify} messages.
+             * @param message AIRichResponseUnifiedResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: E2E.AIRichResponseMessage.IAIRichResponseUnifiedResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified AIRichResponseUnifiedResponse message, length delimited. Does not implicitly {@link E2E.AIRichResponseMessage.AIRichResponseUnifiedResponse.verify|verify} messages.
+             * @param message AIRichResponseUnifiedResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: E2E.AIRichResponseMessage.IAIRichResponseUnifiedResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a AIRichResponseUnifiedResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns AIRichResponseUnifiedResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): E2E.AIRichResponseMessage.AIRichResponseUnifiedResponse;
+
+            /**
+             * Decodes a AIRichResponseUnifiedResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns AIRichResponseUnifiedResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): E2E.AIRichResponseMessage.AIRichResponseUnifiedResponse;
+
+            /**
+             * Verifies a AIRichResponseUnifiedResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a AIRichResponseUnifiedResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns AIRichResponseUnifiedResponse
+             */
+            public static fromObject(object: { [k: string]: any }): E2E.AIRichResponseMessage.AIRichResponseUnifiedResponse;
+
+            /**
+             * Creates a plain object from a AIRichResponseUnifiedResponse message. Also converts values to other types if specified.
+             * @param message AIRichResponseUnifiedResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: E2E.AIRichResponseMessage.AIRichResponseUnifiedResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this AIRichResponseUnifiedResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for AIRichResponseUnifiedResponse
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
     }
 
     /** Properties of a BotMemoryFact. */
@@ -14194,10 +15038,10 @@ export namespace E2E {
         constructor(properties?: E2E.IBotMemoryFact);
 
         /** BotMemoryFact fact. */
-        public fact: string;
+        public fact?: (string|null);
 
         /** BotMemoryFact factId. */
-        public factId: string;
+        public factId?: (string|null);
 
         /**
          * Creates a new BotMemoryFact instance using the specified properties.
@@ -14306,7 +15150,7 @@ export namespace E2E {
         public removedFacts: E2E.IBotMemoryFact[];
 
         /** BotMemoryMetadata disclaimer. */
-        public disclaimer: string;
+        public disclaimer?: (string|null);
 
         /**
          * Creates a new BotMemoryMetadata instance using the specified properties.
@@ -14403,7 +15247,7 @@ export namespace E2E {
         constructor(properties?: E2E.IBotLinkedAccount);
 
         /** BotLinkedAccount type. */
-        public type: E2E.BotLinkedAccount.BotLinkedAccountType;
+        public type?: (E2E.BotLinkedAccount.BotLinkedAccountType|null);
 
         /**
          * Creates a new BotLinkedAccount instance using the specified properties.
@@ -14499,6 +15343,9 @@ export namespace E2E {
 
         /** BotLinkedAccountsMetadata acAuthTokens */
         acAuthTokens?: (Uint8Array|null);
+
+        /** BotLinkedAccountsMetadata acErrorCode */
+        acErrorCode?: (number|null);
     }
 
     /** Represents a BotLinkedAccountsMetadata. */
@@ -14514,7 +15361,10 @@ export namespace E2E {
         public accounts: E2E.IBotLinkedAccount[];
 
         /** BotLinkedAccountsMetadata acAuthTokens. */
-        public acAuthTokens: Uint8Array;
+        public acAuthTokens?: (Uint8Array|null);
+
+        /** BotLinkedAccountsMetadata acErrorCode. */
+        public acErrorCode?: (number|null);
 
         /**
          * Creates a new BotLinkedAccountsMetadata instance using the specified properties.
@@ -14614,10 +15464,10 @@ export namespace E2E {
         constructor(properties?: E2E.IBotPromptSuggestion);
 
         /** BotPromptSuggestion prompt. */
-        public prompt: string;
+        public prompt?: (string|null);
 
         /** BotPromptSuggestion promptId. */
-        public promptId: string;
+        public promptId?: (string|null);
 
         /**
          * Creates a new BotPromptSuggestion instance using the specified properties.
@@ -14823,13 +15673,13 @@ export namespace E2E {
         public suggestedPrompts: string[];
 
         /** BotSuggestedPromptMetadata selectedPromptIndex. */
-        public selectedPromptIndex: number;
+        public selectedPromptIndex?: (number|null);
 
         /** BotSuggestedPromptMetadata promptSuggestions. */
         public promptSuggestions?: (E2E.IBotPromptSuggestions|null);
 
         /** BotSuggestedPromptMetadata selectedPromptId. */
-        public selectedPromptId: string;
+        public selectedPromptId?: (string|null);
 
         /**
          * Creates a new BotSuggestedPromptMetadata instance using the specified properties.
@@ -14959,40 +15809,40 @@ export namespace E2E {
         constructor(properties?: E2E.IBotPluginMetadata);
 
         /** BotPluginMetadata provider. */
-        public provider: E2E.BotPluginMetadata.SearchProvider;
+        public provider?: (E2E.BotPluginMetadata.SearchProvider|null);
 
         /** BotPluginMetadata pluginType. */
-        public pluginType: E2E.BotPluginMetadata.PluginType;
+        public pluginType?: (E2E.BotPluginMetadata.PluginType|null);
 
         /** BotPluginMetadata thumbnailCdnUrl. */
-        public thumbnailCdnUrl: string;
+        public thumbnailCdnUrl?: (string|null);
 
         /** BotPluginMetadata profilePhotoCdnUrl. */
-        public profilePhotoCdnUrl: string;
+        public profilePhotoCdnUrl?: (string|null);
 
         /** BotPluginMetadata searchProviderUrl. */
-        public searchProviderUrl: string;
+        public searchProviderUrl?: (string|null);
 
         /** BotPluginMetadata referenceIndex. */
-        public referenceIndex: number;
+        public referenceIndex?: (number|null);
 
         /** BotPluginMetadata expectedLinksCount. */
-        public expectedLinksCount: number;
+        public expectedLinksCount?: (number|null);
 
         /** BotPluginMetadata searchQuery. */
-        public searchQuery: string;
+        public searchQuery?: (string|null);
 
         /** BotPluginMetadata parentPluginMessageKey. */
         public parentPluginMessageKey?: (Protocol.IMessageKey|null);
 
         /** BotPluginMetadata deprecatedField. */
-        public deprecatedField: E2E.BotPluginMetadata.PluginType;
+        public deprecatedField?: (E2E.BotPluginMetadata.PluginType|null);
 
         /** BotPluginMetadata parentPluginType. */
-        public parentPluginType: E2E.BotPluginMetadata.PluginType;
+        public parentPluginType?: (E2E.BotPluginMetadata.PluginType|null);
 
         /** BotPluginMetadata faviconCdnUrl. */
-        public faviconCdnUrl: string;
+        public faviconCdnUrl?: (string|null);
 
         /**
          * Creates a new BotPluginMetadata instance using the specified properties.
@@ -15119,19 +15969,19 @@ export namespace E2E {
         constructor(properties?: E2E.IBotAvatarMetadata);
 
         /** BotAvatarMetadata sentiment. */
-        public sentiment: number;
+        public sentiment?: (number|null);
 
         /** BotAvatarMetadata behaviorGraph. */
-        public behaviorGraph: string;
+        public behaviorGraph?: (string|null);
 
         /** BotAvatarMetadata action. */
-        public action: number;
+        public action?: (number|null);
 
         /** BotAvatarMetadata intensity. */
-        public intensity: number;
+        public intensity?: (number|null);
 
         /** BotAvatarMetadata wordCount. */
-        public wordCount: number;
+        public wordCount?: (number|null);
 
         /**
          * Creates a new BotAvatarMetadata instance using the specified properties.
@@ -15345,6 +16195,15 @@ export namespace E2E {
 
         /** ContextInfo rankingVersion */
         rankingVersion?: (number|null);
+
+        /** ContextInfo memberLabel */
+        memberLabel?: (E2E.IMemberLabel|null);
+
+        /** ContextInfo isQuestion */
+        isQuestion?: (boolean|null);
+
+        /** ContextInfo statusSourceType */
+        statusSourceType?: (E2E.ContextInfo.StatusSourceType|null);
     }
 
     /** Represents a ContextInfo. */
@@ -15357,34 +16216,34 @@ export namespace E2E {
         constructor(properties?: E2E.IContextInfo);
 
         /** ContextInfo stanzaId. */
-        public stanzaId: string;
+        public stanzaId?: (string|null);
 
         /** ContextInfo participant. */
-        public participant: string;
+        public participant?: (string|null);
 
         /** ContextInfo quotedMessage. */
         public quotedMessage?: (E2E.IMessage|null);
 
         /** ContextInfo remoteJid. */
-        public remoteJid: string;
+        public remoteJid?: (string|null);
 
         /** ContextInfo mentionedJid. */
         public mentionedJid: string[];
 
         /** ContextInfo conversionSource. */
-        public conversionSource: string;
+        public conversionSource?: (string|null);
 
         /** ContextInfo conversionData. */
-        public conversionData: Uint8Array;
+        public conversionData?: (Uint8Array|null);
 
         /** ContextInfo conversionDelaySeconds. */
-        public conversionDelaySeconds: number;
+        public conversionDelaySeconds?: (number|null);
 
         /** ContextInfo forwardingScore. */
-        public forwardingScore: number;
+        public forwardingScore?: (number|null);
 
         /** ContextInfo isForwarded. */
-        public isForwarded: boolean;
+        public isForwarded?: (boolean|null);
 
         /** ContextInfo quotedAd. */
         public quotedAd?: (E2E.ContextInfo.IAdReplyInfo|null);
@@ -15393,25 +16252,25 @@ export namespace E2E {
         public placeholderKey?: (Protocol.IMessageKey|null);
 
         /** ContextInfo expiration. */
-        public expiration: number;
+        public expiration?: (number|null);
 
         /** ContextInfo ephemeralSettingTimestamp. */
-        public ephemeralSettingTimestamp: (number|Long);
+        public ephemeralSettingTimestamp?: (number|Long|null);
 
         /** ContextInfo ephemeralSharedSecret. */
-        public ephemeralSharedSecret: Uint8Array;
+        public ephemeralSharedSecret?: (Uint8Array|null);
 
         /** ContextInfo externalAdReply. */
         public externalAdReply?: (E2E.ContextInfo.IExternalAdReplyInfo|null);
 
         /** ContextInfo entryPointConversionSource. */
-        public entryPointConversionSource: string;
+        public entryPointConversionSource?: (string|null);
 
         /** ContextInfo entryPointConversionApp. */
-        public entryPointConversionApp: string;
+        public entryPointConversionApp?: (string|null);
 
         /** ContextInfo entryPointConversionDelaySeconds. */
-        public entryPointConversionDelaySeconds: number;
+        public entryPointConversionDelaySeconds?: (number|null);
 
         /** ContextInfo disappearingMode. */
         public disappearingMode?: (E2E.IDisappearingMode|null);
@@ -15420,19 +16279,19 @@ export namespace E2E {
         public actionLink?: (E2E.IActionLink|null);
 
         /** ContextInfo groupSubject. */
-        public groupSubject: string;
+        public groupSubject?: (string|null);
 
         /** ContextInfo parentGroupJid. */
-        public parentGroupJid: string;
+        public parentGroupJid?: (string|null);
 
         /** ContextInfo trustBannerType. */
-        public trustBannerType: string;
+        public trustBannerType?: (string|null);
 
         /** ContextInfo trustBannerAction. */
-        public trustBannerAction: number;
+        public trustBannerAction?: (number|null);
 
         /** ContextInfo isSampled. */
-        public isSampled: boolean;
+        public isSampled?: (boolean|null);
 
         /** ContextInfo groupMentions. */
         public groupMentions: E2E.IGroupMention[];
@@ -15447,46 +16306,55 @@ export namespace E2E {
         public businessMessageForwardInfo?: (E2E.ContextInfo.IBusinessMessageForwardInfo|null);
 
         /** ContextInfo smbClientCampaignId. */
-        public smbClientCampaignId: string;
+        public smbClientCampaignId?: (string|null);
 
         /** ContextInfo smbServerCampaignId. */
-        public smbServerCampaignId: string;
+        public smbServerCampaignId?: (string|null);
 
         /** ContextInfo dataSharingContext. */
         public dataSharingContext?: (E2E.ContextInfo.IDataSharingContext|null);
 
         /** ContextInfo alwaysShowAdAttribution. */
-        public alwaysShowAdAttribution: boolean;
+        public alwaysShowAdAttribution?: (boolean|null);
 
         /** ContextInfo featureEligibilities. */
         public featureEligibilities?: (E2E.ContextInfo.IFeatureEligibilities|null);
 
         /** ContextInfo entryPointConversionExternalSource. */
-        public entryPointConversionExternalSource: string;
+        public entryPointConversionExternalSource?: (string|null);
 
         /** ContextInfo entryPointConversionExternalMedium. */
-        public entryPointConversionExternalMedium: string;
+        public entryPointConversionExternalMedium?: (string|null);
 
         /** ContextInfo ctwaSignals. */
-        public ctwaSignals: string;
+        public ctwaSignals?: (string|null);
 
         /** ContextInfo ctwaPayload. */
-        public ctwaPayload: Uint8Array;
+        public ctwaPayload?: (Uint8Array|null);
 
         /** ContextInfo forwardedAiBotMessageInfo. */
         public forwardedAiBotMessageInfo?: (E2E.ContextInfo.IForwardedAIBotMessageInfo|null);
 
         /** ContextInfo statusAttributionType. */
-        public statusAttributionType: E2E.ContextInfo.StatusAttributionType;
+        public statusAttributionType?: (E2E.ContextInfo.StatusAttributionType|null);
 
         /** ContextInfo urlTrackingMap. */
         public urlTrackingMap?: (E2E.IUrlTrackingMap|null);
 
         /** ContextInfo pairedMediaType. */
-        public pairedMediaType: E2E.ContextInfo.PairedMediaType;
+        public pairedMediaType?: (E2E.ContextInfo.PairedMediaType|null);
 
         /** ContextInfo rankingVersion. */
-        public rankingVersion: number;
+        public rankingVersion?: (number|null);
+
+        /** ContextInfo memberLabel. */
+        public memberLabel?: (E2E.IMemberLabel|null);
+
+        /** ContextInfo isQuestion. */
+        public isQuestion?: (boolean|null);
+
+        /** ContextInfo statusSourceType. */
+        public statusSourceType?: (E2E.ContextInfo.StatusSourceType|null);
 
         /**
          * Creates a new ContextInfo instance using the specified properties.
@@ -15594,16 +16462,16 @@ export namespace E2E {
             constructor(properties?: E2E.ContextInfo.IAdReplyInfo);
 
             /** AdReplyInfo advertiserName. */
-            public advertiserName: string;
+            public advertiserName?: (string|null);
 
             /** AdReplyInfo mediaType. */
-            public mediaType: E2E.ContextInfo.AdReplyInfo.MediaType;
+            public mediaType?: (E2E.ContextInfo.AdReplyInfo.MediaType|null);
 
             /** AdReplyInfo jpegThumbnail. */
-            public jpegThumbnail: Uint8Array;
+            public jpegThumbnail?: (Uint8Array|null);
 
             /** AdReplyInfo caption. */
-            public caption: string;
+            public caption?: (string|null);
 
             /**
              * Creates a new AdReplyInfo instance using the specified properties.
@@ -15710,7 +16578,7 @@ export namespace E2E {
             constructor(properties?: E2E.ContextInfo.IBusinessMessageForwardInfo);
 
             /** BusinessMessageForwardInfo businessOwnerJid. */
-            public businessOwnerJid: string;
+            public businessOwnerJid?: (string|null);
 
             /**
              * Creates a new BusinessMessageForwardInfo instance using the specified properties.
@@ -15813,10 +16681,10 @@ export namespace E2E {
             constructor(properties?: E2E.ContextInfo.IDataSharingContext);
 
             /** DataSharingContext showMmDisclosure. */
-            public showMmDisclosure: boolean;
+            public showMmDisclosure?: (boolean|null);
 
             /** DataSharingContext encryptedSignalTokenConsented. */
-            public encryptedSignalTokenConsented: string;
+            public encryptedSignalTokenConsented?: (string|null);
 
             /** DataSharingContext parameters. */
             public parameters: E2E.ContextInfo.DataSharingContext.IParameters[];
@@ -15930,16 +16798,16 @@ export namespace E2E {
                 constructor(properties?: E2E.ContextInfo.DataSharingContext.IParameters);
 
                 /** Parameters key. */
-                public key: string;
+                public key?: (string|null);
 
                 /** Parameters stringData. */
-                public stringData: string;
+                public stringData?: (string|null);
 
                 /** Parameters intData. */
-                public intData: (number|Long);
+                public intData?: (number|Long|null);
 
                 /** Parameters floatData. */
-                public floatData: number;
+                public floatData?: (number|null);
 
                 /** Parameters contents. */
                 public contents?: (E2E.ContextInfo.DataSharingContext.IParameters|null);
@@ -16092,8 +16960,14 @@ export namespace E2E {
             /** ExternalAdReplyInfo originalImageUrl */
             originalImageUrl?: (string|null);
 
+            /** ExternalAdReplyInfo automatedGreetingMessageCtaType */
+            automatedGreetingMessageCtaType?: (string|null);
+
             /** ExternalAdReplyInfo wtwaAdFormat */
             wtwaAdFormat?: (boolean|null);
+
+            /** ExternalAdReplyInfo adType */
+            adType?: (E2E.ContextInfo.ExternalAdReplyInfo.AdType|null);
         }
 
         /** Represents an ExternalAdReplyInfo. */
@@ -16106,73 +16980,79 @@ export namespace E2E {
             constructor(properties?: E2E.ContextInfo.IExternalAdReplyInfo);
 
             /** ExternalAdReplyInfo title. */
-            public title: string;
+            public title?: (string|null);
 
             /** ExternalAdReplyInfo body. */
-            public body: string;
+            public body?: (string|null);
 
             /** ExternalAdReplyInfo mediaType. */
-            public mediaType: E2E.ContextInfo.ExternalAdReplyInfo.MediaType;
+            public mediaType?: (E2E.ContextInfo.ExternalAdReplyInfo.MediaType|null);
 
             /** ExternalAdReplyInfo thumbnailUrl. */
-            public thumbnailUrl: string;
+            public thumbnailUrl?: (string|null);
 
             /** ExternalAdReplyInfo mediaUrl. */
-            public mediaUrl: string;
+            public mediaUrl?: (string|null);
 
             /** ExternalAdReplyInfo thumbnail. */
-            public thumbnail: Uint8Array;
+            public thumbnail?: (Uint8Array|null);
 
             /** ExternalAdReplyInfo sourceType. */
-            public sourceType: string;
+            public sourceType?: (string|null);
 
             /** ExternalAdReplyInfo sourceId. */
-            public sourceId: string;
+            public sourceId?: (string|null);
 
             /** ExternalAdReplyInfo sourceUrl. */
-            public sourceUrl: string;
+            public sourceUrl?: (string|null);
 
             /** ExternalAdReplyInfo containsAutoReply. */
-            public containsAutoReply: boolean;
+            public containsAutoReply?: (boolean|null);
 
             /** ExternalAdReplyInfo renderLargerThumbnail. */
-            public renderLargerThumbnail: boolean;
+            public renderLargerThumbnail?: (boolean|null);
 
             /** ExternalAdReplyInfo showAdAttribution. */
-            public showAdAttribution: boolean;
+            public showAdAttribution?: (boolean|null);
 
             /** ExternalAdReplyInfo ctwaClid. */
-            public ctwaClid: string;
+            public ctwaClid?: (string|null);
 
             /** ExternalAdReplyInfo ref. */
-            public ref: string;
+            public ref?: (string|null);
 
             /** ExternalAdReplyInfo clickToWhatsappCall. */
-            public clickToWhatsappCall: boolean;
+            public clickToWhatsappCall?: (boolean|null);
 
             /** ExternalAdReplyInfo adContextPreviewDismissed. */
-            public adContextPreviewDismissed: boolean;
+            public adContextPreviewDismissed?: (boolean|null);
 
             /** ExternalAdReplyInfo sourceApp. */
-            public sourceApp: string;
+            public sourceApp?: (string|null);
 
             /** ExternalAdReplyInfo automatedGreetingMessageShown. */
-            public automatedGreetingMessageShown: boolean;
+            public automatedGreetingMessageShown?: (boolean|null);
 
             /** ExternalAdReplyInfo greetingMessageBody. */
-            public greetingMessageBody: string;
+            public greetingMessageBody?: (string|null);
 
             /** ExternalAdReplyInfo ctaPayload. */
-            public ctaPayload: string;
+            public ctaPayload?: (string|null);
 
             /** ExternalAdReplyInfo disableNudge. */
-            public disableNudge: boolean;
+            public disableNudge?: (boolean|null);
 
             /** ExternalAdReplyInfo originalImageUrl. */
-            public originalImageUrl: string;
+            public originalImageUrl?: (string|null);
+
+            /** ExternalAdReplyInfo automatedGreetingMessageCtaType. */
+            public automatedGreetingMessageCtaType?: (string|null);
 
             /** ExternalAdReplyInfo wtwaAdFormat. */
-            public wtwaAdFormat: boolean;
+            public wtwaAdFormat?: (boolean|null);
+
+            /** ExternalAdReplyInfo adType. */
+            public adType?: (E2E.ContextInfo.ExternalAdReplyInfo.AdType|null);
 
             /**
              * Creates a new ExternalAdReplyInfo instance using the specified properties.
@@ -16254,6 +17134,12 @@ export namespace E2E {
 
         namespace ExternalAdReplyInfo {
 
+            /** AdType enum. */
+            enum AdType {
+                CTWA = 0,
+                CAWC = 1
+            }
+
             /** MediaType enum. */
             enum MediaType {
                 NONE = 0,
@@ -16288,16 +17174,16 @@ export namespace E2E {
             constructor(properties?: E2E.ContextInfo.IFeatureEligibilities);
 
             /** FeatureEligibilities cannotBeReactedTo. */
-            public cannotBeReactedTo: boolean;
+            public cannotBeReactedTo?: (boolean|null);
 
             /** FeatureEligibilities cannotBeRanked. */
-            public cannotBeRanked: boolean;
+            public cannotBeRanked?: (boolean|null);
 
             /** FeatureEligibilities canRequestFeedback. */
-            public canRequestFeedback: boolean;
+            public canRequestFeedback?: (boolean|null);
 
             /** FeatureEligibilities canBeReshared. */
-            public canBeReshared: boolean;
+            public canBeReshared?: (boolean|null);
 
             /**
              * Creates a new FeatureEligibilities instance using the specified properties.
@@ -16400,13 +17286,13 @@ export namespace E2E {
             constructor(properties?: E2E.ContextInfo.IForwardedAIBotMessageInfo);
 
             /** ForwardedAIBotMessageInfo botName. */
-            public botName: string;
+            public botName?: (string|null);
 
             /** ForwardedAIBotMessageInfo botJid. */
-            public botJid: string;
+            public botJid?: (string|null);
 
             /** ForwardedAIBotMessageInfo creatorName. */
-            public creatorName: string;
+            public creatorName?: (string|null);
 
             /**
              * Creates a new ForwardedAIBotMessageInfo instance using the specified properties.
@@ -16515,19 +17401,19 @@ export namespace E2E {
             constructor(properties?: E2E.ContextInfo.IForwardedNewsletterMessageInfo);
 
             /** ForwardedNewsletterMessageInfo newsletterJid. */
-            public newsletterJid: string;
+            public newsletterJid?: (string|null);
 
             /** ForwardedNewsletterMessageInfo serverMessageId. */
-            public serverMessageId: number;
+            public serverMessageId?: (number|null);
 
             /** ForwardedNewsletterMessageInfo newsletterName. */
-            public newsletterName: string;
+            public newsletterName?: (string|null);
 
             /** ForwardedNewsletterMessageInfo contentType. */
-            public contentType: E2E.ContextInfo.ForwardedNewsletterMessageInfo.ContentType;
+            public contentType?: (E2E.ContextInfo.ForwardedNewsletterMessageInfo.ContentType|null);
 
             /** ForwardedNewsletterMessageInfo accessibilityText. */
-            public accessibilityText: string;
+            public accessibilityText?: (string|null);
 
             /**
              * Creates a new ForwardedNewsletterMessageInfo instance using the specified properties.
@@ -16623,7 +17509,9 @@ export namespace E2E {
             SD_VIDEO_PARENT = 1,
             HD_VIDEO_CHILD = 2,
             SD_IMAGE_PARENT = 3,
-            HD_IMAGE_CHILD = 4
+            HD_IMAGE_CHILD = 4,
+            MOTION_PHOTO_PARENT = 5,
+            MOTION_PHOTO_CHILD = 6
         }
 
         /** StatusAttributionType enum. */
@@ -16631,6 +17519,16 @@ export namespace E2E {
             NONE = 0,
             RESHARED_FROM_MENTION = 1,
             RESHARED_FROM_POST = 2
+        }
+
+        /** StatusSourceType enum. */
+        enum StatusSourceType {
+            IMAGE = 0,
+            VIDEO = 1,
+            GIF = 2,
+            AUDIO = 3,
+            TEXT = 4,
+            MUSIC_STANDALONE = 5
         }
 
         /** Properties of a UTMInfo. */
@@ -16653,10 +17551,10 @@ export namespace E2E {
             constructor(properties?: E2E.ContextInfo.IUTMInfo);
 
             /** UTMInfo utmSource. */
-            public utmSource: string;
+            public utmSource?: (string|null);
 
             /** UTMInfo utmCampaign. */
-            public utmCampaign: string;
+            public utmCampaign?: (string|null);
 
             /**
              * Creates a new UTMInfo instance using the specified properties.
@@ -16988,6 +17886,15 @@ export namespace E2E {
 
         /** Message limitSharingMessage */
         limitSharingMessage?: (E2E.Message.IFutureProofMessage|null);
+
+        /** Message botTaskMessage */
+        botTaskMessage?: (E2E.Message.IFutureProofMessage|null);
+
+        /** Message questionMessage */
+        questionMessage?: (E2E.Message.IFutureProofMessage|null);
+
+        /** Message messageHistoryNotice */
+        messageHistoryNotice?: (E2E.Message.IMessageHistoryNotice|null);
     }
 
     /** Represents a Message. */
@@ -17000,7 +17907,7 @@ export namespace E2E {
         constructor(properties?: E2E.IMessage);
 
         /** Message conversation. */
-        public conversation: string;
+        public conversation?: (string|null);
 
         /** Message senderKeyDistributionMessage. */
         public senderKeyDistributionMessage?: (E2E.Message.ISenderKeyDistributionMessage|null);
@@ -17248,6 +18155,15 @@ export namespace E2E {
         /** Message limitSharingMessage. */
         public limitSharingMessage?: (E2E.Message.IFutureProofMessage|null);
 
+        /** Message botTaskMessage. */
+        public botTaskMessage?: (E2E.Message.IFutureProofMessage|null);
+
+        /** Message questionMessage. */
+        public questionMessage?: (E2E.Message.IFutureProofMessage|null);
+
+        /** Message messageHistoryNotice. */
+        public messageHistoryNotice?: (E2E.Message.IMessageHistoryNotice|null);
+
         /**
          * Creates a new Message instance using the specified properties.
          * @param [properties] Properties to set
@@ -17351,10 +18267,10 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IAlbumMessage);
 
             /** AlbumMessage expectedImageCount. */
-            public expectedImageCount: number;
+            public expectedImageCount?: (number|null);
 
             /** AlbumMessage expectedVideoCount. */
-            public expectedVideoCount: number;
+            public expectedVideoCount?: (number|null);
 
             /** AlbumMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
@@ -17460,7 +18376,7 @@ export namespace E2E {
             public collectionNames: string[];
 
             /** AppStateFatalExceptionNotification timestamp. */
-            public timestamp: (number|Long);
+            public timestamp?: (number|Long|null);
 
             /**
              * Creates a new AppStateFatalExceptionNotification instance using the specified properties.
@@ -17666,13 +18582,13 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IAppStateSyncKeyData);
 
             /** AppStateSyncKeyData keyData. */
-            public keyData: Uint8Array;
+            public keyData?: (Uint8Array|null);
 
             /** AppStateSyncKeyData fingerprint. */
             public fingerprint?: (E2E.Message.IAppStateSyncKeyFingerprint|null);
 
             /** AppStateSyncKeyData timestamp. */
-            public timestamp: (number|Long);
+            public timestamp?: (number|Long|null);
 
             /**
              * Creates a new AppStateSyncKeyData instance using the specified properties.
@@ -17775,10 +18691,10 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IAppStateSyncKeyFingerprint);
 
             /** AppStateSyncKeyFingerprint rawId. */
-            public rawId: number;
+            public rawId?: (number|null);
 
             /** AppStateSyncKeyFingerprint currentIndex. */
-            public currentIndex: number;
+            public currentIndex?: (number|null);
 
             /** AppStateSyncKeyFingerprint deviceIndexes. */
             public deviceIndexes: number[];
@@ -17878,7 +18794,7 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IAppStateSyncKeyId);
 
             /** AppStateSyncKeyId keyId. */
-            public keyId: Uint8Array;
+            public keyId?: (Uint8Array|null);
 
             /**
              * Creates a new AppStateSyncKeyId instance using the specified properties.
@@ -18214,52 +19130,52 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IAudioMessage);
 
             /** AudioMessage url. */
-            public url: string;
+            public url?: (string|null);
 
             /** AudioMessage mimetype. */
-            public mimetype: string;
+            public mimetype?: (string|null);
 
             /** AudioMessage fileSha256. */
-            public fileSha256: Uint8Array;
+            public fileSha256?: (Uint8Array|null);
 
             /** AudioMessage fileLength. */
-            public fileLength: (number|Long);
+            public fileLength?: (number|Long|null);
 
             /** AudioMessage seconds. */
-            public seconds: number;
+            public seconds?: (number|null);
 
             /** AudioMessage ptt. */
-            public ptt: boolean;
+            public ptt?: (boolean|null);
 
             /** AudioMessage mediaKey. */
-            public mediaKey: Uint8Array;
+            public mediaKey?: (Uint8Array|null);
 
             /** AudioMessage fileEncSha256. */
-            public fileEncSha256: Uint8Array;
+            public fileEncSha256?: (Uint8Array|null);
 
             /** AudioMessage directPath. */
-            public directPath: string;
+            public directPath?: (string|null);
 
             /** AudioMessage mediaKeyTimestamp. */
-            public mediaKeyTimestamp: (number|Long);
+            public mediaKeyTimestamp?: (number|Long|null);
 
             /** AudioMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
 
             /** AudioMessage streamingSidecar. */
-            public streamingSidecar: Uint8Array;
+            public streamingSidecar?: (Uint8Array|null);
 
             /** AudioMessage waveform. */
-            public waveform: Uint8Array;
+            public waveform?: (Uint8Array|null);
 
             /** AudioMessage backgroundArgb. */
-            public backgroundArgb: number;
+            public backgroundArgb?: (number|null);
 
             /** AudioMessage viewOnce. */
-            public viewOnce: boolean;
+            public viewOnce?: (boolean|null);
 
             /** AudioMessage accessibilityLabel. */
-            public accessibilityLabel: string;
+            public accessibilityLabel?: (string|null);
 
             /**
              * Creates a new AudioMessage instance using the specified properties.
@@ -18365,16 +19281,16 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IBCallMessage);
 
             /** BCallMessage sessionId. */
-            public sessionId: string;
+            public sessionId?: (string|null);
 
             /** BCallMessage mediaType. */
-            public mediaType: E2E.Message.BCallMessage.MediaType;
+            public mediaType?: (E2E.Message.BCallMessage.MediaType|null);
 
             /** BCallMessage masterKey. */
-            public masterKey: Uint8Array;
+            public masterKey?: (Uint8Array|null);
 
             /** BCallMessage caption. */
-            public caption: string;
+            public caption?: (string|null);
 
             /**
              * Creates a new BCallMessage instance using the specified properties.
@@ -18499,19 +19415,19 @@ export namespace E2E {
             public messageKey?: (Protocol.IMessageKey|null);
 
             /** BotFeedbackMessage kind. */
-            public kind: E2E.Message.BotFeedbackMessage.BotFeedbackKind;
+            public kind?: (E2E.Message.BotFeedbackMessage.BotFeedbackKind|null);
 
             /** BotFeedbackMessage text. */
-            public text: string;
+            public text?: (string|null);
 
             /** BotFeedbackMessage kindNegative. */
-            public kindNegative: (number|Long);
+            public kindNegative?: (number|Long|null);
 
             /** BotFeedbackMessage kindPositive. */
-            public kindPositive: (number|Long);
+            public kindPositive?: (number|Long|null);
 
             /** BotFeedbackMessage kindReport. */
-            public kindReport: E2E.Message.BotFeedbackMessage.ReportKind;
+            public kindReport?: (E2E.Message.BotFeedbackMessage.ReportKind|null);
 
             /**
              * Creates a new BotFeedbackMessage instance using the specified properties.
@@ -18607,7 +19523,9 @@ export namespace E2E {
                 BOT_FEEDBACK_NEGATIVE_NOT_RELEVANT_TO_TEXT = 9,
                 BOT_FEEDBACK_NEGATIVE_PERSONALIZED = 10,
                 BOT_FEEDBACK_NEGATIVE_CLARITY = 11,
-                BOT_FEEDBACK_NEGATIVE_DOESNT_LOOK_LIKE_THE_PERSON = 12
+                BOT_FEEDBACK_NEGATIVE_DOESNT_LOOK_LIKE_THE_PERSON = 12,
+                BOT_FEEDBACK_NEGATIVE_HALLUCINATION_INTERNAL_ONLY = 13,
+                BOT_FEEDBACK_NEGATIVE = 14
             }
 
             /** BotFeedbackKindMultipleNegative enum. */
@@ -18678,10 +19596,10 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IButtonsMessage);
 
             /** ButtonsMessage contentText. */
-            public contentText: string;
+            public contentText?: (string|null);
 
             /** ButtonsMessage footerText. */
-            public footerText: string;
+            public footerText?: (string|null);
 
             /** ButtonsMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
@@ -18690,7 +19608,7 @@ export namespace E2E {
             public buttons: E2E.Message.ButtonsMessage.IButton[];
 
             /** ButtonsMessage headerType. */
-            public headerType: E2E.Message.ButtonsMessage.HeaderType;
+            public headerType?: (E2E.Message.ButtonsMessage.HeaderType|null);
 
             /** ButtonsMessage text. */
             public text?: (string|null);
@@ -18816,13 +19734,13 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.ButtonsMessage.IButton);
 
                 /** Button buttonId. */
-                public buttonId: string;
+                public buttonId?: (string|null);
 
                 /** Button buttonText. */
                 public buttonText?: (E2E.Message.ButtonsMessage.Button.IButtonText|null);
 
                 /** Button type. */
-                public type: E2E.Message.ButtonsMessage.Button.Type;
+                public type?: (E2E.Message.ButtonsMessage.Button.Type|null);
 
                 /** Button nativeFlowInfo. */
                 public nativeFlowInfo?: (E2E.Message.ButtonsMessage.Button.INativeFlowInfo|null);
@@ -18924,7 +19842,7 @@ export namespace E2E {
                     constructor(properties?: E2E.Message.ButtonsMessage.Button.IButtonText);
 
                     /** ButtonText displayText. */
-                    public displayText: string;
+                    public displayText?: (string|null);
 
                     /**
                      * Creates a new ButtonText instance using the specified properties.
@@ -19024,10 +19942,10 @@ export namespace E2E {
                     constructor(properties?: E2E.Message.ButtonsMessage.Button.INativeFlowInfo);
 
                     /** NativeFlowInfo name. */
-                    public name: string;
+                    public name?: (string|null);
 
                     /** NativeFlowInfo paramsJson. */
-                    public paramsJson: string;
+                    public paramsJson?: (string|null);
 
                     /**
                      * Creates a new NativeFlowInfo instance using the specified properties.
@@ -19153,13 +20071,13 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IButtonsResponseMessage);
 
             /** ButtonsResponseMessage selectedButtonId. */
-            public selectedButtonId: string;
+            public selectedButtonId?: (string|null);
 
             /** ButtonsResponseMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
 
             /** ButtonsResponseMessage type. */
-            public type: E2E.Message.ButtonsResponseMessage.Type;
+            public type?: (E2E.Message.ButtonsResponseMessage.Type|null);
 
             /** ButtonsResponseMessage selectedDisplayText. */
             public selectedDisplayText?: (string|null);
@@ -19274,6 +20192,9 @@ export namespace E2E {
 
             /** Call ctwaPayload */
             ctwaPayload?: (Uint8Array|null);
+
+            /** Call contextInfo */
+            contextInfo?: (E2E.IContextInfo|null);
         }
 
         /** Represents a Call. */
@@ -19286,22 +20207,25 @@ export namespace E2E {
             constructor(properties?: E2E.Message.ICall);
 
             /** Call callKey. */
-            public callKey: Uint8Array;
+            public callKey?: (Uint8Array|null);
 
             /** Call conversionSource. */
-            public conversionSource: string;
+            public conversionSource?: (string|null);
 
             /** Call conversionData. */
-            public conversionData: Uint8Array;
+            public conversionData?: (Uint8Array|null);
 
             /** Call conversionDelaySeconds. */
-            public conversionDelaySeconds: number;
+            public conversionDelaySeconds?: (number|null);
 
             /** Call ctwaSignals. */
-            public ctwaSignals: string;
+            public ctwaSignals?: (string|null);
 
             /** Call ctwaPayload. */
-            public ctwaPayload: Uint8Array;
+            public ctwaPayload?: (Uint8Array|null);
+
+            /** Call contextInfo. */
+            public contextInfo?: (E2E.IContextInfo|null);
 
             /**
              * Creates a new Call instance using the specified properties.
@@ -19410,16 +20334,16 @@ export namespace E2E {
             constructor(properties?: E2E.Message.ICallLogMessage);
 
             /** CallLogMessage isVideo. */
-            public isVideo: boolean;
+            public isVideo?: (boolean|null);
 
             /** CallLogMessage callOutcome. */
-            public callOutcome: E2E.Message.CallLogMessage.CallOutcome;
+            public callOutcome?: (E2E.Message.CallLogMessage.CallOutcome|null);
 
             /** CallLogMessage durationSecs. */
-            public durationSecs: (number|Long);
+            public durationSecs?: (number|Long|null);
 
             /** CallLogMessage callType. */
-            public callType: E2E.Message.CallLogMessage.CallType;
+            public callType?: (E2E.Message.CallLogMessage.CallType|null);
 
             /** CallLogMessage participants. */
             public participants: E2E.Message.CallLogMessage.ICallParticipant[];
@@ -19536,10 +20460,10 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.CallLogMessage.ICallParticipant);
 
                 /** CallParticipant jid. */
-                public jid: string;
+                public jid?: (string|null);
 
                 /** CallParticipant callOutcome. */
-                public callOutcome: E2E.Message.CallLogMessage.CallOutcome;
+                public callOutcome?: (E2E.Message.CallLogMessage.CallOutcome|null);
 
                 /**
                  * Creates a new CallParticipant instance using the specified properties.
@@ -19744,10 +20668,10 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IChat);
 
             /** Chat displayName. */
-            public displayName: string;
+            public displayName?: (string|null);
 
             /** Chat id. */
-            public id: string;
+            public id?: (string|null);
 
             /**
              * Creates a new Chat instance using the specified properties.
@@ -19841,6 +20765,9 @@ export namespace E2E {
 
             /** CloudAPIThreadControlNotification consumerPhoneNumber */
             consumerPhoneNumber?: (string|null);
+
+            /** CloudAPIThreadControlNotification notificationContent */
+            notificationContent?: (E2E.Message.CloudAPIThreadControlNotification.ICloudAPIThreadControlNotificationContent|null);
         }
 
         /** Represents a CloudAPIThreadControlNotification. */
@@ -19853,16 +20780,19 @@ export namespace E2E {
             constructor(properties?: E2E.Message.ICloudAPIThreadControlNotification);
 
             /** CloudAPIThreadControlNotification status. */
-            public status: E2E.Message.CloudAPIThreadControlNotification.CloudAPIThreadControl;
+            public status?: (E2E.Message.CloudAPIThreadControlNotification.CloudAPIThreadControl|null);
 
             /** CloudAPIThreadControlNotification senderNotificationTimestampMs. */
-            public senderNotificationTimestampMs: (number|Long);
+            public senderNotificationTimestampMs?: (number|Long|null);
 
             /** CloudAPIThreadControlNotification consumerLid. */
-            public consumerLid: string;
+            public consumerLid?: (string|null);
 
             /** CloudAPIThreadControlNotification consumerPhoneNumber. */
-            public consumerPhoneNumber: string;
+            public consumerPhoneNumber?: (string|null);
+
+            /** CloudAPIThreadControlNotification notificationContent. */
+            public notificationContent?: (E2E.Message.CloudAPIThreadControlNotification.ICloudAPIThreadControlNotificationContent|null);
 
             /**
              * Creates a new CloudAPIThreadControlNotification instance using the specified properties.
@@ -19949,6 +20879,109 @@ export namespace E2E {
                 UNKNOWN = 0,
                 CONTROL_PASSED = 1,
                 CONTROL_TAKEN = 2
+            }
+
+            /** Properties of a CloudAPIThreadControlNotificationContent. */
+            interface ICloudAPIThreadControlNotificationContent {
+
+                /** CloudAPIThreadControlNotificationContent handoffNotificationText */
+                handoffNotificationText?: (string|null);
+
+                /** CloudAPIThreadControlNotificationContent extraJson */
+                extraJson?: (string|null);
+            }
+
+            /** Represents a CloudAPIThreadControlNotificationContent. */
+            class CloudAPIThreadControlNotificationContent implements ICloudAPIThreadControlNotificationContent {
+
+                /**
+                 * Constructs a new CloudAPIThreadControlNotificationContent.
+                 * @param [properties] Properties to set
+                 */
+                constructor(properties?: E2E.Message.CloudAPIThreadControlNotification.ICloudAPIThreadControlNotificationContent);
+
+                /** CloudAPIThreadControlNotificationContent handoffNotificationText. */
+                public handoffNotificationText?: (string|null);
+
+                /** CloudAPIThreadControlNotificationContent extraJson. */
+                public extraJson?: (string|null);
+
+                /**
+                 * Creates a new CloudAPIThreadControlNotificationContent instance using the specified properties.
+                 * @param [properties] Properties to set
+                 * @returns CloudAPIThreadControlNotificationContent instance
+                 */
+                public static create(properties?: E2E.Message.CloudAPIThreadControlNotification.ICloudAPIThreadControlNotificationContent): E2E.Message.CloudAPIThreadControlNotification.CloudAPIThreadControlNotificationContent;
+
+                /**
+                 * Encodes the specified CloudAPIThreadControlNotificationContent message. Does not implicitly {@link E2E.Message.CloudAPIThreadControlNotification.CloudAPIThreadControlNotificationContent.verify|verify} messages.
+                 * @param message CloudAPIThreadControlNotificationContent message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encode(message: E2E.Message.CloudAPIThreadControlNotification.ICloudAPIThreadControlNotificationContent, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Encodes the specified CloudAPIThreadControlNotificationContent message, length delimited. Does not implicitly {@link E2E.Message.CloudAPIThreadControlNotification.CloudAPIThreadControlNotificationContent.verify|verify} messages.
+                 * @param message CloudAPIThreadControlNotificationContent message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encodeDelimited(message: E2E.Message.CloudAPIThreadControlNotification.ICloudAPIThreadControlNotificationContent, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Decodes a CloudAPIThreadControlNotificationContent message from the specified reader or buffer.
+                 * @param reader Reader or buffer to decode from
+                 * @param [length] Message length if known beforehand
+                 * @returns CloudAPIThreadControlNotificationContent
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): E2E.Message.CloudAPIThreadControlNotification.CloudAPIThreadControlNotificationContent;
+
+                /**
+                 * Decodes a CloudAPIThreadControlNotificationContent message from the specified reader or buffer, length delimited.
+                 * @param reader Reader or buffer to decode from
+                 * @returns CloudAPIThreadControlNotificationContent
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): E2E.Message.CloudAPIThreadControlNotification.CloudAPIThreadControlNotificationContent;
+
+                /**
+                 * Verifies a CloudAPIThreadControlNotificationContent message.
+                 * @param message Plain object to verify
+                 * @returns `null` if valid, otherwise the reason why it is not
+                 */
+                public static verify(message: { [k: string]: any }): (string|null);
+
+                /**
+                 * Creates a CloudAPIThreadControlNotificationContent message from a plain object. Also converts values to their respective internal types.
+                 * @param object Plain object
+                 * @returns CloudAPIThreadControlNotificationContent
+                 */
+                public static fromObject(object: { [k: string]: any }): E2E.Message.CloudAPIThreadControlNotification.CloudAPIThreadControlNotificationContent;
+
+                /**
+                 * Creates a plain object from a CloudAPIThreadControlNotificationContent message. Also converts values to other types if specified.
+                 * @param message CloudAPIThreadControlNotificationContent
+                 * @param [options] Conversion options
+                 * @returns Plain object
+                 */
+                public static toObject(message: E2E.Message.CloudAPIThreadControlNotification.CloudAPIThreadControlNotificationContent, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                /**
+                 * Converts this CloudAPIThreadControlNotificationContent to JSON.
+                 * @returns JSON object
+                 */
+                public toJSON(): { [k: string]: any };
+
+                /**
+                 * Gets the default type url for CloudAPIThreadControlNotificationContent
+                 * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns The default type url
+                 */
+                public static getTypeUrl(typeUrlPrefix?: string): string;
             }
         }
 
@@ -20078,10 +21111,10 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IContactMessage);
 
             /** ContactMessage displayName. */
-            public displayName: string;
+            public displayName?: (string|null);
 
             /** ContactMessage vcard. */
-            public vcard: string;
+            public vcard?: (string|null);
 
             /** ContactMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
@@ -20187,7 +21220,7 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IContactsArrayMessage);
 
             /** ContactsArrayMessage displayName. */
-            public displayName: string;
+            public displayName?: (string|null);
 
             /** ContactsArrayMessage contacts. */
             public contacts: E2E.Message.IContactMessage[];
@@ -20393,13 +21426,13 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IDeviceSentMessage);
 
             /** DeviceSentMessage destinationJid. */
-            public destinationJid: string;
+            public destinationJid?: (string|null);
 
             /** DeviceSentMessage message. */
             public message?: (E2E.IMessage|null);
 
             /** DeviceSentMessage phash. */
-            public phash: string;
+            public phash?: (string|null);
 
             /**
              * Creates a new DeviceSentMessage instance using the specified properties.
@@ -20556,67 +21589,67 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IDocumentMessage);
 
             /** DocumentMessage url. */
-            public url: string;
+            public url?: (string|null);
 
             /** DocumentMessage mimetype. */
-            public mimetype: string;
+            public mimetype?: (string|null);
 
             /** DocumentMessage title. */
-            public title: string;
+            public title?: (string|null);
 
             /** DocumentMessage fileSha256. */
-            public fileSha256: Uint8Array;
+            public fileSha256?: (Uint8Array|null);
 
             /** DocumentMessage fileLength. */
-            public fileLength: (number|Long);
+            public fileLength?: (number|Long|null);
 
             /** DocumentMessage pageCount. */
-            public pageCount: number;
+            public pageCount?: (number|null);
 
             /** DocumentMessage mediaKey. */
-            public mediaKey: Uint8Array;
+            public mediaKey?: (Uint8Array|null);
 
             /** DocumentMessage fileName. */
-            public fileName: string;
+            public fileName?: (string|null);
 
             /** DocumentMessage fileEncSha256. */
-            public fileEncSha256: Uint8Array;
+            public fileEncSha256?: (Uint8Array|null);
 
             /** DocumentMessage directPath. */
-            public directPath: string;
+            public directPath?: (string|null);
 
             /** DocumentMessage mediaKeyTimestamp. */
-            public mediaKeyTimestamp: (number|Long);
+            public mediaKeyTimestamp?: (number|Long|null);
 
             /** DocumentMessage contactVcard. */
-            public contactVcard: boolean;
+            public contactVcard?: (boolean|null);
 
             /** DocumentMessage thumbnailDirectPath. */
-            public thumbnailDirectPath: string;
+            public thumbnailDirectPath?: (string|null);
 
             /** DocumentMessage thumbnailSha256. */
-            public thumbnailSha256: Uint8Array;
+            public thumbnailSha256?: (Uint8Array|null);
 
             /** DocumentMessage thumbnailEncSha256. */
-            public thumbnailEncSha256: Uint8Array;
+            public thumbnailEncSha256?: (Uint8Array|null);
 
             /** DocumentMessage jpegThumbnail. */
-            public jpegThumbnail: Uint8Array;
+            public jpegThumbnail?: (Uint8Array|null);
 
             /** DocumentMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
 
             /** DocumentMessage thumbnailHeight. */
-            public thumbnailHeight: number;
+            public thumbnailHeight?: (number|null);
 
             /** DocumentMessage thumbnailWidth. */
-            public thumbnailWidth: number;
+            public thumbnailWidth?: (number|null);
 
             /** DocumentMessage caption. */
-            public caption: string;
+            public caption?: (string|null);
 
             /** DocumentMessage accessibilityLabel. */
-            public accessibilityLabel: string;
+            public accessibilityLabel?: (string|null);
 
             /**
              * Creates a new DocumentMessage instance using the specified properties.
@@ -20722,10 +21755,10 @@ export namespace E2E {
             public targetMessageKey?: (Protocol.IMessageKey|null);
 
             /** EncCommentMessage encPayload. */
-            public encPayload: Uint8Array;
+            public encPayload?: (Uint8Array|null);
 
             /** EncCommentMessage encIv. */
-            public encIv: Uint8Array;
+            public encIv?: (Uint8Array|null);
 
             /**
              * Creates a new EncCommentMessage instance using the specified properties.
@@ -20831,10 +21864,10 @@ export namespace E2E {
             public eventCreationMessageKey?: (Protocol.IMessageKey|null);
 
             /** EncEventResponseMessage encPayload. */
-            public encPayload: Uint8Array;
+            public encPayload?: (Uint8Array|null);
 
             /** EncEventResponseMessage encIv. */
-            public encIv: Uint8Array;
+            public encIv?: (Uint8Array|null);
 
             /**
              * Creates a new EncEventResponseMessage instance using the specified properties.
@@ -20940,10 +21973,10 @@ export namespace E2E {
             public targetMessageKey?: (Protocol.IMessageKey|null);
 
             /** EncReactionMessage encPayload. */
-            public encPayload: Uint8Array;
+            public encPayload?: (Uint8Array|null);
 
             /** EncReactionMessage encIv. */
-            public encIv: Uint8Array;
+            public encIv?: (Uint8Array|null);
 
             /**
              * Creates a new EncReactionMessage instance using the specified properties.
@@ -21052,6 +22085,9 @@ export namespace E2E {
 
             /** EventMessage extraGuestsAllowed */
             extraGuestsAllowed?: (boolean|null);
+
+            /** EventMessage isScheduleCall */
+            isScheduleCall?: (boolean|null);
         }
 
         /** Represents an EventMessage. */
@@ -21067,28 +22103,31 @@ export namespace E2E {
             public contextInfo?: (E2E.IContextInfo|null);
 
             /** EventMessage isCanceled. */
-            public isCanceled: boolean;
+            public isCanceled?: (boolean|null);
 
             /** EventMessage name. */
-            public name: string;
+            public name?: (string|null);
 
             /** EventMessage description. */
-            public description: string;
+            public description?: (string|null);
 
             /** EventMessage location. */
             public location?: (E2E.Message.ILocationMessage|null);
 
             /** EventMessage joinLink. */
-            public joinLink: string;
+            public joinLink?: (string|null);
 
             /** EventMessage startTime. */
-            public startTime: (number|Long);
+            public startTime?: (number|Long|null);
 
             /** EventMessage endTime. */
-            public endTime: (number|Long);
+            public endTime?: (number|Long|null);
 
             /** EventMessage extraGuestsAllowed. */
-            public extraGuestsAllowed: boolean;
+            public extraGuestsAllowed?: (boolean|null);
+
+            /** EventMessage isScheduleCall. */
+            public isScheduleCall?: (boolean|null);
 
             /**
              * Creates a new EventMessage instance using the specified properties.
@@ -21191,13 +22230,13 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IEventResponseMessage);
 
             /** EventResponseMessage response. */
-            public response: E2E.Message.EventResponseMessage.EventResponseType;
+            public response?: (E2E.Message.EventResponseMessage.EventResponseType|null);
 
             /** EventResponseMessage timestampMs. */
-            public timestampMs: (number|Long);
+            public timestampMs?: (number|Long|null);
 
             /** EventResponseMessage extraGuestCount. */
-            public extraGuestCount: number;
+            public extraGuestCount?: (number|null);
 
             /**
              * Creates a new EventResponseMessage instance using the specified properties.
@@ -21370,7 +22409,10 @@ export namespace E2E {
             faviconMMSMetadata?: (E2E.Message.IMMSThumbnailMetadata|null);
 
             /** ExtendedTextMessage linkPreviewMetadata */
-            linkPreviewMetadata?: (E2E.Message.ExtendedTextMessage.ILinkPreviewMetadata|null);
+            linkPreviewMetadata?: (E2E.Message.ILinkPreviewMetadata|null);
+
+            /** ExtendedTextMessage paymentLinkMetadata */
+            paymentLinkMetadata?: (E2E.Message.IPaymentLinkMetadata|null);
         }
 
         /** Represents an ExtendedTextMessage. */
@@ -21383,85 +22425,88 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IExtendedTextMessage);
 
             /** ExtendedTextMessage text. */
-            public text: string;
+            public text?: (string|null);
 
             /** ExtendedTextMessage matchedText. */
-            public matchedText: string;
+            public matchedText?: (string|null);
 
             /** ExtendedTextMessage description. */
-            public description: string;
+            public description?: (string|null);
 
             /** ExtendedTextMessage title. */
-            public title: string;
+            public title?: (string|null);
 
             /** ExtendedTextMessage textArgb. */
-            public textArgb: number;
+            public textArgb?: (number|null);
 
             /** ExtendedTextMessage backgroundArgb. */
-            public backgroundArgb: number;
+            public backgroundArgb?: (number|null);
 
             /** ExtendedTextMessage font. */
-            public font: E2E.Message.ExtendedTextMessage.FontType;
+            public font?: (E2E.Message.ExtendedTextMessage.FontType|null);
 
             /** ExtendedTextMessage previewType. */
-            public previewType: E2E.Message.ExtendedTextMessage.PreviewType;
+            public previewType?: (E2E.Message.ExtendedTextMessage.PreviewType|null);
 
             /** ExtendedTextMessage jpegThumbnail. */
-            public jpegThumbnail: Uint8Array;
+            public jpegThumbnail?: (Uint8Array|null);
 
             /** ExtendedTextMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
 
             /** ExtendedTextMessage doNotPlayInline. */
-            public doNotPlayInline: boolean;
+            public doNotPlayInline?: (boolean|null);
 
             /** ExtendedTextMessage thumbnailDirectPath. */
-            public thumbnailDirectPath: string;
+            public thumbnailDirectPath?: (string|null);
 
             /** ExtendedTextMessage thumbnailSha256. */
-            public thumbnailSha256: Uint8Array;
+            public thumbnailSha256?: (Uint8Array|null);
 
             /** ExtendedTextMessage thumbnailEncSha256. */
-            public thumbnailEncSha256: Uint8Array;
+            public thumbnailEncSha256?: (Uint8Array|null);
 
             /** ExtendedTextMessage mediaKey. */
-            public mediaKey: Uint8Array;
+            public mediaKey?: (Uint8Array|null);
 
             /** ExtendedTextMessage mediaKeyTimestamp. */
-            public mediaKeyTimestamp: (number|Long);
+            public mediaKeyTimestamp?: (number|Long|null);
 
             /** ExtendedTextMessage thumbnailHeight. */
-            public thumbnailHeight: number;
+            public thumbnailHeight?: (number|null);
 
             /** ExtendedTextMessage thumbnailWidth. */
-            public thumbnailWidth: number;
+            public thumbnailWidth?: (number|null);
 
             /** ExtendedTextMessage inviteLinkGroupType. */
-            public inviteLinkGroupType: E2E.Message.ExtendedTextMessage.InviteLinkGroupType;
+            public inviteLinkGroupType?: (E2E.Message.ExtendedTextMessage.InviteLinkGroupType|null);
 
             /** ExtendedTextMessage inviteLinkParentGroupSubjectV2. */
-            public inviteLinkParentGroupSubjectV2: string;
+            public inviteLinkParentGroupSubjectV2?: (string|null);
 
             /** ExtendedTextMessage inviteLinkParentGroupThumbnailV2. */
-            public inviteLinkParentGroupThumbnailV2: Uint8Array;
+            public inviteLinkParentGroupThumbnailV2?: (Uint8Array|null);
 
             /** ExtendedTextMessage inviteLinkGroupTypeV2. */
-            public inviteLinkGroupTypeV2: E2E.Message.ExtendedTextMessage.InviteLinkGroupType;
+            public inviteLinkGroupTypeV2?: (E2E.Message.ExtendedTextMessage.InviteLinkGroupType|null);
 
             /** ExtendedTextMessage viewOnce. */
-            public viewOnce: boolean;
+            public viewOnce?: (boolean|null);
 
             /** ExtendedTextMessage videoHeight. */
-            public videoHeight: number;
+            public videoHeight?: (number|null);
 
             /** ExtendedTextMessage videoWidth. */
-            public videoWidth: number;
+            public videoWidth?: (number|null);
 
             /** ExtendedTextMessage faviconMMSMetadata. */
             public faviconMMSMetadata?: (E2E.Message.IMMSThumbnailMetadata|null);
 
             /** ExtendedTextMessage linkPreviewMetadata. */
-            public linkPreviewMetadata?: (E2E.Message.ExtendedTextMessage.ILinkPreviewMetadata|null);
+            public linkPreviewMetadata?: (E2E.Message.ILinkPreviewMetadata|null);
+
+            /** ExtendedTextMessage paymentLinkMetadata. */
+            public paymentLinkMetadata?: (E2E.Message.IPaymentLinkMetadata|null);
 
             /**
              * Creates a new ExtendedTextMessage instance using the specified properties.
@@ -21563,103 +22608,6 @@ export namespace E2E {
                 DEFAULT_SUB = 3
             }
 
-            /** Properties of a LinkPreviewMetadata. */
-            interface ILinkPreviewMetadata {
-
-                /** LinkPreviewMetadata paymentLinkMetadata */
-                paymentLinkMetadata?: (E2E.Message.IPaymentLinkMetadata|null);
-            }
-
-            /** Represents a LinkPreviewMetadata. */
-            class LinkPreviewMetadata implements ILinkPreviewMetadata {
-
-                /**
-                 * Constructs a new LinkPreviewMetadata.
-                 * @param [properties] Properties to set
-                 */
-                constructor(properties?: E2E.Message.ExtendedTextMessage.ILinkPreviewMetadata);
-
-                /** LinkPreviewMetadata paymentLinkMetadata. */
-                public paymentLinkMetadata?: (E2E.Message.IPaymentLinkMetadata|null);
-
-                /**
-                 * Creates a new LinkPreviewMetadata instance using the specified properties.
-                 * @param [properties] Properties to set
-                 * @returns LinkPreviewMetadata instance
-                 */
-                public static create(properties?: E2E.Message.ExtendedTextMessage.ILinkPreviewMetadata): E2E.Message.ExtendedTextMessage.LinkPreviewMetadata;
-
-                /**
-                 * Encodes the specified LinkPreviewMetadata message. Does not implicitly {@link E2E.Message.ExtendedTextMessage.LinkPreviewMetadata.verify|verify} messages.
-                 * @param message LinkPreviewMetadata message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encode(message: E2E.Message.ExtendedTextMessage.ILinkPreviewMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Encodes the specified LinkPreviewMetadata message, length delimited. Does not implicitly {@link E2E.Message.ExtendedTextMessage.LinkPreviewMetadata.verify|verify} messages.
-                 * @param message LinkPreviewMetadata message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encodeDelimited(message: E2E.Message.ExtendedTextMessage.ILinkPreviewMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Decodes a LinkPreviewMetadata message from the specified reader or buffer.
-                 * @param reader Reader or buffer to decode from
-                 * @param [length] Message length if known beforehand
-                 * @returns LinkPreviewMetadata
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): E2E.Message.ExtendedTextMessage.LinkPreviewMetadata;
-
-                /**
-                 * Decodes a LinkPreviewMetadata message from the specified reader or buffer, length delimited.
-                 * @param reader Reader or buffer to decode from
-                 * @returns LinkPreviewMetadata
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): E2E.Message.ExtendedTextMessage.LinkPreviewMetadata;
-
-                /**
-                 * Verifies a LinkPreviewMetadata message.
-                 * @param message Plain object to verify
-                 * @returns `null` if valid, otherwise the reason why it is not
-                 */
-                public static verify(message: { [k: string]: any }): (string|null);
-
-                /**
-                 * Creates a LinkPreviewMetadata message from a plain object. Also converts values to their respective internal types.
-                 * @param object Plain object
-                 * @returns LinkPreviewMetadata
-                 */
-                public static fromObject(object: { [k: string]: any }): E2E.Message.ExtendedTextMessage.LinkPreviewMetadata;
-
-                /**
-                 * Creates a plain object from a LinkPreviewMetadata message. Also converts values to other types if specified.
-                 * @param message LinkPreviewMetadata
-                 * @param [options] Conversion options
-                 * @returns Plain object
-                 */
-                public static toObject(message: E2E.Message.ExtendedTextMessage.LinkPreviewMetadata, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                /**
-                 * Converts this LinkPreviewMetadata to JSON.
-                 * @returns JSON object
-                 */
-                public toJSON(): { [k: string]: any };
-
-                /**
-                 * Gets the default type url for LinkPreviewMetadata
-                 * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-                 * @returns The default type url
-                 */
-                public static getTypeUrl(typeUrlPrefix?: string): string;
-            }
-
             /** PreviewType enum. */
             enum PreviewType {
                 NONE = 0,
@@ -21688,7 +22636,7 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IFullHistorySyncOnDemandRequestMetadata);
 
             /** FullHistorySyncOnDemandRequestMetadata requestId. */
-            public requestId: string;
+            public requestId?: (string|null);
 
             /**
              * Creates a new FullHistorySyncOnDemandRequestMetadata instance using the specified properties.
@@ -21903,28 +22851,28 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IGroupInviteMessage);
 
             /** GroupInviteMessage groupJid. */
-            public groupJid: string;
+            public groupJid?: (string|null);
 
             /** GroupInviteMessage inviteCode. */
-            public inviteCode: string;
+            public inviteCode?: (string|null);
 
             /** GroupInviteMessage inviteExpiration. */
-            public inviteExpiration: (number|Long);
+            public inviteExpiration?: (number|Long|null);
 
             /** GroupInviteMessage groupName. */
-            public groupName: string;
+            public groupName?: (string|null);
 
             /** GroupInviteMessage jpegThumbnail. */
-            public jpegThumbnail: Uint8Array;
+            public jpegThumbnail?: (Uint8Array|null);
 
             /** GroupInviteMessage caption. */
-            public caption: string;
+            public caption?: (string|null);
 
             /** GroupInviteMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
 
             /** GroupInviteMessage groupType. */
-            public groupType: E2E.Message.GroupInviteMessage.GroupType;
+            public groupType?: (E2E.Message.GroupInviteMessage.GroupType|null);
 
             /**
              * Creates a new GroupInviteMessage instance using the specified properties.
@@ -22054,28 +23002,28 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IHighlyStructuredMessage);
 
             /** HighlyStructuredMessage namespace. */
-            public namespace: string;
+            public namespace?: (string|null);
 
             /** HighlyStructuredMessage elementName. */
-            public elementName: string;
+            public elementName?: (string|null);
 
             /** HighlyStructuredMessage params. */
             public params: string[];
 
             /** HighlyStructuredMessage fallbackLg. */
-            public fallbackLg: string;
+            public fallbackLg?: (string|null);
 
             /** HighlyStructuredMessage fallbackLc. */
-            public fallbackLc: string;
+            public fallbackLc?: (string|null);
 
             /** HighlyStructuredMessage localizableParams. */
             public localizableParams: E2E.Message.HighlyStructuredMessage.IHSMLocalizableParameter[];
 
             /** HighlyStructuredMessage deterministicLg. */
-            public deterministicLg: string;
+            public deterministicLg?: (string|null);
 
             /** HighlyStructuredMessage deterministicLc. */
-            public deterministicLc: string;
+            public deterministicLc?: (string|null);
 
             /** HighlyStructuredMessage hydratedHsm. */
             public hydratedHsm?: (E2E.Message.ITemplateMessage|null);
@@ -22183,7 +23131,7 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.HighlyStructuredMessage.IHSMLocalizableParameter);
 
                 /** HSMLocalizableParameter default. */
-                public default: string;
+                public default?: (string|null);
 
                 /** HSMLocalizableParameter currency. */
                 public currency?: (E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.IHSMCurrency|null);
@@ -22294,10 +23242,10 @@ export namespace E2E {
                     constructor(properties?: E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.IHSMCurrency);
 
                     /** HSMCurrency currencyCode. */
-                    public currencyCode: string;
+                    public currencyCode?: (string|null);
 
                     /** HSMCurrency amount1000. */
-                    public amount1000: (number|Long);
+                    public amount1000?: (number|Long|null);
 
                     /**
                      * Creates a new HSMCurrency instance using the specified properties.
@@ -22520,25 +23468,25 @@ export namespace E2E {
                         constructor(properties?: E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.IHSMDateTimeComponent);
 
                         /** HSMDateTimeComponent dayOfWeek. */
-                        public dayOfWeek: E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent.DayOfWeekType;
+                        public dayOfWeek?: (E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent.DayOfWeekType|null);
 
                         /** HSMDateTimeComponent year. */
-                        public year: number;
+                        public year?: (number|null);
 
                         /** HSMDateTimeComponent month. */
-                        public month: number;
+                        public month?: (number|null);
 
                         /** HSMDateTimeComponent dayOfMonth. */
-                        public dayOfMonth: number;
+                        public dayOfMonth?: (number|null);
 
                         /** HSMDateTimeComponent hour. */
-                        public hour: number;
+                        public hour?: (number|null);
 
                         /** HSMDateTimeComponent minute. */
-                        public minute: number;
+                        public minute?: (number|null);
 
                         /** HSMDateTimeComponent calendar. */
-                        public calendar: E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent.CalendarType;
+                        public calendar?: (E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent.CalendarType|null);
 
                         /**
                          * Creates a new HSMDateTimeComponent instance using the specified properties.
@@ -22655,7 +23603,7 @@ export namespace E2E {
                         constructor(properties?: E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.IHSMDateTimeUnixEpoch);
 
                         /** HSMDateTimeUnixEpoch timestamp. */
-                        public timestamp: (number|Long);
+                        public timestamp?: (number|Long|null);
 
                         /**
                          * Creates a new HSMDateTimeUnixEpoch instance using the specified properties.
@@ -22794,46 +23742,46 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IHistorySyncNotification);
 
             /** HistorySyncNotification fileSha256. */
-            public fileSha256: Uint8Array;
+            public fileSha256?: (Uint8Array|null);
 
             /** HistorySyncNotification fileLength. */
-            public fileLength: (number|Long);
+            public fileLength?: (number|Long|null);
 
             /** HistorySyncNotification mediaKey. */
-            public mediaKey: Uint8Array;
+            public mediaKey?: (Uint8Array|null);
 
             /** HistorySyncNotification fileEncSha256. */
-            public fileEncSha256: Uint8Array;
+            public fileEncSha256?: (Uint8Array|null);
 
             /** HistorySyncNotification directPath. */
-            public directPath: string;
+            public directPath?: (string|null);
 
             /** HistorySyncNotification syncType. */
-            public syncType: E2E.Message.HistorySyncNotification.HistorySyncType;
+            public syncType?: (E2E.Message.HistorySyncNotification.HistorySyncType|null);
 
             /** HistorySyncNotification chunkOrder. */
-            public chunkOrder: number;
+            public chunkOrder?: (number|null);
 
             /** HistorySyncNotification originalMessageId. */
-            public originalMessageId: string;
+            public originalMessageId?: (string|null);
 
             /** HistorySyncNotification progress. */
-            public progress: number;
+            public progress?: (number|null);
 
             /** HistorySyncNotification oldestMsgInChunkTimestampSec. */
-            public oldestMsgInChunkTimestampSec: (number|Long);
+            public oldestMsgInChunkTimestampSec?: (number|Long|null);
 
             /** HistorySyncNotification initialHistBootstrapInlinePayload. */
-            public initialHistBootstrapInlinePayload: Uint8Array;
+            public initialHistBootstrapInlinePayload?: (Uint8Array|null);
 
             /** HistorySyncNotification peerDataRequestSessionId. */
-            public peerDataRequestSessionId: string;
+            public peerDataRequestSessionId?: (string|null);
 
             /** HistorySyncNotification fullHistorySyncOnDemandRequestMetadata. */
             public fullHistorySyncOnDemandRequestMetadata?: (E2E.Message.IFullHistorySyncOnDemandRequestMetadata|null);
 
             /** HistorySyncNotification encHandle. */
-            public encHandle: string;
+            public encHandle?: (string|null);
 
             /**
              * Creates a new HistorySyncNotification instance using the specified properties.
@@ -23029,91 +23977,91 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IImageMessage);
 
             /** ImageMessage url. */
-            public url: string;
+            public url?: (string|null);
 
             /** ImageMessage mimetype. */
-            public mimetype: string;
+            public mimetype?: (string|null);
 
             /** ImageMessage caption. */
-            public caption: string;
+            public caption?: (string|null);
 
             /** ImageMessage fileSha256. */
-            public fileSha256: Uint8Array;
+            public fileSha256?: (Uint8Array|null);
 
             /** ImageMessage fileLength. */
-            public fileLength: (number|Long);
+            public fileLength?: (number|Long|null);
 
             /** ImageMessage height. */
-            public height: number;
+            public height?: (number|null);
 
             /** ImageMessage width. */
-            public width: number;
+            public width?: (number|null);
 
             /** ImageMessage mediaKey. */
-            public mediaKey: Uint8Array;
+            public mediaKey?: (Uint8Array|null);
 
             /** ImageMessage fileEncSha256. */
-            public fileEncSha256: Uint8Array;
+            public fileEncSha256?: (Uint8Array|null);
 
             /** ImageMessage interactiveAnnotations. */
             public interactiveAnnotations: E2E.IInteractiveAnnotation[];
 
             /** ImageMessage directPath. */
-            public directPath: string;
+            public directPath?: (string|null);
 
             /** ImageMessage mediaKeyTimestamp. */
-            public mediaKeyTimestamp: (number|Long);
+            public mediaKeyTimestamp?: (number|Long|null);
 
             /** ImageMessage jpegThumbnail. */
-            public jpegThumbnail: Uint8Array;
+            public jpegThumbnail?: (Uint8Array|null);
 
             /** ImageMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
 
             /** ImageMessage firstScanSidecar. */
-            public firstScanSidecar: Uint8Array;
+            public firstScanSidecar?: (Uint8Array|null);
 
             /** ImageMessage firstScanLength. */
-            public firstScanLength: number;
+            public firstScanLength?: (number|null);
 
             /** ImageMessage experimentGroupId. */
-            public experimentGroupId: number;
+            public experimentGroupId?: (number|null);
 
             /** ImageMessage scansSidecar. */
-            public scansSidecar: Uint8Array;
+            public scansSidecar?: (Uint8Array|null);
 
             /** ImageMessage scanLengths. */
             public scanLengths: number[];
 
             /** ImageMessage midQualityFileSha256. */
-            public midQualityFileSha256: Uint8Array;
+            public midQualityFileSha256?: (Uint8Array|null);
 
             /** ImageMessage midQualityFileEncSha256. */
-            public midQualityFileEncSha256: Uint8Array;
+            public midQualityFileEncSha256?: (Uint8Array|null);
 
             /** ImageMessage viewOnce. */
-            public viewOnce: boolean;
+            public viewOnce?: (boolean|null);
 
             /** ImageMessage thumbnailDirectPath. */
-            public thumbnailDirectPath: string;
+            public thumbnailDirectPath?: (string|null);
 
             /** ImageMessage thumbnailSha256. */
-            public thumbnailSha256: Uint8Array;
+            public thumbnailSha256?: (Uint8Array|null);
 
             /** ImageMessage thumbnailEncSha256. */
-            public thumbnailEncSha256: Uint8Array;
+            public thumbnailEncSha256?: (Uint8Array|null);
 
             /** ImageMessage staticUrl. */
-            public staticUrl: string;
+            public staticUrl?: (string|null);
 
             /** ImageMessage annotations. */
             public annotations: E2E.IInteractiveAnnotation[];
 
             /** ImageMessage imageSourceType. */
-            public imageSourceType: E2E.Message.ImageMessage.ImageSourceType;
+            public imageSourceType?: (E2E.Message.ImageMessage.ImageSourceType|null);
 
             /** ImageMessage accessibilityLabel. */
-            public accessibilityLabel: string;
+            public accessibilityLabel?: (string|null);
 
             /**
              * Creates a new ImageMessage instance using the specified properties.
@@ -23221,7 +24169,7 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IInitialSecurityNotificationSettingSync);
 
             /** InitialSecurityNotificationSettingSync securityNotificationEnabled. */
-            public securityNotificationEnabled: boolean;
+            public securityNotificationEnabled?: (boolean|null);
 
             /**
              * Creates a new InitialSecurityNotificationSettingSync instance using the specified properties.
@@ -23468,7 +24416,7 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.InteractiveMessage.IBody);
 
                 /** Body text. */
-                public text: string;
+                public text?: (string|null);
 
                 /**
                  * Creates a new Body instance using the specified properties.
@@ -23571,7 +24519,7 @@ export namespace E2E {
                 public cards: E2E.Message.IInteractiveMessage[];
 
                 /** CarouselMessage messageVersion. */
-                public messageVersion: number;
+                public messageVersion?: (number|null);
 
                 /**
                  * Creates a new CarouselMessage instance using the specified properties.
@@ -23674,13 +24622,13 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.InteractiveMessage.ICollectionMessage);
 
                 /** CollectionMessage bizJid. */
-                public bizJid: string;
+                public bizJid?: (string|null);
 
                 /** CollectionMessage id. */
-                public id: string;
+                public id?: (string|null);
 
                 /** CollectionMessage messageVersion. */
-                public messageVersion: number;
+                public messageVersion?: (number|null);
 
                 /**
                  * Creates a new CollectionMessage instance using the specified properties.
@@ -23777,7 +24725,7 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.InteractiveMessage.IFooter);
 
                 /** Footer text. */
-                public text: string;
+                public text?: (string|null);
 
                 /**
                  * Creates a new Footer instance using the specified properties.
@@ -23898,13 +24846,13 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.InteractiveMessage.IHeader);
 
                 /** Header title. */
-                public title: string;
+                public title?: (string|null);
 
                 /** Header subtitle. */
-                public subtitle: string;
+                public subtitle?: (string|null);
 
                 /** Header hasMediaAttachment. */
-                public hasMediaAttachment: boolean;
+                public hasMediaAttachment?: (boolean|null);
 
                 /** Header documentMessage. */
                 public documentMessage?: (E2E.Message.IDocumentMessage|null);
@@ -24031,10 +24979,10 @@ export namespace E2E {
                 public buttons: E2E.Message.InteractiveMessage.NativeFlowMessage.INativeFlowButton[];
 
                 /** NativeFlowMessage messageParamsJson. */
-                public messageParamsJson: string;
+                public messageParamsJson?: (string|null);
 
                 /** NativeFlowMessage messageVersion. */
-                public messageVersion: number;
+                public messageVersion?: (number|null);
 
                 /**
                  * Creates a new NativeFlowMessage instance using the specified properties.
@@ -24136,10 +25084,10 @@ export namespace E2E {
                     constructor(properties?: E2E.Message.InteractiveMessage.NativeFlowMessage.INativeFlowButton);
 
                     /** NativeFlowButton name. */
-                    public name: string;
+                    public name?: (string|null);
 
                     /** NativeFlowButton buttonParamsJson. */
-                    public buttonParamsJson: string;
+                    public buttonParamsJson?: (string|null);
 
                     /**
                      * Creates a new NativeFlowButton instance using the specified properties.
@@ -24243,13 +25191,13 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.InteractiveMessage.IShopMessage);
 
                 /** ShopMessage id. */
-                public id: string;
+                public id?: (string|null);
 
                 /** ShopMessage surface. */
-                public surface: E2E.Message.InteractiveMessage.ShopMessage.Surface;
+                public surface?: (E2E.Message.InteractiveMessage.ShopMessage.Surface|null);
 
                 /** ShopMessage messageVersion. */
-                public messageVersion: number;
+                public messageVersion?: (number|null);
 
                 /**
                  * Creates a new ShopMessage instance using the specified properties.
@@ -24475,10 +25423,10 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.InteractiveResponseMessage.IBody);
 
                 /** Body text. */
-                public text: string;
+                public text?: (string|null);
 
                 /** Body format. */
-                public format: E2E.Message.InteractiveResponseMessage.Body.Format;
+                public format?: (E2E.Message.InteractiveResponseMessage.Body.Format|null);
 
                 /**
                  * Creates a new Body instance using the specified properties.
@@ -24590,13 +25538,13 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.InteractiveResponseMessage.INativeFlowResponseMessage);
 
                 /** NativeFlowResponseMessage name. */
-                public name: string;
+                public name?: (string|null);
 
                 /** NativeFlowResponseMessage paramsJson. */
-                public paramsJson: string;
+                public paramsJson?: (string|null);
 
                 /** NativeFlowResponseMessage version. */
-                public version: number;
+                public version?: (number|null);
 
                 /**
                  * Creates a new NativeFlowResponseMessage instance using the specified properties.
@@ -24721,34 +25669,34 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IInvoiceMessage);
 
             /** InvoiceMessage note. */
-            public note: string;
+            public note?: (string|null);
 
             /** InvoiceMessage token. */
-            public token: string;
+            public token?: (string|null);
 
             /** InvoiceMessage attachmentType. */
-            public attachmentType: E2E.Message.InvoiceMessage.AttachmentType;
+            public attachmentType?: (E2E.Message.InvoiceMessage.AttachmentType|null);
 
             /** InvoiceMessage attachmentMimetype. */
-            public attachmentMimetype: string;
+            public attachmentMimetype?: (string|null);
 
             /** InvoiceMessage attachmentMediaKey. */
-            public attachmentMediaKey: Uint8Array;
+            public attachmentMediaKey?: (Uint8Array|null);
 
             /** InvoiceMessage attachmentMediaKeyTimestamp. */
-            public attachmentMediaKeyTimestamp: (number|Long);
+            public attachmentMediaKeyTimestamp?: (number|Long|null);
 
             /** InvoiceMessage attachmentFileSha256. */
-            public attachmentFileSha256: Uint8Array;
+            public attachmentFileSha256?: (Uint8Array|null);
 
             /** InvoiceMessage attachmentFileEncSha256. */
-            public attachmentFileEncSha256: Uint8Array;
+            public attachmentFileEncSha256?: (Uint8Array|null);
 
             /** InvoiceMessage attachmentDirectPath. */
-            public attachmentDirectPath: string;
+            public attachmentDirectPath?: (string|null);
 
             /** InvoiceMessage attachmentJpegThumbnail. */
-            public attachmentJpegThumbnail: Uint8Array;
+            public attachmentJpegThumbnail?: (Uint8Array|null);
 
             /**
              * Creates a new InvoiceMessage instance using the specified properties.
@@ -24863,10 +25811,10 @@ export namespace E2E {
             public key?: (Protocol.IMessageKey|null);
 
             /** KeepInChatMessage keepType. */
-            public keepType: E2E.KeepType;
+            public keepType?: (E2E.KeepType|null);
 
             /** KeepInChatMessage timestampMs. */
-            public timestampMs: (number|Long);
+            public timestampMs?: (number|Long|null);
 
             /**
              * Creates a new KeepInChatMessage instance using the specified properties.
@@ -24946,6 +25894,115 @@ export namespace E2E {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
+        /** Properties of a LinkPreviewMetadata. */
+        interface ILinkPreviewMetadata {
+
+            /** LinkPreviewMetadata paymentLinkMetadata */
+            paymentLinkMetadata?: (E2E.Message.IPaymentLinkMetadata|null);
+
+            /** LinkPreviewMetadata urlMetadata */
+            urlMetadata?: (E2E.Message.IURLMetadata|null);
+
+            /** LinkPreviewMetadata fbExperimentId */
+            fbExperimentId?: (number|null);
+        }
+
+        /** Represents a LinkPreviewMetadata. */
+        class LinkPreviewMetadata implements ILinkPreviewMetadata {
+
+            /**
+             * Constructs a new LinkPreviewMetadata.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: E2E.Message.ILinkPreviewMetadata);
+
+            /** LinkPreviewMetadata paymentLinkMetadata. */
+            public paymentLinkMetadata?: (E2E.Message.IPaymentLinkMetadata|null);
+
+            /** LinkPreviewMetadata urlMetadata. */
+            public urlMetadata?: (E2E.Message.IURLMetadata|null);
+
+            /** LinkPreviewMetadata fbExperimentId. */
+            public fbExperimentId?: (number|null);
+
+            /**
+             * Creates a new LinkPreviewMetadata instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns LinkPreviewMetadata instance
+             */
+            public static create(properties?: E2E.Message.ILinkPreviewMetadata): E2E.Message.LinkPreviewMetadata;
+
+            /**
+             * Encodes the specified LinkPreviewMetadata message. Does not implicitly {@link E2E.Message.LinkPreviewMetadata.verify|verify} messages.
+             * @param message LinkPreviewMetadata message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: E2E.Message.ILinkPreviewMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified LinkPreviewMetadata message, length delimited. Does not implicitly {@link E2E.Message.LinkPreviewMetadata.verify|verify} messages.
+             * @param message LinkPreviewMetadata message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: E2E.Message.ILinkPreviewMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a LinkPreviewMetadata message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns LinkPreviewMetadata
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): E2E.Message.LinkPreviewMetadata;
+
+            /**
+             * Decodes a LinkPreviewMetadata message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns LinkPreviewMetadata
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): E2E.Message.LinkPreviewMetadata;
+
+            /**
+             * Verifies a LinkPreviewMetadata message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a LinkPreviewMetadata message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns LinkPreviewMetadata
+             */
+            public static fromObject(object: { [k: string]: any }): E2E.Message.LinkPreviewMetadata;
+
+            /**
+             * Creates a plain object from a LinkPreviewMetadata message. Also converts values to other types if specified.
+             * @param message LinkPreviewMetadata
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: E2E.Message.LinkPreviewMetadata, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this LinkPreviewMetadata to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for LinkPreviewMetadata
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
         /** Properties of a ListMessage. */
         interface IListMessage {
 
@@ -24984,16 +26041,16 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IListMessage);
 
             /** ListMessage title. */
-            public title: string;
+            public title?: (string|null);
 
             /** ListMessage description. */
-            public description: string;
+            public description?: (string|null);
 
             /** ListMessage buttonText. */
-            public buttonText: string;
+            public buttonText?: (string|null);
 
             /** ListMessage listType. */
-            public listType: E2E.Message.ListMessage.ListType;
+            public listType?: (E2E.Message.ListMessage.ListType|null);
 
             /** ListMessage sections. */
             public sections: E2E.Message.ListMessage.ISection[];
@@ -25002,7 +26059,7 @@ export namespace E2E {
             public productListInfo?: (E2E.Message.ListMessage.IProductListInfo|null);
 
             /** ListMessage footerText. */
-            public footerText: string;
+            public footerText?: (string|null);
 
             /** ListMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
@@ -25111,7 +26168,7 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.ListMessage.IProduct);
 
                 /** Product productId. */
-                public productId: string;
+                public productId?: (string|null);
 
                 /**
                  * Creates a new Product instance using the specified properties.
@@ -25211,10 +26268,10 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.ListMessage.IProductListHeaderImage);
 
                 /** ProductListHeaderImage productId. */
-                public productId: string;
+                public productId?: (string|null);
 
                 /** ProductListHeaderImage jpegThumbnail. */
-                public jpegThumbnail: Uint8Array;
+                public jpegThumbnail?: (Uint8Array|null);
 
                 /**
                  * Creates a new ProductListHeaderImage instance using the specified properties.
@@ -25323,7 +26380,7 @@ export namespace E2E {
                 public headerImage?: (E2E.Message.ListMessage.IProductListHeaderImage|null);
 
                 /** ProductListInfo businessOwnerJid. */
-                public businessOwnerJid: string;
+                public businessOwnerJid?: (string|null);
 
                 /**
                  * Creates a new ProductListInfo instance using the specified properties.
@@ -25423,7 +26480,7 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.ListMessage.IProductSection);
 
                 /** ProductSection title. */
-                public title: string;
+                public title?: (string|null);
 
                 /** ProductSection products. */
                 public products: E2E.Message.ListMessage.IProduct[];
@@ -25529,13 +26586,13 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.ListMessage.IRow);
 
                 /** Row title. */
-                public title: string;
+                public title?: (string|null);
 
                 /** Row description. */
-                public description: string;
+                public description?: (string|null);
 
                 /** Row rowId. */
-                public rowId: string;
+                public rowId?: (string|null);
 
                 /**
                  * Creates a new Row instance using the specified properties.
@@ -25635,7 +26692,7 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.ListMessage.ISection);
 
                 /** Section title. */
-                public title: string;
+                public title?: (string|null);
 
                 /** Section rows. */
                 public rows: E2E.Message.ListMessage.IRow[];
@@ -25748,10 +26805,10 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IListResponseMessage);
 
             /** ListResponseMessage title. */
-            public title: string;
+            public title?: (string|null);
 
             /** ListResponseMessage listType. */
-            public listType: E2E.Message.ListResponseMessage.ListType;
+            public listType?: (E2E.Message.ListResponseMessage.ListType|null);
 
             /** ListResponseMessage singleSelectReply. */
             public singleSelectReply?: (E2E.Message.ListResponseMessage.ISingleSelectReply|null);
@@ -25760,7 +26817,7 @@ export namespace E2E {
             public contextInfo?: (E2E.IContextInfo|null);
 
             /** ListResponseMessage description. */
-            public description: string;
+            public description?: (string|null);
 
             /**
              * Creates a new ListResponseMessage instance using the specified properties.
@@ -25865,7 +26922,7 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.ListResponseMessage.ISingleSelectReply);
 
                 /** SingleSelectReply selectedRowId. */
-                public selectedRowId: string;
+                public selectedRowId?: (string|null);
 
                 /**
                  * Creates a new SingleSelectReply instance using the specified properties.
@@ -25990,31 +27047,31 @@ export namespace E2E {
             constructor(properties?: E2E.Message.ILiveLocationMessage);
 
             /** LiveLocationMessage degreesLatitude. */
-            public degreesLatitude: number;
+            public degreesLatitude?: (number|null);
 
             /** LiveLocationMessage degreesLongitude. */
-            public degreesLongitude: number;
+            public degreesLongitude?: (number|null);
 
             /** LiveLocationMessage accuracyInMeters. */
-            public accuracyInMeters: number;
+            public accuracyInMeters?: (number|null);
 
             /** LiveLocationMessage speedInMps. */
-            public speedInMps: number;
+            public speedInMps?: (number|null);
 
             /** LiveLocationMessage degreesClockwiseFromMagneticNorth. */
-            public degreesClockwiseFromMagneticNorth: number;
+            public degreesClockwiseFromMagneticNorth?: (number|null);
 
             /** LiveLocationMessage caption. */
-            public caption: string;
+            public caption?: (string|null);
 
             /** LiveLocationMessage sequenceNumber. */
-            public sequenceNumber: (number|Long);
+            public sequenceNumber?: (number|Long|null);
 
             /** LiveLocationMessage timeOffset. */
-            public timeOffset: number;
+            public timeOffset?: (number|null);
 
             /** LiveLocationMessage jpegThumbnail. */
-            public jpegThumbnail: Uint8Array;
+            public jpegThumbnail?: (Uint8Array|null);
 
             /** LiveLocationMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
@@ -26147,37 +27204,37 @@ export namespace E2E {
             constructor(properties?: E2E.Message.ILocationMessage);
 
             /** LocationMessage degreesLatitude. */
-            public degreesLatitude: number;
+            public degreesLatitude?: (number|null);
 
             /** LocationMessage degreesLongitude. */
-            public degreesLongitude: number;
+            public degreesLongitude?: (number|null);
 
             /** LocationMessage name. */
-            public name: string;
+            public name?: (string|null);
 
             /** LocationMessage address. */
-            public address: string;
+            public address?: (string|null);
 
             /** LocationMessage url. */
-            public url: string;
+            public url?: (string|null);
 
             /** LocationMessage isLive. */
-            public isLive: boolean;
+            public isLive?: (boolean|null);
 
             /** LocationMessage accuracyInMeters. */
-            public accuracyInMeters: number;
+            public accuracyInMeters?: (number|null);
 
             /** LocationMessage speedInMps. */
-            public speedInMps: number;
+            public speedInMps?: (number|null);
 
             /** LocationMessage degreesClockwiseFromMagneticNorth. */
-            public degreesClockwiseFromMagneticNorth: number;
+            public degreesClockwiseFromMagneticNorth?: (number|null);
 
             /** LocationMessage comment. */
-            public comment: string;
+            public comment?: (string|null);
 
             /** LocationMessage jpegThumbnail. */
-            public jpegThumbnail: Uint8Array;
+            public jpegThumbnail?: (Uint8Array|null);
 
             /** LocationMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
@@ -26295,25 +27352,25 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IMMSThumbnailMetadata);
 
             /** MMSThumbnailMetadata thumbnailDirectPath. */
-            public thumbnailDirectPath: string;
+            public thumbnailDirectPath?: (string|null);
 
             /** MMSThumbnailMetadata thumbnailSha256. */
-            public thumbnailSha256: Uint8Array;
+            public thumbnailSha256?: (Uint8Array|null);
 
             /** MMSThumbnailMetadata thumbnailEncSha256. */
-            public thumbnailEncSha256: Uint8Array;
+            public thumbnailEncSha256?: (Uint8Array|null);
 
             /** MMSThumbnailMetadata mediaKey. */
-            public mediaKey: Uint8Array;
+            public mediaKey?: (Uint8Array|null);
 
             /** MMSThumbnailMetadata mediaKeyTimestamp. */
-            public mediaKeyTimestamp: (number|Long);
+            public mediaKeyTimestamp?: (number|Long|null);
 
             /** MMSThumbnailMetadata thumbnailHeight. */
-            public thumbnailHeight: number;
+            public thumbnailHeight?: (number|null);
 
             /** MMSThumbnailMetadata thumbnailWidth. */
-            public thumbnailWidth: number;
+            public thumbnailWidth?: (number|null);
 
             /**
              * Creates a new MMSThumbnailMetadata instance using the specified properties.
@@ -26417,8 +27474,8 @@ export namespace E2E {
             /** MessageHistoryBundle contextInfo */
             contextInfo?: (E2E.IContextInfo|null);
 
-            /** MessageHistoryBundle participants */
-            participants?: (string[]|null);
+            /** MessageHistoryBundle messageHistoryMetadata */
+            messageHistoryMetadata?: (E2E.Message.IMessageHistoryMetadata|null);
         }
 
         /** Represents a MessageHistoryBundle. */
@@ -26431,28 +27488,28 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IMessageHistoryBundle);
 
             /** MessageHistoryBundle mimetype. */
-            public mimetype: string;
+            public mimetype?: (string|null);
 
             /** MessageHistoryBundle fileSha256. */
-            public fileSha256: Uint8Array;
+            public fileSha256?: (Uint8Array|null);
 
             /** MessageHistoryBundle mediaKey. */
-            public mediaKey: Uint8Array;
+            public mediaKey?: (Uint8Array|null);
 
             /** MessageHistoryBundle fileEncSha256. */
-            public fileEncSha256: Uint8Array;
+            public fileEncSha256?: (Uint8Array|null);
 
             /** MessageHistoryBundle directPath. */
-            public directPath: string;
+            public directPath?: (string|null);
 
             /** MessageHistoryBundle mediaKeyTimestamp. */
-            public mediaKeyTimestamp: (number|Long);
+            public mediaKeyTimestamp?: (number|Long|null);
 
             /** MessageHistoryBundle contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
 
-            /** MessageHistoryBundle participants. */
-            public participants: string[];
+            /** MessageHistoryBundle messageHistoryMetadata. */
+            public messageHistoryMetadata?: (E2E.Message.IMessageHistoryMetadata|null);
 
             /**
              * Creates a new MessageHistoryBundle instance using the specified properties.
@@ -26532,6 +27589,218 @@ export namespace E2E {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
+        /** Properties of a MessageHistoryMetadata. */
+        interface IMessageHistoryMetadata {
+
+            /** MessageHistoryMetadata historyReceivers */
+            historyReceivers?: (string[]|null);
+
+            /** MessageHistoryMetadata firstMessageTimestamp */
+            firstMessageTimestamp?: (number|Long|null);
+
+            /** MessageHistoryMetadata messageCount */
+            messageCount?: (number|Long|null);
+        }
+
+        /** Represents a MessageHistoryMetadata. */
+        class MessageHistoryMetadata implements IMessageHistoryMetadata {
+
+            /**
+             * Constructs a new MessageHistoryMetadata.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: E2E.Message.IMessageHistoryMetadata);
+
+            /** MessageHistoryMetadata historyReceivers. */
+            public historyReceivers: string[];
+
+            /** MessageHistoryMetadata firstMessageTimestamp. */
+            public firstMessageTimestamp?: (number|Long|null);
+
+            /** MessageHistoryMetadata messageCount. */
+            public messageCount?: (number|Long|null);
+
+            /**
+             * Creates a new MessageHistoryMetadata instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns MessageHistoryMetadata instance
+             */
+            public static create(properties?: E2E.Message.IMessageHistoryMetadata): E2E.Message.MessageHistoryMetadata;
+
+            /**
+             * Encodes the specified MessageHistoryMetadata message. Does not implicitly {@link E2E.Message.MessageHistoryMetadata.verify|verify} messages.
+             * @param message MessageHistoryMetadata message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: E2E.Message.IMessageHistoryMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified MessageHistoryMetadata message, length delimited. Does not implicitly {@link E2E.Message.MessageHistoryMetadata.verify|verify} messages.
+             * @param message MessageHistoryMetadata message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: E2E.Message.IMessageHistoryMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a MessageHistoryMetadata message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns MessageHistoryMetadata
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): E2E.Message.MessageHistoryMetadata;
+
+            /**
+             * Decodes a MessageHistoryMetadata message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns MessageHistoryMetadata
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): E2E.Message.MessageHistoryMetadata;
+
+            /**
+             * Verifies a MessageHistoryMetadata message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a MessageHistoryMetadata message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns MessageHistoryMetadata
+             */
+            public static fromObject(object: { [k: string]: any }): E2E.Message.MessageHistoryMetadata;
+
+            /**
+             * Creates a plain object from a MessageHistoryMetadata message. Also converts values to other types if specified.
+             * @param message MessageHistoryMetadata
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: E2E.Message.MessageHistoryMetadata, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this MessageHistoryMetadata to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for MessageHistoryMetadata
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a MessageHistoryNotice. */
+        interface IMessageHistoryNotice {
+
+            /** MessageHistoryNotice contextInfo */
+            contextInfo?: (E2E.IContextInfo|null);
+
+            /** MessageHistoryNotice messageHistoryMetadata */
+            messageHistoryMetadata?: (E2E.Message.IMessageHistoryMetadata|null);
+        }
+
+        /** Represents a MessageHistoryNotice. */
+        class MessageHistoryNotice implements IMessageHistoryNotice {
+
+            /**
+             * Constructs a new MessageHistoryNotice.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: E2E.Message.IMessageHistoryNotice);
+
+            /** MessageHistoryNotice contextInfo. */
+            public contextInfo?: (E2E.IContextInfo|null);
+
+            /** MessageHistoryNotice messageHistoryMetadata. */
+            public messageHistoryMetadata?: (E2E.Message.IMessageHistoryMetadata|null);
+
+            /**
+             * Creates a new MessageHistoryNotice instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns MessageHistoryNotice instance
+             */
+            public static create(properties?: E2E.Message.IMessageHistoryNotice): E2E.Message.MessageHistoryNotice;
+
+            /**
+             * Encodes the specified MessageHistoryNotice message. Does not implicitly {@link E2E.Message.MessageHistoryNotice.verify|verify} messages.
+             * @param message MessageHistoryNotice message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: E2E.Message.IMessageHistoryNotice, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified MessageHistoryNotice message, length delimited. Does not implicitly {@link E2E.Message.MessageHistoryNotice.verify|verify} messages.
+             * @param message MessageHistoryNotice message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: E2E.Message.IMessageHistoryNotice, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a MessageHistoryNotice message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns MessageHistoryNotice
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): E2E.Message.MessageHistoryNotice;
+
+            /**
+             * Decodes a MessageHistoryNotice message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns MessageHistoryNotice
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): E2E.Message.MessageHistoryNotice;
+
+            /**
+             * Verifies a MessageHistoryNotice message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a MessageHistoryNotice message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns MessageHistoryNotice
+             */
+            public static fromObject(object: { [k: string]: any }): E2E.Message.MessageHistoryNotice;
+
+            /**
+             * Creates a plain object from a MessageHistoryNotice message. Also converts values to other types if specified.
+             * @param message MessageHistoryNotice
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: E2E.Message.MessageHistoryNotice, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this MessageHistoryNotice to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for MessageHistoryNotice
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
         /** Properties of a NewsletterAdminInviteMessage. */
         interface INewsletterAdminInviteMessage {
 
@@ -26564,19 +27833,19 @@ export namespace E2E {
             constructor(properties?: E2E.Message.INewsletterAdminInviteMessage);
 
             /** NewsletterAdminInviteMessage newsletterJid. */
-            public newsletterJid: string;
+            public newsletterJid?: (string|null);
 
             /** NewsletterAdminInviteMessage newsletterName. */
-            public newsletterName: string;
+            public newsletterName?: (string|null);
 
             /** NewsletterAdminInviteMessage jpegThumbnail. */
-            public jpegThumbnail: Uint8Array;
+            public jpegThumbnail?: (Uint8Array|null);
 
             /** NewsletterAdminInviteMessage caption. */
-            public caption: string;
+            public caption?: (string|null);
 
             /** NewsletterAdminInviteMessage inviteExpiration. */
-            public inviteExpiration: (number|Long);
+            public inviteExpiration?: (number|Long|null);
 
             /** NewsletterAdminInviteMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
@@ -26703,6 +27972,9 @@ export namespace E2E {
 
             /** OrderMessage orderRequestMessageId */
             orderRequestMessageId?: (Protocol.IMessageKey|null);
+
+            /** OrderMessage catalogType */
+            catalogType?: (string|null);
         }
 
         /** Represents an OrderMessage. */
@@ -26715,46 +27987,49 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IOrderMessage);
 
             /** OrderMessage orderId. */
-            public orderId: string;
+            public orderId?: (string|null);
 
             /** OrderMessage thumbnail. */
-            public thumbnail: Uint8Array;
+            public thumbnail?: (Uint8Array|null);
 
             /** OrderMessage itemCount. */
-            public itemCount: number;
+            public itemCount?: (number|null);
 
             /** OrderMessage status. */
-            public status: E2E.Message.OrderMessage.OrderStatus;
+            public status?: (E2E.Message.OrderMessage.OrderStatus|null);
 
             /** OrderMessage surface. */
-            public surface: E2E.Message.OrderMessage.OrderSurface;
+            public surface?: (E2E.Message.OrderMessage.OrderSurface|null);
 
             /** OrderMessage message. */
-            public message: string;
+            public message?: (string|null);
 
             /** OrderMessage orderTitle. */
-            public orderTitle: string;
+            public orderTitle?: (string|null);
 
             /** OrderMessage sellerJid. */
-            public sellerJid: string;
+            public sellerJid?: (string|null);
 
             /** OrderMessage token. */
-            public token: string;
+            public token?: (string|null);
 
             /** OrderMessage totalAmount1000. */
-            public totalAmount1000: (number|Long);
+            public totalAmount1000?: (number|Long|null);
 
             /** OrderMessage totalCurrencyCode. */
-            public totalCurrencyCode: string;
+            public totalCurrencyCode?: (string|null);
 
             /** OrderMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
 
             /** OrderMessage messageVersion. */
-            public messageVersion: number;
+            public messageVersion?: (number|null);
 
             /** OrderMessage orderRequestMessageId. */
             public orderRequestMessageId?: (Protocol.IMessageKey|null);
+
+            /** OrderMessage catalogType. */
+            public catalogType?: (string|null);
 
             /**
              * Creates a new OrderMessage instance using the specified properties.
@@ -26869,10 +28144,10 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IPaymentInviteMessage);
 
             /** PaymentInviteMessage serviceType. */
-            public serviceType: E2E.Message.PaymentInviteMessage.ServiceType;
+            public serviceType?: (E2E.Message.PaymentInviteMessage.ServiceType|null);
 
             /** PaymentInviteMessage expiryTimestamp. */
-            public expiryTimestamp: (number|Long);
+            public expiryTimestamp?: (number|Long|null);
 
             /**
              * Creates a new PaymentInviteMessage instance using the specified properties.
@@ -27085,7 +28360,7 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.PaymentLinkMetadata.IPaymentLinkButton);
 
                 /** PaymentLinkButton displayText. */
-                public displayText: string;
+                public displayText?: (string|null);
 
                 /**
                  * Creates a new PaymentLinkButton instance using the specified properties.
@@ -27182,7 +28457,7 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.PaymentLinkMetadata.IPaymentLinkHeader);
 
                 /** PaymentLinkHeader headerType. */
-                public headerType: E2E.Message.PaymentLinkMetadata.PaymentLinkHeader.PaymentLinkHeaderType;
+                public headerType?: (E2E.Message.PaymentLinkMetadata.PaymentLinkHeader.PaymentLinkHeaderType|null);
 
                 /**
                  * Creates a new PaymentLinkHeader instance using the specified properties.
@@ -27292,6 +28567,9 @@ export namespace E2E {
 
             /** PeerDataOperationRequestMessage fullHistorySyncOnDemandRequest */
             fullHistorySyncOnDemandRequest?: (E2E.Message.PeerDataOperationRequestMessage.IFullHistorySyncOnDemandRequest|null);
+
+            /** PeerDataOperationRequestMessage syncdCollectionFatalRecoveryRequest */
+            syncdCollectionFatalRecoveryRequest?: (E2E.Message.PeerDataOperationRequestMessage.ISyncDCollectionFatalRecoveryRequest|null);
         }
 
         /** Represents a PeerDataOperationRequestMessage. */
@@ -27304,7 +28582,7 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IPeerDataOperationRequestMessage);
 
             /** PeerDataOperationRequestMessage peerDataOperationRequestType. */
-            public peerDataOperationRequestType: E2E.Message.PeerDataOperationRequestType;
+            public peerDataOperationRequestType?: (E2E.Message.PeerDataOperationRequestType|null);
 
             /** PeerDataOperationRequestMessage requestStickerReupload. */
             public requestStickerReupload: E2E.Message.PeerDataOperationRequestMessage.IRequestStickerReupload[];
@@ -27320,6 +28598,9 @@ export namespace E2E {
 
             /** PeerDataOperationRequestMessage fullHistorySyncOnDemandRequest. */
             public fullHistorySyncOnDemandRequest?: (E2E.Message.PeerDataOperationRequestMessage.IFullHistorySyncOnDemandRequest|null);
+
+            /** PeerDataOperationRequestMessage syncdCollectionFatalRecoveryRequest. */
+            public syncdCollectionFatalRecoveryRequest?: (E2E.Message.PeerDataOperationRequestMessage.ISyncDCollectionFatalRecoveryRequest|null);
 
             /**
              * Creates a new PeerDataOperationRequestMessage instance using the specified properties.
@@ -27536,22 +28817,22 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.PeerDataOperationRequestMessage.IHistorySyncOnDemandRequest);
 
                 /** HistorySyncOnDemandRequest chatJid. */
-                public chatJid: string;
+                public chatJid?: (string|null);
 
                 /** HistorySyncOnDemandRequest oldestMsgId. */
-                public oldestMsgId: string;
+                public oldestMsgId?: (string|null);
 
                 /** HistorySyncOnDemandRequest oldestMsgFromMe. */
-                public oldestMsgFromMe: boolean;
+                public oldestMsgFromMe?: (boolean|null);
 
                 /** HistorySyncOnDemandRequest onDemandMsgCount. */
-                public onDemandMsgCount: number;
+                public onDemandMsgCount?: (number|null);
 
                 /** HistorySyncOnDemandRequest oldestMsgTimestampMs. */
-                public oldestMsgTimestampMs: (number|Long);
+                public oldestMsgTimestampMs?: (number|Long|null);
 
                 /** HistorySyncOnDemandRequest accountLid. */
-                public accountLid: string;
+                public accountLid?: (string|null);
 
                 /**
                  * Creates a new HistorySyncOnDemandRequest instance using the specified properties.
@@ -27745,7 +29026,7 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.PeerDataOperationRequestMessage.IRequestStickerReupload);
 
                 /** RequestStickerReupload fileSha256. */
-                public fileSha256: string;
+                public fileSha256?: (string|null);
 
                 /**
                  * Creates a new RequestStickerReupload instance using the specified properties.
@@ -27845,10 +29126,10 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.PeerDataOperationRequestMessage.IRequestUrlPreview);
 
                 /** RequestUrlPreview url. */
-                public url: string;
+                public url?: (string|null);
 
                 /** RequestUrlPreview includeHqThumbnail. */
-                public includeHqThumbnail: boolean;
+                public includeHqThumbnail?: (boolean|null);
 
                 /**
                  * Creates a new RequestUrlPreview instance using the specified properties.
@@ -27927,6 +29208,109 @@ export namespace E2E {
                  */
                 public static getTypeUrl(typeUrlPrefix?: string): string;
             }
+
+            /** Properties of a SyncDCollectionFatalRecoveryRequest. */
+            interface ISyncDCollectionFatalRecoveryRequest {
+
+                /** SyncDCollectionFatalRecoveryRequest collectionName */
+                collectionName?: (string|null);
+
+                /** SyncDCollectionFatalRecoveryRequest timestamp */
+                timestamp?: (number|Long|null);
+            }
+
+            /** Represents a SyncDCollectionFatalRecoveryRequest. */
+            class SyncDCollectionFatalRecoveryRequest implements ISyncDCollectionFatalRecoveryRequest {
+
+                /**
+                 * Constructs a new SyncDCollectionFatalRecoveryRequest.
+                 * @param [properties] Properties to set
+                 */
+                constructor(properties?: E2E.Message.PeerDataOperationRequestMessage.ISyncDCollectionFatalRecoveryRequest);
+
+                /** SyncDCollectionFatalRecoveryRequest collectionName. */
+                public collectionName?: (string|null);
+
+                /** SyncDCollectionFatalRecoveryRequest timestamp. */
+                public timestamp?: (number|Long|null);
+
+                /**
+                 * Creates a new SyncDCollectionFatalRecoveryRequest instance using the specified properties.
+                 * @param [properties] Properties to set
+                 * @returns SyncDCollectionFatalRecoveryRequest instance
+                 */
+                public static create(properties?: E2E.Message.PeerDataOperationRequestMessage.ISyncDCollectionFatalRecoveryRequest): E2E.Message.PeerDataOperationRequestMessage.SyncDCollectionFatalRecoveryRequest;
+
+                /**
+                 * Encodes the specified SyncDCollectionFatalRecoveryRequest message. Does not implicitly {@link E2E.Message.PeerDataOperationRequestMessage.SyncDCollectionFatalRecoveryRequest.verify|verify} messages.
+                 * @param message SyncDCollectionFatalRecoveryRequest message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encode(message: E2E.Message.PeerDataOperationRequestMessage.ISyncDCollectionFatalRecoveryRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Encodes the specified SyncDCollectionFatalRecoveryRequest message, length delimited. Does not implicitly {@link E2E.Message.PeerDataOperationRequestMessage.SyncDCollectionFatalRecoveryRequest.verify|verify} messages.
+                 * @param message SyncDCollectionFatalRecoveryRequest message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encodeDelimited(message: E2E.Message.PeerDataOperationRequestMessage.ISyncDCollectionFatalRecoveryRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Decodes a SyncDCollectionFatalRecoveryRequest message from the specified reader or buffer.
+                 * @param reader Reader or buffer to decode from
+                 * @param [length] Message length if known beforehand
+                 * @returns SyncDCollectionFatalRecoveryRequest
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): E2E.Message.PeerDataOperationRequestMessage.SyncDCollectionFatalRecoveryRequest;
+
+                /**
+                 * Decodes a SyncDCollectionFatalRecoveryRequest message from the specified reader or buffer, length delimited.
+                 * @param reader Reader or buffer to decode from
+                 * @returns SyncDCollectionFatalRecoveryRequest
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): E2E.Message.PeerDataOperationRequestMessage.SyncDCollectionFatalRecoveryRequest;
+
+                /**
+                 * Verifies a SyncDCollectionFatalRecoveryRequest message.
+                 * @param message Plain object to verify
+                 * @returns `null` if valid, otherwise the reason why it is not
+                 */
+                public static verify(message: { [k: string]: any }): (string|null);
+
+                /**
+                 * Creates a SyncDCollectionFatalRecoveryRequest message from a plain object. Also converts values to their respective internal types.
+                 * @param object Plain object
+                 * @returns SyncDCollectionFatalRecoveryRequest
+                 */
+                public static fromObject(object: { [k: string]: any }): E2E.Message.PeerDataOperationRequestMessage.SyncDCollectionFatalRecoveryRequest;
+
+                /**
+                 * Creates a plain object from a SyncDCollectionFatalRecoveryRequest message. Also converts values to other types if specified.
+                 * @param message SyncDCollectionFatalRecoveryRequest
+                 * @param [options] Conversion options
+                 * @returns Plain object
+                 */
+                public static toObject(message: E2E.Message.PeerDataOperationRequestMessage.SyncDCollectionFatalRecoveryRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                /**
+                 * Converts this SyncDCollectionFatalRecoveryRequest to JSON.
+                 * @returns JSON object
+                 */
+                public toJSON(): { [k: string]: any };
+
+                /**
+                 * Gets the default type url for SyncDCollectionFatalRecoveryRequest
+                 * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns The default type url
+                 */
+                public static getTypeUrl(typeUrlPrefix?: string): string;
+            }
         }
 
         /** Properties of a PeerDataOperationRequestResponseMessage. */
@@ -27952,10 +29336,10 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IPeerDataOperationRequestResponseMessage);
 
             /** PeerDataOperationRequestResponseMessage peerDataOperationRequestType. */
-            public peerDataOperationRequestType: E2E.Message.PeerDataOperationRequestType;
+            public peerDataOperationRequestType?: (E2E.Message.PeerDataOperationRequestType|null);
 
             /** PeerDataOperationRequestResponseMessage stanzaId. */
-            public stanzaId: string;
+            public stanzaId?: (string|null);
 
             /** PeerDataOperationRequestResponseMessage peerDataOperationResult. */
             public peerDataOperationResult: E2E.Message.PeerDataOperationRequestResponseMessage.IPeerDataOperationResult[];
@@ -28063,6 +29447,9 @@ export namespace E2E {
 
                 /** PeerDataOperationResult companionMetaNonceFetchRequestResponse */
                 companionMetaNonceFetchRequestResponse?: (E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.ICompanionMetaNonceFetchResponse|null);
+
+                /** PeerDataOperationResult syncdSnapshotFatalRecoveryResponse */
+                syncdSnapshotFatalRecoveryResponse?: (E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.ISyncDSnapshotFatalRecoveryResponse|null);
             }
 
             /** Represents a PeerDataOperationResult. */
@@ -28075,7 +29462,7 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.PeerDataOperationRequestResponseMessage.IPeerDataOperationResult);
 
                 /** PeerDataOperationResult mediaUploadResult. */
-                public mediaUploadResult: MmsRetry.MediaRetryNotification.ResultType;
+                public mediaUploadResult?: (MmsRetry.MediaRetryNotification.ResultType|null);
 
                 /** PeerDataOperationResult stickerMessage. */
                 public stickerMessage?: (E2E.Message.IStickerMessage|null);
@@ -28094,6 +29481,9 @@ export namespace E2E {
 
                 /** PeerDataOperationResult companionMetaNonceFetchRequestResponse. */
                 public companionMetaNonceFetchRequestResponse?: (E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.ICompanionMetaNonceFetchResponse|null);
+
+                /** PeerDataOperationResult syncdSnapshotFatalRecoveryResponse. */
+                public syncdSnapshotFatalRecoveryResponse?: (E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.ISyncDSnapshotFatalRecoveryResponse|null);
 
                 /**
                  * Creates a new PeerDataOperationResult instance using the specified properties.
@@ -28192,7 +29582,7 @@ export namespace E2E {
                     constructor(properties?: E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.ICompanionMetaNonceFetchResponse);
 
                     /** CompanionMetaNonceFetchResponse nonce. */
-                    public nonce: string;
+                    public nonce?: (string|null);
 
                     /**
                      * Creates a new CompanionMetaNonceFetchResponse instance using the specified properties.
@@ -28295,7 +29685,7 @@ export namespace E2E {
                     public requestMetadata?: (E2E.Message.IFullHistorySyncOnDemandRequestMetadata|null);
 
                     /** FullHistorySyncOnDemandRequestResponse responseCode. */
-                    public responseCode: E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.FullHistorySyncOnDemandResponseCode;
+                    public responseCode?: (E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.FullHistorySyncOnDemandResponseCode|null);
 
                     /**
                      * Creates a new FullHistorySyncOnDemandRequestResponse instance using the specified properties.
@@ -28421,22 +29811,22 @@ export namespace E2E {
                     constructor(properties?: E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.ILinkPreviewResponse);
 
                     /** LinkPreviewResponse url. */
-                    public url: string;
+                    public url?: (string|null);
 
                     /** LinkPreviewResponse title. */
-                    public title: string;
+                    public title?: (string|null);
 
                     /** LinkPreviewResponse description. */
-                    public description: string;
+                    public description?: (string|null);
 
                     /** LinkPreviewResponse thumbData. */
-                    public thumbData: Uint8Array;
+                    public thumbData?: (Uint8Array|null);
 
                     /** LinkPreviewResponse matchText. */
-                    public matchText: string;
+                    public matchText?: (string|null);
 
                     /** LinkPreviewResponse previewType. */
-                    public previewType: string;
+                    public previewType?: (string|null);
 
                     /** LinkPreviewResponse hqThumbnail. */
                     public hqThumbnail?: (E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.ILinkPreviewHighQualityThumbnail|null);
@@ -28556,25 +29946,25 @@ export namespace E2E {
                         constructor(properties?: E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.ILinkPreviewHighQualityThumbnail);
 
                         /** LinkPreviewHighQualityThumbnail directPath. */
-                        public directPath: string;
+                        public directPath?: (string|null);
 
                         /** LinkPreviewHighQualityThumbnail thumbHash. */
-                        public thumbHash: string;
+                        public thumbHash?: (string|null);
 
                         /** LinkPreviewHighQualityThumbnail encThumbHash. */
-                        public encThumbHash: string;
+                        public encThumbHash?: (string|null);
 
                         /** LinkPreviewHighQualityThumbnail mediaKey. */
-                        public mediaKey: Uint8Array;
+                        public mediaKey?: (Uint8Array|null);
 
                         /** LinkPreviewHighQualityThumbnail mediaKeyTimestampMs. */
-                        public mediaKeyTimestampMs: (number|Long);
+                        public mediaKeyTimestampMs?: (number|Long|null);
 
                         /** LinkPreviewHighQualityThumbnail thumbWidth. */
-                        public thumbWidth: number;
+                        public thumbWidth?: (number|null);
 
                         /** LinkPreviewHighQualityThumbnail thumbHeight. */
-                        public thumbHeight: number;
+                        public thumbHeight?: (number|null);
 
                         /**
                          * Creates a new LinkPreviewHighQualityThumbnail instance using the specified properties.
@@ -28672,7 +30062,7 @@ export namespace E2E {
                     constructor(properties?: E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.IPlaceholderMessageResendResponse);
 
                     /** PlaceholderMessageResendResponse webMessageInfoBytes. */
-                    public webMessageInfoBytes: Uint8Array;
+                    public webMessageInfoBytes?: (Uint8Array|null);
 
                     /**
                      * Creates a new PlaceholderMessageResendResponse instance using the specified properties.
@@ -28752,6 +30142,109 @@ export namespace E2E {
                     public static getTypeUrl(typeUrlPrefix?: string): string;
                 }
 
+                /** Properties of a SyncDSnapshotFatalRecoveryResponse. */
+                interface ISyncDSnapshotFatalRecoveryResponse {
+
+                    /** SyncDSnapshotFatalRecoveryResponse collectionSnapshot */
+                    collectionSnapshot?: (Uint8Array|null);
+
+                    /** SyncDSnapshotFatalRecoveryResponse isCompressed */
+                    isCompressed?: (boolean|null);
+                }
+
+                /** Represents a SyncDSnapshotFatalRecoveryResponse. */
+                class SyncDSnapshotFatalRecoveryResponse implements ISyncDSnapshotFatalRecoveryResponse {
+
+                    /**
+                     * Constructs a new SyncDSnapshotFatalRecoveryResponse.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.ISyncDSnapshotFatalRecoveryResponse);
+
+                    /** SyncDSnapshotFatalRecoveryResponse collectionSnapshot. */
+                    public collectionSnapshot?: (Uint8Array|null);
+
+                    /** SyncDSnapshotFatalRecoveryResponse isCompressed. */
+                    public isCompressed?: (boolean|null);
+
+                    /**
+                     * Creates a new SyncDSnapshotFatalRecoveryResponse instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns SyncDSnapshotFatalRecoveryResponse instance
+                     */
+                    public static create(properties?: E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.ISyncDSnapshotFatalRecoveryResponse): E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.SyncDSnapshotFatalRecoveryResponse;
+
+                    /**
+                     * Encodes the specified SyncDSnapshotFatalRecoveryResponse message. Does not implicitly {@link E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.SyncDSnapshotFatalRecoveryResponse.verify|verify} messages.
+                     * @param message SyncDSnapshotFatalRecoveryResponse message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.ISyncDSnapshotFatalRecoveryResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified SyncDSnapshotFatalRecoveryResponse message, length delimited. Does not implicitly {@link E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.SyncDSnapshotFatalRecoveryResponse.verify|verify} messages.
+                     * @param message SyncDSnapshotFatalRecoveryResponse message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.ISyncDSnapshotFatalRecoveryResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a SyncDSnapshotFatalRecoveryResponse message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns SyncDSnapshotFatalRecoveryResponse
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.SyncDSnapshotFatalRecoveryResponse;
+
+                    /**
+                     * Decodes a SyncDSnapshotFatalRecoveryResponse message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns SyncDSnapshotFatalRecoveryResponse
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.SyncDSnapshotFatalRecoveryResponse;
+
+                    /**
+                     * Verifies a SyncDSnapshotFatalRecoveryResponse message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a SyncDSnapshotFatalRecoveryResponse message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns SyncDSnapshotFatalRecoveryResponse
+                     */
+                    public static fromObject(object: { [k: string]: any }): E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.SyncDSnapshotFatalRecoveryResponse;
+
+                    /**
+                     * Creates a plain object from a SyncDSnapshotFatalRecoveryResponse message. Also converts values to other types if specified.
+                     * @param message SyncDSnapshotFatalRecoveryResponse
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.SyncDSnapshotFatalRecoveryResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this SyncDSnapshotFatalRecoveryResponse to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for SyncDSnapshotFatalRecoveryResponse
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
                 /** Properties of a WaffleNonceFetchResponse. */
                 interface IWaffleNonceFetchResponse {
 
@@ -28772,10 +30265,10 @@ export namespace E2E {
                     constructor(properties?: E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.IWaffleNonceFetchResponse);
 
                     /** WaffleNonceFetchResponse nonce. */
-                    public nonce: string;
+                    public nonce?: (string|null);
 
                     /** WaffleNonceFetchResponse waEntFbid. */
-                    public waEntFbid: string;
+                    public waEntFbid?: (string|null);
 
                     /**
                      * Creates a new WaffleNonceFetchResponse instance using the specified properties.
@@ -28866,7 +30359,8 @@ export namespace E2E {
             PLACEHOLDER_MESSAGE_RESEND = 4,
             WAFFLE_LINKING_NONCE_FETCH = 5,
             FULL_HISTORY_SYNC_ON_DEMAND = 6,
-            COMPANION_META_NONCE_FETCH = 7
+            COMPANION_META_NONCE_FETCH = 7,
+            COMPANION_SYNCD_SNAPSHOT_FATAL_RECOVERY = 8
         }
 
         /** Properties of a PinInChatMessage. */
@@ -28895,10 +30389,10 @@ export namespace E2E {
             public key?: (Protocol.IMessageKey|null);
 
             /** PinInChatMessage type. */
-            public type: E2E.Message.PinInChatMessage.Type;
+            public type?: (E2E.Message.PinInChatMessage.Type|null);
 
             /** PinInChatMessage senderTimestampMs. */
-            public senderTimestampMs: (number|Long);
+            public senderTimestampMs?: (number|Long|null);
 
             /**
              * Creates a new PinInChatMessage instance using the specified properties.
@@ -29005,7 +30499,7 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IPlaceholderMessage);
 
             /** PlaceholderMessage type. */
-            public type: E2E.Message.PlaceholderMessage.PlaceholderType;
+            public type?: (E2E.Message.PlaceholderMessage.PlaceholderType|null);
 
             /**
              * Creates a new PlaceholderMessage instance using the specified properties.
@@ -29138,25 +30632,25 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IPollCreationMessage);
 
             /** PollCreationMessage encKey. */
-            public encKey: Uint8Array;
+            public encKey?: (Uint8Array|null);
 
             /** PollCreationMessage name. */
-            public name: string;
+            public name?: (string|null);
 
             /** PollCreationMessage options. */
             public options: E2E.Message.PollCreationMessage.IOption[];
 
             /** PollCreationMessage selectableOptionsCount. */
-            public selectableOptionsCount: number;
+            public selectableOptionsCount?: (number|null);
 
             /** PollCreationMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
 
             /** PollCreationMessage pollContentType. */
-            public pollContentType: E2E.Message.PollContentType;
+            public pollContentType?: (E2E.Message.PollContentType|null);
 
             /** PollCreationMessage pollType. */
-            public pollType: E2E.Message.PollCreationMessage.PollType;
+            public pollType?: (E2E.Message.PollCreationMessage.PollType|null);
 
             /** PollCreationMessage correctAnswer. */
             public correctAnswer?: (E2E.Message.PollCreationMessage.IOption|null);
@@ -29261,10 +30755,10 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.PollCreationMessage.IOption);
 
                 /** Option optionName. */
-                public optionName: string;
+                public optionName?: (string|null);
 
                 /** Option optionHash. */
-                public optionHash: string;
+                public optionHash?: (string|null);
 
                 /**
                  * Creates a new Option instance using the specified properties.
@@ -29371,10 +30865,10 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IPollEncValue);
 
             /** PollEncValue encPayload. */
-            public encPayload: Uint8Array;
+            public encPayload?: (Uint8Array|null);
 
             /** PollEncValue encIv. */
-            public encIv: Uint8Array;
+            public encIv?: (Uint8Array|null);
 
             /**
              * Creates a new PollEncValue instance using the specified properties.
@@ -29477,7 +30971,7 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IPollResultSnapshotMessage);
 
             /** PollResultSnapshotMessage name. */
-            public name: string;
+            public name?: (string|null);
 
             /** PollResultSnapshotMessage pollVotes. */
             public pollVotes: E2E.Message.PollResultSnapshotMessage.IPollVote[];
@@ -29585,10 +31079,10 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.PollResultSnapshotMessage.IPollVote);
 
                 /** PollVote optionName. */
-                public optionName: string;
+                public optionName?: (string|null);
 
                 /** PollVote optionVoteCount. */
-                public optionVoteCount: (number|Long);
+                public optionVoteCount?: (number|Long|null);
 
                 /**
                  * Creates a new PollVote instance using the specified properties.
@@ -29704,7 +31198,7 @@ export namespace E2E {
             public metadata?: (E2E.Message.IPollUpdateMessageMetadata|null);
 
             /** PollUpdateMessage senderTimestampMs. */
-            public senderTimestampMs: (number|Long);
+            public senderTimestampMs?: (number|Long|null);
 
             /**
              * Creates a new PollUpdateMessage instance using the specified properties.
@@ -30007,16 +31501,16 @@ export namespace E2E {
             public product?: (E2E.Message.ProductMessage.IProductSnapshot|null);
 
             /** ProductMessage businessOwnerJid. */
-            public businessOwnerJid: string;
+            public businessOwnerJid?: (string|null);
 
             /** ProductMessage catalog. */
             public catalog?: (E2E.Message.ProductMessage.ICatalogSnapshot|null);
 
             /** ProductMessage body. */
-            public body: string;
+            public body?: (string|null);
 
             /** ProductMessage footer. */
-            public footer: string;
+            public footer?: (string|null);
 
             /** ProductMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
@@ -30127,10 +31621,10 @@ export namespace E2E {
                 public catalogImage?: (E2E.Message.IImageMessage|null);
 
                 /** CatalogSnapshot title. */
-                public title: string;
+                public title?: (string|null);
 
                 /** CatalogSnapshot description. */
-                public description: string;
+                public description?: (string|null);
 
                 /**
                  * Creates a new CatalogSnapshot instance using the specified properties.
@@ -30263,37 +31757,37 @@ export namespace E2E {
                 public productImage?: (E2E.Message.IImageMessage|null);
 
                 /** ProductSnapshot productId. */
-                public productId: string;
+                public productId?: (string|null);
 
                 /** ProductSnapshot title. */
-                public title: string;
+                public title?: (string|null);
 
                 /** ProductSnapshot description. */
-                public description: string;
+                public description?: (string|null);
 
                 /** ProductSnapshot currencyCode. */
-                public currencyCode: string;
+                public currencyCode?: (string|null);
 
                 /** ProductSnapshot priceAmount1000. */
-                public priceAmount1000: (number|Long);
+                public priceAmount1000?: (number|Long|null);
 
                 /** ProductSnapshot retailerId. */
-                public retailerId: string;
+                public retailerId?: (string|null);
 
                 /** ProductSnapshot url. */
-                public url: string;
+                public url?: (string|null);
 
                 /** ProductSnapshot productImageCount. */
-                public productImageCount: number;
+                public productImageCount?: (number|null);
 
                 /** ProductSnapshot firstImageId. */
-                public firstImageId: string;
+                public firstImageId?: (string|null);
 
                 /** ProductSnapshot salePriceAmount1000. */
-                public salePriceAmount1000: (number|Long);
+                public salePriceAmount1000?: (number|Long|null);
 
                 /** ProductSnapshot signedUrl. */
-                public signedUrl: string;
+                public signedUrl?: (string|null);
 
                 /**
                  * Creates a new ProductSnapshot instance using the specified properties.
@@ -30439,6 +31933,15 @@ export namespace E2E {
 
             /** ProtocolMessage limitSharing */
             limitSharing?: (Protocol.ILimitSharing|null);
+
+            /** ProtocolMessage aiPsiMetadata */
+            aiPsiMetadata?: (Uint8Array|null);
+
+            /** ProtocolMessage aiQueryFanout */
+            aiQueryFanout?: (E2E.IAIQueryFanout|null);
+
+            /** ProtocolMessage memberLabel */
+            memberLabel?: (E2E.IMemberLabel|null);
         }
 
         /** Represents a ProtocolMessage. */
@@ -30454,13 +31957,13 @@ export namespace E2E {
             public key?: (Protocol.IMessageKey|null);
 
             /** ProtocolMessage type. */
-            public type: E2E.Message.ProtocolMessage.Type;
+            public type?: (E2E.Message.ProtocolMessage.Type|null);
 
             /** ProtocolMessage ephemeralExpiration. */
-            public ephemeralExpiration: number;
+            public ephemeralExpiration?: (number|null);
 
             /** ProtocolMessage ephemeralSettingTimestamp. */
-            public ephemeralSettingTimestamp: (number|Long);
+            public ephemeralSettingTimestamp?: (number|Long|null);
 
             /** ProtocolMessage historySyncNotification. */
             public historySyncNotification?: (E2E.Message.IHistorySyncNotification|null);
@@ -30484,7 +31987,7 @@ export namespace E2E {
             public editedMessage?: (E2E.IMessage|null);
 
             /** ProtocolMessage timestampMs. */
-            public timestampMs: (number|Long);
+            public timestampMs?: (number|Long|null);
 
             /** ProtocolMessage peerDataOperationRequestMessage. */
             public peerDataOperationRequestMessage?: (E2E.Message.IPeerDataOperationRequestMessage|null);
@@ -30496,7 +31999,7 @@ export namespace E2E {
             public botFeedbackMessage?: (E2E.Message.IBotFeedbackMessage|null);
 
             /** ProtocolMessage invokerJid. */
-            public invokerJid: string;
+            public invokerJid?: (string|null);
 
             /** ProtocolMessage requestWelcomeMessageMetadata. */
             public requestWelcomeMessageMetadata?: (E2E.Message.IRequestWelcomeMessageMetadata|null);
@@ -30512,6 +32015,15 @@ export namespace E2E {
 
             /** ProtocolMessage limitSharing. */
             public limitSharing?: (Protocol.ILimitSharing|null);
+
+            /** ProtocolMessage aiPsiMetadata. */
+            public aiPsiMetadata?: (Uint8Array|null);
+
+            /** ProtocolMessage aiQueryFanout. */
+            public aiQueryFanout?: (E2E.IAIQueryFanout|null);
+
+            /** ProtocolMessage memberLabel. */
+            public memberLabel?: (E2E.IMemberLabel|null);
 
             /**
              * Creates a new ProtocolMessage instance using the specified properties.
@@ -30617,7 +32129,10 @@ export namespace E2E {
                 BOT_MEMU_ONBOARDING_MESSAGE = 24,
                 STATUS_MENTION_MESSAGE = 25,
                 STOP_GENERATION_MESSAGE = 26,
-                LIMIT_SHARING = 27
+                LIMIT_SHARING = 27,
+                AI_PSI_METADATA = 28,
+                AI_QUERY_FANOUT = 29,
+                GROUP_MEMBER_LABEL_CHANGE = 30
             }
         }
 
@@ -30650,13 +32165,13 @@ export namespace E2E {
             public key?: (Protocol.IMessageKey|null);
 
             /** ReactionMessage text. */
-            public text: string;
+            public text?: (string|null);
 
             /** ReactionMessage groupingKey. */
-            public groupingKey: string;
+            public groupingKey?: (string|null);
 
             /** ReactionMessage senderTimestampMs. */
-            public senderTimestampMs: (number|Long);
+            public senderTimestampMs?: (number|Long|null);
 
             /**
              * Creates a new ReactionMessage instance using the specified properties.
@@ -30774,16 +32289,16 @@ export namespace E2E {
             public noteMessage?: (E2E.IMessage|null);
 
             /** RequestPaymentMessage currencyCodeIso4217. */
-            public currencyCodeIso4217: string;
+            public currencyCodeIso4217?: (string|null);
 
             /** RequestPaymentMessage amount1000. */
-            public amount1000: (number|Long);
+            public amount1000?: (number|Long|null);
 
             /** RequestPaymentMessage requestFrom. */
-            public requestFrom: string;
+            public requestFrom?: (string|null);
 
             /** RequestPaymentMessage expiryTimestamp. */
-            public expiryTimestamp: (number|Long);
+            public expiryTimestamp?: (number|Long|null);
 
             /** RequestPaymentMessage amount. */
             public amount?: (E2E.IMoney|null);
@@ -30983,7 +32498,7 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IRequestWelcomeMessageMetadata);
 
             /** RequestWelcomeMessageMetadata localChatState. */
-            public localChatState: E2E.Message.RequestWelcomeMessageMetadata.LocalChatState;
+            public localChatState?: (E2E.Message.RequestWelcomeMessageMetadata.LocalChatState|null);
 
             /**
              * Creates a new RequestWelcomeMessageMetadata instance using the specified properties.
@@ -31095,13 +32610,13 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IScheduledCallCreationMessage);
 
             /** ScheduledCallCreationMessage scheduledTimestampMs. */
-            public scheduledTimestampMs: (number|Long);
+            public scheduledTimestampMs?: (number|Long|null);
 
             /** ScheduledCallCreationMessage callType. */
-            public callType: E2E.Message.ScheduledCallCreationMessage.CallType;
+            public callType?: (E2E.Message.ScheduledCallCreationMessage.CallType|null);
 
             /** ScheduledCallCreationMessage title. */
-            public title: string;
+            public title?: (string|null);
 
             /**
              * Creates a new ScheduledCallCreationMessage instance using the specified properties.
@@ -31214,7 +32729,7 @@ export namespace E2E {
             public key?: (Protocol.IMessageKey|null);
 
             /** ScheduledCallEditMessage editType. */
-            public editType: E2E.Message.ScheduledCallEditMessage.EditType;
+            public editType?: (E2E.Message.ScheduledCallEditMessage.EditType|null);
 
             /**
              * Creates a new ScheduledCallEditMessage instance using the specified properties.
@@ -31332,13 +32847,13 @@ export namespace E2E {
             public targetMessageKey?: (Protocol.IMessageKey|null);
 
             /** SecretEncryptedMessage encPayload. */
-            public encPayload: Uint8Array;
+            public encPayload?: (Uint8Array|null);
 
             /** SecretEncryptedMessage encIv. */
-            public encIv: Uint8Array;
+            public encIv?: (Uint8Array|null);
 
             /** SecretEncryptedMessage secretEncType. */
-            public secretEncType: E2E.Message.SecretEncryptedMessage.SecretEncType;
+            public secretEncType?: (E2E.Message.SecretEncryptedMessage.SecretEncType|null);
 
             /**
              * Creates a new SecretEncryptedMessage instance using the specified properties.
@@ -31423,7 +32938,8 @@ export namespace E2E {
             /** SecretEncType enum. */
             enum SecretEncType {
                 UNKNOWN = 0,
-                EVENT_EDIT = 1
+                EVENT_EDIT = 1,
+                MESSAGE_EDIT = 2
             }
         }
 
@@ -31556,10 +33072,10 @@ export namespace E2E {
             constructor(properties?: E2E.Message.ISenderKeyDistributionMessage);
 
             /** SenderKeyDistributionMessage groupId. */
-            public groupId: string;
+            public groupId?: (string|null);
 
             /** SenderKeyDistributionMessage axolotlSenderKeyDistributionMessage. */
-            public axolotlSenderKeyDistributionMessage: Uint8Array;
+            public axolotlSenderKeyDistributionMessage?: (Uint8Array|null);
 
             /**
              * Creates a new SenderKeyDistributionMessage instance using the specified properties.
@@ -31668,7 +33184,7 @@ export namespace E2E {
             public originalMessageKey?: (Protocol.IMessageKey|null);
 
             /** StatusNotificationMessage type. */
-            public type: E2E.Message.StatusNotificationMessage.StatusNotificationType;
+            public type?: (E2E.Message.StatusNotificationMessage.StatusNotificationType|null);
 
             /**
              * Creates a new StatusNotificationMessage instance using the specified properties.
@@ -31832,64 +33348,64 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IStickerMessage);
 
             /** StickerMessage url. */
-            public url: string;
+            public url?: (string|null);
 
             /** StickerMessage fileSha256. */
-            public fileSha256: Uint8Array;
+            public fileSha256?: (Uint8Array|null);
 
             /** StickerMessage fileEncSha256. */
-            public fileEncSha256: Uint8Array;
+            public fileEncSha256?: (Uint8Array|null);
 
             /** StickerMessage mediaKey. */
-            public mediaKey: Uint8Array;
+            public mediaKey?: (Uint8Array|null);
 
             /** StickerMessage mimetype. */
-            public mimetype: string;
+            public mimetype?: (string|null);
 
             /** StickerMessage height. */
-            public height: number;
+            public height?: (number|null);
 
             /** StickerMessage width. */
-            public width: number;
+            public width?: (number|null);
 
             /** StickerMessage directPath. */
-            public directPath: string;
+            public directPath?: (string|null);
 
             /** StickerMessage fileLength. */
-            public fileLength: (number|Long);
+            public fileLength?: (number|Long|null);
 
             /** StickerMessage mediaKeyTimestamp. */
-            public mediaKeyTimestamp: (number|Long);
+            public mediaKeyTimestamp?: (number|Long|null);
 
             /** StickerMessage firstFrameLength. */
-            public firstFrameLength: number;
+            public firstFrameLength?: (number|null);
 
             /** StickerMessage firstFrameSidecar. */
-            public firstFrameSidecar: Uint8Array;
+            public firstFrameSidecar?: (Uint8Array|null);
 
             /** StickerMessage isAnimated. */
-            public isAnimated: boolean;
+            public isAnimated?: (boolean|null);
 
             /** StickerMessage pngThumbnail. */
-            public pngThumbnail: Uint8Array;
+            public pngThumbnail?: (Uint8Array|null);
 
             /** StickerMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
 
             /** StickerMessage stickerSentTs. */
-            public stickerSentTs: (number|Long);
+            public stickerSentTs?: (number|Long|null);
 
             /** StickerMessage isAvatar. */
-            public isAvatar: boolean;
+            public isAvatar?: (boolean|null);
 
             /** StickerMessage isAiSticker. */
-            public isAiSticker: boolean;
+            public isAiSticker?: (boolean|null);
 
             /** StickerMessage isLottie. */
-            public isLottie: boolean;
+            public isLottie?: (boolean|null);
 
             /** StickerMessage accessibilityLabel. */
-            public accessibilityLabel: string;
+            public accessibilityLabel?: (string|null);
 
             /**
              * Creates a new StickerMessage instance using the specified properties.
@@ -32049,70 +33565,70 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IStickerPackMessage);
 
             /** StickerPackMessage stickerPackId. */
-            public stickerPackId: string;
+            public stickerPackId?: (string|null);
 
             /** StickerPackMessage name. */
-            public name: string;
+            public name?: (string|null);
 
             /** StickerPackMessage publisher. */
-            public publisher: string;
+            public publisher?: (string|null);
 
             /** StickerPackMessage stickers. */
             public stickers: E2E.Message.StickerPackMessage.ISticker[];
 
             /** StickerPackMessage fileLength. */
-            public fileLength: (number|Long);
+            public fileLength?: (number|Long|null);
 
             /** StickerPackMessage fileSha256. */
-            public fileSha256: Uint8Array;
+            public fileSha256?: (Uint8Array|null);
 
             /** StickerPackMessage fileEncSha256. */
-            public fileEncSha256: Uint8Array;
+            public fileEncSha256?: (Uint8Array|null);
 
             /** StickerPackMessage mediaKey. */
-            public mediaKey: Uint8Array;
+            public mediaKey?: (Uint8Array|null);
 
             /** StickerPackMessage directPath. */
-            public directPath: string;
+            public directPath?: (string|null);
 
             /** StickerPackMessage caption. */
-            public caption: string;
+            public caption?: (string|null);
 
             /** StickerPackMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
 
             /** StickerPackMessage packDescription. */
-            public packDescription: string;
+            public packDescription?: (string|null);
 
             /** StickerPackMessage mediaKeyTimestamp. */
-            public mediaKeyTimestamp: (number|Long);
+            public mediaKeyTimestamp?: (number|Long|null);
 
             /** StickerPackMessage trayIconFileName. */
-            public trayIconFileName: string;
+            public trayIconFileName?: (string|null);
 
             /** StickerPackMessage thumbnailDirectPath. */
-            public thumbnailDirectPath: string;
+            public thumbnailDirectPath?: (string|null);
 
             /** StickerPackMessage thumbnailSha256. */
-            public thumbnailSha256: Uint8Array;
+            public thumbnailSha256?: (Uint8Array|null);
 
             /** StickerPackMessage thumbnailEncSha256. */
-            public thumbnailEncSha256: Uint8Array;
+            public thumbnailEncSha256?: (Uint8Array|null);
 
             /** StickerPackMessage thumbnailHeight. */
-            public thumbnailHeight: number;
+            public thumbnailHeight?: (number|null);
 
             /** StickerPackMessage thumbnailWidth. */
-            public thumbnailWidth: number;
+            public thumbnailWidth?: (number|null);
 
             /** StickerPackMessage imageDataHash. */
-            public imageDataHash: string;
+            public imageDataHash?: (string|null);
 
             /** StickerPackMessage stickerPackSize. */
-            public stickerPackSize: (number|Long);
+            public stickerPackSize?: (number|Long|null);
 
             /** StickerPackMessage stickerPackOrigin. */
-            public stickerPackOrigin: E2E.Message.StickerPackMessage.StickerPackOrigin;
+            public stickerPackOrigin?: (E2E.Message.StickerPackMessage.StickerPackOrigin|null);
 
             /**
              * Creates a new StickerPackMessage instance using the specified properties.
@@ -32226,22 +33742,22 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.StickerPackMessage.ISticker);
 
                 /** Sticker fileName. */
-                public fileName: string;
+                public fileName?: (string|null);
 
                 /** Sticker isAnimated. */
-                public isAnimated: boolean;
+                public isAnimated?: (boolean|null);
 
                 /** Sticker emojis. */
                 public emojis: string[];
 
                 /** Sticker accessibilityLabel. */
-                public accessibilityLabel: string;
+                public accessibilityLabel?: (string|null);
 
                 /** Sticker isLottie. */
-                public isLottie: boolean;
+                public isLottie?: (boolean|null);
 
                 /** Sticker mimetype. */
-                public mimetype: string;
+                public mimetype?: (string|null);
 
                 /**
                  * Creates a new Sticker instance using the specified properties.
@@ -32355,10 +33871,10 @@ export namespace E2E {
             public filehash: string[];
 
             /** StickerSyncRMRMessage rmrSource. */
-            public rmrSource: string;
+            public rmrSource?: (string|null);
 
             /** StickerSyncRMRMessage requestTimestamp. */
-            public requestTimestamp: (number|Long);
+            public requestTimestamp?: (number|Long|null);
 
             /**
              * Creates a new StickerSyncRMRMessage instance using the specified properties.
@@ -32467,19 +33983,19 @@ export namespace E2E {
             constructor(properties?: E2E.Message.ITemplateButtonReplyMessage);
 
             /** TemplateButtonReplyMessage selectedId. */
-            public selectedId: string;
+            public selectedId?: (string|null);
 
             /** TemplateButtonReplyMessage selectedDisplayText. */
-            public selectedDisplayText: string;
+            public selectedDisplayText?: (string|null);
 
             /** TemplateButtonReplyMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
 
             /** TemplateButtonReplyMessage selectedIndex. */
-            public selectedIndex: number;
+            public selectedIndex?: (number|null);
 
             /** TemplateButtonReplyMessage selectedCarouselCardIndex. */
-            public selectedCarouselCardIndex: number;
+            public selectedCarouselCardIndex?: (number|null);
 
             /**
              * Creates a new TemplateButtonReplyMessage instance using the specified properties.
@@ -32597,7 +34113,7 @@ export namespace E2E {
             public hydratedTemplate?: (E2E.Message.TemplateMessage.IHydratedFourRowTemplate|null);
 
             /** TemplateMessage templateId. */
-            public templateId: string;
+            public templateId?: (string|null);
 
             /** TemplateMessage fourRowTemplate. */
             public fourRowTemplate?: (E2E.Message.TemplateMessage.IFourRowTemplate|null);
@@ -32877,19 +34393,19 @@ export namespace E2E {
                 constructor(properties?: E2E.Message.TemplateMessage.IHydratedFourRowTemplate);
 
                 /** HydratedFourRowTemplate hydratedContentText. */
-                public hydratedContentText: string;
+                public hydratedContentText?: (string|null);
 
                 /** HydratedFourRowTemplate hydratedFooterText. */
-                public hydratedFooterText: string;
+                public hydratedFooterText?: (string|null);
 
                 /** HydratedFourRowTemplate hydratedButtons. */
                 public hydratedButtons: E2E.IHydratedTemplateButton[];
 
                 /** HydratedFourRowTemplate templateId. */
-                public templateId: string;
+                public templateId?: (string|null);
 
                 /** HydratedFourRowTemplate maskLinkedDevices. */
-                public maskLinkedDevices: boolean;
+                public maskLinkedDevices?: (boolean|null);
 
                 /** HydratedFourRowTemplate documentMessage. */
                 public documentMessage?: (E2E.Message.IDocumentMessage|null);
@@ -32988,6 +34504,103 @@ export namespace E2E {
             }
         }
 
+        /** Properties of a URLMetadata. */
+        interface IURLMetadata {
+
+            /** URLMetadata fbExperimentId */
+            fbExperimentId?: (number|null);
+        }
+
+        /** Represents a URLMetadata. */
+        class URLMetadata implements IURLMetadata {
+
+            /**
+             * Constructs a new URLMetadata.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: E2E.Message.IURLMetadata);
+
+            /** URLMetadata fbExperimentId. */
+            public fbExperimentId?: (number|null);
+
+            /**
+             * Creates a new URLMetadata instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns URLMetadata instance
+             */
+            public static create(properties?: E2E.Message.IURLMetadata): E2E.Message.URLMetadata;
+
+            /**
+             * Encodes the specified URLMetadata message. Does not implicitly {@link E2E.Message.URLMetadata.verify|verify} messages.
+             * @param message URLMetadata message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: E2E.Message.IURLMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified URLMetadata message, length delimited. Does not implicitly {@link E2E.Message.URLMetadata.verify|verify} messages.
+             * @param message URLMetadata message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: E2E.Message.IURLMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a URLMetadata message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns URLMetadata
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): E2E.Message.URLMetadata;
+
+            /**
+             * Decodes a URLMetadata message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns URLMetadata
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): E2E.Message.URLMetadata;
+
+            /**
+             * Verifies a URLMetadata message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a URLMetadata message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns URLMetadata
+             */
+            public static fromObject(object: { [k: string]: any }): E2E.Message.URLMetadata;
+
+            /**
+             * Creates a plain object from a URLMetadata message. Also converts values to other types if specified.
+             * @param message URLMetadata
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: E2E.Message.URLMetadata, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this URLMetadata to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for URLMetadata
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
         /** Properties of a VideoMessage. */
         interface IVideoMessage {
 
@@ -33083,85 +34696,85 @@ export namespace E2E {
             constructor(properties?: E2E.Message.IVideoMessage);
 
             /** VideoMessage url. */
-            public url: string;
+            public url?: (string|null);
 
             /** VideoMessage mimetype. */
-            public mimetype: string;
+            public mimetype?: (string|null);
 
             /** VideoMessage fileSha256. */
-            public fileSha256: Uint8Array;
+            public fileSha256?: (Uint8Array|null);
 
             /** VideoMessage fileLength. */
-            public fileLength: (number|Long);
+            public fileLength?: (number|Long|null);
 
             /** VideoMessage seconds. */
-            public seconds: number;
+            public seconds?: (number|null);
 
             /** VideoMessage mediaKey. */
-            public mediaKey: Uint8Array;
+            public mediaKey?: (Uint8Array|null);
 
             /** VideoMessage caption. */
-            public caption: string;
+            public caption?: (string|null);
 
             /** VideoMessage gifPlayback. */
-            public gifPlayback: boolean;
+            public gifPlayback?: (boolean|null);
 
             /** VideoMessage height. */
-            public height: number;
+            public height?: (number|null);
 
             /** VideoMessage width. */
-            public width: number;
+            public width?: (number|null);
 
             /** VideoMessage fileEncSha256. */
-            public fileEncSha256: Uint8Array;
+            public fileEncSha256?: (Uint8Array|null);
 
             /** VideoMessage interactiveAnnotations. */
             public interactiveAnnotations: E2E.IInteractiveAnnotation[];
 
             /** VideoMessage directPath. */
-            public directPath: string;
+            public directPath?: (string|null);
 
             /** VideoMessage mediaKeyTimestamp. */
-            public mediaKeyTimestamp: (number|Long);
+            public mediaKeyTimestamp?: (number|Long|null);
 
             /** VideoMessage jpegThumbnail. */
-            public jpegThumbnail: Uint8Array;
+            public jpegThumbnail?: (Uint8Array|null);
 
             /** VideoMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
 
             /** VideoMessage streamingSidecar. */
-            public streamingSidecar: Uint8Array;
+            public streamingSidecar?: (Uint8Array|null);
 
             /** VideoMessage gifAttribution. */
-            public gifAttribution: E2E.Message.VideoMessage.Attribution;
+            public gifAttribution?: (E2E.Message.VideoMessage.Attribution|null);
 
             /** VideoMessage viewOnce. */
-            public viewOnce: boolean;
+            public viewOnce?: (boolean|null);
 
             /** VideoMessage thumbnailDirectPath. */
-            public thumbnailDirectPath: string;
+            public thumbnailDirectPath?: (string|null);
 
             /** VideoMessage thumbnailSha256. */
-            public thumbnailSha256: Uint8Array;
+            public thumbnailSha256?: (Uint8Array|null);
 
             /** VideoMessage thumbnailEncSha256. */
-            public thumbnailEncSha256: Uint8Array;
+            public thumbnailEncSha256?: (Uint8Array|null);
 
             /** VideoMessage staticUrl. */
-            public staticUrl: string;
+            public staticUrl?: (string|null);
 
             /** VideoMessage annotations. */
             public annotations: E2E.IInteractiveAnnotation[];
 
             /** VideoMessage accessibilityLabel. */
-            public accessibilityLabel: string;
+            public accessibilityLabel?: (string|null);
 
             /** VideoMessage processedVideos. */
             public processedVideos: E2E.IProcessedVideo[];
 
             /** VideoMessage externalShareFullVideoDurationInSeconds. */
-            public externalShareFullVideoDurationInSeconds: number;
+            public externalShareFullVideoDurationInSeconds?: (number|null);
 
             /**
              * Creates a new VideoMessage instance using the specified properties.
@@ -33300,7 +34913,256 @@ export namespace E2E {
         AI_TAB = 18,
         AI_HOME = 19,
         AI_DEEPLINK_IMMERSIVE = 20,
-        AI_DEEPLINK = 21
+        AI_DEEPLINK = 21,
+        META_AI_CHAT_SHORTCUT_AI_STUDIO = 22,
+        UGC_CHAT_SHORTCUT_AI_STUDIO = 23,
+        NEW_CHAT_AI_STUDIO = 24,
+        AIVOICE_FAVICON_CALL_HISTORY = 25
+    }
+}
+
+/** Namespace Protocol. */
+export namespace Protocol {
+
+    /** Properties of a LimitSharing. */
+    interface ILimitSharing {
+
+        /** LimitSharing sharingLimited */
+        sharingLimited?: (boolean|null);
+
+        /** LimitSharing trigger */
+        trigger?: (Protocol.LimitSharing.TriggerType|null);
+
+        /** LimitSharing limitSharingSettingTimestamp */
+        limitSharingSettingTimestamp?: (number|Long|null);
+
+        /** LimitSharing initiatedByMe */
+        initiatedByMe?: (boolean|null);
+    }
+
+    /** Represents a LimitSharing. */
+    class LimitSharing implements ILimitSharing {
+
+        /**
+         * Constructs a new LimitSharing.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: Protocol.ILimitSharing);
+
+        /** LimitSharing sharingLimited. */
+        public sharingLimited?: (boolean|null);
+
+        /** LimitSharing trigger. */
+        public trigger?: (Protocol.LimitSharing.TriggerType|null);
+
+        /** LimitSharing limitSharingSettingTimestamp. */
+        public limitSharingSettingTimestamp?: (number|Long|null);
+
+        /** LimitSharing initiatedByMe. */
+        public initiatedByMe?: (boolean|null);
+
+        /**
+         * Creates a new LimitSharing instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns LimitSharing instance
+         */
+        public static create(properties?: Protocol.ILimitSharing): Protocol.LimitSharing;
+
+        /**
+         * Encodes the specified LimitSharing message. Does not implicitly {@link Protocol.LimitSharing.verify|verify} messages.
+         * @param message LimitSharing message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: Protocol.ILimitSharing, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified LimitSharing message, length delimited. Does not implicitly {@link Protocol.LimitSharing.verify|verify} messages.
+         * @param message LimitSharing message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: Protocol.ILimitSharing, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a LimitSharing message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns LimitSharing
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Protocol.LimitSharing;
+
+        /**
+         * Decodes a LimitSharing message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns LimitSharing
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Protocol.LimitSharing;
+
+        /**
+         * Verifies a LimitSharing message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a LimitSharing message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns LimitSharing
+         */
+        public static fromObject(object: { [k: string]: any }): Protocol.LimitSharing;
+
+        /**
+         * Creates a plain object from a LimitSharing message. Also converts values to other types if specified.
+         * @param message LimitSharing
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: Protocol.LimitSharing, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this LimitSharing to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for LimitSharing
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
+    }
+
+    namespace LimitSharing {
+
+        /** TriggerType enum. */
+        enum TriggerType {
+            UNKNOWN = 0,
+            CHAT_SETTING = 1,
+            BIZ_SUPPORTS_FB_HOSTING = 2,
+            UNKNOWN_GROUP = 3
+        }
+    }
+
+    /** Properties of a MessageKey. */
+    interface IMessageKey {
+
+        /** MessageKey remoteJid */
+        remoteJid?: (string|null);
+
+        /** MessageKey fromMe */
+        fromMe?: (boolean|null);
+
+        /** MessageKey id */
+        id?: (string|null);
+
+        /** MessageKey participant */
+        participant?: (string|null);
+    }
+
+    /** Represents a MessageKey. */
+    class MessageKey implements IMessageKey {
+
+        /**
+         * Constructs a new MessageKey.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: Protocol.IMessageKey);
+
+        /** MessageKey remoteJid. */
+        public remoteJid?: (string|null);
+
+        /** MessageKey fromMe. */
+        public fromMe?: (boolean|null);
+
+        /** MessageKey id. */
+        public id?: (string|null);
+
+        /** MessageKey participant. */
+        public participant?: (string|null);
+
+        /**
+         * Creates a new MessageKey instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns MessageKey instance
+         */
+        public static create(properties?: Protocol.IMessageKey): Protocol.MessageKey;
+
+        /**
+         * Encodes the specified MessageKey message. Does not implicitly {@link Protocol.MessageKey.verify|verify} messages.
+         * @param message MessageKey message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: Protocol.IMessageKey, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified MessageKey message, length delimited. Does not implicitly {@link Protocol.MessageKey.verify|verify} messages.
+         * @param message MessageKey message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: Protocol.IMessageKey, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a MessageKey message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns MessageKey
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Protocol.MessageKey;
+
+        /**
+         * Decodes a MessageKey message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns MessageKey
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Protocol.MessageKey;
+
+        /**
+         * Verifies a MessageKey message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a MessageKey message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns MessageKey
+         */
+        public static fromObject(object: { [k: string]: any }): Protocol.MessageKey;
+
+        /**
+         * Creates a plain object from a MessageKey message. Also converts values to other types if specified.
+         * @param message MessageKey
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: Protocol.MessageKey, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this MessageKey to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for MessageKey
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
     }
 }
 
@@ -33330,13 +35192,13 @@ export namespace Adv {
         constructor(properties?: Adv.IADVSignedDeviceIdentityHMAC);
 
         /** ADVSignedDeviceIdentityHMAC details. */
-        public details: Uint8Array;
+        public details?: (Uint8Array|null);
 
         /** ADVSignedDeviceIdentityHMAC hmac. */
-        public hmac: Uint8Array;
+        public hmac?: (Uint8Array|null);
 
         /** ADVSignedDeviceIdentityHMAC accountType. */
-        public accountType: Adv.ADVEncryptionType;
+        public accountType?: (Adv.ADVEncryptionType|null);
 
         /**
          * Creates a new ADVSignedDeviceIdentityHMAC instance using the specified properties.
@@ -33442,16 +35304,16 @@ export namespace Adv {
         constructor(properties?: Adv.IADVSignedDeviceIdentity);
 
         /** ADVSignedDeviceIdentity details. */
-        public details: Uint8Array;
+        public details?: (Uint8Array|null);
 
         /** ADVSignedDeviceIdentity accountSignatureKey. */
-        public accountSignatureKey: Uint8Array;
+        public accountSignatureKey?: (Uint8Array|null);
 
         /** ADVSignedDeviceIdentity accountSignature. */
-        public accountSignature: Uint8Array;
+        public accountSignature?: (Uint8Array|null);
 
         /** ADVSignedDeviceIdentity deviceSignature. */
-        public deviceSignature: Uint8Array;
+        public deviceSignature?: (Uint8Array|null);
 
         /**
          * Creates a new ADVSignedDeviceIdentity instance using the specified properties.
@@ -33560,19 +35422,19 @@ export namespace Adv {
         constructor(properties?: Adv.IADVDeviceIdentity);
 
         /** ADVDeviceIdentity rawId. */
-        public rawId: number;
+        public rawId?: (number|null);
 
         /** ADVDeviceIdentity timestamp. */
-        public timestamp: (number|Long);
+        public timestamp?: (number|Long|null);
 
         /** ADVDeviceIdentity keyIndex. */
-        public keyIndex: number;
+        public keyIndex?: (number|null);
 
         /** ADVDeviceIdentity accountType. */
-        public accountType: Adv.ADVEncryptionType;
+        public accountType?: (Adv.ADVEncryptionType|null);
 
         /** ADVDeviceIdentity deviceType. */
-        public deviceType: Adv.ADVEncryptionType;
+        public deviceType?: (Adv.ADVEncryptionType|null);
 
         /**
          * Creates a new ADVDeviceIdentity instance using the specified properties.
@@ -33675,13 +35537,13 @@ export namespace Adv {
         constructor(properties?: Adv.IADVSignedKeyIndexList);
 
         /** ADVSignedKeyIndexList details. */
-        public details: Uint8Array;
+        public details?: (Uint8Array|null);
 
         /** ADVSignedKeyIndexList accountSignature. */
-        public accountSignature: Uint8Array;
+        public accountSignature?: (Uint8Array|null);
 
         /** ADVSignedKeyIndexList accountSignatureKey. */
-        public accountSignatureKey: Uint8Array;
+        public accountSignatureKey?: (Uint8Array|null);
 
         /**
          * Creates a new ADVSignedKeyIndexList instance using the specified properties.
@@ -33790,19 +35652,19 @@ export namespace Adv {
         constructor(properties?: Adv.IADVKeyIndexList);
 
         /** ADVKeyIndexList rawId. */
-        public rawId: number;
+        public rawId?: (number|null);
 
         /** ADVKeyIndexList timestamp. */
-        public timestamp: (number|Long);
+        public timestamp?: (number|Long|null);
 
         /** ADVKeyIndexList currentIndex. */
-        public currentIndex: number;
+        public currentIndex?: (number|null);
 
         /** ADVKeyIndexList validIndexes. */
         public validIndexes: number[];
 
         /** ADVKeyIndexList accountType. */
-        public accountType: Adv.ADVEncryptionType;
+        public accountType?: (Adv.ADVEncryptionType|null);
 
         /**
          * Creates a new ADVKeyIndexList instance using the specified properties.
@@ -33889,237 +35751,6 @@ export namespace Adv {
     }
 }
 
-/** Namespace Protocol. */
-export namespace Protocol {
-
-    /** Properties of a LimitSharing. */
-    interface ILimitSharing {
-
-        /** LimitSharing sharingLimited */
-        sharingLimited?: (boolean|null);
-
-        /** LimitSharing trigger */
-        trigger?: (Protocol.LimitSharing.Trigger|null);
-    }
-
-    /** Represents a LimitSharing. */
-    class LimitSharing implements ILimitSharing {
-
-        /**
-         * Constructs a new LimitSharing.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: Protocol.ILimitSharing);
-
-        /** LimitSharing sharingLimited. */
-        public sharingLimited: boolean;
-
-        /** LimitSharing trigger. */
-        public trigger: Protocol.LimitSharing.Trigger;
-
-        /**
-         * Creates a new LimitSharing instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns LimitSharing instance
-         */
-        public static create(properties?: Protocol.ILimitSharing): Protocol.LimitSharing;
-
-        /**
-         * Encodes the specified LimitSharing message. Does not implicitly {@link Protocol.LimitSharing.verify|verify} messages.
-         * @param message LimitSharing message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: Protocol.ILimitSharing, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Encodes the specified LimitSharing message, length delimited. Does not implicitly {@link Protocol.LimitSharing.verify|verify} messages.
-         * @param message LimitSharing message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: Protocol.ILimitSharing, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Decodes a LimitSharing message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns LimitSharing
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Protocol.LimitSharing;
-
-        /**
-         * Decodes a LimitSharing message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns LimitSharing
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Protocol.LimitSharing;
-
-        /**
-         * Verifies a LimitSharing message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-
-        /**
-         * Creates a LimitSharing message from a plain object. Also converts values to their respective internal types.
-         * @param object Plain object
-         * @returns LimitSharing
-         */
-        public static fromObject(object: { [k: string]: any }): Protocol.LimitSharing;
-
-        /**
-         * Creates a plain object from a LimitSharing message. Also converts values to other types if specified.
-         * @param message LimitSharing
-         * @param [options] Conversion options
-         * @returns Plain object
-         */
-        public static toObject(message: Protocol.LimitSharing, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-        /**
-         * Converts this LimitSharing to JSON.
-         * @returns JSON object
-         */
-        public toJSON(): { [k: string]: any };
-
-        /**
-         * Gets the default type url for LimitSharing
-         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns The default type url
-         */
-        public static getTypeUrl(typeUrlPrefix?: string): string;
-    }
-
-    namespace LimitSharing {
-
-        /** Trigger enum. */
-        enum Trigger {
-            CHAT_SETTING = 0,
-            BIZ_SUPPORTS_FB_HOSTING = 1
-        }
-    }
-
-    /** Properties of a MessageKey. */
-    interface IMessageKey {
-
-        /** MessageKey remoteJid */
-        remoteJid?: (string|null);
-
-        /** MessageKey fromMe */
-        fromMe?: (boolean|null);
-
-        /** MessageKey id */
-        id?: (string|null);
-
-        /** MessageKey participant */
-        participant?: (string|null);
-    }
-
-    /** Represents a MessageKey. */
-    class MessageKey implements IMessageKey {
-
-        /**
-         * Constructs a new MessageKey.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: Protocol.IMessageKey);
-
-        /** MessageKey remoteJid. */
-        public remoteJid: string;
-
-        /** MessageKey fromMe. */
-        public fromMe: boolean;
-
-        /** MessageKey id. */
-        public id: string;
-
-        /** MessageKey participant. */
-        public participant: string;
-
-        /**
-         * Creates a new MessageKey instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns MessageKey instance
-         */
-        public static create(properties?: Protocol.IMessageKey): Protocol.MessageKey;
-
-        /**
-         * Encodes the specified MessageKey message. Does not implicitly {@link Protocol.MessageKey.verify|verify} messages.
-         * @param message MessageKey message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: Protocol.IMessageKey, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Encodes the specified MessageKey message, length delimited. Does not implicitly {@link Protocol.MessageKey.verify|verify} messages.
-         * @param message MessageKey message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: Protocol.IMessageKey, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Decodes a MessageKey message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns MessageKey
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Protocol.MessageKey;
-
-        /**
-         * Decodes a MessageKey message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns MessageKey
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Protocol.MessageKey;
-
-        /**
-         * Verifies a MessageKey message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-
-        /**
-         * Creates a MessageKey message from a plain object. Also converts values to their respective internal types.
-         * @param object Plain object
-         * @returns MessageKey
-         */
-        public static fromObject(object: { [k: string]: any }): Protocol.MessageKey;
-
-        /**
-         * Creates a plain object from a MessageKey message. Also converts values to other types if specified.
-         * @param message MessageKey
-         * @param [options] Conversion options
-         * @returns Plain object
-         */
-        public static toObject(message: Protocol.MessageKey, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-        /**
-         * Converts this MessageKey to JSON.
-         * @returns JSON object
-         */
-        public toJSON(): { [k: string]: any };
-
-        /**
-         * Gets the default type url for MessageKey
-         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns The default type url
-         */
-        public static getTypeUrl(typeUrlPrefix?: string): string;
-    }
-}
-
 /** Namespace CompanionReg. */
 export namespace CompanionReg {
 
@@ -34143,10 +35774,10 @@ export namespace CompanionReg {
         constructor(properties?: CompanionReg.IClientPairingProps);
 
         /** ClientPairingProps isChatDbLidMigrated. */
-        public isChatDbLidMigrated: boolean;
+        public isChatDbLidMigrated?: (boolean|null);
 
         /** ClientPairingProps isSyncdPureLidSession. */
-        public isSyncdPureLidSession: boolean;
+        public isSyncdPureLidSession?: (boolean|null);
 
         /**
          * Creates a new ClientPairingProps instance using the specified properties.
@@ -34246,10 +35877,10 @@ export namespace CompanionReg {
         constructor(properties?: CompanionReg.IEncryptedPairingRequest);
 
         /** EncryptedPairingRequest encryptedPayload. */
-        public encryptedPayload: Uint8Array;
+        public encryptedPayload?: (Uint8Array|null);
 
         /** EncryptedPairingRequest iv. */
-        public iv: Uint8Array;
+        public iv?: (Uint8Array|null);
 
         /**
          * Creates a new EncryptedPairingRequest instance using the specified properties.
@@ -34352,13 +35983,13 @@ export namespace CompanionReg {
         constructor(properties?: CompanionReg.IPairingRequest);
 
         /** PairingRequest companionPublicKey. */
-        public companionPublicKey: Uint8Array;
+        public companionPublicKey?: (Uint8Array|null);
 
         /** PairingRequest companionIdentityKey. */
-        public companionIdentityKey: Uint8Array;
+        public companionIdentityKey?: (Uint8Array|null);
 
         /** PairingRequest advSecret. */
-        public advSecret: Uint8Array;
+        public advSecret?: (Uint8Array|null);
 
         /**
          * Creates a new PairingRequest instance using the specified properties.
@@ -34458,10 +36089,10 @@ export namespace CompanionReg {
         constructor(properties?: CompanionReg.IPrimaryEphemeralIdentity);
 
         /** PrimaryEphemeralIdentity publicKey. */
-        public publicKey: Uint8Array;
+        public publicKey?: (Uint8Array|null);
 
         /** PrimaryEphemeralIdentity nonce. */
-        public nonce: Uint8Array;
+        public nonce?: (Uint8Array|null);
 
         /**
          * Creates a new PrimaryEphemeralIdentity instance using the specified properties.
@@ -34561,7 +36192,7 @@ export namespace CompanionReg {
         constructor(properties?: CompanionReg.IProloguePayload);
 
         /** ProloguePayload companionEphemeralIdentity. */
-        public companionEphemeralIdentity: Uint8Array;
+        public companionEphemeralIdentity?: (Uint8Array|null);
 
         /** ProloguePayload commitment. */
         public commitment?: (CompanionReg.ICompanionCommitment|null);
@@ -34661,7 +36292,7 @@ export namespace CompanionReg {
         constructor(properties?: CompanionReg.ICompanionCommitment);
 
         /** CompanionCommitment hash. */
-        public hash: Uint8Array;
+        public hash?: (Uint8Array|null);
 
         /**
          * Creates a new CompanionCommitment instance using the specified properties.
@@ -34764,13 +36395,13 @@ export namespace CompanionReg {
         constructor(properties?: CompanionReg.ICompanionEphemeralIdentity);
 
         /** CompanionEphemeralIdentity publicKey. */
-        public publicKey: Uint8Array;
+        public publicKey?: (Uint8Array|null);
 
         /** CompanionEphemeralIdentity deviceType. */
-        public deviceType: CompanionReg.DeviceProps.PlatformType;
+        public deviceType?: (CompanionReg.DeviceProps.PlatformType|null);
 
         /** CompanionEphemeralIdentity ref. */
-        public ref: string;
+        public ref?: (string|null);
 
         /**
          * Creates a new CompanionEphemeralIdentity instance using the specified properties.
@@ -34879,16 +36510,16 @@ export namespace CompanionReg {
         constructor(properties?: CompanionReg.IDeviceProps);
 
         /** DeviceProps os. */
-        public os: string;
+        public os?: (string|null);
 
         /** DeviceProps version. */
         public version?: (CompanionReg.DeviceProps.IAppVersion|null);
 
         /** DeviceProps platformType. */
-        public platformType: CompanionReg.DeviceProps.PlatformType;
+        public platformType?: (CompanionReg.DeviceProps.PlatformType|null);
 
         /** DeviceProps requireFullSync. */
-        public requireFullSync: boolean;
+        public requireFullSync?: (boolean|null);
 
         /** DeviceProps historySyncConfig. */
         public historySyncConfig?: (CompanionReg.DeviceProps.IHistorySyncConfig|null);
@@ -35002,19 +36633,19 @@ export namespace CompanionReg {
             constructor(properties?: CompanionReg.DeviceProps.IAppVersion);
 
             /** AppVersion primary. */
-            public primary: number;
+            public primary?: (number|null);
 
             /** AppVersion secondary. */
-            public secondary: number;
+            public secondary?: (number|null);
 
             /** AppVersion tertiary. */
-            public tertiary: number;
+            public tertiary?: (number|null);
 
             /** AppVersion quaternary. */
-            public quaternary: number;
+            public quaternary?: (number|null);
 
             /** AppVersion quinary. */
-            public quinary: number;
+            public quinary?: (number|null);
 
             /**
              * Creates a new AppVersion instance using the specified properties.
@@ -35150,46 +36781,46 @@ export namespace CompanionReg {
             constructor(properties?: CompanionReg.DeviceProps.IHistorySyncConfig);
 
             /** HistorySyncConfig fullSyncDaysLimit. */
-            public fullSyncDaysLimit: number;
+            public fullSyncDaysLimit?: (number|null);
 
             /** HistorySyncConfig fullSyncSizeMbLimit. */
-            public fullSyncSizeMbLimit: number;
+            public fullSyncSizeMbLimit?: (number|null);
 
             /** HistorySyncConfig storageQuotaMb. */
-            public storageQuotaMb: number;
+            public storageQuotaMb?: (number|null);
 
             /** HistorySyncConfig inlineInitialPayloadInE2EeMsg. */
-            public inlineInitialPayloadInE2EeMsg: boolean;
+            public inlineInitialPayloadInE2EeMsg?: (boolean|null);
 
             /** HistorySyncConfig recentSyncDaysLimit. */
-            public recentSyncDaysLimit: number;
+            public recentSyncDaysLimit?: (number|null);
 
             /** HistorySyncConfig supportCallLogHistory. */
-            public supportCallLogHistory: boolean;
+            public supportCallLogHistory?: (boolean|null);
 
             /** HistorySyncConfig supportBotUserAgentChatHistory. */
-            public supportBotUserAgentChatHistory: boolean;
+            public supportBotUserAgentChatHistory?: (boolean|null);
 
             /** HistorySyncConfig supportCagReactionsAndPolls. */
-            public supportCagReactionsAndPolls: boolean;
+            public supportCagReactionsAndPolls?: (boolean|null);
 
             /** HistorySyncConfig supportBizHostedMsg. */
-            public supportBizHostedMsg: boolean;
+            public supportBizHostedMsg?: (boolean|null);
 
             /** HistorySyncConfig supportRecentSyncChunkMessageCountTuning. */
-            public supportRecentSyncChunkMessageCountTuning: boolean;
+            public supportRecentSyncChunkMessageCountTuning?: (boolean|null);
 
             /** HistorySyncConfig supportHostedGroupMsg. */
-            public supportHostedGroupMsg: boolean;
+            public supportHostedGroupMsg?: (boolean|null);
 
             /** HistorySyncConfig supportFbidBotChatHistory. */
-            public supportFbidBotChatHistory: boolean;
+            public supportFbidBotChatHistory?: (boolean|null);
 
             /** HistorySyncConfig supportAddOnHistorySyncMigration. */
-            public supportAddOnHistorySyncMigration: boolean;
+            public supportAddOnHistorySyncMigration?: (boolean|null);
 
             /** HistorySyncConfig supportMessageAssociation. */
-            public supportMessageAssociation: boolean;
+            public supportMessageAssociation?: (boolean|null);
 
             /**
              * Creates a new HistorySyncConfig instance using the specified properties.
@@ -35320,7 +36951,7 @@ export namespace MmsRetry {
         constructor(properties?: MmsRetry.IServerErrorReceipt);
 
         /** ServerErrorReceipt stanzaId. */
-        public stanzaId: string;
+        public stanzaId?: (string|null);
 
         /**
          * Creates a new ServerErrorReceipt instance using the specified properties.
@@ -35426,16 +37057,16 @@ export namespace MmsRetry {
         constructor(properties?: MmsRetry.IMediaRetryNotification);
 
         /** MediaRetryNotification stanzaId. */
-        public stanzaId: string;
+        public stanzaId?: (string|null);
 
         /** MediaRetryNotification directPath. */
-        public directPath: string;
+        public directPath?: (string|null);
 
         /** MediaRetryNotification result. */
-        public result: MmsRetry.MediaRetryNotification.ResultType;
+        public result?: (MmsRetry.MediaRetryNotification.ResultType|null);
 
         /** MediaRetryNotification messageSecret. */
-        public messageSecret: Uint8Array;
+        public messageSecret?: (Uint8Array|null);
 
         /**
          * Creates a new MediaRetryNotification instance using the specified properties.
@@ -35577,37 +37208,37 @@ export namespace SyncAction {
         constructor(properties?: SyncAction.IPatchDebugData);
 
         /** PatchDebugData currentLthash. */
-        public currentLthash: Uint8Array;
+        public currentLthash?: (Uint8Array|null);
 
         /** PatchDebugData newLthash. */
-        public newLthash: Uint8Array;
+        public newLthash?: (Uint8Array|null);
 
         /** PatchDebugData patchVersion. */
-        public patchVersion: Uint8Array;
+        public patchVersion?: (Uint8Array|null);
 
         /** PatchDebugData collectionName. */
-        public collectionName: Uint8Array;
+        public collectionName?: (Uint8Array|null);
 
         /** PatchDebugData firstFourBytesFromAHashOfSnapshotMacKey. */
-        public firstFourBytesFromAHashOfSnapshotMacKey: Uint8Array;
+        public firstFourBytesFromAHashOfSnapshotMacKey?: (Uint8Array|null);
 
         /** PatchDebugData newLthashSubtract. */
-        public newLthashSubtract: Uint8Array;
+        public newLthashSubtract?: (Uint8Array|null);
 
         /** PatchDebugData numberAdd. */
-        public numberAdd: number;
+        public numberAdd?: (number|null);
 
         /** PatchDebugData numberRemove. */
-        public numberRemove: number;
+        public numberRemove?: (number|null);
 
         /** PatchDebugData numberOverride. */
-        public numberOverride: number;
+        public numberOverride?: (number|null);
 
         /** PatchDebugData senderPlatform. */
-        public senderPlatform: SyncAction.PatchDebugData.Platform;
+        public senderPlatform?: (SyncAction.PatchDebugData.Platform|null);
 
         /** PatchDebugData isSenderPrimary. */
-        public isSenderPrimary: boolean;
+        public isSenderPrimary?: (boolean|null);
 
         /**
          * Creates a new PatchDebugData instance using the specified properties.
@@ -35729,16 +37360,16 @@ export namespace SyncAction {
         constructor(properties?: SyncAction.ISyncActionData);
 
         /** SyncActionData index. */
-        public index: Uint8Array;
+        public index?: (Uint8Array|null);
 
         /** SyncActionData value. */
         public value?: (SyncAction.ISyncActionValue|null);
 
         /** SyncActionData padding. */
-        public padding: Uint8Array;
+        public padding?: (Uint8Array|null);
 
         /** SyncActionData version. */
-        public version: number;
+        public version?: (number|null);
 
         /**
          * Creates a new SyncActionData instance using the specified properties.
@@ -35982,6 +37613,15 @@ export namespace SyncAction {
 
         /** SyncActionValue notificationActivitySettingAction */
         notificationActivitySettingAction?: (SyncAction.SyncActionValue.INotificationActivitySettingAction|null);
+
+        /** SyncActionValue lidContactAction */
+        lidContactAction?: (SyncAction.SyncActionValue.ILidContactAction|null);
+
+        /** SyncActionValue ctwaPerCustomerDataSharingAction */
+        ctwaPerCustomerDataSharingAction?: (SyncAction.SyncActionValue.ICtwaPerCustomerDataSharingAction|null);
+
+        /** SyncActionValue paymentTosAction */
+        paymentTosAction?: (SyncAction.SyncActionValue.IPaymentTosAction|null);
     }
 
     /** Represents a SyncActionValue. */
@@ -35994,7 +37634,7 @@ export namespace SyncAction {
         constructor(properties?: SyncAction.ISyncActionValue);
 
         /** SyncActionValue timestamp. */
-        public timestamp: (number|Long);
+        public timestamp?: (number|Long|null);
 
         /** SyncActionValue starAction. */
         public starAction?: (SyncAction.SyncActionValue.IStarAction|null);
@@ -36155,6 +37795,15 @@ export namespace SyncAction {
         /** SyncActionValue notificationActivitySettingAction. */
         public notificationActivitySettingAction?: (SyncAction.SyncActionValue.INotificationActivitySettingAction|null);
 
+        /** SyncActionValue lidContactAction. */
+        public lidContactAction?: (SyncAction.SyncActionValue.ILidContactAction|null);
+
+        /** SyncActionValue ctwaPerCustomerDataSharingAction. */
+        public ctwaPerCustomerDataSharingAction?: (SyncAction.SyncActionValue.ICtwaPerCustomerDataSharingAction|null);
+
+        /** SyncActionValue paymentTosAction. */
+        public paymentTosAction?: (SyncAction.SyncActionValue.IPaymentTosAction|null);
+
         /**
          * Creates a new SyncActionValue instance using the specified properties.
          * @param [properties] Properties to set
@@ -36258,13 +37907,13 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IAgentAction);
 
             /** AgentAction name. */
-            public name: string;
+            public name?: (string|null);
 
             /** AgentAction deviceID. */
-            public deviceID: number;
+            public deviceID?: (number|null);
 
             /** AgentAction isDeleted. */
-            public isDeleted: boolean;
+            public isDeleted?: (boolean|null);
 
             /**
              * Creates a new AgentAction instance using the specified properties.
@@ -36361,7 +38010,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IAndroidUnsupportedActions);
 
             /** AndroidUnsupportedActions allowed. */
-            public allowed: boolean;
+            public allowed?: (boolean|null);
 
             /**
              * Creates a new AndroidUnsupportedActions instance using the specified properties.
@@ -36461,7 +38110,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IArchiveChatAction);
 
             /** ArchiveChatAction archived. */
-            public archived: boolean;
+            public archived?: (boolean|null);
 
             /** ArchiveChatAction messageRange. */
             public messageRange?: (SyncAction.SyncActionValue.ISyncActionMessageRange|null);
@@ -36561,7 +38210,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IBotWelcomeRequestAction);
 
             /** BotWelcomeRequestAction isSent. */
-            public isSent: boolean;
+            public isSent?: (boolean|null);
 
             /**
              * Creates a new BotWelcomeRequestAction instance using the specified properties.
@@ -36755,7 +38404,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IChatAssignmentAction);
 
             /** ChatAssignmentAction deviceAgentID. */
-            public deviceAgentID: string;
+            public deviceAgentID?: (string|null);
 
             /**
              * Creates a new ChatAssignmentAction instance using the specified properties.
@@ -36852,7 +38501,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IChatAssignmentOpenedStatusAction);
 
             /** ChatAssignmentOpenedStatusAction chatOpened. */
-            public chatOpened: boolean;
+            public chatOpened?: (boolean|null);
 
             /**
              * Creates a new ChatAssignmentOpenedStatusAction instance using the specified properties.
@@ -37043,6 +38692,12 @@ export namespace SyncAction {
 
             /** ContactAction saveOnPrimaryAddressbook */
             saveOnPrimaryAddressbook?: (boolean|null);
+
+            /** ContactAction pnJid */
+            pnJid?: (string|null);
+
+            /** ContactAction username */
+            username?: (string|null);
         }
 
         /** Represents a ContactAction. */
@@ -37055,16 +38710,22 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IContactAction);
 
             /** ContactAction fullName. */
-            public fullName: string;
+            public fullName?: (string|null);
 
             /** ContactAction firstName. */
-            public firstName: string;
+            public firstName?: (string|null);
 
             /** ContactAction lidJid. */
-            public lidJid: string;
+            public lidJid?: (string|null);
 
             /** ContactAction saveOnPrimaryAddressbook. */
-            public saveOnPrimaryAddressbook: boolean;
+            public saveOnPrimaryAddressbook?: (boolean|null);
+
+            /** ContactAction pnJid. */
+            public pnJid?: (string|null);
+
+            /** ContactAction username. */
+            public username?: (string|null);
 
             /**
              * Creates a new ContactAction instance using the specified properties.
@@ -37138,6 +38799,103 @@ export namespace SyncAction {
 
             /**
              * Gets the default type url for ContactAction
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a CtwaPerCustomerDataSharingAction. */
+        interface ICtwaPerCustomerDataSharingAction {
+
+            /** CtwaPerCustomerDataSharingAction isCtwaPerCustomerDataSharingEnabled */
+            isCtwaPerCustomerDataSharingEnabled?: (boolean|null);
+        }
+
+        /** Represents a CtwaPerCustomerDataSharingAction. */
+        class CtwaPerCustomerDataSharingAction implements ICtwaPerCustomerDataSharingAction {
+
+            /**
+             * Constructs a new CtwaPerCustomerDataSharingAction.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: SyncAction.SyncActionValue.ICtwaPerCustomerDataSharingAction);
+
+            /** CtwaPerCustomerDataSharingAction isCtwaPerCustomerDataSharingEnabled. */
+            public isCtwaPerCustomerDataSharingEnabled?: (boolean|null);
+
+            /**
+             * Creates a new CtwaPerCustomerDataSharingAction instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns CtwaPerCustomerDataSharingAction instance
+             */
+            public static create(properties?: SyncAction.SyncActionValue.ICtwaPerCustomerDataSharingAction): SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction;
+
+            /**
+             * Encodes the specified CtwaPerCustomerDataSharingAction message. Does not implicitly {@link SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction.verify|verify} messages.
+             * @param message CtwaPerCustomerDataSharingAction message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: SyncAction.SyncActionValue.ICtwaPerCustomerDataSharingAction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified CtwaPerCustomerDataSharingAction message, length delimited. Does not implicitly {@link SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction.verify|verify} messages.
+             * @param message CtwaPerCustomerDataSharingAction message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: SyncAction.SyncActionValue.ICtwaPerCustomerDataSharingAction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a CtwaPerCustomerDataSharingAction message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns CtwaPerCustomerDataSharingAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction;
+
+            /**
+             * Decodes a CtwaPerCustomerDataSharingAction message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns CtwaPerCustomerDataSharingAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction;
+
+            /**
+             * Verifies a CtwaPerCustomerDataSharingAction message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a CtwaPerCustomerDataSharingAction message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns CtwaPerCustomerDataSharingAction
+             */
+            public static fromObject(object: { [k: string]: any }): SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction;
+
+            /**
+             * Creates a plain object from a CtwaPerCustomerDataSharingAction message. Also converts values to other types if specified.
+             * @param message CtwaPerCustomerDataSharingAction
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this CtwaPerCustomerDataSharingAction to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for CtwaPerCustomerDataSharingAction
              * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
              * @returns The default type url
              */
@@ -37576,10 +39334,10 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IDeleteIndividualCallLogAction);
 
             /** DeleteIndividualCallLogAction peerJid. */
-            public peerJid: string;
+            public peerJid?: (string|null);
 
             /** DeleteIndividualCallLogAction isIncoming. */
-            public isIncoming: boolean;
+            public isIncoming?: (boolean|null);
 
             /**
              * Creates a new DeleteIndividualCallLogAction instance using the specified properties.
@@ -37679,10 +39437,10 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IDeleteMessageForMeAction);
 
             /** DeleteMessageForMeAction deleteMedia. */
-            public deleteMedia: boolean;
+            public deleteMedia?: (boolean|null);
 
             /** DeleteMessageForMeAction messageTimestamp. */
-            public messageTimestamp: (number|Long);
+            public messageTimestamp?: (number|Long|null);
 
             /**
              * Creates a new DeleteMessageForMeAction instance using the specified properties.
@@ -37779,7 +39537,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IExternalWebBetaAction);
 
             /** ExternalWebBetaAction isOptIn. */
-            public isOptIn: boolean;
+            public isOptIn?: (boolean|null);
 
             /**
              * Creates a new ExternalWebBetaAction instance using the specified properties.
@@ -37975,7 +39733,7 @@ export namespace SyncAction {
                 constructor(properties?: SyncAction.SyncActionValue.FavoritesAction.IFavorite);
 
                 /** Favorite id. */
-                public id: string;
+                public id?: (string|null);
 
                 /**
                  * Creates a new Favorite instance using the specified properties.
@@ -38073,7 +39831,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IKeyExpiration);
 
             /** KeyExpiration expiredKeyEpoch. */
-            public expiredKeyEpoch: number;
+            public expiredKeyEpoch?: (number|null);
 
             /**
              * Creates a new KeyExpiration instance using the specified properties.
@@ -38170,7 +39928,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.ILabelAssociationAction);
 
             /** LabelAssociationAction labeled. */
-            public labeled: boolean;
+            public labeled?: (boolean|null);
 
             /**
              * Creates a new LabelAssociationAction instance using the specified properties.
@@ -38273,6 +40031,9 @@ export namespace SyncAction {
 
             /** LabelEditAction type */
             type?: (SyncAction.SyncActionValue.LabelEditAction.ListType|null);
+
+            /** LabelEditAction isImmutable */
+            isImmutable?: (boolean|null);
         }
 
         /** Represents a LabelEditAction. */
@@ -38285,25 +40046,28 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.ILabelEditAction);
 
             /** LabelEditAction name. */
-            public name: string;
+            public name?: (string|null);
 
             /** LabelEditAction color. */
-            public color: number;
+            public color?: (number|null);
 
             /** LabelEditAction predefinedId. */
-            public predefinedId: number;
+            public predefinedId?: (number|null);
 
             /** LabelEditAction deleted. */
-            public deleted: boolean;
+            public deleted?: (boolean|null);
 
             /** LabelEditAction orderIndex. */
-            public orderIndex: number;
+            public orderIndex?: (number|null);
 
             /** LabelEditAction isActive. */
-            public isActive: boolean;
+            public isActive?: (boolean|null);
 
             /** LabelEditAction type. */
-            public type: SyncAction.SyncActionValue.LabelEditAction.ListType;
+            public type?: (SyncAction.SyncActionValue.LabelEditAction.ListType|null);
+
+            /** LabelEditAction isImmutable. */
+            public isImmutable?: (boolean|null);
 
             /**
              * Creates a new LabelEditAction instance using the specified properties.
@@ -38392,7 +40156,9 @@ export namespace SyncAction {
                 GROUPS = 2,
                 FAVORITES = 3,
                 PREDEFINED = 4,
-                CUSTOM = 5
+                CUSTOM = 5,
+                COMMUNITY = 6,
+                SERVER_ASSIGNED = 7
             }
         }
 
@@ -38493,6 +40259,121 @@ export namespace SyncAction {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
+        /** Properties of a LidContactAction. */
+        interface ILidContactAction {
+
+            /** LidContactAction fullName */
+            fullName?: (string|null);
+
+            /** LidContactAction firstName */
+            firstName?: (string|null);
+
+            /** LidContactAction username */
+            username?: (string|null);
+
+            /** LidContactAction saveOnPrimaryAddressbook */
+            saveOnPrimaryAddressbook?: (boolean|null);
+        }
+
+        /** Represents a LidContactAction. */
+        class LidContactAction implements ILidContactAction {
+
+            /**
+             * Constructs a new LidContactAction.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: SyncAction.SyncActionValue.ILidContactAction);
+
+            /** LidContactAction fullName. */
+            public fullName?: (string|null);
+
+            /** LidContactAction firstName. */
+            public firstName?: (string|null);
+
+            /** LidContactAction username. */
+            public username?: (string|null);
+
+            /** LidContactAction saveOnPrimaryAddressbook. */
+            public saveOnPrimaryAddressbook?: (boolean|null);
+
+            /**
+             * Creates a new LidContactAction instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns LidContactAction instance
+             */
+            public static create(properties?: SyncAction.SyncActionValue.ILidContactAction): SyncAction.SyncActionValue.LidContactAction;
+
+            /**
+             * Encodes the specified LidContactAction message. Does not implicitly {@link SyncAction.SyncActionValue.LidContactAction.verify|verify} messages.
+             * @param message LidContactAction message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: SyncAction.SyncActionValue.ILidContactAction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified LidContactAction message, length delimited. Does not implicitly {@link SyncAction.SyncActionValue.LidContactAction.verify|verify} messages.
+             * @param message LidContactAction message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: SyncAction.SyncActionValue.ILidContactAction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a LidContactAction message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns LidContactAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SyncAction.SyncActionValue.LidContactAction;
+
+            /**
+             * Decodes a LidContactAction message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns LidContactAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SyncAction.SyncActionValue.LidContactAction;
+
+            /**
+             * Verifies a LidContactAction message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a LidContactAction message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns LidContactAction
+             */
+            public static fromObject(object: { [k: string]: any }): SyncAction.SyncActionValue.LidContactAction;
+
+            /**
+             * Creates a plain object from a LidContactAction message. Also converts values to other types if specified.
+             * @param message LidContactAction
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: SyncAction.SyncActionValue.LidContactAction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this LidContactAction to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for LidContactAction
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
         /** Properties of a LocaleSetting. */
         interface ILocaleSetting {
 
@@ -38510,7 +40391,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.ILocaleSetting);
 
             /** LocaleSetting locale. */
-            public locale: string;
+            public locale?: (string|null);
 
             /**
              * Creates a new LocaleSetting instance using the specified properties.
@@ -38607,7 +40488,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.ILockChatAction);
 
             /** LockChatAction locked. */
-            public locked: boolean;
+            public locked?: (boolean|null);
 
             /**
              * Creates a new LockChatAction instance using the specified properties.
@@ -38707,7 +40588,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IMarkChatAsReadAction);
 
             /** MarkChatAsReadAction read. */
-            public read: boolean;
+            public read?: (boolean|null);
 
             /** MarkChatAsReadAction messageRange. */
             public messageRange?: (SyncAction.SyncActionValue.ISyncActionMessageRange|null);
@@ -38825,25 +40706,25 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IMarketingMessageAction);
 
             /** MarketingMessageAction name. */
-            public name: string;
+            public name?: (string|null);
 
             /** MarketingMessageAction message. */
-            public message: string;
+            public message?: (string|null);
 
             /** MarketingMessageAction type. */
-            public type: SyncAction.SyncActionValue.MarketingMessageAction.MarketingMessagePrototypeType;
+            public type?: (SyncAction.SyncActionValue.MarketingMessageAction.MarketingMessagePrototypeType|null);
 
             /** MarketingMessageAction createdAt. */
-            public createdAt: (number|Long);
+            public createdAt?: (number|Long|null);
 
             /** MarketingMessageAction lastSentAt. */
-            public lastSentAt: (number|Long);
+            public lastSentAt?: (number|Long|null);
 
             /** MarketingMessageAction isDeleted. */
-            public isDeleted: boolean;
+            public isDeleted?: (boolean|null);
 
             /** MarketingMessageAction mediaId. */
-            public mediaId: string;
+            public mediaId?: (string|null);
 
             /**
              * Creates a new MarketingMessageAction instance using the specified properties.
@@ -38948,7 +40829,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IMarketingMessageBroadcastAction);
 
             /** MarketingMessageBroadcastAction repliedCount. */
-            public repliedCount: number;
+            public repliedCount?: (number|null);
 
             /**
              * Creates a new MarketingMessageBroadcastAction instance using the specified properties.
@@ -39060,10 +40941,10 @@ export namespace SyncAction {
             public country: string;
 
             /** MerchantPaymentPartnerAction gatewayName. */
-            public gatewayName: string;
+            public gatewayName?: (string|null);
 
             /** MerchantPaymentPartnerAction credentialId. */
-            public credentialId: string;
+            public credentialId?: (string|null);
 
             /**
              * Creates a new MerchantPaymentPartnerAction instance using the specified properties.
@@ -39175,13 +41056,13 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IMuteAction);
 
             /** MuteAction muted. */
-            public muted: boolean;
+            public muted?: (boolean|null);
 
             /** MuteAction muteEndTimestamp. */
-            public muteEndTimestamp: (number|Long);
+            public muteEndTimestamp?: (number|Long|null);
 
             /** MuteAction autoMuted. */
-            public autoMuted: boolean;
+            public autoMuted?: (boolean|null);
 
             /**
              * Creates a new MuteAction instance using the specified properties.
@@ -39290,19 +41171,19 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.INoteEditAction);
 
             /** NoteEditAction type. */
-            public type: SyncAction.SyncActionValue.NoteEditAction.NoteType;
+            public type?: (SyncAction.SyncActionValue.NoteEditAction.NoteType|null);
 
             /** NoteEditAction chatJid. */
-            public chatJid: string;
+            public chatJid?: (string|null);
 
             /** NoteEditAction createdAt. */
-            public createdAt: (number|Long);
+            public createdAt?: (number|Long|null);
 
             /** NoteEditAction deleted. */
-            public deleted: boolean;
+            public deleted?: (boolean|null);
 
             /** NoteEditAction unstructuredContent. */
-            public unstructuredContent: string;
+            public unstructuredContent?: (string|null);
 
             /**
              * Creates a new NoteEditAction instance using the specified properties.
@@ -39408,7 +41289,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.INotificationActivitySettingAction);
 
             /** NotificationActivitySettingAction notificationActivitySetting. */
-            public notificationActivitySetting: SyncAction.SyncActionValue.NotificationActivitySettingAction.NotificationActivitySetting;
+            public notificationActivitySetting?: (SyncAction.SyncActionValue.NotificationActivitySettingAction.NotificationActivitySetting|null);
 
             /**
              * Creates a new NotificationActivitySettingAction instance using the specified properties.
@@ -39516,7 +41397,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.INuxAction);
 
             /** NuxAction acknowledged. */
-            public acknowledged: boolean;
+            public acknowledged?: (boolean|null);
 
             /**
              * Creates a new NuxAction instance using the specified properties.
@@ -39613,7 +41494,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IPaymentInfoAction);
 
             /** PaymentInfoAction cpi. */
-            public cpi: string;
+            public cpi?: (string|null);
 
             /**
              * Creates a new PaymentInfoAction instance using the specified properties.
@@ -39693,6 +41574,117 @@ export namespace SyncAction {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
+        /** Properties of a PaymentTosAction. */
+        interface IPaymentTosAction {
+
+            /** PaymentTosAction paymentNotice */
+            paymentNotice: SyncAction.SyncActionValue.PaymentTosAction.PaymentNotice;
+
+            /** PaymentTosAction accepted */
+            accepted: boolean;
+        }
+
+        /** Represents a PaymentTosAction. */
+        class PaymentTosAction implements IPaymentTosAction {
+
+            /**
+             * Constructs a new PaymentTosAction.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: SyncAction.SyncActionValue.IPaymentTosAction);
+
+            /** PaymentTosAction paymentNotice. */
+            public paymentNotice: SyncAction.SyncActionValue.PaymentTosAction.PaymentNotice;
+
+            /** PaymentTosAction accepted. */
+            public accepted: boolean;
+
+            /**
+             * Creates a new PaymentTosAction instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns PaymentTosAction instance
+             */
+            public static create(properties?: SyncAction.SyncActionValue.IPaymentTosAction): SyncAction.SyncActionValue.PaymentTosAction;
+
+            /**
+             * Encodes the specified PaymentTosAction message. Does not implicitly {@link SyncAction.SyncActionValue.PaymentTosAction.verify|verify} messages.
+             * @param message PaymentTosAction message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: SyncAction.SyncActionValue.IPaymentTosAction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified PaymentTosAction message, length delimited. Does not implicitly {@link SyncAction.SyncActionValue.PaymentTosAction.verify|verify} messages.
+             * @param message PaymentTosAction message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: SyncAction.SyncActionValue.IPaymentTosAction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a PaymentTosAction message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns PaymentTosAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SyncAction.SyncActionValue.PaymentTosAction;
+
+            /**
+             * Decodes a PaymentTosAction message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns PaymentTosAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SyncAction.SyncActionValue.PaymentTosAction;
+
+            /**
+             * Verifies a PaymentTosAction message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a PaymentTosAction message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns PaymentTosAction
+             */
+            public static fromObject(object: { [k: string]: any }): SyncAction.SyncActionValue.PaymentTosAction;
+
+            /**
+             * Creates a plain object from a PaymentTosAction message. Also converts values to other types if specified.
+             * @param message PaymentTosAction
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: SyncAction.SyncActionValue.PaymentTosAction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this PaymentTosAction to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for PaymentTosAction
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        namespace PaymentTosAction {
+
+            /** PaymentNotice enum. */
+            enum PaymentNotice {
+                BR_PAY_PRIVACY_POLICY = 0
+            }
+        }
+
         /** Properties of a PinAction. */
         interface IPinAction {
 
@@ -39710,7 +41702,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IPinAction);
 
             /** PinAction pinned. */
-            public pinned: boolean;
+            public pinned?: (boolean|null);
 
             /**
              * Creates a new PinAction instance using the specified properties.
@@ -39807,7 +41799,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IPnForLidChatAction);
 
             /** PnForLidChatAction pnJid. */
-            public pnJid: string;
+            public pnJid?: (string|null);
 
             /**
              * Creates a new PnForLidChatAction instance using the specified properties.
@@ -40001,7 +41993,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IPrimaryVersionAction);
 
             /** PrimaryVersionAction version. */
-            public version: string;
+            public version?: (string|null);
 
             /**
              * Creates a new PrimaryVersionAction instance using the specified properties.
@@ -40098,7 +42090,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IPrivacySettingDisableLinkPreviewsAction);
 
             /** PrivacySettingDisableLinkPreviewsAction isPreviewsDisabled. */
-            public isPreviewsDisabled: boolean;
+            public isPreviewsDisabled?: (boolean|null);
 
             /**
              * Creates a new PrivacySettingDisableLinkPreviewsAction instance using the specified properties.
@@ -40195,7 +42187,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IPrivacySettingRelayAllCalls);
 
             /** PrivacySettingRelayAllCalls isEnabled. */
-            public isEnabled: boolean;
+            public isEnabled?: (boolean|null);
 
             /**
              * Creates a new PrivacySettingRelayAllCalls instance using the specified properties.
@@ -40292,7 +42284,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IPushNameSetting);
 
             /** PushNameSetting name. */
-            public name: string;
+            public name?: (string|null);
 
             /**
              * Creates a new PushNameSetting instance using the specified properties.
@@ -40401,19 +42393,19 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IQuickReplyAction);
 
             /** QuickReplyAction shortcut. */
-            public shortcut: string;
+            public shortcut?: (string|null);
 
             /** QuickReplyAction message. */
-            public message: string;
+            public message?: (string|null);
 
             /** QuickReplyAction keywords. */
             public keywords: string[];
 
             /** QuickReplyAction count. */
-            public count: number;
+            public count?: (number|null);
 
             /** QuickReplyAction deleted. */
-            public deleted: boolean;
+            public deleted?: (boolean|null);
 
             /**
              * Creates a new QuickReplyAction instance using the specified properties.
@@ -40607,7 +42599,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IRemoveRecentStickerAction);
 
             /** RemoveRecentStickerAction lastStickerSentTs. */
-            public lastStickerSentTs: (number|Long);
+            public lastStickerSentTs?: (number|Long|null);
 
             /**
              * Creates a new RemoveRecentStickerAction instance using the specified properties.
@@ -40704,7 +42696,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.ISecurityNotificationSetting);
 
             /** SecurityNotificationSetting showNotification. */
-            public showNotification: boolean;
+            public showNotification?: (boolean|null);
 
             /**
              * Creates a new SecurityNotificationSetting instance using the specified properties.
@@ -40801,7 +42793,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IStarAction);
 
             /** StarAction starred. */
-            public starred: boolean;
+            public starred?: (boolean|null);
 
             /**
              * Creates a new StarAction instance using the specified properties.
@@ -40901,7 +42893,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IStatusPrivacyAction);
 
             /** StatusPrivacyAction mode. */
-            public mode: SyncAction.SyncActionValue.StatusPrivacyAction.StatusDistributionMode;
+            public mode?: (SyncAction.SyncActionValue.StatusPrivacyAction.StatusDistributionMode|null);
 
             /** StatusPrivacyAction userJid. */
             public userJid: string[];
@@ -41041,37 +43033,37 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IStickerAction);
 
             /** StickerAction url. */
-            public url: string;
+            public url?: (string|null);
 
             /** StickerAction fileEncSha256. */
-            public fileEncSha256: Uint8Array;
+            public fileEncSha256?: (Uint8Array|null);
 
             /** StickerAction mediaKey. */
-            public mediaKey: Uint8Array;
+            public mediaKey?: (Uint8Array|null);
 
             /** StickerAction mimetype. */
-            public mimetype: string;
+            public mimetype?: (string|null);
 
             /** StickerAction height. */
-            public height: number;
+            public height?: (number|null);
 
             /** StickerAction width. */
-            public width: number;
+            public width?: (number|null);
 
             /** StickerAction directPath. */
-            public directPath: string;
+            public directPath?: (string|null);
 
             /** StickerAction fileLength. */
-            public fileLength: (number|Long);
+            public fileLength?: (number|Long|null);
 
             /** StickerAction isFavorite. */
-            public isFavorite: boolean;
+            public isFavorite?: (boolean|null);
 
             /** StickerAction deviceIdHint. */
-            public deviceIdHint: number;
+            public deviceIdHint?: (number|null);
 
             /** StickerAction isLottie. */
-            public isLottie: boolean;
+            public isLottie?: (boolean|null);
 
             /**
              * Creates a new StickerAction instance using the specified properties.
@@ -41174,13 +43166,13 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.ISubscriptionAction);
 
             /** SubscriptionAction isDeactivated. */
-            public isDeactivated: boolean;
+            public isDeactivated?: (boolean|null);
 
             /** SubscriptionAction isAutoRenewing. */
-            public isAutoRenewing: boolean;
+            public isAutoRenewing?: (boolean|null);
 
             /** SubscriptionAction expirationDate. */
-            public expirationDate: (number|Long);
+            public expirationDate?: (number|Long|null);
 
             /**
              * Creates a new SubscriptionAction instance using the specified properties.
@@ -41283,7 +43275,7 @@ export namespace SyncAction {
             public key?: (Protocol.IMessageKey|null);
 
             /** SyncActionMessage timestamp. */
-            public timestamp: (number|Long);
+            public timestamp?: (number|Long|null);
 
             /**
              * Creates a new SyncActionMessage instance using the specified properties.
@@ -41386,10 +43378,10 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.ISyncActionMessageRange);
 
             /** SyncActionMessageRange lastMessageTimestamp. */
-            public lastMessageTimestamp: (number|Long);
+            public lastMessageTimestamp?: (number|Long|null);
 
             /** SyncActionMessageRange lastSystemMessageTimestamp. */
-            public lastSystemMessageTimestamp: (number|Long);
+            public lastSystemMessageTimestamp?: (number|Long|null);
 
             /** SyncActionMessageRange messages. */
             public messages: SyncAction.SyncActionValue.ISyncActionMessage[];
@@ -41489,7 +43481,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.ITimeFormatAction);
 
             /** TimeFormatAction isTwentyFourHourFormatEnabled. */
-            public isTwentyFourHourFormatEnabled: boolean;
+            public isTwentyFourHourFormatEnabled?: (boolean|null);
 
             /**
              * Creates a new TimeFormatAction instance using the specified properties.
@@ -41586,7 +43578,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IUnarchiveChatsSetting);
 
             /** UnarchiveChatsSetting unarchiveChats. */
-            public unarchiveChats: boolean;
+            public unarchiveChats?: (boolean|null);
 
             /**
              * Creates a new UnarchiveChatsSetting instance using the specified properties.
@@ -41683,7 +43675,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IUserStatusMuteAction);
 
             /** UserStatusMuteAction muted. */
-            public muted: boolean;
+            public muted?: (boolean|null);
 
             /**
              * Creates a new UserStatusMuteAction instance using the specified properties.
@@ -41780,7 +43772,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IUsernameChatStartModeAction);
 
             /** UsernameChatStartModeAction chatStartMode. */
-            public chatStartMode: SyncAction.SyncActionValue.UsernameChatStartModeAction.ChatStartMode;
+            public chatStartMode?: (SyncAction.SyncActionValue.UsernameChatStartModeAction.ChatStartMode|null);
 
             /**
              * Creates a new UsernameChatStartModeAction instance using the specified properties.
@@ -41886,7 +43878,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IWaffleAccountLinkStateAction);
 
             /** WaffleAccountLinkStateAction linkState. */
-            public linkState: SyncAction.SyncActionValue.WaffleAccountLinkStateAction.AccountLinkState;
+            public linkState?: (SyncAction.SyncActionValue.WaffleAccountLinkStateAction.AccountLinkState|null);
 
             /**
              * Creates a new WaffleAccountLinkStateAction instance using the specified properties.
@@ -41991,7 +43983,7 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.SyncActionValue.IWamoUserIdentifierAction);
 
             /** WamoUserIdentifierAction identifier. */
-            public identifier: string;
+            public identifier?: (string|null);
 
             /**
              * Creates a new WamoUserIdentifierAction instance using the specified properties.
@@ -42131,49 +44123,49 @@ export namespace SyncAction {
         constructor(properties?: SyncAction.ICallLogRecord);
 
         /** CallLogRecord callResult. */
-        public callResult: SyncAction.CallLogRecord.CallResult;
+        public callResult?: (SyncAction.CallLogRecord.CallResult|null);
 
         /** CallLogRecord isDndMode. */
-        public isDndMode: boolean;
+        public isDndMode?: (boolean|null);
 
         /** CallLogRecord silenceReason. */
-        public silenceReason: SyncAction.CallLogRecord.SilenceReason;
+        public silenceReason?: (SyncAction.CallLogRecord.SilenceReason|null);
 
         /** CallLogRecord duration. */
-        public duration: (number|Long);
+        public duration?: (number|Long|null);
 
         /** CallLogRecord startTime. */
-        public startTime: (number|Long);
+        public startTime?: (number|Long|null);
 
         /** CallLogRecord isIncoming. */
-        public isIncoming: boolean;
+        public isIncoming?: (boolean|null);
 
         /** CallLogRecord isVideo. */
-        public isVideo: boolean;
+        public isVideo?: (boolean|null);
 
         /** CallLogRecord isCallLink. */
-        public isCallLink: boolean;
+        public isCallLink?: (boolean|null);
 
         /** CallLogRecord callLinkToken. */
-        public callLinkToken: string;
+        public callLinkToken?: (string|null);
 
         /** CallLogRecord scheduledCallId. */
-        public scheduledCallId: string;
+        public scheduledCallId?: (string|null);
 
         /** CallLogRecord callId. */
-        public callId: string;
+        public callId?: (string|null);
 
         /** CallLogRecord callCreatorJid. */
-        public callCreatorJid: string;
+        public callCreatorJid?: (string|null);
 
         /** CallLogRecord groupJid. */
-        public groupJid: string;
+        public groupJid?: (string|null);
 
         /** CallLogRecord participants. */
         public participants: SyncAction.CallLogRecord.IParticipantInfo[];
 
         /** CallLogRecord callType. */
-        public callType: SyncAction.CallLogRecord.CallType;
+        public callType?: (SyncAction.CallLogRecord.CallType|null);
 
         /**
          * Creates a new CallLogRecord instance using the specified properties.
@@ -42297,10 +44289,10 @@ export namespace SyncAction {
             constructor(properties?: SyncAction.CallLogRecord.IParticipantInfo);
 
             /** ParticipantInfo userJid. */
-            public userJid: string;
+            public userJid?: (string|null);
 
             /** ParticipantInfo callResult. */
-            public callResult: SyncAction.CallLogRecord.CallResult;
+            public callResult?: (SyncAction.CallLogRecord.CallResult|null);
 
             /**
              * Creates a new ParticipantInfo instance using the specified properties.
@@ -42409,10 +44401,10 @@ export namespace SyncAction {
         constructor(properties?: SyncAction.IRecentEmojiWeight);
 
         /** RecentEmojiWeight emoji. */
-        public emoji: string;
+        public emoji?: (string|null);
 
         /** RecentEmojiWeight weight. */
-        public weight: number;
+        public weight?: (number|null);
 
         /**
          * Creates a new RecentEmojiWeight instance using the specified properties.
@@ -42516,7 +44508,7 @@ export namespace DeviceCapabilities {
         constructor(properties?: DeviceCapabilities.IDeviceCapabilities);
 
         /** DeviceCapabilities chatLockSupportLevel. */
-        public chatLockSupportLevel: DeviceCapabilities.DeviceCapabilities.ChatLockSupportLevel;
+        public chatLockSupportLevel?: (DeviceCapabilities.DeviceCapabilities.ChatLockSupportLevel|null);
 
         /** DeviceCapabilities lidMigration. */
         public lidMigration?: (DeviceCapabilities.DeviceCapabilities.ILIDMigration|null);
@@ -42625,7 +44617,7 @@ export namespace DeviceCapabilities {
             constructor(properties?: DeviceCapabilities.DeviceCapabilities.ILIDMigration);
 
             /** LIDMigration chatDbMigrationTimestamp. */
-            public chatDbMigrationTimestamp: (number|Long);
+            public chatDbMigrationTimestamp?: (number|Long|null);
 
             /**
              * Creates a new LIDMigration instance using the specified properties.

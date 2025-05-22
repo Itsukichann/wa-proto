@@ -58,7 +58,7 @@ $root.Cert = (function() {
          * @instance
          */
         CertChain.prototype.intermediate = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -316,7 +316,7 @@ $root.Cert = (function() {
              * @instance
              */
             NoiseCertificate.prototype.signature = null;
-            
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -595,7 +595,7 @@ $root.Cert = (function() {
                  * @instance
                  */
                 Details.prototype.notAfter = null;
-                
+
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
@@ -945,7 +945,7 @@ $root.Cert = (function() {
          * @instance
          */
         NoiseCertificate.prototype.signature = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -1224,7 +1224,7 @@ $root.Cert = (function() {
              * @instance
              */
             Details.prototype.key = null;
-            
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 

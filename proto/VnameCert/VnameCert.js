@@ -51,11 +51,11 @@ $root.VnameCert = (function() {
 
         /**
          * BizIdentityInfo vlevel.
-         * @member {VnameCert.BizIdentityInfo.VerifiedLevelValue} vlevel
+         * @member {VnameCert.BizIdentityInfo.VerifiedLevelValue|null|undefined} vlevel
          * @memberof VnameCert.BizIdentityInfo
          * @instance
          */
-        BizIdentityInfo.prototype.vlevel = 0;
+        BizIdentityInfo.prototype.vlevel = null;
 
         /**
          * BizIdentityInfo vnameCert.
@@ -67,51 +67,102 @@ $root.VnameCert = (function() {
 
         /**
          * BizIdentityInfo signed.
-         * @member {boolean} signed
+         * @member {boolean|null|undefined} signed
          * @memberof VnameCert.BizIdentityInfo
          * @instance
          */
-        BizIdentityInfo.prototype.signed = false;
+        BizIdentityInfo.prototype.signed = null;
 
         /**
          * BizIdentityInfo revoked.
-         * @member {boolean} revoked
+         * @member {boolean|null|undefined} revoked
          * @memberof VnameCert.BizIdentityInfo
          * @instance
          */
-        BizIdentityInfo.prototype.revoked = false;
+        BizIdentityInfo.prototype.revoked = null;
 
         /**
          * BizIdentityInfo hostStorage.
-         * @member {VnameCert.BizIdentityInfo.HostStorageType} hostStorage
+         * @member {VnameCert.BizIdentityInfo.HostStorageType|null|undefined} hostStorage
          * @memberof VnameCert.BizIdentityInfo
          * @instance
          */
-        BizIdentityInfo.prototype.hostStorage = 0;
+        BizIdentityInfo.prototype.hostStorage = null;
 
         /**
          * BizIdentityInfo actualActors.
-         * @member {VnameCert.BizIdentityInfo.ActualActorsType} actualActors
+         * @member {VnameCert.BizIdentityInfo.ActualActorsType|null|undefined} actualActors
          * @memberof VnameCert.BizIdentityInfo
          * @instance
          */
-        BizIdentityInfo.prototype.actualActors = 0;
+        BizIdentityInfo.prototype.actualActors = null;
 
         /**
          * BizIdentityInfo privacyModeTs.
-         * @member {number|Long} privacyModeTs
+         * @member {number|Long|null|undefined} privacyModeTs
          * @memberof VnameCert.BizIdentityInfo
          * @instance
          */
-        BizIdentityInfo.prototype.privacyModeTs = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        BizIdentityInfo.prototype.privacyModeTs = null;
 
         /**
          * BizIdentityInfo featureControls.
-         * @member {number|Long} featureControls
+         * @member {number|Long|null|undefined} featureControls
          * @memberof VnameCert.BizIdentityInfo
          * @instance
          */
-        BizIdentityInfo.prototype.featureControls = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        BizIdentityInfo.prototype.featureControls = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(BizIdentityInfo.prototype, "_vlevel", {
+            get: $util.oneOfGetter($oneOfFields = ["vlevel"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(BizIdentityInfo.prototype, "_vnameCert", {
+            get: $util.oneOfGetter($oneOfFields = ["vnameCert"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(BizIdentityInfo.prototype, "_signed", {
+            get: $util.oneOfGetter($oneOfFields = ["signed"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(BizIdentityInfo.prototype, "_revoked", {
+            get: $util.oneOfGetter($oneOfFields = ["revoked"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(BizIdentityInfo.prototype, "_hostStorage", {
+            get: $util.oneOfGetter($oneOfFields = ["hostStorage"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(BizIdentityInfo.prototype, "_actualActors", {
+            get: $util.oneOfGetter($oneOfFields = ["actualActors"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(BizIdentityInfo.prototype, "_privacyModeTs", {
+            get: $util.oneOfGetter($oneOfFields = ["privacyModeTs"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(BizIdentityInfo.prototype, "_featureControls", {
+            get: $util.oneOfGetter($oneOfFields = ["featureControls"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new BizIdentityInfo instance using the specified properties.
@@ -180,14 +231,12 @@ $root.VnameCert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BizIdentityInfo.decode = function decode(reader, length, error) {
+        BizIdentityInfo.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.VnameCert.BizIdentityInfo();
             while (reader.pos < end) {
                 var tag = reader.uint32();
-                if (tag === error)
-                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.vlevel = reader.int32();
@@ -256,7 +305,9 @@ $root.VnameCert = (function() {
         BizIdentityInfo.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.vlevel != null && message.hasOwnProperty("vlevel"))
+            var properties = {};
+            if (message.vlevel != null && message.hasOwnProperty("vlevel")) {
+                properties._vlevel = 1;
                 switch (message.vlevel) {
                 default:
                     return "vlevel: enum value expected";
@@ -265,18 +316,27 @@ $root.VnameCert = (function() {
                 case 2:
                     break;
                 }
-            if (message.vnameCert != null && message.hasOwnProperty("vnameCert")) {
-                var error = $root.VnameCert.VerifiedNameCertificate.verify(message.vnameCert);
-                if (error)
-                    return "vnameCert." + error;
             }
-            if (message.signed != null && message.hasOwnProperty("signed"))
+            if (message.vnameCert != null && message.hasOwnProperty("vnameCert")) {
+                properties._vnameCert = 1;
+                {
+                    var error = $root.VnameCert.VerifiedNameCertificate.verify(message.vnameCert);
+                    if (error)
+                        return "vnameCert." + error;
+                }
+            }
+            if (message.signed != null && message.hasOwnProperty("signed")) {
+                properties._signed = 1;
                 if (typeof message.signed !== "boolean")
                     return "signed: boolean expected";
-            if (message.revoked != null && message.hasOwnProperty("revoked"))
+            }
+            if (message.revoked != null && message.hasOwnProperty("revoked")) {
+                properties._revoked = 1;
                 if (typeof message.revoked !== "boolean")
                     return "revoked: boolean expected";
-            if (message.hostStorage != null && message.hasOwnProperty("hostStorage"))
+            }
+            if (message.hostStorage != null && message.hasOwnProperty("hostStorage")) {
+                properties._hostStorage = 1;
                 switch (message.hostStorage) {
                 default:
                     return "hostStorage: enum value expected";
@@ -284,7 +344,9 @@ $root.VnameCert = (function() {
                 case 1:
                     break;
                 }
-            if (message.actualActors != null && message.hasOwnProperty("actualActors"))
+            }
+            if (message.actualActors != null && message.hasOwnProperty("actualActors")) {
+                properties._actualActors = 1;
                 switch (message.actualActors) {
                 default:
                     return "actualActors: enum value expected";
@@ -292,12 +354,17 @@ $root.VnameCert = (function() {
                 case 1:
                     break;
                 }
-            if (message.privacyModeTs != null && message.hasOwnProperty("privacyModeTs"))
+            }
+            if (message.privacyModeTs != null && message.hasOwnProperty("privacyModeTs")) {
+                properties._privacyModeTs = 1;
                 if (!$util.isInteger(message.privacyModeTs) && !(message.privacyModeTs && $util.isInteger(message.privacyModeTs.low) && $util.isInteger(message.privacyModeTs.high)))
                     return "privacyModeTs: integer|Long expected";
-            if (message.featureControls != null && message.hasOwnProperty("featureControls"))
+            }
+            if (message.featureControls != null && message.hasOwnProperty("featureControls")) {
+                properties._featureControls = 1;
                 if (!$util.isInteger(message.featureControls) && !(message.featureControls && $util.isInteger(message.featureControls.low) && $util.isInteger(message.featureControls.high)))
                     return "featureControls: integer|Long expected";
+            }
             return null;
         };
 
@@ -408,46 +475,52 @@ $root.VnameCert = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults) {
-                object.vlevel = options.enums === String ? "UNKNOWN" : 0;
-                object.vnameCert = null;
-                object.signed = false;
-                object.revoked = false;
-                object.hostStorage = options.enums === String ? "ON_PREMISE" : 0;
-                object.actualActors = options.enums === String ? "SELF" : 0;
-                if ($util.Long) {
-                    var long = new $util.Long(0, 0, true);
-                    object.privacyModeTs = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                } else
-                    object.privacyModeTs = options.longs === String ? "0" : 0;
-                if ($util.Long) {
-                    var long = new $util.Long(0, 0, true);
-                    object.featureControls = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                } else
-                    object.featureControls = options.longs === String ? "0" : 0;
-            }
-            if (message.vlevel != null && message.hasOwnProperty("vlevel"))
+            if (message.vlevel != null && message.hasOwnProperty("vlevel")) {
                 object.vlevel = options.enums === String ? $root.VnameCert.BizIdentityInfo.VerifiedLevelValue[message.vlevel] === undefined ? message.vlevel : $root.VnameCert.BizIdentityInfo.VerifiedLevelValue[message.vlevel] : message.vlevel;
-            if (message.vnameCert != null && message.hasOwnProperty("vnameCert"))
+                if (options.oneofs)
+                    object._vlevel = "vlevel";
+            }
+            if (message.vnameCert != null && message.hasOwnProperty("vnameCert")) {
                 object.vnameCert = $root.VnameCert.VerifiedNameCertificate.toObject(message.vnameCert, options);
-            if (message.signed != null && message.hasOwnProperty("signed"))
+                if (options.oneofs)
+                    object._vnameCert = "vnameCert";
+            }
+            if (message.signed != null && message.hasOwnProperty("signed")) {
                 object.signed = message.signed;
-            if (message.revoked != null && message.hasOwnProperty("revoked"))
+                if (options.oneofs)
+                    object._signed = "signed";
+            }
+            if (message.revoked != null && message.hasOwnProperty("revoked")) {
                 object.revoked = message.revoked;
-            if (message.hostStorage != null && message.hasOwnProperty("hostStorage"))
+                if (options.oneofs)
+                    object._revoked = "revoked";
+            }
+            if (message.hostStorage != null && message.hasOwnProperty("hostStorage")) {
                 object.hostStorage = options.enums === String ? $root.VnameCert.BizIdentityInfo.HostStorageType[message.hostStorage] === undefined ? message.hostStorage : $root.VnameCert.BizIdentityInfo.HostStorageType[message.hostStorage] : message.hostStorage;
-            if (message.actualActors != null && message.hasOwnProperty("actualActors"))
+                if (options.oneofs)
+                    object._hostStorage = "hostStorage";
+            }
+            if (message.actualActors != null && message.hasOwnProperty("actualActors")) {
                 object.actualActors = options.enums === String ? $root.VnameCert.BizIdentityInfo.ActualActorsType[message.actualActors] === undefined ? message.actualActors : $root.VnameCert.BizIdentityInfo.ActualActorsType[message.actualActors] : message.actualActors;
-            if (message.privacyModeTs != null && message.hasOwnProperty("privacyModeTs"))
+                if (options.oneofs)
+                    object._actualActors = "actualActors";
+            }
+            if (message.privacyModeTs != null && message.hasOwnProperty("privacyModeTs")) {
                 if (typeof message.privacyModeTs === "number")
                     object.privacyModeTs = options.longs === String ? String(message.privacyModeTs) : message.privacyModeTs;
                 else
                     object.privacyModeTs = options.longs === String ? $util.Long.prototype.toString.call(message.privacyModeTs) : options.longs === Number ? new $util.LongBits(message.privacyModeTs.low >>> 0, message.privacyModeTs.high >>> 0).toNumber(true) : message.privacyModeTs;
-            if (message.featureControls != null && message.hasOwnProperty("featureControls"))
+                if (options.oneofs)
+                    object._privacyModeTs = "privacyModeTs";
+            }
+            if (message.featureControls != null && message.hasOwnProperty("featureControls")) {
                 if (typeof message.featureControls === "number")
                     object.featureControls = options.longs === String ? String(message.featureControls) : message.featureControls;
                 else
                     object.featureControls = options.longs === String ? $util.Long.prototype.toString.call(message.featureControls) : options.longs === Number ? new $util.LongBits(message.featureControls.low >>> 0, message.featureControls.high >>> 0).toNumber(true) : message.featureControls;
+                if (options.oneofs)
+                    object._featureControls = "featureControls";
+            }
             return object;
         };
 
@@ -554,43 +627,76 @@ $root.VnameCert = (function() {
 
         /**
          * BizAccountLinkInfo whatsappBizAcctFbid.
-         * @member {number|Long} whatsappBizAcctFbid
+         * @member {number|Long|null|undefined} whatsappBizAcctFbid
          * @memberof VnameCert.BizAccountLinkInfo
          * @instance
          */
-        BizAccountLinkInfo.prototype.whatsappBizAcctFbid = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        BizAccountLinkInfo.prototype.whatsappBizAcctFbid = null;
 
         /**
          * BizAccountLinkInfo whatsappAcctNumber.
-         * @member {string} whatsappAcctNumber
+         * @member {string|null|undefined} whatsappAcctNumber
          * @memberof VnameCert.BizAccountLinkInfo
          * @instance
          */
-        BizAccountLinkInfo.prototype.whatsappAcctNumber = "";
+        BizAccountLinkInfo.prototype.whatsappAcctNumber = null;
 
         /**
          * BizAccountLinkInfo issueTime.
-         * @member {number|Long} issueTime
+         * @member {number|Long|null|undefined} issueTime
          * @memberof VnameCert.BizAccountLinkInfo
          * @instance
          */
-        BizAccountLinkInfo.prototype.issueTime = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        BizAccountLinkInfo.prototype.issueTime = null;
 
         /**
          * BizAccountLinkInfo hostStorage.
-         * @member {VnameCert.BizAccountLinkInfo.HostStorageType} hostStorage
+         * @member {VnameCert.BizAccountLinkInfo.HostStorageType|null|undefined} hostStorage
          * @memberof VnameCert.BizAccountLinkInfo
          * @instance
          */
-        BizAccountLinkInfo.prototype.hostStorage = 0;
+        BizAccountLinkInfo.prototype.hostStorage = null;
 
         /**
          * BizAccountLinkInfo accountType.
-         * @member {VnameCert.BizAccountLinkInfo.AccountType} accountType
+         * @member {VnameCert.BizAccountLinkInfo.AccountType|null|undefined} accountType
          * @memberof VnameCert.BizAccountLinkInfo
          * @instance
          */
-        BizAccountLinkInfo.prototype.accountType = 0;
+        BizAccountLinkInfo.prototype.accountType = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(BizAccountLinkInfo.prototype, "_whatsappBizAcctFbid", {
+            get: $util.oneOfGetter($oneOfFields = ["whatsappBizAcctFbid"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(BizAccountLinkInfo.prototype, "_whatsappAcctNumber", {
+            get: $util.oneOfGetter($oneOfFields = ["whatsappAcctNumber"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(BizAccountLinkInfo.prototype, "_issueTime", {
+            get: $util.oneOfGetter($oneOfFields = ["issueTime"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(BizAccountLinkInfo.prototype, "_hostStorage", {
+            get: $util.oneOfGetter($oneOfFields = ["hostStorage"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(BizAccountLinkInfo.prototype, "_accountType", {
+            get: $util.oneOfGetter($oneOfFields = ["accountType"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new BizAccountLinkInfo instance using the specified properties.
@@ -653,14 +759,12 @@ $root.VnameCert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BizAccountLinkInfo.decode = function decode(reader, length, error) {
+        BizAccountLinkInfo.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.VnameCert.BizAccountLinkInfo();
             while (reader.pos < end) {
                 var tag = reader.uint32();
-                if (tag === error)
-                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.whatsappBizAcctFbid = reader.uint64();
@@ -717,16 +821,24 @@ $root.VnameCert = (function() {
         BizAccountLinkInfo.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.whatsappBizAcctFbid != null && message.hasOwnProperty("whatsappBizAcctFbid"))
+            var properties = {};
+            if (message.whatsappBizAcctFbid != null && message.hasOwnProperty("whatsappBizAcctFbid")) {
+                properties._whatsappBizAcctFbid = 1;
                 if (!$util.isInteger(message.whatsappBizAcctFbid) && !(message.whatsappBizAcctFbid && $util.isInteger(message.whatsappBizAcctFbid.low) && $util.isInteger(message.whatsappBizAcctFbid.high)))
                     return "whatsappBizAcctFbid: integer|Long expected";
-            if (message.whatsappAcctNumber != null && message.hasOwnProperty("whatsappAcctNumber"))
+            }
+            if (message.whatsappAcctNumber != null && message.hasOwnProperty("whatsappAcctNumber")) {
+                properties._whatsappAcctNumber = 1;
                 if (!$util.isString(message.whatsappAcctNumber))
                     return "whatsappAcctNumber: string expected";
-            if (message.issueTime != null && message.hasOwnProperty("issueTime"))
+            }
+            if (message.issueTime != null && message.hasOwnProperty("issueTime")) {
+                properties._issueTime = 1;
                 if (!$util.isInteger(message.issueTime) && !(message.issueTime && $util.isInteger(message.issueTime.low) && $util.isInteger(message.issueTime.high)))
                     return "issueTime: integer|Long expected";
-            if (message.hostStorage != null && message.hasOwnProperty("hostStorage"))
+            }
+            if (message.hostStorage != null && message.hasOwnProperty("hostStorage")) {
+                properties._hostStorage = 1;
                 switch (message.hostStorage) {
                 default:
                     return "hostStorage: enum value expected";
@@ -734,13 +846,16 @@ $root.VnameCert = (function() {
                 case 1:
                     break;
                 }
-            if (message.accountType != null && message.hasOwnProperty("accountType"))
+            }
+            if (message.accountType != null && message.hasOwnProperty("accountType")) {
+                properties._accountType = 1;
                 switch (message.accountType) {
                 default:
                     return "accountType: enum value expected";
                 case 0:
                     break;
                 }
+            }
             return null;
         };
 
@@ -820,37 +935,37 @@ $root.VnameCert = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults) {
-                if ($util.Long) {
-                    var long = new $util.Long(0, 0, true);
-                    object.whatsappBizAcctFbid = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                } else
-                    object.whatsappBizAcctFbid = options.longs === String ? "0" : 0;
-                object.whatsappAcctNumber = "";
-                if ($util.Long) {
-                    var long = new $util.Long(0, 0, true);
-                    object.issueTime = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                } else
-                    object.issueTime = options.longs === String ? "0" : 0;
-                object.hostStorage = options.enums === String ? "ON_PREMISE" : 0;
-                object.accountType = options.enums === String ? "ENTERPRISE" : 0;
-            }
-            if (message.whatsappBizAcctFbid != null && message.hasOwnProperty("whatsappBizAcctFbid"))
+            if (message.whatsappBizAcctFbid != null && message.hasOwnProperty("whatsappBizAcctFbid")) {
                 if (typeof message.whatsappBizAcctFbid === "number")
                     object.whatsappBizAcctFbid = options.longs === String ? String(message.whatsappBizAcctFbid) : message.whatsappBizAcctFbid;
                 else
                     object.whatsappBizAcctFbid = options.longs === String ? $util.Long.prototype.toString.call(message.whatsappBizAcctFbid) : options.longs === Number ? new $util.LongBits(message.whatsappBizAcctFbid.low >>> 0, message.whatsappBizAcctFbid.high >>> 0).toNumber(true) : message.whatsappBizAcctFbid;
-            if (message.whatsappAcctNumber != null && message.hasOwnProperty("whatsappAcctNumber"))
+                if (options.oneofs)
+                    object._whatsappBizAcctFbid = "whatsappBizAcctFbid";
+            }
+            if (message.whatsappAcctNumber != null && message.hasOwnProperty("whatsappAcctNumber")) {
                 object.whatsappAcctNumber = message.whatsappAcctNumber;
-            if (message.issueTime != null && message.hasOwnProperty("issueTime"))
+                if (options.oneofs)
+                    object._whatsappAcctNumber = "whatsappAcctNumber";
+            }
+            if (message.issueTime != null && message.hasOwnProperty("issueTime")) {
                 if (typeof message.issueTime === "number")
                     object.issueTime = options.longs === String ? String(message.issueTime) : message.issueTime;
                 else
                     object.issueTime = options.longs === String ? $util.Long.prototype.toString.call(message.issueTime) : options.longs === Number ? new $util.LongBits(message.issueTime.low >>> 0, message.issueTime.high >>> 0).toNumber(true) : message.issueTime;
-            if (message.hostStorage != null && message.hasOwnProperty("hostStorage"))
+                if (options.oneofs)
+                    object._issueTime = "issueTime";
+            }
+            if (message.hostStorage != null && message.hasOwnProperty("hostStorage")) {
                 object.hostStorage = options.enums === String ? $root.VnameCert.BizAccountLinkInfo.HostStorageType[message.hostStorage] === undefined ? message.hostStorage : $root.VnameCert.BizAccountLinkInfo.HostStorageType[message.hostStorage] : message.hostStorage;
-            if (message.accountType != null && message.hasOwnProperty("accountType"))
+                if (options.oneofs)
+                    object._hostStorage = "hostStorage";
+            }
+            if (message.accountType != null && message.hasOwnProperty("accountType")) {
                 object.accountType = options.enums === String ? $root.VnameCert.BizAccountLinkInfo.AccountType[message.accountType] === undefined ? message.accountType : $root.VnameCert.BizAccountLinkInfo.AccountType[message.accountType] : message.accountType;
+                if (options.oneofs)
+                    object._accountType = "accountType";
+            }
             return object;
         };
 
@@ -944,11 +1059,26 @@ $root.VnameCert = (function() {
 
         /**
          * BizAccountPayload bizAcctLinkInfo.
-         * @member {Uint8Array} bizAcctLinkInfo
+         * @member {Uint8Array|null|undefined} bizAcctLinkInfo
          * @memberof VnameCert.BizAccountPayload
          * @instance
          */
-        BizAccountPayload.prototype.bizAcctLinkInfo = $util.newBuffer([]);
+        BizAccountPayload.prototype.bizAcctLinkInfo = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(BizAccountPayload.prototype, "_vnameCert", {
+            get: $util.oneOfGetter($oneOfFields = ["vnameCert"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(BizAccountPayload.prototype, "_bizAcctLinkInfo", {
+            get: $util.oneOfGetter($oneOfFields = ["bizAcctLinkInfo"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new BizAccountPayload instance using the specified properties.
@@ -1005,14 +1135,12 @@ $root.VnameCert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BizAccountPayload.decode = function decode(reader, length, error) {
+        BizAccountPayload.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.VnameCert.BizAccountPayload();
             while (reader.pos < end) {
                 var tag = reader.uint32();
-                if (tag === error)
-                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.vnameCert = $root.VnameCert.VerifiedNameCertificate.decode(reader, reader.uint32());
@@ -1057,14 +1185,20 @@ $root.VnameCert = (function() {
         BizAccountPayload.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            var properties = {};
             if (message.vnameCert != null && message.hasOwnProperty("vnameCert")) {
-                var error = $root.VnameCert.VerifiedNameCertificate.verify(message.vnameCert);
-                if (error)
-                    return "vnameCert." + error;
+                properties._vnameCert = 1;
+                {
+                    var error = $root.VnameCert.VerifiedNameCertificate.verify(message.vnameCert);
+                    if (error)
+                        return "vnameCert." + error;
+                }
             }
-            if (message.bizAcctLinkInfo != null && message.hasOwnProperty("bizAcctLinkInfo"))
+            if (message.bizAcctLinkInfo != null && message.hasOwnProperty("bizAcctLinkInfo")) {
+                properties._bizAcctLinkInfo = 1;
                 if (!(message.bizAcctLinkInfo && typeof message.bizAcctLinkInfo.length === "number" || $util.isString(message.bizAcctLinkInfo)))
                     return "bizAcctLinkInfo: buffer expected";
+            }
             return null;
         };
 
@@ -1106,20 +1240,16 @@ $root.VnameCert = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults) {
-                object.vnameCert = null;
-                if (options.bytes === String)
-                    object.bizAcctLinkInfo = "";
-                else {
-                    object.bizAcctLinkInfo = [];
-                    if (options.bytes !== Array)
-                        object.bizAcctLinkInfo = $util.newBuffer(object.bizAcctLinkInfo);
-                }
-            }
-            if (message.vnameCert != null && message.hasOwnProperty("vnameCert"))
+            if (message.vnameCert != null && message.hasOwnProperty("vnameCert")) {
                 object.vnameCert = $root.VnameCert.VerifiedNameCertificate.toObject(message.vnameCert, options);
-            if (message.bizAcctLinkInfo != null && message.hasOwnProperty("bizAcctLinkInfo"))
+                if (options.oneofs)
+                    object._vnameCert = "vnameCert";
+            }
+            if (message.bizAcctLinkInfo != null && message.hasOwnProperty("bizAcctLinkInfo")) {
                 object.bizAcctLinkInfo = options.bytes === String ? $util.base64.encode(message.bizAcctLinkInfo, 0, message.bizAcctLinkInfo.length) : options.bytes === Array ? Array.prototype.slice.call(message.bizAcctLinkInfo) : message.bizAcctLinkInfo;
+                if (options.oneofs)
+                    object._bizAcctLinkInfo = "bizAcctLinkInfo";
+            }
             return object;
         };
 
@@ -1180,27 +1310,48 @@ $root.VnameCert = (function() {
 
         /**
          * VerifiedNameCertificate details.
-         * @member {Uint8Array} details
+         * @member {Uint8Array|null|undefined} details
          * @memberof VnameCert.VerifiedNameCertificate
          * @instance
          */
-        VerifiedNameCertificate.prototype.details = $util.newBuffer([]);
+        VerifiedNameCertificate.prototype.details = null;
 
         /**
          * VerifiedNameCertificate signature.
-         * @member {Uint8Array} signature
+         * @member {Uint8Array|null|undefined} signature
          * @memberof VnameCert.VerifiedNameCertificate
          * @instance
          */
-        VerifiedNameCertificate.prototype.signature = $util.newBuffer([]);
+        VerifiedNameCertificate.prototype.signature = null;
 
         /**
          * VerifiedNameCertificate serverSignature.
-         * @member {Uint8Array} serverSignature
+         * @member {Uint8Array|null|undefined} serverSignature
          * @memberof VnameCert.VerifiedNameCertificate
          * @instance
          */
-        VerifiedNameCertificate.prototype.serverSignature = $util.newBuffer([]);
+        VerifiedNameCertificate.prototype.serverSignature = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(VerifiedNameCertificate.prototype, "_details", {
+            get: $util.oneOfGetter($oneOfFields = ["details"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(VerifiedNameCertificate.prototype, "_signature", {
+            get: $util.oneOfGetter($oneOfFields = ["signature"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(VerifiedNameCertificate.prototype, "_serverSignature", {
+            get: $util.oneOfGetter($oneOfFields = ["serverSignature"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new VerifiedNameCertificate instance using the specified properties.
@@ -1259,14 +1410,12 @@ $root.VnameCert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        VerifiedNameCertificate.decode = function decode(reader, length, error) {
+        VerifiedNameCertificate.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.VnameCert.VerifiedNameCertificate();
             while (reader.pos < end) {
                 var tag = reader.uint32();
-                if (tag === error)
-                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.details = reader.bytes();
@@ -1315,15 +1464,22 @@ $root.VnameCert = (function() {
         VerifiedNameCertificate.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.details != null && message.hasOwnProperty("details"))
+            var properties = {};
+            if (message.details != null && message.hasOwnProperty("details")) {
+                properties._details = 1;
                 if (!(message.details && typeof message.details.length === "number" || $util.isString(message.details)))
                     return "details: buffer expected";
-            if (message.signature != null && message.hasOwnProperty("signature"))
+            }
+            if (message.signature != null && message.hasOwnProperty("signature")) {
+                properties._signature = 1;
                 if (!(message.signature && typeof message.signature.length === "number" || $util.isString(message.signature)))
                     return "signature: buffer expected";
-            if (message.serverSignature != null && message.hasOwnProperty("serverSignature"))
+            }
+            if (message.serverSignature != null && message.hasOwnProperty("serverSignature")) {
+                properties._serverSignature = 1;
                 if (!(message.serverSignature && typeof message.serverSignature.length === "number" || $util.isString(message.serverSignature)))
                     return "serverSignature: buffer expected";
+            }
             return null;
         };
 
@@ -1370,35 +1526,21 @@ $root.VnameCert = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults) {
-                if (options.bytes === String)
-                    object.details = "";
-                else {
-                    object.details = [];
-                    if (options.bytes !== Array)
-                        object.details = $util.newBuffer(object.details);
-                }
-                if (options.bytes === String)
-                    object.signature = "";
-                else {
-                    object.signature = [];
-                    if (options.bytes !== Array)
-                        object.signature = $util.newBuffer(object.signature);
-                }
-                if (options.bytes === String)
-                    object.serverSignature = "";
-                else {
-                    object.serverSignature = [];
-                    if (options.bytes !== Array)
-                        object.serverSignature = $util.newBuffer(object.serverSignature);
-                }
-            }
-            if (message.details != null && message.hasOwnProperty("details"))
+            if (message.details != null && message.hasOwnProperty("details")) {
                 object.details = options.bytes === String ? $util.base64.encode(message.details, 0, message.details.length) : options.bytes === Array ? Array.prototype.slice.call(message.details) : message.details;
-            if (message.signature != null && message.hasOwnProperty("signature"))
+                if (options.oneofs)
+                    object._details = "details";
+            }
+            if (message.signature != null && message.hasOwnProperty("signature")) {
                 object.signature = options.bytes === String ? $util.base64.encode(message.signature, 0, message.signature.length) : options.bytes === Array ? Array.prototype.slice.call(message.signature) : message.signature;
-            if (message.serverSignature != null && message.hasOwnProperty("serverSignature"))
+                if (options.oneofs)
+                    object._signature = "signature";
+            }
+            if (message.serverSignature != null && message.hasOwnProperty("serverSignature")) {
                 object.serverSignature = options.bytes === String ? $util.base64.encode(message.serverSignature, 0, message.serverSignature.length) : options.bytes === Array ? Array.prototype.slice.call(message.serverSignature) : message.serverSignature;
+                if (options.oneofs)
+                    object._serverSignature = "serverSignature";
+            }
             return object;
         };
 
@@ -1459,27 +1601,27 @@ $root.VnameCert = (function() {
 
             /**
              * Details serial.
-             * @member {number|Long} serial
+             * @member {number|Long|null|undefined} serial
              * @memberof VnameCert.VerifiedNameCertificate.Details
              * @instance
              */
-            Details.prototype.serial = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+            Details.prototype.serial = null;
 
             /**
              * Details issuer.
-             * @member {string} issuer
+             * @member {string|null|undefined} issuer
              * @memberof VnameCert.VerifiedNameCertificate.Details
              * @instance
              */
-            Details.prototype.issuer = "";
+            Details.prototype.issuer = null;
 
             /**
              * Details verifiedName.
-             * @member {string} verifiedName
+             * @member {string|null|undefined} verifiedName
              * @memberof VnameCert.VerifiedNameCertificate.Details
              * @instance
              */
-            Details.prototype.verifiedName = "";
+            Details.prototype.verifiedName = null;
 
             /**
              * Details localizedNames.
@@ -1491,11 +1633,38 @@ $root.VnameCert = (function() {
 
             /**
              * Details issueTime.
-             * @member {number|Long} issueTime
+             * @member {number|Long|null|undefined} issueTime
              * @memberof VnameCert.VerifiedNameCertificate.Details
              * @instance
              */
-            Details.prototype.issueTime = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+            Details.prototype.issueTime = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(Details.prototype, "_serial", {
+                get: $util.oneOfGetter($oneOfFields = ["serial"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(Details.prototype, "_issuer", {
+                get: $util.oneOfGetter($oneOfFields = ["issuer"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(Details.prototype, "_verifiedName", {
+                get: $util.oneOfGetter($oneOfFields = ["verifiedName"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(Details.prototype, "_issueTime", {
+                get: $util.oneOfGetter($oneOfFields = ["issueTime"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
 
             /**
              * Creates a new Details instance using the specified properties.
@@ -1559,14 +1728,12 @@ $root.VnameCert = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Details.decode = function decode(reader, length, error) {
+            Details.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.VnameCert.VerifiedNameCertificate.Details();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.serial = reader.uint64();
@@ -1625,15 +1792,22 @@ $root.VnameCert = (function() {
             Details.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.serial != null && message.hasOwnProperty("serial"))
+                var properties = {};
+                if (message.serial != null && message.hasOwnProperty("serial")) {
+                    properties._serial = 1;
                     if (!$util.isInteger(message.serial) && !(message.serial && $util.isInteger(message.serial.low) && $util.isInteger(message.serial.high)))
                         return "serial: integer|Long expected";
-                if (message.issuer != null && message.hasOwnProperty("issuer"))
+                }
+                if (message.issuer != null && message.hasOwnProperty("issuer")) {
+                    properties._issuer = 1;
                     if (!$util.isString(message.issuer))
                         return "issuer: string expected";
-                if (message.verifiedName != null && message.hasOwnProperty("verifiedName"))
+                }
+                if (message.verifiedName != null && message.hasOwnProperty("verifiedName")) {
+                    properties._verifiedName = 1;
                     if (!$util.isString(message.verifiedName))
                         return "verifiedName: string expected";
+                }
                 if (message.localizedNames != null && message.hasOwnProperty("localizedNames")) {
                     if (!Array.isArray(message.localizedNames))
                         return "localizedNames: array expected";
@@ -1643,9 +1817,11 @@ $root.VnameCert = (function() {
                             return "localizedNames." + error;
                     }
                 }
-                if (message.issueTime != null && message.hasOwnProperty("issueTime"))
+                if (message.issueTime != null && message.hasOwnProperty("issueTime")) {
+                    properties._issueTime = 1;
                     if (!$util.isInteger(message.issueTime) && !(message.issueTime && $util.isInteger(message.issueTime.low) && $util.isInteger(message.issueTime.high)))
                         return "issueTime: integer|Long expected";
+                }
                 return null;
             };
 
@@ -1711,39 +1887,37 @@ $root.VnameCert = (function() {
                 var object = {};
                 if (options.arrays || options.defaults)
                     object.localizedNames = [];
-                if (options.defaults) {
-                    if ($util.Long) {
-                        var long = new $util.Long(0, 0, true);
-                        object.serial = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                    } else
-                        object.serial = options.longs === String ? "0" : 0;
-                    object.issuer = "";
-                    object.verifiedName = "";
-                    if ($util.Long) {
-                        var long = new $util.Long(0, 0, true);
-                        object.issueTime = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                    } else
-                        object.issueTime = options.longs === String ? "0" : 0;
-                }
-                if (message.serial != null && message.hasOwnProperty("serial"))
+                if (message.serial != null && message.hasOwnProperty("serial")) {
                     if (typeof message.serial === "number")
                         object.serial = options.longs === String ? String(message.serial) : message.serial;
                     else
                         object.serial = options.longs === String ? $util.Long.prototype.toString.call(message.serial) : options.longs === Number ? new $util.LongBits(message.serial.low >>> 0, message.serial.high >>> 0).toNumber(true) : message.serial;
-                if (message.issuer != null && message.hasOwnProperty("issuer"))
+                    if (options.oneofs)
+                        object._serial = "serial";
+                }
+                if (message.issuer != null && message.hasOwnProperty("issuer")) {
                     object.issuer = message.issuer;
-                if (message.verifiedName != null && message.hasOwnProperty("verifiedName"))
+                    if (options.oneofs)
+                        object._issuer = "issuer";
+                }
+                if (message.verifiedName != null && message.hasOwnProperty("verifiedName")) {
                     object.verifiedName = message.verifiedName;
+                    if (options.oneofs)
+                        object._verifiedName = "verifiedName";
+                }
                 if (message.localizedNames && message.localizedNames.length) {
                     object.localizedNames = [];
                     for (var j = 0; j < message.localizedNames.length; ++j)
                         object.localizedNames[j] = $root.VnameCert.LocalizedName.toObject(message.localizedNames[j], options);
                 }
-                if (message.issueTime != null && message.hasOwnProperty("issueTime"))
+                if (message.issueTime != null && message.hasOwnProperty("issueTime")) {
                     if (typeof message.issueTime === "number")
                         object.issueTime = options.longs === String ? String(message.issueTime) : message.issueTime;
                     else
                         object.issueTime = options.longs === String ? $util.Long.prototype.toString.call(message.issueTime) : options.longs === Number ? new $util.LongBits(message.issueTime.low >>> 0, message.issueTime.high >>> 0).toNumber(true) : message.issueTime;
+                    if (options.oneofs)
+                        object._issueTime = "issueTime";
+                }
                 return object;
             };
 
@@ -1807,27 +1981,48 @@ $root.VnameCert = (function() {
 
         /**
          * LocalizedName lg.
-         * @member {string} lg
+         * @member {string|null|undefined} lg
          * @memberof VnameCert.LocalizedName
          * @instance
          */
-        LocalizedName.prototype.lg = "";
+        LocalizedName.prototype.lg = null;
 
         /**
          * LocalizedName lc.
-         * @member {string} lc
+         * @member {string|null|undefined} lc
          * @memberof VnameCert.LocalizedName
          * @instance
          */
-        LocalizedName.prototype.lc = "";
+        LocalizedName.prototype.lc = null;
 
         /**
          * LocalizedName verifiedName.
-         * @member {string} verifiedName
+         * @member {string|null|undefined} verifiedName
          * @memberof VnameCert.LocalizedName
          * @instance
          */
-        LocalizedName.prototype.verifiedName = "";
+        LocalizedName.prototype.verifiedName = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(LocalizedName.prototype, "_lg", {
+            get: $util.oneOfGetter($oneOfFields = ["lg"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(LocalizedName.prototype, "_lc", {
+            get: $util.oneOfGetter($oneOfFields = ["lc"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(LocalizedName.prototype, "_verifiedName", {
+            get: $util.oneOfGetter($oneOfFields = ["verifiedName"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new LocalizedName instance using the specified properties.
@@ -1886,14 +2081,12 @@ $root.VnameCert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        LocalizedName.decode = function decode(reader, length, error) {
+        LocalizedName.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.VnameCert.LocalizedName();
             while (reader.pos < end) {
                 var tag = reader.uint32();
-                if (tag === error)
-                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.lg = reader.string();
@@ -1942,15 +2135,22 @@ $root.VnameCert = (function() {
         LocalizedName.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.lg != null && message.hasOwnProperty("lg"))
+            var properties = {};
+            if (message.lg != null && message.hasOwnProperty("lg")) {
+                properties._lg = 1;
                 if (!$util.isString(message.lg))
                     return "lg: string expected";
-            if (message.lc != null && message.hasOwnProperty("lc"))
+            }
+            if (message.lc != null && message.hasOwnProperty("lc")) {
+                properties._lc = 1;
                 if (!$util.isString(message.lc))
                     return "lc: string expected";
-            if (message.verifiedName != null && message.hasOwnProperty("verifiedName"))
+            }
+            if (message.verifiedName != null && message.hasOwnProperty("verifiedName")) {
+                properties._verifiedName = 1;
                 if (!$util.isString(message.verifiedName))
                     return "verifiedName: string expected";
+            }
             return null;
         };
 
@@ -1988,17 +2188,21 @@ $root.VnameCert = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults) {
-                object.lg = "";
-                object.lc = "";
-                object.verifiedName = "";
-            }
-            if (message.lg != null && message.hasOwnProperty("lg"))
+            if (message.lg != null && message.hasOwnProperty("lg")) {
                 object.lg = message.lg;
-            if (message.lc != null && message.hasOwnProperty("lc"))
+                if (options.oneofs)
+                    object._lg = "lg";
+            }
+            if (message.lc != null && message.hasOwnProperty("lc")) {
                 object.lc = message.lc;
-            if (message.verifiedName != null && message.hasOwnProperty("verifiedName"))
+                if (options.oneofs)
+                    object._lc = "lc";
+            }
+            if (message.verifiedName != null && message.hasOwnProperty("verifiedName")) {
                 object.verifiedName = message.verifiedName;
+                if (options.oneofs)
+                    object._verifiedName = "verifiedName";
+            }
             return object;
         };
 

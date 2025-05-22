@@ -49,7 +49,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
          * @instance
          */
         ChatRowOpaqueData.prototype.draftMessage = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -304,7 +304,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
              * @instance
              */
             DraftMessage.prototype.timestamp = null;
-            
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -665,7 +665,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
 
                 /**
                  * CtwaContextData sourceId.
-                 * @member {string} sourceId
+                 * @member {string|null|undefined} sourceId
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
                  * @instance
                  */
@@ -709,7 +709,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
                  * @instance
                  */
-                CtwaContextData.prototype.thumbnailUrl =null;
+                CtwaContextData.prototype.thumbnailUrl = null;
 
                 /**
                  * CtwaContextData mediaType.
@@ -734,7 +734,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @instance
                  */
                 CtwaContextData.prototype.isSuspiciousLink = null;
-                
+
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
@@ -1284,7 +1284,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @instance
                  */
                 CtwaContextLinkData.prototype.phone = null;
-                
+
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 

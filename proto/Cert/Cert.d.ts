@@ -128,10 +128,10 @@ export namespace Cert {
             constructor(properties?: Cert.CertChain.INoiseCertificate);
 
             /** NoiseCertificate details. */
-            public details: Uint8Array;
+            public details?: (Uint8Array|null);
 
             /** NoiseCertificate signature. */
-            public signature: Uint8Array;
+            public signature?: (Uint8Array|null);
 
             /**
              * Creates a new NoiseCertificate instance using the specified properties.

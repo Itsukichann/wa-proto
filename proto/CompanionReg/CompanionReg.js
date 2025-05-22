@@ -58,7 +58,7 @@ $root.CompanionReg = (function() {
          * @instance
          */
         ClientPairingProps.prototype.isSyncdPureLidSession = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -307,7 +307,7 @@ $root.CompanionReg = (function() {
          * @instance
          */
         EncryptedPairingRequest.prototype.iv = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -571,7 +571,7 @@ $root.CompanionReg = (function() {
          * @instance
          */
         PairingRequest.prototype.advSecret = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -854,6 +854,21 @@ $root.CompanionReg = (function() {
          */
         PrimaryEphemeralIdentity.prototype.nonce = null;
 
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(PrimaryEphemeralIdentity.prototype, "_publicKey", {
+            get: $util.oneOfGetter($oneOfFields = ["publicKey"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(PrimaryEphemeralIdentity.prototype, "_nonce", {
+            get: $util.oneOfGetter($oneOfFields = ["nonce"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new PrimaryEphemeralIdentity instance using the specified properties.
          * @function create
@@ -1093,7 +1108,7 @@ $root.CompanionReg = (function() {
          * @instance
          */
         ProloguePayload.prototype.commitment = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -1342,7 +1357,7 @@ $root.CompanionReg = (function() {
          * @instance
          */
         CompanionCommitment.prototype.hash = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -1579,7 +1594,7 @@ $root.CompanionReg = (function() {
          * @instance
          */
         CompanionEphemeralIdentity.prototype.ref = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -2016,7 +2031,7 @@ $root.CompanionReg = (function() {
          * @instance
          */
         DeviceProps.prototype.historySyncConfig = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -2482,7 +2497,7 @@ $root.CompanionReg = (function() {
              * @memberof CompanionReg.DeviceProps.AppVersion
              * @instance
              */
-            AppVersion.prototype.secondary = null; 
+            AppVersion.prototype.secondary = null;
 
             /**
              * AppVersion tertiary.
@@ -2507,7 +2522,7 @@ $root.CompanionReg = (function() {
              * @instance
              */
             AppVersion.prototype.quinary = null;
-            
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -2936,7 +2951,7 @@ $root.CompanionReg = (function() {
              * @instance
              */
             HistorySyncConfig.prototype.supportMessageAssociation = null;
-            
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 

@@ -86,7 +86,7 @@ $root.Reporting = (function() {
          * @instance
          */
         Field.prototype.subfield = $util.emptyObject;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -444,7 +444,7 @@ $root.Reporting = (function() {
          * @instance
          */
         Config.prototype.version = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -747,7 +747,7 @@ $root.Reporting = (function() {
          * @instance
          */
         Reportable.prototype.never = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 

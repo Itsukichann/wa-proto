@@ -504,22 +504,22 @@ export namespace ServerSync {
         constructor(properties?: ServerSync.IExternalBlobReference);
 
         /** ExternalBlobReference mediaKey. */
-        public mediaKey: Uint8Array;
+        public mediaKey?: (Uint8Array|null);
 
         /** ExternalBlobReference directPath. */
-        public directPath: string;
+        public directPath?: (string|null);
 
         /** ExternalBlobReference handle. */
-        public handle: string;
+        public handle?: (string|null);
 
         /** ExternalBlobReference fileSizeBytes. */
-        public fileSizeBytes: (number|Long);
+        public fileSizeBytes?: (number|Long|null);
 
         /** ExternalBlobReference fileSha256. */
-        public fileSha256: Uint8Array;
+        public fileSha256?: (Uint8Array|null);
 
         /** ExternalBlobReference fileEncSha256. */
-        public fileEncSha256: Uint8Array;
+        public fileEncSha256?: (Uint8Array|null);
 
         /**
          * Creates a new ExternalBlobReference instance using the specified properties.
@@ -1019,10 +1019,10 @@ export namespace ServerSync {
         constructor(properties?: ServerSync.IExitCode);
 
         /** ExitCode code. */
-        public code: (number|Long);
+        public code?: (number|Long|null);
 
         /** ExitCode text. */
-        public text: string;
+        public text?: (string|null);
 
         /**
          * Creates a new ExitCode instance using the specified properties.

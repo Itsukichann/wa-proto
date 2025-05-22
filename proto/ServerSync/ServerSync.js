@@ -122,7 +122,7 @@ $root.ServerSync = (function() {
          * @instance
          */
         SyncdPatch.prototype.clientDebugData = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -583,7 +583,7 @@ $root.ServerSync = (function() {
          * @instance
          */
         SyncdMutation.prototype.record = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -1114,7 +1114,7 @@ $root.ServerSync = (function() {
          * @instance
          */
         SyncdSnapshot.prototype.keyId = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -1473,7 +1473,7 @@ $root.ServerSync = (function() {
          * @instance
          */
         ExternalBlobReference.prototype.fileEncSha256 = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -1846,7 +1846,7 @@ $root.ServerSync = (function() {
          * @instance
          */
         SyncdRecord.prototype.keyId = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -2066,7 +2066,7 @@ $root.ServerSync = (function() {
                     object._keyId = "keyId";
             }
             return object;
-        }; 
+        };
 
         /**
          * Converts this SyncdRecord to JSON.
@@ -2128,7 +2128,7 @@ $root.ServerSync = (function() {
          * @instance
          */
         KeyId.prototype.id = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -2347,7 +2347,7 @@ $root.ServerSync = (function() {
          * @instance
          */
         SyncdValue.prototype.blob = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -2410,7 +2410,7 @@ $root.ServerSync = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SyncdValue.decode = function decode(reader, length, error) {
+        SyncdValue.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ServerSync.SyncdValue();
@@ -2566,7 +2566,7 @@ $root.ServerSync = (function() {
          * @instance
          */
         SyncdIndex.prototype.blob = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -2794,7 +2794,7 @@ $root.ServerSync = (function() {
          * @instance
          */
         ExitCode.prototype.text = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -3044,7 +3044,7 @@ $root.ServerSync = (function() {
          * @instance
          */
         SyncdVersion.prototype.version = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 

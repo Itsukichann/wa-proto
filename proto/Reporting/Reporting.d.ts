@@ -147,7 +147,7 @@ export namespace Reporting {
         public field: { [k: string]: Reporting.IField };
 
         /** Config version. */
-        public version: number;
+        public version?: (number|null);
 
         /**
          * Creates a new Config instance using the specified properties.

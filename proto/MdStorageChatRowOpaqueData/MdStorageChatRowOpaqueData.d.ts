@@ -300,7 +300,7 @@ export namespace MdStorageChatRowOpaqueData {
 
                 /** CtwaContextData thumbnailUrl. */
                 public thumbnailUrl?: (string|null);
-                
+
                 /** CtwaContextData mediaType. */
                 public mediaType?: (MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.ContextInfoExternalAdReplyInfoMediaType|null);
 
@@ -309,7 +309,7 @@ export namespace MdStorageChatRowOpaqueData {
 
                 /** CtwaContextData isSuspiciousLink. */
                 public isSuspiciousLink?: (boolean|null);
-                
+
                 /**
                  * Creates a new CtwaContextData instance using the specified properties.
                  * @param [properties] Properties to set
@@ -434,7 +434,7 @@ export namespace MdStorageChatRowOpaqueData {
 
                 /** CtwaContextLinkData phone. */
                 public phone?: (string|null);
-                
+
                 /**
                  * Creates a new CtwaContextLinkData instance using the specified properties.
                  * @param [properties] Properties to set

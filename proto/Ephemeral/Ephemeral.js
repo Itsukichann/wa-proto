@@ -58,7 +58,7 @@ $root.Ephemeral = (function() {
          * @instance
          */
         EphemeralSetting.prototype.timestamp = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 

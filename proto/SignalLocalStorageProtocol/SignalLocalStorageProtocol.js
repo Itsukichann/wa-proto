@@ -105,14 +105,12 @@ $root.SignalLocalStorageProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SenderKeyRecordStructure.decode = function decode(reader, length, error) {
+        SenderKeyRecordStructure.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SenderKeyRecordStructure();
             while (reader.pos < end) {
                 var tag = reader.uint32();
-                if (tag === error)
-                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         if (!(message.senderKeyStates && message.senderKeyStates.length))
@@ -274,11 +272,11 @@ $root.SignalLocalStorageProtocol = (function() {
 
         /**
          * SenderKeyStateStructure senderKeyId.
-         * @member {number} senderKeyId
+         * @member {number|null|undefined} senderKeyId
          * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure
          * @instance
          */
-        SenderKeyStateStructure.prototype.senderKeyId = 0;
+        SenderKeyStateStructure.prototype.senderKeyId = null;
 
         /**
          * SenderKeyStateStructure senderChainKey.
@@ -303,6 +301,27 @@ $root.SignalLocalStorageProtocol = (function() {
          * @instance
          */
         SenderKeyStateStructure.prototype.senderMessageKeys = $util.emptyArray;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(SenderKeyStateStructure.prototype, "_senderKeyId", {
+            get: $util.oneOfGetter($oneOfFields = ["senderKeyId"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(SenderKeyStateStructure.prototype, "_senderChainKey", {
+            get: $util.oneOfGetter($oneOfFields = ["senderChainKey"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(SenderKeyStateStructure.prototype, "_senderSigningKey", {
+            get: $util.oneOfGetter($oneOfFields = ["senderSigningKey"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new SenderKeyStateStructure instance using the specified properties.
@@ -364,14 +383,12 @@ $root.SignalLocalStorageProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SenderKeyStateStructure.decode = function decode(reader, length, error) {
+        SenderKeyStateStructure.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SenderKeyStateStructure();
             while (reader.pos < end) {
                 var tag = reader.uint32();
-                if (tag === error)
-                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.senderKeyId = reader.uint32();
@@ -426,18 +443,27 @@ $root.SignalLocalStorageProtocol = (function() {
         SenderKeyStateStructure.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.senderKeyId != null && message.hasOwnProperty("senderKeyId"))
+            var properties = {};
+            if (message.senderKeyId != null && message.hasOwnProperty("senderKeyId")) {
+                properties._senderKeyId = 1;
                 if (!$util.isInteger(message.senderKeyId))
                     return "senderKeyId: integer expected";
+            }
             if (message.senderChainKey != null && message.hasOwnProperty("senderChainKey")) {
-                var error = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.verify(message.senderChainKey);
-                if (error)
-                    return "senderChainKey." + error;
+                properties._senderChainKey = 1;
+                {
+                    var error = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.verify(message.senderChainKey);
+                    if (error)
+                        return "senderChainKey." + error;
+                }
             }
             if (message.senderSigningKey != null && message.hasOwnProperty("senderSigningKey")) {
-                var error = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.verify(message.senderSigningKey);
-                if (error)
-                    return "senderSigningKey." + error;
+                properties._senderSigningKey = 1;
+                {
+                    var error = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.verify(message.senderSigningKey);
+                    if (error)
+                        return "senderSigningKey." + error;
+                }
             }
             if (message.senderMessageKeys != null && message.hasOwnProperty("senderMessageKeys")) {
                 if (!Array.isArray(message.senderMessageKeys))
@@ -503,17 +529,21 @@ $root.SignalLocalStorageProtocol = (function() {
             var object = {};
             if (options.arrays || options.defaults)
                 object.senderMessageKeys = [];
-            if (options.defaults) {
-                object.senderKeyId = 0;
-                object.senderChainKey = null;
-                object.senderSigningKey = null;
-            }
-            if (message.senderKeyId != null && message.hasOwnProperty("senderKeyId"))
+            if (message.senderKeyId != null && message.hasOwnProperty("senderKeyId")) {
                 object.senderKeyId = message.senderKeyId;
-            if (message.senderChainKey != null && message.hasOwnProperty("senderChainKey"))
+                if (options.oneofs)
+                    object._senderKeyId = "senderKeyId";
+            }
+            if (message.senderChainKey != null && message.hasOwnProperty("senderChainKey")) {
                 object.senderChainKey = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.toObject(message.senderChainKey, options);
-            if (message.senderSigningKey != null && message.hasOwnProperty("senderSigningKey"))
+                if (options.oneofs)
+                    object._senderChainKey = "senderChainKey";
+            }
+            if (message.senderSigningKey != null && message.hasOwnProperty("senderSigningKey")) {
                 object.senderSigningKey = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.toObject(message.senderSigningKey, options);
+                if (options.oneofs)
+                    object._senderSigningKey = "senderSigningKey";
+            }
             if (message.senderMessageKeys && message.senderMessageKeys.length) {
                 object.senderMessageKeys = [];
                 for (var j = 0; j < message.senderMessageKeys.length; ++j)
@@ -575,19 +605,34 @@ $root.SignalLocalStorageProtocol = (function() {
 
             /**
              * SenderChainKey iteration.
-             * @member {number} iteration
+             * @member {number|null|undefined} iteration
              * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey
              * @instance
              */
-            SenderChainKey.prototype.iteration = 0;
+            SenderChainKey.prototype.iteration = null;
 
             /**
              * SenderChainKey seed.
-             * @member {Uint8Array} seed
+             * @member {Uint8Array|null|undefined} seed
              * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey
              * @instance
              */
-            SenderChainKey.prototype.seed = $util.newBuffer([]);
+            SenderChainKey.prototype.seed = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(SenderChainKey.prototype, "_iteration", {
+                get: $util.oneOfGetter($oneOfFields = ["iteration"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(SenderChainKey.prototype, "_seed", {
+                get: $util.oneOfGetter($oneOfFields = ["seed"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
 
             /**
              * Creates a new SenderChainKey instance using the specified properties.
@@ -644,14 +689,12 @@ $root.SignalLocalStorageProtocol = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SenderChainKey.decode = function decode(reader, length, error) {
+            SenderChainKey.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.iteration = reader.uint32();
@@ -696,12 +739,17 @@ $root.SignalLocalStorageProtocol = (function() {
             SenderChainKey.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.iteration != null && message.hasOwnProperty("iteration"))
+                var properties = {};
+                if (message.iteration != null && message.hasOwnProperty("iteration")) {
+                    properties._iteration = 1;
                     if (!$util.isInteger(message.iteration))
                         return "iteration: integer expected";
-                if (message.seed != null && message.hasOwnProperty("seed"))
+                }
+                if (message.seed != null && message.hasOwnProperty("seed")) {
+                    properties._seed = 1;
                     if (!(message.seed && typeof message.seed.length === "number" || $util.isString(message.seed)))
                         return "seed: buffer expected";
+                }
                 return null;
             };
 
@@ -740,20 +788,16 @@ $root.SignalLocalStorageProtocol = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults) {
-                    object.iteration = 0;
-                    if (options.bytes === String)
-                        object.seed = "";
-                    else {
-                        object.seed = [];
-                        if (options.bytes !== Array)
-                            object.seed = $util.newBuffer(object.seed);
-                    }
-                }
-                if (message.iteration != null && message.hasOwnProperty("iteration"))
+                if (message.iteration != null && message.hasOwnProperty("iteration")) {
                     object.iteration = message.iteration;
-                if (message.seed != null && message.hasOwnProperty("seed"))
+                    if (options.oneofs)
+                        object._iteration = "iteration";
+                }
+                if (message.seed != null && message.hasOwnProperty("seed")) {
                     object.seed = options.bytes === String ? $util.base64.encode(message.seed, 0, message.seed.length) : options.bytes === Array ? Array.prototype.slice.call(message.seed) : message.seed;
+                    if (options.oneofs)
+                        object._seed = "seed";
+                }
                 return object;
             };
 
@@ -813,19 +857,34 @@ $root.SignalLocalStorageProtocol = (function() {
 
             /**
              * SenderMessageKey iteration.
-             * @member {number} iteration
+             * @member {number|null|undefined} iteration
              * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey
              * @instance
              */
-            SenderMessageKey.prototype.iteration = 0;
+            SenderMessageKey.prototype.iteration = null;
 
             /**
              * SenderMessageKey seed.
-             * @member {Uint8Array} seed
+             * @member {Uint8Array|null|undefined} seed
              * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey
              * @instance
              */
-            SenderMessageKey.prototype.seed = $util.newBuffer([]);
+            SenderMessageKey.prototype.seed = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(SenderMessageKey.prototype, "_iteration", {
+                get: $util.oneOfGetter($oneOfFields = ["iteration"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(SenderMessageKey.prototype, "_seed", {
+                get: $util.oneOfGetter($oneOfFields = ["seed"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
 
             /**
              * Creates a new SenderMessageKey instance using the specified properties.
@@ -882,14 +941,12 @@ $root.SignalLocalStorageProtocol = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SenderMessageKey.decode = function decode(reader, length, error) {
+            SenderMessageKey.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.iteration = reader.uint32();
@@ -934,12 +991,17 @@ $root.SignalLocalStorageProtocol = (function() {
             SenderMessageKey.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.iteration != null && message.hasOwnProperty("iteration"))
+                var properties = {};
+                if (message.iteration != null && message.hasOwnProperty("iteration")) {
+                    properties._iteration = 1;
                     if (!$util.isInteger(message.iteration))
                         return "iteration: integer expected";
-                if (message.seed != null && message.hasOwnProperty("seed"))
+                }
+                if (message.seed != null && message.hasOwnProperty("seed")) {
+                    properties._seed = 1;
                     if (!(message.seed && typeof message.seed.length === "number" || $util.isString(message.seed)))
                         return "seed: buffer expected";
+                }
                 return null;
             };
 
@@ -978,20 +1040,16 @@ $root.SignalLocalStorageProtocol = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults) {
-                    object.iteration = 0;
-                    if (options.bytes === String)
-                        object.seed = "";
-                    else {
-                        object.seed = [];
-                        if (options.bytes !== Array)
-                            object.seed = $util.newBuffer(object.seed);
-                    }
-                }
-                if (message.iteration != null && message.hasOwnProperty("iteration"))
+                if (message.iteration != null && message.hasOwnProperty("iteration")) {
                     object.iteration = message.iteration;
-                if (message.seed != null && message.hasOwnProperty("seed"))
+                    if (options.oneofs)
+                        object._iteration = "iteration";
+                }
+                if (message.seed != null && message.hasOwnProperty("seed")) {
                     object.seed = options.bytes === String ? $util.base64.encode(message.seed, 0, message.seed.length) : options.bytes === Array ? Array.prototype.slice.call(message.seed) : message.seed;
+                    if (options.oneofs)
+                        object._seed = "seed";
+                }
                 return object;
             };
 
@@ -1051,19 +1109,34 @@ $root.SignalLocalStorageProtocol = (function() {
 
             /**
              * SenderSigningKey public.
-             * @member {Uint8Array} public
+             * @member {Uint8Array|null|undefined} public
              * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey
              * @instance
              */
-            SenderSigningKey.prototype["public"] = $util.newBuffer([]);
+            SenderSigningKey.prototype["public"] = null;
 
             /**
              * SenderSigningKey private.
-             * @member {Uint8Array} private
+             * @member {Uint8Array|null|undefined} private
              * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey
              * @instance
              */
-            SenderSigningKey.prototype["private"] = $util.newBuffer([]);
+            SenderSigningKey.prototype["private"] = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(SenderSigningKey.prototype, "_public", {
+                get: $util.oneOfGetter($oneOfFields = ["public"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(SenderSigningKey.prototype, "_private", {
+                get: $util.oneOfGetter($oneOfFields = ["private"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
 
             /**
              * Creates a new SenderSigningKey instance using the specified properties.
@@ -1120,14 +1193,12 @@ $root.SignalLocalStorageProtocol = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SenderSigningKey.decode = function decode(reader, length, error) {
+            SenderSigningKey.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message["public"] = reader.bytes();
@@ -1172,12 +1243,17 @@ $root.SignalLocalStorageProtocol = (function() {
             SenderSigningKey.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message["public"] != null && message.hasOwnProperty("public"))
+                var properties = {};
+                if (message["public"] != null && message.hasOwnProperty("public")) {
+                    properties._public = 1;
                     if (!(message["public"] && typeof message["public"].length === "number" || $util.isString(message["public"])))
                         return "public: buffer expected";
-                if (message["private"] != null && message.hasOwnProperty("private"))
+                }
+                if (message["private"] != null && message.hasOwnProperty("private")) {
+                    properties._private = 1;
                     if (!(message["private"] && typeof message["private"].length === "number" || $util.isString(message["private"])))
                         return "private: buffer expected";
+                }
                 return null;
             };
 
@@ -1219,26 +1295,16 @@ $root.SignalLocalStorageProtocol = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults) {
-                    if (options.bytes === String)
-                        object["public"] = "";
-                    else {
-                        object["public"] = [];
-                        if (options.bytes !== Array)
-                            object["public"] = $util.newBuffer(object["public"]);
-                    }
-                    if (options.bytes === String)
-                        object["private"] = "";
-                    else {
-                        object["private"] = [];
-                        if (options.bytes !== Array)
-                            object["private"] = $util.newBuffer(object["private"]);
-                    }
-                }
-                if (message["public"] != null && message.hasOwnProperty("public"))
+                if (message["public"] != null && message.hasOwnProperty("public")) {
                     object["public"] = options.bytes === String ? $util.base64.encode(message["public"], 0, message["public"].length) : options.bytes === Array ? Array.prototype.slice.call(message["public"]) : message["public"];
-                if (message["private"] != null && message.hasOwnProperty("private"))
+                    if (options.oneofs)
+                        object._public = "public";
+                }
+                if (message["private"] != null && message.hasOwnProperty("private")) {
                     object["private"] = options.bytes === String ? $util.base64.encode(message["private"], 0, message["private"].length) : options.bytes === Array ? Array.prototype.slice.call(message["private"]) : message["private"];
+                    if (options.oneofs)
+                        object._private = "private";
+                }
                 return object;
             };
 
@@ -1301,19 +1367,34 @@ $root.SignalLocalStorageProtocol = (function() {
 
         /**
          * IdentityKeyPairStructure publicKey.
-         * @member {Uint8Array} publicKey
+         * @member {Uint8Array|null|undefined} publicKey
          * @memberof SignalLocalStorageProtocol.IdentityKeyPairStructure
          * @instance
          */
-        IdentityKeyPairStructure.prototype.publicKey = $util.newBuffer([]);
+        IdentityKeyPairStructure.prototype.publicKey = null;
 
         /**
          * IdentityKeyPairStructure privateKey.
-         * @member {Uint8Array} privateKey
+         * @member {Uint8Array|null|undefined} privateKey
          * @memberof SignalLocalStorageProtocol.IdentityKeyPairStructure
          * @instance
          */
-        IdentityKeyPairStructure.prototype.privateKey = $util.newBuffer([]);
+        IdentityKeyPairStructure.prototype.privateKey = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(IdentityKeyPairStructure.prototype, "_publicKey", {
+            get: $util.oneOfGetter($oneOfFields = ["publicKey"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(IdentityKeyPairStructure.prototype, "_privateKey", {
+            get: $util.oneOfGetter($oneOfFields = ["privateKey"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new IdentityKeyPairStructure instance using the specified properties.
@@ -1370,14 +1451,12 @@ $root.SignalLocalStorageProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        IdentityKeyPairStructure.decode = function decode(reader, length, error) {
+        IdentityKeyPairStructure.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.IdentityKeyPairStructure();
             while (reader.pos < end) {
                 var tag = reader.uint32();
-                if (tag === error)
-                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.publicKey = reader.bytes();
@@ -1422,12 +1501,17 @@ $root.SignalLocalStorageProtocol = (function() {
         IdentityKeyPairStructure.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.publicKey != null && message.hasOwnProperty("publicKey"))
+            var properties = {};
+            if (message.publicKey != null && message.hasOwnProperty("publicKey")) {
+                properties._publicKey = 1;
                 if (!(message.publicKey && typeof message.publicKey.length === "number" || $util.isString(message.publicKey)))
                     return "publicKey: buffer expected";
-            if (message.privateKey != null && message.hasOwnProperty("privateKey"))
+            }
+            if (message.privateKey != null && message.hasOwnProperty("privateKey")) {
+                properties._privateKey = 1;
                 if (!(message.privateKey && typeof message.privateKey.length === "number" || $util.isString(message.privateKey)))
                     return "privateKey: buffer expected";
+            }
             return null;
         };
 
@@ -1469,26 +1553,16 @@ $root.SignalLocalStorageProtocol = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults) {
-                if (options.bytes === String)
-                    object.publicKey = "";
-                else {
-                    object.publicKey = [];
-                    if (options.bytes !== Array)
-                        object.publicKey = $util.newBuffer(object.publicKey);
-                }
-                if (options.bytes === String)
-                    object.privateKey = "";
-                else {
-                    object.privateKey = [];
-                    if (options.bytes !== Array)
-                        object.privateKey = $util.newBuffer(object.privateKey);
-                }
-            }
-            if (message.publicKey != null && message.hasOwnProperty("publicKey"))
+            if (message.publicKey != null && message.hasOwnProperty("publicKey")) {
                 object.publicKey = options.bytes === String ? $util.base64.encode(message.publicKey, 0, message.publicKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.publicKey) : message.publicKey;
-            if (message.privateKey != null && message.hasOwnProperty("privateKey"))
+                if (options.oneofs)
+                    object._publicKey = "publicKey";
+            }
+            if (message.privateKey != null && message.hasOwnProperty("privateKey")) {
                 object.privateKey = options.bytes === String ? $util.base64.encode(message.privateKey, 0, message.privateKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.privateKey) : message.privateKey;
+                if (options.oneofs)
+                    object._privateKey = "privateKey";
+            }
             return object;
         };
 
@@ -1551,43 +1625,76 @@ $root.SignalLocalStorageProtocol = (function() {
 
         /**
          * SignedPreKeyRecordStructure id.
-         * @member {number} id
+         * @member {number|null|undefined} id
          * @memberof SignalLocalStorageProtocol.SignedPreKeyRecordStructure
          * @instance
          */
-        SignedPreKeyRecordStructure.prototype.id = 0;
+        SignedPreKeyRecordStructure.prototype.id = null;
 
         /**
          * SignedPreKeyRecordStructure publicKey.
-         * @member {Uint8Array} publicKey
+         * @member {Uint8Array|null|undefined} publicKey
          * @memberof SignalLocalStorageProtocol.SignedPreKeyRecordStructure
          * @instance
          */
-        SignedPreKeyRecordStructure.prototype.publicKey = $util.newBuffer([]);
+        SignedPreKeyRecordStructure.prototype.publicKey = null;
 
         /**
          * SignedPreKeyRecordStructure privateKey.
-         * @member {Uint8Array} privateKey
+         * @member {Uint8Array|null|undefined} privateKey
          * @memberof SignalLocalStorageProtocol.SignedPreKeyRecordStructure
          * @instance
          */
-        SignedPreKeyRecordStructure.prototype.privateKey = $util.newBuffer([]);
+        SignedPreKeyRecordStructure.prototype.privateKey = null;
 
         /**
          * SignedPreKeyRecordStructure signature.
-         * @member {Uint8Array} signature
+         * @member {Uint8Array|null|undefined} signature
          * @memberof SignalLocalStorageProtocol.SignedPreKeyRecordStructure
          * @instance
          */
-        SignedPreKeyRecordStructure.prototype.signature = $util.newBuffer([]);
+        SignedPreKeyRecordStructure.prototype.signature = null;
 
         /**
          * SignedPreKeyRecordStructure timestamp.
-         * @member {number|Long} timestamp
+         * @member {number|Long|null|undefined} timestamp
          * @memberof SignalLocalStorageProtocol.SignedPreKeyRecordStructure
          * @instance
          */
-        SignedPreKeyRecordStructure.prototype.timestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+        SignedPreKeyRecordStructure.prototype.timestamp = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(SignedPreKeyRecordStructure.prototype, "_id", {
+            get: $util.oneOfGetter($oneOfFields = ["id"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(SignedPreKeyRecordStructure.prototype, "_publicKey", {
+            get: $util.oneOfGetter($oneOfFields = ["publicKey"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(SignedPreKeyRecordStructure.prototype, "_privateKey", {
+            get: $util.oneOfGetter($oneOfFields = ["privateKey"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(SignedPreKeyRecordStructure.prototype, "_signature", {
+            get: $util.oneOfGetter($oneOfFields = ["signature"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(SignedPreKeyRecordStructure.prototype, "_timestamp", {
+            get: $util.oneOfGetter($oneOfFields = ["timestamp"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new SignedPreKeyRecordStructure instance using the specified properties.
@@ -1650,14 +1757,12 @@ $root.SignalLocalStorageProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SignedPreKeyRecordStructure.decode = function decode(reader, length, error) {
+        SignedPreKeyRecordStructure.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SignedPreKeyRecordStructure();
             while (reader.pos < end) {
                 var tag = reader.uint32();
-                if (tag === error)
-                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.id = reader.uint32();
@@ -1714,21 +1819,32 @@ $root.SignalLocalStorageProtocol = (function() {
         SignedPreKeyRecordStructure.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.id != null && message.hasOwnProperty("id"))
+            var properties = {};
+            if (message.id != null && message.hasOwnProperty("id")) {
+                properties._id = 1;
                 if (!$util.isInteger(message.id))
                     return "id: integer expected";
-            if (message.publicKey != null && message.hasOwnProperty("publicKey"))
+            }
+            if (message.publicKey != null && message.hasOwnProperty("publicKey")) {
+                properties._publicKey = 1;
                 if (!(message.publicKey && typeof message.publicKey.length === "number" || $util.isString(message.publicKey)))
                     return "publicKey: buffer expected";
-            if (message.privateKey != null && message.hasOwnProperty("privateKey"))
+            }
+            if (message.privateKey != null && message.hasOwnProperty("privateKey")) {
+                properties._privateKey = 1;
                 if (!(message.privateKey && typeof message.privateKey.length === "number" || $util.isString(message.privateKey)))
                     return "privateKey: buffer expected";
-            if (message.signature != null && message.hasOwnProperty("signature"))
+            }
+            if (message.signature != null && message.hasOwnProperty("signature")) {
+                properties._signature = 1;
                 if (!(message.signature && typeof message.signature.length === "number" || $util.isString(message.signature)))
                     return "signature: buffer expected";
-            if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+            }
+            if (message.timestamp != null && message.hasOwnProperty("timestamp")) {
+                properties._timestamp = 1;
                 if (!$util.isInteger(message.timestamp) && !(message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high)))
                     return "timestamp: integer|Long expected";
+            }
             return null;
         };
 
@@ -1786,48 +1902,34 @@ $root.SignalLocalStorageProtocol = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults) {
-                object.id = 0;
-                if (options.bytes === String)
-                    object.publicKey = "";
-                else {
-                    object.publicKey = [];
-                    if (options.bytes !== Array)
-                        object.publicKey = $util.newBuffer(object.publicKey);
-                }
-                if (options.bytes === String)
-                    object.privateKey = "";
-                else {
-                    object.privateKey = [];
-                    if (options.bytes !== Array)
-                        object.privateKey = $util.newBuffer(object.privateKey);
-                }
-                if (options.bytes === String)
-                    object.signature = "";
-                else {
-                    object.signature = [];
-                    if (options.bytes !== Array)
-                        object.signature = $util.newBuffer(object.signature);
-                }
-                if ($util.Long) {
-                    var long = new $util.Long(0, 0, false);
-                    object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                } else
-                    object.timestamp = options.longs === String ? "0" : 0;
-            }
-            if (message.id != null && message.hasOwnProperty("id"))
+            if (message.id != null && message.hasOwnProperty("id")) {
                 object.id = message.id;
-            if (message.publicKey != null && message.hasOwnProperty("publicKey"))
+                if (options.oneofs)
+                    object._id = "id";
+            }
+            if (message.publicKey != null && message.hasOwnProperty("publicKey")) {
                 object.publicKey = options.bytes === String ? $util.base64.encode(message.publicKey, 0, message.publicKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.publicKey) : message.publicKey;
-            if (message.privateKey != null && message.hasOwnProperty("privateKey"))
+                if (options.oneofs)
+                    object._publicKey = "publicKey";
+            }
+            if (message.privateKey != null && message.hasOwnProperty("privateKey")) {
                 object.privateKey = options.bytes === String ? $util.base64.encode(message.privateKey, 0, message.privateKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.privateKey) : message.privateKey;
-            if (message.signature != null && message.hasOwnProperty("signature"))
+                if (options.oneofs)
+                    object._privateKey = "privateKey";
+            }
+            if (message.signature != null && message.hasOwnProperty("signature")) {
                 object.signature = options.bytes === String ? $util.base64.encode(message.signature, 0, message.signature.length) : options.bytes === Array ? Array.prototype.slice.call(message.signature) : message.signature;
-            if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                if (options.oneofs)
+                    object._signature = "signature";
+            }
+            if (message.timestamp != null && message.hasOwnProperty("timestamp")) {
                 if (typeof message.timestamp === "number")
                     object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
                 else
                     object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp;
+                if (options.oneofs)
+                    object._timestamp = "timestamp";
+            }
             return object;
         };
 
@@ -1888,27 +1990,48 @@ $root.SignalLocalStorageProtocol = (function() {
 
         /**
          * PreKeyRecordStructure id.
-         * @member {number} id
+         * @member {number|null|undefined} id
          * @memberof SignalLocalStorageProtocol.PreKeyRecordStructure
          * @instance
          */
-        PreKeyRecordStructure.prototype.id = 0;
+        PreKeyRecordStructure.prototype.id = null;
 
         /**
          * PreKeyRecordStructure publicKey.
-         * @member {Uint8Array} publicKey
+         * @member {Uint8Array|null|undefined} publicKey
          * @memberof SignalLocalStorageProtocol.PreKeyRecordStructure
          * @instance
          */
-        PreKeyRecordStructure.prototype.publicKey = $util.newBuffer([]);
+        PreKeyRecordStructure.prototype.publicKey = null;
 
         /**
          * PreKeyRecordStructure privateKey.
-         * @member {Uint8Array} privateKey
+         * @member {Uint8Array|null|undefined} privateKey
          * @memberof SignalLocalStorageProtocol.PreKeyRecordStructure
          * @instance
          */
-        PreKeyRecordStructure.prototype.privateKey = $util.newBuffer([]);
+        PreKeyRecordStructure.prototype.privateKey = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(PreKeyRecordStructure.prototype, "_id", {
+            get: $util.oneOfGetter($oneOfFields = ["id"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(PreKeyRecordStructure.prototype, "_publicKey", {
+            get: $util.oneOfGetter($oneOfFields = ["publicKey"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(PreKeyRecordStructure.prototype, "_privateKey", {
+            get: $util.oneOfGetter($oneOfFields = ["privateKey"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new PreKeyRecordStructure instance using the specified properties.
@@ -1967,14 +2090,12 @@ $root.SignalLocalStorageProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        PreKeyRecordStructure.decode = function decode(reader, length, error) {
+        PreKeyRecordStructure.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.PreKeyRecordStructure();
             while (reader.pos < end) {
                 var tag = reader.uint32();
-                if (tag === error)
-                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.id = reader.uint32();
@@ -2023,15 +2144,22 @@ $root.SignalLocalStorageProtocol = (function() {
         PreKeyRecordStructure.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.id != null && message.hasOwnProperty("id"))
+            var properties = {};
+            if (message.id != null && message.hasOwnProperty("id")) {
+                properties._id = 1;
                 if (!$util.isInteger(message.id))
                     return "id: integer expected";
-            if (message.publicKey != null && message.hasOwnProperty("publicKey"))
+            }
+            if (message.publicKey != null && message.hasOwnProperty("publicKey")) {
+                properties._publicKey = 1;
                 if (!(message.publicKey && typeof message.publicKey.length === "number" || $util.isString(message.publicKey)))
                     return "publicKey: buffer expected";
-            if (message.privateKey != null && message.hasOwnProperty("privateKey"))
+            }
+            if (message.privateKey != null && message.hasOwnProperty("privateKey")) {
+                properties._privateKey = 1;
                 if (!(message.privateKey && typeof message.privateKey.length === "number" || $util.isString(message.privateKey)))
                     return "privateKey: buffer expected";
+            }
             return null;
         };
 
@@ -2075,29 +2203,21 @@ $root.SignalLocalStorageProtocol = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults) {
-                object.id = 0;
-                if (options.bytes === String)
-                    object.publicKey = "";
-                else {
-                    object.publicKey = [];
-                    if (options.bytes !== Array)
-                        object.publicKey = $util.newBuffer(object.publicKey);
-                }
-                if (options.bytes === String)
-                    object.privateKey = "";
-                else {
-                    object.privateKey = [];
-                    if (options.bytes !== Array)
-                        object.privateKey = $util.newBuffer(object.privateKey);
-                }
-            }
-            if (message.id != null && message.hasOwnProperty("id"))
+            if (message.id != null && message.hasOwnProperty("id")) {
                 object.id = message.id;
-            if (message.publicKey != null && message.hasOwnProperty("publicKey"))
+                if (options.oneofs)
+                    object._id = "id";
+            }
+            if (message.publicKey != null && message.hasOwnProperty("publicKey")) {
                 object.publicKey = options.bytes === String ? $util.base64.encode(message.publicKey, 0, message.publicKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.publicKey) : message.publicKey;
-            if (message.privateKey != null && message.hasOwnProperty("privateKey"))
+                if (options.oneofs)
+                    object._publicKey = "publicKey";
+            }
+            if (message.privateKey != null && message.hasOwnProperty("privateKey")) {
                 object.privateKey = options.bytes === String ? $util.base64.encode(message.privateKey, 0, message.privateKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.privateKey) : message.privateKey;
+                if (options.oneofs)
+                    object._privateKey = "privateKey";
+            }
             return object;
         };
 
@@ -2172,6 +2292,15 @@ $root.SignalLocalStorageProtocol = (function() {
          */
         RecordStructure.prototype.previousSessions = $util.emptyArray;
 
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(RecordStructure.prototype, "_currentSession", {
+            get: $util.oneOfGetter($oneOfFields = ["currentSession"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new RecordStructure instance using the specified properties.
          * @function create
@@ -2228,14 +2357,12 @@ $root.SignalLocalStorageProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        RecordStructure.decode = function decode(reader, length, error) {
+        RecordStructure.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.RecordStructure();
             while (reader.pos < end) {
                 var tag = reader.uint32();
-                if (tag === error)
-                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.currentSession = $root.SignalLocalStorageProtocol.SessionStructure.decode(reader, reader.uint32());
@@ -2282,10 +2409,14 @@ $root.SignalLocalStorageProtocol = (function() {
         RecordStructure.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            var properties = {};
             if (message.currentSession != null && message.hasOwnProperty("currentSession")) {
-                var error = $root.SignalLocalStorageProtocol.SessionStructure.verify(message.currentSession);
-                if (error)
-                    return "currentSession." + error;
+                properties._currentSession = 1;
+                {
+                    var error = $root.SignalLocalStorageProtocol.SessionStructure.verify(message.currentSession);
+                    if (error)
+                        return "currentSession." + error;
+                }
             }
             if (message.previousSessions != null && message.hasOwnProperty("previousSessions")) {
                 if (!Array.isArray(message.previousSessions))
@@ -2344,10 +2475,11 @@ $root.SignalLocalStorageProtocol = (function() {
             var object = {};
             if (options.arrays || options.defaults)
                 object.previousSessions = [];
-            if (options.defaults)
-                object.currentSession = null;
-            if (message.currentSession != null && message.hasOwnProperty("currentSession"))
+            if (message.currentSession != null && message.hasOwnProperty("currentSession")) {
                 object.currentSession = $root.SignalLocalStorageProtocol.SessionStructure.toObject(message.currentSession, options);
+                if (options.oneofs)
+                    object._currentSession = "currentSession";
+            }
             if (message.previousSessions && message.previousSessions.length) {
                 object.previousSessions = [];
                 for (var j = 0; j < message.previousSessions.length; ++j)
@@ -2424,43 +2556,43 @@ $root.SignalLocalStorageProtocol = (function() {
 
         /**
          * SessionStructure sessionVersion.
-         * @member {number} sessionVersion
+         * @member {number|null|undefined} sessionVersion
          * @memberof SignalLocalStorageProtocol.SessionStructure
          * @instance
          */
-        SessionStructure.prototype.sessionVersion = 0;
+        SessionStructure.prototype.sessionVersion = null;
 
         /**
          * SessionStructure localIdentityPublic.
-         * @member {Uint8Array} localIdentityPublic
+         * @member {Uint8Array|null|undefined} localIdentityPublic
          * @memberof SignalLocalStorageProtocol.SessionStructure
          * @instance
          */
-        SessionStructure.prototype.localIdentityPublic = $util.newBuffer([]);
+        SessionStructure.prototype.localIdentityPublic = null;
 
         /**
          * SessionStructure remoteIdentityPublic.
-         * @member {Uint8Array} remoteIdentityPublic
+         * @member {Uint8Array|null|undefined} remoteIdentityPublic
          * @memberof SignalLocalStorageProtocol.SessionStructure
          * @instance
          */
-        SessionStructure.prototype.remoteIdentityPublic = $util.newBuffer([]);
+        SessionStructure.prototype.remoteIdentityPublic = null;
 
         /**
          * SessionStructure rootKey.
-         * @member {Uint8Array} rootKey
+         * @member {Uint8Array|null|undefined} rootKey
          * @memberof SignalLocalStorageProtocol.SessionStructure
          * @instance
          */
-        SessionStructure.prototype.rootKey = $util.newBuffer([]);
+        SessionStructure.prototype.rootKey = null;
 
         /**
          * SessionStructure previousCounter.
-         * @member {number} previousCounter
+         * @member {number|null|undefined} previousCounter
          * @memberof SignalLocalStorageProtocol.SessionStructure
          * @instance
          */
-        SessionStructure.prototype.previousCounter = 0;
+        SessionStructure.prototype.previousCounter = null;
 
         /**
          * SessionStructure senderChain.
@@ -2496,35 +2628,110 @@ $root.SignalLocalStorageProtocol = (function() {
 
         /**
          * SessionStructure remoteRegistrationId.
-         * @member {number} remoteRegistrationId
+         * @member {number|null|undefined} remoteRegistrationId
          * @memberof SignalLocalStorageProtocol.SessionStructure
          * @instance
          */
-        SessionStructure.prototype.remoteRegistrationId = 0;
+        SessionStructure.prototype.remoteRegistrationId = null;
 
         /**
          * SessionStructure localRegistrationId.
-         * @member {number} localRegistrationId
+         * @member {number|null|undefined} localRegistrationId
          * @memberof SignalLocalStorageProtocol.SessionStructure
          * @instance
          */
-        SessionStructure.prototype.localRegistrationId = 0;
+        SessionStructure.prototype.localRegistrationId = null;
 
         /**
          * SessionStructure needsRefresh.
-         * @member {boolean} needsRefresh
+         * @member {boolean|null|undefined} needsRefresh
          * @memberof SignalLocalStorageProtocol.SessionStructure
          * @instance
          */
-        SessionStructure.prototype.needsRefresh = false;
+        SessionStructure.prototype.needsRefresh = null;
 
         /**
          * SessionStructure aliceBaseKey.
-         * @member {Uint8Array} aliceBaseKey
+         * @member {Uint8Array|null|undefined} aliceBaseKey
          * @memberof SignalLocalStorageProtocol.SessionStructure
          * @instance
          */
-        SessionStructure.prototype.aliceBaseKey = $util.newBuffer([]);
+        SessionStructure.prototype.aliceBaseKey = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(SessionStructure.prototype, "_sessionVersion", {
+            get: $util.oneOfGetter($oneOfFields = ["sessionVersion"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(SessionStructure.prototype, "_localIdentityPublic", {
+            get: $util.oneOfGetter($oneOfFields = ["localIdentityPublic"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(SessionStructure.prototype, "_remoteIdentityPublic", {
+            get: $util.oneOfGetter($oneOfFields = ["remoteIdentityPublic"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(SessionStructure.prototype, "_rootKey", {
+            get: $util.oneOfGetter($oneOfFields = ["rootKey"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(SessionStructure.prototype, "_previousCounter", {
+            get: $util.oneOfGetter($oneOfFields = ["previousCounter"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(SessionStructure.prototype, "_senderChain", {
+            get: $util.oneOfGetter($oneOfFields = ["senderChain"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(SessionStructure.prototype, "_pendingKeyExchange", {
+            get: $util.oneOfGetter($oneOfFields = ["pendingKeyExchange"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(SessionStructure.prototype, "_pendingPreKey", {
+            get: $util.oneOfGetter($oneOfFields = ["pendingPreKey"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(SessionStructure.prototype, "_remoteRegistrationId", {
+            get: $util.oneOfGetter($oneOfFields = ["remoteRegistrationId"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(SessionStructure.prototype, "_localRegistrationId", {
+            get: $util.oneOfGetter($oneOfFields = ["localRegistrationId"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(SessionStructure.prototype, "_needsRefresh", {
+            get: $util.oneOfGetter($oneOfFields = ["needsRefresh"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(SessionStructure.prototype, "_aliceBaseKey", {
+            get: $util.oneOfGetter($oneOfFields = ["aliceBaseKey"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new SessionStructure instance using the specified properties.
@@ -2604,14 +2811,12 @@ $root.SignalLocalStorageProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SessionStructure.decode = function decode(reader, length, error) {
+        SessionStructure.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SessionStructure();
             while (reader.pos < end) {
                 var tag = reader.uint32();
-                if (tag === error)
-                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.sessionVersion = reader.uint32();
@@ -2702,25 +2907,39 @@ $root.SignalLocalStorageProtocol = (function() {
         SessionStructure.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.sessionVersion != null && message.hasOwnProperty("sessionVersion"))
+            var properties = {};
+            if (message.sessionVersion != null && message.hasOwnProperty("sessionVersion")) {
+                properties._sessionVersion = 1;
                 if (!$util.isInteger(message.sessionVersion))
                     return "sessionVersion: integer expected";
-            if (message.localIdentityPublic != null && message.hasOwnProperty("localIdentityPublic"))
+            }
+            if (message.localIdentityPublic != null && message.hasOwnProperty("localIdentityPublic")) {
+                properties._localIdentityPublic = 1;
                 if (!(message.localIdentityPublic && typeof message.localIdentityPublic.length === "number" || $util.isString(message.localIdentityPublic)))
                     return "localIdentityPublic: buffer expected";
-            if (message.remoteIdentityPublic != null && message.hasOwnProperty("remoteIdentityPublic"))
+            }
+            if (message.remoteIdentityPublic != null && message.hasOwnProperty("remoteIdentityPublic")) {
+                properties._remoteIdentityPublic = 1;
                 if (!(message.remoteIdentityPublic && typeof message.remoteIdentityPublic.length === "number" || $util.isString(message.remoteIdentityPublic)))
                     return "remoteIdentityPublic: buffer expected";
-            if (message.rootKey != null && message.hasOwnProperty("rootKey"))
+            }
+            if (message.rootKey != null && message.hasOwnProperty("rootKey")) {
+                properties._rootKey = 1;
                 if (!(message.rootKey && typeof message.rootKey.length === "number" || $util.isString(message.rootKey)))
                     return "rootKey: buffer expected";
-            if (message.previousCounter != null && message.hasOwnProperty("previousCounter"))
+            }
+            if (message.previousCounter != null && message.hasOwnProperty("previousCounter")) {
+                properties._previousCounter = 1;
                 if (!$util.isInteger(message.previousCounter))
                     return "previousCounter: integer expected";
+            }
             if (message.senderChain != null && message.hasOwnProperty("senderChain")) {
-                var error = $root.SignalLocalStorageProtocol.SessionStructure.Chain.verify(message.senderChain);
-                if (error)
-                    return "senderChain." + error;
+                properties._senderChain = 1;
+                {
+                    var error = $root.SignalLocalStorageProtocol.SessionStructure.Chain.verify(message.senderChain);
+                    if (error)
+                        return "senderChain." + error;
+                }
             }
             if (message.receiverChains != null && message.hasOwnProperty("receiverChains")) {
                 if (!Array.isArray(message.receiverChains))
@@ -2732,27 +2951,41 @@ $root.SignalLocalStorageProtocol = (function() {
                 }
             }
             if (message.pendingKeyExchange != null && message.hasOwnProperty("pendingKeyExchange")) {
-                var error = $root.SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.verify(message.pendingKeyExchange);
-                if (error)
-                    return "pendingKeyExchange." + error;
+                properties._pendingKeyExchange = 1;
+                {
+                    var error = $root.SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.verify(message.pendingKeyExchange);
+                    if (error)
+                        return "pendingKeyExchange." + error;
+                }
             }
             if (message.pendingPreKey != null && message.hasOwnProperty("pendingPreKey")) {
-                var error = $root.SignalLocalStorageProtocol.SessionStructure.PendingPreKey.verify(message.pendingPreKey);
-                if (error)
-                    return "pendingPreKey." + error;
+                properties._pendingPreKey = 1;
+                {
+                    var error = $root.SignalLocalStorageProtocol.SessionStructure.PendingPreKey.verify(message.pendingPreKey);
+                    if (error)
+                        return "pendingPreKey." + error;
+                }
             }
-            if (message.remoteRegistrationId != null && message.hasOwnProperty("remoteRegistrationId"))
+            if (message.remoteRegistrationId != null && message.hasOwnProperty("remoteRegistrationId")) {
+                properties._remoteRegistrationId = 1;
                 if (!$util.isInteger(message.remoteRegistrationId))
                     return "remoteRegistrationId: integer expected";
-            if (message.localRegistrationId != null && message.hasOwnProperty("localRegistrationId"))
+            }
+            if (message.localRegistrationId != null && message.hasOwnProperty("localRegistrationId")) {
+                properties._localRegistrationId = 1;
                 if (!$util.isInteger(message.localRegistrationId))
                     return "localRegistrationId: integer expected";
-            if (message.needsRefresh != null && message.hasOwnProperty("needsRefresh"))
+            }
+            if (message.needsRefresh != null && message.hasOwnProperty("needsRefresh")) {
+                properties._needsRefresh = 1;
                 if (typeof message.needsRefresh !== "boolean")
                     return "needsRefresh: boolean expected";
-            if (message.aliceBaseKey != null && message.hasOwnProperty("aliceBaseKey"))
+            }
+            if (message.aliceBaseKey != null && message.hasOwnProperty("aliceBaseKey")) {
+                properties._aliceBaseKey = 1;
                 if (!(message.aliceBaseKey && typeof message.aliceBaseKey.length === "number" || $util.isString(message.aliceBaseKey)))
                     return "aliceBaseKey: buffer expected";
+            }
             return null;
         };
 
@@ -2841,73 +3074,71 @@ $root.SignalLocalStorageProtocol = (function() {
             var object = {};
             if (options.arrays || options.defaults)
                 object.receiverChains = [];
-            if (options.defaults) {
-                object.sessionVersion = 0;
-                if (options.bytes === String)
-                    object.localIdentityPublic = "";
-                else {
-                    object.localIdentityPublic = [];
-                    if (options.bytes !== Array)
-                        object.localIdentityPublic = $util.newBuffer(object.localIdentityPublic);
-                }
-                if (options.bytes === String)
-                    object.remoteIdentityPublic = "";
-                else {
-                    object.remoteIdentityPublic = [];
-                    if (options.bytes !== Array)
-                        object.remoteIdentityPublic = $util.newBuffer(object.remoteIdentityPublic);
-                }
-                if (options.bytes === String)
-                    object.rootKey = "";
-                else {
-                    object.rootKey = [];
-                    if (options.bytes !== Array)
-                        object.rootKey = $util.newBuffer(object.rootKey);
-                }
-                object.previousCounter = 0;
-                object.senderChain = null;
-                object.pendingKeyExchange = null;
-                object.pendingPreKey = null;
-                object.remoteRegistrationId = 0;
-                object.localRegistrationId = 0;
-                object.needsRefresh = false;
-                if (options.bytes === String)
-                    object.aliceBaseKey = "";
-                else {
-                    object.aliceBaseKey = [];
-                    if (options.bytes !== Array)
-                        object.aliceBaseKey = $util.newBuffer(object.aliceBaseKey);
-                }
-            }
-            if (message.sessionVersion != null && message.hasOwnProperty("sessionVersion"))
+            if (message.sessionVersion != null && message.hasOwnProperty("sessionVersion")) {
                 object.sessionVersion = message.sessionVersion;
-            if (message.localIdentityPublic != null && message.hasOwnProperty("localIdentityPublic"))
+                if (options.oneofs)
+                    object._sessionVersion = "sessionVersion";
+            }
+            if (message.localIdentityPublic != null && message.hasOwnProperty("localIdentityPublic")) {
                 object.localIdentityPublic = options.bytes === String ? $util.base64.encode(message.localIdentityPublic, 0, message.localIdentityPublic.length) : options.bytes === Array ? Array.prototype.slice.call(message.localIdentityPublic) : message.localIdentityPublic;
-            if (message.remoteIdentityPublic != null && message.hasOwnProperty("remoteIdentityPublic"))
+                if (options.oneofs)
+                    object._localIdentityPublic = "localIdentityPublic";
+            }
+            if (message.remoteIdentityPublic != null && message.hasOwnProperty("remoteIdentityPublic")) {
                 object.remoteIdentityPublic = options.bytes === String ? $util.base64.encode(message.remoteIdentityPublic, 0, message.remoteIdentityPublic.length) : options.bytes === Array ? Array.prototype.slice.call(message.remoteIdentityPublic) : message.remoteIdentityPublic;
-            if (message.rootKey != null && message.hasOwnProperty("rootKey"))
+                if (options.oneofs)
+                    object._remoteIdentityPublic = "remoteIdentityPublic";
+            }
+            if (message.rootKey != null && message.hasOwnProperty("rootKey")) {
                 object.rootKey = options.bytes === String ? $util.base64.encode(message.rootKey, 0, message.rootKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.rootKey) : message.rootKey;
-            if (message.previousCounter != null && message.hasOwnProperty("previousCounter"))
+                if (options.oneofs)
+                    object._rootKey = "rootKey";
+            }
+            if (message.previousCounter != null && message.hasOwnProperty("previousCounter")) {
                 object.previousCounter = message.previousCounter;
-            if (message.senderChain != null && message.hasOwnProperty("senderChain"))
+                if (options.oneofs)
+                    object._previousCounter = "previousCounter";
+            }
+            if (message.senderChain != null && message.hasOwnProperty("senderChain")) {
                 object.senderChain = $root.SignalLocalStorageProtocol.SessionStructure.Chain.toObject(message.senderChain, options);
+                if (options.oneofs)
+                    object._senderChain = "senderChain";
+            }
             if (message.receiverChains && message.receiverChains.length) {
                 object.receiverChains = [];
                 for (var j = 0; j < message.receiverChains.length; ++j)
                     object.receiverChains[j] = $root.SignalLocalStorageProtocol.SessionStructure.Chain.toObject(message.receiverChains[j], options);
             }
-            if (message.pendingKeyExchange != null && message.hasOwnProperty("pendingKeyExchange"))
+            if (message.pendingKeyExchange != null && message.hasOwnProperty("pendingKeyExchange")) {
                 object.pendingKeyExchange = $root.SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.toObject(message.pendingKeyExchange, options);
-            if (message.pendingPreKey != null && message.hasOwnProperty("pendingPreKey"))
+                if (options.oneofs)
+                    object._pendingKeyExchange = "pendingKeyExchange";
+            }
+            if (message.pendingPreKey != null && message.hasOwnProperty("pendingPreKey")) {
                 object.pendingPreKey = $root.SignalLocalStorageProtocol.SessionStructure.PendingPreKey.toObject(message.pendingPreKey, options);
-            if (message.remoteRegistrationId != null && message.hasOwnProperty("remoteRegistrationId"))
+                if (options.oneofs)
+                    object._pendingPreKey = "pendingPreKey";
+            }
+            if (message.remoteRegistrationId != null && message.hasOwnProperty("remoteRegistrationId")) {
                 object.remoteRegistrationId = message.remoteRegistrationId;
-            if (message.localRegistrationId != null && message.hasOwnProperty("localRegistrationId"))
+                if (options.oneofs)
+                    object._remoteRegistrationId = "remoteRegistrationId";
+            }
+            if (message.localRegistrationId != null && message.hasOwnProperty("localRegistrationId")) {
                 object.localRegistrationId = message.localRegistrationId;
-            if (message.needsRefresh != null && message.hasOwnProperty("needsRefresh"))
+                if (options.oneofs)
+                    object._localRegistrationId = "localRegistrationId";
+            }
+            if (message.needsRefresh != null && message.hasOwnProperty("needsRefresh")) {
                 object.needsRefresh = message.needsRefresh;
-            if (message.aliceBaseKey != null && message.hasOwnProperty("aliceBaseKey"))
+                if (options.oneofs)
+                    object._needsRefresh = "needsRefresh";
+            }
+            if (message.aliceBaseKey != null && message.hasOwnProperty("aliceBaseKey")) {
                 object.aliceBaseKey = options.bytes === String ? $util.base64.encode(message.aliceBaseKey, 0, message.aliceBaseKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.aliceBaseKey) : message.aliceBaseKey;
+                if (options.oneofs)
+                    object._aliceBaseKey = "aliceBaseKey";
+            }
             return object;
         };
 
@@ -2967,19 +3198,19 @@ $root.SignalLocalStorageProtocol = (function() {
 
             /**
              * Chain senderRatchetKey.
-             * @member {Uint8Array} senderRatchetKey
+             * @member {Uint8Array|null|undefined} senderRatchetKey
              * @memberof SignalLocalStorageProtocol.SessionStructure.Chain
              * @instance
              */
-            Chain.prototype.senderRatchetKey = $util.newBuffer([]);
+            Chain.prototype.senderRatchetKey = null;
 
             /**
              * Chain senderRatchetKeyPrivate.
-             * @member {Uint8Array} senderRatchetKeyPrivate
+             * @member {Uint8Array|null|undefined} senderRatchetKeyPrivate
              * @memberof SignalLocalStorageProtocol.SessionStructure.Chain
              * @instance
              */
-            Chain.prototype.senderRatchetKeyPrivate = $util.newBuffer([]);
+            Chain.prototype.senderRatchetKeyPrivate = null;
 
             /**
              * Chain chainKey.
@@ -2996,6 +3227,27 @@ $root.SignalLocalStorageProtocol = (function() {
              * @instance
              */
             Chain.prototype.messageKeys = $util.emptyArray;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(Chain.prototype, "_senderRatchetKey", {
+                get: $util.oneOfGetter($oneOfFields = ["senderRatchetKey"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(Chain.prototype, "_senderRatchetKeyPrivate", {
+                get: $util.oneOfGetter($oneOfFields = ["senderRatchetKeyPrivate"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(Chain.prototype, "_chainKey", {
+                get: $util.oneOfGetter($oneOfFields = ["chainKey"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
 
             /**
              * Creates a new Chain instance using the specified properties.
@@ -3057,14 +3309,12 @@ $root.SignalLocalStorageProtocol = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Chain.decode = function decode(reader, length, error) {
+            Chain.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SessionStructure.Chain();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.senderRatchetKey = reader.bytes();
@@ -3119,16 +3369,24 @@ $root.SignalLocalStorageProtocol = (function() {
             Chain.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.senderRatchetKey != null && message.hasOwnProperty("senderRatchetKey"))
+                var properties = {};
+                if (message.senderRatchetKey != null && message.hasOwnProperty("senderRatchetKey")) {
+                    properties._senderRatchetKey = 1;
                     if (!(message.senderRatchetKey && typeof message.senderRatchetKey.length === "number" || $util.isString(message.senderRatchetKey)))
                         return "senderRatchetKey: buffer expected";
-                if (message.senderRatchetKeyPrivate != null && message.hasOwnProperty("senderRatchetKeyPrivate"))
+                }
+                if (message.senderRatchetKeyPrivate != null && message.hasOwnProperty("senderRatchetKeyPrivate")) {
+                    properties._senderRatchetKeyPrivate = 1;
                     if (!(message.senderRatchetKeyPrivate && typeof message.senderRatchetKeyPrivate.length === "number" || $util.isString(message.senderRatchetKeyPrivate)))
                         return "senderRatchetKeyPrivate: buffer expected";
+                }
                 if (message.chainKey != null && message.hasOwnProperty("chainKey")) {
-                    var error = $root.SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.verify(message.chainKey);
-                    if (error)
-                        return "chainKey." + error;
+                    properties._chainKey = 1;
+                    {
+                        var error = $root.SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.verify(message.chainKey);
+                        if (error)
+                            return "chainKey." + error;
+                    }
                 }
                 if (message.messageKeys != null && message.hasOwnProperty("messageKeys")) {
                     if (!Array.isArray(message.messageKeys))
@@ -3197,29 +3455,21 @@ $root.SignalLocalStorageProtocol = (function() {
                 var object = {};
                 if (options.arrays || options.defaults)
                     object.messageKeys = [];
-                if (options.defaults) {
-                    if (options.bytes === String)
-                        object.senderRatchetKey = "";
-                    else {
-                        object.senderRatchetKey = [];
-                        if (options.bytes !== Array)
-                            object.senderRatchetKey = $util.newBuffer(object.senderRatchetKey);
-                    }
-                    if (options.bytes === String)
-                        object.senderRatchetKeyPrivate = "";
-                    else {
-                        object.senderRatchetKeyPrivate = [];
-                        if (options.bytes !== Array)
-                            object.senderRatchetKeyPrivate = $util.newBuffer(object.senderRatchetKeyPrivate);
-                    }
-                    object.chainKey = null;
-                }
-                if (message.senderRatchetKey != null && message.hasOwnProperty("senderRatchetKey"))
+                if (message.senderRatchetKey != null && message.hasOwnProperty("senderRatchetKey")) {
                     object.senderRatchetKey = options.bytes === String ? $util.base64.encode(message.senderRatchetKey, 0, message.senderRatchetKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.senderRatchetKey) : message.senderRatchetKey;
-                if (message.senderRatchetKeyPrivate != null && message.hasOwnProperty("senderRatchetKeyPrivate"))
+                    if (options.oneofs)
+                        object._senderRatchetKey = "senderRatchetKey";
+                }
+                if (message.senderRatchetKeyPrivate != null && message.hasOwnProperty("senderRatchetKeyPrivate")) {
                     object.senderRatchetKeyPrivate = options.bytes === String ? $util.base64.encode(message.senderRatchetKeyPrivate, 0, message.senderRatchetKeyPrivate.length) : options.bytes === Array ? Array.prototype.slice.call(message.senderRatchetKeyPrivate) : message.senderRatchetKeyPrivate;
-                if (message.chainKey != null && message.hasOwnProperty("chainKey"))
+                    if (options.oneofs)
+                        object._senderRatchetKeyPrivate = "senderRatchetKeyPrivate";
+                }
+                if (message.chainKey != null && message.hasOwnProperty("chainKey")) {
                     object.chainKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.toObject(message.chainKey, options);
+                    if (options.oneofs)
+                        object._chainKey = "chainKey";
+                }
                 if (message.messageKeys && message.messageKeys.length) {
                     object.messageKeys = [];
                     for (var j = 0; j < message.messageKeys.length; ++j)
@@ -3281,19 +3531,34 @@ $root.SignalLocalStorageProtocol = (function() {
 
                 /**
                  * ChainKey index.
-                 * @member {number} index
+                 * @member {number|null|undefined} index
                  * @memberof SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey
                  * @instance
                  */
-                ChainKey.prototype.index = 0;
+                ChainKey.prototype.index = null;
 
                 /**
                  * ChainKey key.
-                 * @member {Uint8Array} key
+                 * @member {Uint8Array|null|undefined} key
                  * @memberof SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey
                  * @instance
                  */
-                ChainKey.prototype.key = $util.newBuffer([]);
+                ChainKey.prototype.key = null;
+
+                // OneOf field names bound to virtual getters and setters
+                var $oneOfFields;
+
+                // Virtual OneOf for proto3 optional field
+                Object.defineProperty(ChainKey.prototype, "_index", {
+                    get: $util.oneOfGetter($oneOfFields = ["index"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                // Virtual OneOf for proto3 optional field
+                Object.defineProperty(ChainKey.prototype, "_key", {
+                    get: $util.oneOfGetter($oneOfFields = ["key"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
 
                 /**
                  * Creates a new ChainKey instance using the specified properties.
@@ -3350,14 +3615,12 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                ChainKey.decode = function decode(reader, length, error) {
+                ChainKey.decode = function decode(reader, length) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
                     var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey();
                     while (reader.pos < end) {
                         var tag = reader.uint32();
-                        if (tag === error)
-                            break;
                         switch (tag >>> 3) {
                         case 1: {
                                 message.index = reader.uint32();
@@ -3402,12 +3665,17 @@ $root.SignalLocalStorageProtocol = (function() {
                 ChainKey.verify = function verify(message) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    if (message.index != null && message.hasOwnProperty("index"))
+                    var properties = {};
+                    if (message.index != null && message.hasOwnProperty("index")) {
+                        properties._index = 1;
                         if (!$util.isInteger(message.index))
                             return "index: integer expected";
-                    if (message.key != null && message.hasOwnProperty("key"))
+                    }
+                    if (message.key != null && message.hasOwnProperty("key")) {
+                        properties._key = 1;
                         if (!(message.key && typeof message.key.length === "number" || $util.isString(message.key)))
                             return "key: buffer expected";
+                    }
                     return null;
                 };
 
@@ -3446,20 +3714,16 @@ $root.SignalLocalStorageProtocol = (function() {
                     if (!options)
                         options = {};
                     var object = {};
-                    if (options.defaults) {
-                        object.index = 0;
-                        if (options.bytes === String)
-                            object.key = "";
-                        else {
-                            object.key = [];
-                            if (options.bytes !== Array)
-                                object.key = $util.newBuffer(object.key);
-                        }
-                    }
-                    if (message.index != null && message.hasOwnProperty("index"))
+                    if (message.index != null && message.hasOwnProperty("index")) {
                         object.index = message.index;
-                    if (message.key != null && message.hasOwnProperty("key"))
+                        if (options.oneofs)
+                            object._index = "index";
+                    }
+                    if (message.key != null && message.hasOwnProperty("key")) {
                         object.key = options.bytes === String ? $util.base64.encode(message.key, 0, message.key.length) : options.bytes === Array ? Array.prototype.slice.call(message.key) : message.key;
+                        if (options.oneofs)
+                            object._key = "key";
+                    }
                     return object;
                 };
 
@@ -3521,35 +3785,62 @@ $root.SignalLocalStorageProtocol = (function() {
 
                 /**
                  * MessageKey index.
-                 * @member {number} index
+                 * @member {number|null|undefined} index
                  * @memberof SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey
                  * @instance
                  */
-                MessageKey.prototype.index = 0;
+                MessageKey.prototype.index = null;
 
                 /**
                  * MessageKey cipherKey.
-                 * @member {Uint8Array} cipherKey
+                 * @member {Uint8Array|null|undefined} cipherKey
                  * @memberof SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey
                  * @instance
                  */
-                MessageKey.prototype.cipherKey = $util.newBuffer([]);
+                MessageKey.prototype.cipherKey = null;
 
                 /**
                  * MessageKey macKey.
-                 * @member {Uint8Array} macKey
+                 * @member {Uint8Array|null|undefined} macKey
                  * @memberof SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey
                  * @instance
                  */
-                MessageKey.prototype.macKey = $util.newBuffer([]);
+                MessageKey.prototype.macKey = null;
 
                 /**
                  * MessageKey iv.
-                 * @member {Uint8Array} iv
+                 * @member {Uint8Array|null|undefined} iv
                  * @memberof SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey
                  * @instance
                  */
-                MessageKey.prototype.iv = $util.newBuffer([]);
+                MessageKey.prototype.iv = null;
+
+                // OneOf field names bound to virtual getters and setters
+                var $oneOfFields;
+
+                // Virtual OneOf for proto3 optional field
+                Object.defineProperty(MessageKey.prototype, "_index", {
+                    get: $util.oneOfGetter($oneOfFields = ["index"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                // Virtual OneOf for proto3 optional field
+                Object.defineProperty(MessageKey.prototype, "_cipherKey", {
+                    get: $util.oneOfGetter($oneOfFields = ["cipherKey"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                // Virtual OneOf for proto3 optional field
+                Object.defineProperty(MessageKey.prototype, "_macKey", {
+                    get: $util.oneOfGetter($oneOfFields = ["macKey"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                // Virtual OneOf for proto3 optional field
+                Object.defineProperty(MessageKey.prototype, "_iv", {
+                    get: $util.oneOfGetter($oneOfFields = ["iv"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
 
                 /**
                  * Creates a new MessageKey instance using the specified properties.
@@ -3610,14 +3901,12 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                MessageKey.decode = function decode(reader, length, error) {
+                MessageKey.decode = function decode(reader, length) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
                     var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey();
                     while (reader.pos < end) {
                         var tag = reader.uint32();
-                        if (tag === error)
-                            break;
                         switch (tag >>> 3) {
                         case 1: {
                                 message.index = reader.uint32();
@@ -3670,18 +3959,27 @@ $root.SignalLocalStorageProtocol = (function() {
                 MessageKey.verify = function verify(message) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    if (message.index != null && message.hasOwnProperty("index"))
+                    var properties = {};
+                    if (message.index != null && message.hasOwnProperty("index")) {
+                        properties._index = 1;
                         if (!$util.isInteger(message.index))
                             return "index: integer expected";
-                    if (message.cipherKey != null && message.hasOwnProperty("cipherKey"))
+                    }
+                    if (message.cipherKey != null && message.hasOwnProperty("cipherKey")) {
+                        properties._cipherKey = 1;
                         if (!(message.cipherKey && typeof message.cipherKey.length === "number" || $util.isString(message.cipherKey)))
                             return "cipherKey: buffer expected";
-                    if (message.macKey != null && message.hasOwnProperty("macKey"))
+                    }
+                    if (message.macKey != null && message.hasOwnProperty("macKey")) {
+                        properties._macKey = 1;
                         if (!(message.macKey && typeof message.macKey.length === "number" || $util.isString(message.macKey)))
                             return "macKey: buffer expected";
-                    if (message.iv != null && message.hasOwnProperty("iv"))
+                    }
+                    if (message.iv != null && message.hasOwnProperty("iv")) {
+                        properties._iv = 1;
                         if (!(message.iv && typeof message.iv.length === "number" || $util.isString(message.iv)))
                             return "iv: buffer expected";
+                    }
                     return null;
                 };
 
@@ -3730,38 +4028,26 @@ $root.SignalLocalStorageProtocol = (function() {
                     if (!options)
                         options = {};
                     var object = {};
-                    if (options.defaults) {
-                        object.index = 0;
-                        if (options.bytes === String)
-                            object.cipherKey = "";
-                        else {
-                            object.cipherKey = [];
-                            if (options.bytes !== Array)
-                                object.cipherKey = $util.newBuffer(object.cipherKey);
-                        }
-                        if (options.bytes === String)
-                            object.macKey = "";
-                        else {
-                            object.macKey = [];
-                            if (options.bytes !== Array)
-                                object.macKey = $util.newBuffer(object.macKey);
-                        }
-                        if (options.bytes === String)
-                            object.iv = "";
-                        else {
-                            object.iv = [];
-                            if (options.bytes !== Array)
-                                object.iv = $util.newBuffer(object.iv);
-                        }
-                    }
-                    if (message.index != null && message.hasOwnProperty("index"))
+                    if (message.index != null && message.hasOwnProperty("index")) {
                         object.index = message.index;
-                    if (message.cipherKey != null && message.hasOwnProperty("cipherKey"))
+                        if (options.oneofs)
+                            object._index = "index";
+                    }
+                    if (message.cipherKey != null && message.hasOwnProperty("cipherKey")) {
                         object.cipherKey = options.bytes === String ? $util.base64.encode(message.cipherKey, 0, message.cipherKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.cipherKey) : message.cipherKey;
-                    if (message.macKey != null && message.hasOwnProperty("macKey"))
+                        if (options.oneofs)
+                            object._cipherKey = "cipherKey";
+                    }
+                    if (message.macKey != null && message.hasOwnProperty("macKey")) {
                         object.macKey = options.bytes === String ? $util.base64.encode(message.macKey, 0, message.macKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.macKey) : message.macKey;
-                    if (message.iv != null && message.hasOwnProperty("iv"))
+                        if (options.oneofs)
+                            object._macKey = "macKey";
+                    }
+                    if (message.iv != null && message.hasOwnProperty("iv")) {
                         object.iv = options.bytes === String ? $util.base64.encode(message.iv, 0, message.iv.length) : options.bytes === Array ? Array.prototype.slice.call(message.iv) : message.iv;
+                        if (options.oneofs)
+                            object._iv = "iv";
+                    }
                     return object;
                 };
 
@@ -3829,59 +4115,104 @@ $root.SignalLocalStorageProtocol = (function() {
 
             /**
              * PendingKeyExchange sequence.
-             * @member {number} sequence
+             * @member {number|null|undefined} sequence
              * @memberof SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange
              * @instance
              */
-            PendingKeyExchange.prototype.sequence = 0;
+            PendingKeyExchange.prototype.sequence = null;
 
             /**
              * PendingKeyExchange localBaseKey.
-             * @member {Uint8Array} localBaseKey
+             * @member {Uint8Array|null|undefined} localBaseKey
              * @memberof SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange
              * @instance
              */
-            PendingKeyExchange.prototype.localBaseKey = $util.newBuffer([]);
+            PendingKeyExchange.prototype.localBaseKey = null;
 
             /**
              * PendingKeyExchange localBaseKeyPrivate.
-             * @member {Uint8Array} localBaseKeyPrivate
+             * @member {Uint8Array|null|undefined} localBaseKeyPrivate
              * @memberof SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange
              * @instance
              */
-            PendingKeyExchange.prototype.localBaseKeyPrivate = $util.newBuffer([]);
+            PendingKeyExchange.prototype.localBaseKeyPrivate = null;
 
             /**
              * PendingKeyExchange localRatchetKey.
-             * @member {Uint8Array} localRatchetKey
+             * @member {Uint8Array|null|undefined} localRatchetKey
              * @memberof SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange
              * @instance
              */
-            PendingKeyExchange.prototype.localRatchetKey = $util.newBuffer([]);
+            PendingKeyExchange.prototype.localRatchetKey = null;
 
             /**
              * PendingKeyExchange localRatchetKeyPrivate.
-             * @member {Uint8Array} localRatchetKeyPrivate
+             * @member {Uint8Array|null|undefined} localRatchetKeyPrivate
              * @memberof SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange
              * @instance
              */
-            PendingKeyExchange.prototype.localRatchetKeyPrivate = $util.newBuffer([]);
+            PendingKeyExchange.prototype.localRatchetKeyPrivate = null;
 
             /**
              * PendingKeyExchange localIdentityKey.
-             * @member {Uint8Array} localIdentityKey
+             * @member {Uint8Array|null|undefined} localIdentityKey
              * @memberof SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange
              * @instance
              */
-            PendingKeyExchange.prototype.localIdentityKey = $util.newBuffer([]);
+            PendingKeyExchange.prototype.localIdentityKey = null;
 
             /**
              * PendingKeyExchange localIdentityKeyPrivate.
-             * @member {Uint8Array} localIdentityKeyPrivate
+             * @member {Uint8Array|null|undefined} localIdentityKeyPrivate
              * @memberof SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange
              * @instance
              */
-            PendingKeyExchange.prototype.localIdentityKeyPrivate = $util.newBuffer([]);
+            PendingKeyExchange.prototype.localIdentityKeyPrivate = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(PendingKeyExchange.prototype, "_sequence", {
+                get: $util.oneOfGetter($oneOfFields = ["sequence"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(PendingKeyExchange.prototype, "_localBaseKey", {
+                get: $util.oneOfGetter($oneOfFields = ["localBaseKey"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(PendingKeyExchange.prototype, "_localBaseKeyPrivate", {
+                get: $util.oneOfGetter($oneOfFields = ["localBaseKeyPrivate"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(PendingKeyExchange.prototype, "_localRatchetKey", {
+                get: $util.oneOfGetter($oneOfFields = ["localRatchetKey"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(PendingKeyExchange.prototype, "_localRatchetKeyPrivate", {
+                get: $util.oneOfGetter($oneOfFields = ["localRatchetKeyPrivate"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(PendingKeyExchange.prototype, "_localIdentityKey", {
+                get: $util.oneOfGetter($oneOfFields = ["localIdentityKey"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(PendingKeyExchange.prototype, "_localIdentityKeyPrivate", {
+                get: $util.oneOfGetter($oneOfFields = ["localIdentityKeyPrivate"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
 
             /**
              * Creates a new PendingKeyExchange instance using the specified properties.
@@ -3948,14 +4279,12 @@ $root.SignalLocalStorageProtocol = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            PendingKeyExchange.decode = function decode(reader, length, error) {
+            PendingKeyExchange.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.sequence = reader.uint32();
@@ -4020,27 +4349,42 @@ $root.SignalLocalStorageProtocol = (function() {
             PendingKeyExchange.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.sequence != null && message.hasOwnProperty("sequence"))
+                var properties = {};
+                if (message.sequence != null && message.hasOwnProperty("sequence")) {
+                    properties._sequence = 1;
                     if (!$util.isInteger(message.sequence))
                         return "sequence: integer expected";
-                if (message.localBaseKey != null && message.hasOwnProperty("localBaseKey"))
+                }
+                if (message.localBaseKey != null && message.hasOwnProperty("localBaseKey")) {
+                    properties._localBaseKey = 1;
                     if (!(message.localBaseKey && typeof message.localBaseKey.length === "number" || $util.isString(message.localBaseKey)))
                         return "localBaseKey: buffer expected";
-                if (message.localBaseKeyPrivate != null && message.hasOwnProperty("localBaseKeyPrivate"))
+                }
+                if (message.localBaseKeyPrivate != null && message.hasOwnProperty("localBaseKeyPrivate")) {
+                    properties._localBaseKeyPrivate = 1;
                     if (!(message.localBaseKeyPrivate && typeof message.localBaseKeyPrivate.length === "number" || $util.isString(message.localBaseKeyPrivate)))
                         return "localBaseKeyPrivate: buffer expected";
-                if (message.localRatchetKey != null && message.hasOwnProperty("localRatchetKey"))
+                }
+                if (message.localRatchetKey != null && message.hasOwnProperty("localRatchetKey")) {
+                    properties._localRatchetKey = 1;
                     if (!(message.localRatchetKey && typeof message.localRatchetKey.length === "number" || $util.isString(message.localRatchetKey)))
                         return "localRatchetKey: buffer expected";
-                if (message.localRatchetKeyPrivate != null && message.hasOwnProperty("localRatchetKeyPrivate"))
+                }
+                if (message.localRatchetKeyPrivate != null && message.hasOwnProperty("localRatchetKeyPrivate")) {
+                    properties._localRatchetKeyPrivate = 1;
                     if (!(message.localRatchetKeyPrivate && typeof message.localRatchetKeyPrivate.length === "number" || $util.isString(message.localRatchetKeyPrivate)))
                         return "localRatchetKeyPrivate: buffer expected";
-                if (message.localIdentityKey != null && message.hasOwnProperty("localIdentityKey"))
+                }
+                if (message.localIdentityKey != null && message.hasOwnProperty("localIdentityKey")) {
+                    properties._localIdentityKey = 1;
                     if (!(message.localIdentityKey && typeof message.localIdentityKey.length === "number" || $util.isString(message.localIdentityKey)))
                         return "localIdentityKey: buffer expected";
-                if (message.localIdentityKeyPrivate != null && message.hasOwnProperty("localIdentityKeyPrivate"))
+                }
+                if (message.localIdentityKeyPrivate != null && message.hasOwnProperty("localIdentityKeyPrivate")) {
+                    properties._localIdentityKeyPrivate = 1;
                     if (!(message.localIdentityKeyPrivate && typeof message.localIdentityKeyPrivate.length === "number" || $util.isString(message.localIdentityKeyPrivate)))
                         return "localIdentityKeyPrivate: buffer expected";
+                }
                 return null;
             };
 
@@ -4104,65 +4448,41 @@ $root.SignalLocalStorageProtocol = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults) {
-                    object.sequence = 0;
-                    if (options.bytes === String)
-                        object.localBaseKey = "";
-                    else {
-                        object.localBaseKey = [];
-                        if (options.bytes !== Array)
-                            object.localBaseKey = $util.newBuffer(object.localBaseKey);
-                    }
-                    if (options.bytes === String)
-                        object.localBaseKeyPrivate = "";
-                    else {
-                        object.localBaseKeyPrivate = [];
-                        if (options.bytes !== Array)
-                            object.localBaseKeyPrivate = $util.newBuffer(object.localBaseKeyPrivate);
-                    }
-                    if (options.bytes === String)
-                        object.localRatchetKey = "";
-                    else {
-                        object.localRatchetKey = [];
-                        if (options.bytes !== Array)
-                            object.localRatchetKey = $util.newBuffer(object.localRatchetKey);
-                    }
-                    if (options.bytes === String)
-                        object.localRatchetKeyPrivate = "";
-                    else {
-                        object.localRatchetKeyPrivate = [];
-                        if (options.bytes !== Array)
-                            object.localRatchetKeyPrivate = $util.newBuffer(object.localRatchetKeyPrivate);
-                    }
-                    if (options.bytes === String)
-                        object.localIdentityKey = "";
-                    else {
-                        object.localIdentityKey = [];
-                        if (options.bytes !== Array)
-                            object.localIdentityKey = $util.newBuffer(object.localIdentityKey);
-                    }
-                    if (options.bytes === String)
-                        object.localIdentityKeyPrivate = "";
-                    else {
-                        object.localIdentityKeyPrivate = [];
-                        if (options.bytes !== Array)
-                            object.localIdentityKeyPrivate = $util.newBuffer(object.localIdentityKeyPrivate);
-                    }
-                }
-                if (message.sequence != null && message.hasOwnProperty("sequence"))
+                if (message.sequence != null && message.hasOwnProperty("sequence")) {
                     object.sequence = message.sequence;
-                if (message.localBaseKey != null && message.hasOwnProperty("localBaseKey"))
+                    if (options.oneofs)
+                        object._sequence = "sequence";
+                }
+                if (message.localBaseKey != null && message.hasOwnProperty("localBaseKey")) {
                     object.localBaseKey = options.bytes === String ? $util.base64.encode(message.localBaseKey, 0, message.localBaseKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.localBaseKey) : message.localBaseKey;
-                if (message.localBaseKeyPrivate != null && message.hasOwnProperty("localBaseKeyPrivate"))
+                    if (options.oneofs)
+                        object._localBaseKey = "localBaseKey";
+                }
+                if (message.localBaseKeyPrivate != null && message.hasOwnProperty("localBaseKeyPrivate")) {
                     object.localBaseKeyPrivate = options.bytes === String ? $util.base64.encode(message.localBaseKeyPrivate, 0, message.localBaseKeyPrivate.length) : options.bytes === Array ? Array.prototype.slice.call(message.localBaseKeyPrivate) : message.localBaseKeyPrivate;
-                if (message.localRatchetKey != null && message.hasOwnProperty("localRatchetKey"))
+                    if (options.oneofs)
+                        object._localBaseKeyPrivate = "localBaseKeyPrivate";
+                }
+                if (message.localRatchetKey != null && message.hasOwnProperty("localRatchetKey")) {
                     object.localRatchetKey = options.bytes === String ? $util.base64.encode(message.localRatchetKey, 0, message.localRatchetKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.localRatchetKey) : message.localRatchetKey;
-                if (message.localRatchetKeyPrivate != null && message.hasOwnProperty("localRatchetKeyPrivate"))
+                    if (options.oneofs)
+                        object._localRatchetKey = "localRatchetKey";
+                }
+                if (message.localRatchetKeyPrivate != null && message.hasOwnProperty("localRatchetKeyPrivate")) {
                     object.localRatchetKeyPrivate = options.bytes === String ? $util.base64.encode(message.localRatchetKeyPrivate, 0, message.localRatchetKeyPrivate.length) : options.bytes === Array ? Array.prototype.slice.call(message.localRatchetKeyPrivate) : message.localRatchetKeyPrivate;
-                if (message.localIdentityKey != null && message.hasOwnProperty("localIdentityKey"))
+                    if (options.oneofs)
+                        object._localRatchetKeyPrivate = "localRatchetKeyPrivate";
+                }
+                if (message.localIdentityKey != null && message.hasOwnProperty("localIdentityKey")) {
                     object.localIdentityKey = options.bytes === String ? $util.base64.encode(message.localIdentityKey, 0, message.localIdentityKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.localIdentityKey) : message.localIdentityKey;
-                if (message.localIdentityKeyPrivate != null && message.hasOwnProperty("localIdentityKeyPrivate"))
+                    if (options.oneofs)
+                        object._localIdentityKey = "localIdentityKey";
+                }
+                if (message.localIdentityKeyPrivate != null && message.hasOwnProperty("localIdentityKeyPrivate")) {
                     object.localIdentityKeyPrivate = options.bytes === String ? $util.base64.encode(message.localIdentityKeyPrivate, 0, message.localIdentityKeyPrivate.length) : options.bytes === Array ? Array.prototype.slice.call(message.localIdentityKeyPrivate) : message.localIdentityKeyPrivate;
+                    if (options.oneofs)
+                        object._localIdentityKeyPrivate = "localIdentityKeyPrivate";
+                }
                 return object;
             };
 
@@ -4223,27 +4543,48 @@ $root.SignalLocalStorageProtocol = (function() {
 
             /**
              * PendingPreKey preKeyId.
-             * @member {number} preKeyId
+             * @member {number|null|undefined} preKeyId
              * @memberof SignalLocalStorageProtocol.SessionStructure.PendingPreKey
              * @instance
              */
-            PendingPreKey.prototype.preKeyId = 0;
+            PendingPreKey.prototype.preKeyId = null;
 
             /**
              * PendingPreKey signedPreKeyId.
-             * @member {number} signedPreKeyId
+             * @member {number|null|undefined} signedPreKeyId
              * @memberof SignalLocalStorageProtocol.SessionStructure.PendingPreKey
              * @instance
              */
-            PendingPreKey.prototype.signedPreKeyId = 0;
+            PendingPreKey.prototype.signedPreKeyId = null;
 
             /**
              * PendingPreKey baseKey.
-             * @member {Uint8Array} baseKey
+             * @member {Uint8Array|null|undefined} baseKey
              * @memberof SignalLocalStorageProtocol.SessionStructure.PendingPreKey
              * @instance
              */
-            PendingPreKey.prototype.baseKey = $util.newBuffer([]);
+            PendingPreKey.prototype.baseKey = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(PendingPreKey.prototype, "_preKeyId", {
+                get: $util.oneOfGetter($oneOfFields = ["preKeyId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(PendingPreKey.prototype, "_signedPreKeyId", {
+                get: $util.oneOfGetter($oneOfFields = ["signedPreKeyId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(PendingPreKey.prototype, "_baseKey", {
+                get: $util.oneOfGetter($oneOfFields = ["baseKey"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
 
             /**
              * Creates a new PendingPreKey instance using the specified properties.
@@ -4302,14 +4643,12 @@ $root.SignalLocalStorageProtocol = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            PendingPreKey.decode = function decode(reader, length, error) {
+            PendingPreKey.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SessionStructure.PendingPreKey();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.preKeyId = reader.uint32();
@@ -4358,15 +4697,22 @@ $root.SignalLocalStorageProtocol = (function() {
             PendingPreKey.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.preKeyId != null && message.hasOwnProperty("preKeyId"))
+                var properties = {};
+                if (message.preKeyId != null && message.hasOwnProperty("preKeyId")) {
+                    properties._preKeyId = 1;
                     if (!$util.isInteger(message.preKeyId))
                         return "preKeyId: integer expected";
-                if (message.signedPreKeyId != null && message.hasOwnProperty("signedPreKeyId"))
+                }
+                if (message.signedPreKeyId != null && message.hasOwnProperty("signedPreKeyId")) {
+                    properties._signedPreKeyId = 1;
                     if (!$util.isInteger(message.signedPreKeyId))
                         return "signedPreKeyId: integer expected";
-                if (message.baseKey != null && message.hasOwnProperty("baseKey"))
+                }
+                if (message.baseKey != null && message.hasOwnProperty("baseKey")) {
+                    properties._baseKey = 1;
                     if (!(message.baseKey && typeof message.baseKey.length === "number" || $util.isString(message.baseKey)))
                         return "baseKey: buffer expected";
+                }
                 return null;
             };
 
@@ -4407,23 +4753,21 @@ $root.SignalLocalStorageProtocol = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults) {
-                    object.preKeyId = 0;
-                    if (options.bytes === String)
-                        object.baseKey = "";
-                    else {
-                        object.baseKey = [];
-                        if (options.bytes !== Array)
-                            object.baseKey = $util.newBuffer(object.baseKey);
-                    }
-                    object.signedPreKeyId = 0;
-                }
-                if (message.preKeyId != null && message.hasOwnProperty("preKeyId"))
+                if (message.preKeyId != null && message.hasOwnProperty("preKeyId")) {
                     object.preKeyId = message.preKeyId;
-                if (message.baseKey != null && message.hasOwnProperty("baseKey"))
+                    if (options.oneofs)
+                        object._preKeyId = "preKeyId";
+                }
+                if (message.baseKey != null && message.hasOwnProperty("baseKey")) {
                     object.baseKey = options.bytes === String ? $util.base64.encode(message.baseKey, 0, message.baseKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.baseKey) : message.baseKey;
-                if (message.signedPreKeyId != null && message.hasOwnProperty("signedPreKeyId"))
+                    if (options.oneofs)
+                        object._baseKey = "baseKey";
+                }
+                if (message.signedPreKeyId != null && message.hasOwnProperty("signedPreKeyId")) {
                     object.signedPreKeyId = message.signedPreKeyId;
+                    if (options.oneofs)
+                        object._signedPreKeyId = "signedPreKeyId";
+                }
                 return object;
             };
 

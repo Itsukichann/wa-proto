@@ -58,7 +58,7 @@ $root.ChatLockSettings = (function() {
          * @instance
          */
         ChatLockSettings.prototype.secretCode = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -344,7 +344,7 @@ $root.UserPassword = (function() {
          * @instance
          */
         UserPassword.prototype.transformedData = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -725,7 +725,7 @@ $root.UserPassword = (function() {
              * @instance
              */
             TransformerArg.prototype.value = null;
-            
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -1047,14 +1047,12 @@ $root.UserPassword = (function() {
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                Value.decode = function decode(reader, length, error) {
+                Value.decode = function decode(reader, length) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
                     var end = length === undefined ? reader.len : reader.pos + length, message = new $root.UserPassword.UserPassword.TransformerArg.Value();
                     while (reader.pos < end) {
                         var tag = reader.uint32();
-                        if (tag === error)
-                            break;
                         switch (tag >>> 3) {
                         case 1: {
                                 message.asBlob = reader.bytes();

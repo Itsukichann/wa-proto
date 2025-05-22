@@ -58,7 +58,7 @@ $root.DeviceCapabilities = (function() {
          * @instance
          */
         DeviceCapabilities.prototype.lidMigration = null;
-        
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -341,7 +341,7 @@ $root.DeviceCapabilities = (function() {
              * @instance
              */
             LIDMigration.prototype.chatDbMigrationTimestamp = null;
-            
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
