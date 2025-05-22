@@ -1,22 +1,28 @@
-exports.Adv = require('./Adv/Adv').Adv;
-exports.Cert = require('./Cert/Cert').Cert;
-exports.ChatLockSettings = require('./ChatLockSettings/ChatLockSettings').ChatLockSettings;
-exports.CompanionReg = require('./CompanionReg/CompanionReg').CompanionReg;
-exports.DeviceCapabilities = require('./DeviceCapabilities/DeviceCapabilities').DeviceCapabilities;
-exports.E2E = require('./E2E/E2E').E2E;
-exports.Ephemeral = require('./Ephemeral/Ephemeral').Ephemeral;
-exports.HistorySync = require('./HistorySync/HistorySync').HistorySync;
-exports.LidMigrationSyncPayload = require('./LidMigrationSyncPayload/LidMigrationSyncPayload').LidMigrationSyncPayload;
-exports.MdStorageChatRowOpaqueData = require('./MdStorageChatRowOpaqueData/MdStorageChatRowOpaqueData').MdStorageChatRowOpaqueData;
-exports.MdStorageMsgRowOpaqueData = require('./MdStorageMsgRowOpaqueData/MdStorageMsgRowOpaqueData').MdStorageMsgRowOpaqueData;
-exports.MmsRetry = require('./MmsRetry/MmsRetry').MmsRetry;
-exports.Protocol = require('./Protocol/Protocol').Protocol;
-exports.Reporting = require('./Reporting/Reporting').Reporting;
-exports.ServerSync = require('./ServerSync/ServerSync').ServerSync;
-exports.SignalLocalStorageProtocol = require('./SignalLocalStorageProtocol/SignalLocalStorageProtocol').SignalLocalStorageProtocol;
-exports.SignalWhisperTextProtocol = require('./SignalWhisperTextProtocol/SignalWhisperTextProtocol').SignalWhisperTextProtocol;
-exports.SyncAction = require('./SyncAction/SyncAction').SyncAction;
-exports.UserPassword = require('./UserPassword/UserPassword').UserPassword;
-exports.VnameCert = require('./VnameCert/VnameCert').VnameCert;
-exports.Wa6 = require('./Wa6/Wa6').Wa6;
-exports.Web = require('./Web/Web').Web;
+const proto = {
+  ...require('./Adv/Adv').Adv, 
+  ...require('./Cert/Cert').Cert, 
+  ...require('./ChatLockSettings/ChatLockSettings').ChatLockSettings, 
+  ...require('./CompanionReg/CompanionReg').CompanionReg, 
+  ...require('./DeviceCapabilities/DeviceCapabilities').DeviceCapabilities, 
+  ...require('./E2E/E2E').E2E, 
+  ...require('./Ephemeral/Ephemeral').Ephemeral, 
+  ...require('./HistorySync/HistorySync').HistorySync, 
+  ...require('./LidMigrationSyncPayload/LidMigrationSyncPayload').LidMigrationSyncPayload, 
+  ...require('./MdStorageChatRowOpaqueData/MdStorageChatRowOpaqueData').MdStorageChatRowOpaqueData, 
+  ...require('./MdStorageMsgRowOpaqueData/MdStorageMsgRowOpaqueData').MdStorageMsgRowOpaqueData, 
+  ...require('./MmsRetry/MmsRetry').MmsRetry, 
+  ...require('./Protocol/Protocol').Protocol, 
+  ...require('./Reporting/Reporting').Reporting, 
+  ...require('./ServerSync/ServerSync').ServerSync, 
+  ...require('./SignalLocalStorageProtocol/SignalLocalStorageProtocol').SignalLocalStorageProtocol,
+  ...require('./SignalWhisperTextProtocol/SignalWhisperTextProtocol').SignalWhisperTextProtocol,
+  ...require('./SyncAction/SyncAction').SyncAction,
+  ...require('./UserPassword/UserPassword').UserPassword,
+  ...require('./VnameCert/VnameCert').VnameCert,
+  ...require('./Wa6/Wa6').Wa6,
+  ...require('./Web/Web').Web
+}
+
+module.exports = {
+  proto
+}
