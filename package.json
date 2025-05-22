@@ -1,0 +1,39 @@
+{
+  "name": "wa-proto",
+  "version": "1.0.0",
+  "description": "Protobuf files from WhatsApp WEB",
+  "main": "proto/index.js",
+  "files": [
+    "proto/*"
+  ],
+  "scripts": {
+    "build": "npm run fetch && npm run generate",
+    "fetch": "node index.js",
+    "generate": "node generate-proto.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Itsukichann/wa-proto.git"
+  },
+  "author": {
+    "name": "Itsukichann",
+    "url": "https://github.com/Itsukichann"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Itsukichann/wa-proto/issues"
+  },
+  "homepage": "https://github.com/Itsukichann/wa-proto#readme",
+  "dependencies": {
+    "long": "^5.2.4",
+    "protobufjs": "^7.4.0"
+  },
+  "devDependencies": {
+    "acorn": "^8.14.0",
+    "acorn-walk": "^8.3.4",
+    "protobufjs-cli": "^1.1.3",
+    "request": "^2.88.2",
+    "request-promise-core": "^1.1.4",
+    "request-promise-native": "^1.0.9"
+  }
+}
