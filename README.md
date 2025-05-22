@@ -1,6 +1,6 @@
 # Itsukichann/wa-proto
 
-> Itsukichann/wa-proto is a open source project with extracted protobuf for 2.3000.x versions files from WhatsApp WEB based on https://github.com/WhiskeySockets/Baileys/tree/master/WAProto
+> Itsukichann/wa-proto is a open source project with extracted protobuf for 2.3000.x versions files from WhatsApp WEB based on https://github.com/Itsukichann/Baileys/blob/master/WAProto
 
 ## Our online channels
 
