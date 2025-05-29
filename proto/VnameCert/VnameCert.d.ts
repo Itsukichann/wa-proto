@@ -64,6 +64,30 @@ export namespace VnameCert {
         /** BizIdentityInfo featureControls. */
         public featureControls?: (number|Long|null);
 
+        /** BizIdentityInfo _vlevel. */
+        public _vlevel?: "vlevel";
+
+        /** BizIdentityInfo _vnameCert. */
+        public _vnameCert?: "vnameCert";
+
+        /** BizIdentityInfo _signed. */
+        public _signed?: "signed";
+
+        /** BizIdentityInfo _revoked. */
+        public _revoked?: "revoked";
+
+        /** BizIdentityInfo _hostStorage. */
+        public _hostStorage?: "hostStorage";
+
+        /** BizIdentityInfo _actualActors. */
+        public _actualActors?: "actualActors";
+
+        /** BizIdentityInfo _privacyModeTs. */
+        public _privacyModeTs?: "privacyModeTs";
+
+        /** BizIdentityInfo _featureControls. */
+        public _featureControls?: "featureControls";
+
         /**
          * Creates a new BizIdentityInfo instance using the specified properties.
          * @param [properties] Properties to set
@@ -207,6 +231,21 @@ export namespace VnameCert {
         /** BizAccountLinkInfo accountType. */
         public accountType?: (VnameCert.BizAccountLinkInfo.AccountType|null);
 
+        /** BizAccountLinkInfo _whatsappBizAcctFbid. */
+        public _whatsappBizAcctFbid?: "whatsappBizAcctFbid";
+
+        /** BizAccountLinkInfo _whatsappAcctNumber. */
+        public _whatsappAcctNumber?: "whatsappAcctNumber";
+
+        /** BizAccountLinkInfo _issueTime. */
+        public _issueTime?: "issueTime";
+
+        /** BizAccountLinkInfo _hostStorage. */
+        public _hostStorage?: "hostStorage";
+
+        /** BizAccountLinkInfo _accountType. */
+        public _accountType?: "accountType";
+
         /**
          * Creates a new BizAccountLinkInfo instance using the specified properties.
          * @param [properties] Properties to set
@@ -324,6 +363,12 @@ export namespace VnameCert {
         /** BizAccountPayload bizAcctLinkInfo. */
         public bizAcctLinkInfo?: (Uint8Array|null);
 
+        /** BizAccountPayload _vnameCert. */
+        public _vnameCert?: "vnameCert";
+
+        /** BizAccountPayload _bizAcctLinkInfo. */
+        public _bizAcctLinkInfo?: "bizAcctLinkInfo";
+
         /**
          * Creates a new BizAccountPayload instance using the specified properties.
          * @param [properties] Properties to set
@@ -432,6 +477,15 @@ export namespace VnameCert {
 
         /** VerifiedNameCertificate serverSignature. */
         public serverSignature?: (Uint8Array|null);
+
+        /** VerifiedNameCertificate _details. */
+        public _details?: "details";
+
+        /** VerifiedNameCertificate _signature. */
+        public _signature?: "signature";
+
+        /** VerifiedNameCertificate _serverSignature. */
+        public _serverSignature?: "serverSignature";
 
         /**
          * Creates a new VerifiedNameCertificate instance using the specified properties.
@@ -556,6 +610,18 @@ export namespace VnameCert {
             /** Details issueTime. */
             public issueTime?: (number|Long|null);
 
+            /** Details _serial. */
+            public _serial?: "serial";
+
+            /** Details _issuer. */
+            public _issuer?: "issuer";
+
+            /** Details _verifiedName. */
+            public _verifiedName?: "verifiedName";
+
+            /** Details _issueTime. */
+            public _issueTime?: "issueTime";
+
             /**
              * Creates a new Details instance using the specified properties.
              * @param [properties] Properties to set
@@ -665,6 +731,15 @@ export namespace VnameCert {
 
         /** LocalizedName verifiedName. */
         public verifiedName?: (string|null);
+
+        /** LocalizedName _lg. */
+        public _lg?: "lg";
+
+        /** LocalizedName _lc. */
+        public _lc?: "lc";
+
+        /** LocalizedName _verifiedName. */
+        public _verifiedName?: "verifiedName";
 
         /**
          * Creates a new LocalizedName instance using the specified properties.

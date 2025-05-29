@@ -22,6 +22,9 @@ export namespace MmsRetry {
         /** ServerErrorReceipt stanzaId. */
         public stanzaId?: (string|null);
 
+        /** ServerErrorReceipt _stanzaId. */
+        public _stanzaId?: "stanzaId";
+
         /**
          * Creates a new ServerErrorReceipt instance using the specified properties.
          * @param [properties] Properties to set
@@ -136,6 +139,18 @@ export namespace MmsRetry {
 
         /** MediaRetryNotification messageSecret. */
         public messageSecret?: (Uint8Array|null);
+
+        /** MediaRetryNotification _stanzaId. */
+        public _stanzaId?: "stanzaId";
+
+        /** MediaRetryNotification _directPath. */
+        public _directPath?: "directPath";
+
+        /** MediaRetryNotification _result. */
+        public _result?: "result";
+
+        /** MediaRetryNotification _messageSecret. */
+        public _messageSecret?: "messageSecret";
 
         /**
          * Creates a new MediaRetryNotification instance using the specified properties.

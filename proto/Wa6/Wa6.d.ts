@@ -196,6 +196,93 @@ export namespace Wa6 {
         /** ClientPayload accountType. */
         public accountType?: (Wa6.ClientPayload.AccountType|null);
 
+        /** ClientPayload _username. */
+        public _username?: "username";
+
+        /** ClientPayload _passive. */
+        public _passive?: "passive";
+
+        /** ClientPayload _userAgent. */
+        public _userAgent?: "userAgent";
+
+        /** ClientPayload _webInfo. */
+        public _webInfo?: "webInfo";
+
+        /** ClientPayload _pushName. */
+        public _pushName?: "pushName";
+
+        /** ClientPayload _sessionId. */
+        public _sessionId?: "sessionId";
+
+        /** ClientPayload _shortConnect. */
+        public _shortConnect?: "shortConnect";
+
+        /** ClientPayload _connectType. */
+        public _connectType?: "connectType";
+
+        /** ClientPayload _connectReason. */
+        public _connectReason?: "connectReason";
+
+        /** ClientPayload _dnsSource. */
+        public _dnsSource?: "dnsSource";
+
+        /** ClientPayload _connectAttemptCount. */
+        public _connectAttemptCount?: "connectAttemptCount";
+
+        /** ClientPayload _device. */
+        public _device?: "device";
+
+        /** ClientPayload _devicePairingData. */
+        public _devicePairingData?: "devicePairingData";
+
+        /** ClientPayload _product. */
+        public _product?: "product";
+
+        /** ClientPayload _fbCat. */
+        public _fbCat?: "fbCat";
+
+        /** ClientPayload _fbUserAgent. */
+        public _fbUserAgent?: "fbUserAgent";
+
+        /** ClientPayload _oc. */
+        public _oc?: "oc";
+
+        /** ClientPayload _lc. */
+        public _lc?: "lc";
+
+        /** ClientPayload _iosAppExtension. */
+        public _iosAppExtension?: "iosAppExtension";
+
+        /** ClientPayload _fbAppId. */
+        public _fbAppId?: "fbAppId";
+
+        /** ClientPayload _fbDeviceId. */
+        public _fbDeviceId?: "fbDeviceId";
+
+        /** ClientPayload _pull. */
+        public _pull?: "pull";
+
+        /** ClientPayload _paddingBytes. */
+        public _paddingBytes?: "paddingBytes";
+
+        /** ClientPayload _yearClass. */
+        public _yearClass?: "yearClass";
+
+        /** ClientPayload _memClass. */
+        public _memClass?: "memClass";
+
+        /** ClientPayload _interopData. */
+        public _interopData?: "interopData";
+
+        /** ClientPayload _trafficAnonymization. */
+        public _trafficAnonymization?: "trafficAnonymization";
+
+        /** ClientPayload _lidDbMigrated. */
+        public _lidDbMigrated?: "lidDbMigrated";
+
+        /** ClientPayload _accountType. */
+        public _accountType?: "accountType";
+
         /**
          * Creates a new ClientPayload instance using the specified properties.
          * @param [properties] Properties to set
@@ -336,6 +423,12 @@ export namespace Wa6 {
 
             /** DNSSource appCached. */
             public appCached?: (boolean|null);
+
+            /** DNSSource _dnsMethod. */
+            public _dnsMethod?: "dnsMethod";
+
+            /** DNSSource _appCached. */
+            public _appCached?: "appCached";
 
             /**
              * Creates a new DNSSource instance using the specified properties.
@@ -489,6 +582,30 @@ export namespace Wa6 {
             /** DevicePairingRegistrationData deviceProps. */
             public deviceProps?: (Uint8Array|null);
 
+            /** DevicePairingRegistrationData _eRegid. */
+            public _eRegid?: "eRegid";
+
+            /** DevicePairingRegistrationData _eKeytype. */
+            public _eKeytype?: "eKeytype";
+
+            /** DevicePairingRegistrationData _eIdent. */
+            public _eIdent?: "eIdent";
+
+            /** DevicePairingRegistrationData _eSkeyId. */
+            public _eSkeyId?: "eSkeyId";
+
+            /** DevicePairingRegistrationData _eSkeyVal. */
+            public _eSkeyVal?: "eSkeyVal";
+
+            /** DevicePairingRegistrationData _eSkeySig. */
+            public _eSkeySig?: "eSkeySig";
+
+            /** DevicePairingRegistrationData _buildHash. */
+            public _buildHash?: "buildHash";
+
+            /** DevicePairingRegistrationData _deviceProps. */
+            public _deviceProps?: "deviceProps";
+
             /**
              * Creates a new DevicePairingRegistrationData instance using the specified properties.
              * @param [properties] Properties to set
@@ -604,6 +721,15 @@ export namespace Wa6 {
 
             /** InteropData enableReadReceipts. */
             public enableReadReceipts?: (boolean|null);
+
+            /** InteropData _accountId. */
+            public _accountId?: "accountId";
+
+            /** InteropData _token. */
+            public _token?: "token";
+
+            /** InteropData _enableReadReceipts. */
+            public _enableReadReceipts?: "enableReadReceipts";
 
             /**
              * Creates a new InteropData instance using the specified properties.
@@ -807,6 +933,54 @@ export namespace Wa6 {
             /** UserAgent deviceModelType. */
             public deviceModelType?: (string|null);
 
+            /** UserAgent _platform. */
+            public _platform?: "platform";
+
+            /** UserAgent _appVersion. */
+            public _appVersion?: "appVersion";
+
+            /** UserAgent _mcc. */
+            public _mcc?: "mcc";
+
+            /** UserAgent _mnc. */
+            public _mnc?: "mnc";
+
+            /** UserAgent _osVersion. */
+            public _osVersion?: "osVersion";
+
+            /** UserAgent _manufacturer. */
+            public _manufacturer?: "manufacturer";
+
+            /** UserAgent _device. */
+            public _device?: "device";
+
+            /** UserAgent _osBuildNumber. */
+            public _osBuildNumber?: "osBuildNumber";
+
+            /** UserAgent _phoneId. */
+            public _phoneId?: "phoneId";
+
+            /** UserAgent _releaseChannel. */
+            public _releaseChannel?: "releaseChannel";
+
+            /** UserAgent _localeLanguageIso6391. */
+            public _localeLanguageIso6391?: "localeLanguageIso6391";
+
+            /** UserAgent _localeCountryIso31661Alpha2. */
+            public _localeCountryIso31661Alpha2?: "localeCountryIso31661Alpha2";
+
+            /** UserAgent _deviceBoard. */
+            public _deviceBoard?: "deviceBoard";
+
+            /** UserAgent _deviceExpId. */
+            public _deviceExpId?: "deviceExpId";
+
+            /** UserAgent _deviceType. */
+            public _deviceType?: "deviceType";
+
+            /** UserAgent _deviceModelType. */
+            public _deviceModelType?: "deviceModelType";
+
             /**
              * Creates a new UserAgent instance using the specified properties.
              * @param [properties] Properties to set
@@ -929,6 +1103,21 @@ export namespace Wa6 {
 
                 /** AppVersion quinary. */
                 public quinary?: (number|null);
+
+                /** AppVersion _primary. */
+                public _primary?: "primary";
+
+                /** AppVersion _secondary. */
+                public _secondary?: "secondary";
+
+                /** AppVersion _tertiary. */
+                public _tertiary?: "tertiary";
+
+                /** AppVersion _quaternary. */
+                public _quaternary?: "quaternary";
+
+                /** AppVersion _quinary. */
+                public _quinary?: "quinary";
 
                 /**
                  * Creates a new AppVersion instance using the specified properties.
@@ -1103,6 +1292,18 @@ export namespace Wa6 {
             /** WebInfo webSubPlatform. */
             public webSubPlatform?: (Wa6.ClientPayload.WebInfo.WebSubPlatform|null);
 
+            /** WebInfo _refToken. */
+            public _refToken?: "refToken";
+
+            /** WebInfo _version. */
+            public _version?: "version";
+
+            /** WebInfo _webdPayload. */
+            public _webdPayload?: "webdPayload";
+
+            /** WebInfo _webSubPlatform. */
+            public _webSubPlatform?: "webSubPlatform";
+
             /**
              * Creates a new WebInfo instance using the specified properties.
              * @param [properties] Properties to set
@@ -1272,6 +1473,39 @@ export namespace Wa6 {
                 /** WebdPayload features. */
                 public features?: (Uint8Array|null);
 
+                /** WebdPayload _usesParticipantInKey. */
+                public _usesParticipantInKey?: "usesParticipantInKey";
+
+                /** WebdPayload _supportsStarredMessages. */
+                public _supportsStarredMessages?: "supportsStarredMessages";
+
+                /** WebdPayload _supportsDocumentMessages. */
+                public _supportsDocumentMessages?: "supportsDocumentMessages";
+
+                /** WebdPayload _supportsUrlMessages. */
+                public _supportsUrlMessages?: "supportsUrlMessages";
+
+                /** WebdPayload _supportsMediaRetry. */
+                public _supportsMediaRetry?: "supportsMediaRetry";
+
+                /** WebdPayload _supportsE2EImage. */
+                public _supportsE2EImage?: "supportsE2EImage";
+
+                /** WebdPayload _supportsE2EVideo. */
+                public _supportsE2EVideo?: "supportsE2EVideo";
+
+                /** WebdPayload _supportsE2EAudio. */
+                public _supportsE2EAudio?: "supportsE2EAudio";
+
+                /** WebdPayload _supportsE2EDocument. */
+                public _supportsE2EDocument?: "supportsE2EDocument";
+
+                /** WebdPayload _documentTypes. */
+                public _documentTypes?: "documentTypes";
+
+                /** WebdPayload _features. */
+                public _features?: "features";
+
                 /**
                  * Creates a new WebdPayload instance using the specified properties.
                  * @param [properties] Properties to set
@@ -1383,6 +1617,15 @@ export namespace Wa6 {
         /** HandshakeMessage clientFinish. */
         public clientFinish?: (Wa6.HandshakeMessage.IClientFinish|null);
 
+        /** HandshakeMessage _clientHello. */
+        public _clientHello?: "clientHello";
+
+        /** HandshakeMessage _serverHello. */
+        public _serverHello?: "serverHello";
+
+        /** HandshakeMessage _clientFinish. */
+        public _clientFinish?: "clientFinish";
+
         /**
          * Creates a new HandshakeMessage instance using the specified properties.
          * @param [properties] Properties to set
@@ -1487,6 +1730,12 @@ export namespace Wa6 {
 
             /** ClientFinish payload. */
             public payload?: (Uint8Array|null);
+
+            /** ClientFinish _static. */
+            public _static?: "static";
+
+            /** ClientFinish _payload. */
+            public _payload?: "payload";
 
             /**
              * Creates a new ClientFinish instance using the specified properties.
@@ -1597,6 +1846,15 @@ export namespace Wa6 {
             /** ClientHello payload. */
             public payload?: (Uint8Array|null);
 
+            /** ClientHello _ephemeral. */
+            public _ephemeral?: "ephemeral";
+
+            /** ClientHello _static. */
+            public _static?: "static";
+
+            /** ClientHello _payload. */
+            public _payload?: "payload";
+
             /**
              * Creates a new ClientHello instance using the specified properties.
              * @param [properties] Properties to set
@@ -1705,6 +1963,15 @@ export namespace Wa6 {
 
             /** ServerHello payload. */
             public payload?: (Uint8Array|null);
+
+            /** ServerHello _ephemeral. */
+            public _ephemeral?: "ephemeral";
+
+            /** ServerHello _static. */
+            public _static?: "static";
+
+            /** ServerHello _payload. */
+            public _payload?: "payload";
 
             /**
              * Creates a new ServerHello instance using the specified properties.

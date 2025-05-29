@@ -315,175 +315,320 @@ $root.Wa6 = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ClientPayload _username.
+         * @member {"username"|undefined} _username
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
         Object.defineProperty(ClientPayload.prototype, "_username", {
             get: $util.oneOfGetter($oneOfFields = ["username"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ClientPayload _passive.
+         * @member {"passive"|undefined} _passive
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
         Object.defineProperty(ClientPayload.prototype, "_passive", {
             get: $util.oneOfGetter($oneOfFields = ["passive"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ClientPayload _userAgent.
+         * @member {"userAgent"|undefined} _userAgent
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
         Object.defineProperty(ClientPayload.prototype, "_userAgent", {
             get: $util.oneOfGetter($oneOfFields = ["userAgent"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ClientPayload _webInfo.
+         * @member {"webInfo"|undefined} _webInfo
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
         Object.defineProperty(ClientPayload.prototype, "_webInfo", {
             get: $util.oneOfGetter($oneOfFields = ["webInfo"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ClientPayload _pushName.
+         * @member {"pushName"|undefined} _pushName
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
         Object.defineProperty(ClientPayload.prototype, "_pushName", {
             get: $util.oneOfGetter($oneOfFields = ["pushName"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ClientPayload _sessionId.
+         * @member {"sessionId"|undefined} _sessionId
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
         Object.defineProperty(ClientPayload.prototype, "_sessionId", {
             get: $util.oneOfGetter($oneOfFields = ["sessionId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ClientPayload _shortConnect.
+         * @member {"shortConnect"|undefined} _shortConnect
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
         Object.defineProperty(ClientPayload.prototype, "_shortConnect", {
             get: $util.oneOfGetter($oneOfFields = ["shortConnect"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ClientPayload _connectType.
+         * @member {"connectType"|undefined} _connectType
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
         Object.defineProperty(ClientPayload.prototype, "_connectType", {
             get: $util.oneOfGetter($oneOfFields = ["connectType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ClientPayload _connectReason.
+         * @member {"connectReason"|undefined} _connectReason
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
         Object.defineProperty(ClientPayload.prototype, "_connectReason", {
             get: $util.oneOfGetter($oneOfFields = ["connectReason"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ClientPayload _dnsSource.
+         * @member {"dnsSource"|undefined} _dnsSource
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
         Object.defineProperty(ClientPayload.prototype, "_dnsSource", {
             get: $util.oneOfGetter($oneOfFields = ["dnsSource"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ClientPayload _connectAttemptCount.
+         * @member {"connectAttemptCount"|undefined} _connectAttemptCount
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
         Object.defineProperty(ClientPayload.prototype, "_connectAttemptCount", {
             get: $util.oneOfGetter($oneOfFields = ["connectAttemptCount"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ClientPayload _device.
+         * @member {"device"|undefined} _device
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
         Object.defineProperty(ClientPayload.prototype, "_device", {
             get: $util.oneOfGetter($oneOfFields = ["device"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ClientPayload _devicePairingData.
+         * @member {"devicePairingData"|undefined} _devicePairingData
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
         Object.defineProperty(ClientPayload.prototype, "_devicePairingData", {
             get: $util.oneOfGetter($oneOfFields = ["devicePairingData"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ClientPayload _product.
+         * @member {"product"|undefined} _product
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
         Object.defineProperty(ClientPayload.prototype, "_product", {
             get: $util.oneOfGetter($oneOfFields = ["product"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ClientPayload _fbCat.
+         * @member {"fbCat"|undefined} _fbCat
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
         Object.defineProperty(ClientPayload.prototype, "_fbCat", {
             get: $util.oneOfGetter($oneOfFields = ["fbCat"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ClientPayload _fbUserAgent.
+         * @member {"fbUserAgent"|undefined} _fbUserAgent
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
         Object.defineProperty(ClientPayload.prototype, "_fbUserAgent", {
             get: $util.oneOfGetter($oneOfFields = ["fbUserAgent"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ClientPayload _oc.
+         * @member {"oc"|undefined} _oc
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
         Object.defineProperty(ClientPayload.prototype, "_oc", {
             get: $util.oneOfGetter($oneOfFields = ["oc"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ClientPayload _lc.
+         * @member {"lc"|undefined} _lc
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
         Object.defineProperty(ClientPayload.prototype, "_lc", {
             get: $util.oneOfGetter($oneOfFields = ["lc"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ClientPayload _iosAppExtension.
+         * @member {"iosAppExtension"|undefined} _iosAppExtension
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
         Object.defineProperty(ClientPayload.prototype, "_iosAppExtension", {
             get: $util.oneOfGetter($oneOfFields = ["iosAppExtension"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ClientPayload _fbAppId.
+         * @member {"fbAppId"|undefined} _fbAppId
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
         Object.defineProperty(ClientPayload.prototype, "_fbAppId", {
             get: $util.oneOfGetter($oneOfFields = ["fbAppId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ClientPayload _fbDeviceId.
+         * @member {"fbDeviceId"|undefined} _fbDeviceId
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
         Object.defineProperty(ClientPayload.prototype, "_fbDeviceId", {
             get: $util.oneOfGetter($oneOfFields = ["fbDeviceId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ClientPayload _pull.
+         * @member {"pull"|undefined} _pull
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
         Object.defineProperty(ClientPayload.prototype, "_pull", {
             get: $util.oneOfGetter($oneOfFields = ["pull"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ClientPayload _paddingBytes.
+         * @member {"paddingBytes"|undefined} _paddingBytes
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
         Object.defineProperty(ClientPayload.prototype, "_paddingBytes", {
             get: $util.oneOfGetter($oneOfFields = ["paddingBytes"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ClientPayload _yearClass.
+         * @member {"yearClass"|undefined} _yearClass
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
         Object.defineProperty(ClientPayload.prototype, "_yearClass", {
             get: $util.oneOfGetter($oneOfFields = ["yearClass"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ClientPayload _memClass.
+         * @member {"memClass"|undefined} _memClass
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
         Object.defineProperty(ClientPayload.prototype, "_memClass", {
             get: $util.oneOfGetter($oneOfFields = ["memClass"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ClientPayload _interopData.
+         * @member {"interopData"|undefined} _interopData
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
         Object.defineProperty(ClientPayload.prototype, "_interopData", {
             get: $util.oneOfGetter($oneOfFields = ["interopData"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ClientPayload _trafficAnonymization.
+         * @member {"trafficAnonymization"|undefined} _trafficAnonymization
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
         Object.defineProperty(ClientPayload.prototype, "_trafficAnonymization", {
             get: $util.oneOfGetter($oneOfFields = ["trafficAnonymization"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ClientPayload _lidDbMigrated.
+         * @member {"lidDbMigrated"|undefined} _lidDbMigrated
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
         Object.defineProperty(ClientPayload.prototype, "_lidDbMigrated", {
             get: $util.oneOfGetter($oneOfFields = ["lidDbMigrated"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ClientPayload _accountType.
+         * @member {"accountType"|undefined} _accountType
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
         Object.defineProperty(ClientPayload.prototype, "_accountType", {
             get: $util.oneOfGetter($oneOfFields = ["accountType"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -604,12 +749,14 @@ $root.Wa6 = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ClientPayload.decode = function decode(reader, length) {
+        ClientPayload.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Wa6.ClientPayload();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.username = reader.uint64();
@@ -1611,13 +1758,23 @@ $root.Wa6 = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * DNSSource _dnsMethod.
+             * @member {"dnsMethod"|undefined} _dnsMethod
+             * @memberof Wa6.ClientPayload.DNSSource
+             * @instance
+             */
             Object.defineProperty(DNSSource.prototype, "_dnsMethod", {
                 get: $util.oneOfGetter($oneOfFields = ["dnsMethod"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * DNSSource _appCached.
+             * @member {"appCached"|undefined} _appCached
+             * @memberof Wa6.ClientPayload.DNSSource
+             * @instance
+             */
             Object.defineProperty(DNSSource.prototype, "_appCached", {
                 get: $util.oneOfGetter($oneOfFields = ["appCached"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -1678,12 +1835,14 @@ $root.Wa6 = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DNSSource.decode = function decode(reader, length) {
+            DNSSource.decode = function decode(reader, length, error) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Wa6.ClientPayload.DNSSource();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
+                    if (tag === error)
+                        break;
                     switch (tag >>> 3) {
                     case 15: {
                             message.dnsMethod = reader.int32();
@@ -1975,49 +2134,89 @@ $root.Wa6 = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * DevicePairingRegistrationData _eRegid.
+             * @member {"eRegid"|undefined} _eRegid
+             * @memberof Wa6.ClientPayload.DevicePairingRegistrationData
+             * @instance
+             */
             Object.defineProperty(DevicePairingRegistrationData.prototype, "_eRegid", {
                 get: $util.oneOfGetter($oneOfFields = ["eRegid"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * DevicePairingRegistrationData _eKeytype.
+             * @member {"eKeytype"|undefined} _eKeytype
+             * @memberof Wa6.ClientPayload.DevicePairingRegistrationData
+             * @instance
+             */
             Object.defineProperty(DevicePairingRegistrationData.prototype, "_eKeytype", {
                 get: $util.oneOfGetter($oneOfFields = ["eKeytype"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * DevicePairingRegistrationData _eIdent.
+             * @member {"eIdent"|undefined} _eIdent
+             * @memberof Wa6.ClientPayload.DevicePairingRegistrationData
+             * @instance
+             */
             Object.defineProperty(DevicePairingRegistrationData.prototype, "_eIdent", {
                 get: $util.oneOfGetter($oneOfFields = ["eIdent"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * DevicePairingRegistrationData _eSkeyId.
+             * @member {"eSkeyId"|undefined} _eSkeyId
+             * @memberof Wa6.ClientPayload.DevicePairingRegistrationData
+             * @instance
+             */
             Object.defineProperty(DevicePairingRegistrationData.prototype, "_eSkeyId", {
                 get: $util.oneOfGetter($oneOfFields = ["eSkeyId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * DevicePairingRegistrationData _eSkeyVal.
+             * @member {"eSkeyVal"|undefined} _eSkeyVal
+             * @memberof Wa6.ClientPayload.DevicePairingRegistrationData
+             * @instance
+             */
             Object.defineProperty(DevicePairingRegistrationData.prototype, "_eSkeyVal", {
                 get: $util.oneOfGetter($oneOfFields = ["eSkeyVal"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * DevicePairingRegistrationData _eSkeySig.
+             * @member {"eSkeySig"|undefined} _eSkeySig
+             * @memberof Wa6.ClientPayload.DevicePairingRegistrationData
+             * @instance
+             */
             Object.defineProperty(DevicePairingRegistrationData.prototype, "_eSkeySig", {
                 get: $util.oneOfGetter($oneOfFields = ["eSkeySig"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * DevicePairingRegistrationData _buildHash.
+             * @member {"buildHash"|undefined} _buildHash
+             * @memberof Wa6.ClientPayload.DevicePairingRegistrationData
+             * @instance
+             */
             Object.defineProperty(DevicePairingRegistrationData.prototype, "_buildHash", {
                 get: $util.oneOfGetter($oneOfFields = ["buildHash"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * DevicePairingRegistrationData _deviceProps.
+             * @member {"deviceProps"|undefined} _deviceProps
+             * @memberof Wa6.ClientPayload.DevicePairingRegistrationData
+             * @instance
+             */
             Object.defineProperty(DevicePairingRegistrationData.prototype, "_deviceProps", {
                 get: $util.oneOfGetter($oneOfFields = ["deviceProps"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -2090,12 +2289,14 @@ $root.Wa6 = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DevicePairingRegistrationData.decode = function decode(reader, length) {
+            DevicePairingRegistrationData.decode = function decode(reader, length, error) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Wa6.ClientPayload.DevicePairingRegistrationData();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
+                    if (tag === error)
+                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.eRegid = reader.bytes();
@@ -2417,19 +2618,34 @@ $root.Wa6 = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * InteropData _accountId.
+             * @member {"accountId"|undefined} _accountId
+             * @memberof Wa6.ClientPayload.InteropData
+             * @instance
+             */
             Object.defineProperty(InteropData.prototype, "_accountId", {
                 get: $util.oneOfGetter($oneOfFields = ["accountId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * InteropData _token.
+             * @member {"token"|undefined} _token
+             * @memberof Wa6.ClientPayload.InteropData
+             * @instance
+             */
             Object.defineProperty(InteropData.prototype, "_token", {
                 get: $util.oneOfGetter($oneOfFields = ["token"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * InteropData _enableReadReceipts.
+             * @member {"enableReadReceipts"|undefined} _enableReadReceipts
+             * @memberof Wa6.ClientPayload.InteropData
+             * @instance
+             */
             Object.defineProperty(InteropData.prototype, "_enableReadReceipts", {
                 get: $util.oneOfGetter($oneOfFields = ["enableReadReceipts"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -2492,12 +2708,14 @@ $root.Wa6 = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            InteropData.decode = function decode(reader, length) {
+            InteropData.decode = function decode(reader, length, error) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Wa6.ClientPayload.InteropData();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
+                    if (tag === error)
+                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.accountId = reader.uint64();
@@ -2863,97 +3081,177 @@ $root.Wa6 = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * UserAgent _platform.
+             * @member {"platform"|undefined} _platform
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
             Object.defineProperty(UserAgent.prototype, "_platform", {
                 get: $util.oneOfGetter($oneOfFields = ["platform"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * UserAgent _appVersion.
+             * @member {"appVersion"|undefined} _appVersion
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
             Object.defineProperty(UserAgent.prototype, "_appVersion", {
                 get: $util.oneOfGetter($oneOfFields = ["appVersion"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * UserAgent _mcc.
+             * @member {"mcc"|undefined} _mcc
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
             Object.defineProperty(UserAgent.prototype, "_mcc", {
                 get: $util.oneOfGetter($oneOfFields = ["mcc"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * UserAgent _mnc.
+             * @member {"mnc"|undefined} _mnc
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
             Object.defineProperty(UserAgent.prototype, "_mnc", {
                 get: $util.oneOfGetter($oneOfFields = ["mnc"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * UserAgent _osVersion.
+             * @member {"osVersion"|undefined} _osVersion
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
             Object.defineProperty(UserAgent.prototype, "_osVersion", {
                 get: $util.oneOfGetter($oneOfFields = ["osVersion"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * UserAgent _manufacturer.
+             * @member {"manufacturer"|undefined} _manufacturer
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
             Object.defineProperty(UserAgent.prototype, "_manufacturer", {
                 get: $util.oneOfGetter($oneOfFields = ["manufacturer"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * UserAgent _device.
+             * @member {"device"|undefined} _device
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
             Object.defineProperty(UserAgent.prototype, "_device", {
                 get: $util.oneOfGetter($oneOfFields = ["device"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * UserAgent _osBuildNumber.
+             * @member {"osBuildNumber"|undefined} _osBuildNumber
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
             Object.defineProperty(UserAgent.prototype, "_osBuildNumber", {
                 get: $util.oneOfGetter($oneOfFields = ["osBuildNumber"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * UserAgent _phoneId.
+             * @member {"phoneId"|undefined} _phoneId
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
             Object.defineProperty(UserAgent.prototype, "_phoneId", {
                 get: $util.oneOfGetter($oneOfFields = ["phoneId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * UserAgent _releaseChannel.
+             * @member {"releaseChannel"|undefined} _releaseChannel
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
             Object.defineProperty(UserAgent.prototype, "_releaseChannel", {
                 get: $util.oneOfGetter($oneOfFields = ["releaseChannel"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * UserAgent _localeLanguageIso6391.
+             * @member {"localeLanguageIso6391"|undefined} _localeLanguageIso6391
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
             Object.defineProperty(UserAgent.prototype, "_localeLanguageIso6391", {
                 get: $util.oneOfGetter($oneOfFields = ["localeLanguageIso6391"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * UserAgent _localeCountryIso31661Alpha2.
+             * @member {"localeCountryIso31661Alpha2"|undefined} _localeCountryIso31661Alpha2
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
             Object.defineProperty(UserAgent.prototype, "_localeCountryIso31661Alpha2", {
                 get: $util.oneOfGetter($oneOfFields = ["localeCountryIso31661Alpha2"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * UserAgent _deviceBoard.
+             * @member {"deviceBoard"|undefined} _deviceBoard
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
             Object.defineProperty(UserAgent.prototype, "_deviceBoard", {
                 get: $util.oneOfGetter($oneOfFields = ["deviceBoard"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * UserAgent _deviceExpId.
+             * @member {"deviceExpId"|undefined} _deviceExpId
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
             Object.defineProperty(UserAgent.prototype, "_deviceExpId", {
                 get: $util.oneOfGetter($oneOfFields = ["deviceExpId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * UserAgent _deviceType.
+             * @member {"deviceType"|undefined} _deviceType
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
             Object.defineProperty(UserAgent.prototype, "_deviceType", {
                 get: $util.oneOfGetter($oneOfFields = ["deviceType"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * UserAgent _deviceModelType.
+             * @member {"deviceModelType"|undefined} _deviceModelType
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
             Object.defineProperty(UserAgent.prototype, "_deviceModelType", {
                 get: $util.oneOfGetter($oneOfFields = ["deviceModelType"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -3042,12 +3340,14 @@ $root.Wa6 = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            UserAgent.decode = function decode(reader, length) {
+            UserAgent.decode = function decode(reader, length, error) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Wa6.ClientPayload.UserAgent();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
+                    if (tag === error)
+                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.platform = reader.int32();
@@ -3730,31 +4030,56 @@ $root.Wa6 = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                // Virtual OneOf for proto3 optional field
+                /**
+                 * AppVersion _primary.
+                 * @member {"primary"|undefined} _primary
+                 * @memberof Wa6.ClientPayload.UserAgent.AppVersion
+                 * @instance
+                 */
                 Object.defineProperty(AppVersion.prototype, "_primary", {
                     get: $util.oneOfGetter($oneOfFields = ["primary"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                // Virtual OneOf for proto3 optional field
+                /**
+                 * AppVersion _secondary.
+                 * @member {"secondary"|undefined} _secondary
+                 * @memberof Wa6.ClientPayload.UserAgent.AppVersion
+                 * @instance
+                 */
                 Object.defineProperty(AppVersion.prototype, "_secondary", {
                     get: $util.oneOfGetter($oneOfFields = ["secondary"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                // Virtual OneOf for proto3 optional field
+                /**
+                 * AppVersion _tertiary.
+                 * @member {"tertiary"|undefined} _tertiary
+                 * @memberof Wa6.ClientPayload.UserAgent.AppVersion
+                 * @instance
+                 */
                 Object.defineProperty(AppVersion.prototype, "_tertiary", {
                     get: $util.oneOfGetter($oneOfFields = ["tertiary"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                // Virtual OneOf for proto3 optional field
+                /**
+                 * AppVersion _quaternary.
+                 * @member {"quaternary"|undefined} _quaternary
+                 * @memberof Wa6.ClientPayload.UserAgent.AppVersion
+                 * @instance
+                 */
                 Object.defineProperty(AppVersion.prototype, "_quaternary", {
                     get: $util.oneOfGetter($oneOfFields = ["quaternary"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                // Virtual OneOf for proto3 optional field
+                /**
+                 * AppVersion _quinary.
+                 * @member {"quinary"|undefined} _quinary
+                 * @memberof Wa6.ClientPayload.UserAgent.AppVersion
+                 * @instance
+                 */
                 Object.defineProperty(AppVersion.prototype, "_quinary", {
                     get: $util.oneOfGetter($oneOfFields = ["quinary"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -3821,12 +4146,14 @@ $root.Wa6 = (function() {
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                AppVersion.decode = function decode(reader, length) {
+                AppVersion.decode = function decode(reader, length, error) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
                     var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Wa6.ClientPayload.UserAgent.AppVersion();
                     while (reader.pos < end) {
                         var tag = reader.uint32();
+                        if (tag === error)
+                            break;
                         switch (tag >>> 3) {
                         case 1: {
                                 message.primary = reader.uint32();
@@ -4192,25 +4519,45 @@ $root.Wa6 = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * WebInfo _refToken.
+             * @member {"refToken"|undefined} _refToken
+             * @memberof Wa6.ClientPayload.WebInfo
+             * @instance
+             */
             Object.defineProperty(WebInfo.prototype, "_refToken", {
                 get: $util.oneOfGetter($oneOfFields = ["refToken"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * WebInfo _version.
+             * @member {"version"|undefined} _version
+             * @memberof Wa6.ClientPayload.WebInfo
+             * @instance
+             */
             Object.defineProperty(WebInfo.prototype, "_version", {
                 get: $util.oneOfGetter($oneOfFields = ["version"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * WebInfo _webdPayload.
+             * @member {"webdPayload"|undefined} _webdPayload
+             * @memberof Wa6.ClientPayload.WebInfo
+             * @instance
+             */
             Object.defineProperty(WebInfo.prototype, "_webdPayload", {
                 get: $util.oneOfGetter($oneOfFields = ["webdPayload"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * WebInfo _webSubPlatform.
+             * @member {"webSubPlatform"|undefined} _webSubPlatform
+             * @memberof Wa6.ClientPayload.WebInfo
+             * @instance
+             */
             Object.defineProperty(WebInfo.prototype, "_webSubPlatform", {
                 get: $util.oneOfGetter($oneOfFields = ["webSubPlatform"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -4275,12 +4622,14 @@ $root.Wa6 = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            WebInfo.decode = function decode(reader, length) {
+            WebInfo.decode = function decode(reader, length, error) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Wa6.ClientPayload.WebInfo();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
+                    if (tag === error)
+                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.refToken = reader.string();
@@ -4634,67 +4983,122 @@ $root.Wa6 = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                // Virtual OneOf for proto3 optional field
+                /**
+                 * WebdPayload _usesParticipantInKey.
+                 * @member {"usesParticipantInKey"|undefined} _usesParticipantInKey
+                 * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
+                 * @instance
+                 */
                 Object.defineProperty(WebdPayload.prototype, "_usesParticipantInKey", {
                     get: $util.oneOfGetter($oneOfFields = ["usesParticipantInKey"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                // Virtual OneOf for proto3 optional field
+                /**
+                 * WebdPayload _supportsStarredMessages.
+                 * @member {"supportsStarredMessages"|undefined} _supportsStarredMessages
+                 * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
+                 * @instance
+                 */
                 Object.defineProperty(WebdPayload.prototype, "_supportsStarredMessages", {
                     get: $util.oneOfGetter($oneOfFields = ["supportsStarredMessages"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                // Virtual OneOf for proto3 optional field
+                /**
+                 * WebdPayload _supportsDocumentMessages.
+                 * @member {"supportsDocumentMessages"|undefined} _supportsDocumentMessages
+                 * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
+                 * @instance
+                 */
                 Object.defineProperty(WebdPayload.prototype, "_supportsDocumentMessages", {
                     get: $util.oneOfGetter($oneOfFields = ["supportsDocumentMessages"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                // Virtual OneOf for proto3 optional field
+                /**
+                 * WebdPayload _supportsUrlMessages.
+                 * @member {"supportsUrlMessages"|undefined} _supportsUrlMessages
+                 * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
+                 * @instance
+                 */
                 Object.defineProperty(WebdPayload.prototype, "_supportsUrlMessages", {
                     get: $util.oneOfGetter($oneOfFields = ["supportsUrlMessages"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                // Virtual OneOf for proto3 optional field
+                /**
+                 * WebdPayload _supportsMediaRetry.
+                 * @member {"supportsMediaRetry"|undefined} _supportsMediaRetry
+                 * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
+                 * @instance
+                 */
                 Object.defineProperty(WebdPayload.prototype, "_supportsMediaRetry", {
                     get: $util.oneOfGetter($oneOfFields = ["supportsMediaRetry"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                // Virtual OneOf for proto3 optional field
+                /**
+                 * WebdPayload _supportsE2EImage.
+                 * @member {"supportsE2EImage"|undefined} _supportsE2EImage
+                 * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
+                 * @instance
+                 */
                 Object.defineProperty(WebdPayload.prototype, "_supportsE2EImage", {
                     get: $util.oneOfGetter($oneOfFields = ["supportsE2EImage"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                // Virtual OneOf for proto3 optional field
+                /**
+                 * WebdPayload _supportsE2EVideo.
+                 * @member {"supportsE2EVideo"|undefined} _supportsE2EVideo
+                 * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
+                 * @instance
+                 */
                 Object.defineProperty(WebdPayload.prototype, "_supportsE2EVideo", {
                     get: $util.oneOfGetter($oneOfFields = ["supportsE2EVideo"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                // Virtual OneOf for proto3 optional field
+                /**
+                 * WebdPayload _supportsE2EAudio.
+                 * @member {"supportsE2EAudio"|undefined} _supportsE2EAudio
+                 * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
+                 * @instance
+                 */
                 Object.defineProperty(WebdPayload.prototype, "_supportsE2EAudio", {
                     get: $util.oneOfGetter($oneOfFields = ["supportsE2EAudio"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                // Virtual OneOf for proto3 optional field
+                /**
+                 * WebdPayload _supportsE2EDocument.
+                 * @member {"supportsE2EDocument"|undefined} _supportsE2EDocument
+                 * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
+                 * @instance
+                 */
                 Object.defineProperty(WebdPayload.prototype, "_supportsE2EDocument", {
                     get: $util.oneOfGetter($oneOfFields = ["supportsE2EDocument"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                // Virtual OneOf for proto3 optional field
+                /**
+                 * WebdPayload _documentTypes.
+                 * @member {"documentTypes"|undefined} _documentTypes
+                 * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
+                 * @instance
+                 */
                 Object.defineProperty(WebdPayload.prototype, "_documentTypes", {
                     get: $util.oneOfGetter($oneOfFields = ["documentTypes"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                // Virtual OneOf for proto3 optional field
+                /**
+                 * WebdPayload _features.
+                 * @member {"features"|undefined} _features
+                 * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
+                 * @instance
+                 */
                 Object.defineProperty(WebdPayload.prototype, "_features", {
                     get: $util.oneOfGetter($oneOfFields = ["features"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -4773,12 +5177,14 @@ $root.Wa6 = (function() {
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                WebdPayload.decode = function decode(reader, length) {
+                WebdPayload.decode = function decode(reader, length, error) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
                     var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Wa6.ClientPayload.WebInfo.WebdPayload();
                     while (reader.pos < end) {
                         var tag = reader.uint32();
+                        if (tag === error)
+                            break;
                         switch (tag >>> 3) {
                         case 1: {
                                 message.usesParticipantInKey = reader.bool();
@@ -5117,19 +5523,34 @@ $root.Wa6 = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * HandshakeMessage _clientHello.
+         * @member {"clientHello"|undefined} _clientHello
+         * @memberof Wa6.HandshakeMessage
+         * @instance
+         */
         Object.defineProperty(HandshakeMessage.prototype, "_clientHello", {
             get: $util.oneOfGetter($oneOfFields = ["clientHello"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * HandshakeMessage _serverHello.
+         * @member {"serverHello"|undefined} _serverHello
+         * @memberof Wa6.HandshakeMessage
+         * @instance
+         */
         Object.defineProperty(HandshakeMessage.prototype, "_serverHello", {
             get: $util.oneOfGetter($oneOfFields = ["serverHello"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * HandshakeMessage _clientFinish.
+         * @member {"clientFinish"|undefined} _clientFinish
+         * @memberof Wa6.HandshakeMessage
+         * @instance
+         */
         Object.defineProperty(HandshakeMessage.prototype, "_clientFinish", {
             get: $util.oneOfGetter($oneOfFields = ["clientFinish"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -5192,12 +5613,14 @@ $root.Wa6 = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        HandshakeMessage.decode = function decode(reader, length) {
+        HandshakeMessage.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Wa6.HandshakeMessage();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 2: {
                         message.clientHello = $root.Wa6.HandshakeMessage.ClientHello.decode(reader, reader.uint32());
@@ -5405,13 +5828,23 @@ $root.Wa6 = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * ClientFinish _static.
+             * @member {"static"|undefined} _static
+             * @memberof Wa6.HandshakeMessage.ClientFinish
+             * @instance
+             */
             Object.defineProperty(ClientFinish.prototype, "_static", {
                 get: $util.oneOfGetter($oneOfFields = ["static"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * ClientFinish _payload.
+             * @member {"payload"|undefined} _payload
+             * @memberof Wa6.HandshakeMessage.ClientFinish
+             * @instance
+             */
             Object.defineProperty(ClientFinish.prototype, "_payload", {
                 get: $util.oneOfGetter($oneOfFields = ["payload"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -5472,12 +5905,14 @@ $root.Wa6 = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            ClientFinish.decode = function decode(reader, length) {
+            ClientFinish.decode = function decode(reader, length, error) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Wa6.HandshakeMessage.ClientFinish();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
+                    if (tag === error)
+                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message["static"] = reader.bytes();
@@ -5669,19 +6104,34 @@ $root.Wa6 = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * ClientHello _ephemeral.
+             * @member {"ephemeral"|undefined} _ephemeral
+             * @memberof Wa6.HandshakeMessage.ClientHello
+             * @instance
+             */
             Object.defineProperty(ClientHello.prototype, "_ephemeral", {
                 get: $util.oneOfGetter($oneOfFields = ["ephemeral"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * ClientHello _static.
+             * @member {"static"|undefined} _static
+             * @memberof Wa6.HandshakeMessage.ClientHello
+             * @instance
+             */
             Object.defineProperty(ClientHello.prototype, "_static", {
                 get: $util.oneOfGetter($oneOfFields = ["static"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * ClientHello _payload.
+             * @member {"payload"|undefined} _payload
+             * @memberof Wa6.HandshakeMessage.ClientHello
+             * @instance
+             */
             Object.defineProperty(ClientHello.prototype, "_payload", {
                 get: $util.oneOfGetter($oneOfFields = ["payload"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -5744,12 +6194,14 @@ $root.Wa6 = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            ClientHello.decode = function decode(reader, length) {
+            ClientHello.decode = function decode(reader, length, error) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Wa6.HandshakeMessage.ClientHello();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
+                    if (tag === error)
+                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.ephemeral = reader.bytes();
@@ -5960,19 +6412,34 @@ $root.Wa6 = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * ServerHello _ephemeral.
+             * @member {"ephemeral"|undefined} _ephemeral
+             * @memberof Wa6.HandshakeMessage.ServerHello
+             * @instance
+             */
             Object.defineProperty(ServerHello.prototype, "_ephemeral", {
                 get: $util.oneOfGetter($oneOfFields = ["ephemeral"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * ServerHello _static.
+             * @member {"static"|undefined} _static
+             * @memberof Wa6.HandshakeMessage.ServerHello
+             * @instance
+             */
             Object.defineProperty(ServerHello.prototype, "_static", {
                 get: $util.oneOfGetter($oneOfFields = ["static"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * ServerHello _payload.
+             * @member {"payload"|undefined} _payload
+             * @memberof Wa6.HandshakeMessage.ServerHello
+             * @instance
+             */
             Object.defineProperty(ServerHello.prototype, "_payload", {
                 get: $util.oneOfGetter($oneOfFields = ["payload"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -6035,12 +6502,14 @@ $root.Wa6 = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            ServerHello.decode = function decode(reader, length) {
+            ServerHello.decode = function decode(reader, length, error) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Wa6.HandshakeMessage.ServerHello();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
+                    if (tag === error)
+                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.ephemeral = reader.bytes();

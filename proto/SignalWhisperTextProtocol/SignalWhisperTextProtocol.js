@@ -62,13 +62,23 @@ $root.SignalWhisperTextProtocol = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * DeviceConsistencyCodeMessage _generation.
+         * @member {"generation"|undefined} _generation
+         * @memberof SignalWhisperTextProtocol.DeviceConsistencyCodeMessage
+         * @instance
+         */
         Object.defineProperty(DeviceConsistencyCodeMessage.prototype, "_generation", {
             get: $util.oneOfGetter($oneOfFields = ["generation"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * DeviceConsistencyCodeMessage _signature.
+         * @member {"signature"|undefined} _signature
+         * @memberof SignalWhisperTextProtocol.DeviceConsistencyCodeMessage
+         * @instance
+         */
         Object.defineProperty(DeviceConsistencyCodeMessage.prototype, "_signature", {
             get: $util.oneOfGetter($oneOfFields = ["signature"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -129,12 +139,14 @@ $root.SignalWhisperTextProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        DeviceConsistencyCodeMessage.decode = function decode(reader, length) {
+        DeviceConsistencyCodeMessage.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalWhisperTextProtocol.DeviceConsistencyCodeMessage();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.generation = reader.uint32();
@@ -332,25 +344,45 @@ $root.SignalWhisperTextProtocol = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SenderKeyDistributionMessage _id.
+         * @member {"id"|undefined} _id
+         * @memberof SignalWhisperTextProtocol.SenderKeyDistributionMessage
+         * @instance
+         */
         Object.defineProperty(SenderKeyDistributionMessage.prototype, "_id", {
             get: $util.oneOfGetter($oneOfFields = ["id"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SenderKeyDistributionMessage _iteration.
+         * @member {"iteration"|undefined} _iteration
+         * @memberof SignalWhisperTextProtocol.SenderKeyDistributionMessage
+         * @instance
+         */
         Object.defineProperty(SenderKeyDistributionMessage.prototype, "_iteration", {
             get: $util.oneOfGetter($oneOfFields = ["iteration"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SenderKeyDistributionMessage _chainKey.
+         * @member {"chainKey"|undefined} _chainKey
+         * @memberof SignalWhisperTextProtocol.SenderKeyDistributionMessage
+         * @instance
+         */
         Object.defineProperty(SenderKeyDistributionMessage.prototype, "_chainKey", {
             get: $util.oneOfGetter($oneOfFields = ["chainKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SenderKeyDistributionMessage _signingKey.
+         * @member {"signingKey"|undefined} _signingKey
+         * @memberof SignalWhisperTextProtocol.SenderKeyDistributionMessage
+         * @instance
+         */
         Object.defineProperty(SenderKeyDistributionMessage.prototype, "_signingKey", {
             get: $util.oneOfGetter($oneOfFields = ["signingKey"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -415,12 +447,14 @@ $root.SignalWhisperTextProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SenderKeyDistributionMessage.decode = function decode(reader, length) {
+        SenderKeyDistributionMessage.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalWhisperTextProtocol.SenderKeyDistributionMessage();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.id = reader.uint32();
@@ -644,19 +678,34 @@ $root.SignalWhisperTextProtocol = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SenderKeyMessage _id.
+         * @member {"id"|undefined} _id
+         * @memberof SignalWhisperTextProtocol.SenderKeyMessage
+         * @instance
+         */
         Object.defineProperty(SenderKeyMessage.prototype, "_id", {
             get: $util.oneOfGetter($oneOfFields = ["id"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SenderKeyMessage _iteration.
+         * @member {"iteration"|undefined} _iteration
+         * @memberof SignalWhisperTextProtocol.SenderKeyMessage
+         * @instance
+         */
         Object.defineProperty(SenderKeyMessage.prototype, "_iteration", {
             get: $util.oneOfGetter($oneOfFields = ["iteration"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SenderKeyMessage _ciphertext.
+         * @member {"ciphertext"|undefined} _ciphertext
+         * @memberof SignalWhisperTextProtocol.SenderKeyMessage
+         * @instance
+         */
         Object.defineProperty(SenderKeyMessage.prototype, "_ciphertext", {
             get: $util.oneOfGetter($oneOfFields = ["ciphertext"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -719,12 +768,14 @@ $root.SignalWhisperTextProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SenderKeyMessage.decode = function decode(reader, length) {
+        SenderKeyMessage.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalWhisperTextProtocol.SenderKeyMessage();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.id = reader.uint32();
@@ -947,31 +998,56 @@ $root.SignalWhisperTextProtocol = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * KeyExchangeMessage _id.
+         * @member {"id"|undefined} _id
+         * @memberof SignalWhisperTextProtocol.KeyExchangeMessage
+         * @instance
+         */
         Object.defineProperty(KeyExchangeMessage.prototype, "_id", {
             get: $util.oneOfGetter($oneOfFields = ["id"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * KeyExchangeMessage _baseKey.
+         * @member {"baseKey"|undefined} _baseKey
+         * @memberof SignalWhisperTextProtocol.KeyExchangeMessage
+         * @instance
+         */
         Object.defineProperty(KeyExchangeMessage.prototype, "_baseKey", {
             get: $util.oneOfGetter($oneOfFields = ["baseKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * KeyExchangeMessage _ratchetKey.
+         * @member {"ratchetKey"|undefined} _ratchetKey
+         * @memberof SignalWhisperTextProtocol.KeyExchangeMessage
+         * @instance
+         */
         Object.defineProperty(KeyExchangeMessage.prototype, "_ratchetKey", {
             get: $util.oneOfGetter($oneOfFields = ["ratchetKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * KeyExchangeMessage _identityKey.
+         * @member {"identityKey"|undefined} _identityKey
+         * @memberof SignalWhisperTextProtocol.KeyExchangeMessage
+         * @instance
+         */
         Object.defineProperty(KeyExchangeMessage.prototype, "_identityKey", {
             get: $util.oneOfGetter($oneOfFields = ["identityKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * KeyExchangeMessage _baseKeySignature.
+         * @member {"baseKeySignature"|undefined} _baseKeySignature
+         * @memberof SignalWhisperTextProtocol.KeyExchangeMessage
+         * @instance
+         */
         Object.defineProperty(KeyExchangeMessage.prototype, "_baseKeySignature", {
             get: $util.oneOfGetter($oneOfFields = ["baseKeySignature"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -1038,12 +1114,14 @@ $root.SignalWhisperTextProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        KeyExchangeMessage.decode = function decode(reader, length) {
+        KeyExchangeMessage.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalWhisperTextProtocol.KeyExchangeMessage();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.id = reader.uint32();
@@ -1316,37 +1394,67 @@ $root.SignalWhisperTextProtocol = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * PreKeySignalMessage _registrationId.
+         * @member {"registrationId"|undefined} _registrationId
+         * @memberof SignalWhisperTextProtocol.PreKeySignalMessage
+         * @instance
+         */
         Object.defineProperty(PreKeySignalMessage.prototype, "_registrationId", {
             get: $util.oneOfGetter($oneOfFields = ["registrationId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * PreKeySignalMessage _preKeyId.
+         * @member {"preKeyId"|undefined} _preKeyId
+         * @memberof SignalWhisperTextProtocol.PreKeySignalMessage
+         * @instance
+         */
         Object.defineProperty(PreKeySignalMessage.prototype, "_preKeyId", {
             get: $util.oneOfGetter($oneOfFields = ["preKeyId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * PreKeySignalMessage _signedPreKeyId.
+         * @member {"signedPreKeyId"|undefined} _signedPreKeyId
+         * @memberof SignalWhisperTextProtocol.PreKeySignalMessage
+         * @instance
+         */
         Object.defineProperty(PreKeySignalMessage.prototype, "_signedPreKeyId", {
             get: $util.oneOfGetter($oneOfFields = ["signedPreKeyId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * PreKeySignalMessage _baseKey.
+         * @member {"baseKey"|undefined} _baseKey
+         * @memberof SignalWhisperTextProtocol.PreKeySignalMessage
+         * @instance
+         */
         Object.defineProperty(PreKeySignalMessage.prototype, "_baseKey", {
             get: $util.oneOfGetter($oneOfFields = ["baseKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * PreKeySignalMessage _identityKey.
+         * @member {"identityKey"|undefined} _identityKey
+         * @memberof SignalWhisperTextProtocol.PreKeySignalMessage
+         * @instance
+         */
         Object.defineProperty(PreKeySignalMessage.prototype, "_identityKey", {
             get: $util.oneOfGetter($oneOfFields = ["identityKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * PreKeySignalMessage _message.
+         * @member {"message"|undefined} _message
+         * @memberof SignalWhisperTextProtocol.PreKeySignalMessage
+         * @instance
+         */
         Object.defineProperty(PreKeySignalMessage.prototype, "_message", {
             get: $util.oneOfGetter($oneOfFields = ["message"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -1415,12 +1523,14 @@ $root.SignalWhisperTextProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        PreKeySignalMessage.decode = function decode(reader, length) {
+        PreKeySignalMessage.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalWhisperTextProtocol.PreKeySignalMessage();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 5: {
                         message.registrationId = reader.uint32();
@@ -1688,25 +1798,45 @@ $root.SignalWhisperTextProtocol = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SignalMessage _ratchetKey.
+         * @member {"ratchetKey"|undefined} _ratchetKey
+         * @memberof SignalWhisperTextProtocol.SignalMessage
+         * @instance
+         */
         Object.defineProperty(SignalMessage.prototype, "_ratchetKey", {
             get: $util.oneOfGetter($oneOfFields = ["ratchetKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SignalMessage _counter.
+         * @member {"counter"|undefined} _counter
+         * @memberof SignalWhisperTextProtocol.SignalMessage
+         * @instance
+         */
         Object.defineProperty(SignalMessage.prototype, "_counter", {
             get: $util.oneOfGetter($oneOfFields = ["counter"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SignalMessage _previousCounter.
+         * @member {"previousCounter"|undefined} _previousCounter
+         * @memberof SignalWhisperTextProtocol.SignalMessage
+         * @instance
+         */
         Object.defineProperty(SignalMessage.prototype, "_previousCounter", {
             get: $util.oneOfGetter($oneOfFields = ["previousCounter"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SignalMessage _ciphertext.
+         * @member {"ciphertext"|undefined} _ciphertext
+         * @memberof SignalWhisperTextProtocol.SignalMessage
+         * @instance
+         */
         Object.defineProperty(SignalMessage.prototype, "_ciphertext", {
             get: $util.oneOfGetter($oneOfFields = ["ciphertext"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -1771,12 +1901,14 @@ $root.SignalWhisperTextProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SignalMessage.decode = function decode(reader, length) {
+        SignalMessage.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalWhisperTextProtocol.SignalMessage();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.ratchetKey = reader.bytes();

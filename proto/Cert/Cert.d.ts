@@ -28,6 +28,12 @@ export namespace Cert {
         /** CertChain intermediate. */
         public intermediate?: (Cert.CertChain.INoiseCertificate|null);
 
+        /** CertChain _leaf. */
+        public _leaf?: "leaf";
+
+        /** CertChain _intermediate. */
+        public _intermediate?: "intermediate";
+
         /**
          * Creates a new CertChain instance using the specified properties.
          * @param [properties] Properties to set
@@ -132,6 +138,12 @@ export namespace Cert {
 
             /** NoiseCertificate signature. */
             public signature?: (Uint8Array|null);
+
+            /** NoiseCertificate _details. */
+            public _details?: "details";
+
+            /** NoiseCertificate _signature. */
+            public _signature?: "signature";
 
             /**
              * Creates a new NoiseCertificate instance using the specified properties.
@@ -256,6 +268,21 @@ export namespace Cert {
                 /** Details notAfter. */
                 public notAfter?: (number|Long|null);
 
+                /** Details _serial. */
+                public _serial?: "serial";
+
+                /** Details _issuerSerial. */
+                public _issuerSerial?: "issuerSerial";
+
+                /** Details _key. */
+                public _key?: "key";
+
+                /** Details _notBefore. */
+                public _notBefore?: "notBefore";
+
+                /** Details _notAfter. */
+                public _notAfter?: "notAfter";
+
                 /**
                  * Creates a new Details instance using the specified properties.
                  * @param [properties] Properties to set
@@ -360,6 +387,12 @@ export namespace Cert {
 
         /** NoiseCertificate signature. */
         public signature?: (Uint8Array|null);
+
+        /** NoiseCertificate _details. */
+        public _details?: "details";
+
+        /** NoiseCertificate _signature. */
+        public _signature?: "signature";
 
         /**
          * Creates a new NoiseCertificate instance using the specified properties.
@@ -483,6 +516,21 @@ export namespace Cert {
 
             /** Details key. */
             public key?: (Uint8Array|null);
+
+            /** Details _serial. */
+            public _serial?: "serial";
+
+            /** Details _issuer. */
+            public _issuer?: "issuer";
+
+            /** Details _expires. */
+            public _expires?: "expires";
+
+            /** Details _subject. */
+            public _subject?: "subject";
+
+            /** Details _key. */
+            public _key?: "key";
 
             /**
              * Creates a new Details instance using the specified properties.

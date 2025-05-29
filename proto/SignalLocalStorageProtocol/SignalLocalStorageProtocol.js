@@ -105,12 +105,14 @@ $root.SignalLocalStorageProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SenderKeyRecordStructure.decode = function decode(reader, length) {
+        SenderKeyRecordStructure.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SenderKeyRecordStructure();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         if (!(message.senderKeyStates && message.senderKeyStates.length))
@@ -305,19 +307,34 @@ $root.SignalLocalStorageProtocol = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SenderKeyStateStructure _senderKeyId.
+         * @member {"senderKeyId"|undefined} _senderKeyId
+         * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure
+         * @instance
+         */
         Object.defineProperty(SenderKeyStateStructure.prototype, "_senderKeyId", {
             get: $util.oneOfGetter($oneOfFields = ["senderKeyId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SenderKeyStateStructure _senderChainKey.
+         * @member {"senderChainKey"|undefined} _senderChainKey
+         * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure
+         * @instance
+         */
         Object.defineProperty(SenderKeyStateStructure.prototype, "_senderChainKey", {
             get: $util.oneOfGetter($oneOfFields = ["senderChainKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SenderKeyStateStructure _senderSigningKey.
+         * @member {"senderSigningKey"|undefined} _senderSigningKey
+         * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure
+         * @instance
+         */
         Object.defineProperty(SenderKeyStateStructure.prototype, "_senderSigningKey", {
             get: $util.oneOfGetter($oneOfFields = ["senderSigningKey"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -383,12 +400,14 @@ $root.SignalLocalStorageProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SenderKeyStateStructure.decode = function decode(reader, length) {
+        SenderKeyStateStructure.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SenderKeyStateStructure();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.senderKeyId = reader.uint32();
@@ -622,13 +641,23 @@ $root.SignalLocalStorageProtocol = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * SenderChainKey _iteration.
+             * @member {"iteration"|undefined} _iteration
+             * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey
+             * @instance
+             */
             Object.defineProperty(SenderChainKey.prototype, "_iteration", {
                 get: $util.oneOfGetter($oneOfFields = ["iteration"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * SenderChainKey _seed.
+             * @member {"seed"|undefined} _seed
+             * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey
+             * @instance
+             */
             Object.defineProperty(SenderChainKey.prototype, "_seed", {
                 get: $util.oneOfGetter($oneOfFields = ["seed"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -689,12 +718,14 @@ $root.SignalLocalStorageProtocol = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SenderChainKey.decode = function decode(reader, length) {
+            SenderChainKey.decode = function decode(reader, length, error) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
+                    if (tag === error)
+                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.iteration = reader.uint32();
@@ -874,13 +905,23 @@ $root.SignalLocalStorageProtocol = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * SenderMessageKey _iteration.
+             * @member {"iteration"|undefined} _iteration
+             * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey
+             * @instance
+             */
             Object.defineProperty(SenderMessageKey.prototype, "_iteration", {
                 get: $util.oneOfGetter($oneOfFields = ["iteration"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * SenderMessageKey _seed.
+             * @member {"seed"|undefined} _seed
+             * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey
+             * @instance
+             */
             Object.defineProperty(SenderMessageKey.prototype, "_seed", {
                 get: $util.oneOfGetter($oneOfFields = ["seed"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -941,12 +982,14 @@ $root.SignalLocalStorageProtocol = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SenderMessageKey.decode = function decode(reader, length) {
+            SenderMessageKey.decode = function decode(reader, length, error) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
+                    if (tag === error)
+                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.iteration = reader.uint32();
@@ -1126,13 +1169,23 @@ $root.SignalLocalStorageProtocol = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * SenderSigningKey _public.
+             * @member {"public"|undefined} _public
+             * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey
+             * @instance
+             */
             Object.defineProperty(SenderSigningKey.prototype, "_public", {
                 get: $util.oneOfGetter($oneOfFields = ["public"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * SenderSigningKey _private.
+             * @member {"private"|undefined} _private
+             * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey
+             * @instance
+             */
             Object.defineProperty(SenderSigningKey.prototype, "_private", {
                 get: $util.oneOfGetter($oneOfFields = ["private"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -1193,12 +1246,14 @@ $root.SignalLocalStorageProtocol = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SenderSigningKey.decode = function decode(reader, length) {
+            SenderSigningKey.decode = function decode(reader, length, error) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
+                    if (tag === error)
+                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message["public"] = reader.bytes();
@@ -1384,13 +1439,23 @@ $root.SignalLocalStorageProtocol = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * IdentityKeyPairStructure _publicKey.
+         * @member {"publicKey"|undefined} _publicKey
+         * @memberof SignalLocalStorageProtocol.IdentityKeyPairStructure
+         * @instance
+         */
         Object.defineProperty(IdentityKeyPairStructure.prototype, "_publicKey", {
             get: $util.oneOfGetter($oneOfFields = ["publicKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * IdentityKeyPairStructure _privateKey.
+         * @member {"privateKey"|undefined} _privateKey
+         * @memberof SignalLocalStorageProtocol.IdentityKeyPairStructure
+         * @instance
+         */
         Object.defineProperty(IdentityKeyPairStructure.prototype, "_privateKey", {
             get: $util.oneOfGetter($oneOfFields = ["privateKey"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -1451,12 +1516,14 @@ $root.SignalLocalStorageProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        IdentityKeyPairStructure.decode = function decode(reader, length) {
+        IdentityKeyPairStructure.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.IdentityKeyPairStructure();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.publicKey = reader.bytes();
@@ -1666,31 +1733,56 @@ $root.SignalLocalStorageProtocol = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SignedPreKeyRecordStructure _id.
+         * @member {"id"|undefined} _id
+         * @memberof SignalLocalStorageProtocol.SignedPreKeyRecordStructure
+         * @instance
+         */
         Object.defineProperty(SignedPreKeyRecordStructure.prototype, "_id", {
             get: $util.oneOfGetter($oneOfFields = ["id"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SignedPreKeyRecordStructure _publicKey.
+         * @member {"publicKey"|undefined} _publicKey
+         * @memberof SignalLocalStorageProtocol.SignedPreKeyRecordStructure
+         * @instance
+         */
         Object.defineProperty(SignedPreKeyRecordStructure.prototype, "_publicKey", {
             get: $util.oneOfGetter($oneOfFields = ["publicKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SignedPreKeyRecordStructure _privateKey.
+         * @member {"privateKey"|undefined} _privateKey
+         * @memberof SignalLocalStorageProtocol.SignedPreKeyRecordStructure
+         * @instance
+         */
         Object.defineProperty(SignedPreKeyRecordStructure.prototype, "_privateKey", {
             get: $util.oneOfGetter($oneOfFields = ["privateKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SignedPreKeyRecordStructure _signature.
+         * @member {"signature"|undefined} _signature
+         * @memberof SignalLocalStorageProtocol.SignedPreKeyRecordStructure
+         * @instance
+         */
         Object.defineProperty(SignedPreKeyRecordStructure.prototype, "_signature", {
             get: $util.oneOfGetter($oneOfFields = ["signature"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SignedPreKeyRecordStructure _timestamp.
+         * @member {"timestamp"|undefined} _timestamp
+         * @memberof SignalLocalStorageProtocol.SignedPreKeyRecordStructure
+         * @instance
+         */
         Object.defineProperty(SignedPreKeyRecordStructure.prototype, "_timestamp", {
             get: $util.oneOfGetter($oneOfFields = ["timestamp"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -1757,12 +1849,14 @@ $root.SignalLocalStorageProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SignedPreKeyRecordStructure.decode = function decode(reader, length) {
+        SignedPreKeyRecordStructure.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SignedPreKeyRecordStructure();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.id = reader.uint32();
@@ -2015,19 +2109,34 @@ $root.SignalLocalStorageProtocol = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * PreKeyRecordStructure _id.
+         * @member {"id"|undefined} _id
+         * @memberof SignalLocalStorageProtocol.PreKeyRecordStructure
+         * @instance
+         */
         Object.defineProperty(PreKeyRecordStructure.prototype, "_id", {
             get: $util.oneOfGetter($oneOfFields = ["id"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * PreKeyRecordStructure _publicKey.
+         * @member {"publicKey"|undefined} _publicKey
+         * @memberof SignalLocalStorageProtocol.PreKeyRecordStructure
+         * @instance
+         */
         Object.defineProperty(PreKeyRecordStructure.prototype, "_publicKey", {
             get: $util.oneOfGetter($oneOfFields = ["publicKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * PreKeyRecordStructure _privateKey.
+         * @member {"privateKey"|undefined} _privateKey
+         * @memberof SignalLocalStorageProtocol.PreKeyRecordStructure
+         * @instance
+         */
         Object.defineProperty(PreKeyRecordStructure.prototype, "_privateKey", {
             get: $util.oneOfGetter($oneOfFields = ["privateKey"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -2090,12 +2199,14 @@ $root.SignalLocalStorageProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        PreKeyRecordStructure.decode = function decode(reader, length) {
+        PreKeyRecordStructure.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.PreKeyRecordStructure();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.id = reader.uint32();
@@ -2295,7 +2406,12 @@ $root.SignalLocalStorageProtocol = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * RecordStructure _currentSession.
+         * @member {"currentSession"|undefined} _currentSession
+         * @memberof SignalLocalStorageProtocol.RecordStructure
+         * @instance
+         */
         Object.defineProperty(RecordStructure.prototype, "_currentSession", {
             get: $util.oneOfGetter($oneOfFields = ["currentSession"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -2357,12 +2473,14 @@ $root.SignalLocalStorageProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        RecordStructure.decode = function decode(reader, length) {
+        RecordStructure.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.RecordStructure();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.currentSession = $root.SignalLocalStorageProtocol.SessionStructure.decode(reader, reader.uint32());
@@ -2661,73 +2779,133 @@ $root.SignalLocalStorageProtocol = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SessionStructure _sessionVersion.
+         * @member {"sessionVersion"|undefined} _sessionVersion
+         * @memberof SignalLocalStorageProtocol.SessionStructure
+         * @instance
+         */
         Object.defineProperty(SessionStructure.prototype, "_sessionVersion", {
             get: $util.oneOfGetter($oneOfFields = ["sessionVersion"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SessionStructure _localIdentityPublic.
+         * @member {"localIdentityPublic"|undefined} _localIdentityPublic
+         * @memberof SignalLocalStorageProtocol.SessionStructure
+         * @instance
+         */
         Object.defineProperty(SessionStructure.prototype, "_localIdentityPublic", {
             get: $util.oneOfGetter($oneOfFields = ["localIdentityPublic"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SessionStructure _remoteIdentityPublic.
+         * @member {"remoteIdentityPublic"|undefined} _remoteIdentityPublic
+         * @memberof SignalLocalStorageProtocol.SessionStructure
+         * @instance
+         */
         Object.defineProperty(SessionStructure.prototype, "_remoteIdentityPublic", {
             get: $util.oneOfGetter($oneOfFields = ["remoteIdentityPublic"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SessionStructure _rootKey.
+         * @member {"rootKey"|undefined} _rootKey
+         * @memberof SignalLocalStorageProtocol.SessionStructure
+         * @instance
+         */
         Object.defineProperty(SessionStructure.prototype, "_rootKey", {
             get: $util.oneOfGetter($oneOfFields = ["rootKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SessionStructure _previousCounter.
+         * @member {"previousCounter"|undefined} _previousCounter
+         * @memberof SignalLocalStorageProtocol.SessionStructure
+         * @instance
+         */
         Object.defineProperty(SessionStructure.prototype, "_previousCounter", {
             get: $util.oneOfGetter($oneOfFields = ["previousCounter"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SessionStructure _senderChain.
+         * @member {"senderChain"|undefined} _senderChain
+         * @memberof SignalLocalStorageProtocol.SessionStructure
+         * @instance
+         */
         Object.defineProperty(SessionStructure.prototype, "_senderChain", {
             get: $util.oneOfGetter($oneOfFields = ["senderChain"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SessionStructure _pendingKeyExchange.
+         * @member {"pendingKeyExchange"|undefined} _pendingKeyExchange
+         * @memberof SignalLocalStorageProtocol.SessionStructure
+         * @instance
+         */
         Object.defineProperty(SessionStructure.prototype, "_pendingKeyExchange", {
             get: $util.oneOfGetter($oneOfFields = ["pendingKeyExchange"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SessionStructure _pendingPreKey.
+         * @member {"pendingPreKey"|undefined} _pendingPreKey
+         * @memberof SignalLocalStorageProtocol.SessionStructure
+         * @instance
+         */
         Object.defineProperty(SessionStructure.prototype, "_pendingPreKey", {
             get: $util.oneOfGetter($oneOfFields = ["pendingPreKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SessionStructure _remoteRegistrationId.
+         * @member {"remoteRegistrationId"|undefined} _remoteRegistrationId
+         * @memberof SignalLocalStorageProtocol.SessionStructure
+         * @instance
+         */
         Object.defineProperty(SessionStructure.prototype, "_remoteRegistrationId", {
             get: $util.oneOfGetter($oneOfFields = ["remoteRegistrationId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SessionStructure _localRegistrationId.
+         * @member {"localRegistrationId"|undefined} _localRegistrationId
+         * @memberof SignalLocalStorageProtocol.SessionStructure
+         * @instance
+         */
         Object.defineProperty(SessionStructure.prototype, "_localRegistrationId", {
             get: $util.oneOfGetter($oneOfFields = ["localRegistrationId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SessionStructure _needsRefresh.
+         * @member {"needsRefresh"|undefined} _needsRefresh
+         * @memberof SignalLocalStorageProtocol.SessionStructure
+         * @instance
+         */
         Object.defineProperty(SessionStructure.prototype, "_needsRefresh", {
             get: $util.oneOfGetter($oneOfFields = ["needsRefresh"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SessionStructure _aliceBaseKey.
+         * @member {"aliceBaseKey"|undefined} _aliceBaseKey
+         * @memberof SignalLocalStorageProtocol.SessionStructure
+         * @instance
+         */
         Object.defineProperty(SessionStructure.prototype, "_aliceBaseKey", {
             get: $util.oneOfGetter($oneOfFields = ["aliceBaseKey"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -2811,12 +2989,14 @@ $root.SignalLocalStorageProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SessionStructure.decode = function decode(reader, length) {
+        SessionStructure.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SessionStructure();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.sessionVersion = reader.uint32();
@@ -3231,19 +3411,34 @@ $root.SignalLocalStorageProtocol = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * Chain _senderRatchetKey.
+             * @member {"senderRatchetKey"|undefined} _senderRatchetKey
+             * @memberof SignalLocalStorageProtocol.SessionStructure.Chain
+             * @instance
+             */
             Object.defineProperty(Chain.prototype, "_senderRatchetKey", {
                 get: $util.oneOfGetter($oneOfFields = ["senderRatchetKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * Chain _senderRatchetKeyPrivate.
+             * @member {"senderRatchetKeyPrivate"|undefined} _senderRatchetKeyPrivate
+             * @memberof SignalLocalStorageProtocol.SessionStructure.Chain
+             * @instance
+             */
             Object.defineProperty(Chain.prototype, "_senderRatchetKeyPrivate", {
                 get: $util.oneOfGetter($oneOfFields = ["senderRatchetKeyPrivate"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * Chain _chainKey.
+             * @member {"chainKey"|undefined} _chainKey
+             * @memberof SignalLocalStorageProtocol.SessionStructure.Chain
+             * @instance
+             */
             Object.defineProperty(Chain.prototype, "_chainKey", {
                 get: $util.oneOfGetter($oneOfFields = ["chainKey"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -3309,12 +3504,14 @@ $root.SignalLocalStorageProtocol = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Chain.decode = function decode(reader, length) {
+            Chain.decode = function decode(reader, length, error) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SessionStructure.Chain();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
+                    if (tag === error)
+                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.senderRatchetKey = reader.bytes();
@@ -3548,13 +3745,23 @@ $root.SignalLocalStorageProtocol = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                // Virtual OneOf for proto3 optional field
+                /**
+                 * ChainKey _index.
+                 * @member {"index"|undefined} _index
+                 * @memberof SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey
+                 * @instance
+                 */
                 Object.defineProperty(ChainKey.prototype, "_index", {
                     get: $util.oneOfGetter($oneOfFields = ["index"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                // Virtual OneOf for proto3 optional field
+                /**
+                 * ChainKey _key.
+                 * @member {"key"|undefined} _key
+                 * @memberof SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey
+                 * @instance
+                 */
                 Object.defineProperty(ChainKey.prototype, "_key", {
                     get: $util.oneOfGetter($oneOfFields = ["key"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -3615,12 +3822,14 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                ChainKey.decode = function decode(reader, length) {
+                ChainKey.decode = function decode(reader, length, error) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
                     var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey();
                     while (reader.pos < end) {
                         var tag = reader.uint32();
+                        if (tag === error)
+                            break;
                         switch (tag >>> 3) {
                         case 1: {
                                 message.index = reader.uint32();
@@ -3818,25 +4027,45 @@ $root.SignalLocalStorageProtocol = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                // Virtual OneOf for proto3 optional field
+                /**
+                 * MessageKey _index.
+                 * @member {"index"|undefined} _index
+                 * @memberof SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey
+                 * @instance
+                 */
                 Object.defineProperty(MessageKey.prototype, "_index", {
                     get: $util.oneOfGetter($oneOfFields = ["index"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                // Virtual OneOf for proto3 optional field
+                /**
+                 * MessageKey _cipherKey.
+                 * @member {"cipherKey"|undefined} _cipherKey
+                 * @memberof SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey
+                 * @instance
+                 */
                 Object.defineProperty(MessageKey.prototype, "_cipherKey", {
                     get: $util.oneOfGetter($oneOfFields = ["cipherKey"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                // Virtual OneOf for proto3 optional field
+                /**
+                 * MessageKey _macKey.
+                 * @member {"macKey"|undefined} _macKey
+                 * @memberof SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey
+                 * @instance
+                 */
                 Object.defineProperty(MessageKey.prototype, "_macKey", {
                     get: $util.oneOfGetter($oneOfFields = ["macKey"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                // Virtual OneOf for proto3 optional field
+                /**
+                 * MessageKey _iv.
+                 * @member {"iv"|undefined} _iv
+                 * @memberof SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey
+                 * @instance
+                 */
                 Object.defineProperty(MessageKey.prototype, "_iv", {
                     get: $util.oneOfGetter($oneOfFields = ["iv"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -3901,12 +4130,14 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                MessageKey.decode = function decode(reader, length) {
+                MessageKey.decode = function decode(reader, length, error) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
                     var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey();
                     while (reader.pos < end) {
                         var tag = reader.uint32();
+                        if (tag === error)
+                            break;
                         switch (tag >>> 3) {
                         case 1: {
                                 message.index = reader.uint32();
@@ -4172,43 +4403,78 @@ $root.SignalLocalStorageProtocol = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * PendingKeyExchange _sequence.
+             * @member {"sequence"|undefined} _sequence
+             * @memberof SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange
+             * @instance
+             */
             Object.defineProperty(PendingKeyExchange.prototype, "_sequence", {
                 get: $util.oneOfGetter($oneOfFields = ["sequence"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * PendingKeyExchange _localBaseKey.
+             * @member {"localBaseKey"|undefined} _localBaseKey
+             * @memberof SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange
+             * @instance
+             */
             Object.defineProperty(PendingKeyExchange.prototype, "_localBaseKey", {
                 get: $util.oneOfGetter($oneOfFields = ["localBaseKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * PendingKeyExchange _localBaseKeyPrivate.
+             * @member {"localBaseKeyPrivate"|undefined} _localBaseKeyPrivate
+             * @memberof SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange
+             * @instance
+             */
             Object.defineProperty(PendingKeyExchange.prototype, "_localBaseKeyPrivate", {
                 get: $util.oneOfGetter($oneOfFields = ["localBaseKeyPrivate"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * PendingKeyExchange _localRatchetKey.
+             * @member {"localRatchetKey"|undefined} _localRatchetKey
+             * @memberof SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange
+             * @instance
+             */
             Object.defineProperty(PendingKeyExchange.prototype, "_localRatchetKey", {
                 get: $util.oneOfGetter($oneOfFields = ["localRatchetKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * PendingKeyExchange _localRatchetKeyPrivate.
+             * @member {"localRatchetKeyPrivate"|undefined} _localRatchetKeyPrivate
+             * @memberof SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange
+             * @instance
+             */
             Object.defineProperty(PendingKeyExchange.prototype, "_localRatchetKeyPrivate", {
                 get: $util.oneOfGetter($oneOfFields = ["localRatchetKeyPrivate"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * PendingKeyExchange _localIdentityKey.
+             * @member {"localIdentityKey"|undefined} _localIdentityKey
+             * @memberof SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange
+             * @instance
+             */
             Object.defineProperty(PendingKeyExchange.prototype, "_localIdentityKey", {
                 get: $util.oneOfGetter($oneOfFields = ["localIdentityKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * PendingKeyExchange _localIdentityKeyPrivate.
+             * @member {"localIdentityKeyPrivate"|undefined} _localIdentityKeyPrivate
+             * @memberof SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange
+             * @instance
+             */
             Object.defineProperty(PendingKeyExchange.prototype, "_localIdentityKeyPrivate", {
                 get: $util.oneOfGetter($oneOfFields = ["localIdentityKeyPrivate"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -4279,12 +4545,14 @@ $root.SignalLocalStorageProtocol = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            PendingKeyExchange.decode = function decode(reader, length) {
+            PendingKeyExchange.decode = function decode(reader, length, error) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
+                    if (tag === error)
+                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.sequence = reader.uint32();
@@ -4568,19 +4836,34 @@ $root.SignalLocalStorageProtocol = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * PendingPreKey _preKeyId.
+             * @member {"preKeyId"|undefined} _preKeyId
+             * @memberof SignalLocalStorageProtocol.SessionStructure.PendingPreKey
+             * @instance
+             */
             Object.defineProperty(PendingPreKey.prototype, "_preKeyId", {
                 get: $util.oneOfGetter($oneOfFields = ["preKeyId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * PendingPreKey _signedPreKeyId.
+             * @member {"signedPreKeyId"|undefined} _signedPreKeyId
+             * @memberof SignalLocalStorageProtocol.SessionStructure.PendingPreKey
+             * @instance
+             */
             Object.defineProperty(PendingPreKey.prototype, "_signedPreKeyId", {
                 get: $util.oneOfGetter($oneOfFields = ["signedPreKeyId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * PendingPreKey _baseKey.
+             * @member {"baseKey"|undefined} _baseKey
+             * @memberof SignalLocalStorageProtocol.SessionStructure.PendingPreKey
+             * @instance
+             */
             Object.defineProperty(PendingPreKey.prototype, "_baseKey", {
                 get: $util.oneOfGetter($oneOfFields = ["baseKey"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -4643,12 +4926,14 @@ $root.SignalLocalStorageProtocol = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            PendingPreKey.decode = function decode(reader, length) {
+            PendingPreKey.decode = function decode(reader, length, error) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SessionStructure.PendingPreKey();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
+                    if (tag === error)
+                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.preKeyId = reader.uint32();

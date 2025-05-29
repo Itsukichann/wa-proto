@@ -62,13 +62,23 @@ $root.Cert = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * CertChain _leaf.
+         * @member {"leaf"|undefined} _leaf
+         * @memberof Cert.CertChain
+         * @instance
+         */
         Object.defineProperty(CertChain.prototype, "_leaf", {
             get: $util.oneOfGetter($oneOfFields = ["leaf"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * CertChain _intermediate.
+         * @member {"intermediate"|undefined} _intermediate
+         * @memberof Cert.CertChain
+         * @instance
+         */
         Object.defineProperty(CertChain.prototype, "_intermediate", {
             get: $util.oneOfGetter($oneOfFields = ["intermediate"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -129,12 +139,14 @@ $root.Cert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        CertChain.decode = function decode(reader, length) {
+        CertChain.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Cert.CertChain();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.leaf = $root.Cert.CertChain.NoiseCertificate.decode(reader, reader.uint32());
@@ -320,13 +332,23 @@ $root.Cert = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * NoiseCertificate _details.
+             * @member {"details"|undefined} _details
+             * @memberof Cert.CertChain.NoiseCertificate
+             * @instance
+             */
             Object.defineProperty(NoiseCertificate.prototype, "_details", {
                 get: $util.oneOfGetter($oneOfFields = ["details"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * NoiseCertificate _signature.
+             * @member {"signature"|undefined} _signature
+             * @memberof Cert.CertChain.NoiseCertificate
+             * @instance
+             */
             Object.defineProperty(NoiseCertificate.prototype, "_signature", {
                 get: $util.oneOfGetter($oneOfFields = ["signature"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -387,12 +409,14 @@ $root.Cert = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            NoiseCertificate.decode = function decode(reader, length) {
+            NoiseCertificate.decode = function decode(reader, length, error) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Cert.CertChain.NoiseCertificate();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
+                    if (tag === error)
+                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.details = reader.bytes();
@@ -599,31 +623,56 @@ $root.Cert = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                // Virtual OneOf for proto3 optional field
+                /**
+                 * Details _serial.
+                 * @member {"serial"|undefined} _serial
+                 * @memberof Cert.CertChain.NoiseCertificate.Details
+                 * @instance
+                 */
                 Object.defineProperty(Details.prototype, "_serial", {
                     get: $util.oneOfGetter($oneOfFields = ["serial"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                // Virtual OneOf for proto3 optional field
+                /**
+                 * Details _issuerSerial.
+                 * @member {"issuerSerial"|undefined} _issuerSerial
+                 * @memberof Cert.CertChain.NoiseCertificate.Details
+                 * @instance
+                 */
                 Object.defineProperty(Details.prototype, "_issuerSerial", {
                     get: $util.oneOfGetter($oneOfFields = ["issuerSerial"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                // Virtual OneOf for proto3 optional field
+                /**
+                 * Details _key.
+                 * @member {"key"|undefined} _key
+                 * @memberof Cert.CertChain.NoiseCertificate.Details
+                 * @instance
+                 */
                 Object.defineProperty(Details.prototype, "_key", {
                     get: $util.oneOfGetter($oneOfFields = ["key"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                // Virtual OneOf for proto3 optional field
+                /**
+                 * Details _notBefore.
+                 * @member {"notBefore"|undefined} _notBefore
+                 * @memberof Cert.CertChain.NoiseCertificate.Details
+                 * @instance
+                 */
                 Object.defineProperty(Details.prototype, "_notBefore", {
                     get: $util.oneOfGetter($oneOfFields = ["notBefore"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                // Virtual OneOf for proto3 optional field
+                /**
+                 * Details _notAfter.
+                 * @member {"notAfter"|undefined} _notAfter
+                 * @memberof Cert.CertChain.NoiseCertificate.Details
+                 * @instance
+                 */
                 Object.defineProperty(Details.prototype, "_notAfter", {
                     get: $util.oneOfGetter($oneOfFields = ["notAfter"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -690,12 +739,14 @@ $root.Cert = (function() {
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                Details.decode = function decode(reader, length) {
+                Details.decode = function decode(reader, length, error) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
                     var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Cert.CertChain.NoiseCertificate.Details();
                     while (reader.pos < end) {
                         var tag = reader.uint32();
+                        if (tag === error)
+                            break;
                         switch (tag >>> 3) {
                         case 1: {
                                 message.serial = reader.uint32();
@@ -949,13 +1000,23 @@ $root.Cert = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * NoiseCertificate _details.
+         * @member {"details"|undefined} _details
+         * @memberof Cert.NoiseCertificate
+         * @instance
+         */
         Object.defineProperty(NoiseCertificate.prototype, "_details", {
             get: $util.oneOfGetter($oneOfFields = ["details"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * NoiseCertificate _signature.
+         * @member {"signature"|undefined} _signature
+         * @memberof Cert.NoiseCertificate
+         * @instance
+         */
         Object.defineProperty(NoiseCertificate.prototype, "_signature", {
             get: $util.oneOfGetter($oneOfFields = ["signature"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -1016,12 +1077,14 @@ $root.Cert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        NoiseCertificate.decode = function decode(reader, length) {
+        NoiseCertificate.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Cert.NoiseCertificate();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.details = reader.bytes();
@@ -1228,31 +1291,56 @@ $root.Cert = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * Details _serial.
+             * @member {"serial"|undefined} _serial
+             * @memberof Cert.NoiseCertificate.Details
+             * @instance
+             */
             Object.defineProperty(Details.prototype, "_serial", {
                 get: $util.oneOfGetter($oneOfFields = ["serial"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * Details _issuer.
+             * @member {"issuer"|undefined} _issuer
+             * @memberof Cert.NoiseCertificate.Details
+             * @instance
+             */
             Object.defineProperty(Details.prototype, "_issuer", {
                 get: $util.oneOfGetter($oneOfFields = ["issuer"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * Details _expires.
+             * @member {"expires"|undefined} _expires
+             * @memberof Cert.NoiseCertificate.Details
+             * @instance
+             */
             Object.defineProperty(Details.prototype, "_expires", {
                 get: $util.oneOfGetter($oneOfFields = ["expires"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * Details _subject.
+             * @member {"subject"|undefined} _subject
+             * @memberof Cert.NoiseCertificate.Details
+             * @instance
+             */
             Object.defineProperty(Details.prototype, "_subject", {
                 get: $util.oneOfGetter($oneOfFields = ["subject"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * Details _key.
+             * @member {"key"|undefined} _key
+             * @memberof Cert.NoiseCertificate.Details
+             * @instance
+             */
             Object.defineProperty(Details.prototype, "_key", {
                 get: $util.oneOfGetter($oneOfFields = ["key"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -1319,12 +1407,14 @@ $root.Cert = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Details.decode = function decode(reader, length) {
+            Details.decode = function decode(reader, length, error) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Cert.NoiseCertificate.Details();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
+                    if (tag === error)
+                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.serial = reader.uint32();

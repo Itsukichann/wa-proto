@@ -28,6 +28,12 @@ export namespace Ephemeral {
         /** EphemeralSetting timestamp. */
         public timestamp?: (number|Long|null);
 
+        /** EphemeralSetting _duration. */
+        public _duration?: "duration";
+
+        /** EphemeralSetting _timestamp. */
+        public _timestamp?: "timestamp";
+
         /**
          * Creates a new EphemeralSetting instance using the specified properties.
          * @param [properties] Properties to set

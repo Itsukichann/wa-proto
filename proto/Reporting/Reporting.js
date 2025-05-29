@@ -90,25 +90,45 @@ $root.Reporting = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * Field _minVersion.
+         * @member {"minVersion"|undefined} _minVersion
+         * @memberof Reporting.Field
+         * @instance
+         */
         Object.defineProperty(Field.prototype, "_minVersion", {
             get: $util.oneOfGetter($oneOfFields = ["minVersion"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * Field _maxVersion.
+         * @member {"maxVersion"|undefined} _maxVersion
+         * @memberof Reporting.Field
+         * @instance
+         */
         Object.defineProperty(Field.prototype, "_maxVersion", {
             get: $util.oneOfGetter($oneOfFields = ["maxVersion"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * Field _notReportableMinVersion.
+         * @member {"notReportableMinVersion"|undefined} _notReportableMinVersion
+         * @memberof Reporting.Field
+         * @instance
+         */
         Object.defineProperty(Field.prototype, "_notReportableMinVersion", {
             get: $util.oneOfGetter($oneOfFields = ["notReportableMinVersion"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * Field _isMessage.
+         * @member {"isMessage"|undefined} _isMessage
+         * @memberof Reporting.Field
+         * @instance
+         */
         Object.defineProperty(Field.prototype, "_isMessage", {
             get: $util.oneOfGetter($oneOfFields = ["isMessage"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -178,12 +198,14 @@ $root.Reporting = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        Field.decode = function decode(reader, length) {
+        Field.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Reporting.Field(), key, value;
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.minVersion = reader.uint32();
@@ -448,7 +470,12 @@ $root.Reporting = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * Config _version.
+         * @member {"version"|undefined} _version
+         * @memberof Reporting.Config
+         * @instance
+         */
         Object.defineProperty(Config.prototype, "_version", {
             get: $util.oneOfGetter($oneOfFields = ["version"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -512,12 +539,14 @@ $root.Reporting = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        Config.decode = function decode(reader, length) {
+        Config.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Reporting.Config(), key, value;
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         if (message.field === $util.emptyObject)
@@ -751,25 +780,45 @@ $root.Reporting = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * Reportable _minVersion.
+         * @member {"minVersion"|undefined} _minVersion
+         * @memberof Reporting.Reportable
+         * @instance
+         */
         Object.defineProperty(Reportable.prototype, "_minVersion", {
             get: $util.oneOfGetter($oneOfFields = ["minVersion"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * Reportable _maxVersion.
+         * @member {"maxVersion"|undefined} _maxVersion
+         * @memberof Reporting.Reportable
+         * @instance
+         */
         Object.defineProperty(Reportable.prototype, "_maxVersion", {
             get: $util.oneOfGetter($oneOfFields = ["maxVersion"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * Reportable _notReportableMinVersion.
+         * @member {"notReportableMinVersion"|undefined} _notReportableMinVersion
+         * @memberof Reporting.Reportable
+         * @instance
+         */
         Object.defineProperty(Reportable.prototype, "_notReportableMinVersion", {
             get: $util.oneOfGetter($oneOfFields = ["notReportableMinVersion"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * Reportable _never.
+         * @member {"never"|undefined} _never
+         * @memberof Reporting.Reportable
+         * @instance
+         */
         Object.defineProperty(Reportable.prototype, "_never", {
             get: $util.oneOfGetter($oneOfFields = ["never"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -834,12 +883,14 @@ $root.Reporting = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        Reportable.decode = function decode(reader, length) {
+        Reportable.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Reporting.Reportable();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.minVersion = reader.uint32();

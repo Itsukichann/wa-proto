@@ -46,6 +46,18 @@ export namespace Reporting {
         /** Field subfield. */
         public subfield: { [k: string]: Reporting.IField };
 
+        /** Field _minVersion. */
+        public _minVersion?: "minVersion";
+
+        /** Field _maxVersion. */
+        public _maxVersion?: "maxVersion";
+
+        /** Field _notReportableMinVersion. */
+        public _notReportableMinVersion?: "notReportableMinVersion";
+
+        /** Field _isMessage. */
+        public _isMessage?: "isMessage";
+
         /**
          * Creates a new Field instance using the specified properties.
          * @param [properties] Properties to set
@@ -148,6 +160,9 @@ export namespace Reporting {
 
         /** Config version. */
         public version?: (number|null);
+
+        /** Config _version. */
+        public _version?: "version";
 
         /**
          * Creates a new Config instance using the specified properties.
@@ -263,6 +278,18 @@ export namespace Reporting {
 
         /** Reportable never. */
         public never?: (boolean|null);
+
+        /** Reportable _minVersion. */
+        public _minVersion?: "minVersion";
+
+        /** Reportable _maxVersion. */
+        public _maxVersion?: "maxVersion";
+
+        /** Reportable _notReportableMinVersion. */
+        public _notReportableMinVersion?: "notReportableMinVersion";
+
+        /** Reportable _never. */
+        public _never?: "never";
 
         /**
          * Creates a new Reportable instance using the specified properties.

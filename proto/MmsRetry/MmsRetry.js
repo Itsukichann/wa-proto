@@ -53,7 +53,12 @@ $root.MmsRetry = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ServerErrorReceipt _stanzaId.
+         * @member {"stanzaId"|undefined} _stanzaId
+         * @memberof MmsRetry.ServerErrorReceipt
+         * @instance
+         */
         Object.defineProperty(ServerErrorReceipt.prototype, "_stanzaId", {
             get: $util.oneOfGetter($oneOfFields = ["stanzaId"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -112,12 +117,14 @@ $root.MmsRetry = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ServerErrorReceipt.decode = function decode(reader, length) {
+        ServerErrorReceipt.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.MmsRetry.ServerErrorReceipt();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.stanzaId = reader.string();
@@ -296,25 +303,45 @@ $root.MmsRetry = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * MediaRetryNotification _stanzaId.
+         * @member {"stanzaId"|undefined} _stanzaId
+         * @memberof MmsRetry.MediaRetryNotification
+         * @instance
+         */
         Object.defineProperty(MediaRetryNotification.prototype, "_stanzaId", {
             get: $util.oneOfGetter($oneOfFields = ["stanzaId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * MediaRetryNotification _directPath.
+         * @member {"directPath"|undefined} _directPath
+         * @memberof MmsRetry.MediaRetryNotification
+         * @instance
+         */
         Object.defineProperty(MediaRetryNotification.prototype, "_directPath", {
             get: $util.oneOfGetter($oneOfFields = ["directPath"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * MediaRetryNotification _result.
+         * @member {"result"|undefined} _result
+         * @memberof MmsRetry.MediaRetryNotification
+         * @instance
+         */
         Object.defineProperty(MediaRetryNotification.prototype, "_result", {
             get: $util.oneOfGetter($oneOfFields = ["result"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * MediaRetryNotification _messageSecret.
+         * @member {"messageSecret"|undefined} _messageSecret
+         * @memberof MmsRetry.MediaRetryNotification
+         * @instance
+         */
         Object.defineProperty(MediaRetryNotification.prototype, "_messageSecret", {
             get: $util.oneOfGetter($oneOfFields = ["messageSecret"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -379,12 +406,14 @@ $root.MmsRetry = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        MediaRetryNotification.decode = function decode(reader, length) {
+        MediaRetryNotification.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.MmsRetry.MediaRetryNotification();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.stanzaId = reader.string();

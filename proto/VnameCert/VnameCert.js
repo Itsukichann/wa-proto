@@ -116,49 +116,89 @@ $root.VnameCert = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * BizIdentityInfo _vlevel.
+         * @member {"vlevel"|undefined} _vlevel
+         * @memberof VnameCert.BizIdentityInfo
+         * @instance
+         */
         Object.defineProperty(BizIdentityInfo.prototype, "_vlevel", {
             get: $util.oneOfGetter($oneOfFields = ["vlevel"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * BizIdentityInfo _vnameCert.
+         * @member {"vnameCert"|undefined} _vnameCert
+         * @memberof VnameCert.BizIdentityInfo
+         * @instance
+         */
         Object.defineProperty(BizIdentityInfo.prototype, "_vnameCert", {
             get: $util.oneOfGetter($oneOfFields = ["vnameCert"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * BizIdentityInfo _signed.
+         * @member {"signed"|undefined} _signed
+         * @memberof VnameCert.BizIdentityInfo
+         * @instance
+         */
         Object.defineProperty(BizIdentityInfo.prototype, "_signed", {
             get: $util.oneOfGetter($oneOfFields = ["signed"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * BizIdentityInfo _revoked.
+         * @member {"revoked"|undefined} _revoked
+         * @memberof VnameCert.BizIdentityInfo
+         * @instance
+         */
         Object.defineProperty(BizIdentityInfo.prototype, "_revoked", {
             get: $util.oneOfGetter($oneOfFields = ["revoked"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * BizIdentityInfo _hostStorage.
+         * @member {"hostStorage"|undefined} _hostStorage
+         * @memberof VnameCert.BizIdentityInfo
+         * @instance
+         */
         Object.defineProperty(BizIdentityInfo.prototype, "_hostStorage", {
             get: $util.oneOfGetter($oneOfFields = ["hostStorage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * BizIdentityInfo _actualActors.
+         * @member {"actualActors"|undefined} _actualActors
+         * @memberof VnameCert.BizIdentityInfo
+         * @instance
+         */
         Object.defineProperty(BizIdentityInfo.prototype, "_actualActors", {
             get: $util.oneOfGetter($oneOfFields = ["actualActors"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * BizIdentityInfo _privacyModeTs.
+         * @member {"privacyModeTs"|undefined} _privacyModeTs
+         * @memberof VnameCert.BizIdentityInfo
+         * @instance
+         */
         Object.defineProperty(BizIdentityInfo.prototype, "_privacyModeTs", {
             get: $util.oneOfGetter($oneOfFields = ["privacyModeTs"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * BizIdentityInfo _featureControls.
+         * @member {"featureControls"|undefined} _featureControls
+         * @memberof VnameCert.BizIdentityInfo
+         * @instance
+         */
         Object.defineProperty(BizIdentityInfo.prototype, "_featureControls", {
             get: $util.oneOfGetter($oneOfFields = ["featureControls"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -231,12 +271,14 @@ $root.VnameCert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BizIdentityInfo.decode = function decode(reader, length) {
+        BizIdentityInfo.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.VnameCert.BizIdentityInfo();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.vlevel = reader.int32();
@@ -668,31 +710,56 @@ $root.VnameCert = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * BizAccountLinkInfo _whatsappBizAcctFbid.
+         * @member {"whatsappBizAcctFbid"|undefined} _whatsappBizAcctFbid
+         * @memberof VnameCert.BizAccountLinkInfo
+         * @instance
+         */
         Object.defineProperty(BizAccountLinkInfo.prototype, "_whatsappBizAcctFbid", {
             get: $util.oneOfGetter($oneOfFields = ["whatsappBizAcctFbid"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * BizAccountLinkInfo _whatsappAcctNumber.
+         * @member {"whatsappAcctNumber"|undefined} _whatsappAcctNumber
+         * @memberof VnameCert.BizAccountLinkInfo
+         * @instance
+         */
         Object.defineProperty(BizAccountLinkInfo.prototype, "_whatsappAcctNumber", {
             get: $util.oneOfGetter($oneOfFields = ["whatsappAcctNumber"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * BizAccountLinkInfo _issueTime.
+         * @member {"issueTime"|undefined} _issueTime
+         * @memberof VnameCert.BizAccountLinkInfo
+         * @instance
+         */
         Object.defineProperty(BizAccountLinkInfo.prototype, "_issueTime", {
             get: $util.oneOfGetter($oneOfFields = ["issueTime"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * BizAccountLinkInfo _hostStorage.
+         * @member {"hostStorage"|undefined} _hostStorage
+         * @memberof VnameCert.BizAccountLinkInfo
+         * @instance
+         */
         Object.defineProperty(BizAccountLinkInfo.prototype, "_hostStorage", {
             get: $util.oneOfGetter($oneOfFields = ["hostStorage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * BizAccountLinkInfo _accountType.
+         * @member {"accountType"|undefined} _accountType
+         * @memberof VnameCert.BizAccountLinkInfo
+         * @instance
+         */
         Object.defineProperty(BizAccountLinkInfo.prototype, "_accountType", {
             get: $util.oneOfGetter($oneOfFields = ["accountType"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -759,12 +826,14 @@ $root.VnameCert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BizAccountLinkInfo.decode = function decode(reader, length) {
+        BizAccountLinkInfo.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.VnameCert.BizAccountLinkInfo();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.whatsappBizAcctFbid = reader.uint64();
@@ -1068,13 +1137,23 @@ $root.VnameCert = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * BizAccountPayload _vnameCert.
+         * @member {"vnameCert"|undefined} _vnameCert
+         * @memberof VnameCert.BizAccountPayload
+         * @instance
+         */
         Object.defineProperty(BizAccountPayload.prototype, "_vnameCert", {
             get: $util.oneOfGetter($oneOfFields = ["vnameCert"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * BizAccountPayload _bizAcctLinkInfo.
+         * @member {"bizAcctLinkInfo"|undefined} _bizAcctLinkInfo
+         * @memberof VnameCert.BizAccountPayload
+         * @instance
+         */
         Object.defineProperty(BizAccountPayload.prototype, "_bizAcctLinkInfo", {
             get: $util.oneOfGetter($oneOfFields = ["bizAcctLinkInfo"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -1135,12 +1214,14 @@ $root.VnameCert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BizAccountPayload.decode = function decode(reader, length) {
+        BizAccountPayload.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.VnameCert.BizAccountPayload();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.vnameCert = $root.VnameCert.VerifiedNameCertificate.decode(reader, reader.uint32());
@@ -1335,19 +1416,34 @@ $root.VnameCert = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * VerifiedNameCertificate _details.
+         * @member {"details"|undefined} _details
+         * @memberof VnameCert.VerifiedNameCertificate
+         * @instance
+         */
         Object.defineProperty(VerifiedNameCertificate.prototype, "_details", {
             get: $util.oneOfGetter($oneOfFields = ["details"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * VerifiedNameCertificate _signature.
+         * @member {"signature"|undefined} _signature
+         * @memberof VnameCert.VerifiedNameCertificate
+         * @instance
+         */
         Object.defineProperty(VerifiedNameCertificate.prototype, "_signature", {
             get: $util.oneOfGetter($oneOfFields = ["signature"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * VerifiedNameCertificate _serverSignature.
+         * @member {"serverSignature"|undefined} _serverSignature
+         * @memberof VnameCert.VerifiedNameCertificate
+         * @instance
+         */
         Object.defineProperty(VerifiedNameCertificate.prototype, "_serverSignature", {
             get: $util.oneOfGetter($oneOfFields = ["serverSignature"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -1410,12 +1506,14 @@ $root.VnameCert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        VerifiedNameCertificate.decode = function decode(reader, length) {
+        VerifiedNameCertificate.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.VnameCert.VerifiedNameCertificate();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.details = reader.bytes();
@@ -1642,25 +1740,45 @@ $root.VnameCert = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * Details _serial.
+             * @member {"serial"|undefined} _serial
+             * @memberof VnameCert.VerifiedNameCertificate.Details
+             * @instance
+             */
             Object.defineProperty(Details.prototype, "_serial", {
                 get: $util.oneOfGetter($oneOfFields = ["serial"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * Details _issuer.
+             * @member {"issuer"|undefined} _issuer
+             * @memberof VnameCert.VerifiedNameCertificate.Details
+             * @instance
+             */
             Object.defineProperty(Details.prototype, "_issuer", {
                 get: $util.oneOfGetter($oneOfFields = ["issuer"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * Details _verifiedName.
+             * @member {"verifiedName"|undefined} _verifiedName
+             * @memberof VnameCert.VerifiedNameCertificate.Details
+             * @instance
+             */
             Object.defineProperty(Details.prototype, "_verifiedName", {
                 get: $util.oneOfGetter($oneOfFields = ["verifiedName"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
+            /**
+             * Details _issueTime.
+             * @member {"issueTime"|undefined} _issueTime
+             * @memberof VnameCert.VerifiedNameCertificate.Details
+             * @instance
+             */
             Object.defineProperty(Details.prototype, "_issueTime", {
                 get: $util.oneOfGetter($oneOfFields = ["issueTime"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -1728,12 +1846,14 @@ $root.VnameCert = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Details.decode = function decode(reader, length) {
+            Details.decode = function decode(reader, length, error) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.VnameCert.VerifiedNameCertificate.Details();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
+                    if (tag === error)
+                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.serial = reader.uint64();
@@ -2006,19 +2126,34 @@ $root.VnameCert = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * LocalizedName _lg.
+         * @member {"lg"|undefined} _lg
+         * @memberof VnameCert.LocalizedName
+         * @instance
+         */
         Object.defineProperty(LocalizedName.prototype, "_lg", {
             get: $util.oneOfGetter($oneOfFields = ["lg"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * LocalizedName _lc.
+         * @member {"lc"|undefined} _lc
+         * @memberof VnameCert.LocalizedName
+         * @instance
+         */
         Object.defineProperty(LocalizedName.prototype, "_lc", {
             get: $util.oneOfGetter($oneOfFields = ["lc"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * LocalizedName _verifiedName.
+         * @member {"verifiedName"|undefined} _verifiedName
+         * @memberof VnameCert.LocalizedName
+         * @instance
+         */
         Object.defineProperty(LocalizedName.prototype, "_verifiedName", {
             get: $util.oneOfGetter($oneOfFields = ["verifiedName"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -2081,12 +2216,14 @@ $root.VnameCert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        LocalizedName.decode = function decode(reader, length) {
+        LocalizedName.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.VnameCert.LocalizedName();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.lg = reader.string();

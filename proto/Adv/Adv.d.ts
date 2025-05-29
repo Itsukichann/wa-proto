@@ -34,6 +34,15 @@ export namespace Adv {
         /** ADVSignedDeviceIdentityHMAC accountType. */
         public accountType?: (Adv.ADVEncryptionType|null);
 
+        /** ADVSignedDeviceIdentityHMAC _details. */
+        public _details?: "details";
+
+        /** ADVSignedDeviceIdentityHMAC _hmac. */
+        public _hmac?: "hmac";
+
+        /** ADVSignedDeviceIdentityHMAC _accountType. */
+        public _accountType?: "accountType";
+
         /**
          * Creates a new ADVSignedDeviceIdentityHMAC instance using the specified properties.
          * @param [properties] Properties to set
@@ -148,6 +157,18 @@ export namespace Adv {
 
         /** ADVSignedDeviceIdentity deviceSignature. */
         public deviceSignature?: (Uint8Array|null);
+
+        /** ADVSignedDeviceIdentity _details. */
+        public _details?: "details";
+
+        /** ADVSignedDeviceIdentity _accountSignatureKey. */
+        public _accountSignatureKey?: "accountSignatureKey";
+
+        /** ADVSignedDeviceIdentity _accountSignature. */
+        public _accountSignature?: "accountSignature";
+
+        /** ADVSignedDeviceIdentity _deviceSignature. */
+        public _deviceSignature?: "deviceSignature";
 
         /**
          * Creates a new ADVSignedDeviceIdentity instance using the specified properties.
@@ -270,6 +291,21 @@ export namespace Adv {
         /** ADVDeviceIdentity deviceType. */
         public deviceType?: (Adv.ADVEncryptionType|null);
 
+        /** ADVDeviceIdentity _rawId. */
+        public _rawId?: "rawId";
+
+        /** ADVDeviceIdentity _timestamp. */
+        public _timestamp?: "timestamp";
+
+        /** ADVDeviceIdentity _keyIndex. */
+        public _keyIndex?: "keyIndex";
+
+        /** ADVDeviceIdentity _accountType. */
+        public _accountType?: "accountType";
+
+        /** ADVDeviceIdentity _deviceType. */
+        public _deviceType?: "deviceType";
+
         /**
          * Creates a new ADVDeviceIdentity instance using the specified properties.
          * @param [properties] Properties to set
@@ -378,6 +414,15 @@ export namespace Adv {
 
         /** ADVSignedKeyIndexList accountSignatureKey. */
         public accountSignatureKey?: (Uint8Array|null);
+
+        /** ADVSignedKeyIndexList _details. */
+        public _details?: "details";
+
+        /** ADVSignedKeyIndexList _accountSignature. */
+        public _accountSignature?: "accountSignature";
+
+        /** ADVSignedKeyIndexList _accountSignatureKey. */
+        public _accountSignatureKey?: "accountSignatureKey";
 
         /**
          * Creates a new ADVSignedKeyIndexList instance using the specified properties.
@@ -499,6 +544,18 @@ export namespace Adv {
 
         /** ADVKeyIndexList accountType. */
         public accountType?: (Adv.ADVEncryptionType|null);
+
+        /** ADVKeyIndexList _rawId. */
+        public _rawId?: "rawId";
+
+        /** ADVKeyIndexList _timestamp. */
+        public _timestamp?: "timestamp";
+
+        /** ADVKeyIndexList _currentIndex. */
+        public _currentIndex?: "currentIndex";
+
+        /** ADVKeyIndexList _accountType. */
+        public _accountType?: "accountType";
 
         /**
          * Creates a new ADVKeyIndexList instance using the specified properties.

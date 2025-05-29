@@ -28,6 +28,12 @@ export namespace ChatLockSettings {
         /** ChatLockSettings secretCode. */
         public secretCode?: (UserPassword.IUserPassword|null);
 
+        /** ChatLockSettings _hideLockedChats. */
+        public _hideLockedChats?: "hideLockedChats";
+
+        /** ChatLockSettings _secretCode. */
+        public _secretCode?: "secretCode";
+
         /**
          * Creates a new ChatLockSettings instance using the specified properties.
          * @param [properties] Properties to set
@@ -147,6 +153,15 @@ export namespace UserPassword {
         /** UserPassword transformedData. */
         public transformedData?: (Uint8Array|null);
 
+        /** UserPassword _encoding. */
+        public _encoding?: "encoding";
+
+        /** UserPassword _transformer. */
+        public _transformer?: "transformer";
+
+        /** UserPassword _transformedData. */
+        public _transformedData?: "transformedData";
+
         /**
          * Creates a new UserPassword instance using the specified properties.
          * @param [properties] Properties to set
@@ -264,6 +279,12 @@ export namespace UserPassword {
 
             /** TransformerArg value. */
             public value?: (UserPassword.UserPassword.TransformerArg.IValue|null);
+
+            /** TransformerArg _key. */
+            public _key?: "key";
+
+            /** TransformerArg _value. */
+            public _value?: "value";
 
             /**
              * Creates a new TransformerArg instance using the specified properties.

@@ -70,6 +70,30 @@ export namespace ServerSync {
         /** SyncdPatch clientDebugData. */
         public clientDebugData?: (Uint8Array|null);
 
+        /** SyncdPatch _version. */
+        public _version?: "version";
+
+        /** SyncdPatch _externalMutations. */
+        public _externalMutations?: "externalMutations";
+
+        /** SyncdPatch _snapshotMac. */
+        public _snapshotMac?: "snapshotMac";
+
+        /** SyncdPatch _patchMac. */
+        public _patchMac?: "patchMac";
+
+        /** SyncdPatch _keyId. */
+        public _keyId?: "keyId";
+
+        /** SyncdPatch _exitCode. */
+        public _exitCode?: "exitCode";
+
+        /** SyncdPatch _deviceIndex. */
+        public _deviceIndex?: "deviceIndex";
+
+        /** SyncdPatch _clientDebugData. */
+        public _clientDebugData?: "clientDebugData";
+
         /**
          * Creates a new SyncdPatch instance using the specified properties.
          * @param [properties] Properties to set
@@ -172,6 +196,12 @@ export namespace ServerSync {
 
         /** SyncdMutation record. */
         public record?: (ServerSync.ISyncdRecord|null);
+
+        /** SyncdMutation _operation. */
+        public _operation?: "operation";
+
+        /** SyncdMutation _record. */
+        public _record?: "record";
 
         /**
          * Creates a new SyncdMutation instance using the specified properties.
@@ -394,6 +424,15 @@ export namespace ServerSync {
         /** SyncdSnapshot keyId. */
         public keyId?: (ServerSync.IKeyId|null);
 
+        /** SyncdSnapshot _version. */
+        public _version?: "version";
+
+        /** SyncdSnapshot _mac. */
+        public _mac?: "mac";
+
+        /** SyncdSnapshot _keyId. */
+        public _keyId?: "keyId";
+
         /**
          * Creates a new SyncdSnapshot instance using the specified properties.
          * @param [properties] Properties to set
@@ -521,6 +560,24 @@ export namespace ServerSync {
         /** ExternalBlobReference fileEncSha256. */
         public fileEncSha256?: (Uint8Array|null);
 
+        /** ExternalBlobReference _mediaKey. */
+        public _mediaKey?: "mediaKey";
+
+        /** ExternalBlobReference _directPath. */
+        public _directPath?: "directPath";
+
+        /** ExternalBlobReference _handle. */
+        public _handle?: "handle";
+
+        /** ExternalBlobReference _fileSizeBytes. */
+        public _fileSizeBytes?: "fileSizeBytes";
+
+        /** ExternalBlobReference _fileSha256. */
+        public _fileSha256?: "fileSha256";
+
+        /** ExternalBlobReference _fileEncSha256. */
+        public _fileEncSha256?: "fileEncSha256";
+
         /**
          * Creates a new ExternalBlobReference instance using the specified properties.
          * @param [properties] Properties to set
@@ -630,6 +687,15 @@ export namespace ServerSync {
         /** SyncdRecord keyId. */
         public keyId?: (ServerSync.IKeyId|null);
 
+        /** SyncdRecord _index. */
+        public _index?: "index";
+
+        /** SyncdRecord _value. */
+        public _value?: "value";
+
+        /** SyncdRecord _keyId. */
+        public _keyId?: "keyId";
+
         /**
          * Creates a new SyncdRecord instance using the specified properties.
          * @param [properties] Properties to set
@@ -726,6 +792,9 @@ export namespace ServerSync {
 
         /** KeyId id. */
         public id?: (Uint8Array|null);
+
+        /** KeyId _id. */
+        public _id?: "id";
 
         /**
          * Creates a new KeyId instance using the specified properties.
@@ -824,6 +893,9 @@ export namespace ServerSync {
         /** SyncdValue blob. */
         public blob?: (Uint8Array|null);
 
+        /** SyncdValue _blob. */
+        public _blob?: "blob";
+
         /**
          * Creates a new SyncdValue instance using the specified properties.
          * @param [properties] Properties to set
@@ -920,6 +992,9 @@ export namespace ServerSync {
 
         /** SyncdIndex blob. */
         public blob?: (Uint8Array|null);
+
+        /** SyncdIndex _blob. */
+        public _blob?: "blob";
 
         /**
          * Creates a new SyncdIndex instance using the specified properties.
@@ -1024,6 +1099,12 @@ export namespace ServerSync {
         /** ExitCode text. */
         public text?: (string|null);
 
+        /** ExitCode _code. */
+        public _code?: "code";
+
+        /** ExitCode _text. */
+        public _text?: "text";
+
         /**
          * Creates a new ExitCode instance using the specified properties.
          * @param [properties] Properties to set
@@ -1120,6 +1201,9 @@ export namespace ServerSync {
 
         /** SyncdVersion version. */
         public version?: (number|Long|null);
+
+        /** SyncdVersion _version. */
+        public _version?: "version";
 
         /**
          * Creates a new SyncdVersion instance using the specified properties.

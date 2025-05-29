@@ -126,49 +126,89 @@ $root.ServerSync = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SyncdPatch _version.
+         * @member {"version"|undefined} _version
+         * @memberof ServerSync.SyncdPatch
+         * @instance
+         */
         Object.defineProperty(SyncdPatch.prototype, "_version", {
             get: $util.oneOfGetter($oneOfFields = ["version"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SyncdPatch _externalMutations.
+         * @member {"externalMutations"|undefined} _externalMutations
+         * @memberof ServerSync.SyncdPatch
+         * @instance
+         */
         Object.defineProperty(SyncdPatch.prototype, "_externalMutations", {
             get: $util.oneOfGetter($oneOfFields = ["externalMutations"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SyncdPatch _snapshotMac.
+         * @member {"snapshotMac"|undefined} _snapshotMac
+         * @memberof ServerSync.SyncdPatch
+         * @instance
+         */
         Object.defineProperty(SyncdPatch.prototype, "_snapshotMac", {
             get: $util.oneOfGetter($oneOfFields = ["snapshotMac"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SyncdPatch _patchMac.
+         * @member {"patchMac"|undefined} _patchMac
+         * @memberof ServerSync.SyncdPatch
+         * @instance
+         */
         Object.defineProperty(SyncdPatch.prototype, "_patchMac", {
             get: $util.oneOfGetter($oneOfFields = ["patchMac"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SyncdPatch _keyId.
+         * @member {"keyId"|undefined} _keyId
+         * @memberof ServerSync.SyncdPatch
+         * @instance
+         */
         Object.defineProperty(SyncdPatch.prototype, "_keyId", {
             get: $util.oneOfGetter($oneOfFields = ["keyId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SyncdPatch _exitCode.
+         * @member {"exitCode"|undefined} _exitCode
+         * @memberof ServerSync.SyncdPatch
+         * @instance
+         */
         Object.defineProperty(SyncdPatch.prototype, "_exitCode", {
             get: $util.oneOfGetter($oneOfFields = ["exitCode"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SyncdPatch _deviceIndex.
+         * @member {"deviceIndex"|undefined} _deviceIndex
+         * @memberof ServerSync.SyncdPatch
+         * @instance
+         */
         Object.defineProperty(SyncdPatch.prototype, "_deviceIndex", {
             get: $util.oneOfGetter($oneOfFields = ["deviceIndex"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SyncdPatch _clientDebugData.
+         * @member {"clientDebugData"|undefined} _clientDebugData
+         * @memberof ServerSync.SyncdPatch
+         * @instance
+         */
         Object.defineProperty(SyncdPatch.prototype, "_clientDebugData", {
             get: $util.oneOfGetter($oneOfFields = ["clientDebugData"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -244,12 +284,14 @@ $root.ServerSync = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SyncdPatch.decode = function decode(reader, length) {
+        SyncdPatch.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ServerSync.SyncdPatch();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.version = $root.ServerSync.SyncdVersion.decode(reader, reader.uint32());
@@ -587,13 +629,23 @@ $root.ServerSync = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SyncdMutation _operation.
+         * @member {"operation"|undefined} _operation
+         * @memberof ServerSync.SyncdMutation
+         * @instance
+         */
         Object.defineProperty(SyncdMutation.prototype, "_operation", {
             get: $util.oneOfGetter($oneOfFields = ["operation"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SyncdMutation _record.
+         * @member {"record"|undefined} _record
+         * @memberof ServerSync.SyncdMutation
+         * @instance
+         */
         Object.defineProperty(SyncdMutation.prototype, "_record", {
             get: $util.oneOfGetter($oneOfFields = ["record"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -654,12 +706,14 @@ $root.ServerSync = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SyncdMutation.decode = function decode(reader, length) {
+        SyncdMutation.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ServerSync.SyncdMutation();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.operation = reader.int32();
@@ -918,12 +972,14 @@ $root.ServerSync = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SyncdMutations.decode = function decode(reader, length) {
+        SyncdMutations.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ServerSync.SyncdMutations();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         if (!(message.mutations && message.mutations.length))
@@ -1118,19 +1174,34 @@ $root.ServerSync = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SyncdSnapshot _version.
+         * @member {"version"|undefined} _version
+         * @memberof ServerSync.SyncdSnapshot
+         * @instance
+         */
         Object.defineProperty(SyncdSnapshot.prototype, "_version", {
             get: $util.oneOfGetter($oneOfFields = ["version"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SyncdSnapshot _mac.
+         * @member {"mac"|undefined} _mac
+         * @memberof ServerSync.SyncdSnapshot
+         * @instance
+         */
         Object.defineProperty(SyncdSnapshot.prototype, "_mac", {
             get: $util.oneOfGetter($oneOfFields = ["mac"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SyncdSnapshot _keyId.
+         * @member {"keyId"|undefined} _keyId
+         * @memberof ServerSync.SyncdSnapshot
+         * @instance
+         */
         Object.defineProperty(SyncdSnapshot.prototype, "_keyId", {
             get: $util.oneOfGetter($oneOfFields = ["keyId"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -1196,12 +1267,14 @@ $root.ServerSync = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SyncdSnapshot.decode = function decode(reader, length) {
+        SyncdSnapshot.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ServerSync.SyncdSnapshot();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.version = $root.ServerSync.SyncdVersion.decode(reader, reader.uint32());
@@ -1477,37 +1550,67 @@ $root.ServerSync = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ExternalBlobReference _mediaKey.
+         * @member {"mediaKey"|undefined} _mediaKey
+         * @memberof ServerSync.ExternalBlobReference
+         * @instance
+         */
         Object.defineProperty(ExternalBlobReference.prototype, "_mediaKey", {
             get: $util.oneOfGetter($oneOfFields = ["mediaKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ExternalBlobReference _directPath.
+         * @member {"directPath"|undefined} _directPath
+         * @memberof ServerSync.ExternalBlobReference
+         * @instance
+         */
         Object.defineProperty(ExternalBlobReference.prototype, "_directPath", {
             get: $util.oneOfGetter($oneOfFields = ["directPath"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ExternalBlobReference _handle.
+         * @member {"handle"|undefined} _handle
+         * @memberof ServerSync.ExternalBlobReference
+         * @instance
+         */
         Object.defineProperty(ExternalBlobReference.prototype, "_handle", {
             get: $util.oneOfGetter($oneOfFields = ["handle"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ExternalBlobReference _fileSizeBytes.
+         * @member {"fileSizeBytes"|undefined} _fileSizeBytes
+         * @memberof ServerSync.ExternalBlobReference
+         * @instance
+         */
         Object.defineProperty(ExternalBlobReference.prototype, "_fileSizeBytes", {
             get: $util.oneOfGetter($oneOfFields = ["fileSizeBytes"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ExternalBlobReference _fileSha256.
+         * @member {"fileSha256"|undefined} _fileSha256
+         * @memberof ServerSync.ExternalBlobReference
+         * @instance
+         */
         Object.defineProperty(ExternalBlobReference.prototype, "_fileSha256", {
             get: $util.oneOfGetter($oneOfFields = ["fileSha256"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ExternalBlobReference _fileEncSha256.
+         * @member {"fileEncSha256"|undefined} _fileEncSha256
+         * @memberof ServerSync.ExternalBlobReference
+         * @instance
+         */
         Object.defineProperty(ExternalBlobReference.prototype, "_fileEncSha256", {
             get: $util.oneOfGetter($oneOfFields = ["fileEncSha256"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -1576,12 +1679,14 @@ $root.ServerSync = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ExternalBlobReference.decode = function decode(reader, length) {
+        ExternalBlobReference.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ServerSync.ExternalBlobReference();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.mediaKey = reader.bytes();
@@ -1850,19 +1955,34 @@ $root.ServerSync = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SyncdRecord _index.
+         * @member {"index"|undefined} _index
+         * @memberof ServerSync.SyncdRecord
+         * @instance
+         */
         Object.defineProperty(SyncdRecord.prototype, "_index", {
             get: $util.oneOfGetter($oneOfFields = ["index"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SyncdRecord _value.
+         * @member {"value"|undefined} _value
+         * @memberof ServerSync.SyncdRecord
+         * @instance
+         */
         Object.defineProperty(SyncdRecord.prototype, "_value", {
             get: $util.oneOfGetter($oneOfFields = ["value"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SyncdRecord _keyId.
+         * @member {"keyId"|undefined} _keyId
+         * @memberof ServerSync.SyncdRecord
+         * @instance
+         */
         Object.defineProperty(SyncdRecord.prototype, "_keyId", {
             get: $util.oneOfGetter($oneOfFields = ["keyId"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -1925,12 +2045,14 @@ $root.ServerSync = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SyncdRecord.decode = function decode(reader, length) {
+        SyncdRecord.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ServerSync.SyncdRecord();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.index = $root.ServerSync.SyncdIndex.decode(reader, reader.uint32());
@@ -2132,7 +2254,12 @@ $root.ServerSync = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * KeyId _id.
+         * @member {"id"|undefined} _id
+         * @memberof ServerSync.KeyId
+         * @instance
+         */
         Object.defineProperty(KeyId.prototype, "_id", {
             get: $util.oneOfGetter($oneOfFields = ["id"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -2191,12 +2318,14 @@ $root.ServerSync = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        KeyId.decode = function decode(reader, length) {
+        KeyId.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ServerSync.KeyId();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.id = reader.bytes();
@@ -2351,7 +2480,12 @@ $root.ServerSync = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SyncdValue _blob.
+         * @member {"blob"|undefined} _blob
+         * @memberof ServerSync.SyncdValue
+         * @instance
+         */
         Object.defineProperty(SyncdValue.prototype, "_blob", {
             get: $util.oneOfGetter($oneOfFields = ["blob"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -2410,12 +2544,14 @@ $root.ServerSync = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SyncdValue.decode = function decode(reader, length) {
+        SyncdValue.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ServerSync.SyncdValue();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.blob = reader.bytes();
@@ -2570,7 +2706,12 @@ $root.ServerSync = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SyncdIndex _blob.
+         * @member {"blob"|undefined} _blob
+         * @memberof ServerSync.SyncdIndex
+         * @instance
+         */
         Object.defineProperty(SyncdIndex.prototype, "_blob", {
             get: $util.oneOfGetter($oneOfFields = ["blob"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -2629,12 +2770,14 @@ $root.ServerSync = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SyncdIndex.decode = function decode(reader, length) {
+        SyncdIndex.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ServerSync.SyncdIndex();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.blob = reader.bytes();
@@ -2798,13 +2941,23 @@ $root.ServerSync = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ExitCode _code.
+         * @member {"code"|undefined} _code
+         * @memberof ServerSync.ExitCode
+         * @instance
+         */
         Object.defineProperty(ExitCode.prototype, "_code", {
             get: $util.oneOfGetter($oneOfFields = ["code"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ExitCode _text.
+         * @member {"text"|undefined} _text
+         * @memberof ServerSync.ExitCode
+         * @instance
+         */
         Object.defineProperty(ExitCode.prototype, "_text", {
             get: $util.oneOfGetter($oneOfFields = ["text"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -2865,12 +3018,14 @@ $root.ServerSync = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ExitCode.decode = function decode(reader, length) {
+        ExitCode.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ServerSync.ExitCode();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.code = reader.uint64();
@@ -3048,7 +3203,12 @@ $root.ServerSync = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * SyncdVersion _version.
+         * @member {"version"|undefined} _version
+         * @memberof ServerSync.SyncdVersion
+         * @instance
+         */
         Object.defineProperty(SyncdVersion.prototype, "_version", {
             get: $util.oneOfGetter($oneOfFields = ["version"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -3107,12 +3267,14 @@ $root.ServerSync = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SyncdVersion.decode = function decode(reader, length) {
+        SyncdVersion.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ServerSync.SyncdVersion();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.version = reader.uint64();

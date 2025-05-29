@@ -71,19 +71,34 @@ $root.Adv = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ADVSignedDeviceIdentityHMAC _details.
+         * @member {"details"|undefined} _details
+         * @memberof Adv.ADVSignedDeviceIdentityHMAC
+         * @instance
+         */
         Object.defineProperty(ADVSignedDeviceIdentityHMAC.prototype, "_details", {
             get: $util.oneOfGetter($oneOfFields = ["details"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ADVSignedDeviceIdentityHMAC _hmac.
+         * @member {"hmac"|undefined} _hmac
+         * @memberof Adv.ADVSignedDeviceIdentityHMAC
+         * @instance
+         */
         Object.defineProperty(ADVSignedDeviceIdentityHMAC.prototype, "_hmac", {
             get: $util.oneOfGetter($oneOfFields = ["hmac"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ADVSignedDeviceIdentityHMAC _accountType.
+         * @member {"accountType"|undefined} _accountType
+         * @memberof Adv.ADVSignedDeviceIdentityHMAC
+         * @instance
+         */
         Object.defineProperty(ADVSignedDeviceIdentityHMAC.prototype, "_accountType", {
             get: $util.oneOfGetter($oneOfFields = ["accountType"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -146,12 +161,14 @@ $root.Adv = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ADVSignedDeviceIdentityHMAC.decode = function decode(reader, length) {
+        ADVSignedDeviceIdentityHMAC.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Adv.ADVSignedDeviceIdentityHMAC();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.details = reader.bytes();
@@ -387,25 +404,45 @@ $root.Adv = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ADVSignedDeviceIdentity _details.
+         * @member {"details"|undefined} _details
+         * @memberof Adv.ADVSignedDeviceIdentity
+         * @instance
+         */
         Object.defineProperty(ADVSignedDeviceIdentity.prototype, "_details", {
             get: $util.oneOfGetter($oneOfFields = ["details"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ADVSignedDeviceIdentity _accountSignatureKey.
+         * @member {"accountSignatureKey"|undefined} _accountSignatureKey
+         * @memberof Adv.ADVSignedDeviceIdentity
+         * @instance
+         */
         Object.defineProperty(ADVSignedDeviceIdentity.prototype, "_accountSignatureKey", {
             get: $util.oneOfGetter($oneOfFields = ["accountSignatureKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ADVSignedDeviceIdentity _accountSignature.
+         * @member {"accountSignature"|undefined} _accountSignature
+         * @memberof Adv.ADVSignedDeviceIdentity
+         * @instance
+         */
         Object.defineProperty(ADVSignedDeviceIdentity.prototype, "_accountSignature", {
             get: $util.oneOfGetter($oneOfFields = ["accountSignature"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ADVSignedDeviceIdentity _deviceSignature.
+         * @member {"deviceSignature"|undefined} _deviceSignature
+         * @memberof Adv.ADVSignedDeviceIdentity
+         * @instance
+         */
         Object.defineProperty(ADVSignedDeviceIdentity.prototype, "_deviceSignature", {
             get: $util.oneOfGetter($oneOfFields = ["deviceSignature"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -470,12 +507,14 @@ $root.Adv = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ADVSignedDeviceIdentity.decode = function decode(reader, length) {
+        ADVSignedDeviceIdentity.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Adv.ADVSignedDeviceIdentity();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.details = reader.bytes();
@@ -723,31 +762,56 @@ $root.Adv = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ADVDeviceIdentity _rawId.
+         * @member {"rawId"|undefined} _rawId
+         * @memberof Adv.ADVDeviceIdentity
+         * @instance
+         */
         Object.defineProperty(ADVDeviceIdentity.prototype, "_rawId", {
             get: $util.oneOfGetter($oneOfFields = ["rawId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ADVDeviceIdentity _timestamp.
+         * @member {"timestamp"|undefined} _timestamp
+         * @memberof Adv.ADVDeviceIdentity
+         * @instance
+         */
         Object.defineProperty(ADVDeviceIdentity.prototype, "_timestamp", {
             get: $util.oneOfGetter($oneOfFields = ["timestamp"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ADVDeviceIdentity _keyIndex.
+         * @member {"keyIndex"|undefined} _keyIndex
+         * @memberof Adv.ADVDeviceIdentity
+         * @instance
+         */
         Object.defineProperty(ADVDeviceIdentity.prototype, "_keyIndex", {
             get: $util.oneOfGetter($oneOfFields = ["keyIndex"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ADVDeviceIdentity _accountType.
+         * @member {"accountType"|undefined} _accountType
+         * @memberof Adv.ADVDeviceIdentity
+         * @instance
+         */
         Object.defineProperty(ADVDeviceIdentity.prototype, "_accountType", {
             get: $util.oneOfGetter($oneOfFields = ["accountType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ADVDeviceIdentity _deviceType.
+         * @member {"deviceType"|undefined} _deviceType
+         * @memberof Adv.ADVDeviceIdentity
+         * @instance
+         */
         Object.defineProperty(ADVDeviceIdentity.prototype, "_deviceType", {
             get: $util.oneOfGetter($oneOfFields = ["deviceType"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -814,12 +878,14 @@ $root.Adv = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ADVDeviceIdentity.decode = function decode(reader, length) {
+        ADVDeviceIdentity.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Adv.ADVDeviceIdentity();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.rawId = reader.uint32();
@@ -1101,19 +1167,34 @@ $root.Adv = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ADVSignedKeyIndexList _details.
+         * @member {"details"|undefined} _details
+         * @memberof Adv.ADVSignedKeyIndexList
+         * @instance
+         */
         Object.defineProperty(ADVSignedKeyIndexList.prototype, "_details", {
             get: $util.oneOfGetter($oneOfFields = ["details"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ADVSignedKeyIndexList _accountSignature.
+         * @member {"accountSignature"|undefined} _accountSignature
+         * @memberof Adv.ADVSignedKeyIndexList
+         * @instance
+         */
         Object.defineProperty(ADVSignedKeyIndexList.prototype, "_accountSignature", {
             get: $util.oneOfGetter($oneOfFields = ["accountSignature"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ADVSignedKeyIndexList _accountSignatureKey.
+         * @member {"accountSignatureKey"|undefined} _accountSignatureKey
+         * @memberof Adv.ADVSignedKeyIndexList
+         * @instance
+         */
         Object.defineProperty(ADVSignedKeyIndexList.prototype, "_accountSignatureKey", {
             get: $util.oneOfGetter($oneOfFields = ["accountSignatureKey"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -1176,12 +1257,14 @@ $root.Adv = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ADVSignedKeyIndexList.decode = function decode(reader, length) {
+        ADVSignedKeyIndexList.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Adv.ADVSignedKeyIndexList();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.details = reader.bytes();
@@ -1411,25 +1494,45 @@ $root.Adv = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ADVKeyIndexList _rawId.
+         * @member {"rawId"|undefined} _rawId
+         * @memberof Adv.ADVKeyIndexList
+         * @instance
+         */
         Object.defineProperty(ADVKeyIndexList.prototype, "_rawId", {
             get: $util.oneOfGetter($oneOfFields = ["rawId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ADVKeyIndexList _timestamp.
+         * @member {"timestamp"|undefined} _timestamp
+         * @memberof Adv.ADVKeyIndexList
+         * @instance
+         */
         Object.defineProperty(ADVKeyIndexList.prototype, "_timestamp", {
             get: $util.oneOfGetter($oneOfFields = ["timestamp"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ADVKeyIndexList _currentIndex.
+         * @member {"currentIndex"|undefined} _currentIndex
+         * @memberof Adv.ADVKeyIndexList
+         * @instance
+         */
         Object.defineProperty(ADVKeyIndexList.prototype, "_currentIndex", {
             get: $util.oneOfGetter($oneOfFields = ["currentIndex"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        // Virtual OneOf for proto3 optional field
+        /**
+         * ADVKeyIndexList _accountType.
+         * @member {"accountType"|undefined} _accountType
+         * @memberof Adv.ADVKeyIndexList
+         * @instance
+         */
         Object.defineProperty(ADVKeyIndexList.prototype, "_accountType", {
             get: $util.oneOfGetter($oneOfFields = ["accountType"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -1500,12 +1603,14 @@ $root.Adv = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ADVKeyIndexList.decode = function decode(reader, length) {
+        ADVKeyIndexList.decode = function decode(reader, length, error) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Adv.ADVKeyIndexList();
             while (reader.pos < end) {
                 var tag = reader.uint32();
+                if (tag === error)
+                    break;
                 switch (tag >>> 3) {
                 case 1: {
                         message.rawId = reader.uint32();

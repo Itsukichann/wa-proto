@@ -22,6 +22,9 @@ export namespace MdStorageChatRowOpaqueData {
         /** ChatRowOpaqueData draftMessage. */
         public draftMessage?: (MdStorageChatRowOpaqueData.ChatRowOpaqueData.IDraftMessage|null);
 
+        /** ChatRowOpaqueData _draftMessage. */
+        public _draftMessage?: "draftMessage";
+
         /**
          * Creates a new ChatRowOpaqueData instance using the specified properties.
          * @param [properties] Properties to set
@@ -144,6 +147,21 @@ export namespace MdStorageChatRowOpaqueData {
 
             /** DraftMessage timestamp. */
             public timestamp?: (number|Long|null);
+
+            /** DraftMessage _text. */
+            public _text?: "text";
+
+            /** DraftMessage _omittedUrl. */
+            public _omittedUrl?: "omittedUrl";
+
+            /** DraftMessage _ctwaContextLinkData. */
+            public _ctwaContextLinkData?: "ctwaContextLinkData";
+
+            /** DraftMessage _ctwaContext. */
+            public _ctwaContext?: "ctwaContext";
+
+            /** DraftMessage _timestamp. */
+            public _timestamp?: "timestamp";
 
             /**
              * Creates a new DraftMessage instance using the specified properties.
@@ -310,6 +328,42 @@ export namespace MdStorageChatRowOpaqueData {
                 /** CtwaContextData isSuspiciousLink. */
                 public isSuspiciousLink?: (boolean|null);
 
+                /** CtwaContextData _conversionSource. */
+                public _conversionSource?: "conversionSource";
+
+                /** CtwaContextData _conversionData. */
+                public _conversionData?: "conversionData";
+
+                /** CtwaContextData _sourceUrl. */
+                public _sourceUrl?: "sourceUrl";
+
+                /** CtwaContextData _sourceId. */
+                public _sourceId?: "sourceId";
+
+                /** CtwaContextData _sourceType. */
+                public _sourceType?: "sourceType";
+
+                /** CtwaContextData _title. */
+                public _title?: "title";
+
+                /** CtwaContextData _description. */
+                public _description?: "description";
+
+                /** CtwaContextData _thumbnail. */
+                public _thumbnail?: "thumbnail";
+
+                /** CtwaContextData _thumbnailUrl. */
+                public _thumbnailUrl?: "thumbnailUrl";
+
+                /** CtwaContextData _mediaType. */
+                public _mediaType?: "mediaType";
+
+                /** CtwaContextData _mediaUrl. */
+                public _mediaUrl?: "mediaUrl";
+
+                /** CtwaContextData _isSuspiciousLink. */
+                public _isSuspiciousLink?: "isSuspiciousLink";
+
                 /**
                  * Creates a new CtwaContextData instance using the specified properties.
                  * @param [properties] Properties to set
@@ -434,6 +488,18 @@ export namespace MdStorageChatRowOpaqueData {
 
                 /** CtwaContextLinkData phone. */
                 public phone?: (string|null);
+
+                /** CtwaContextLinkData _context. */
+                public _context?: "context";
+
+                /** CtwaContextLinkData _sourceUrl. */
+                public _sourceUrl?: "sourceUrl";
+
+                /** CtwaContextLinkData _icebreaker. */
+                public _icebreaker?: "icebreaker";
+
+                /** CtwaContextLinkData _phone. */
+                public _phone?: "phone";
 
                 /**
                  * Creates a new CtwaContextLinkData instance using the specified properties.
