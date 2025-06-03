@@ -13,6 +13,7 @@ exports.Reporting = require('./Reporting/Reporting').Reporting;
 exports.ServerSync = require('./ServerSync/ServerSync').ServerSync;
 exports.SignalLocalStorageProtocol = require('./SignalLocalStorageProtocol/SignalLocalStorageProtocol').SignalLocalStorageProtocol;
 exports.SignalWhisperTextProtocol = require('./SignalWhisperTextProtocol/SignalWhisperTextProtocol').SignalWhisperTextProtocol;
+exports.StatusAttributions = require('./StatusAttributions/StatusAttributions').StatusAttributions;
 exports.UserPassword = require('./UserPassword/UserPassword').UserPassword;
 exports.VnameCert = require('./VnameCert/VnameCert').VnameCert;
 exports.Wa6 = require('./Wa6/Wa6').Wa6;
