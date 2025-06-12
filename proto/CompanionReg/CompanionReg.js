@@ -26,6 +26,7 @@ $root.CompanionReg = (function() {
          * @interface IClientPairingProps
          * @property {boolean|null} [isChatDbLidMigrated] ClientPairingProps isChatDbLidMigrated
          * @property {boolean|null} [isSyncdPureLidSession] ClientPairingProps isSyncdPureLidSession
+         * @property {boolean|null} [isSyncdSnapshotRecoveryEnabled] ClientPairingProps isSyncdSnapshotRecoveryEnabled
          */
 
         /**
@@ -59,6 +60,14 @@ $root.CompanionReg = (function() {
          */
         ClientPairingProps.prototype.isSyncdPureLidSession = null;
 
+        /**
+         * ClientPairingProps isSyncdSnapshotRecoveryEnabled.
+         * @member {boolean|null|undefined} isSyncdSnapshotRecoveryEnabled
+         * @memberof CompanionReg.ClientPairingProps
+         * @instance
+         */
+        ClientPairingProps.prototype.isSyncdSnapshotRecoveryEnabled = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -81,6 +90,17 @@ $root.CompanionReg = (function() {
          */
         Object.defineProperty(ClientPairingProps.prototype, "_isSyncdPureLidSession", {
             get: $util.oneOfGetter($oneOfFields = ["isSyncdPureLidSession"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ClientPairingProps _isSyncdSnapshotRecoveryEnabled.
+         * @member {"isSyncdSnapshotRecoveryEnabled"|undefined} _isSyncdSnapshotRecoveryEnabled
+         * @memberof CompanionReg.ClientPairingProps
+         * @instance
+         */
+        Object.defineProperty(ClientPairingProps.prototype, "_isSyncdSnapshotRecoveryEnabled", {
+            get: $util.oneOfGetter($oneOfFields = ["isSyncdSnapshotRecoveryEnabled"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
@@ -112,6 +132,8 @@ $root.CompanionReg = (function() {
                 writer.uint32(/* id 1, wireType 0 =*/8).bool(message.isChatDbLidMigrated);
             if (message.isSyncdPureLidSession != null && Object.hasOwnProperty.call(message, "isSyncdPureLidSession"))
                 writer.uint32(/* id 2, wireType 0 =*/16).bool(message.isSyncdPureLidSession);
+            if (message.isSyncdSnapshotRecoveryEnabled != null && Object.hasOwnProperty.call(message, "isSyncdSnapshotRecoveryEnabled"))
+                writer.uint32(/* id 3, wireType 0 =*/24).bool(message.isSyncdSnapshotRecoveryEnabled);
             return writer;
         };
 
@@ -154,6 +176,10 @@ $root.CompanionReg = (function() {
                     }
                 case 2: {
                         message.isSyncdPureLidSession = reader.bool();
+                        break;
+                    }
+                case 3: {
+                        message.isSyncdSnapshotRecoveryEnabled = reader.bool();
                         break;
                     }
                 default:
@@ -202,6 +228,11 @@ $root.CompanionReg = (function() {
                 if (typeof message.isSyncdPureLidSession !== "boolean")
                     return "isSyncdPureLidSession: boolean expected";
             }
+            if (message.isSyncdSnapshotRecoveryEnabled != null && message.hasOwnProperty("isSyncdSnapshotRecoveryEnabled")) {
+                properties._isSyncdSnapshotRecoveryEnabled = 1;
+                if (typeof message.isSyncdSnapshotRecoveryEnabled !== "boolean")
+                    return "isSyncdSnapshotRecoveryEnabled: boolean expected";
+            }
             return null;
         };
 
@@ -221,6 +252,8 @@ $root.CompanionReg = (function() {
                 message.isChatDbLidMigrated = Boolean(object.isChatDbLidMigrated);
             if (object.isSyncdPureLidSession != null)
                 message.isSyncdPureLidSession = Boolean(object.isSyncdPureLidSession);
+            if (object.isSyncdSnapshotRecoveryEnabled != null)
+                message.isSyncdSnapshotRecoveryEnabled = Boolean(object.isSyncdSnapshotRecoveryEnabled);
             return message;
         };
 
@@ -246,6 +279,11 @@ $root.CompanionReg = (function() {
                 object.isSyncdPureLidSession = message.isSyncdPureLidSession;
                 if (options.oneofs)
                     object._isSyncdPureLidSession = "isSyncdPureLidSession";
+            }
+            if (message.isSyncdSnapshotRecoveryEnabled != null && message.hasOwnProperty("isSyncdSnapshotRecoveryEnabled")) {
+                object.isSyncdSnapshotRecoveryEnabled = message.isSyncdSnapshotRecoveryEnabled;
+                if (options.oneofs)
+                    object._isSyncdSnapshotRecoveryEnabled = "isSyncdSnapshotRecoveryEnabled";
             }
             return object;
         };

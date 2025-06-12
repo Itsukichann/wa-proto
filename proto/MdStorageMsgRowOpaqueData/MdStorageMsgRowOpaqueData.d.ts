@@ -34907,6 +34907,9 @@ export namespace CompanionReg {
 
         /** ClientPairingProps isSyncdPureLidSession */
         isSyncdPureLidSession?: (boolean|null);
+
+        /** ClientPairingProps isSyncdSnapshotRecoveryEnabled */
+        isSyncdSnapshotRecoveryEnabled?: (boolean|null);
     }
 
     /** Represents a ClientPairingProps. */
@@ -34924,11 +34927,17 @@ export namespace CompanionReg {
         /** ClientPairingProps isSyncdPureLidSession. */
         public isSyncdPureLidSession?: (boolean|null);
 
+        /** ClientPairingProps isSyncdSnapshotRecoveryEnabled. */
+        public isSyncdSnapshotRecoveryEnabled?: (boolean|null);
+
         /** ClientPairingProps _isChatDbLidMigrated. */
         public _isChatDbLidMigrated?: "isChatDbLidMigrated";
 
         /** ClientPairingProps _isSyncdPureLidSession. */
         public _isSyncdPureLidSession?: "isSyncdPureLidSession";
+
+        /** ClientPairingProps _isSyncdSnapshotRecoveryEnabled. */
+        public _isSyncdSnapshotRecoveryEnabled?: "isSyncdSnapshotRecoveryEnabled";
 
         /**
          * Creates a new ClientPairingProps instance using the specified properties.
