@@ -5856,6 +5856,9 @@ export namespace E2E {
 
             /** BotSourceItem citationNumber */
             citationNumber?: (number|null);
+
+            /** BotSourceItem sourceTitle */
+            sourceTitle?: (string|null);
         }
 
         /** Represents a BotSourceItem. */
@@ -5885,6 +5888,9 @@ export namespace E2E {
             /** BotSourceItem citationNumber. */
             public citationNumber?: (number|null);
 
+            /** BotSourceItem sourceTitle. */
+            public sourceTitle?: (string|null);
+
             /** BotSourceItem _provider. */
             public _provider?: "provider";
 
@@ -5902,6 +5908,9 @@ export namespace E2E {
 
             /** BotSourceItem _citationNumber. */
             public _citationNumber?: "citationNumber";
+
+            /** BotSourceItem _sourceTitle. */
+            public _sourceTitle?: "sourceTitle";
 
             /**
              * Creates a new BotSourceItem instance using the specified properties.
@@ -16923,6 +16932,9 @@ export namespace E2E {
 
             /** Call contextInfo */
             contextInfo?: (E2E.IContextInfo|null);
+
+            /** Call nativeFlowCallButtonPayload */
+            nativeFlowCallButtonPayload?: (string|null);
         }
 
         /** Represents a Call. */
@@ -16955,6 +16967,9 @@ export namespace E2E {
             /** Call contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
 
+            /** Call nativeFlowCallButtonPayload. */
+            public nativeFlowCallButtonPayload?: (string|null);
+
             /** Call _callKey. */
             public _callKey?: "callKey";
 
@@ -16975,6 +16990,9 @@ export namespace E2E {
 
             /** Call _contextInfo. */
             public _contextInfo?: "contextInfo";
+
+            /** Call _nativeFlowCallButtonPayload. */
+            public _nativeFlowCallButtonPayload?: "nativeFlowCallButtonPayload";
 
             /**
              * Creates a new Call instance using the specified properties.
@@ -33531,7 +33549,8 @@ export namespace E2E {
         AI_TAB_THREAD = 1,
         AI_HOME_THREAD = 2,
         AI_DEEPLINK_IMMERSIVE_THREAD = 3,
-        AI_DEEPLINK_THREAD = 4
+        AI_DEEPLINK_THREAD = 4,
+        ASK_META_AI_CONTEXT_MENU_THREAD = 5
     }
 
     /** BotMetricsEntryPoint enum. */
@@ -33560,7 +33579,8 @@ export namespace E2E {
         META_AI_CHAT_SHORTCUT_AI_STUDIO = 22,
         UGC_CHAT_SHORTCUT_AI_STUDIO = 23,
         NEW_CHAT_AI_STUDIO = 24,
-        AIVOICE_FAVICON_CALL_HISTORY = 25
+        AIVOICE_FAVICON_CALL_HISTORY = 25,
+        ASK_META_AI_CONTEXT_MENU = 26
     }
 }
 
