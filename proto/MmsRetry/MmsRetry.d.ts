@@ -20,10 +20,7 @@ export namespace MmsRetry {
         constructor(properties?: MmsRetry.IServerErrorReceipt);
 
         /** ServerErrorReceipt stanzaId. */
-        public stanzaId?: (string|null);
-
-        /** ServerErrorReceipt _stanzaId. */
-        public _stanzaId?: "stanzaId";
+        public stanzaId: string;
 
         /**
          * Creates a new ServerErrorReceipt instance using the specified properties.
@@ -129,28 +126,16 @@ export namespace MmsRetry {
         constructor(properties?: MmsRetry.IMediaRetryNotification);
 
         /** MediaRetryNotification stanzaId. */
-        public stanzaId?: (string|null);
+        public stanzaId: string;
 
         /** MediaRetryNotification directPath. */
-        public directPath?: (string|null);
+        public directPath: string;
 
         /** MediaRetryNotification result. */
-        public result?: (MmsRetry.MediaRetryNotification.ResultType|null);
+        public result: MmsRetry.MediaRetryNotification.ResultType;
 
         /** MediaRetryNotification messageSecret. */
-        public messageSecret?: (Uint8Array|null);
-
-        /** MediaRetryNotification _stanzaId. */
-        public _stanzaId?: "stanzaId";
-
-        /** MediaRetryNotification _directPath. */
-        public _directPath?: "directPath";
-
-        /** MediaRetryNotification _result. */
-        public _result?: "result";
-
-        /** MediaRetryNotification _messageSecret. */
-        public _messageSecret?: "messageSecret";
+        public messageSecret: Uint8Array;
 
         /**
          * Creates a new MediaRetryNotification instance using the specified properties.

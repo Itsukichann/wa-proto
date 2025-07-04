@@ -126,7 +126,7 @@ export namespace SignalLocalStorageProtocol {
         constructor(properties?: SignalLocalStorageProtocol.ISenderKeyStateStructure);
 
         /** SenderKeyStateStructure senderKeyId. */
-        public senderKeyId?: (number|null);
+        public senderKeyId: number;
 
         /** SenderKeyStateStructure senderChainKey. */
         public senderChainKey?: (SignalLocalStorageProtocol.SenderKeyStateStructure.ISenderChainKey|null);
@@ -136,15 +136,6 @@ export namespace SignalLocalStorageProtocol {
 
         /** SenderKeyStateStructure senderMessageKeys. */
         public senderMessageKeys: SignalLocalStorageProtocol.SenderKeyStateStructure.ISenderMessageKey[];
-
-        /** SenderKeyStateStructure _senderKeyId. */
-        public _senderKeyId?: "senderKeyId";
-
-        /** SenderKeyStateStructure _senderChainKey. */
-        public _senderChainKey?: "senderChainKey";
-
-        /** SenderKeyStateStructure _senderSigningKey. */
-        public _senderSigningKey?: "senderSigningKey";
 
         /**
          * Creates a new SenderKeyStateStructure instance using the specified properties.
@@ -246,16 +237,10 @@ export namespace SignalLocalStorageProtocol {
             constructor(properties?: SignalLocalStorageProtocol.SenderKeyStateStructure.ISenderChainKey);
 
             /** SenderChainKey iteration. */
-            public iteration?: (number|null);
+            public iteration: number;
 
             /** SenderChainKey seed. */
-            public seed?: (Uint8Array|null);
-
-            /** SenderChainKey _iteration. */
-            public _iteration?: "iteration";
-
-            /** SenderChainKey _seed. */
-            public _seed?: "seed";
+            public seed: Uint8Array;
 
             /**
              * Creates a new SenderChainKey instance using the specified properties.
@@ -355,16 +340,10 @@ export namespace SignalLocalStorageProtocol {
             constructor(properties?: SignalLocalStorageProtocol.SenderKeyStateStructure.ISenderMessageKey);
 
             /** SenderMessageKey iteration. */
-            public iteration?: (number|null);
+            public iteration: number;
 
             /** SenderMessageKey seed. */
-            public seed?: (Uint8Array|null);
-
-            /** SenderMessageKey _iteration. */
-            public _iteration?: "iteration";
-
-            /** SenderMessageKey _seed. */
-            public _seed?: "seed";
+            public seed: Uint8Array;
 
             /**
              * Creates a new SenderMessageKey instance using the specified properties.
@@ -464,16 +443,10 @@ export namespace SignalLocalStorageProtocol {
             constructor(properties?: SignalLocalStorageProtocol.SenderKeyStateStructure.ISenderSigningKey);
 
             /** SenderSigningKey public. */
-            public public?: (Uint8Array|null);
+            public public: Uint8Array;
 
             /** SenderSigningKey private. */
-            public private?: (Uint8Array|null);
-
-            /** SenderSigningKey _public. */
-            public _public?: "public";
-
-            /** SenderSigningKey _private. */
-            public _private?: "private";
+            public private: Uint8Array;
 
             /**
              * Creates a new SenderSigningKey instance using the specified properties.
@@ -574,16 +547,10 @@ export namespace SignalLocalStorageProtocol {
         constructor(properties?: SignalLocalStorageProtocol.IIdentityKeyPairStructure);
 
         /** IdentityKeyPairStructure publicKey. */
-        public publicKey?: (Uint8Array|null);
+        public publicKey: Uint8Array;
 
         /** IdentityKeyPairStructure privateKey. */
-        public privateKey?: (Uint8Array|null);
-
-        /** IdentityKeyPairStructure _publicKey. */
-        public _publicKey?: "publicKey";
-
-        /** IdentityKeyPairStructure _privateKey. */
-        public _privateKey?: "privateKey";
+        public privateKey: Uint8Array;
 
         /**
          * Creates a new IdentityKeyPairStructure instance using the specified properties.
@@ -692,34 +659,19 @@ export namespace SignalLocalStorageProtocol {
         constructor(properties?: SignalLocalStorageProtocol.ISignedPreKeyRecordStructure);
 
         /** SignedPreKeyRecordStructure id. */
-        public id?: (number|null);
+        public id: number;
 
         /** SignedPreKeyRecordStructure publicKey. */
-        public publicKey?: (Uint8Array|null);
+        public publicKey: Uint8Array;
 
         /** SignedPreKeyRecordStructure privateKey. */
-        public privateKey?: (Uint8Array|null);
+        public privateKey: Uint8Array;
 
         /** SignedPreKeyRecordStructure signature. */
-        public signature?: (Uint8Array|null);
+        public signature: Uint8Array;
 
         /** SignedPreKeyRecordStructure timestamp. */
-        public timestamp?: (number|Long|null);
-
-        /** SignedPreKeyRecordStructure _id. */
-        public _id?: "id";
-
-        /** SignedPreKeyRecordStructure _publicKey. */
-        public _publicKey?: "publicKey";
-
-        /** SignedPreKeyRecordStructure _privateKey. */
-        public _privateKey?: "privateKey";
-
-        /** SignedPreKeyRecordStructure _signature. */
-        public _signature?: "signature";
-
-        /** SignedPreKeyRecordStructure _timestamp. */
-        public _timestamp?: "timestamp";
+        public timestamp: (number|Long);
 
         /**
          * Creates a new SignedPreKeyRecordStructure instance using the specified properties.
@@ -822,22 +774,13 @@ export namespace SignalLocalStorageProtocol {
         constructor(properties?: SignalLocalStorageProtocol.IPreKeyRecordStructure);
 
         /** PreKeyRecordStructure id. */
-        public id?: (number|null);
+        public id: number;
 
         /** PreKeyRecordStructure publicKey. */
-        public publicKey?: (Uint8Array|null);
+        public publicKey: Uint8Array;
 
         /** PreKeyRecordStructure privateKey. */
-        public privateKey?: (Uint8Array|null);
-
-        /** PreKeyRecordStructure _id. */
-        public _id?: "id";
-
-        /** PreKeyRecordStructure _publicKey. */
-        public _publicKey?: "publicKey";
-
-        /** PreKeyRecordStructure _privateKey. */
-        public _privateKey?: "privateKey";
+        public privateKey: Uint8Array;
 
         /**
          * Creates a new PreKeyRecordStructure instance using the specified properties.
@@ -941,9 +884,6 @@ export namespace SignalLocalStorageProtocol {
 
         /** RecordStructure previousSessions. */
         public previousSessions: SignalLocalStorageProtocol.ISessionStructure[];
-
-        /** RecordStructure _currentSession. */
-        public _currentSession?: "currentSession";
 
         /**
          * Creates a new RecordStructure instance using the specified properties.
@@ -1076,19 +1016,19 @@ export namespace SignalLocalStorageProtocol {
         constructor(properties?: SignalLocalStorageProtocol.ISessionStructure);
 
         /** SessionStructure sessionVersion. */
-        public sessionVersion?: (number|null);
+        public sessionVersion: number;
 
         /** SessionStructure localIdentityPublic. */
-        public localIdentityPublic?: (Uint8Array|null);
+        public localIdentityPublic: Uint8Array;
 
         /** SessionStructure remoteIdentityPublic. */
-        public remoteIdentityPublic?: (Uint8Array|null);
+        public remoteIdentityPublic: Uint8Array;
 
         /** SessionStructure rootKey. */
-        public rootKey?: (Uint8Array|null);
+        public rootKey: Uint8Array;
 
         /** SessionStructure previousCounter. */
-        public previousCounter?: (number|null);
+        public previousCounter: number;
 
         /** SessionStructure senderChain. */
         public senderChain?: (SignalLocalStorageProtocol.SessionStructure.IChain|null);
@@ -1103,52 +1043,16 @@ export namespace SignalLocalStorageProtocol {
         public pendingPreKey?: (SignalLocalStorageProtocol.SessionStructure.IPendingPreKey|null);
 
         /** SessionStructure remoteRegistrationId. */
-        public remoteRegistrationId?: (number|null);
+        public remoteRegistrationId: number;
 
         /** SessionStructure localRegistrationId. */
-        public localRegistrationId?: (number|null);
+        public localRegistrationId: number;
 
         /** SessionStructure needsRefresh. */
-        public needsRefresh?: (boolean|null);
+        public needsRefresh: boolean;
 
         /** SessionStructure aliceBaseKey. */
-        public aliceBaseKey?: (Uint8Array|null);
-
-        /** SessionStructure _sessionVersion. */
-        public _sessionVersion?: "sessionVersion";
-
-        /** SessionStructure _localIdentityPublic. */
-        public _localIdentityPublic?: "localIdentityPublic";
-
-        /** SessionStructure _remoteIdentityPublic. */
-        public _remoteIdentityPublic?: "remoteIdentityPublic";
-
-        /** SessionStructure _rootKey. */
-        public _rootKey?: "rootKey";
-
-        /** SessionStructure _previousCounter. */
-        public _previousCounter?: "previousCounter";
-
-        /** SessionStructure _senderChain. */
-        public _senderChain?: "senderChain";
-
-        /** SessionStructure _pendingKeyExchange. */
-        public _pendingKeyExchange?: "pendingKeyExchange";
-
-        /** SessionStructure _pendingPreKey. */
-        public _pendingPreKey?: "pendingPreKey";
-
-        /** SessionStructure _remoteRegistrationId. */
-        public _remoteRegistrationId?: "remoteRegistrationId";
-
-        /** SessionStructure _localRegistrationId. */
-        public _localRegistrationId?: "localRegistrationId";
-
-        /** SessionStructure _needsRefresh. */
-        public _needsRefresh?: "needsRefresh";
-
-        /** SessionStructure _aliceBaseKey. */
-        public _aliceBaseKey?: "aliceBaseKey";
+        public aliceBaseKey: Uint8Array;
 
         /**
          * Creates a new SessionStructure instance using the specified properties.
@@ -1256,25 +1160,16 @@ export namespace SignalLocalStorageProtocol {
             constructor(properties?: SignalLocalStorageProtocol.SessionStructure.IChain);
 
             /** Chain senderRatchetKey. */
-            public senderRatchetKey?: (Uint8Array|null);
+            public senderRatchetKey: Uint8Array;
 
             /** Chain senderRatchetKeyPrivate. */
-            public senderRatchetKeyPrivate?: (Uint8Array|null);
+            public senderRatchetKeyPrivate: Uint8Array;
 
             /** Chain chainKey. */
             public chainKey?: (SignalLocalStorageProtocol.SessionStructure.Chain.IChainKey|null);
 
             /** Chain messageKeys. */
             public messageKeys: SignalLocalStorageProtocol.SessionStructure.Chain.IMessageKey[];
-
-            /** Chain _senderRatchetKey. */
-            public _senderRatchetKey?: "senderRatchetKey";
-
-            /** Chain _senderRatchetKeyPrivate. */
-            public _senderRatchetKeyPrivate?: "senderRatchetKeyPrivate";
-
-            /** Chain _chainKey. */
-            public _chainKey?: "chainKey";
 
             /**
              * Creates a new Chain instance using the specified properties.
@@ -1376,16 +1271,10 @@ export namespace SignalLocalStorageProtocol {
                 constructor(properties?: SignalLocalStorageProtocol.SessionStructure.Chain.IChainKey);
 
                 /** ChainKey index. */
-                public index?: (number|null);
+                public index: number;
 
                 /** ChainKey key. */
-                public key?: (Uint8Array|null);
-
-                /** ChainKey _index. */
-                public _index?: "index";
-
-                /** ChainKey _key. */
-                public _key?: "key";
+                public key: Uint8Array;
 
                 /**
                  * Creates a new ChainKey instance using the specified properties.
@@ -1491,28 +1380,16 @@ export namespace SignalLocalStorageProtocol {
                 constructor(properties?: SignalLocalStorageProtocol.SessionStructure.Chain.IMessageKey);
 
                 /** MessageKey index. */
-                public index?: (number|null);
+                public index: number;
 
                 /** MessageKey cipherKey. */
-                public cipherKey?: (Uint8Array|null);
+                public cipherKey: Uint8Array;
 
                 /** MessageKey macKey. */
-                public macKey?: (Uint8Array|null);
+                public macKey: Uint8Array;
 
                 /** MessageKey iv. */
-                public iv?: (Uint8Array|null);
-
-                /** MessageKey _index. */
-                public _index?: "index";
-
-                /** MessageKey _cipherKey. */
-                public _cipherKey?: "cipherKey";
-
-                /** MessageKey _macKey. */
-                public _macKey?: "macKey";
-
-                /** MessageKey _iv. */
-                public _iv?: "iv";
+                public iv: Uint8Array;
 
                 /**
                  * Creates a new MessageKey instance using the specified properties.
@@ -1628,46 +1505,25 @@ export namespace SignalLocalStorageProtocol {
             constructor(properties?: SignalLocalStorageProtocol.SessionStructure.IPendingKeyExchange);
 
             /** PendingKeyExchange sequence. */
-            public sequence?: (number|null);
+            public sequence: number;
 
             /** PendingKeyExchange localBaseKey. */
-            public localBaseKey?: (Uint8Array|null);
+            public localBaseKey: Uint8Array;
 
             /** PendingKeyExchange localBaseKeyPrivate. */
-            public localBaseKeyPrivate?: (Uint8Array|null);
+            public localBaseKeyPrivate: Uint8Array;
 
             /** PendingKeyExchange localRatchetKey. */
-            public localRatchetKey?: (Uint8Array|null);
+            public localRatchetKey: Uint8Array;
 
             /** PendingKeyExchange localRatchetKeyPrivate. */
-            public localRatchetKeyPrivate?: (Uint8Array|null);
+            public localRatchetKeyPrivate: Uint8Array;
 
             /** PendingKeyExchange localIdentityKey. */
-            public localIdentityKey?: (Uint8Array|null);
+            public localIdentityKey: Uint8Array;
 
             /** PendingKeyExchange localIdentityKeyPrivate. */
-            public localIdentityKeyPrivate?: (Uint8Array|null);
-
-            /** PendingKeyExchange _sequence. */
-            public _sequence?: "sequence";
-
-            /** PendingKeyExchange _localBaseKey. */
-            public _localBaseKey?: "localBaseKey";
-
-            /** PendingKeyExchange _localBaseKeyPrivate. */
-            public _localBaseKeyPrivate?: "localBaseKeyPrivate";
-
-            /** PendingKeyExchange _localRatchetKey. */
-            public _localRatchetKey?: "localRatchetKey";
-
-            /** PendingKeyExchange _localRatchetKeyPrivate. */
-            public _localRatchetKeyPrivate?: "localRatchetKeyPrivate";
-
-            /** PendingKeyExchange _localIdentityKey. */
-            public _localIdentityKey?: "localIdentityKey";
-
-            /** PendingKeyExchange _localIdentityKeyPrivate. */
-            public _localIdentityKeyPrivate?: "localIdentityKeyPrivate";
+            public localIdentityKeyPrivate: Uint8Array;
 
             /**
              * Creates a new PendingKeyExchange instance using the specified properties.
@@ -1770,22 +1626,13 @@ export namespace SignalLocalStorageProtocol {
             constructor(properties?: SignalLocalStorageProtocol.SessionStructure.IPendingPreKey);
 
             /** PendingPreKey preKeyId. */
-            public preKeyId?: (number|null);
+            public preKeyId: number;
 
             /** PendingPreKey signedPreKeyId. */
-            public signedPreKeyId?: (number|null);
+            public signedPreKeyId: number;
 
             /** PendingPreKey baseKey. */
-            public baseKey?: (Uint8Array|null);
-
-            /** PendingPreKey _preKeyId. */
-            public _preKeyId?: "preKeyId";
-
-            /** PendingPreKey _signedPreKeyId. */
-            public _signedPreKeyId?: "signedPreKeyId";
-
-            /** PendingPreKey _baseKey. */
-            public _baseKey?: "baseKey";
+            public baseKey: Uint8Array;
 
             /**
              * Creates a new PendingPreKey instance using the specified properties.

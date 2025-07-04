@@ -107,10 +107,10 @@ export namespace Wa6 {
         constructor(properties?: Wa6.IClientPayload);
 
         /** ClientPayload username. */
-        public username?: (number|Long|null);
+        public username: (number|Long);
 
         /** ClientPayload passive. */
-        public passive?: (boolean|null);
+        public passive: boolean;
 
         /** ClientPayload userAgent. */
         public userAgent?: (Wa6.ClientPayload.IUserAgent|null);
@@ -119,19 +119,19 @@ export namespace Wa6 {
         public webInfo?: (Wa6.ClientPayload.IWebInfo|null);
 
         /** ClientPayload pushName. */
-        public pushName?: (string|null);
+        public pushName: string;
 
         /** ClientPayload sessionId. */
-        public sessionId?: (number|null);
+        public sessionId: number;
 
         /** ClientPayload shortConnect. */
-        public shortConnect?: (boolean|null);
+        public shortConnect: boolean;
 
         /** ClientPayload connectType. */
-        public connectType?: (Wa6.ClientPayload.ConnectType|null);
+        public connectType: Wa6.ClientPayload.ConnectType;
 
         /** ClientPayload connectReason. */
-        public connectReason?: (Wa6.ClientPayload.ConnectReason|null);
+        public connectReason: Wa6.ClientPayload.ConnectReason;
 
         /** ClientPayload shards. */
         public shards: number[];
@@ -140,148 +140,61 @@ export namespace Wa6 {
         public dnsSource?: (Wa6.ClientPayload.IDNSSource|null);
 
         /** ClientPayload connectAttemptCount. */
-        public connectAttemptCount?: (number|null);
+        public connectAttemptCount: number;
 
         /** ClientPayload device. */
-        public device?: (number|null);
+        public device: number;
 
         /** ClientPayload devicePairingData. */
         public devicePairingData?: (Wa6.ClientPayload.IDevicePairingRegistrationData|null);
 
         /** ClientPayload product. */
-        public product?: (Wa6.ClientPayload.Product|null);
+        public product: Wa6.ClientPayload.Product;
 
         /** ClientPayload fbCat. */
-        public fbCat?: (Uint8Array|null);
+        public fbCat: Uint8Array;
 
         /** ClientPayload fbUserAgent. */
-        public fbUserAgent?: (Uint8Array|null);
+        public fbUserAgent: Uint8Array;
 
         /** ClientPayload oc. */
-        public oc?: (boolean|null);
+        public oc: boolean;
 
         /** ClientPayload lc. */
-        public lc?: (number|null);
+        public lc: number;
 
         /** ClientPayload iosAppExtension. */
-        public iosAppExtension?: (Wa6.ClientPayload.IOSAppExtension|null);
+        public iosAppExtension: Wa6.ClientPayload.IOSAppExtension;
 
         /** ClientPayload fbAppId. */
-        public fbAppId?: (number|Long|null);
+        public fbAppId: (number|Long);
 
         /** ClientPayload fbDeviceId. */
-        public fbDeviceId?: (Uint8Array|null);
+        public fbDeviceId: Uint8Array;
 
         /** ClientPayload pull. */
-        public pull?: (boolean|null);
+        public pull: boolean;
 
         /** ClientPayload paddingBytes. */
-        public paddingBytes?: (Uint8Array|null);
+        public paddingBytes: Uint8Array;
 
         /** ClientPayload yearClass. */
-        public yearClass?: (number|null);
+        public yearClass: number;
 
         /** ClientPayload memClass. */
-        public memClass?: (number|null);
+        public memClass: number;
 
         /** ClientPayload interopData. */
         public interopData?: (Wa6.ClientPayload.IInteropData|null);
 
         /** ClientPayload trafficAnonymization. */
-        public trafficAnonymization?: (Wa6.ClientPayload.TrafficAnonymization|null);
+        public trafficAnonymization: Wa6.ClientPayload.TrafficAnonymization;
 
         /** ClientPayload lidDbMigrated. */
-        public lidDbMigrated?: (boolean|null);
+        public lidDbMigrated: boolean;
 
         /** ClientPayload accountType. */
-        public accountType?: (Wa6.ClientPayload.AccountType|null);
-
-        /** ClientPayload _username. */
-        public _username?: "username";
-
-        /** ClientPayload _passive. */
-        public _passive?: "passive";
-
-        /** ClientPayload _userAgent. */
-        public _userAgent?: "userAgent";
-
-        /** ClientPayload _webInfo. */
-        public _webInfo?: "webInfo";
-
-        /** ClientPayload _pushName. */
-        public _pushName?: "pushName";
-
-        /** ClientPayload _sessionId. */
-        public _sessionId?: "sessionId";
-
-        /** ClientPayload _shortConnect. */
-        public _shortConnect?: "shortConnect";
-
-        /** ClientPayload _connectType. */
-        public _connectType?: "connectType";
-
-        /** ClientPayload _connectReason. */
-        public _connectReason?: "connectReason";
-
-        /** ClientPayload _dnsSource. */
-        public _dnsSource?: "dnsSource";
-
-        /** ClientPayload _connectAttemptCount. */
-        public _connectAttemptCount?: "connectAttemptCount";
-
-        /** ClientPayload _device. */
-        public _device?: "device";
-
-        /** ClientPayload _devicePairingData. */
-        public _devicePairingData?: "devicePairingData";
-
-        /** ClientPayload _product. */
-        public _product?: "product";
-
-        /** ClientPayload _fbCat. */
-        public _fbCat?: "fbCat";
-
-        /** ClientPayload _fbUserAgent. */
-        public _fbUserAgent?: "fbUserAgent";
-
-        /** ClientPayload _oc. */
-        public _oc?: "oc";
-
-        /** ClientPayload _lc. */
-        public _lc?: "lc";
-
-        /** ClientPayload _iosAppExtension. */
-        public _iosAppExtension?: "iosAppExtension";
-
-        /** ClientPayload _fbAppId. */
-        public _fbAppId?: "fbAppId";
-
-        /** ClientPayload _fbDeviceId. */
-        public _fbDeviceId?: "fbDeviceId";
-
-        /** ClientPayload _pull. */
-        public _pull?: "pull";
-
-        /** ClientPayload _paddingBytes. */
-        public _paddingBytes?: "paddingBytes";
-
-        /** ClientPayload _yearClass. */
-        public _yearClass?: "yearClass";
-
-        /** ClientPayload _memClass. */
-        public _memClass?: "memClass";
-
-        /** ClientPayload _interopData. */
-        public _interopData?: "interopData";
-
-        /** ClientPayload _trafficAnonymization. */
-        public _trafficAnonymization?: "trafficAnonymization";
-
-        /** ClientPayload _lidDbMigrated. */
-        public _lidDbMigrated?: "lidDbMigrated";
-
-        /** ClientPayload _accountType. */
-        public _accountType?: "accountType";
+        public accountType: Wa6.ClientPayload.AccountType;
 
         /**
          * Creates a new ClientPayload instance using the specified properties.
@@ -419,16 +332,10 @@ export namespace Wa6 {
             constructor(properties?: Wa6.ClientPayload.IDNSSource);
 
             /** DNSSource dnsMethod. */
-            public dnsMethod?: (Wa6.ClientPayload.DNSSource.DNSResolutionMethod|null);
+            public dnsMethod: Wa6.ClientPayload.DNSSource.DNSResolutionMethod;
 
             /** DNSSource appCached. */
-            public appCached?: (boolean|null);
-
-            /** DNSSource _dnsMethod. */
-            public _dnsMethod?: "dnsMethod";
-
-            /** DNSSource _appCached. */
-            public _appCached?: "appCached";
+            public appCached: boolean;
 
             /**
              * Creates a new DNSSource instance using the specified properties.
@@ -559,52 +466,28 @@ export namespace Wa6 {
             constructor(properties?: Wa6.ClientPayload.IDevicePairingRegistrationData);
 
             /** DevicePairingRegistrationData eRegid. */
-            public eRegid?: (Uint8Array|null);
+            public eRegid: Uint8Array;
 
             /** DevicePairingRegistrationData eKeytype. */
-            public eKeytype?: (Uint8Array|null);
+            public eKeytype: Uint8Array;
 
             /** DevicePairingRegistrationData eIdent. */
-            public eIdent?: (Uint8Array|null);
+            public eIdent: Uint8Array;
 
             /** DevicePairingRegistrationData eSkeyId. */
-            public eSkeyId?: (Uint8Array|null);
+            public eSkeyId: Uint8Array;
 
             /** DevicePairingRegistrationData eSkeyVal. */
-            public eSkeyVal?: (Uint8Array|null);
+            public eSkeyVal: Uint8Array;
 
             /** DevicePairingRegistrationData eSkeySig. */
-            public eSkeySig?: (Uint8Array|null);
+            public eSkeySig: Uint8Array;
 
             /** DevicePairingRegistrationData buildHash. */
-            public buildHash?: (Uint8Array|null);
+            public buildHash: Uint8Array;
 
             /** DevicePairingRegistrationData deviceProps. */
-            public deviceProps?: (Uint8Array|null);
-
-            /** DevicePairingRegistrationData _eRegid. */
-            public _eRegid?: "eRegid";
-
-            /** DevicePairingRegistrationData _eKeytype. */
-            public _eKeytype?: "eKeytype";
-
-            /** DevicePairingRegistrationData _eIdent. */
-            public _eIdent?: "eIdent";
-
-            /** DevicePairingRegistrationData _eSkeyId. */
-            public _eSkeyId?: "eSkeyId";
-
-            /** DevicePairingRegistrationData _eSkeyVal. */
-            public _eSkeyVal?: "eSkeyVal";
-
-            /** DevicePairingRegistrationData _eSkeySig. */
-            public _eSkeySig?: "eSkeySig";
-
-            /** DevicePairingRegistrationData _buildHash. */
-            public _buildHash?: "buildHash";
-
-            /** DevicePairingRegistrationData _deviceProps. */
-            public _deviceProps?: "deviceProps";
+            public deviceProps: Uint8Array;
 
             /**
              * Creates a new DevicePairingRegistrationData instance using the specified properties.
@@ -714,22 +597,13 @@ export namespace Wa6 {
             constructor(properties?: Wa6.ClientPayload.IInteropData);
 
             /** InteropData accountId. */
-            public accountId?: (number|Long|null);
+            public accountId: (number|Long);
 
             /** InteropData token. */
-            public token?: (Uint8Array|null);
+            public token: Uint8Array;
 
             /** InteropData enableReadReceipts. */
-            public enableReadReceipts?: (boolean|null);
-
-            /** InteropData _accountId. */
-            public _accountId?: "accountId";
-
-            /** InteropData _token. */
-            public _token?: "token";
-
-            /** InteropData _enableReadReceipts. */
-            public _enableReadReceipts?: "enableReadReceipts";
+            public enableReadReceipts: boolean;
 
             /**
              * Creates a new InteropData instance using the specified properties.
@@ -886,100 +760,52 @@ export namespace Wa6 {
             constructor(properties?: Wa6.ClientPayload.IUserAgent);
 
             /** UserAgent platform. */
-            public platform?: (Wa6.ClientPayload.UserAgent.Platform|null);
+            public platform: Wa6.ClientPayload.UserAgent.Platform;
 
             /** UserAgent appVersion. */
             public appVersion?: (Wa6.ClientPayload.UserAgent.IAppVersion|null);
 
             /** UserAgent mcc. */
-            public mcc?: (string|null);
+            public mcc: string;
 
             /** UserAgent mnc. */
-            public mnc?: (string|null);
+            public mnc: string;
 
             /** UserAgent osVersion. */
-            public osVersion?: (string|null);
+            public osVersion: string;
 
             /** UserAgent manufacturer. */
-            public manufacturer?: (string|null);
+            public manufacturer: string;
 
             /** UserAgent device. */
-            public device?: (string|null);
+            public device: string;
 
             /** UserAgent osBuildNumber. */
-            public osBuildNumber?: (string|null);
+            public osBuildNumber: string;
 
             /** UserAgent phoneId. */
-            public phoneId?: (string|null);
+            public phoneId: string;
 
             /** UserAgent releaseChannel. */
-            public releaseChannel?: (Wa6.ClientPayload.UserAgent.ReleaseChannel|null);
+            public releaseChannel: Wa6.ClientPayload.UserAgent.ReleaseChannel;
 
             /** UserAgent localeLanguageIso6391. */
-            public localeLanguageIso6391?: (string|null);
+            public localeLanguageIso6391: string;
 
             /** UserAgent localeCountryIso31661Alpha2. */
-            public localeCountryIso31661Alpha2?: (string|null);
+            public localeCountryIso31661Alpha2: string;
 
             /** UserAgent deviceBoard. */
-            public deviceBoard?: (string|null);
+            public deviceBoard: string;
 
             /** UserAgent deviceExpId. */
-            public deviceExpId?: (string|null);
+            public deviceExpId: string;
 
             /** UserAgent deviceType. */
-            public deviceType?: (Wa6.ClientPayload.UserAgent.DeviceType|null);
+            public deviceType: Wa6.ClientPayload.UserAgent.DeviceType;
 
             /** UserAgent deviceModelType. */
-            public deviceModelType?: (string|null);
-
-            /** UserAgent _platform. */
-            public _platform?: "platform";
-
-            /** UserAgent _appVersion. */
-            public _appVersion?: "appVersion";
-
-            /** UserAgent _mcc. */
-            public _mcc?: "mcc";
-
-            /** UserAgent _mnc. */
-            public _mnc?: "mnc";
-
-            /** UserAgent _osVersion. */
-            public _osVersion?: "osVersion";
-
-            /** UserAgent _manufacturer. */
-            public _manufacturer?: "manufacturer";
-
-            /** UserAgent _device. */
-            public _device?: "device";
-
-            /** UserAgent _osBuildNumber. */
-            public _osBuildNumber?: "osBuildNumber";
-
-            /** UserAgent _phoneId. */
-            public _phoneId?: "phoneId";
-
-            /** UserAgent _releaseChannel. */
-            public _releaseChannel?: "releaseChannel";
-
-            /** UserAgent _localeLanguageIso6391. */
-            public _localeLanguageIso6391?: "localeLanguageIso6391";
-
-            /** UserAgent _localeCountryIso31661Alpha2. */
-            public _localeCountryIso31661Alpha2?: "localeCountryIso31661Alpha2";
-
-            /** UserAgent _deviceBoard. */
-            public _deviceBoard?: "deviceBoard";
-
-            /** UserAgent _deviceExpId. */
-            public _deviceExpId?: "deviceExpId";
-
-            /** UserAgent _deviceType. */
-            public _deviceType?: "deviceType";
-
-            /** UserAgent _deviceModelType. */
-            public _deviceModelType?: "deviceModelType";
+            public deviceModelType: string;
 
             /**
              * Creates a new UserAgent instance using the specified properties.
@@ -1090,34 +916,19 @@ export namespace Wa6 {
                 constructor(properties?: Wa6.ClientPayload.UserAgent.IAppVersion);
 
                 /** AppVersion primary. */
-                public primary?: (number|null);
+                public primary: number;
 
                 /** AppVersion secondary. */
-                public secondary?: (number|null);
+                public secondary: number;
 
                 /** AppVersion tertiary. */
-                public tertiary?: (number|null);
+                public tertiary: number;
 
                 /** AppVersion quaternary. */
-                public quaternary?: (number|null);
+                public quaternary: number;
 
                 /** AppVersion quinary. */
-                public quinary?: (number|null);
-
-                /** AppVersion _primary. */
-                public _primary?: "primary";
-
-                /** AppVersion _secondary. */
-                public _secondary?: "secondary";
-
-                /** AppVersion _tertiary. */
-                public _tertiary?: "tertiary";
-
-                /** AppVersion _quaternary. */
-                public _quaternary?: "quaternary";
-
-                /** AppVersion _quinary. */
-                public _quinary?: "quinary";
+                public quinary: number;
 
                 /**
                  * Creates a new AppVersion instance using the specified properties.
@@ -1281,28 +1092,16 @@ export namespace Wa6 {
             constructor(properties?: Wa6.ClientPayload.IWebInfo);
 
             /** WebInfo refToken. */
-            public refToken?: (string|null);
+            public refToken: string;
 
             /** WebInfo version. */
-            public version?: (string|null);
+            public version: string;
 
             /** WebInfo webdPayload. */
             public webdPayload?: (Wa6.ClientPayload.WebInfo.IWebdPayload|null);
 
             /** WebInfo webSubPlatform. */
-            public webSubPlatform?: (Wa6.ClientPayload.WebInfo.WebSubPlatform|null);
-
-            /** WebInfo _refToken. */
-            public _refToken?: "refToken";
-
-            /** WebInfo _version. */
-            public _version?: "version";
-
-            /** WebInfo _webdPayload. */
-            public _webdPayload?: "webdPayload";
-
-            /** WebInfo _webSubPlatform. */
-            public _webSubPlatform?: "webSubPlatform";
+            public webSubPlatform: Wa6.ClientPayload.WebInfo.WebSubPlatform;
 
             /**
              * Creates a new WebInfo instance using the specified properties.
@@ -1441,70 +1240,37 @@ export namespace Wa6 {
                 constructor(properties?: Wa6.ClientPayload.WebInfo.IWebdPayload);
 
                 /** WebdPayload usesParticipantInKey. */
-                public usesParticipantInKey?: (boolean|null);
+                public usesParticipantInKey: boolean;
 
                 /** WebdPayload supportsStarredMessages. */
-                public supportsStarredMessages?: (boolean|null);
+                public supportsStarredMessages: boolean;
 
                 /** WebdPayload supportsDocumentMessages. */
-                public supportsDocumentMessages?: (boolean|null);
+                public supportsDocumentMessages: boolean;
 
                 /** WebdPayload supportsUrlMessages. */
-                public supportsUrlMessages?: (boolean|null);
+                public supportsUrlMessages: boolean;
 
                 /** WebdPayload supportsMediaRetry. */
-                public supportsMediaRetry?: (boolean|null);
+                public supportsMediaRetry: boolean;
 
                 /** WebdPayload supportsE2EImage. */
-                public supportsE2EImage?: (boolean|null);
+                public supportsE2EImage: boolean;
 
                 /** WebdPayload supportsE2EVideo. */
-                public supportsE2EVideo?: (boolean|null);
+                public supportsE2EVideo: boolean;
 
                 /** WebdPayload supportsE2EAudio. */
-                public supportsE2EAudio?: (boolean|null);
+                public supportsE2EAudio: boolean;
 
                 /** WebdPayload supportsE2EDocument. */
-                public supportsE2EDocument?: (boolean|null);
+                public supportsE2EDocument: boolean;
 
                 /** WebdPayload documentTypes. */
-                public documentTypes?: (string|null);
+                public documentTypes: string;
 
                 /** WebdPayload features. */
-                public features?: (Uint8Array|null);
-
-                /** WebdPayload _usesParticipantInKey. */
-                public _usesParticipantInKey?: "usesParticipantInKey";
-
-                /** WebdPayload _supportsStarredMessages. */
-                public _supportsStarredMessages?: "supportsStarredMessages";
-
-                /** WebdPayload _supportsDocumentMessages. */
-                public _supportsDocumentMessages?: "supportsDocumentMessages";
-
-                /** WebdPayload _supportsUrlMessages. */
-                public _supportsUrlMessages?: "supportsUrlMessages";
-
-                /** WebdPayload _supportsMediaRetry. */
-                public _supportsMediaRetry?: "supportsMediaRetry";
-
-                /** WebdPayload _supportsE2EImage. */
-                public _supportsE2EImage?: "supportsE2EImage";
-
-                /** WebdPayload _supportsE2EVideo. */
-                public _supportsE2EVideo?: "supportsE2EVideo";
-
-                /** WebdPayload _supportsE2EAudio. */
-                public _supportsE2EAudio?: "supportsE2EAudio";
-
-                /** WebdPayload _supportsE2EDocument. */
-                public _supportsE2EDocument?: "supportsE2EDocument";
-
-                /** WebdPayload _documentTypes. */
-                public _documentTypes?: "documentTypes";
-
-                /** WebdPayload _features. */
-                public _features?: "features";
+                public features: Uint8Array;
 
                 /**
                  * Creates a new WebdPayload instance using the specified properties.
@@ -1617,15 +1383,6 @@ export namespace Wa6 {
         /** HandshakeMessage clientFinish. */
         public clientFinish?: (Wa6.HandshakeMessage.IClientFinish|null);
 
-        /** HandshakeMessage _clientHello. */
-        public _clientHello?: "clientHello";
-
-        /** HandshakeMessage _serverHello. */
-        public _serverHello?: "serverHello";
-
-        /** HandshakeMessage _clientFinish. */
-        public _clientFinish?: "clientFinish";
-
         /**
          * Creates a new HandshakeMessage instance using the specified properties.
          * @param [properties] Properties to set
@@ -1726,16 +1483,10 @@ export namespace Wa6 {
             constructor(properties?: Wa6.HandshakeMessage.IClientFinish);
 
             /** ClientFinish static. */
-            public static?: (Uint8Array|null);
+            public static: Uint8Array;
 
             /** ClientFinish payload. */
-            public payload?: (Uint8Array|null);
-
-            /** ClientFinish _static. */
-            public _static?: "static";
-
-            /** ClientFinish _payload. */
-            public _payload?: "payload";
+            public payload: Uint8Array;
 
             /**
              * Creates a new ClientFinish instance using the specified properties.
@@ -1838,22 +1589,13 @@ export namespace Wa6 {
             constructor(properties?: Wa6.HandshakeMessage.IClientHello);
 
             /** ClientHello ephemeral. */
-            public ephemeral?: (Uint8Array|null);
+            public ephemeral: Uint8Array;
 
             /** ClientHello static. */
-            public static?: (Uint8Array|null);
+            public static: Uint8Array;
 
             /** ClientHello payload. */
-            public payload?: (Uint8Array|null);
-
-            /** ClientHello _ephemeral. */
-            public _ephemeral?: "ephemeral";
-
-            /** ClientHello _static. */
-            public _static?: "static";
-
-            /** ClientHello _payload. */
-            public _payload?: "payload";
+            public payload: Uint8Array;
 
             /**
              * Creates a new ClientHello instance using the specified properties.
@@ -1956,22 +1698,13 @@ export namespace Wa6 {
             constructor(properties?: Wa6.HandshakeMessage.IServerHello);
 
             /** ServerHello ephemeral. */
-            public ephemeral?: (Uint8Array|null);
+            public ephemeral: Uint8Array;
 
             /** ServerHello static. */
-            public static?: (Uint8Array|null);
+            public static: Uint8Array;
 
             /** ServerHello payload. */
-            public payload?: (Uint8Array|null);
-
-            /** ServerHello _ephemeral. */
-            public _ephemeral?: "ephemeral";
-
-            /** ServerHello _static. */
-            public _static?: "static";
-
-            /** ServerHello _payload. */
-            public _payload?: "payload";
+            public payload: Uint8Array;
 
             /**
              * Creates a new ServerHello instance using the specified properties.

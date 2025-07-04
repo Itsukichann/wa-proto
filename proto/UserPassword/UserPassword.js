@@ -48,19 +48,19 @@ $root.UserPassword = (function() {
 
         /**
          * UserPassword encoding.
-         * @member {UserPassword.UserPassword.Encoding|null|undefined} encoding
+         * @member {UserPassword.UserPassword.Encoding} encoding
          * @memberof UserPassword.UserPassword
          * @instance
          */
-        UserPassword.prototype.encoding = null;
+        UserPassword.prototype.encoding = 0;
 
         /**
          * UserPassword transformer.
-         * @member {UserPassword.UserPassword.Transformer|null|undefined} transformer
+         * @member {UserPassword.UserPassword.Transformer} transformer
          * @memberof UserPassword.UserPassword
          * @instance
          */
-        UserPassword.prototype.transformer = null;
+        UserPassword.prototype.transformer = 0;
 
         /**
          * UserPassword transformerArg.
@@ -72,47 +72,11 @@ $root.UserPassword = (function() {
 
         /**
          * UserPassword transformedData.
-         * @member {Uint8Array|null|undefined} transformedData
+         * @member {Uint8Array} transformedData
          * @memberof UserPassword.UserPassword
          * @instance
          */
-        UserPassword.prototype.transformedData = null;
-
-        // OneOf field names bound to virtual getters and setters
-        var $oneOfFields;
-
-        /**
-         * UserPassword _encoding.
-         * @member {"encoding"|undefined} _encoding
-         * @memberof UserPassword.UserPassword
-         * @instance
-         */
-        Object.defineProperty(UserPassword.prototype, "_encoding", {
-            get: $util.oneOfGetter($oneOfFields = ["encoding"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * UserPassword _transformer.
-         * @member {"transformer"|undefined} _transformer
-         * @memberof UserPassword.UserPassword
-         * @instance
-         */
-        Object.defineProperty(UserPassword.prototype, "_transformer", {
-            get: $util.oneOfGetter($oneOfFields = ["transformer"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * UserPassword _transformedData.
-         * @member {"transformedData"|undefined} _transformedData
-         * @memberof UserPassword.UserPassword
-         * @instance
-         */
-        Object.defineProperty(UserPassword.prototype, "_transformedData", {
-            get: $util.oneOfGetter($oneOfFields = ["transformedData"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
+        UserPassword.prototype.transformedData = $util.newBuffer([]);
 
         /**
          * Creates a new UserPassword instance using the specified properties.
@@ -236,9 +200,7 @@ $root.UserPassword = (function() {
         UserPassword.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            var properties = {};
-            if (message.encoding != null && message.hasOwnProperty("encoding")) {
-                properties._encoding = 1;
+            if (message.encoding != null && message.hasOwnProperty("encoding"))
                 switch (message.encoding) {
                 default:
                     return "encoding: enum value expected";
@@ -246,9 +208,7 @@ $root.UserPassword = (function() {
                 case 1:
                     break;
                 }
-            }
-            if (message.transformer != null && message.hasOwnProperty("transformer")) {
-                properties._transformer = 1;
+            if (message.transformer != null && message.hasOwnProperty("transformer"))
                 switch (message.transformer) {
                 default:
                     return "transformer: enum value expected";
@@ -257,7 +217,6 @@ $root.UserPassword = (function() {
                 case 2:
                     break;
                 }
-            }
             if (message.transformerArg != null && message.hasOwnProperty("transformerArg")) {
                 if (!Array.isArray(message.transformerArg))
                     return "transformerArg: array expected";
@@ -267,11 +226,9 @@ $root.UserPassword = (function() {
                         return "transformerArg." + error;
                 }
             }
-            if (message.transformedData != null && message.hasOwnProperty("transformedData")) {
-                properties._transformedData = 1;
+            if (message.transformedData != null && message.hasOwnProperty("transformedData"))
                 if (!(message.transformedData && typeof message.transformedData.length === "number" || $util.isString(message.transformedData)))
                     return "transformedData: buffer expected";
-            }
             return null;
         };
 
@@ -356,26 +313,28 @@ $root.UserPassword = (function() {
             var object = {};
             if (options.arrays || options.defaults)
                 object.transformerArg = [];
-            if (message.encoding != null && message.hasOwnProperty("encoding")) {
+            if (options.defaults) {
+                object.encoding = options.enums === String ? "UTF8" : 0;
+                object.transformer = options.enums === String ? "NONE" : 0;
+                if (options.bytes === String)
+                    object.transformedData = "";
+                else {
+                    object.transformedData = [];
+                    if (options.bytes !== Array)
+                        object.transformedData = $util.newBuffer(object.transformedData);
+                }
+            }
+            if (message.encoding != null && message.hasOwnProperty("encoding"))
                 object.encoding = options.enums === String ? $root.UserPassword.UserPassword.Encoding[message.encoding] === undefined ? message.encoding : $root.UserPassword.UserPassword.Encoding[message.encoding] : message.encoding;
-                if (options.oneofs)
-                    object._encoding = "encoding";
-            }
-            if (message.transformer != null && message.hasOwnProperty("transformer")) {
+            if (message.transformer != null && message.hasOwnProperty("transformer"))
                 object.transformer = options.enums === String ? $root.UserPassword.UserPassword.Transformer[message.transformer] === undefined ? message.transformer : $root.UserPassword.UserPassword.Transformer[message.transformer] : message.transformer;
-                if (options.oneofs)
-                    object._transformer = "transformer";
-            }
             if (message.transformerArg && message.transformerArg.length) {
                 object.transformerArg = [];
                 for (var j = 0; j < message.transformerArg.length; ++j)
                     object.transformerArg[j] = $root.UserPassword.UserPassword.TransformerArg.toObject(message.transformerArg[j], options);
             }
-            if (message.transformedData != null && message.hasOwnProperty("transformedData")) {
+            if (message.transformedData != null && message.hasOwnProperty("transformedData"))
                 object.transformedData = options.bytes === String ? $util.base64.encode(message.transformedData, 0, message.transformedData.length) : options.bytes === Array ? Array.prototype.slice.call(message.transformedData) : message.transformedData;
-                if (options.oneofs)
-                    object._transformedData = "transformedData";
-            }
             return object;
         };
 
@@ -462,11 +421,11 @@ $root.UserPassword = (function() {
 
             /**
              * TransformerArg key.
-             * @member {string|null|undefined} key
+             * @member {string} key
              * @memberof UserPassword.UserPassword.TransformerArg
              * @instance
              */
-            TransformerArg.prototype.key = null;
+            TransformerArg.prototype.key = "";
 
             /**
              * TransformerArg value.
@@ -475,31 +434,6 @@ $root.UserPassword = (function() {
              * @instance
              */
             TransformerArg.prototype.value = null;
-
-            // OneOf field names bound to virtual getters and setters
-            var $oneOfFields;
-
-            /**
-             * TransformerArg _key.
-             * @member {"key"|undefined} _key
-             * @memberof UserPassword.UserPassword.TransformerArg
-             * @instance
-             */
-            Object.defineProperty(TransformerArg.prototype, "_key", {
-                get: $util.oneOfGetter($oneOfFields = ["key"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * TransformerArg _value.
-             * @member {"value"|undefined} _value
-             * @memberof UserPassword.UserPassword.TransformerArg
-             * @instance
-             */
-            Object.defineProperty(TransformerArg.prototype, "_value", {
-                get: $util.oneOfGetter($oneOfFields = ["value"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
 
             /**
              * Creates a new TransformerArg instance using the specified properties.
@@ -608,19 +542,13 @@ $root.UserPassword = (function() {
             TransformerArg.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                var properties = {};
-                if (message.key != null && message.hasOwnProperty("key")) {
-                    properties._key = 1;
+                if (message.key != null && message.hasOwnProperty("key"))
                     if (!$util.isString(message.key))
                         return "key: string expected";
-                }
                 if (message.value != null && message.hasOwnProperty("value")) {
-                    properties._value = 1;
-                    {
-                        var error = $root.UserPassword.UserPassword.TransformerArg.Value.verify(message.value);
-                        if (error)
-                            return "value." + error;
-                    }
+                    var error = $root.UserPassword.UserPassword.TransformerArg.Value.verify(message.value);
+                    if (error)
+                        return "value." + error;
                 }
                 return null;
             };
@@ -660,16 +588,14 @@ $root.UserPassword = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (message.key != null && message.hasOwnProperty("key")) {
+                if (options.defaults) {
+                    object.key = "";
+                    object.value = null;
+                }
+                if (message.key != null && message.hasOwnProperty("key"))
                     object.key = message.key;
-                    if (options.oneofs)
-                        object._key = "key";
-                }
-                if (message.value != null && message.hasOwnProperty("value")) {
+                if (message.value != null && message.hasOwnProperty("value"))
                     object.value = $root.UserPassword.UserPassword.TransformerArg.Value.toObject(message.value, options);
-                    if (options.oneofs)
-                        object._value = "value";
-                }
                 return object;
             };
 

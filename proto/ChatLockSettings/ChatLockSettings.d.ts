@@ -23,16 +23,10 @@ export namespace ChatLockSettings {
         constructor(properties?: ChatLockSettings.IChatLockSettings);
 
         /** ChatLockSettings hideLockedChats. */
-        public hideLockedChats?: (boolean|null);
+        public hideLockedChats: boolean;
 
         /** ChatLockSettings secretCode. */
         public secretCode?: (UserPassword.IUserPassword|null);
-
-        /** ChatLockSettings _hideLockedChats. */
-        public _hideLockedChats?: "hideLockedChats";
-
-        /** ChatLockSettings _secretCode. */
-        public _secretCode?: "secretCode";
 
         /**
          * Creates a new ChatLockSettings instance using the specified properties.
@@ -142,25 +136,16 @@ export namespace UserPassword {
         constructor(properties?: UserPassword.IUserPassword);
 
         /** UserPassword encoding. */
-        public encoding?: (UserPassword.UserPassword.Encoding|null);
+        public encoding: UserPassword.UserPassword.Encoding;
 
         /** UserPassword transformer. */
-        public transformer?: (UserPassword.UserPassword.Transformer|null);
+        public transformer: UserPassword.UserPassword.Transformer;
 
         /** UserPassword transformerArg. */
         public transformerArg: UserPassword.UserPassword.ITransformerArg[];
 
         /** UserPassword transformedData. */
-        public transformedData?: (Uint8Array|null);
-
-        /** UserPassword _encoding. */
-        public _encoding?: "encoding";
-
-        /** UserPassword _transformer. */
-        public _transformer?: "transformer";
-
-        /** UserPassword _transformedData. */
-        public _transformedData?: "transformedData";
+        public transformedData: Uint8Array;
 
         /**
          * Creates a new UserPassword instance using the specified properties.
@@ -275,16 +260,10 @@ export namespace UserPassword {
             constructor(properties?: UserPassword.UserPassword.ITransformerArg);
 
             /** TransformerArg key. */
-            public key?: (string|null);
+            public key: string;
 
             /** TransformerArg value. */
             public value?: (UserPassword.UserPassword.TransformerArg.IValue|null);
-
-            /** TransformerArg _key. */
-            public _key?: "key";
-
-            /** TransformerArg _value. */
-            public _value?: "value";
 
             /**
              * Creates a new TransformerArg instance using the specified properties.
