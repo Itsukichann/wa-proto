@@ -74,19 +74,19 @@ $root.Wa6 = (function() {
 
         /**
          * ClientPayload username.
-         * @member {number|Long} username
+         * @member {number|Long|null|undefined} username
          * @memberof Wa6.ClientPayload
          * @instance
          */
-        ClientPayload.prototype.username = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        ClientPayload.prototype.username = null;
 
         /**
          * ClientPayload passive.
-         * @member {boolean} passive
+         * @member {boolean|null|undefined} passive
          * @memberof Wa6.ClientPayload
          * @instance
          */
-        ClientPayload.prototype.passive = false;
+        ClientPayload.prototype.passive = null;
 
         /**
          * ClientPayload userAgent.
@@ -106,43 +106,43 @@ $root.Wa6 = (function() {
 
         /**
          * ClientPayload pushName.
-         * @member {string} pushName
+         * @member {string|null|undefined} pushName
          * @memberof Wa6.ClientPayload
          * @instance
          */
-        ClientPayload.prototype.pushName = "";
+        ClientPayload.prototype.pushName = null;
 
         /**
          * ClientPayload sessionId.
-         * @member {number} sessionId
+         * @member {number|null|undefined} sessionId
          * @memberof Wa6.ClientPayload
          * @instance
          */
-        ClientPayload.prototype.sessionId = 0;
+        ClientPayload.prototype.sessionId = null;
 
         /**
          * ClientPayload shortConnect.
-         * @member {boolean} shortConnect
+         * @member {boolean|null|undefined} shortConnect
          * @memberof Wa6.ClientPayload
          * @instance
          */
-        ClientPayload.prototype.shortConnect = false;
+        ClientPayload.prototype.shortConnect = null;
 
         /**
          * ClientPayload connectType.
-         * @member {Wa6.ClientPayload.ConnectType} connectType
+         * @member {Wa6.ClientPayload.ConnectType|null|undefined} connectType
          * @memberof Wa6.ClientPayload
          * @instance
          */
-        ClientPayload.prototype.connectType = 0;
+        ClientPayload.prototype.connectType = null;
 
         /**
          * ClientPayload connectReason.
-         * @member {Wa6.ClientPayload.ConnectReason} connectReason
+         * @member {Wa6.ClientPayload.ConnectReason|null|undefined} connectReason
          * @memberof Wa6.ClientPayload
          * @instance
          */
-        ClientPayload.prototype.connectReason = 0;
+        ClientPayload.prototype.connectReason = null;
 
         /**
          * ClientPayload shards.
@@ -162,19 +162,19 @@ $root.Wa6 = (function() {
 
         /**
          * ClientPayload connectAttemptCount.
-         * @member {number} connectAttemptCount
+         * @member {number|null|undefined} connectAttemptCount
          * @memberof Wa6.ClientPayload
          * @instance
          */
-        ClientPayload.prototype.connectAttemptCount = 0;
+        ClientPayload.prototype.connectAttemptCount = null;
 
         /**
          * ClientPayload device.
-         * @member {number} device
+         * @member {number|null|undefined} device
          * @memberof Wa6.ClientPayload
          * @instance
          */
-        ClientPayload.prototype.device = 0;
+        ClientPayload.prototype.device = null;
 
         /**
          * ClientPayload devicePairingData.
@@ -186,99 +186,99 @@ $root.Wa6 = (function() {
 
         /**
          * ClientPayload product.
-         * @member {Wa6.ClientPayload.Product} product
+         * @member {Wa6.ClientPayload.Product|null|undefined} product
          * @memberof Wa6.ClientPayload
          * @instance
          */
-        ClientPayload.prototype.product = 0;
+        ClientPayload.prototype.product = null;
 
         /**
          * ClientPayload fbCat.
-         * @member {Uint8Array} fbCat
+         * @member {Uint8Array|null|undefined} fbCat
          * @memberof Wa6.ClientPayload
          * @instance
          */
-        ClientPayload.prototype.fbCat = $util.newBuffer([]);
+        ClientPayload.prototype.fbCat = null;
 
         /**
          * ClientPayload fbUserAgent.
-         * @member {Uint8Array} fbUserAgent
+         * @member {Uint8Array|null|undefined} fbUserAgent
          * @memberof Wa6.ClientPayload
          * @instance
          */
-        ClientPayload.prototype.fbUserAgent = $util.newBuffer([]);
+        ClientPayload.prototype.fbUserAgent = null;
 
         /**
          * ClientPayload oc.
-         * @member {boolean} oc
+         * @member {boolean|null|undefined} oc
          * @memberof Wa6.ClientPayload
          * @instance
          */
-        ClientPayload.prototype.oc = false;
+        ClientPayload.prototype.oc = null;
 
         /**
          * ClientPayload lc.
-         * @member {number} lc
+         * @member {number|null|undefined} lc
          * @memberof Wa6.ClientPayload
          * @instance
          */
-        ClientPayload.prototype.lc = 0;
+        ClientPayload.prototype.lc = null;
 
         /**
          * ClientPayload iosAppExtension.
-         * @member {Wa6.ClientPayload.IOSAppExtension} iosAppExtension
+         * @member {Wa6.ClientPayload.IOSAppExtension|null|undefined} iosAppExtension
          * @memberof Wa6.ClientPayload
          * @instance
          */
-        ClientPayload.prototype.iosAppExtension = 0;
+        ClientPayload.prototype.iosAppExtension = null;
 
         /**
          * ClientPayload fbAppId.
-         * @member {number|Long} fbAppId
+         * @member {number|Long|null|undefined} fbAppId
          * @memberof Wa6.ClientPayload
          * @instance
          */
-        ClientPayload.prototype.fbAppId = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        ClientPayload.prototype.fbAppId = null;
 
         /**
          * ClientPayload fbDeviceId.
-         * @member {Uint8Array} fbDeviceId
+         * @member {Uint8Array|null|undefined} fbDeviceId
          * @memberof Wa6.ClientPayload
          * @instance
          */
-        ClientPayload.prototype.fbDeviceId = $util.newBuffer([]);
+        ClientPayload.prototype.fbDeviceId = null;
 
         /**
          * ClientPayload pull.
-         * @member {boolean} pull
+         * @member {boolean|null|undefined} pull
          * @memberof Wa6.ClientPayload
          * @instance
          */
-        ClientPayload.prototype.pull = false;
+        ClientPayload.prototype.pull = null;
 
         /**
          * ClientPayload paddingBytes.
-         * @member {Uint8Array} paddingBytes
+         * @member {Uint8Array|null|undefined} paddingBytes
          * @memberof Wa6.ClientPayload
          * @instance
          */
-        ClientPayload.prototype.paddingBytes = $util.newBuffer([]);
+        ClientPayload.prototype.paddingBytes = null;
 
         /**
          * ClientPayload yearClass.
-         * @member {number} yearClass
+         * @member {number|null|undefined} yearClass
          * @memberof Wa6.ClientPayload
          * @instance
          */
-        ClientPayload.prototype.yearClass = 0;
+        ClientPayload.prototype.yearClass = null;
 
         /**
          * ClientPayload memClass.
-         * @member {number} memClass
+         * @member {number|null|undefined} memClass
          * @memberof Wa6.ClientPayload
          * @instance
          */
-        ClientPayload.prototype.memClass = 0;
+        ClientPayload.prototype.memClass = null;
 
         /**
          * ClientPayload interopData.
@@ -290,27 +290,349 @@ $root.Wa6 = (function() {
 
         /**
          * ClientPayload trafficAnonymization.
-         * @member {Wa6.ClientPayload.TrafficAnonymization} trafficAnonymization
+         * @member {Wa6.ClientPayload.TrafficAnonymization|null|undefined} trafficAnonymization
          * @memberof Wa6.ClientPayload
          * @instance
          */
-        ClientPayload.prototype.trafficAnonymization = 0;
+        ClientPayload.prototype.trafficAnonymization = null;
 
         /**
          * ClientPayload lidDbMigrated.
-         * @member {boolean} lidDbMigrated
+         * @member {boolean|null|undefined} lidDbMigrated
          * @memberof Wa6.ClientPayload
          * @instance
          */
-        ClientPayload.prototype.lidDbMigrated = false;
+        ClientPayload.prototype.lidDbMigrated = null;
 
         /**
          * ClientPayload accountType.
-         * @member {Wa6.ClientPayload.AccountType} accountType
+         * @member {Wa6.ClientPayload.AccountType|null|undefined} accountType
          * @memberof Wa6.ClientPayload
          * @instance
          */
-        ClientPayload.prototype.accountType = 0;
+        ClientPayload.prototype.accountType = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * ClientPayload _username.
+         * @member {"username"|undefined} _username
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        Object.defineProperty(ClientPayload.prototype, "_username", {
+            get: $util.oneOfGetter($oneOfFields = ["username"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ClientPayload _passive.
+         * @member {"passive"|undefined} _passive
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        Object.defineProperty(ClientPayload.prototype, "_passive", {
+            get: $util.oneOfGetter($oneOfFields = ["passive"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ClientPayload _userAgent.
+         * @member {"userAgent"|undefined} _userAgent
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        Object.defineProperty(ClientPayload.prototype, "_userAgent", {
+            get: $util.oneOfGetter($oneOfFields = ["userAgent"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ClientPayload _webInfo.
+         * @member {"webInfo"|undefined} _webInfo
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        Object.defineProperty(ClientPayload.prototype, "_webInfo", {
+            get: $util.oneOfGetter($oneOfFields = ["webInfo"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ClientPayload _pushName.
+         * @member {"pushName"|undefined} _pushName
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        Object.defineProperty(ClientPayload.prototype, "_pushName", {
+            get: $util.oneOfGetter($oneOfFields = ["pushName"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ClientPayload _sessionId.
+         * @member {"sessionId"|undefined} _sessionId
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        Object.defineProperty(ClientPayload.prototype, "_sessionId", {
+            get: $util.oneOfGetter($oneOfFields = ["sessionId"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ClientPayload _shortConnect.
+         * @member {"shortConnect"|undefined} _shortConnect
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        Object.defineProperty(ClientPayload.prototype, "_shortConnect", {
+            get: $util.oneOfGetter($oneOfFields = ["shortConnect"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ClientPayload _connectType.
+         * @member {"connectType"|undefined} _connectType
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        Object.defineProperty(ClientPayload.prototype, "_connectType", {
+            get: $util.oneOfGetter($oneOfFields = ["connectType"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ClientPayload _connectReason.
+         * @member {"connectReason"|undefined} _connectReason
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        Object.defineProperty(ClientPayload.prototype, "_connectReason", {
+            get: $util.oneOfGetter($oneOfFields = ["connectReason"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ClientPayload _dnsSource.
+         * @member {"dnsSource"|undefined} _dnsSource
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        Object.defineProperty(ClientPayload.prototype, "_dnsSource", {
+            get: $util.oneOfGetter($oneOfFields = ["dnsSource"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ClientPayload _connectAttemptCount.
+         * @member {"connectAttemptCount"|undefined} _connectAttemptCount
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        Object.defineProperty(ClientPayload.prototype, "_connectAttemptCount", {
+            get: $util.oneOfGetter($oneOfFields = ["connectAttemptCount"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ClientPayload _device.
+         * @member {"device"|undefined} _device
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        Object.defineProperty(ClientPayload.prototype, "_device", {
+            get: $util.oneOfGetter($oneOfFields = ["device"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ClientPayload _devicePairingData.
+         * @member {"devicePairingData"|undefined} _devicePairingData
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        Object.defineProperty(ClientPayload.prototype, "_devicePairingData", {
+            get: $util.oneOfGetter($oneOfFields = ["devicePairingData"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ClientPayload _product.
+         * @member {"product"|undefined} _product
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        Object.defineProperty(ClientPayload.prototype, "_product", {
+            get: $util.oneOfGetter($oneOfFields = ["product"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ClientPayload _fbCat.
+         * @member {"fbCat"|undefined} _fbCat
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        Object.defineProperty(ClientPayload.prototype, "_fbCat", {
+            get: $util.oneOfGetter($oneOfFields = ["fbCat"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ClientPayload _fbUserAgent.
+         * @member {"fbUserAgent"|undefined} _fbUserAgent
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        Object.defineProperty(ClientPayload.prototype, "_fbUserAgent", {
+            get: $util.oneOfGetter($oneOfFields = ["fbUserAgent"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ClientPayload _oc.
+         * @member {"oc"|undefined} _oc
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        Object.defineProperty(ClientPayload.prototype, "_oc", {
+            get: $util.oneOfGetter($oneOfFields = ["oc"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ClientPayload _lc.
+         * @member {"lc"|undefined} _lc
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        Object.defineProperty(ClientPayload.prototype, "_lc", {
+            get: $util.oneOfGetter($oneOfFields = ["lc"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ClientPayload _iosAppExtension.
+         * @member {"iosAppExtension"|undefined} _iosAppExtension
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        Object.defineProperty(ClientPayload.prototype, "_iosAppExtension", {
+            get: $util.oneOfGetter($oneOfFields = ["iosAppExtension"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ClientPayload _fbAppId.
+         * @member {"fbAppId"|undefined} _fbAppId
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        Object.defineProperty(ClientPayload.prototype, "_fbAppId", {
+            get: $util.oneOfGetter($oneOfFields = ["fbAppId"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ClientPayload _fbDeviceId.
+         * @member {"fbDeviceId"|undefined} _fbDeviceId
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        Object.defineProperty(ClientPayload.prototype, "_fbDeviceId", {
+            get: $util.oneOfGetter($oneOfFields = ["fbDeviceId"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ClientPayload _pull.
+         * @member {"pull"|undefined} _pull
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        Object.defineProperty(ClientPayload.prototype, "_pull", {
+            get: $util.oneOfGetter($oneOfFields = ["pull"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ClientPayload _paddingBytes.
+         * @member {"paddingBytes"|undefined} _paddingBytes
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        Object.defineProperty(ClientPayload.prototype, "_paddingBytes", {
+            get: $util.oneOfGetter($oneOfFields = ["paddingBytes"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ClientPayload _yearClass.
+         * @member {"yearClass"|undefined} _yearClass
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        Object.defineProperty(ClientPayload.prototype, "_yearClass", {
+            get: $util.oneOfGetter($oneOfFields = ["yearClass"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ClientPayload _memClass.
+         * @member {"memClass"|undefined} _memClass
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        Object.defineProperty(ClientPayload.prototype, "_memClass", {
+            get: $util.oneOfGetter($oneOfFields = ["memClass"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ClientPayload _interopData.
+         * @member {"interopData"|undefined} _interopData
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        Object.defineProperty(ClientPayload.prototype, "_interopData", {
+            get: $util.oneOfGetter($oneOfFields = ["interopData"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ClientPayload _trafficAnonymization.
+         * @member {"trafficAnonymization"|undefined} _trafficAnonymization
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        Object.defineProperty(ClientPayload.prototype, "_trafficAnonymization", {
+            get: $util.oneOfGetter($oneOfFields = ["trafficAnonymization"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ClientPayload _lidDbMigrated.
+         * @member {"lidDbMigrated"|undefined} _lidDbMigrated
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        Object.defineProperty(ClientPayload.prototype, "_lidDbMigrated", {
+            get: $util.oneOfGetter($oneOfFields = ["lidDbMigrated"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ClientPayload _accountType.
+         * @member {"accountType"|undefined} _accountType
+         * @memberof Wa6.ClientPayload
+         * @instance
+         */
+        Object.defineProperty(ClientPayload.prototype, "_accountType", {
+            get: $util.oneOfGetter($oneOfFields = ["accountType"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new ClientPayload instance using the specified properties.
@@ -354,9 +676,12 @@ $root.Wa6 = (function() {
                 writer.uint32(/* id 12, wireType 0 =*/96).int32(message.connectType);
             if (message.connectReason != null && Object.hasOwnProperty.call(message, "connectReason"))
                 writer.uint32(/* id 13, wireType 0 =*/104).int32(message.connectReason);
-            if (message.shards != null && message.shards.length)
+            if (message.shards != null && message.shards.length) {
+                writer.uint32(/* id 14, wireType 2 =*/114).fork();
                 for (var i = 0; i < message.shards.length; ++i)
-                    writer.uint32(/* id 14, wireType 0 =*/112).int32(message.shards[i]);
+                    writer.int32(message.shards[i]);
+                writer.ldelim();
+            }
             if (message.dnsSource != null && Object.hasOwnProperty.call(message, "dnsSource"))
                 $root.Wa6.ClientPayload.DNSSource.encode(message.dnsSource, writer.uint32(/* id 15, wireType 2 =*/122).fork()).ldelim();
             if (message.connectAttemptCount != null && Object.hasOwnProperty.call(message, "connectAttemptCount"))
@@ -595,32 +920,50 @@ $root.Wa6 = (function() {
         ClientPayload.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.username != null && message.hasOwnProperty("username"))
+            var properties = {};
+            if (message.username != null && message.hasOwnProperty("username")) {
+                properties._username = 1;
                 if (!$util.isInteger(message.username) && !(message.username && $util.isInteger(message.username.low) && $util.isInteger(message.username.high)))
                     return "username: integer|Long expected";
-            if (message.passive != null && message.hasOwnProperty("passive"))
+            }
+            if (message.passive != null && message.hasOwnProperty("passive")) {
+                properties._passive = 1;
                 if (typeof message.passive !== "boolean")
                     return "passive: boolean expected";
+            }
             if (message.userAgent != null && message.hasOwnProperty("userAgent")) {
-                var error = $root.Wa6.ClientPayload.UserAgent.verify(message.userAgent);
-                if (error)
-                    return "userAgent." + error;
+                properties._userAgent = 1;
+                {
+                    var error = $root.Wa6.ClientPayload.UserAgent.verify(message.userAgent);
+                    if (error)
+                        return "userAgent." + error;
+                }
             }
             if (message.webInfo != null && message.hasOwnProperty("webInfo")) {
-                var error = $root.Wa6.ClientPayload.WebInfo.verify(message.webInfo);
-                if (error)
-                    return "webInfo." + error;
+                properties._webInfo = 1;
+                {
+                    var error = $root.Wa6.ClientPayload.WebInfo.verify(message.webInfo);
+                    if (error)
+                        return "webInfo." + error;
+                }
             }
-            if (message.pushName != null && message.hasOwnProperty("pushName"))
+            if (message.pushName != null && message.hasOwnProperty("pushName")) {
+                properties._pushName = 1;
                 if (!$util.isString(message.pushName))
                     return "pushName: string expected";
-            if (message.sessionId != null && message.hasOwnProperty("sessionId"))
+            }
+            if (message.sessionId != null && message.hasOwnProperty("sessionId")) {
+                properties._sessionId = 1;
                 if (!$util.isInteger(message.sessionId))
                     return "sessionId: integer expected";
-            if (message.shortConnect != null && message.hasOwnProperty("shortConnect"))
+            }
+            if (message.shortConnect != null && message.hasOwnProperty("shortConnect")) {
+                properties._shortConnect = 1;
                 if (typeof message.shortConnect !== "boolean")
                     return "shortConnect: boolean expected";
-            if (message.connectType != null && message.hasOwnProperty("connectType"))
+            }
+            if (message.connectType != null && message.hasOwnProperty("connectType")) {
+                properties._connectType = 1;
                 switch (message.connectType) {
                 default:
                     return "connectType: enum value expected";
@@ -641,7 +984,9 @@ $root.Wa6 = (function() {
                 case 112:
                     break;
                 }
-            if (message.connectReason != null && message.hasOwnProperty("connectReason"))
+            }
+            if (message.connectReason != null && message.hasOwnProperty("connectReason")) {
+                properties._connectReason = 1;
                 switch (message.connectReason) {
                 default:
                     return "connectReason: enum value expected";
@@ -654,6 +999,7 @@ $root.Wa6 = (function() {
                 case 6:
                     break;
                 }
+            }
             if (message.shards != null && message.hasOwnProperty("shards")) {
                 if (!Array.isArray(message.shards))
                     return "shards: array expected";
@@ -662,22 +1008,33 @@ $root.Wa6 = (function() {
                         return "shards: integer[] expected";
             }
             if (message.dnsSource != null && message.hasOwnProperty("dnsSource")) {
-                var error = $root.Wa6.ClientPayload.DNSSource.verify(message.dnsSource);
-                if (error)
-                    return "dnsSource." + error;
+                properties._dnsSource = 1;
+                {
+                    var error = $root.Wa6.ClientPayload.DNSSource.verify(message.dnsSource);
+                    if (error)
+                        return "dnsSource." + error;
+                }
             }
-            if (message.connectAttemptCount != null && message.hasOwnProperty("connectAttemptCount"))
+            if (message.connectAttemptCount != null && message.hasOwnProperty("connectAttemptCount")) {
+                properties._connectAttemptCount = 1;
                 if (!$util.isInteger(message.connectAttemptCount))
                     return "connectAttemptCount: integer expected";
-            if (message.device != null && message.hasOwnProperty("device"))
+            }
+            if (message.device != null && message.hasOwnProperty("device")) {
+                properties._device = 1;
                 if (!$util.isInteger(message.device))
                     return "device: integer expected";
-            if (message.devicePairingData != null && message.hasOwnProperty("devicePairingData")) {
-                var error = $root.Wa6.ClientPayload.DevicePairingRegistrationData.verify(message.devicePairingData);
-                if (error)
-                    return "devicePairingData." + error;
             }
-            if (message.product != null && message.hasOwnProperty("product"))
+            if (message.devicePairingData != null && message.hasOwnProperty("devicePairingData")) {
+                properties._devicePairingData = 1;
+                {
+                    var error = $root.Wa6.ClientPayload.DevicePairingRegistrationData.verify(message.devicePairingData);
+                    if (error)
+                        return "devicePairingData." + error;
+                }
+            }
+            if (message.product != null && message.hasOwnProperty("product")) {
+                properties._product = 1;
                 switch (message.product) {
                 default:
                     return "product: enum value expected";
@@ -688,19 +1045,29 @@ $root.Wa6 = (function() {
                 case 4:
                     break;
                 }
-            if (message.fbCat != null && message.hasOwnProperty("fbCat"))
+            }
+            if (message.fbCat != null && message.hasOwnProperty("fbCat")) {
+                properties._fbCat = 1;
                 if (!(message.fbCat && typeof message.fbCat.length === "number" || $util.isString(message.fbCat)))
                     return "fbCat: buffer expected";
-            if (message.fbUserAgent != null && message.hasOwnProperty("fbUserAgent"))
+            }
+            if (message.fbUserAgent != null && message.hasOwnProperty("fbUserAgent")) {
+                properties._fbUserAgent = 1;
                 if (!(message.fbUserAgent && typeof message.fbUserAgent.length === "number" || $util.isString(message.fbUserAgent)))
                     return "fbUserAgent: buffer expected";
-            if (message.oc != null && message.hasOwnProperty("oc"))
+            }
+            if (message.oc != null && message.hasOwnProperty("oc")) {
+                properties._oc = 1;
                 if (typeof message.oc !== "boolean")
                     return "oc: boolean expected";
-            if (message.lc != null && message.hasOwnProperty("lc"))
+            }
+            if (message.lc != null && message.hasOwnProperty("lc")) {
+                properties._lc = 1;
                 if (!$util.isInteger(message.lc))
                     return "lc: integer expected";
-            if (message.iosAppExtension != null && message.hasOwnProperty("iosAppExtension"))
+            }
+            if (message.iosAppExtension != null && message.hasOwnProperty("iosAppExtension")) {
+                properties._iosAppExtension = 1;
                 switch (message.iosAppExtension) {
                 default:
                     return "iosAppExtension: enum value expected";
@@ -709,30 +1076,47 @@ $root.Wa6 = (function() {
                 case 2:
                     break;
                 }
-            if (message.fbAppId != null && message.hasOwnProperty("fbAppId"))
+            }
+            if (message.fbAppId != null && message.hasOwnProperty("fbAppId")) {
+                properties._fbAppId = 1;
                 if (!$util.isInteger(message.fbAppId) && !(message.fbAppId && $util.isInteger(message.fbAppId.low) && $util.isInteger(message.fbAppId.high)))
                     return "fbAppId: integer|Long expected";
-            if (message.fbDeviceId != null && message.hasOwnProperty("fbDeviceId"))
+            }
+            if (message.fbDeviceId != null && message.hasOwnProperty("fbDeviceId")) {
+                properties._fbDeviceId = 1;
                 if (!(message.fbDeviceId && typeof message.fbDeviceId.length === "number" || $util.isString(message.fbDeviceId)))
                     return "fbDeviceId: buffer expected";
-            if (message.pull != null && message.hasOwnProperty("pull"))
+            }
+            if (message.pull != null && message.hasOwnProperty("pull")) {
+                properties._pull = 1;
                 if (typeof message.pull !== "boolean")
                     return "pull: boolean expected";
-            if (message.paddingBytes != null && message.hasOwnProperty("paddingBytes"))
+            }
+            if (message.paddingBytes != null && message.hasOwnProperty("paddingBytes")) {
+                properties._paddingBytes = 1;
                 if (!(message.paddingBytes && typeof message.paddingBytes.length === "number" || $util.isString(message.paddingBytes)))
                     return "paddingBytes: buffer expected";
-            if (message.yearClass != null && message.hasOwnProperty("yearClass"))
+            }
+            if (message.yearClass != null && message.hasOwnProperty("yearClass")) {
+                properties._yearClass = 1;
                 if (!$util.isInteger(message.yearClass))
                     return "yearClass: integer expected";
-            if (message.memClass != null && message.hasOwnProperty("memClass"))
+            }
+            if (message.memClass != null && message.hasOwnProperty("memClass")) {
+                properties._memClass = 1;
                 if (!$util.isInteger(message.memClass))
                     return "memClass: integer expected";
-            if (message.interopData != null && message.hasOwnProperty("interopData")) {
-                var error = $root.Wa6.ClientPayload.InteropData.verify(message.interopData);
-                if (error)
-                    return "interopData." + error;
             }
-            if (message.trafficAnonymization != null && message.hasOwnProperty("trafficAnonymization"))
+            if (message.interopData != null && message.hasOwnProperty("interopData")) {
+                properties._interopData = 1;
+                {
+                    var error = $root.Wa6.ClientPayload.InteropData.verify(message.interopData);
+                    if (error)
+                        return "interopData." + error;
+                }
+            }
+            if (message.trafficAnonymization != null && message.hasOwnProperty("trafficAnonymization")) {
+                properties._trafficAnonymization = 1;
                 switch (message.trafficAnonymization) {
                 default:
                     return "trafficAnonymization: enum value expected";
@@ -740,10 +1124,14 @@ $root.Wa6 = (function() {
                 case 1:
                     break;
                 }
-            if (message.lidDbMigrated != null && message.hasOwnProperty("lidDbMigrated"))
+            }
+            if (message.lidDbMigrated != null && message.hasOwnProperty("lidDbMigrated")) {
+                properties._lidDbMigrated = 1;
                 if (typeof message.lidDbMigrated !== "boolean")
                     return "lidDbMigrated: boolean expected";
-            if (message.accountType != null && message.hasOwnProperty("accountType"))
+            }
+            if (message.accountType != null && message.hasOwnProperty("accountType")) {
+                properties._accountType = 1;
                 switch (message.accountType) {
                 default:
                     return "accountType: enum value expected";
@@ -751,6 +1139,7 @@ $root.Wa6 = (function() {
                 case 1:
                     break;
                 }
+            }
             return null;
         };
 
@@ -1062,138 +1451,162 @@ $root.Wa6 = (function() {
             var object = {};
             if (options.arrays || options.defaults)
                 object.shards = [];
-            if (options.defaults) {
-                if ($util.Long) {
-                    var long = new $util.Long(0, 0, true);
-                    object.username = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                } else
-                    object.username = options.longs === String ? "0" : 0;
-                object.passive = false;
-                object.userAgent = null;
-                object.webInfo = null;
-                object.pushName = "";
-                object.sessionId = 0;
-                object.shortConnect = false;
-                object.connectType = options.enums === String ? "CELLULAR_UNKNOWN" : 0;
-                object.connectReason = options.enums === String ? "PUSH" : 0;
-                object.dnsSource = null;
-                object.connectAttemptCount = 0;
-                object.device = 0;
-                object.devicePairingData = null;
-                object.product = options.enums === String ? "WHATSAPP" : 0;
-                if (options.bytes === String)
-                    object.fbCat = "";
-                else {
-                    object.fbCat = [];
-                    if (options.bytes !== Array)
-                        object.fbCat = $util.newBuffer(object.fbCat);
-                }
-                if (options.bytes === String)
-                    object.fbUserAgent = "";
-                else {
-                    object.fbUserAgent = [];
-                    if (options.bytes !== Array)
-                        object.fbUserAgent = $util.newBuffer(object.fbUserAgent);
-                }
-                object.oc = false;
-                object.lc = 0;
-                object.iosAppExtension = options.enums === String ? "SHARE_EXTENSION" : 0;
-                if ($util.Long) {
-                    var long = new $util.Long(0, 0, true);
-                    object.fbAppId = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                } else
-                    object.fbAppId = options.longs === String ? "0" : 0;
-                if (options.bytes === String)
-                    object.fbDeviceId = "";
-                else {
-                    object.fbDeviceId = [];
-                    if (options.bytes !== Array)
-                        object.fbDeviceId = $util.newBuffer(object.fbDeviceId);
-                }
-                object.pull = false;
-                if (options.bytes === String)
-                    object.paddingBytes = "";
-                else {
-                    object.paddingBytes = [];
-                    if (options.bytes !== Array)
-                        object.paddingBytes = $util.newBuffer(object.paddingBytes);
-                }
-                object.yearClass = 0;
-                object.memClass = 0;
-                object.interopData = null;
-                object.trafficAnonymization = options.enums === String ? "OFF" : 0;
-                object.lidDbMigrated = false;
-                object.accountType = options.enums === String ? "DEFAULT" : 0;
-            }
-            if (message.username != null && message.hasOwnProperty("username"))
+            if (message.username != null && message.hasOwnProperty("username")) {
                 if (typeof message.username === "number")
                     object.username = options.longs === String ? String(message.username) : message.username;
                 else
                     object.username = options.longs === String ? $util.Long.prototype.toString.call(message.username) : options.longs === Number ? new $util.LongBits(message.username.low >>> 0, message.username.high >>> 0).toNumber(true) : message.username;
-            if (message.passive != null && message.hasOwnProperty("passive"))
+                if (options.oneofs)
+                    object._username = "username";
+            }
+            if (message.passive != null && message.hasOwnProperty("passive")) {
                 object.passive = message.passive;
-            if (message.userAgent != null && message.hasOwnProperty("userAgent"))
+                if (options.oneofs)
+                    object._passive = "passive";
+            }
+            if (message.userAgent != null && message.hasOwnProperty("userAgent")) {
                 object.userAgent = $root.Wa6.ClientPayload.UserAgent.toObject(message.userAgent, options);
-            if (message.webInfo != null && message.hasOwnProperty("webInfo"))
+                if (options.oneofs)
+                    object._userAgent = "userAgent";
+            }
+            if (message.webInfo != null && message.hasOwnProperty("webInfo")) {
                 object.webInfo = $root.Wa6.ClientPayload.WebInfo.toObject(message.webInfo, options);
-            if (message.pushName != null && message.hasOwnProperty("pushName"))
+                if (options.oneofs)
+                    object._webInfo = "webInfo";
+            }
+            if (message.pushName != null && message.hasOwnProperty("pushName")) {
                 object.pushName = message.pushName;
-            if (message.sessionId != null && message.hasOwnProperty("sessionId"))
+                if (options.oneofs)
+                    object._pushName = "pushName";
+            }
+            if (message.sessionId != null && message.hasOwnProperty("sessionId")) {
                 object.sessionId = message.sessionId;
-            if (message.shortConnect != null && message.hasOwnProperty("shortConnect"))
+                if (options.oneofs)
+                    object._sessionId = "sessionId";
+            }
+            if (message.shortConnect != null && message.hasOwnProperty("shortConnect")) {
                 object.shortConnect = message.shortConnect;
-            if (message.connectType != null && message.hasOwnProperty("connectType"))
+                if (options.oneofs)
+                    object._shortConnect = "shortConnect";
+            }
+            if (message.connectType != null && message.hasOwnProperty("connectType")) {
                 object.connectType = options.enums === String ? $root.Wa6.ClientPayload.ConnectType[message.connectType] === undefined ? message.connectType : $root.Wa6.ClientPayload.ConnectType[message.connectType] : message.connectType;
-            if (message.connectReason != null && message.hasOwnProperty("connectReason"))
+                if (options.oneofs)
+                    object._connectType = "connectType";
+            }
+            if (message.connectReason != null && message.hasOwnProperty("connectReason")) {
                 object.connectReason = options.enums === String ? $root.Wa6.ClientPayload.ConnectReason[message.connectReason] === undefined ? message.connectReason : $root.Wa6.ClientPayload.ConnectReason[message.connectReason] : message.connectReason;
+                if (options.oneofs)
+                    object._connectReason = "connectReason";
+            }
             if (message.shards && message.shards.length) {
                 object.shards = [];
                 for (var j = 0; j < message.shards.length; ++j)
                     object.shards[j] = message.shards[j];
             }
-            if (message.dnsSource != null && message.hasOwnProperty("dnsSource"))
+            if (message.dnsSource != null && message.hasOwnProperty("dnsSource")) {
                 object.dnsSource = $root.Wa6.ClientPayload.DNSSource.toObject(message.dnsSource, options);
-            if (message.connectAttemptCount != null && message.hasOwnProperty("connectAttemptCount"))
+                if (options.oneofs)
+                    object._dnsSource = "dnsSource";
+            }
+            if (message.connectAttemptCount != null && message.hasOwnProperty("connectAttemptCount")) {
                 object.connectAttemptCount = message.connectAttemptCount;
-            if (message.device != null && message.hasOwnProperty("device"))
+                if (options.oneofs)
+                    object._connectAttemptCount = "connectAttemptCount";
+            }
+            if (message.device != null && message.hasOwnProperty("device")) {
                 object.device = message.device;
-            if (message.devicePairingData != null && message.hasOwnProperty("devicePairingData"))
+                if (options.oneofs)
+                    object._device = "device";
+            }
+            if (message.devicePairingData != null && message.hasOwnProperty("devicePairingData")) {
                 object.devicePairingData = $root.Wa6.ClientPayload.DevicePairingRegistrationData.toObject(message.devicePairingData, options);
-            if (message.product != null && message.hasOwnProperty("product"))
+                if (options.oneofs)
+                    object._devicePairingData = "devicePairingData";
+            }
+            if (message.product != null && message.hasOwnProperty("product")) {
                 object.product = options.enums === String ? $root.Wa6.ClientPayload.Product[message.product] === undefined ? message.product : $root.Wa6.ClientPayload.Product[message.product] : message.product;
-            if (message.fbCat != null && message.hasOwnProperty("fbCat"))
+                if (options.oneofs)
+                    object._product = "product";
+            }
+            if (message.fbCat != null && message.hasOwnProperty("fbCat")) {
                 object.fbCat = options.bytes === String ? $util.base64.encode(message.fbCat, 0, message.fbCat.length) : options.bytes === Array ? Array.prototype.slice.call(message.fbCat) : message.fbCat;
-            if (message.fbUserAgent != null && message.hasOwnProperty("fbUserAgent"))
+                if (options.oneofs)
+                    object._fbCat = "fbCat";
+            }
+            if (message.fbUserAgent != null && message.hasOwnProperty("fbUserAgent")) {
                 object.fbUserAgent = options.bytes === String ? $util.base64.encode(message.fbUserAgent, 0, message.fbUserAgent.length) : options.bytes === Array ? Array.prototype.slice.call(message.fbUserAgent) : message.fbUserAgent;
-            if (message.oc != null && message.hasOwnProperty("oc"))
+                if (options.oneofs)
+                    object._fbUserAgent = "fbUserAgent";
+            }
+            if (message.oc != null && message.hasOwnProperty("oc")) {
                 object.oc = message.oc;
-            if (message.lc != null && message.hasOwnProperty("lc"))
+                if (options.oneofs)
+                    object._oc = "oc";
+            }
+            if (message.lc != null && message.hasOwnProperty("lc")) {
                 object.lc = message.lc;
-            if (message.iosAppExtension != null && message.hasOwnProperty("iosAppExtension"))
+                if (options.oneofs)
+                    object._lc = "lc";
+            }
+            if (message.iosAppExtension != null && message.hasOwnProperty("iosAppExtension")) {
                 object.iosAppExtension = options.enums === String ? $root.Wa6.ClientPayload.IOSAppExtension[message.iosAppExtension] === undefined ? message.iosAppExtension : $root.Wa6.ClientPayload.IOSAppExtension[message.iosAppExtension] : message.iosAppExtension;
-            if (message.fbAppId != null && message.hasOwnProperty("fbAppId"))
+                if (options.oneofs)
+                    object._iosAppExtension = "iosAppExtension";
+            }
+            if (message.fbAppId != null && message.hasOwnProperty("fbAppId")) {
                 if (typeof message.fbAppId === "number")
                     object.fbAppId = options.longs === String ? String(message.fbAppId) : message.fbAppId;
                 else
                     object.fbAppId = options.longs === String ? $util.Long.prototype.toString.call(message.fbAppId) : options.longs === Number ? new $util.LongBits(message.fbAppId.low >>> 0, message.fbAppId.high >>> 0).toNumber(true) : message.fbAppId;
-            if (message.fbDeviceId != null && message.hasOwnProperty("fbDeviceId"))
+                if (options.oneofs)
+                    object._fbAppId = "fbAppId";
+            }
+            if (message.fbDeviceId != null && message.hasOwnProperty("fbDeviceId")) {
                 object.fbDeviceId = options.bytes === String ? $util.base64.encode(message.fbDeviceId, 0, message.fbDeviceId.length) : options.bytes === Array ? Array.prototype.slice.call(message.fbDeviceId) : message.fbDeviceId;
-            if (message.pull != null && message.hasOwnProperty("pull"))
+                if (options.oneofs)
+                    object._fbDeviceId = "fbDeviceId";
+            }
+            if (message.pull != null && message.hasOwnProperty("pull")) {
                 object.pull = message.pull;
-            if (message.paddingBytes != null && message.hasOwnProperty("paddingBytes"))
+                if (options.oneofs)
+                    object._pull = "pull";
+            }
+            if (message.paddingBytes != null && message.hasOwnProperty("paddingBytes")) {
                 object.paddingBytes = options.bytes === String ? $util.base64.encode(message.paddingBytes, 0, message.paddingBytes.length) : options.bytes === Array ? Array.prototype.slice.call(message.paddingBytes) : message.paddingBytes;
-            if (message.yearClass != null && message.hasOwnProperty("yearClass"))
+                if (options.oneofs)
+                    object._paddingBytes = "paddingBytes";
+            }
+            if (message.yearClass != null && message.hasOwnProperty("yearClass")) {
                 object.yearClass = message.yearClass;
-            if (message.memClass != null && message.hasOwnProperty("memClass"))
+                if (options.oneofs)
+                    object._yearClass = "yearClass";
+            }
+            if (message.memClass != null && message.hasOwnProperty("memClass")) {
                 object.memClass = message.memClass;
-            if (message.interopData != null && message.hasOwnProperty("interopData"))
+                if (options.oneofs)
+                    object._memClass = "memClass";
+            }
+            if (message.interopData != null && message.hasOwnProperty("interopData")) {
                 object.interopData = $root.Wa6.ClientPayload.InteropData.toObject(message.interopData, options);
-            if (message.trafficAnonymization != null && message.hasOwnProperty("trafficAnonymization"))
+                if (options.oneofs)
+                    object._interopData = "interopData";
+            }
+            if (message.trafficAnonymization != null && message.hasOwnProperty("trafficAnonymization")) {
                 object.trafficAnonymization = options.enums === String ? $root.Wa6.ClientPayload.TrafficAnonymization[message.trafficAnonymization] === undefined ? message.trafficAnonymization : $root.Wa6.ClientPayload.TrafficAnonymization[message.trafficAnonymization] : message.trafficAnonymization;
-            if (message.lidDbMigrated != null && message.hasOwnProperty("lidDbMigrated"))
+                if (options.oneofs)
+                    object._trafficAnonymization = "trafficAnonymization";
+            }
+            if (message.lidDbMigrated != null && message.hasOwnProperty("lidDbMigrated")) {
                 object.lidDbMigrated = message.lidDbMigrated;
-            if (message.accountType != null && message.hasOwnProperty("accountType"))
+                if (options.oneofs)
+                    object._lidDbMigrated = "lidDbMigrated";
+            }
+            if (message.accountType != null && message.hasOwnProperty("accountType")) {
                 object.accountType = options.enums === String ? $root.Wa6.ClientPayload.AccountType[message.accountType] === undefined ? message.accountType : $root.Wa6.ClientPayload.AccountType[message.accountType] : message.accountType;
+                if (options.oneofs)
+                    object._accountType = "accountType";
+            }
             return object;
         };
 
@@ -1328,19 +1741,44 @@ $root.Wa6 = (function() {
 
             /**
              * DNSSource dnsMethod.
-             * @member {Wa6.ClientPayload.DNSSource.DNSResolutionMethod} dnsMethod
+             * @member {Wa6.ClientPayload.DNSSource.DNSResolutionMethod|null|undefined} dnsMethod
              * @memberof Wa6.ClientPayload.DNSSource
              * @instance
              */
-            DNSSource.prototype.dnsMethod = 0;
+            DNSSource.prototype.dnsMethod = null;
 
             /**
              * DNSSource appCached.
-             * @member {boolean} appCached
+             * @member {boolean|null|undefined} appCached
              * @memberof Wa6.ClientPayload.DNSSource
              * @instance
              */
-            DNSSource.prototype.appCached = false;
+            DNSSource.prototype.appCached = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            /**
+             * DNSSource _dnsMethod.
+             * @member {"dnsMethod"|undefined} _dnsMethod
+             * @memberof Wa6.ClientPayload.DNSSource
+             * @instance
+             */
+            Object.defineProperty(DNSSource.prototype, "_dnsMethod", {
+                get: $util.oneOfGetter($oneOfFields = ["dnsMethod"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * DNSSource _appCached.
+             * @member {"appCached"|undefined} _appCached
+             * @memberof Wa6.ClientPayload.DNSSource
+             * @instance
+             */
+            Object.defineProperty(DNSSource.prototype, "_appCached", {
+                get: $util.oneOfGetter($oneOfFields = ["appCached"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
 
             /**
              * Creates a new DNSSource instance using the specified properties.
@@ -1449,7 +1887,9 @@ $root.Wa6 = (function() {
             DNSSource.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.dnsMethod != null && message.hasOwnProperty("dnsMethod"))
+                var properties = {};
+                if (message.dnsMethod != null && message.hasOwnProperty("dnsMethod")) {
+                    properties._dnsMethod = 1;
                     switch (message.dnsMethod) {
                     default:
                         return "dnsMethod: enum value expected";
@@ -1461,9 +1901,12 @@ $root.Wa6 = (function() {
                     case 5:
                         break;
                     }
-                if (message.appCached != null && message.hasOwnProperty("appCached"))
+                }
+                if (message.appCached != null && message.hasOwnProperty("appCached")) {
+                    properties._appCached = 1;
                     if (typeof message.appCached !== "boolean")
                         return "appCached: boolean expected";
+                }
                 return null;
             };
 
@@ -1529,14 +1972,16 @@ $root.Wa6 = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults) {
-                    object.dnsMethod = options.enums === String ? "SYSTEM" : 0;
-                    object.appCached = false;
-                }
-                if (message.dnsMethod != null && message.hasOwnProperty("dnsMethod"))
+                if (message.dnsMethod != null && message.hasOwnProperty("dnsMethod")) {
                     object.dnsMethod = options.enums === String ? $root.Wa6.ClientPayload.DNSSource.DNSResolutionMethod[message.dnsMethod] === undefined ? message.dnsMethod : $root.Wa6.ClientPayload.DNSSource.DNSResolutionMethod[message.dnsMethod] : message.dnsMethod;
-                if (message.appCached != null && message.hasOwnProperty("appCached"))
+                    if (options.oneofs)
+                        object._dnsMethod = "dnsMethod";
+                }
+                if (message.appCached != null && message.hasOwnProperty("appCached")) {
                     object.appCached = message.appCached;
+                    if (options.oneofs)
+                        object._appCached = "appCached";
+                }
                 return object;
             };
 
@@ -1624,67 +2069,158 @@ $root.Wa6 = (function() {
 
             /**
              * DevicePairingRegistrationData eRegid.
-             * @member {Uint8Array} eRegid
+             * @member {Uint8Array|null|undefined} eRegid
              * @memberof Wa6.ClientPayload.DevicePairingRegistrationData
              * @instance
              */
-            DevicePairingRegistrationData.prototype.eRegid = $util.newBuffer([]);
+            DevicePairingRegistrationData.prototype.eRegid = null;
 
             /**
              * DevicePairingRegistrationData eKeytype.
-             * @member {Uint8Array} eKeytype
+             * @member {Uint8Array|null|undefined} eKeytype
              * @memberof Wa6.ClientPayload.DevicePairingRegistrationData
              * @instance
              */
-            DevicePairingRegistrationData.prototype.eKeytype = $util.newBuffer([]);
+            DevicePairingRegistrationData.prototype.eKeytype = null;
 
             /**
              * DevicePairingRegistrationData eIdent.
-             * @member {Uint8Array} eIdent
+             * @member {Uint8Array|null|undefined} eIdent
              * @memberof Wa6.ClientPayload.DevicePairingRegistrationData
              * @instance
              */
-            DevicePairingRegistrationData.prototype.eIdent = $util.newBuffer([]);
+            DevicePairingRegistrationData.prototype.eIdent = null;
 
             /**
              * DevicePairingRegistrationData eSkeyId.
-             * @member {Uint8Array} eSkeyId
+             * @member {Uint8Array|null|undefined} eSkeyId
              * @memberof Wa6.ClientPayload.DevicePairingRegistrationData
              * @instance
              */
-            DevicePairingRegistrationData.prototype.eSkeyId = $util.newBuffer([]);
+            DevicePairingRegistrationData.prototype.eSkeyId = null;
 
             /**
              * DevicePairingRegistrationData eSkeyVal.
-             * @member {Uint8Array} eSkeyVal
+             * @member {Uint8Array|null|undefined} eSkeyVal
              * @memberof Wa6.ClientPayload.DevicePairingRegistrationData
              * @instance
              */
-            DevicePairingRegistrationData.prototype.eSkeyVal = $util.newBuffer([]);
+            DevicePairingRegistrationData.prototype.eSkeyVal = null;
 
             /**
              * DevicePairingRegistrationData eSkeySig.
-             * @member {Uint8Array} eSkeySig
+             * @member {Uint8Array|null|undefined} eSkeySig
              * @memberof Wa6.ClientPayload.DevicePairingRegistrationData
              * @instance
              */
-            DevicePairingRegistrationData.prototype.eSkeySig = $util.newBuffer([]);
+            DevicePairingRegistrationData.prototype.eSkeySig = null;
 
             /**
              * DevicePairingRegistrationData buildHash.
-             * @member {Uint8Array} buildHash
+             * @member {Uint8Array|null|undefined} buildHash
              * @memberof Wa6.ClientPayload.DevicePairingRegistrationData
              * @instance
              */
-            DevicePairingRegistrationData.prototype.buildHash = $util.newBuffer([]);
+            DevicePairingRegistrationData.prototype.buildHash = null;
 
             /**
              * DevicePairingRegistrationData deviceProps.
-             * @member {Uint8Array} deviceProps
+             * @member {Uint8Array|null|undefined} deviceProps
              * @memberof Wa6.ClientPayload.DevicePairingRegistrationData
              * @instance
              */
-            DevicePairingRegistrationData.prototype.deviceProps = $util.newBuffer([]);
+            DevicePairingRegistrationData.prototype.deviceProps = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            /**
+             * DevicePairingRegistrationData _eRegid.
+             * @member {"eRegid"|undefined} _eRegid
+             * @memberof Wa6.ClientPayload.DevicePairingRegistrationData
+             * @instance
+             */
+            Object.defineProperty(DevicePairingRegistrationData.prototype, "_eRegid", {
+                get: $util.oneOfGetter($oneOfFields = ["eRegid"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * DevicePairingRegistrationData _eKeytype.
+             * @member {"eKeytype"|undefined} _eKeytype
+             * @memberof Wa6.ClientPayload.DevicePairingRegistrationData
+             * @instance
+             */
+            Object.defineProperty(DevicePairingRegistrationData.prototype, "_eKeytype", {
+                get: $util.oneOfGetter($oneOfFields = ["eKeytype"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * DevicePairingRegistrationData _eIdent.
+             * @member {"eIdent"|undefined} _eIdent
+             * @memberof Wa6.ClientPayload.DevicePairingRegistrationData
+             * @instance
+             */
+            Object.defineProperty(DevicePairingRegistrationData.prototype, "_eIdent", {
+                get: $util.oneOfGetter($oneOfFields = ["eIdent"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * DevicePairingRegistrationData _eSkeyId.
+             * @member {"eSkeyId"|undefined} _eSkeyId
+             * @memberof Wa6.ClientPayload.DevicePairingRegistrationData
+             * @instance
+             */
+            Object.defineProperty(DevicePairingRegistrationData.prototype, "_eSkeyId", {
+                get: $util.oneOfGetter($oneOfFields = ["eSkeyId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * DevicePairingRegistrationData _eSkeyVal.
+             * @member {"eSkeyVal"|undefined} _eSkeyVal
+             * @memberof Wa6.ClientPayload.DevicePairingRegistrationData
+             * @instance
+             */
+            Object.defineProperty(DevicePairingRegistrationData.prototype, "_eSkeyVal", {
+                get: $util.oneOfGetter($oneOfFields = ["eSkeyVal"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * DevicePairingRegistrationData _eSkeySig.
+             * @member {"eSkeySig"|undefined} _eSkeySig
+             * @memberof Wa6.ClientPayload.DevicePairingRegistrationData
+             * @instance
+             */
+            Object.defineProperty(DevicePairingRegistrationData.prototype, "_eSkeySig", {
+                get: $util.oneOfGetter($oneOfFields = ["eSkeySig"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * DevicePairingRegistrationData _buildHash.
+             * @member {"buildHash"|undefined} _buildHash
+             * @memberof Wa6.ClientPayload.DevicePairingRegistrationData
+             * @instance
+             */
+            Object.defineProperty(DevicePairingRegistrationData.prototype, "_buildHash", {
+                get: $util.oneOfGetter($oneOfFields = ["buildHash"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * DevicePairingRegistrationData _deviceProps.
+             * @member {"deviceProps"|undefined} _deviceProps
+             * @memberof Wa6.ClientPayload.DevicePairingRegistrationData
+             * @instance
+             */
+            Object.defineProperty(DevicePairingRegistrationData.prototype, "_deviceProps", {
+                get: $util.oneOfGetter($oneOfFields = ["deviceProps"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
 
             /**
              * Creates a new DevicePairingRegistrationData instance using the specified properties.
@@ -1829,30 +2365,47 @@ $root.Wa6 = (function() {
             DevicePairingRegistrationData.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.eRegid != null && message.hasOwnProperty("eRegid"))
+                var properties = {};
+                if (message.eRegid != null && message.hasOwnProperty("eRegid")) {
+                    properties._eRegid = 1;
                     if (!(message.eRegid && typeof message.eRegid.length === "number" || $util.isString(message.eRegid)))
                         return "eRegid: buffer expected";
-                if (message.eKeytype != null && message.hasOwnProperty("eKeytype"))
+                }
+                if (message.eKeytype != null && message.hasOwnProperty("eKeytype")) {
+                    properties._eKeytype = 1;
                     if (!(message.eKeytype && typeof message.eKeytype.length === "number" || $util.isString(message.eKeytype)))
                         return "eKeytype: buffer expected";
-                if (message.eIdent != null && message.hasOwnProperty("eIdent"))
+                }
+                if (message.eIdent != null && message.hasOwnProperty("eIdent")) {
+                    properties._eIdent = 1;
                     if (!(message.eIdent && typeof message.eIdent.length === "number" || $util.isString(message.eIdent)))
                         return "eIdent: buffer expected";
-                if (message.eSkeyId != null && message.hasOwnProperty("eSkeyId"))
+                }
+                if (message.eSkeyId != null && message.hasOwnProperty("eSkeyId")) {
+                    properties._eSkeyId = 1;
                     if (!(message.eSkeyId && typeof message.eSkeyId.length === "number" || $util.isString(message.eSkeyId)))
                         return "eSkeyId: buffer expected";
-                if (message.eSkeyVal != null && message.hasOwnProperty("eSkeyVal"))
+                }
+                if (message.eSkeyVal != null && message.hasOwnProperty("eSkeyVal")) {
+                    properties._eSkeyVal = 1;
                     if (!(message.eSkeyVal && typeof message.eSkeyVal.length === "number" || $util.isString(message.eSkeyVal)))
                         return "eSkeyVal: buffer expected";
-                if (message.eSkeySig != null && message.hasOwnProperty("eSkeySig"))
+                }
+                if (message.eSkeySig != null && message.hasOwnProperty("eSkeySig")) {
+                    properties._eSkeySig = 1;
                     if (!(message.eSkeySig && typeof message.eSkeySig.length === "number" || $util.isString(message.eSkeySig)))
                         return "eSkeySig: buffer expected";
-                if (message.buildHash != null && message.hasOwnProperty("buildHash"))
+                }
+                if (message.buildHash != null && message.hasOwnProperty("buildHash")) {
+                    properties._buildHash = 1;
                     if (!(message.buildHash && typeof message.buildHash.length === "number" || $util.isString(message.buildHash)))
                         return "buildHash: buffer expected";
-                if (message.deviceProps != null && message.hasOwnProperty("deviceProps"))
+                }
+                if (message.deviceProps != null && message.hasOwnProperty("deviceProps")) {
+                    properties._deviceProps = 1;
                     if (!(message.deviceProps && typeof message.deviceProps.length === "number" || $util.isString(message.deviceProps)))
                         return "deviceProps: buffer expected";
+                }
                 return null;
             };
 
@@ -1924,80 +2477,46 @@ $root.Wa6 = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults) {
-                    if (options.bytes === String)
-                        object.eRegid = "";
-                    else {
-                        object.eRegid = [];
-                        if (options.bytes !== Array)
-                            object.eRegid = $util.newBuffer(object.eRegid);
-                    }
-                    if (options.bytes === String)
-                        object.eKeytype = "";
-                    else {
-                        object.eKeytype = [];
-                        if (options.bytes !== Array)
-                            object.eKeytype = $util.newBuffer(object.eKeytype);
-                    }
-                    if (options.bytes === String)
-                        object.eIdent = "";
-                    else {
-                        object.eIdent = [];
-                        if (options.bytes !== Array)
-                            object.eIdent = $util.newBuffer(object.eIdent);
-                    }
-                    if (options.bytes === String)
-                        object.eSkeyId = "";
-                    else {
-                        object.eSkeyId = [];
-                        if (options.bytes !== Array)
-                            object.eSkeyId = $util.newBuffer(object.eSkeyId);
-                    }
-                    if (options.bytes === String)
-                        object.eSkeyVal = "";
-                    else {
-                        object.eSkeyVal = [];
-                        if (options.bytes !== Array)
-                            object.eSkeyVal = $util.newBuffer(object.eSkeyVal);
-                    }
-                    if (options.bytes === String)
-                        object.eSkeySig = "";
-                    else {
-                        object.eSkeySig = [];
-                        if (options.bytes !== Array)
-                            object.eSkeySig = $util.newBuffer(object.eSkeySig);
-                    }
-                    if (options.bytes === String)
-                        object.buildHash = "";
-                    else {
-                        object.buildHash = [];
-                        if (options.bytes !== Array)
-                            object.buildHash = $util.newBuffer(object.buildHash);
-                    }
-                    if (options.bytes === String)
-                        object.deviceProps = "";
-                    else {
-                        object.deviceProps = [];
-                        if (options.bytes !== Array)
-                            object.deviceProps = $util.newBuffer(object.deviceProps);
-                    }
-                }
-                if (message.eRegid != null && message.hasOwnProperty("eRegid"))
+                if (message.eRegid != null && message.hasOwnProperty("eRegid")) {
                     object.eRegid = options.bytes === String ? $util.base64.encode(message.eRegid, 0, message.eRegid.length) : options.bytes === Array ? Array.prototype.slice.call(message.eRegid) : message.eRegid;
-                if (message.eKeytype != null && message.hasOwnProperty("eKeytype"))
+                    if (options.oneofs)
+                        object._eRegid = "eRegid";
+                }
+                if (message.eKeytype != null && message.hasOwnProperty("eKeytype")) {
                     object.eKeytype = options.bytes === String ? $util.base64.encode(message.eKeytype, 0, message.eKeytype.length) : options.bytes === Array ? Array.prototype.slice.call(message.eKeytype) : message.eKeytype;
-                if (message.eIdent != null && message.hasOwnProperty("eIdent"))
+                    if (options.oneofs)
+                        object._eKeytype = "eKeytype";
+                }
+                if (message.eIdent != null && message.hasOwnProperty("eIdent")) {
                     object.eIdent = options.bytes === String ? $util.base64.encode(message.eIdent, 0, message.eIdent.length) : options.bytes === Array ? Array.prototype.slice.call(message.eIdent) : message.eIdent;
-                if (message.eSkeyId != null && message.hasOwnProperty("eSkeyId"))
+                    if (options.oneofs)
+                        object._eIdent = "eIdent";
+                }
+                if (message.eSkeyId != null && message.hasOwnProperty("eSkeyId")) {
                     object.eSkeyId = options.bytes === String ? $util.base64.encode(message.eSkeyId, 0, message.eSkeyId.length) : options.bytes === Array ? Array.prototype.slice.call(message.eSkeyId) : message.eSkeyId;
-                if (message.eSkeyVal != null && message.hasOwnProperty("eSkeyVal"))
+                    if (options.oneofs)
+                        object._eSkeyId = "eSkeyId";
+                }
+                if (message.eSkeyVal != null && message.hasOwnProperty("eSkeyVal")) {
                     object.eSkeyVal = options.bytes === String ? $util.base64.encode(message.eSkeyVal, 0, message.eSkeyVal.length) : options.bytes === Array ? Array.prototype.slice.call(message.eSkeyVal) : message.eSkeyVal;
-                if (message.eSkeySig != null && message.hasOwnProperty("eSkeySig"))
+                    if (options.oneofs)
+                        object._eSkeyVal = "eSkeyVal";
+                }
+                if (message.eSkeySig != null && message.hasOwnProperty("eSkeySig")) {
                     object.eSkeySig = options.bytes === String ? $util.base64.encode(message.eSkeySig, 0, message.eSkeySig.length) : options.bytes === Array ? Array.prototype.slice.call(message.eSkeySig) : message.eSkeySig;
-                if (message.buildHash != null && message.hasOwnProperty("buildHash"))
+                    if (options.oneofs)
+                        object._eSkeySig = "eSkeySig";
+                }
+                if (message.buildHash != null && message.hasOwnProperty("buildHash")) {
                     object.buildHash = options.bytes === String ? $util.base64.encode(message.buildHash, 0, message.buildHash.length) : options.bytes === Array ? Array.prototype.slice.call(message.buildHash) : message.buildHash;
-                if (message.deviceProps != null && message.hasOwnProperty("deviceProps"))
+                    if (options.oneofs)
+                        object._buildHash = "buildHash";
+                }
+                if (message.deviceProps != null && message.hasOwnProperty("deviceProps")) {
                     object.deviceProps = options.bytes === String ? $util.base64.encode(message.deviceProps, 0, message.deviceProps.length) : options.bytes === Array ? Array.prototype.slice.call(message.deviceProps) : message.deviceProps;
+                    if (options.oneofs)
+                        object._deviceProps = "deviceProps";
+                }
                 return object;
             };
 
@@ -2074,27 +2593,63 @@ $root.Wa6 = (function() {
 
             /**
              * InteropData accountId.
-             * @member {number|Long} accountId
+             * @member {number|Long|null|undefined} accountId
              * @memberof Wa6.ClientPayload.InteropData
              * @instance
              */
-            InteropData.prototype.accountId = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+            InteropData.prototype.accountId = null;
 
             /**
              * InteropData token.
-             * @member {Uint8Array} token
+             * @member {Uint8Array|null|undefined} token
              * @memberof Wa6.ClientPayload.InteropData
              * @instance
              */
-            InteropData.prototype.token = $util.newBuffer([]);
+            InteropData.prototype.token = null;
 
             /**
              * InteropData enableReadReceipts.
-             * @member {boolean} enableReadReceipts
+             * @member {boolean|null|undefined} enableReadReceipts
              * @memberof Wa6.ClientPayload.InteropData
              * @instance
              */
-            InteropData.prototype.enableReadReceipts = false;
+            InteropData.prototype.enableReadReceipts = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            /**
+             * InteropData _accountId.
+             * @member {"accountId"|undefined} _accountId
+             * @memberof Wa6.ClientPayload.InteropData
+             * @instance
+             */
+            Object.defineProperty(InteropData.prototype, "_accountId", {
+                get: $util.oneOfGetter($oneOfFields = ["accountId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * InteropData _token.
+             * @member {"token"|undefined} _token
+             * @memberof Wa6.ClientPayload.InteropData
+             * @instance
+             */
+            Object.defineProperty(InteropData.prototype, "_token", {
+                get: $util.oneOfGetter($oneOfFields = ["token"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * InteropData _enableReadReceipts.
+             * @member {"enableReadReceipts"|undefined} _enableReadReceipts
+             * @memberof Wa6.ClientPayload.InteropData
+             * @instance
+             */
+            Object.defineProperty(InteropData.prototype, "_enableReadReceipts", {
+                get: $util.oneOfGetter($oneOfFields = ["enableReadReceipts"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
 
             /**
              * Creates a new InteropData instance using the specified properties.
@@ -2209,15 +2764,22 @@ $root.Wa6 = (function() {
             InteropData.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.accountId != null && message.hasOwnProperty("accountId"))
+                var properties = {};
+                if (message.accountId != null && message.hasOwnProperty("accountId")) {
+                    properties._accountId = 1;
                     if (!$util.isInteger(message.accountId) && !(message.accountId && $util.isInteger(message.accountId.low) && $util.isInteger(message.accountId.high)))
                         return "accountId: integer|Long expected";
-                if (message.token != null && message.hasOwnProperty("token"))
+                }
+                if (message.token != null && message.hasOwnProperty("token")) {
+                    properties._token = 1;
                     if (!(message.token && typeof message.token.length === "number" || $util.isString(message.token)))
                         return "token: buffer expected";
-                if (message.enableReadReceipts != null && message.hasOwnProperty("enableReadReceipts"))
+                }
+                if (message.enableReadReceipts != null && message.hasOwnProperty("enableReadReceipts")) {
+                    properties._enableReadReceipts = 1;
                     if (typeof message.enableReadReceipts !== "boolean")
                         return "enableReadReceipts: boolean expected";
+                }
                 return null;
             };
 
@@ -2265,30 +2827,24 @@ $root.Wa6 = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults) {
-                    if ($util.Long) {
-                        var long = new $util.Long(0, 0, true);
-                        object.accountId = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                    } else
-                        object.accountId = options.longs === String ? "0" : 0;
-                    if (options.bytes === String)
-                        object.token = "";
-                    else {
-                        object.token = [];
-                        if (options.bytes !== Array)
-                            object.token = $util.newBuffer(object.token);
-                    }
-                    object.enableReadReceipts = false;
-                }
-                if (message.accountId != null && message.hasOwnProperty("accountId"))
+                if (message.accountId != null && message.hasOwnProperty("accountId")) {
                     if (typeof message.accountId === "number")
                         object.accountId = options.longs === String ? String(message.accountId) : message.accountId;
                     else
                         object.accountId = options.longs === String ? $util.Long.prototype.toString.call(message.accountId) : options.longs === Number ? new $util.LongBits(message.accountId.low >>> 0, message.accountId.high >>> 0).toNumber(true) : message.accountId;
-                if (message.token != null && message.hasOwnProperty("token"))
+                    if (options.oneofs)
+                        object._accountId = "accountId";
+                }
+                if (message.token != null && message.hasOwnProperty("token")) {
                     object.token = options.bytes === String ? $util.base64.encode(message.token, 0, message.token.length) : options.bytes === Array ? Array.prototype.slice.call(message.token) : message.token;
-                if (message.enableReadReceipts != null && message.hasOwnProperty("enableReadReceipts"))
+                    if (options.oneofs)
+                        object._token = "token";
+                }
+                if (message.enableReadReceipts != null && message.hasOwnProperty("enableReadReceipts")) {
                     object.enableReadReceipts = message.enableReadReceipts;
+                    if (options.oneofs)
+                        object._enableReadReceipts = "enableReadReceipts";
+                }
                 return object;
             };
 
@@ -2396,11 +2952,11 @@ $root.Wa6 = (function() {
 
             /**
              * UserAgent platform.
-             * @member {Wa6.ClientPayload.UserAgent.Platform} platform
+             * @member {Wa6.ClientPayload.UserAgent.Platform|null|undefined} platform
              * @memberof Wa6.ClientPayload.UserAgent
              * @instance
              */
-            UserAgent.prototype.platform = 0;
+            UserAgent.prototype.platform = null;
 
             /**
              * UserAgent appVersion.
@@ -2412,115 +2968,294 @@ $root.Wa6 = (function() {
 
             /**
              * UserAgent mcc.
-             * @member {string} mcc
+             * @member {string|null|undefined} mcc
              * @memberof Wa6.ClientPayload.UserAgent
              * @instance
              */
-            UserAgent.prototype.mcc = "";
+            UserAgent.prototype.mcc = null;
 
             /**
              * UserAgent mnc.
-             * @member {string} mnc
+             * @member {string|null|undefined} mnc
              * @memberof Wa6.ClientPayload.UserAgent
              * @instance
              */
-            UserAgent.prototype.mnc = "";
+            UserAgent.prototype.mnc = null;
 
             /**
              * UserAgent osVersion.
-             * @member {string} osVersion
+             * @member {string|null|undefined} osVersion
              * @memberof Wa6.ClientPayload.UserAgent
              * @instance
              */
-            UserAgent.prototype.osVersion = "";
+            UserAgent.prototype.osVersion = null;
 
             /**
              * UserAgent manufacturer.
-             * @member {string} manufacturer
+             * @member {string|null|undefined} manufacturer
              * @memberof Wa6.ClientPayload.UserAgent
              * @instance
              */
-            UserAgent.prototype.manufacturer = "";
+            UserAgent.prototype.manufacturer = null;
 
             /**
              * UserAgent device.
-             * @member {string} device
+             * @member {string|null|undefined} device
              * @memberof Wa6.ClientPayload.UserAgent
              * @instance
              */
-            UserAgent.prototype.device = "";
+            UserAgent.prototype.device = null;
 
             /**
              * UserAgent osBuildNumber.
-             * @member {string} osBuildNumber
+             * @member {string|null|undefined} osBuildNumber
              * @memberof Wa6.ClientPayload.UserAgent
              * @instance
              */
-            UserAgent.prototype.osBuildNumber = "";
+            UserAgent.prototype.osBuildNumber = null;
 
             /**
              * UserAgent phoneId.
-             * @member {string} phoneId
+             * @member {string|null|undefined} phoneId
              * @memberof Wa6.ClientPayload.UserAgent
              * @instance
              */
-            UserAgent.prototype.phoneId = "";
+            UserAgent.prototype.phoneId = null;
 
             /**
              * UserAgent releaseChannel.
-             * @member {Wa6.ClientPayload.UserAgent.ReleaseChannel} releaseChannel
+             * @member {Wa6.ClientPayload.UserAgent.ReleaseChannel|null|undefined} releaseChannel
              * @memberof Wa6.ClientPayload.UserAgent
              * @instance
              */
-            UserAgent.prototype.releaseChannel = 0;
+            UserAgent.prototype.releaseChannel = null;
 
             /**
              * UserAgent localeLanguageIso6391.
-             * @member {string} localeLanguageIso6391
+             * @member {string|null|undefined} localeLanguageIso6391
              * @memberof Wa6.ClientPayload.UserAgent
              * @instance
              */
-            UserAgent.prototype.localeLanguageIso6391 = "";
+            UserAgent.prototype.localeLanguageIso6391 = null;
 
             /**
              * UserAgent localeCountryIso31661Alpha2.
-             * @member {string} localeCountryIso31661Alpha2
+             * @member {string|null|undefined} localeCountryIso31661Alpha2
              * @memberof Wa6.ClientPayload.UserAgent
              * @instance
              */
-            UserAgent.prototype.localeCountryIso31661Alpha2 = "";
+            UserAgent.prototype.localeCountryIso31661Alpha2 = null;
 
             /**
              * UserAgent deviceBoard.
-             * @member {string} deviceBoard
+             * @member {string|null|undefined} deviceBoard
              * @memberof Wa6.ClientPayload.UserAgent
              * @instance
              */
-            UserAgent.prototype.deviceBoard = "";
+            UserAgent.prototype.deviceBoard = null;
 
             /**
              * UserAgent deviceExpId.
-             * @member {string} deviceExpId
+             * @member {string|null|undefined} deviceExpId
              * @memberof Wa6.ClientPayload.UserAgent
              * @instance
              */
-            UserAgent.prototype.deviceExpId = "";
+            UserAgent.prototype.deviceExpId = null;
 
             /**
              * UserAgent deviceType.
-             * @member {Wa6.ClientPayload.UserAgent.DeviceType} deviceType
+             * @member {Wa6.ClientPayload.UserAgent.DeviceType|null|undefined} deviceType
              * @memberof Wa6.ClientPayload.UserAgent
              * @instance
              */
-            UserAgent.prototype.deviceType = 0;
+            UserAgent.prototype.deviceType = null;
 
             /**
              * UserAgent deviceModelType.
-             * @member {string} deviceModelType
+             * @member {string|null|undefined} deviceModelType
              * @memberof Wa6.ClientPayload.UserAgent
              * @instance
              */
-            UserAgent.prototype.deviceModelType = "";
+            UserAgent.prototype.deviceModelType = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            /**
+             * UserAgent _platform.
+             * @member {"platform"|undefined} _platform
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
+            Object.defineProperty(UserAgent.prototype, "_platform", {
+                get: $util.oneOfGetter($oneOfFields = ["platform"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * UserAgent _appVersion.
+             * @member {"appVersion"|undefined} _appVersion
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
+            Object.defineProperty(UserAgent.prototype, "_appVersion", {
+                get: $util.oneOfGetter($oneOfFields = ["appVersion"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * UserAgent _mcc.
+             * @member {"mcc"|undefined} _mcc
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
+            Object.defineProperty(UserAgent.prototype, "_mcc", {
+                get: $util.oneOfGetter($oneOfFields = ["mcc"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * UserAgent _mnc.
+             * @member {"mnc"|undefined} _mnc
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
+            Object.defineProperty(UserAgent.prototype, "_mnc", {
+                get: $util.oneOfGetter($oneOfFields = ["mnc"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * UserAgent _osVersion.
+             * @member {"osVersion"|undefined} _osVersion
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
+            Object.defineProperty(UserAgent.prototype, "_osVersion", {
+                get: $util.oneOfGetter($oneOfFields = ["osVersion"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * UserAgent _manufacturer.
+             * @member {"manufacturer"|undefined} _manufacturer
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
+            Object.defineProperty(UserAgent.prototype, "_manufacturer", {
+                get: $util.oneOfGetter($oneOfFields = ["manufacturer"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * UserAgent _device.
+             * @member {"device"|undefined} _device
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
+            Object.defineProperty(UserAgent.prototype, "_device", {
+                get: $util.oneOfGetter($oneOfFields = ["device"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * UserAgent _osBuildNumber.
+             * @member {"osBuildNumber"|undefined} _osBuildNumber
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
+            Object.defineProperty(UserAgent.prototype, "_osBuildNumber", {
+                get: $util.oneOfGetter($oneOfFields = ["osBuildNumber"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * UserAgent _phoneId.
+             * @member {"phoneId"|undefined} _phoneId
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
+            Object.defineProperty(UserAgent.prototype, "_phoneId", {
+                get: $util.oneOfGetter($oneOfFields = ["phoneId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * UserAgent _releaseChannel.
+             * @member {"releaseChannel"|undefined} _releaseChannel
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
+            Object.defineProperty(UserAgent.prototype, "_releaseChannel", {
+                get: $util.oneOfGetter($oneOfFields = ["releaseChannel"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * UserAgent _localeLanguageIso6391.
+             * @member {"localeLanguageIso6391"|undefined} _localeLanguageIso6391
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
+            Object.defineProperty(UserAgent.prototype, "_localeLanguageIso6391", {
+                get: $util.oneOfGetter($oneOfFields = ["localeLanguageIso6391"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * UserAgent _localeCountryIso31661Alpha2.
+             * @member {"localeCountryIso31661Alpha2"|undefined} _localeCountryIso31661Alpha2
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
+            Object.defineProperty(UserAgent.prototype, "_localeCountryIso31661Alpha2", {
+                get: $util.oneOfGetter($oneOfFields = ["localeCountryIso31661Alpha2"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * UserAgent _deviceBoard.
+             * @member {"deviceBoard"|undefined} _deviceBoard
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
+            Object.defineProperty(UserAgent.prototype, "_deviceBoard", {
+                get: $util.oneOfGetter($oneOfFields = ["deviceBoard"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * UserAgent _deviceExpId.
+             * @member {"deviceExpId"|undefined} _deviceExpId
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
+            Object.defineProperty(UserAgent.prototype, "_deviceExpId", {
+                get: $util.oneOfGetter($oneOfFields = ["deviceExpId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * UserAgent _deviceType.
+             * @member {"deviceType"|undefined} _deviceType
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
+            Object.defineProperty(UserAgent.prototype, "_deviceType", {
+                get: $util.oneOfGetter($oneOfFields = ["deviceType"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * UserAgent _deviceModelType.
+             * @member {"deviceModelType"|undefined} _deviceModelType
+             * @memberof Wa6.ClientPayload.UserAgent
+             * @instance
+             */
+            Object.defineProperty(UserAgent.prototype, "_deviceModelType", {
+                get: $util.oneOfGetter($oneOfFields = ["deviceModelType"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
 
             /**
              * Creates a new UserAgent instance using the specified properties.
@@ -2713,7 +3448,9 @@ $root.Wa6 = (function() {
             UserAgent.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.platform != null && message.hasOwnProperty("platform"))
+                var properties = {};
+                if (message.platform != null && message.hasOwnProperty("platform")) {
+                    properties._platform = 1;
                     switch (message.platform) {
                     default:
                         return "platform: enum value expected";
@@ -2755,33 +3492,52 @@ $root.Wa6 = (function() {
                     case 35:
                         break;
                     }
-                if (message.appVersion != null && message.hasOwnProperty("appVersion")) {
-                    var error = $root.Wa6.ClientPayload.UserAgent.AppVersion.verify(message.appVersion);
-                    if (error)
-                        return "appVersion." + error;
                 }
-                if (message.mcc != null && message.hasOwnProperty("mcc"))
+                if (message.appVersion != null && message.hasOwnProperty("appVersion")) {
+                    properties._appVersion = 1;
+                    {
+                        var error = $root.Wa6.ClientPayload.UserAgent.AppVersion.verify(message.appVersion);
+                        if (error)
+                            return "appVersion." + error;
+                    }
+                }
+                if (message.mcc != null && message.hasOwnProperty("mcc")) {
+                    properties._mcc = 1;
                     if (!$util.isString(message.mcc))
                         return "mcc: string expected";
-                if (message.mnc != null && message.hasOwnProperty("mnc"))
+                }
+                if (message.mnc != null && message.hasOwnProperty("mnc")) {
+                    properties._mnc = 1;
                     if (!$util.isString(message.mnc))
                         return "mnc: string expected";
-                if (message.osVersion != null && message.hasOwnProperty("osVersion"))
+                }
+                if (message.osVersion != null && message.hasOwnProperty("osVersion")) {
+                    properties._osVersion = 1;
                     if (!$util.isString(message.osVersion))
                         return "osVersion: string expected";
-                if (message.manufacturer != null && message.hasOwnProperty("manufacturer"))
+                }
+                if (message.manufacturer != null && message.hasOwnProperty("manufacturer")) {
+                    properties._manufacturer = 1;
                     if (!$util.isString(message.manufacturer))
                         return "manufacturer: string expected";
-                if (message.device != null && message.hasOwnProperty("device"))
+                }
+                if (message.device != null && message.hasOwnProperty("device")) {
+                    properties._device = 1;
                     if (!$util.isString(message.device))
                         return "device: string expected";
-                if (message.osBuildNumber != null && message.hasOwnProperty("osBuildNumber"))
+                }
+                if (message.osBuildNumber != null && message.hasOwnProperty("osBuildNumber")) {
+                    properties._osBuildNumber = 1;
                     if (!$util.isString(message.osBuildNumber))
                         return "osBuildNumber: string expected";
-                if (message.phoneId != null && message.hasOwnProperty("phoneId"))
+                }
+                if (message.phoneId != null && message.hasOwnProperty("phoneId")) {
+                    properties._phoneId = 1;
                     if (!$util.isString(message.phoneId))
                         return "phoneId: string expected";
-                if (message.releaseChannel != null && message.hasOwnProperty("releaseChannel"))
+                }
+                if (message.releaseChannel != null && message.hasOwnProperty("releaseChannel")) {
+                    properties._releaseChannel = 1;
                     switch (message.releaseChannel) {
                     default:
                         return "releaseChannel: enum value expected";
@@ -2791,19 +3547,29 @@ $root.Wa6 = (function() {
                     case 3:
                         break;
                     }
-                if (message.localeLanguageIso6391 != null && message.hasOwnProperty("localeLanguageIso6391"))
+                }
+                if (message.localeLanguageIso6391 != null && message.hasOwnProperty("localeLanguageIso6391")) {
+                    properties._localeLanguageIso6391 = 1;
                     if (!$util.isString(message.localeLanguageIso6391))
                         return "localeLanguageIso6391: string expected";
-                if (message.localeCountryIso31661Alpha2 != null && message.hasOwnProperty("localeCountryIso31661Alpha2"))
+                }
+                if (message.localeCountryIso31661Alpha2 != null && message.hasOwnProperty("localeCountryIso31661Alpha2")) {
+                    properties._localeCountryIso31661Alpha2 = 1;
                     if (!$util.isString(message.localeCountryIso31661Alpha2))
                         return "localeCountryIso31661Alpha2: string expected";
-                if (message.deviceBoard != null && message.hasOwnProperty("deviceBoard"))
+                }
+                if (message.deviceBoard != null && message.hasOwnProperty("deviceBoard")) {
+                    properties._deviceBoard = 1;
                     if (!$util.isString(message.deviceBoard))
                         return "deviceBoard: string expected";
-                if (message.deviceExpId != null && message.hasOwnProperty("deviceExpId"))
+                }
+                if (message.deviceExpId != null && message.hasOwnProperty("deviceExpId")) {
+                    properties._deviceExpId = 1;
                     if (!$util.isString(message.deviceExpId))
                         return "deviceExpId: string expected";
-                if (message.deviceType != null && message.hasOwnProperty("deviceType"))
+                }
+                if (message.deviceType != null && message.hasOwnProperty("deviceType")) {
+                    properties._deviceType = 1;
                     switch (message.deviceType) {
                     default:
                         return "deviceType: enum value expected";
@@ -2814,9 +3580,12 @@ $root.Wa6 = (function() {
                     case 4:
                         break;
                     }
-                if (message.deviceModelType != null && message.hasOwnProperty("deviceModelType"))
+                }
+                if (message.deviceModelType != null && message.hasOwnProperty("deviceModelType")) {
+                    properties._deviceModelType = 1;
                     if (!$util.isString(message.deviceModelType))
                         return "deviceModelType: string expected";
+                }
                 return null;
             };
 
@@ -3081,56 +3850,86 @@ $root.Wa6 = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults) {
-                    object.platform = options.enums === String ? "ANDROID" : 0;
-                    object.appVersion = null;
-                    object.mcc = "";
-                    object.mnc = "";
-                    object.osVersion = "";
-                    object.manufacturer = "";
-                    object.device = "";
-                    object.osBuildNumber = "";
-                    object.phoneId = "";
-                    object.releaseChannel = options.enums === String ? "RELEASE" : 0;
-                    object.localeLanguageIso6391 = "";
-                    object.localeCountryIso31661Alpha2 = "";
-                    object.deviceBoard = "";
-                    object.deviceExpId = "";
-                    object.deviceType = options.enums === String ? "PHONE" : 0;
-                    object.deviceModelType = "";
-                }
-                if (message.platform != null && message.hasOwnProperty("platform"))
+                if (message.platform != null && message.hasOwnProperty("platform")) {
                     object.platform = options.enums === String ? $root.Wa6.ClientPayload.UserAgent.Platform[message.platform] === undefined ? message.platform : $root.Wa6.ClientPayload.UserAgent.Platform[message.platform] : message.platform;
-                if (message.appVersion != null && message.hasOwnProperty("appVersion"))
+                    if (options.oneofs)
+                        object._platform = "platform";
+                }
+                if (message.appVersion != null && message.hasOwnProperty("appVersion")) {
                     object.appVersion = $root.Wa6.ClientPayload.UserAgent.AppVersion.toObject(message.appVersion, options);
-                if (message.mcc != null && message.hasOwnProperty("mcc"))
+                    if (options.oneofs)
+                        object._appVersion = "appVersion";
+                }
+                if (message.mcc != null && message.hasOwnProperty("mcc")) {
                     object.mcc = message.mcc;
-                if (message.mnc != null && message.hasOwnProperty("mnc"))
+                    if (options.oneofs)
+                        object._mcc = "mcc";
+                }
+                if (message.mnc != null && message.hasOwnProperty("mnc")) {
                     object.mnc = message.mnc;
-                if (message.osVersion != null && message.hasOwnProperty("osVersion"))
+                    if (options.oneofs)
+                        object._mnc = "mnc";
+                }
+                if (message.osVersion != null && message.hasOwnProperty("osVersion")) {
                     object.osVersion = message.osVersion;
-                if (message.manufacturer != null && message.hasOwnProperty("manufacturer"))
+                    if (options.oneofs)
+                        object._osVersion = "osVersion";
+                }
+                if (message.manufacturer != null && message.hasOwnProperty("manufacturer")) {
                     object.manufacturer = message.manufacturer;
-                if (message.device != null && message.hasOwnProperty("device"))
+                    if (options.oneofs)
+                        object._manufacturer = "manufacturer";
+                }
+                if (message.device != null && message.hasOwnProperty("device")) {
                     object.device = message.device;
-                if (message.osBuildNumber != null && message.hasOwnProperty("osBuildNumber"))
+                    if (options.oneofs)
+                        object._device = "device";
+                }
+                if (message.osBuildNumber != null && message.hasOwnProperty("osBuildNumber")) {
                     object.osBuildNumber = message.osBuildNumber;
-                if (message.phoneId != null && message.hasOwnProperty("phoneId"))
+                    if (options.oneofs)
+                        object._osBuildNumber = "osBuildNumber";
+                }
+                if (message.phoneId != null && message.hasOwnProperty("phoneId")) {
                     object.phoneId = message.phoneId;
-                if (message.releaseChannel != null && message.hasOwnProperty("releaseChannel"))
+                    if (options.oneofs)
+                        object._phoneId = "phoneId";
+                }
+                if (message.releaseChannel != null && message.hasOwnProperty("releaseChannel")) {
                     object.releaseChannel = options.enums === String ? $root.Wa6.ClientPayload.UserAgent.ReleaseChannel[message.releaseChannel] === undefined ? message.releaseChannel : $root.Wa6.ClientPayload.UserAgent.ReleaseChannel[message.releaseChannel] : message.releaseChannel;
-                if (message.localeLanguageIso6391 != null && message.hasOwnProperty("localeLanguageIso6391"))
+                    if (options.oneofs)
+                        object._releaseChannel = "releaseChannel";
+                }
+                if (message.localeLanguageIso6391 != null && message.hasOwnProperty("localeLanguageIso6391")) {
                     object.localeLanguageIso6391 = message.localeLanguageIso6391;
-                if (message.localeCountryIso31661Alpha2 != null && message.hasOwnProperty("localeCountryIso31661Alpha2"))
+                    if (options.oneofs)
+                        object._localeLanguageIso6391 = "localeLanguageIso6391";
+                }
+                if (message.localeCountryIso31661Alpha2 != null && message.hasOwnProperty("localeCountryIso31661Alpha2")) {
                     object.localeCountryIso31661Alpha2 = message.localeCountryIso31661Alpha2;
-                if (message.deviceBoard != null && message.hasOwnProperty("deviceBoard"))
+                    if (options.oneofs)
+                        object._localeCountryIso31661Alpha2 = "localeCountryIso31661Alpha2";
+                }
+                if (message.deviceBoard != null && message.hasOwnProperty("deviceBoard")) {
                     object.deviceBoard = message.deviceBoard;
-                if (message.deviceExpId != null && message.hasOwnProperty("deviceExpId"))
+                    if (options.oneofs)
+                        object._deviceBoard = "deviceBoard";
+                }
+                if (message.deviceExpId != null && message.hasOwnProperty("deviceExpId")) {
                     object.deviceExpId = message.deviceExpId;
-                if (message.deviceType != null && message.hasOwnProperty("deviceType"))
+                    if (options.oneofs)
+                        object._deviceExpId = "deviceExpId";
+                }
+                if (message.deviceType != null && message.hasOwnProperty("deviceType")) {
                     object.deviceType = options.enums === String ? $root.Wa6.ClientPayload.UserAgent.DeviceType[message.deviceType] === undefined ? message.deviceType : $root.Wa6.ClientPayload.UserAgent.DeviceType[message.deviceType] : message.deviceType;
-                if (message.deviceModelType != null && message.hasOwnProperty("deviceModelType"))
+                    if (options.oneofs)
+                        object._deviceType = "deviceType";
+                }
+                if (message.deviceModelType != null && message.hasOwnProperty("deviceModelType")) {
                     object.deviceModelType = message.deviceModelType;
+                    if (options.oneofs)
+                        object._deviceModelType = "deviceModelType";
+                }
                 return object;
             };
 
@@ -3190,43 +3989,101 @@ $root.Wa6 = (function() {
 
                 /**
                  * AppVersion primary.
-                 * @member {number} primary
+                 * @member {number|null|undefined} primary
                  * @memberof Wa6.ClientPayload.UserAgent.AppVersion
                  * @instance
                  */
-                AppVersion.prototype.primary = 0;
+                AppVersion.prototype.primary = null;
 
                 /**
                  * AppVersion secondary.
-                 * @member {number} secondary
+                 * @member {number|null|undefined} secondary
                  * @memberof Wa6.ClientPayload.UserAgent.AppVersion
                  * @instance
                  */
-                AppVersion.prototype.secondary = 0;
+                AppVersion.prototype.secondary = null;
 
                 /**
                  * AppVersion tertiary.
-                 * @member {number} tertiary
+                 * @member {number|null|undefined} tertiary
                  * @memberof Wa6.ClientPayload.UserAgent.AppVersion
                  * @instance
                  */
-                AppVersion.prototype.tertiary = 0;
+                AppVersion.prototype.tertiary = null;
 
                 /**
                  * AppVersion quaternary.
-                 * @member {number} quaternary
+                 * @member {number|null|undefined} quaternary
                  * @memberof Wa6.ClientPayload.UserAgent.AppVersion
                  * @instance
                  */
-                AppVersion.prototype.quaternary = 0;
+                AppVersion.prototype.quaternary = null;
 
                 /**
                  * AppVersion quinary.
-                 * @member {number} quinary
+                 * @member {number|null|undefined} quinary
                  * @memberof Wa6.ClientPayload.UserAgent.AppVersion
                  * @instance
                  */
-                AppVersion.prototype.quinary = 0;
+                AppVersion.prototype.quinary = null;
+
+                // OneOf field names bound to virtual getters and setters
+                var $oneOfFields;
+
+                /**
+                 * AppVersion _primary.
+                 * @member {"primary"|undefined} _primary
+                 * @memberof Wa6.ClientPayload.UserAgent.AppVersion
+                 * @instance
+                 */
+                Object.defineProperty(AppVersion.prototype, "_primary", {
+                    get: $util.oneOfGetter($oneOfFields = ["primary"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * AppVersion _secondary.
+                 * @member {"secondary"|undefined} _secondary
+                 * @memberof Wa6.ClientPayload.UserAgent.AppVersion
+                 * @instance
+                 */
+                Object.defineProperty(AppVersion.prototype, "_secondary", {
+                    get: $util.oneOfGetter($oneOfFields = ["secondary"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * AppVersion _tertiary.
+                 * @member {"tertiary"|undefined} _tertiary
+                 * @memberof Wa6.ClientPayload.UserAgent.AppVersion
+                 * @instance
+                 */
+                Object.defineProperty(AppVersion.prototype, "_tertiary", {
+                    get: $util.oneOfGetter($oneOfFields = ["tertiary"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * AppVersion _quaternary.
+                 * @member {"quaternary"|undefined} _quaternary
+                 * @memberof Wa6.ClientPayload.UserAgent.AppVersion
+                 * @instance
+                 */
+                Object.defineProperty(AppVersion.prototype, "_quaternary", {
+                    get: $util.oneOfGetter($oneOfFields = ["quaternary"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * AppVersion _quinary.
+                 * @member {"quinary"|undefined} _quinary
+                 * @memberof Wa6.ClientPayload.UserAgent.AppVersion
+                 * @instance
+                 */
+                Object.defineProperty(AppVersion.prototype, "_quinary", {
+                    get: $util.oneOfGetter($oneOfFields = ["quinary"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
 
                 /**
                  * Creates a new AppVersion instance using the specified properties.
@@ -3353,21 +4210,32 @@ $root.Wa6 = (function() {
                 AppVersion.verify = function verify(message) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    if (message.primary != null && message.hasOwnProperty("primary"))
+                    var properties = {};
+                    if (message.primary != null && message.hasOwnProperty("primary")) {
+                        properties._primary = 1;
                         if (!$util.isInteger(message.primary))
                             return "primary: integer expected";
-                    if (message.secondary != null && message.hasOwnProperty("secondary"))
+                    }
+                    if (message.secondary != null && message.hasOwnProperty("secondary")) {
+                        properties._secondary = 1;
                         if (!$util.isInteger(message.secondary))
                             return "secondary: integer expected";
-                    if (message.tertiary != null && message.hasOwnProperty("tertiary"))
+                    }
+                    if (message.tertiary != null && message.hasOwnProperty("tertiary")) {
+                        properties._tertiary = 1;
                         if (!$util.isInteger(message.tertiary))
                             return "tertiary: integer expected";
-                    if (message.quaternary != null && message.hasOwnProperty("quaternary"))
+                    }
+                    if (message.quaternary != null && message.hasOwnProperty("quaternary")) {
+                        properties._quaternary = 1;
                         if (!$util.isInteger(message.quaternary))
                             return "quaternary: integer expected";
-                    if (message.quinary != null && message.hasOwnProperty("quinary"))
+                    }
+                    if (message.quinary != null && message.hasOwnProperty("quinary")) {
+                        properties._quinary = 1;
                         if (!$util.isInteger(message.quinary))
                             return "quinary: integer expected";
+                    }
                     return null;
                 };
 
@@ -3409,23 +4277,31 @@ $root.Wa6 = (function() {
                     if (!options)
                         options = {};
                     var object = {};
-                    if (options.defaults) {
-                        object.primary = 0;
-                        object.secondary = 0;
-                        object.tertiary = 0;
-                        object.quaternary = 0;
-                        object.quinary = 0;
-                    }
-                    if (message.primary != null && message.hasOwnProperty("primary"))
+                    if (message.primary != null && message.hasOwnProperty("primary")) {
                         object.primary = message.primary;
-                    if (message.secondary != null && message.hasOwnProperty("secondary"))
+                        if (options.oneofs)
+                            object._primary = "primary";
+                    }
+                    if (message.secondary != null && message.hasOwnProperty("secondary")) {
                         object.secondary = message.secondary;
-                    if (message.tertiary != null && message.hasOwnProperty("tertiary"))
+                        if (options.oneofs)
+                            object._secondary = "secondary";
+                    }
+                    if (message.tertiary != null && message.hasOwnProperty("tertiary")) {
                         object.tertiary = message.tertiary;
-                    if (message.quaternary != null && message.hasOwnProperty("quaternary"))
+                        if (options.oneofs)
+                            object._tertiary = "tertiary";
+                    }
+                    if (message.quaternary != null && message.hasOwnProperty("quaternary")) {
                         object.quaternary = message.quaternary;
-                    if (message.quinary != null && message.hasOwnProperty("quinary"))
+                        if (options.oneofs)
+                            object._quaternary = "quaternary";
+                    }
+                    if (message.quinary != null && message.hasOwnProperty("quinary")) {
                         object.quinary = message.quinary;
+                        if (options.oneofs)
+                            object._quinary = "quinary";
+                    }
                     return object;
                 };
 
@@ -3610,19 +4486,19 @@ $root.Wa6 = (function() {
 
             /**
              * WebInfo refToken.
-             * @member {string} refToken
+             * @member {string|null|undefined} refToken
              * @memberof Wa6.ClientPayload.WebInfo
              * @instance
              */
-            WebInfo.prototype.refToken = "";
+            WebInfo.prototype.refToken = null;
 
             /**
              * WebInfo version.
-             * @member {string} version
+             * @member {string|null|undefined} version
              * @memberof Wa6.ClientPayload.WebInfo
              * @instance
              */
-            WebInfo.prototype.version = "";
+            WebInfo.prototype.version = null;
 
             /**
              * WebInfo webdPayload.
@@ -3634,11 +4510,58 @@ $root.Wa6 = (function() {
 
             /**
              * WebInfo webSubPlatform.
-             * @member {Wa6.ClientPayload.WebInfo.WebSubPlatform} webSubPlatform
+             * @member {Wa6.ClientPayload.WebInfo.WebSubPlatform|null|undefined} webSubPlatform
              * @memberof Wa6.ClientPayload.WebInfo
              * @instance
              */
-            WebInfo.prototype.webSubPlatform = 0;
+            WebInfo.prototype.webSubPlatform = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            /**
+             * WebInfo _refToken.
+             * @member {"refToken"|undefined} _refToken
+             * @memberof Wa6.ClientPayload.WebInfo
+             * @instance
+             */
+            Object.defineProperty(WebInfo.prototype, "_refToken", {
+                get: $util.oneOfGetter($oneOfFields = ["refToken"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * WebInfo _version.
+             * @member {"version"|undefined} _version
+             * @memberof Wa6.ClientPayload.WebInfo
+             * @instance
+             */
+            Object.defineProperty(WebInfo.prototype, "_version", {
+                get: $util.oneOfGetter($oneOfFields = ["version"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * WebInfo _webdPayload.
+             * @member {"webdPayload"|undefined} _webdPayload
+             * @memberof Wa6.ClientPayload.WebInfo
+             * @instance
+             */
+            Object.defineProperty(WebInfo.prototype, "_webdPayload", {
+                get: $util.oneOfGetter($oneOfFields = ["webdPayload"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * WebInfo _webSubPlatform.
+             * @member {"webSubPlatform"|undefined} _webSubPlatform
+             * @memberof Wa6.ClientPayload.WebInfo
+             * @instance
+             */
+            Object.defineProperty(WebInfo.prototype, "_webSubPlatform", {
+                get: $util.oneOfGetter($oneOfFields = ["webSubPlatform"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
 
             /**
              * Creates a new WebInfo instance using the specified properties.
@@ -3759,18 +4682,27 @@ $root.Wa6 = (function() {
             WebInfo.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.refToken != null && message.hasOwnProperty("refToken"))
+                var properties = {};
+                if (message.refToken != null && message.hasOwnProperty("refToken")) {
+                    properties._refToken = 1;
                     if (!$util.isString(message.refToken))
                         return "refToken: string expected";
-                if (message.version != null && message.hasOwnProperty("version"))
+                }
+                if (message.version != null && message.hasOwnProperty("version")) {
+                    properties._version = 1;
                     if (!$util.isString(message.version))
                         return "version: string expected";
-                if (message.webdPayload != null && message.hasOwnProperty("webdPayload")) {
-                    var error = $root.Wa6.ClientPayload.WebInfo.WebdPayload.verify(message.webdPayload);
-                    if (error)
-                        return "webdPayload." + error;
                 }
-                if (message.webSubPlatform != null && message.hasOwnProperty("webSubPlatform"))
+                if (message.webdPayload != null && message.hasOwnProperty("webdPayload")) {
+                    properties._webdPayload = 1;
+                    {
+                        var error = $root.Wa6.ClientPayload.WebInfo.WebdPayload.verify(message.webdPayload);
+                        if (error)
+                            return "webdPayload." + error;
+                    }
+                }
+                if (message.webSubPlatform != null && message.hasOwnProperty("webSubPlatform")) {
+                    properties._webSubPlatform = 1;
                     switch (message.webSubPlatform) {
                     default:
                         return "webSubPlatform: enum value expected";
@@ -3782,6 +4714,7 @@ $root.Wa6 = (function() {
                     case 5:
                         break;
                     }
+                }
                 return null;
             };
 
@@ -3854,20 +4787,26 @@ $root.Wa6 = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults) {
-                    object.refToken = "";
-                    object.version = "";
-                    object.webdPayload = null;
-                    object.webSubPlatform = options.enums === String ? "WEB_BROWSER" : 0;
-                }
-                if (message.refToken != null && message.hasOwnProperty("refToken"))
+                if (message.refToken != null && message.hasOwnProperty("refToken")) {
                     object.refToken = message.refToken;
-                if (message.version != null && message.hasOwnProperty("version"))
+                    if (options.oneofs)
+                        object._refToken = "refToken";
+                }
+                if (message.version != null && message.hasOwnProperty("version")) {
                     object.version = message.version;
-                if (message.webdPayload != null && message.hasOwnProperty("webdPayload"))
+                    if (options.oneofs)
+                        object._version = "version";
+                }
+                if (message.webdPayload != null && message.hasOwnProperty("webdPayload")) {
                     object.webdPayload = $root.Wa6.ClientPayload.WebInfo.WebdPayload.toObject(message.webdPayload, options);
-                if (message.webSubPlatform != null && message.hasOwnProperty("webSubPlatform"))
+                    if (options.oneofs)
+                        object._webdPayload = "webdPayload";
+                }
+                if (message.webSubPlatform != null && message.hasOwnProperty("webSubPlatform")) {
                     object.webSubPlatform = options.enums === String ? $root.Wa6.ClientPayload.WebInfo.WebSubPlatform[message.webSubPlatform] === undefined ? message.webSubPlatform : $root.Wa6.ClientPayload.WebInfo.WebSubPlatform[message.webSubPlatform] : message.webSubPlatform;
+                    if (options.oneofs)
+                        object._webSubPlatform = "webSubPlatform";
+                }
                 return object;
             };
 
@@ -3955,91 +4894,215 @@ $root.Wa6 = (function() {
 
                 /**
                  * WebdPayload usesParticipantInKey.
-                 * @member {boolean} usesParticipantInKey
+                 * @member {boolean|null|undefined} usesParticipantInKey
                  * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
                  * @instance
                  */
-                WebdPayload.prototype.usesParticipantInKey = false;
+                WebdPayload.prototype.usesParticipantInKey = null;
 
                 /**
                  * WebdPayload supportsStarredMessages.
-                 * @member {boolean} supportsStarredMessages
+                 * @member {boolean|null|undefined} supportsStarredMessages
                  * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
                  * @instance
                  */
-                WebdPayload.prototype.supportsStarredMessages = false;
+                WebdPayload.prototype.supportsStarredMessages = null;
 
                 /**
                  * WebdPayload supportsDocumentMessages.
-                 * @member {boolean} supportsDocumentMessages
+                 * @member {boolean|null|undefined} supportsDocumentMessages
                  * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
                  * @instance
                  */
-                WebdPayload.prototype.supportsDocumentMessages = false;
+                WebdPayload.prototype.supportsDocumentMessages = null;
 
                 /**
                  * WebdPayload supportsUrlMessages.
-                 * @member {boolean} supportsUrlMessages
+                 * @member {boolean|null|undefined} supportsUrlMessages
                  * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
                  * @instance
                  */
-                WebdPayload.prototype.supportsUrlMessages = false;
+                WebdPayload.prototype.supportsUrlMessages = null;
 
                 /**
                  * WebdPayload supportsMediaRetry.
-                 * @member {boolean} supportsMediaRetry
+                 * @member {boolean|null|undefined} supportsMediaRetry
                  * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
                  * @instance
                  */
-                WebdPayload.prototype.supportsMediaRetry = false;
+                WebdPayload.prototype.supportsMediaRetry = null;
 
                 /**
                  * WebdPayload supportsE2EImage.
-                 * @member {boolean} supportsE2EImage
+                 * @member {boolean|null|undefined} supportsE2EImage
                  * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
                  * @instance
                  */
-                WebdPayload.prototype.supportsE2EImage = false;
+                WebdPayload.prototype.supportsE2EImage = null;
 
                 /**
                  * WebdPayload supportsE2EVideo.
-                 * @member {boolean} supportsE2EVideo
+                 * @member {boolean|null|undefined} supportsE2EVideo
                  * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
                  * @instance
                  */
-                WebdPayload.prototype.supportsE2EVideo = false;
+                WebdPayload.prototype.supportsE2EVideo = null;
 
                 /**
                  * WebdPayload supportsE2EAudio.
-                 * @member {boolean} supportsE2EAudio
+                 * @member {boolean|null|undefined} supportsE2EAudio
                  * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
                  * @instance
                  */
-                WebdPayload.prototype.supportsE2EAudio = false;
+                WebdPayload.prototype.supportsE2EAudio = null;
 
                 /**
                  * WebdPayload supportsE2EDocument.
-                 * @member {boolean} supportsE2EDocument
+                 * @member {boolean|null|undefined} supportsE2EDocument
                  * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
                  * @instance
                  */
-                WebdPayload.prototype.supportsE2EDocument = false;
+                WebdPayload.prototype.supportsE2EDocument = null;
 
                 /**
                  * WebdPayload documentTypes.
-                 * @member {string} documentTypes
+                 * @member {string|null|undefined} documentTypes
                  * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
                  * @instance
                  */
-                WebdPayload.prototype.documentTypes = "";
+                WebdPayload.prototype.documentTypes = null;
 
                 /**
                  * WebdPayload features.
-                 * @member {Uint8Array} features
+                 * @member {Uint8Array|null|undefined} features
                  * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
                  * @instance
                  */
-                WebdPayload.prototype.features = $util.newBuffer([]);
+                WebdPayload.prototype.features = null;
+
+                // OneOf field names bound to virtual getters and setters
+                var $oneOfFields;
+
+                /**
+                 * WebdPayload _usesParticipantInKey.
+                 * @member {"usesParticipantInKey"|undefined} _usesParticipantInKey
+                 * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
+                 * @instance
+                 */
+                Object.defineProperty(WebdPayload.prototype, "_usesParticipantInKey", {
+                    get: $util.oneOfGetter($oneOfFields = ["usesParticipantInKey"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * WebdPayload _supportsStarredMessages.
+                 * @member {"supportsStarredMessages"|undefined} _supportsStarredMessages
+                 * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
+                 * @instance
+                 */
+                Object.defineProperty(WebdPayload.prototype, "_supportsStarredMessages", {
+                    get: $util.oneOfGetter($oneOfFields = ["supportsStarredMessages"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * WebdPayload _supportsDocumentMessages.
+                 * @member {"supportsDocumentMessages"|undefined} _supportsDocumentMessages
+                 * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
+                 * @instance
+                 */
+                Object.defineProperty(WebdPayload.prototype, "_supportsDocumentMessages", {
+                    get: $util.oneOfGetter($oneOfFields = ["supportsDocumentMessages"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * WebdPayload _supportsUrlMessages.
+                 * @member {"supportsUrlMessages"|undefined} _supportsUrlMessages
+                 * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
+                 * @instance
+                 */
+                Object.defineProperty(WebdPayload.prototype, "_supportsUrlMessages", {
+                    get: $util.oneOfGetter($oneOfFields = ["supportsUrlMessages"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * WebdPayload _supportsMediaRetry.
+                 * @member {"supportsMediaRetry"|undefined} _supportsMediaRetry
+                 * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
+                 * @instance
+                 */
+                Object.defineProperty(WebdPayload.prototype, "_supportsMediaRetry", {
+                    get: $util.oneOfGetter($oneOfFields = ["supportsMediaRetry"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * WebdPayload _supportsE2EImage.
+                 * @member {"supportsE2EImage"|undefined} _supportsE2EImage
+                 * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
+                 * @instance
+                 */
+                Object.defineProperty(WebdPayload.prototype, "_supportsE2EImage", {
+                    get: $util.oneOfGetter($oneOfFields = ["supportsE2EImage"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * WebdPayload _supportsE2EVideo.
+                 * @member {"supportsE2EVideo"|undefined} _supportsE2EVideo
+                 * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
+                 * @instance
+                 */
+                Object.defineProperty(WebdPayload.prototype, "_supportsE2EVideo", {
+                    get: $util.oneOfGetter($oneOfFields = ["supportsE2EVideo"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * WebdPayload _supportsE2EAudio.
+                 * @member {"supportsE2EAudio"|undefined} _supportsE2EAudio
+                 * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
+                 * @instance
+                 */
+                Object.defineProperty(WebdPayload.prototype, "_supportsE2EAudio", {
+                    get: $util.oneOfGetter($oneOfFields = ["supportsE2EAudio"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * WebdPayload _supportsE2EDocument.
+                 * @member {"supportsE2EDocument"|undefined} _supportsE2EDocument
+                 * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
+                 * @instance
+                 */
+                Object.defineProperty(WebdPayload.prototype, "_supportsE2EDocument", {
+                    get: $util.oneOfGetter($oneOfFields = ["supportsE2EDocument"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * WebdPayload _documentTypes.
+                 * @member {"documentTypes"|undefined} _documentTypes
+                 * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
+                 * @instance
+                 */
+                Object.defineProperty(WebdPayload.prototype, "_documentTypes", {
+                    get: $util.oneOfGetter($oneOfFields = ["documentTypes"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * WebdPayload _features.
+                 * @member {"features"|undefined} _features
+                 * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
+                 * @instance
+                 */
+                Object.defineProperty(WebdPayload.prototype, "_features", {
+                    get: $util.oneOfGetter($oneOfFields = ["features"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
 
                 /**
                  * Creates a new WebdPayload instance using the specified properties.
@@ -4202,39 +5265,62 @@ $root.Wa6 = (function() {
                 WebdPayload.verify = function verify(message) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    if (message.usesParticipantInKey != null && message.hasOwnProperty("usesParticipantInKey"))
+                    var properties = {};
+                    if (message.usesParticipantInKey != null && message.hasOwnProperty("usesParticipantInKey")) {
+                        properties._usesParticipantInKey = 1;
                         if (typeof message.usesParticipantInKey !== "boolean")
                             return "usesParticipantInKey: boolean expected";
-                    if (message.supportsStarredMessages != null && message.hasOwnProperty("supportsStarredMessages"))
+                    }
+                    if (message.supportsStarredMessages != null && message.hasOwnProperty("supportsStarredMessages")) {
+                        properties._supportsStarredMessages = 1;
                         if (typeof message.supportsStarredMessages !== "boolean")
                             return "supportsStarredMessages: boolean expected";
-                    if (message.supportsDocumentMessages != null && message.hasOwnProperty("supportsDocumentMessages"))
+                    }
+                    if (message.supportsDocumentMessages != null && message.hasOwnProperty("supportsDocumentMessages")) {
+                        properties._supportsDocumentMessages = 1;
                         if (typeof message.supportsDocumentMessages !== "boolean")
                             return "supportsDocumentMessages: boolean expected";
-                    if (message.supportsUrlMessages != null && message.hasOwnProperty("supportsUrlMessages"))
+                    }
+                    if (message.supportsUrlMessages != null && message.hasOwnProperty("supportsUrlMessages")) {
+                        properties._supportsUrlMessages = 1;
                         if (typeof message.supportsUrlMessages !== "boolean")
                             return "supportsUrlMessages: boolean expected";
-                    if (message.supportsMediaRetry != null && message.hasOwnProperty("supportsMediaRetry"))
+                    }
+                    if (message.supportsMediaRetry != null && message.hasOwnProperty("supportsMediaRetry")) {
+                        properties._supportsMediaRetry = 1;
                         if (typeof message.supportsMediaRetry !== "boolean")
                             return "supportsMediaRetry: boolean expected";
-                    if (message.supportsE2EImage != null && message.hasOwnProperty("supportsE2EImage"))
+                    }
+                    if (message.supportsE2EImage != null && message.hasOwnProperty("supportsE2EImage")) {
+                        properties._supportsE2EImage = 1;
                         if (typeof message.supportsE2EImage !== "boolean")
                             return "supportsE2EImage: boolean expected";
-                    if (message.supportsE2EVideo != null && message.hasOwnProperty("supportsE2EVideo"))
+                    }
+                    if (message.supportsE2EVideo != null && message.hasOwnProperty("supportsE2EVideo")) {
+                        properties._supportsE2EVideo = 1;
                         if (typeof message.supportsE2EVideo !== "boolean")
                             return "supportsE2EVideo: boolean expected";
-                    if (message.supportsE2EAudio != null && message.hasOwnProperty("supportsE2EAudio"))
+                    }
+                    if (message.supportsE2EAudio != null && message.hasOwnProperty("supportsE2EAudio")) {
+                        properties._supportsE2EAudio = 1;
                         if (typeof message.supportsE2EAudio !== "boolean")
                             return "supportsE2EAudio: boolean expected";
-                    if (message.supportsE2EDocument != null && message.hasOwnProperty("supportsE2EDocument"))
+                    }
+                    if (message.supportsE2EDocument != null && message.hasOwnProperty("supportsE2EDocument")) {
+                        properties._supportsE2EDocument = 1;
                         if (typeof message.supportsE2EDocument !== "boolean")
                             return "supportsE2EDocument: boolean expected";
-                    if (message.documentTypes != null && message.hasOwnProperty("documentTypes"))
+                    }
+                    if (message.documentTypes != null && message.hasOwnProperty("documentTypes")) {
+                        properties._documentTypes = 1;
                         if (!$util.isString(message.documentTypes))
                             return "documentTypes: string expected";
-                    if (message.features != null && message.hasOwnProperty("features"))
+                    }
+                    if (message.features != null && message.hasOwnProperty("features")) {
+                        properties._features = 1;
                         if (!(message.features && typeof message.features.length === "number" || $util.isString(message.features)))
                             return "features: buffer expected";
+                    }
                     return null;
                 };
 
@@ -4291,47 +5377,61 @@ $root.Wa6 = (function() {
                     if (!options)
                         options = {};
                     var object = {};
-                    if (options.defaults) {
-                        object.usesParticipantInKey = false;
-                        object.supportsStarredMessages = false;
-                        object.supportsDocumentMessages = false;
-                        object.supportsUrlMessages = false;
-                        object.supportsMediaRetry = false;
-                        object.supportsE2EImage = false;
-                        object.supportsE2EVideo = false;
-                        object.supportsE2EAudio = false;
-                        object.supportsE2EDocument = false;
-                        object.documentTypes = "";
-                        if (options.bytes === String)
-                            object.features = "";
-                        else {
-                            object.features = [];
-                            if (options.bytes !== Array)
-                                object.features = $util.newBuffer(object.features);
-                        }
-                    }
-                    if (message.usesParticipantInKey != null && message.hasOwnProperty("usesParticipantInKey"))
+                    if (message.usesParticipantInKey != null && message.hasOwnProperty("usesParticipantInKey")) {
                         object.usesParticipantInKey = message.usesParticipantInKey;
-                    if (message.supportsStarredMessages != null && message.hasOwnProperty("supportsStarredMessages"))
+                        if (options.oneofs)
+                            object._usesParticipantInKey = "usesParticipantInKey";
+                    }
+                    if (message.supportsStarredMessages != null && message.hasOwnProperty("supportsStarredMessages")) {
                         object.supportsStarredMessages = message.supportsStarredMessages;
-                    if (message.supportsDocumentMessages != null && message.hasOwnProperty("supportsDocumentMessages"))
+                        if (options.oneofs)
+                            object._supportsStarredMessages = "supportsStarredMessages";
+                    }
+                    if (message.supportsDocumentMessages != null && message.hasOwnProperty("supportsDocumentMessages")) {
                         object.supportsDocumentMessages = message.supportsDocumentMessages;
-                    if (message.supportsUrlMessages != null && message.hasOwnProperty("supportsUrlMessages"))
+                        if (options.oneofs)
+                            object._supportsDocumentMessages = "supportsDocumentMessages";
+                    }
+                    if (message.supportsUrlMessages != null && message.hasOwnProperty("supportsUrlMessages")) {
                         object.supportsUrlMessages = message.supportsUrlMessages;
-                    if (message.supportsMediaRetry != null && message.hasOwnProperty("supportsMediaRetry"))
+                        if (options.oneofs)
+                            object._supportsUrlMessages = "supportsUrlMessages";
+                    }
+                    if (message.supportsMediaRetry != null && message.hasOwnProperty("supportsMediaRetry")) {
                         object.supportsMediaRetry = message.supportsMediaRetry;
-                    if (message.supportsE2EImage != null && message.hasOwnProperty("supportsE2EImage"))
+                        if (options.oneofs)
+                            object._supportsMediaRetry = "supportsMediaRetry";
+                    }
+                    if (message.supportsE2EImage != null && message.hasOwnProperty("supportsE2EImage")) {
                         object.supportsE2EImage = message.supportsE2EImage;
-                    if (message.supportsE2EVideo != null && message.hasOwnProperty("supportsE2EVideo"))
+                        if (options.oneofs)
+                            object._supportsE2EImage = "supportsE2EImage";
+                    }
+                    if (message.supportsE2EVideo != null && message.hasOwnProperty("supportsE2EVideo")) {
                         object.supportsE2EVideo = message.supportsE2EVideo;
-                    if (message.supportsE2EAudio != null && message.hasOwnProperty("supportsE2EAudio"))
+                        if (options.oneofs)
+                            object._supportsE2EVideo = "supportsE2EVideo";
+                    }
+                    if (message.supportsE2EAudio != null && message.hasOwnProperty("supportsE2EAudio")) {
                         object.supportsE2EAudio = message.supportsE2EAudio;
-                    if (message.supportsE2EDocument != null && message.hasOwnProperty("supportsE2EDocument"))
+                        if (options.oneofs)
+                            object._supportsE2EAudio = "supportsE2EAudio";
+                    }
+                    if (message.supportsE2EDocument != null && message.hasOwnProperty("supportsE2EDocument")) {
                         object.supportsE2EDocument = message.supportsE2EDocument;
-                    if (message.documentTypes != null && message.hasOwnProperty("documentTypes"))
+                        if (options.oneofs)
+                            object._supportsE2EDocument = "supportsE2EDocument";
+                    }
+                    if (message.documentTypes != null && message.hasOwnProperty("documentTypes")) {
                         object.documentTypes = message.documentTypes;
-                    if (message.features != null && message.hasOwnProperty("features"))
+                        if (options.oneofs)
+                            object._documentTypes = "documentTypes";
+                    }
+                    if (message.features != null && message.hasOwnProperty("features")) {
                         object.features = options.bytes === String ? $util.base64.encode(message.features, 0, message.features.length) : options.bytes === Array ? Array.prototype.slice.call(message.features) : message.features;
+                        if (options.oneofs)
+                            object._features = "features";
+                    }
                     return object;
                 };
 
@@ -4419,6 +5519,42 @@ $root.Wa6 = (function() {
          * @instance
          */
         HandshakeMessage.prototype.clientFinish = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * HandshakeMessage _clientHello.
+         * @member {"clientHello"|undefined} _clientHello
+         * @memberof Wa6.HandshakeMessage
+         * @instance
+         */
+        Object.defineProperty(HandshakeMessage.prototype, "_clientHello", {
+            get: $util.oneOfGetter($oneOfFields = ["clientHello"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * HandshakeMessage _serverHello.
+         * @member {"serverHello"|undefined} _serverHello
+         * @memberof Wa6.HandshakeMessage
+         * @instance
+         */
+        Object.defineProperty(HandshakeMessage.prototype, "_serverHello", {
+            get: $util.oneOfGetter($oneOfFields = ["serverHello"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * HandshakeMessage _clientFinish.
+         * @member {"clientFinish"|undefined} _clientFinish
+         * @memberof Wa6.HandshakeMessage
+         * @instance
+         */
+        Object.defineProperty(HandshakeMessage.prototype, "_clientFinish", {
+            get: $util.oneOfGetter($oneOfFields = ["clientFinish"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new HandshakeMessage instance using the specified properties.
@@ -4533,20 +5669,30 @@ $root.Wa6 = (function() {
         HandshakeMessage.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            var properties = {};
             if (message.clientHello != null && message.hasOwnProperty("clientHello")) {
-                var error = $root.Wa6.HandshakeMessage.ClientHello.verify(message.clientHello);
-                if (error)
-                    return "clientHello." + error;
+                properties._clientHello = 1;
+                {
+                    var error = $root.Wa6.HandshakeMessage.ClientHello.verify(message.clientHello);
+                    if (error)
+                        return "clientHello." + error;
+                }
             }
             if (message.serverHello != null && message.hasOwnProperty("serverHello")) {
-                var error = $root.Wa6.HandshakeMessage.ServerHello.verify(message.serverHello);
-                if (error)
-                    return "serverHello." + error;
+                properties._serverHello = 1;
+                {
+                    var error = $root.Wa6.HandshakeMessage.ServerHello.verify(message.serverHello);
+                    if (error)
+                        return "serverHello." + error;
+                }
             }
             if (message.clientFinish != null && message.hasOwnProperty("clientFinish")) {
-                var error = $root.Wa6.HandshakeMessage.ClientFinish.verify(message.clientFinish);
-                if (error)
-                    return "clientFinish." + error;
+                properties._clientFinish = 1;
+                {
+                    var error = $root.Wa6.HandshakeMessage.ClientFinish.verify(message.clientFinish);
+                    if (error)
+                        return "clientFinish." + error;
+                }
             }
             return null;
         };
@@ -4594,17 +5740,21 @@ $root.Wa6 = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults) {
-                object.clientHello = null;
-                object.serverHello = null;
-                object.clientFinish = null;
-            }
-            if (message.clientHello != null && message.hasOwnProperty("clientHello"))
+            if (message.clientHello != null && message.hasOwnProperty("clientHello")) {
                 object.clientHello = $root.Wa6.HandshakeMessage.ClientHello.toObject(message.clientHello, options);
-            if (message.serverHello != null && message.hasOwnProperty("serverHello"))
+                if (options.oneofs)
+                    object._clientHello = "clientHello";
+            }
+            if (message.serverHello != null && message.hasOwnProperty("serverHello")) {
                 object.serverHello = $root.Wa6.HandshakeMessage.ServerHello.toObject(message.serverHello, options);
-            if (message.clientFinish != null && message.hasOwnProperty("clientFinish"))
+                if (options.oneofs)
+                    object._serverHello = "serverHello";
+            }
+            if (message.clientFinish != null && message.hasOwnProperty("clientFinish")) {
                 object.clientFinish = $root.Wa6.HandshakeMessage.ClientFinish.toObject(message.clientFinish, options);
+                if (options.oneofs)
+                    object._clientFinish = "clientFinish";
+            }
             return object;
         };
 
@@ -4661,19 +5811,44 @@ $root.Wa6 = (function() {
 
             /**
              * ClientFinish static.
-             * @member {Uint8Array} static
+             * @member {Uint8Array|null|undefined} static
              * @memberof Wa6.HandshakeMessage.ClientFinish
              * @instance
              */
-            ClientFinish.prototype["static"] = $util.newBuffer([]);
+            ClientFinish.prototype["static"] = null;
 
             /**
              * ClientFinish payload.
-             * @member {Uint8Array} payload
+             * @member {Uint8Array|null|undefined} payload
              * @memberof Wa6.HandshakeMessage.ClientFinish
              * @instance
              */
-            ClientFinish.prototype.payload = $util.newBuffer([]);
+            ClientFinish.prototype.payload = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            /**
+             * ClientFinish _static.
+             * @member {"static"|undefined} _static
+             * @memberof Wa6.HandshakeMessage.ClientFinish
+             * @instance
+             */
+            Object.defineProperty(ClientFinish.prototype, "_static", {
+                get: $util.oneOfGetter($oneOfFields = ["static"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * ClientFinish _payload.
+             * @member {"payload"|undefined} _payload
+             * @memberof Wa6.HandshakeMessage.ClientFinish
+             * @instance
+             */
+            Object.defineProperty(ClientFinish.prototype, "_payload", {
+                get: $util.oneOfGetter($oneOfFields = ["payload"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
 
             /**
              * Creates a new ClientFinish instance using the specified properties.
@@ -4782,12 +5957,17 @@ $root.Wa6 = (function() {
             ClientFinish.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message["static"] != null && message.hasOwnProperty("static"))
+                var properties = {};
+                if (message["static"] != null && message.hasOwnProperty("static")) {
+                    properties._static = 1;
                     if (!(message["static"] && typeof message["static"].length === "number" || $util.isString(message["static"])))
                         return "static: buffer expected";
-                if (message.payload != null && message.hasOwnProperty("payload"))
+                }
+                if (message.payload != null && message.hasOwnProperty("payload")) {
+                    properties._payload = 1;
                     if (!(message.payload && typeof message.payload.length === "number" || $util.isString(message.payload)))
                         return "payload: buffer expected";
+                }
                 return null;
             };
 
@@ -4829,26 +6009,16 @@ $root.Wa6 = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults) {
-                    if (options.bytes === String)
-                        object["static"] = "";
-                    else {
-                        object["static"] = [];
-                        if (options.bytes !== Array)
-                            object["static"] = $util.newBuffer(object["static"]);
-                    }
-                    if (options.bytes === String)
-                        object.payload = "";
-                    else {
-                        object.payload = [];
-                        if (options.bytes !== Array)
-                            object.payload = $util.newBuffer(object.payload);
-                    }
-                }
-                if (message["static"] != null && message.hasOwnProperty("static"))
+                if (message["static"] != null && message.hasOwnProperty("static")) {
                     object["static"] = options.bytes === String ? $util.base64.encode(message["static"], 0, message["static"].length) : options.bytes === Array ? Array.prototype.slice.call(message["static"]) : message["static"];
-                if (message.payload != null && message.hasOwnProperty("payload"))
+                    if (options.oneofs)
+                        object._static = "static";
+                }
+                if (message.payload != null && message.hasOwnProperty("payload")) {
                     object.payload = options.bytes === String ? $util.base64.encode(message.payload, 0, message.payload.length) : options.bytes === Array ? Array.prototype.slice.call(message.payload) : message.payload;
+                    if (options.oneofs)
+                        object._payload = "payload";
+                }
                 return object;
             };
 
@@ -4909,27 +6079,63 @@ $root.Wa6 = (function() {
 
             /**
              * ClientHello ephemeral.
-             * @member {Uint8Array} ephemeral
+             * @member {Uint8Array|null|undefined} ephemeral
              * @memberof Wa6.HandshakeMessage.ClientHello
              * @instance
              */
-            ClientHello.prototype.ephemeral = $util.newBuffer([]);
+            ClientHello.prototype.ephemeral = null;
 
             /**
              * ClientHello static.
-             * @member {Uint8Array} static
+             * @member {Uint8Array|null|undefined} static
              * @memberof Wa6.HandshakeMessage.ClientHello
              * @instance
              */
-            ClientHello.prototype["static"] = $util.newBuffer([]);
+            ClientHello.prototype["static"] = null;
 
             /**
              * ClientHello payload.
-             * @member {Uint8Array} payload
+             * @member {Uint8Array|null|undefined} payload
              * @memberof Wa6.HandshakeMessage.ClientHello
              * @instance
              */
-            ClientHello.prototype.payload = $util.newBuffer([]);
+            ClientHello.prototype.payload = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            /**
+             * ClientHello _ephemeral.
+             * @member {"ephemeral"|undefined} _ephemeral
+             * @memberof Wa6.HandshakeMessage.ClientHello
+             * @instance
+             */
+            Object.defineProperty(ClientHello.prototype, "_ephemeral", {
+                get: $util.oneOfGetter($oneOfFields = ["ephemeral"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * ClientHello _static.
+             * @member {"static"|undefined} _static
+             * @memberof Wa6.HandshakeMessage.ClientHello
+             * @instance
+             */
+            Object.defineProperty(ClientHello.prototype, "_static", {
+                get: $util.oneOfGetter($oneOfFields = ["static"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * ClientHello _payload.
+             * @member {"payload"|undefined} _payload
+             * @memberof Wa6.HandshakeMessage.ClientHello
+             * @instance
+             */
+            Object.defineProperty(ClientHello.prototype, "_payload", {
+                get: $util.oneOfGetter($oneOfFields = ["payload"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
 
             /**
              * Creates a new ClientHello instance using the specified properties.
@@ -5044,15 +6250,22 @@ $root.Wa6 = (function() {
             ClientHello.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.ephemeral != null && message.hasOwnProperty("ephemeral"))
+                var properties = {};
+                if (message.ephemeral != null && message.hasOwnProperty("ephemeral")) {
+                    properties._ephemeral = 1;
                     if (!(message.ephemeral && typeof message.ephemeral.length === "number" || $util.isString(message.ephemeral)))
                         return "ephemeral: buffer expected";
-                if (message["static"] != null && message.hasOwnProperty("static"))
+                }
+                if (message["static"] != null && message.hasOwnProperty("static")) {
+                    properties._static = 1;
                     if (!(message["static"] && typeof message["static"].length === "number" || $util.isString(message["static"])))
                         return "static: buffer expected";
-                if (message.payload != null && message.hasOwnProperty("payload"))
+                }
+                if (message.payload != null && message.hasOwnProperty("payload")) {
+                    properties._payload = 1;
                     if (!(message.payload && typeof message.payload.length === "number" || $util.isString(message.payload)))
                         return "payload: buffer expected";
+                }
                 return null;
             };
 
@@ -5099,35 +6312,21 @@ $root.Wa6 = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults) {
-                    if (options.bytes === String)
-                        object.ephemeral = "";
-                    else {
-                        object.ephemeral = [];
-                        if (options.bytes !== Array)
-                            object.ephemeral = $util.newBuffer(object.ephemeral);
-                    }
-                    if (options.bytes === String)
-                        object["static"] = "";
-                    else {
-                        object["static"] = [];
-                        if (options.bytes !== Array)
-                            object["static"] = $util.newBuffer(object["static"]);
-                    }
-                    if (options.bytes === String)
-                        object.payload = "";
-                    else {
-                        object.payload = [];
-                        if (options.bytes !== Array)
-                            object.payload = $util.newBuffer(object.payload);
-                    }
-                }
-                if (message.ephemeral != null && message.hasOwnProperty("ephemeral"))
+                if (message.ephemeral != null && message.hasOwnProperty("ephemeral")) {
                     object.ephemeral = options.bytes === String ? $util.base64.encode(message.ephemeral, 0, message.ephemeral.length) : options.bytes === Array ? Array.prototype.slice.call(message.ephemeral) : message.ephemeral;
-                if (message["static"] != null && message.hasOwnProperty("static"))
+                    if (options.oneofs)
+                        object._ephemeral = "ephemeral";
+                }
+                if (message["static"] != null && message.hasOwnProperty("static")) {
                     object["static"] = options.bytes === String ? $util.base64.encode(message["static"], 0, message["static"].length) : options.bytes === Array ? Array.prototype.slice.call(message["static"]) : message["static"];
-                if (message.payload != null && message.hasOwnProperty("payload"))
+                    if (options.oneofs)
+                        object._static = "static";
+                }
+                if (message.payload != null && message.hasOwnProperty("payload")) {
                     object.payload = options.bytes === String ? $util.base64.encode(message.payload, 0, message.payload.length) : options.bytes === Array ? Array.prototype.slice.call(message.payload) : message.payload;
+                    if (options.oneofs)
+                        object._payload = "payload";
+                }
                 return object;
             };
 
@@ -5188,27 +6387,63 @@ $root.Wa6 = (function() {
 
             /**
              * ServerHello ephemeral.
-             * @member {Uint8Array} ephemeral
+             * @member {Uint8Array|null|undefined} ephemeral
              * @memberof Wa6.HandshakeMessage.ServerHello
              * @instance
              */
-            ServerHello.prototype.ephemeral = $util.newBuffer([]);
+            ServerHello.prototype.ephemeral = null;
 
             /**
              * ServerHello static.
-             * @member {Uint8Array} static
+             * @member {Uint8Array|null|undefined} static
              * @memberof Wa6.HandshakeMessage.ServerHello
              * @instance
              */
-            ServerHello.prototype["static"] = $util.newBuffer([]);
+            ServerHello.prototype["static"] = null;
 
             /**
              * ServerHello payload.
-             * @member {Uint8Array} payload
+             * @member {Uint8Array|null|undefined} payload
              * @memberof Wa6.HandshakeMessage.ServerHello
              * @instance
              */
-            ServerHello.prototype.payload = $util.newBuffer([]);
+            ServerHello.prototype.payload = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            /**
+             * ServerHello _ephemeral.
+             * @member {"ephemeral"|undefined} _ephemeral
+             * @memberof Wa6.HandshakeMessage.ServerHello
+             * @instance
+             */
+            Object.defineProperty(ServerHello.prototype, "_ephemeral", {
+                get: $util.oneOfGetter($oneOfFields = ["ephemeral"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * ServerHello _static.
+             * @member {"static"|undefined} _static
+             * @memberof Wa6.HandshakeMessage.ServerHello
+             * @instance
+             */
+            Object.defineProperty(ServerHello.prototype, "_static", {
+                get: $util.oneOfGetter($oneOfFields = ["static"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * ServerHello _payload.
+             * @member {"payload"|undefined} _payload
+             * @memberof Wa6.HandshakeMessage.ServerHello
+             * @instance
+             */
+            Object.defineProperty(ServerHello.prototype, "_payload", {
+                get: $util.oneOfGetter($oneOfFields = ["payload"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
 
             /**
              * Creates a new ServerHello instance using the specified properties.
@@ -5323,15 +6558,22 @@ $root.Wa6 = (function() {
             ServerHello.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.ephemeral != null && message.hasOwnProperty("ephemeral"))
+                var properties = {};
+                if (message.ephemeral != null && message.hasOwnProperty("ephemeral")) {
+                    properties._ephemeral = 1;
                     if (!(message.ephemeral && typeof message.ephemeral.length === "number" || $util.isString(message.ephemeral)))
                         return "ephemeral: buffer expected";
-                if (message["static"] != null && message.hasOwnProperty("static"))
+                }
+                if (message["static"] != null && message.hasOwnProperty("static")) {
+                    properties._static = 1;
                     if (!(message["static"] && typeof message["static"].length === "number" || $util.isString(message["static"])))
                         return "static: buffer expected";
-                if (message.payload != null && message.hasOwnProperty("payload"))
+                }
+                if (message.payload != null && message.hasOwnProperty("payload")) {
+                    properties._payload = 1;
                     if (!(message.payload && typeof message.payload.length === "number" || $util.isString(message.payload)))
                         return "payload: buffer expected";
+                }
                 return null;
             };
 
@@ -5378,35 +6620,21 @@ $root.Wa6 = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults) {
-                    if (options.bytes === String)
-                        object.ephemeral = "";
-                    else {
-                        object.ephemeral = [];
-                        if (options.bytes !== Array)
-                            object.ephemeral = $util.newBuffer(object.ephemeral);
-                    }
-                    if (options.bytes === String)
-                        object["static"] = "";
-                    else {
-                        object["static"] = [];
-                        if (options.bytes !== Array)
-                            object["static"] = $util.newBuffer(object["static"]);
-                    }
-                    if (options.bytes === String)
-                        object.payload = "";
-                    else {
-                        object.payload = [];
-                        if (options.bytes !== Array)
-                            object.payload = $util.newBuffer(object.payload);
-                    }
-                }
-                if (message.ephemeral != null && message.hasOwnProperty("ephemeral"))
+                if (message.ephemeral != null && message.hasOwnProperty("ephemeral")) {
                     object.ephemeral = options.bytes === String ? $util.base64.encode(message.ephemeral, 0, message.ephemeral.length) : options.bytes === Array ? Array.prototype.slice.call(message.ephemeral) : message.ephemeral;
-                if (message["static"] != null && message.hasOwnProperty("static"))
+                    if (options.oneofs)
+                        object._ephemeral = "ephemeral";
+                }
+                if (message["static"] != null && message.hasOwnProperty("static")) {
                     object["static"] = options.bytes === String ? $util.base64.encode(message["static"], 0, message["static"].length) : options.bytes === Array ? Array.prototype.slice.call(message["static"]) : message["static"];
-                if (message.payload != null && message.hasOwnProperty("payload"))
+                    if (options.oneofs)
+                        object._static = "static";
+                }
+                if (message.payload != null && message.hasOwnProperty("payload")) {
                     object.payload = options.bytes === String ? $util.base64.encode(message.payload, 0, message.payload.length) : options.bytes === Array ? Array.prototype.slice.call(message.payload) : message.payload;
+                    if (options.oneofs)
+                        object._payload = "payload";
+                }
                 return object;
             };
 

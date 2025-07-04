@@ -49,35 +49,35 @@ $root.Reporting = (function() {
 
         /**
          * Field minVersion.
-         * @member {number} minVersion
+         * @member {number|null|undefined} minVersion
          * @memberof Reporting.Field
          * @instance
          */
-        Field.prototype.minVersion = 0;
+        Field.prototype.minVersion = null;
 
         /**
          * Field maxVersion.
-         * @member {number} maxVersion
+         * @member {number|null|undefined} maxVersion
          * @memberof Reporting.Field
          * @instance
          */
-        Field.prototype.maxVersion = 0;
+        Field.prototype.maxVersion = null;
 
         /**
          * Field notReportableMinVersion.
-         * @member {number} notReportableMinVersion
+         * @member {number|null|undefined} notReportableMinVersion
          * @memberof Reporting.Field
          * @instance
          */
-        Field.prototype.notReportableMinVersion = 0;
+        Field.prototype.notReportableMinVersion = null;
 
         /**
          * Field isMessage.
-         * @member {boolean} isMessage
+         * @member {boolean|null|undefined} isMessage
          * @memberof Reporting.Field
          * @instance
          */
-        Field.prototype.isMessage = false;
+        Field.prototype.isMessage = null;
 
         /**
          * Field subfield.
@@ -86,6 +86,53 @@ $root.Reporting = (function() {
          * @instance
          */
         Field.prototype.subfield = $util.emptyObject;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * Field _minVersion.
+         * @member {"minVersion"|undefined} _minVersion
+         * @memberof Reporting.Field
+         * @instance
+         */
+        Object.defineProperty(Field.prototype, "_minVersion", {
+            get: $util.oneOfGetter($oneOfFields = ["minVersion"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Field _maxVersion.
+         * @member {"maxVersion"|undefined} _maxVersion
+         * @memberof Reporting.Field
+         * @instance
+         */
+        Object.defineProperty(Field.prototype, "_maxVersion", {
+            get: $util.oneOfGetter($oneOfFields = ["maxVersion"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Field _notReportableMinVersion.
+         * @member {"notReportableMinVersion"|undefined} _notReportableMinVersion
+         * @memberof Reporting.Field
+         * @instance
+         */
+        Object.defineProperty(Field.prototype, "_notReportableMinVersion", {
+            get: $util.oneOfGetter($oneOfFields = ["notReportableMinVersion"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Field _isMessage.
+         * @member {"isMessage"|undefined} _isMessage
+         * @memberof Reporting.Field
+         * @instance
+         */
+        Object.defineProperty(Field.prototype, "_isMessage", {
+            get: $util.oneOfGetter($oneOfFields = ["isMessage"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new Field instance using the specified properties.
@@ -234,18 +281,27 @@ $root.Reporting = (function() {
         Field.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.minVersion != null && message.hasOwnProperty("minVersion"))
+            var properties = {};
+            if (message.minVersion != null && message.hasOwnProperty("minVersion")) {
+                properties._minVersion = 1;
                 if (!$util.isInteger(message.minVersion))
                     return "minVersion: integer expected";
-            if (message.maxVersion != null && message.hasOwnProperty("maxVersion"))
+            }
+            if (message.maxVersion != null && message.hasOwnProperty("maxVersion")) {
+                properties._maxVersion = 1;
                 if (!$util.isInteger(message.maxVersion))
                     return "maxVersion: integer expected";
-            if (message.notReportableMinVersion != null && message.hasOwnProperty("notReportableMinVersion"))
+            }
+            if (message.notReportableMinVersion != null && message.hasOwnProperty("notReportableMinVersion")) {
+                properties._notReportableMinVersion = 1;
                 if (!$util.isInteger(message.notReportableMinVersion))
                     return "notReportableMinVersion: integer expected";
-            if (message.isMessage != null && message.hasOwnProperty("isMessage"))
+            }
+            if (message.isMessage != null && message.hasOwnProperty("isMessage")) {
+                properties._isMessage = 1;
                 if (typeof message.isMessage !== "boolean")
                     return "isMessage: boolean expected";
+            }
             if (message.subfield != null && message.hasOwnProperty("subfield")) {
                 if (!$util.isObject(message.subfield))
                     return "subfield: object expected";
@@ -311,20 +367,26 @@ $root.Reporting = (function() {
             var object = {};
             if (options.objects || options.defaults)
                 object.subfield = {};
-            if (options.defaults) {
-                object.minVersion = 0;
-                object.maxVersion = 0;
-                object.notReportableMinVersion = 0;
-                object.isMessage = false;
-            }
-            if (message.minVersion != null && message.hasOwnProperty("minVersion"))
+            if (message.minVersion != null && message.hasOwnProperty("minVersion")) {
                 object.minVersion = message.minVersion;
-            if (message.maxVersion != null && message.hasOwnProperty("maxVersion"))
+                if (options.oneofs)
+                    object._minVersion = "minVersion";
+            }
+            if (message.maxVersion != null && message.hasOwnProperty("maxVersion")) {
                 object.maxVersion = message.maxVersion;
-            if (message.notReportableMinVersion != null && message.hasOwnProperty("notReportableMinVersion"))
+                if (options.oneofs)
+                    object._maxVersion = "maxVersion";
+            }
+            if (message.notReportableMinVersion != null && message.hasOwnProperty("notReportableMinVersion")) {
                 object.notReportableMinVersion = message.notReportableMinVersion;
-            if (message.isMessage != null && message.hasOwnProperty("isMessage"))
+                if (options.oneofs)
+                    object._notReportableMinVersion = "notReportableMinVersion";
+            }
+            if (message.isMessage != null && message.hasOwnProperty("isMessage")) {
                 object.isMessage = message.isMessage;
+                if (options.oneofs)
+                    object._isMessage = "isMessage";
+            }
             var keys2;
             if (message.subfield && (keys2 = Object.keys(message.subfield)).length) {
                 object.subfield = {};
@@ -399,11 +461,25 @@ $root.Reporting = (function() {
 
         /**
          * Config version.
-         * @member {number} version
+         * @member {number|null|undefined} version
          * @memberof Reporting.Config
          * @instance
          */
-        Config.prototype.version = 0;
+        Config.prototype.version = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * Config _version.
+         * @member {"version"|undefined} _version
+         * @memberof Reporting.Config
+         * @instance
+         */
+        Object.defineProperty(Config.prototype, "_version", {
+            get: $util.oneOfGetter($oneOfFields = ["version"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new Config instance using the specified properties.
@@ -534,6 +610,7 @@ $root.Reporting = (function() {
         Config.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            var properties = {};
             if (message.field != null && message.hasOwnProperty("field")) {
                 if (!$util.isObject(message.field))
                     return "field: object expected";
@@ -548,9 +625,11 @@ $root.Reporting = (function() {
                     }
                 }
             }
-            if (message.version != null && message.hasOwnProperty("version"))
+            if (message.version != null && message.hasOwnProperty("version")) {
+                properties._version = 1;
                 if (!$util.isInteger(message.version))
                     return "version: integer expected";
+            }
             return null;
         };
 
@@ -596,16 +675,17 @@ $root.Reporting = (function() {
             var object = {};
             if (options.objects || options.defaults)
                 object.field = {};
-            if (options.defaults)
-                object.version = 0;
             var keys2;
             if (message.field && (keys2 = Object.keys(message.field)).length) {
                 object.field = {};
                 for (var j = 0; j < keys2.length; ++j)
                     object.field[keys2[j]] = $root.Reporting.Field.toObject(message.field[keys2[j]], options);
             }
-            if (message.version != null && message.hasOwnProperty("version"))
+            if (message.version != null && message.hasOwnProperty("version")) {
                 object.version = message.version;
+                if (options.oneofs)
+                    object._version = "version";
+            }
             return object;
         };
 
@@ -667,35 +747,82 @@ $root.Reporting = (function() {
 
         /**
          * Reportable minVersion.
-         * @member {number} minVersion
+         * @member {number|null|undefined} minVersion
          * @memberof Reporting.Reportable
          * @instance
          */
-        Reportable.prototype.minVersion = 0;
+        Reportable.prototype.minVersion = null;
 
         /**
          * Reportable maxVersion.
-         * @member {number} maxVersion
+         * @member {number|null|undefined} maxVersion
          * @memberof Reporting.Reportable
          * @instance
          */
-        Reportable.prototype.maxVersion = 0;
+        Reportable.prototype.maxVersion = null;
 
         /**
          * Reportable notReportableMinVersion.
-         * @member {number} notReportableMinVersion
+         * @member {number|null|undefined} notReportableMinVersion
          * @memberof Reporting.Reportable
          * @instance
          */
-        Reportable.prototype.notReportableMinVersion = 0;
+        Reportable.prototype.notReportableMinVersion = null;
 
         /**
          * Reportable never.
-         * @member {boolean} never
+         * @member {boolean|null|undefined} never
          * @memberof Reporting.Reportable
          * @instance
          */
-        Reportable.prototype.never = false;
+        Reportable.prototype.never = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * Reportable _minVersion.
+         * @member {"minVersion"|undefined} _minVersion
+         * @memberof Reporting.Reportable
+         * @instance
+         */
+        Object.defineProperty(Reportable.prototype, "_minVersion", {
+            get: $util.oneOfGetter($oneOfFields = ["minVersion"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Reportable _maxVersion.
+         * @member {"maxVersion"|undefined} _maxVersion
+         * @memberof Reporting.Reportable
+         * @instance
+         */
+        Object.defineProperty(Reportable.prototype, "_maxVersion", {
+            get: $util.oneOfGetter($oneOfFields = ["maxVersion"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Reportable _notReportableMinVersion.
+         * @member {"notReportableMinVersion"|undefined} _notReportableMinVersion
+         * @memberof Reporting.Reportable
+         * @instance
+         */
+        Object.defineProperty(Reportable.prototype, "_notReportableMinVersion", {
+            get: $util.oneOfGetter($oneOfFields = ["notReportableMinVersion"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Reportable _never.
+         * @member {"never"|undefined} _never
+         * @memberof Reporting.Reportable
+         * @instance
+         */
+        Object.defineProperty(Reportable.prototype, "_never", {
+            get: $util.oneOfGetter($oneOfFields = ["never"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new Reportable instance using the specified properties.
@@ -816,18 +943,27 @@ $root.Reporting = (function() {
         Reportable.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.minVersion != null && message.hasOwnProperty("minVersion"))
+            var properties = {};
+            if (message.minVersion != null && message.hasOwnProperty("minVersion")) {
+                properties._minVersion = 1;
                 if (!$util.isInteger(message.minVersion))
                     return "minVersion: integer expected";
-            if (message.maxVersion != null && message.hasOwnProperty("maxVersion"))
+            }
+            if (message.maxVersion != null && message.hasOwnProperty("maxVersion")) {
+                properties._maxVersion = 1;
                 if (!$util.isInteger(message.maxVersion))
                     return "maxVersion: integer expected";
-            if (message.notReportableMinVersion != null && message.hasOwnProperty("notReportableMinVersion"))
+            }
+            if (message.notReportableMinVersion != null && message.hasOwnProperty("notReportableMinVersion")) {
+                properties._notReportableMinVersion = 1;
                 if (!$util.isInteger(message.notReportableMinVersion))
                     return "notReportableMinVersion: integer expected";
-            if (message.never != null && message.hasOwnProperty("never"))
+            }
+            if (message.never != null && message.hasOwnProperty("never")) {
+                properties._never = 1;
                 if (typeof message.never !== "boolean")
                     return "never: boolean expected";
+            }
             return null;
         };
 
@@ -867,20 +1003,26 @@ $root.Reporting = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults) {
-                object.minVersion = 0;
-                object.maxVersion = 0;
-                object.notReportableMinVersion = 0;
-                object.never = false;
-            }
-            if (message.minVersion != null && message.hasOwnProperty("minVersion"))
+            if (message.minVersion != null && message.hasOwnProperty("minVersion")) {
                 object.minVersion = message.minVersion;
-            if (message.maxVersion != null && message.hasOwnProperty("maxVersion"))
+                if (options.oneofs)
+                    object._minVersion = "minVersion";
+            }
+            if (message.maxVersion != null && message.hasOwnProperty("maxVersion")) {
                 object.maxVersion = message.maxVersion;
-            if (message.notReportableMinVersion != null && message.hasOwnProperty("notReportableMinVersion"))
+                if (options.oneofs)
+                    object._maxVersion = "maxVersion";
+            }
+            if (message.notReportableMinVersion != null && message.hasOwnProperty("notReportableMinVersion")) {
                 object.notReportableMinVersion = message.notReportableMinVersion;
-            if (message.never != null && message.hasOwnProperty("never"))
+                if (options.oneofs)
+                    object._notReportableMinVersion = "notReportableMinVersion";
+            }
+            if (message.never != null && message.hasOwnProperty("never")) {
                 object.never = message.never;
+                if (options.oneofs)
+                    object._never = "never";
+            }
             return object;
         };
 

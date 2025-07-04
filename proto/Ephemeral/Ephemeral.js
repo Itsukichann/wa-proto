@@ -45,19 +45,44 @@ $root.Ephemeral = (function() {
 
         /**
          * EphemeralSetting duration.
-         * @member {number} duration
+         * @member {number|null|undefined} duration
          * @memberof Ephemeral.EphemeralSetting
          * @instance
          */
-        EphemeralSetting.prototype.duration = 0;
+        EphemeralSetting.prototype.duration = null;
 
         /**
          * EphemeralSetting timestamp.
-         * @member {number|Long} timestamp
+         * @member {number|Long|null|undefined} timestamp
          * @memberof Ephemeral.EphemeralSetting
          * @instance
          */
-        EphemeralSetting.prototype.timestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+        EphemeralSetting.prototype.timestamp = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * EphemeralSetting _duration.
+         * @member {"duration"|undefined} _duration
+         * @memberof Ephemeral.EphemeralSetting
+         * @instance
+         */
+        Object.defineProperty(EphemeralSetting.prototype, "_duration", {
+            get: $util.oneOfGetter($oneOfFields = ["duration"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * EphemeralSetting _timestamp.
+         * @member {"timestamp"|undefined} _timestamp
+         * @memberof Ephemeral.EphemeralSetting
+         * @instance
+         */
+        Object.defineProperty(EphemeralSetting.prototype, "_timestamp", {
+            get: $util.oneOfGetter($oneOfFields = ["timestamp"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new EphemeralSetting instance using the specified properties.
@@ -166,12 +191,17 @@ $root.Ephemeral = (function() {
         EphemeralSetting.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.duration != null && message.hasOwnProperty("duration"))
+            var properties = {};
+            if (message.duration != null && message.hasOwnProperty("duration")) {
+                properties._duration = 1;
                 if (!$util.isInteger(message.duration))
                     return "duration: integer expected";
-            if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+            }
+            if (message.timestamp != null && message.hasOwnProperty("timestamp")) {
+                properties._timestamp = 1;
                 if (!$util.isInteger(message.timestamp) && !(message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high)))
                     return "timestamp: integer|Long expected";
+            }
             return null;
         };
 
@@ -214,21 +244,19 @@ $root.Ephemeral = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults) {
-                object.duration = 0;
-                if ($util.Long) {
-                    var long = new $util.Long(0, 0, false);
-                    object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                } else
-                    object.timestamp = options.longs === String ? "0" : 0;
-            }
-            if (message.duration != null && message.hasOwnProperty("duration"))
+            if (message.duration != null && message.hasOwnProperty("duration")) {
                 object.duration = message.duration;
-            if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                if (options.oneofs)
+                    object._duration = "duration";
+            }
+            if (message.timestamp != null && message.hasOwnProperty("timestamp")) {
                 if (typeof message.timestamp === "number")
                     object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
                 else
                     object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp;
+                if (options.oneofs)
+                    object._timestamp = "timestamp";
+            }
             return object;
         };
 

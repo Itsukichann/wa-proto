@@ -35,10 +35,10 @@ export namespace StatusAttributions {
         constructor(properties?: StatusAttributions.IStatusAttribution);
 
         /** StatusAttribution type. */
-        public type: StatusAttributions.StatusAttribution.Type;
+        public type?: (StatusAttributions.StatusAttribution.Type|null);
 
         /** StatusAttribution actionUrl. */
-        public actionUrl: string;
+        public actionUrl?: (string|null);
 
         /** StatusAttribution statusReshare. */
         public statusReshare?: (StatusAttributions.StatusAttribution.IStatusReshare|null);
@@ -51,6 +51,12 @@ export namespace StatusAttributions {
 
         /** StatusAttribution groupStatus. */
         public groupStatus?: (StatusAttributions.StatusAttribution.IGroupStatus|null);
+
+        /** StatusAttribution _type. */
+        public _type?: "type";
+
+        /** StatusAttribution _actionUrl. */
+        public _actionUrl?: "actionUrl";
 
         /** StatusAttribution attributionData. */
         public attributionData?: ("statusReshare"|"externalShare"|"music"|"groupStatus");
@@ -161,16 +167,28 @@ export namespace StatusAttributions {
             constructor(properties?: StatusAttributions.StatusAttribution.IExternalShare);
 
             /** ExternalShare actionUrl. */
-            public actionUrl: string;
+            public actionUrl?: (string|null);
 
             /** ExternalShare source. */
-            public source: StatusAttributions.StatusAttribution.ExternalShare.Source;
+            public source?: (StatusAttributions.StatusAttribution.ExternalShare.Source|null);
 
             /** ExternalShare duration. */
-            public duration: number;
+            public duration?: (number|null);
 
             /** ExternalShare actionFallbackUrl. */
-            public actionFallbackUrl: string;
+            public actionFallbackUrl?: (string|null);
+
+            /** ExternalShare _actionUrl. */
+            public _actionUrl?: "actionUrl";
+
+            /** ExternalShare _source. */
+            public _source?: "source";
+
+            /** ExternalShare _duration. */
+            public _duration?: "duration";
+
+            /** ExternalShare _actionFallbackUrl. */
+            public _actionFallbackUrl?: "actionFallbackUrl";
 
             /**
              * Creates a new ExternalShare instance using the specified properties.
@@ -281,7 +299,10 @@ export namespace StatusAttributions {
             constructor(properties?: StatusAttributions.StatusAttribution.IGroupStatus);
 
             /** GroupStatus authorJid. */
-            public authorJid: string;
+            public authorJid?: (string|null);
+
+            /** GroupStatus _authorJid. */
+            public _authorJid?: "authorJid";
 
             /**
              * Creates a new GroupStatus instance using the specified properties.
@@ -393,22 +414,40 @@ export namespace StatusAttributions {
             constructor(properties?: StatusAttributions.StatusAttribution.IMusic);
 
             /** Music authorName. */
-            public authorName: string;
+            public authorName?: (string|null);
 
             /** Music songId. */
-            public songId: string;
+            public songId?: (string|null);
 
             /** Music title. */
-            public title: string;
+            public title?: (string|null);
 
             /** Music author. */
-            public author: string;
+            public author?: (string|null);
 
             /** Music artistAttribution. */
-            public artistAttribution: string;
+            public artistAttribution?: (string|null);
 
             /** Music isExplicit. */
-            public isExplicit: boolean;
+            public isExplicit?: (boolean|null);
+
+            /** Music _authorName. */
+            public _authorName?: "authorName";
+
+            /** Music _songId. */
+            public _songId?: "songId";
+
+            /** Music _title. */
+            public _title?: "title";
+
+            /** Music _author. */
+            public _author?: "author";
+
+            /** Music _artistAttribution. */
+            public _artistAttribution?: "artistAttribution";
+
+            /** Music _isExplicit. */
+            public _isExplicit?: "isExplicit";
 
             /**
              * Creates a new Music instance using the specified properties.
@@ -508,10 +547,16 @@ export namespace StatusAttributions {
             constructor(properties?: StatusAttributions.StatusAttribution.IStatusReshare);
 
             /** StatusReshare source. */
-            public source: StatusAttributions.StatusAttribution.StatusReshare.Source;
+            public source?: (StatusAttributions.StatusAttribution.StatusReshare.Source|null);
 
             /** StatusReshare metadata. */
             public metadata?: (StatusAttributions.StatusAttribution.StatusReshare.IMetadata|null);
+
+            /** StatusReshare _source. */
+            public _source?: "source";
+
+            /** StatusReshare _metadata. */
+            public _metadata?: "metadata";
 
             /**
              * Creates a new StatusReshare instance using the specified properties.
@@ -619,16 +664,28 @@ export namespace StatusAttributions {
                 constructor(properties?: StatusAttributions.StatusAttribution.StatusReshare.IMetadata);
 
                 /** Metadata duration. */
-                public duration: number;
+                public duration?: (number|null);
 
                 /** Metadata channelJid. */
-                public channelJid: string;
+                public channelJid?: (string|null);
 
                 /** Metadata channelMessageId. */
-                public channelMessageId: number;
+                public channelMessageId?: (number|null);
 
                 /** Metadata hasMultipleReshares. */
-                public hasMultipleReshares: boolean;
+                public hasMultipleReshares?: (boolean|null);
+
+                /** Metadata _duration. */
+                public _duration?: "duration";
+
+                /** Metadata _channelJid. */
+                public _channelJid?: "channelJid";
+
+                /** Metadata _channelMessageId. */
+                public _channelMessageId?: "channelMessageId";
+
+                /** Metadata _hasMultipleReshares. */
+                public _hasMultipleReshares?: "hasMultipleReshares";
 
                 /**
                  * Creates a new Metadata instance using the specified properties.

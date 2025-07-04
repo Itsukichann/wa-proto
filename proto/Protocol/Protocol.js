@@ -47,35 +47,82 @@ $root.Protocol = (function() {
 
         /**
          * LimitSharing sharingLimited.
-         * @member {boolean} sharingLimited
+         * @member {boolean|null|undefined} sharingLimited
          * @memberof Protocol.LimitSharing
          * @instance
          */
-        LimitSharing.prototype.sharingLimited = false;
+        LimitSharing.prototype.sharingLimited = null;
 
         /**
          * LimitSharing trigger.
-         * @member {Protocol.LimitSharing.TriggerType} trigger
+         * @member {Protocol.LimitSharing.TriggerType|null|undefined} trigger
          * @memberof Protocol.LimitSharing
          * @instance
          */
-        LimitSharing.prototype.trigger = 0;
+        LimitSharing.prototype.trigger = null;
 
         /**
          * LimitSharing limitSharingSettingTimestamp.
-         * @member {number|Long} limitSharingSettingTimestamp
+         * @member {number|Long|null|undefined} limitSharingSettingTimestamp
          * @memberof Protocol.LimitSharing
          * @instance
          */
-        LimitSharing.prototype.limitSharingSettingTimestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+        LimitSharing.prototype.limitSharingSettingTimestamp = null;
 
         /**
          * LimitSharing initiatedByMe.
-         * @member {boolean} initiatedByMe
+         * @member {boolean|null|undefined} initiatedByMe
          * @memberof Protocol.LimitSharing
          * @instance
          */
-        LimitSharing.prototype.initiatedByMe = false;
+        LimitSharing.prototype.initiatedByMe = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * LimitSharing _sharingLimited.
+         * @member {"sharingLimited"|undefined} _sharingLimited
+         * @memberof Protocol.LimitSharing
+         * @instance
+         */
+        Object.defineProperty(LimitSharing.prototype, "_sharingLimited", {
+            get: $util.oneOfGetter($oneOfFields = ["sharingLimited"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * LimitSharing _trigger.
+         * @member {"trigger"|undefined} _trigger
+         * @memberof Protocol.LimitSharing
+         * @instance
+         */
+        Object.defineProperty(LimitSharing.prototype, "_trigger", {
+            get: $util.oneOfGetter($oneOfFields = ["trigger"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * LimitSharing _limitSharingSettingTimestamp.
+         * @member {"limitSharingSettingTimestamp"|undefined} _limitSharingSettingTimestamp
+         * @memberof Protocol.LimitSharing
+         * @instance
+         */
+        Object.defineProperty(LimitSharing.prototype, "_limitSharingSettingTimestamp", {
+            get: $util.oneOfGetter($oneOfFields = ["limitSharingSettingTimestamp"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * LimitSharing _initiatedByMe.
+         * @member {"initiatedByMe"|undefined} _initiatedByMe
+         * @memberof Protocol.LimitSharing
+         * @instance
+         */
+        Object.defineProperty(LimitSharing.prototype, "_initiatedByMe", {
+            get: $util.oneOfGetter($oneOfFields = ["initiatedByMe"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new LimitSharing instance using the specified properties.
@@ -196,10 +243,14 @@ $root.Protocol = (function() {
         LimitSharing.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.sharingLimited != null && message.hasOwnProperty("sharingLimited"))
+            var properties = {};
+            if (message.sharingLimited != null && message.hasOwnProperty("sharingLimited")) {
+                properties._sharingLimited = 1;
                 if (typeof message.sharingLimited !== "boolean")
                     return "sharingLimited: boolean expected";
-            if (message.trigger != null && message.hasOwnProperty("trigger"))
+            }
+            if (message.trigger != null && message.hasOwnProperty("trigger")) {
+                properties._trigger = 1;
                 switch (message.trigger) {
                 default:
                     return "trigger: enum value expected";
@@ -209,12 +260,17 @@ $root.Protocol = (function() {
                 case 3:
                     break;
                 }
-            if (message.limitSharingSettingTimestamp != null && message.hasOwnProperty("limitSharingSettingTimestamp"))
+            }
+            if (message.limitSharingSettingTimestamp != null && message.hasOwnProperty("limitSharingSettingTimestamp")) {
+                properties._limitSharingSettingTimestamp = 1;
                 if (!$util.isInteger(message.limitSharingSettingTimestamp) && !(message.limitSharingSettingTimestamp && $util.isInteger(message.limitSharingSettingTimestamp.low) && $util.isInteger(message.limitSharingSettingTimestamp.high)))
                     return "limitSharingSettingTimestamp: integer|Long expected";
-            if (message.initiatedByMe != null && message.hasOwnProperty("initiatedByMe"))
+            }
+            if (message.initiatedByMe != null && message.hasOwnProperty("initiatedByMe")) {
+                properties._initiatedByMe = 1;
                 if (typeof message.initiatedByMe !== "boolean")
                     return "initiatedByMe: boolean expected";
+            }
             return null;
         };
 
@@ -283,27 +339,29 @@ $root.Protocol = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults) {
-                object.sharingLimited = false;
-                object.trigger = options.enums === String ? "UNKNOWN" : 0;
-                if ($util.Long) {
-                    var long = new $util.Long(0, 0, false);
-                    object.limitSharingSettingTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                } else
-                    object.limitSharingSettingTimestamp = options.longs === String ? "0" : 0;
-                object.initiatedByMe = false;
-            }
-            if (message.sharingLimited != null && message.hasOwnProperty("sharingLimited"))
+            if (message.sharingLimited != null && message.hasOwnProperty("sharingLimited")) {
                 object.sharingLimited = message.sharingLimited;
-            if (message.trigger != null && message.hasOwnProperty("trigger"))
+                if (options.oneofs)
+                    object._sharingLimited = "sharingLimited";
+            }
+            if (message.trigger != null && message.hasOwnProperty("trigger")) {
                 object.trigger = options.enums === String ? $root.Protocol.LimitSharing.TriggerType[message.trigger] === undefined ? message.trigger : $root.Protocol.LimitSharing.TriggerType[message.trigger] : message.trigger;
-            if (message.limitSharingSettingTimestamp != null && message.hasOwnProperty("limitSharingSettingTimestamp"))
+                if (options.oneofs)
+                    object._trigger = "trigger";
+            }
+            if (message.limitSharingSettingTimestamp != null && message.hasOwnProperty("limitSharingSettingTimestamp")) {
                 if (typeof message.limitSharingSettingTimestamp === "number")
                     object.limitSharingSettingTimestamp = options.longs === String ? String(message.limitSharingSettingTimestamp) : message.limitSharingSettingTimestamp;
                 else
                     object.limitSharingSettingTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.limitSharingSettingTimestamp) : options.longs === Number ? new $util.LongBits(message.limitSharingSettingTimestamp.low >>> 0, message.limitSharingSettingTimestamp.high >>> 0).toNumber() : message.limitSharingSettingTimestamp;
-            if (message.initiatedByMe != null && message.hasOwnProperty("initiatedByMe"))
+                if (options.oneofs)
+                    object._limitSharingSettingTimestamp = "limitSharingSettingTimestamp";
+            }
+            if (message.initiatedByMe != null && message.hasOwnProperty("initiatedByMe")) {
                 object.initiatedByMe = message.initiatedByMe;
+                if (options.oneofs)
+                    object._initiatedByMe = "initiatedByMe";
+            }
             return object;
         };
 
@@ -383,35 +441,82 @@ $root.Protocol = (function() {
 
         /**
          * MessageKey remoteJid.
-         * @member {string} remoteJid
+         * @member {string|null|undefined} remoteJid
          * @memberof Protocol.MessageKey
          * @instance
          */
-        MessageKey.prototype.remoteJid = "";
+        MessageKey.prototype.remoteJid = null;
 
         /**
          * MessageKey fromMe.
-         * @member {boolean} fromMe
+         * @member {boolean|null|undefined} fromMe
          * @memberof Protocol.MessageKey
          * @instance
          */
-        MessageKey.prototype.fromMe = false;
+        MessageKey.prototype.fromMe = null;
 
         /**
          * MessageKey id.
-         * @member {string} id
+         * @member {string|null|undefined} id
          * @memberof Protocol.MessageKey
          * @instance
          */
-        MessageKey.prototype.id = "";
+        MessageKey.prototype.id = null;
 
         /**
          * MessageKey participant.
-         * @member {string} participant
+         * @member {string|null|undefined} participant
          * @memberof Protocol.MessageKey
          * @instance
          */
-        MessageKey.prototype.participant = "";
+        MessageKey.prototype.participant = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * MessageKey _remoteJid.
+         * @member {"remoteJid"|undefined} _remoteJid
+         * @memberof Protocol.MessageKey
+         * @instance
+         */
+        Object.defineProperty(MessageKey.prototype, "_remoteJid", {
+            get: $util.oneOfGetter($oneOfFields = ["remoteJid"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * MessageKey _fromMe.
+         * @member {"fromMe"|undefined} _fromMe
+         * @memberof Protocol.MessageKey
+         * @instance
+         */
+        Object.defineProperty(MessageKey.prototype, "_fromMe", {
+            get: $util.oneOfGetter($oneOfFields = ["fromMe"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * MessageKey _id.
+         * @member {"id"|undefined} _id
+         * @memberof Protocol.MessageKey
+         * @instance
+         */
+        Object.defineProperty(MessageKey.prototype, "_id", {
+            get: $util.oneOfGetter($oneOfFields = ["id"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * MessageKey _participant.
+         * @member {"participant"|undefined} _participant
+         * @memberof Protocol.MessageKey
+         * @instance
+         */
+        Object.defineProperty(MessageKey.prototype, "_participant", {
+            get: $util.oneOfGetter($oneOfFields = ["participant"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new MessageKey instance using the specified properties.
@@ -532,18 +637,27 @@ $root.Protocol = (function() {
         MessageKey.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.remoteJid != null && message.hasOwnProperty("remoteJid"))
+            var properties = {};
+            if (message.remoteJid != null && message.hasOwnProperty("remoteJid")) {
+                properties._remoteJid = 1;
                 if (!$util.isString(message.remoteJid))
                     return "remoteJid: string expected";
-            if (message.fromMe != null && message.hasOwnProperty("fromMe"))
+            }
+            if (message.fromMe != null && message.hasOwnProperty("fromMe")) {
+                properties._fromMe = 1;
                 if (typeof message.fromMe !== "boolean")
                     return "fromMe: boolean expected";
-            if (message.id != null && message.hasOwnProperty("id"))
+            }
+            if (message.id != null && message.hasOwnProperty("id")) {
+                properties._id = 1;
                 if (!$util.isString(message.id))
                     return "id: string expected";
-            if (message.participant != null && message.hasOwnProperty("participant"))
+            }
+            if (message.participant != null && message.hasOwnProperty("participant")) {
+                properties._participant = 1;
                 if (!$util.isString(message.participant))
                     return "participant: string expected";
+            }
             return null;
         };
 
@@ -583,20 +697,26 @@ $root.Protocol = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults) {
-                object.remoteJid = "";
-                object.fromMe = false;
-                object.id = "";
-                object.participant = "";
-            }
-            if (message.remoteJid != null && message.hasOwnProperty("remoteJid"))
+            if (message.remoteJid != null && message.hasOwnProperty("remoteJid")) {
                 object.remoteJid = message.remoteJid;
-            if (message.fromMe != null && message.hasOwnProperty("fromMe"))
+                if (options.oneofs)
+                    object._remoteJid = "remoteJid";
+            }
+            if (message.fromMe != null && message.hasOwnProperty("fromMe")) {
                 object.fromMe = message.fromMe;
-            if (message.id != null && message.hasOwnProperty("id"))
+                if (options.oneofs)
+                    object._fromMe = "fromMe";
+            }
+            if (message.id != null && message.hasOwnProperty("id")) {
                 object.id = message.id;
-            if (message.participant != null && message.hasOwnProperty("participant"))
+                if (options.oneofs)
+                    object._id = "id";
+            }
+            if (message.participant != null && message.hasOwnProperty("participant")) {
                 object.participant = message.participant;
+                if (options.oneofs)
+                    object._participant = "participant";
+            }
             return object;
         };
 
