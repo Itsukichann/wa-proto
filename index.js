@@ -609,7 +609,7 @@ async function findAppModules() {
          .map((proto) => `import "../${proto}/${proto}.proto";`)
          .join('\n')
          .trim();
-      const decodedProtoStr = `syntax = "proto3";\npackage ${protoName};\n\n${
+      const decodedProtoStr = `syntax = "proto2";\npackage ${protoName};\n\n${
          imports ? imports + '\n\n' : ''
       }${decodedProto.join('\n\n')}`;
       const destinationPath = dirName + '/' + protoName + '.proto';
