@@ -26,13 +26,22 @@ export namespace CompanionReg {
         constructor(properties?: CompanionReg.IClientPairingProps);
 
         /** ClientPairingProps isChatDbLidMigrated. */
-        public isChatDbLidMigrated: boolean;
+        public isChatDbLidMigrated?: (boolean|null);
 
         /** ClientPairingProps isSyncdPureLidSession. */
-        public isSyncdPureLidSession: boolean;
+        public isSyncdPureLidSession?: (boolean|null);
 
         /** ClientPairingProps isSyncdSnapshotRecoveryEnabled. */
-        public isSyncdSnapshotRecoveryEnabled: boolean;
+        public isSyncdSnapshotRecoveryEnabled?: (boolean|null);
+
+        /** ClientPairingProps _isChatDbLidMigrated. */
+        public _isChatDbLidMigrated?: "isChatDbLidMigrated";
+
+        /** ClientPairingProps _isSyncdPureLidSession. */
+        public _isSyncdPureLidSession?: "isSyncdPureLidSession";
+
+        /** ClientPairingProps _isSyncdSnapshotRecoveryEnabled. */
+        public _isSyncdSnapshotRecoveryEnabled?: "isSyncdSnapshotRecoveryEnabled";
 
         /**
          * Creates a new ClientPairingProps instance using the specified properties.
@@ -132,10 +141,16 @@ export namespace CompanionReg {
         constructor(properties?: CompanionReg.IEncryptedPairingRequest);
 
         /** EncryptedPairingRequest encryptedPayload. */
-        public encryptedPayload: Uint8Array;
+        public encryptedPayload?: (Uint8Array|null);
 
         /** EncryptedPairingRequest iv. */
-        public iv: Uint8Array;
+        public iv?: (Uint8Array|null);
+
+        /** EncryptedPairingRequest _encryptedPayload. */
+        public _encryptedPayload?: "encryptedPayload";
+
+        /** EncryptedPairingRequest _iv. */
+        public _iv?: "iv";
 
         /**
          * Creates a new EncryptedPairingRequest instance using the specified properties.
@@ -238,13 +253,22 @@ export namespace CompanionReg {
         constructor(properties?: CompanionReg.IPairingRequest);
 
         /** PairingRequest companionPublicKey. */
-        public companionPublicKey: Uint8Array;
+        public companionPublicKey?: (Uint8Array|null);
 
         /** PairingRequest companionIdentityKey. */
-        public companionIdentityKey: Uint8Array;
+        public companionIdentityKey?: (Uint8Array|null);
 
         /** PairingRequest advSecret. */
-        public advSecret: Uint8Array;
+        public advSecret?: (Uint8Array|null);
+
+        /** PairingRequest _companionPublicKey. */
+        public _companionPublicKey?: "companionPublicKey";
+
+        /** PairingRequest _companionIdentityKey. */
+        public _companionIdentityKey?: "companionIdentityKey";
+
+        /** PairingRequest _advSecret. */
+        public _advSecret?: "advSecret";
 
         /**
          * Creates a new PairingRequest instance using the specified properties.
@@ -344,10 +368,16 @@ export namespace CompanionReg {
         constructor(properties?: CompanionReg.IPrimaryEphemeralIdentity);
 
         /** PrimaryEphemeralIdentity publicKey. */
-        public publicKey: Uint8Array;
+        public publicKey?: (Uint8Array|null);
 
         /** PrimaryEphemeralIdentity nonce. */
-        public nonce: Uint8Array;
+        public nonce?: (Uint8Array|null);
+
+        /** PrimaryEphemeralIdentity _publicKey. */
+        public _publicKey?: "publicKey";
+
+        /** PrimaryEphemeralIdentity _nonce. */
+        public _nonce?: "nonce";
 
         /**
          * Creates a new PrimaryEphemeralIdentity instance using the specified properties.
@@ -447,10 +477,16 @@ export namespace CompanionReg {
         constructor(properties?: CompanionReg.IProloguePayload);
 
         /** ProloguePayload companionEphemeralIdentity. */
-        public companionEphemeralIdentity: Uint8Array;
+        public companionEphemeralIdentity?: (Uint8Array|null);
 
         /** ProloguePayload commitment. */
         public commitment?: (CompanionReg.ICompanionCommitment|null);
+
+        /** ProloguePayload _companionEphemeralIdentity. */
+        public _companionEphemeralIdentity?: "companionEphemeralIdentity";
+
+        /** ProloguePayload _commitment. */
+        public _commitment?: "commitment";
 
         /**
          * Creates a new ProloguePayload instance using the specified properties.
@@ -547,7 +583,10 @@ export namespace CompanionReg {
         constructor(properties?: CompanionReg.ICompanionCommitment);
 
         /** CompanionCommitment hash. */
-        public hash: Uint8Array;
+        public hash?: (Uint8Array|null);
+
+        /** CompanionCommitment _hash. */
+        public _hash?: "hash";
 
         /**
          * Creates a new CompanionCommitment instance using the specified properties.
@@ -650,13 +689,22 @@ export namespace CompanionReg {
         constructor(properties?: CompanionReg.ICompanionEphemeralIdentity);
 
         /** CompanionEphemeralIdentity publicKey. */
-        public publicKey: Uint8Array;
+        public publicKey?: (Uint8Array|null);
 
         /** CompanionEphemeralIdentity deviceType. */
-        public deviceType: CompanionReg.DeviceProps.PlatformType;
+        public deviceType?: (CompanionReg.DeviceProps.PlatformType|null);
 
         /** CompanionEphemeralIdentity ref. */
-        public ref: string;
+        public ref?: (string|null);
+
+        /** CompanionEphemeralIdentity _publicKey. */
+        public _publicKey?: "publicKey";
+
+        /** CompanionEphemeralIdentity _deviceType. */
+        public _deviceType?: "deviceType";
+
+        /** CompanionEphemeralIdentity _ref. */
+        public _ref?: "ref";
 
         /**
          * Creates a new CompanionEphemeralIdentity instance using the specified properties.
@@ -765,19 +813,34 @@ export namespace CompanionReg {
         constructor(properties?: CompanionReg.IDeviceProps);
 
         /** DeviceProps os. */
-        public os: string;
+        public os?: (string|null);
 
         /** DeviceProps version. */
         public version?: (CompanionReg.DeviceProps.IAppVersion|null);
 
         /** DeviceProps platformType. */
-        public platformType: CompanionReg.DeviceProps.PlatformType;
+        public platformType?: (CompanionReg.DeviceProps.PlatformType|null);
 
         /** DeviceProps requireFullSync. */
-        public requireFullSync: boolean;
+        public requireFullSync?: (boolean|null);
 
         /** DeviceProps historySyncConfig. */
         public historySyncConfig?: (CompanionReg.DeviceProps.IHistorySyncConfig|null);
+
+        /** DeviceProps _os. */
+        public _os?: "os";
+
+        /** DeviceProps _version. */
+        public _version?: "version";
+
+        /** DeviceProps _platformType. */
+        public _platformType?: "platformType";
+
+        /** DeviceProps _requireFullSync. */
+        public _requireFullSync?: "requireFullSync";
+
+        /** DeviceProps _historySyncConfig. */
+        public _historySyncConfig?: "historySyncConfig";
 
         /**
          * Creates a new DeviceProps instance using the specified properties.
@@ -888,19 +951,34 @@ export namespace CompanionReg {
             constructor(properties?: CompanionReg.DeviceProps.IAppVersion);
 
             /** AppVersion primary. */
-            public primary: number;
+            public primary?: (number|null);
 
             /** AppVersion secondary. */
-            public secondary: number;
+            public secondary?: (number|null);
 
             /** AppVersion tertiary. */
-            public tertiary: number;
+            public tertiary?: (number|null);
 
             /** AppVersion quaternary. */
-            public quaternary: number;
+            public quaternary?: (number|null);
 
             /** AppVersion quinary. */
-            public quinary: number;
+            public quinary?: (number|null);
+
+            /** AppVersion _primary. */
+            public _primary?: "primary";
+
+            /** AppVersion _secondary. */
+            public _secondary?: "secondary";
+
+            /** AppVersion _tertiary. */
+            public _tertiary?: "tertiary";
+
+            /** AppVersion _quaternary. */
+            public _quaternary?: "quaternary";
+
+            /** AppVersion _quinary. */
+            public _quinary?: "quinary";
 
             /**
              * Creates a new AppVersion instance using the specified properties.
@@ -1036,46 +1114,88 @@ export namespace CompanionReg {
             constructor(properties?: CompanionReg.DeviceProps.IHistorySyncConfig);
 
             /** HistorySyncConfig fullSyncDaysLimit. */
-            public fullSyncDaysLimit: number;
+            public fullSyncDaysLimit?: (number|null);
 
             /** HistorySyncConfig fullSyncSizeMbLimit. */
-            public fullSyncSizeMbLimit: number;
+            public fullSyncSizeMbLimit?: (number|null);
 
             /** HistorySyncConfig storageQuotaMb. */
-            public storageQuotaMb: number;
+            public storageQuotaMb?: (number|null);
 
             /** HistorySyncConfig inlineInitialPayloadInE2EeMsg. */
-            public inlineInitialPayloadInE2EeMsg: boolean;
+            public inlineInitialPayloadInE2EeMsg?: (boolean|null);
 
             /** HistorySyncConfig recentSyncDaysLimit. */
-            public recentSyncDaysLimit: number;
+            public recentSyncDaysLimit?: (number|null);
 
             /** HistorySyncConfig supportCallLogHistory. */
-            public supportCallLogHistory: boolean;
+            public supportCallLogHistory?: (boolean|null);
 
             /** HistorySyncConfig supportBotUserAgentChatHistory. */
-            public supportBotUserAgentChatHistory: boolean;
+            public supportBotUserAgentChatHistory?: (boolean|null);
 
             /** HistorySyncConfig supportCagReactionsAndPolls. */
-            public supportCagReactionsAndPolls: boolean;
+            public supportCagReactionsAndPolls?: (boolean|null);
 
             /** HistorySyncConfig supportBizHostedMsg. */
-            public supportBizHostedMsg: boolean;
+            public supportBizHostedMsg?: (boolean|null);
 
             /** HistorySyncConfig supportRecentSyncChunkMessageCountTuning. */
-            public supportRecentSyncChunkMessageCountTuning: boolean;
+            public supportRecentSyncChunkMessageCountTuning?: (boolean|null);
 
             /** HistorySyncConfig supportHostedGroupMsg. */
-            public supportHostedGroupMsg: boolean;
+            public supportHostedGroupMsg?: (boolean|null);
 
             /** HistorySyncConfig supportFbidBotChatHistory. */
-            public supportFbidBotChatHistory: boolean;
+            public supportFbidBotChatHistory?: (boolean|null);
 
             /** HistorySyncConfig supportAddOnHistorySyncMigration. */
-            public supportAddOnHistorySyncMigration: boolean;
+            public supportAddOnHistorySyncMigration?: (boolean|null);
 
             /** HistorySyncConfig supportMessageAssociation. */
-            public supportMessageAssociation: boolean;
+            public supportMessageAssociation?: (boolean|null);
+
+            /** HistorySyncConfig _fullSyncDaysLimit. */
+            public _fullSyncDaysLimit?: "fullSyncDaysLimit";
+
+            /** HistorySyncConfig _fullSyncSizeMbLimit. */
+            public _fullSyncSizeMbLimit?: "fullSyncSizeMbLimit";
+
+            /** HistorySyncConfig _storageQuotaMb. */
+            public _storageQuotaMb?: "storageQuotaMb";
+
+            /** HistorySyncConfig _inlineInitialPayloadInE2EeMsg. */
+            public _inlineInitialPayloadInE2EeMsg?: "inlineInitialPayloadInE2EeMsg";
+
+            /** HistorySyncConfig _recentSyncDaysLimit. */
+            public _recentSyncDaysLimit?: "recentSyncDaysLimit";
+
+            /** HistorySyncConfig _supportCallLogHistory. */
+            public _supportCallLogHistory?: "supportCallLogHistory";
+
+            /** HistorySyncConfig _supportBotUserAgentChatHistory. */
+            public _supportBotUserAgentChatHistory?: "supportBotUserAgentChatHistory";
+
+            /** HistorySyncConfig _supportCagReactionsAndPolls. */
+            public _supportCagReactionsAndPolls?: "supportCagReactionsAndPolls";
+
+            /** HistorySyncConfig _supportBizHostedMsg. */
+            public _supportBizHostedMsg?: "supportBizHostedMsg";
+
+            /** HistorySyncConfig _supportRecentSyncChunkMessageCountTuning. */
+            public _supportRecentSyncChunkMessageCountTuning?: "supportRecentSyncChunkMessageCountTuning";
+
+            /** HistorySyncConfig _supportHostedGroupMsg. */
+            public _supportHostedGroupMsg?: "supportHostedGroupMsg";
+
+            /** HistorySyncConfig _supportFbidBotChatHistory. */
+            public _supportFbidBotChatHistory?: "supportFbidBotChatHistory";
+
+            /** HistorySyncConfig _supportAddOnHistorySyncMigration. */
+            public _supportAddOnHistorySyncMigration?: "supportAddOnHistorySyncMigration";
+
+            /** HistorySyncConfig _supportMessageAssociation. */
+            public _supportMessageAssociation?: "supportMessageAssociation";
 
             /**
              * Creates a new HistorySyncConfig instance using the specified properties.
