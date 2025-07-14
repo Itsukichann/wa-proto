@@ -46,63 +46,27 @@ $root.CompanionReg = (function() {
 
         /**
          * ClientPairingProps isChatDbLidMigrated.
-         * @member {boolean|null|undefined} isChatDbLidMigrated
+         * @member {boolean} isChatDbLidMigrated
          * @memberof CompanionReg.ClientPairingProps
          * @instance
          */
-        ClientPairingProps.prototype.isChatDbLidMigrated = null;
+        ClientPairingProps.prototype.isChatDbLidMigrated = false;
 
         /**
          * ClientPairingProps isSyncdPureLidSession.
-         * @member {boolean|null|undefined} isSyncdPureLidSession
+         * @member {boolean} isSyncdPureLidSession
          * @memberof CompanionReg.ClientPairingProps
          * @instance
          */
-        ClientPairingProps.prototype.isSyncdPureLidSession = null;
+        ClientPairingProps.prototype.isSyncdPureLidSession = false;
 
         /**
          * ClientPairingProps isSyncdSnapshotRecoveryEnabled.
-         * @member {boolean|null|undefined} isSyncdSnapshotRecoveryEnabled
+         * @member {boolean} isSyncdSnapshotRecoveryEnabled
          * @memberof CompanionReg.ClientPairingProps
          * @instance
          */
-        ClientPairingProps.prototype.isSyncdSnapshotRecoveryEnabled = null;
-
-        // OneOf field names bound to virtual getters and setters
-        var $oneOfFields;
-
-        /**
-         * ClientPairingProps _isChatDbLidMigrated.
-         * @member {"isChatDbLidMigrated"|undefined} _isChatDbLidMigrated
-         * @memberof CompanionReg.ClientPairingProps
-         * @instance
-         */
-        Object.defineProperty(ClientPairingProps.prototype, "_isChatDbLidMigrated", {
-            get: $util.oneOfGetter($oneOfFields = ["isChatDbLidMigrated"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * ClientPairingProps _isSyncdPureLidSession.
-         * @member {"isSyncdPureLidSession"|undefined} _isSyncdPureLidSession
-         * @memberof CompanionReg.ClientPairingProps
-         * @instance
-         */
-        Object.defineProperty(ClientPairingProps.prototype, "_isSyncdPureLidSession", {
-            get: $util.oneOfGetter($oneOfFields = ["isSyncdPureLidSession"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * ClientPairingProps _isSyncdSnapshotRecoveryEnabled.
-         * @member {"isSyncdSnapshotRecoveryEnabled"|undefined} _isSyncdSnapshotRecoveryEnabled
-         * @memberof CompanionReg.ClientPairingProps
-         * @instance
-         */
-        Object.defineProperty(ClientPairingProps.prototype, "_isSyncdSnapshotRecoveryEnabled", {
-            get: $util.oneOfGetter($oneOfFields = ["isSyncdSnapshotRecoveryEnabled"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
+        ClientPairingProps.prototype.isSyncdSnapshotRecoveryEnabled = false;
 
         /**
          * Creates a new ClientPairingProps instance using the specified properties.
@@ -217,22 +181,15 @@ $root.CompanionReg = (function() {
         ClientPairingProps.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            var properties = {};
-            if (message.isChatDbLidMigrated != null && message.hasOwnProperty("isChatDbLidMigrated")) {
-                properties._isChatDbLidMigrated = 1;
+            if (message.isChatDbLidMigrated != null && message.hasOwnProperty("isChatDbLidMigrated"))
                 if (typeof message.isChatDbLidMigrated !== "boolean")
                     return "isChatDbLidMigrated: boolean expected";
-            }
-            if (message.isSyncdPureLidSession != null && message.hasOwnProperty("isSyncdPureLidSession")) {
-                properties._isSyncdPureLidSession = 1;
+            if (message.isSyncdPureLidSession != null && message.hasOwnProperty("isSyncdPureLidSession"))
                 if (typeof message.isSyncdPureLidSession !== "boolean")
                     return "isSyncdPureLidSession: boolean expected";
-            }
-            if (message.isSyncdSnapshotRecoveryEnabled != null && message.hasOwnProperty("isSyncdSnapshotRecoveryEnabled")) {
-                properties._isSyncdSnapshotRecoveryEnabled = 1;
+            if (message.isSyncdSnapshotRecoveryEnabled != null && message.hasOwnProperty("isSyncdSnapshotRecoveryEnabled"))
                 if (typeof message.isSyncdSnapshotRecoveryEnabled !== "boolean")
                     return "isSyncdSnapshotRecoveryEnabled: boolean expected";
-            }
             return null;
         };
 
@@ -270,21 +227,17 @@ $root.CompanionReg = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (message.isChatDbLidMigrated != null && message.hasOwnProperty("isChatDbLidMigrated")) {
+            if (options.defaults) {
+                object.isChatDbLidMigrated = false;
+                object.isSyncdPureLidSession = false;
+                object.isSyncdSnapshotRecoveryEnabled = false;
+            }
+            if (message.isChatDbLidMigrated != null && message.hasOwnProperty("isChatDbLidMigrated"))
                 object.isChatDbLidMigrated = message.isChatDbLidMigrated;
-                if (options.oneofs)
-                    object._isChatDbLidMigrated = "isChatDbLidMigrated";
-            }
-            if (message.isSyncdPureLidSession != null && message.hasOwnProperty("isSyncdPureLidSession")) {
+            if (message.isSyncdPureLidSession != null && message.hasOwnProperty("isSyncdPureLidSession"))
                 object.isSyncdPureLidSession = message.isSyncdPureLidSession;
-                if (options.oneofs)
-                    object._isSyncdPureLidSession = "isSyncdPureLidSession";
-            }
-            if (message.isSyncdSnapshotRecoveryEnabled != null && message.hasOwnProperty("isSyncdSnapshotRecoveryEnabled")) {
+            if (message.isSyncdSnapshotRecoveryEnabled != null && message.hasOwnProperty("isSyncdSnapshotRecoveryEnabled"))
                 object.isSyncdSnapshotRecoveryEnabled = message.isSyncdSnapshotRecoveryEnabled;
-                if (options.oneofs)
-                    object._isSyncdSnapshotRecoveryEnabled = "isSyncdSnapshotRecoveryEnabled";
-            }
             return object;
         };
 
@@ -344,44 +297,19 @@ $root.CompanionReg = (function() {
 
         /**
          * EncryptedPairingRequest encryptedPayload.
-         * @member {Uint8Array|null|undefined} encryptedPayload
+         * @member {Uint8Array} encryptedPayload
          * @memberof CompanionReg.EncryptedPairingRequest
          * @instance
          */
-        EncryptedPairingRequest.prototype.encryptedPayload = null;
+        EncryptedPairingRequest.prototype.encryptedPayload = $util.newBuffer([]);
 
         /**
          * EncryptedPairingRequest iv.
-         * @member {Uint8Array|null|undefined} iv
+         * @member {Uint8Array} iv
          * @memberof CompanionReg.EncryptedPairingRequest
          * @instance
          */
-        EncryptedPairingRequest.prototype.iv = null;
-
-        // OneOf field names bound to virtual getters and setters
-        var $oneOfFields;
-
-        /**
-         * EncryptedPairingRequest _encryptedPayload.
-         * @member {"encryptedPayload"|undefined} _encryptedPayload
-         * @memberof CompanionReg.EncryptedPairingRequest
-         * @instance
-         */
-        Object.defineProperty(EncryptedPairingRequest.prototype, "_encryptedPayload", {
-            get: $util.oneOfGetter($oneOfFields = ["encryptedPayload"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * EncryptedPairingRequest _iv.
-         * @member {"iv"|undefined} _iv
-         * @memberof CompanionReg.EncryptedPairingRequest
-         * @instance
-         */
-        Object.defineProperty(EncryptedPairingRequest.prototype, "_iv", {
-            get: $util.oneOfGetter($oneOfFields = ["iv"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
+        EncryptedPairingRequest.prototype.iv = $util.newBuffer([]);
 
         /**
          * Creates a new EncryptedPairingRequest instance using the specified properties.
@@ -490,17 +418,12 @@ $root.CompanionReg = (function() {
         EncryptedPairingRequest.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            var properties = {};
-            if (message.encryptedPayload != null && message.hasOwnProperty("encryptedPayload")) {
-                properties._encryptedPayload = 1;
+            if (message.encryptedPayload != null && message.hasOwnProperty("encryptedPayload"))
                 if (!(message.encryptedPayload && typeof message.encryptedPayload.length === "number" || $util.isString(message.encryptedPayload)))
                     return "encryptedPayload: buffer expected";
-            }
-            if (message.iv != null && message.hasOwnProperty("iv")) {
-                properties._iv = 1;
+            if (message.iv != null && message.hasOwnProperty("iv"))
                 if (!(message.iv && typeof message.iv.length === "number" || $util.isString(message.iv)))
                     return "iv: buffer expected";
-            }
             return null;
         };
 
@@ -542,16 +465,26 @@ $root.CompanionReg = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (message.encryptedPayload != null && message.hasOwnProperty("encryptedPayload")) {
+            if (options.defaults) {
+                if (options.bytes === String)
+                    object.encryptedPayload = "";
+                else {
+                    object.encryptedPayload = [];
+                    if (options.bytes !== Array)
+                        object.encryptedPayload = $util.newBuffer(object.encryptedPayload);
+                }
+                if (options.bytes === String)
+                    object.iv = "";
+                else {
+                    object.iv = [];
+                    if (options.bytes !== Array)
+                        object.iv = $util.newBuffer(object.iv);
+                }
+            }
+            if (message.encryptedPayload != null && message.hasOwnProperty("encryptedPayload"))
                 object.encryptedPayload = options.bytes === String ? $util.base64.encode(message.encryptedPayload, 0, message.encryptedPayload.length) : options.bytes === Array ? Array.prototype.slice.call(message.encryptedPayload) : message.encryptedPayload;
-                if (options.oneofs)
-                    object._encryptedPayload = "encryptedPayload";
-            }
-            if (message.iv != null && message.hasOwnProperty("iv")) {
+            if (message.iv != null && message.hasOwnProperty("iv"))
                 object.iv = options.bytes === String ? $util.base64.encode(message.iv, 0, message.iv.length) : options.bytes === Array ? Array.prototype.slice.call(message.iv) : message.iv;
-                if (options.oneofs)
-                    object._iv = "iv";
-            }
             return object;
         };
 
@@ -612,63 +545,27 @@ $root.CompanionReg = (function() {
 
         /**
          * PairingRequest companionPublicKey.
-         * @member {Uint8Array|null|undefined} companionPublicKey
+         * @member {Uint8Array} companionPublicKey
          * @memberof CompanionReg.PairingRequest
          * @instance
          */
-        PairingRequest.prototype.companionPublicKey = null;
+        PairingRequest.prototype.companionPublicKey = $util.newBuffer([]);
 
         /**
          * PairingRequest companionIdentityKey.
-         * @member {Uint8Array|null|undefined} companionIdentityKey
+         * @member {Uint8Array} companionIdentityKey
          * @memberof CompanionReg.PairingRequest
          * @instance
          */
-        PairingRequest.prototype.companionIdentityKey = null;
+        PairingRequest.prototype.companionIdentityKey = $util.newBuffer([]);
 
         /**
          * PairingRequest advSecret.
-         * @member {Uint8Array|null|undefined} advSecret
+         * @member {Uint8Array} advSecret
          * @memberof CompanionReg.PairingRequest
          * @instance
          */
-        PairingRequest.prototype.advSecret = null;
-
-        // OneOf field names bound to virtual getters and setters
-        var $oneOfFields;
-
-        /**
-         * PairingRequest _companionPublicKey.
-         * @member {"companionPublicKey"|undefined} _companionPublicKey
-         * @memberof CompanionReg.PairingRequest
-         * @instance
-         */
-        Object.defineProperty(PairingRequest.prototype, "_companionPublicKey", {
-            get: $util.oneOfGetter($oneOfFields = ["companionPublicKey"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * PairingRequest _companionIdentityKey.
-         * @member {"companionIdentityKey"|undefined} _companionIdentityKey
-         * @memberof CompanionReg.PairingRequest
-         * @instance
-         */
-        Object.defineProperty(PairingRequest.prototype, "_companionIdentityKey", {
-            get: $util.oneOfGetter($oneOfFields = ["companionIdentityKey"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * PairingRequest _advSecret.
-         * @member {"advSecret"|undefined} _advSecret
-         * @memberof CompanionReg.PairingRequest
-         * @instance
-         */
-        Object.defineProperty(PairingRequest.prototype, "_advSecret", {
-            get: $util.oneOfGetter($oneOfFields = ["advSecret"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
+        PairingRequest.prototype.advSecret = $util.newBuffer([]);
 
         /**
          * Creates a new PairingRequest instance using the specified properties.
@@ -783,22 +680,15 @@ $root.CompanionReg = (function() {
         PairingRequest.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            var properties = {};
-            if (message.companionPublicKey != null && message.hasOwnProperty("companionPublicKey")) {
-                properties._companionPublicKey = 1;
+            if (message.companionPublicKey != null && message.hasOwnProperty("companionPublicKey"))
                 if (!(message.companionPublicKey && typeof message.companionPublicKey.length === "number" || $util.isString(message.companionPublicKey)))
                     return "companionPublicKey: buffer expected";
-            }
-            if (message.companionIdentityKey != null && message.hasOwnProperty("companionIdentityKey")) {
-                properties._companionIdentityKey = 1;
+            if (message.companionIdentityKey != null && message.hasOwnProperty("companionIdentityKey"))
                 if (!(message.companionIdentityKey && typeof message.companionIdentityKey.length === "number" || $util.isString(message.companionIdentityKey)))
                     return "companionIdentityKey: buffer expected";
-            }
-            if (message.advSecret != null && message.hasOwnProperty("advSecret")) {
-                properties._advSecret = 1;
+            if (message.advSecret != null && message.hasOwnProperty("advSecret"))
                 if (!(message.advSecret && typeof message.advSecret.length === "number" || $util.isString(message.advSecret)))
                     return "advSecret: buffer expected";
-            }
             return null;
         };
 
@@ -845,21 +735,35 @@ $root.CompanionReg = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (message.companionPublicKey != null && message.hasOwnProperty("companionPublicKey")) {
+            if (options.defaults) {
+                if (options.bytes === String)
+                    object.companionPublicKey = "";
+                else {
+                    object.companionPublicKey = [];
+                    if (options.bytes !== Array)
+                        object.companionPublicKey = $util.newBuffer(object.companionPublicKey);
+                }
+                if (options.bytes === String)
+                    object.companionIdentityKey = "";
+                else {
+                    object.companionIdentityKey = [];
+                    if (options.bytes !== Array)
+                        object.companionIdentityKey = $util.newBuffer(object.companionIdentityKey);
+                }
+                if (options.bytes === String)
+                    object.advSecret = "";
+                else {
+                    object.advSecret = [];
+                    if (options.bytes !== Array)
+                        object.advSecret = $util.newBuffer(object.advSecret);
+                }
+            }
+            if (message.companionPublicKey != null && message.hasOwnProperty("companionPublicKey"))
                 object.companionPublicKey = options.bytes === String ? $util.base64.encode(message.companionPublicKey, 0, message.companionPublicKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.companionPublicKey) : message.companionPublicKey;
-                if (options.oneofs)
-                    object._companionPublicKey = "companionPublicKey";
-            }
-            if (message.companionIdentityKey != null && message.hasOwnProperty("companionIdentityKey")) {
+            if (message.companionIdentityKey != null && message.hasOwnProperty("companionIdentityKey"))
                 object.companionIdentityKey = options.bytes === String ? $util.base64.encode(message.companionIdentityKey, 0, message.companionIdentityKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.companionIdentityKey) : message.companionIdentityKey;
-                if (options.oneofs)
-                    object._companionIdentityKey = "companionIdentityKey";
-            }
-            if (message.advSecret != null && message.hasOwnProperty("advSecret")) {
+            if (message.advSecret != null && message.hasOwnProperty("advSecret"))
                 object.advSecret = options.bytes === String ? $util.base64.encode(message.advSecret, 0, message.advSecret.length) : options.bytes === Array ? Array.prototype.slice.call(message.advSecret) : message.advSecret;
-                if (options.oneofs)
-                    object._advSecret = "advSecret";
-            }
             return object;
         };
 
@@ -919,44 +823,19 @@ $root.CompanionReg = (function() {
 
         /**
          * PrimaryEphemeralIdentity publicKey.
-         * @member {Uint8Array|null|undefined} publicKey
+         * @member {Uint8Array} publicKey
          * @memberof CompanionReg.PrimaryEphemeralIdentity
          * @instance
          */
-        PrimaryEphemeralIdentity.prototype.publicKey = null;
+        PrimaryEphemeralIdentity.prototype.publicKey = $util.newBuffer([]);
 
         /**
          * PrimaryEphemeralIdentity nonce.
-         * @member {Uint8Array|null|undefined} nonce
+         * @member {Uint8Array} nonce
          * @memberof CompanionReg.PrimaryEphemeralIdentity
          * @instance
          */
-        PrimaryEphemeralIdentity.prototype.nonce = null;
-
-        // OneOf field names bound to virtual getters and setters
-        var $oneOfFields;
-
-        /**
-         * PrimaryEphemeralIdentity _publicKey.
-         * @member {"publicKey"|undefined} _publicKey
-         * @memberof CompanionReg.PrimaryEphemeralIdentity
-         * @instance
-         */
-        Object.defineProperty(PrimaryEphemeralIdentity.prototype, "_publicKey", {
-            get: $util.oneOfGetter($oneOfFields = ["publicKey"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * PrimaryEphemeralIdentity _nonce.
-         * @member {"nonce"|undefined} _nonce
-         * @memberof CompanionReg.PrimaryEphemeralIdentity
-         * @instance
-         */
-        Object.defineProperty(PrimaryEphemeralIdentity.prototype, "_nonce", {
-            get: $util.oneOfGetter($oneOfFields = ["nonce"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
+        PrimaryEphemeralIdentity.prototype.nonce = $util.newBuffer([]);
 
         /**
          * Creates a new PrimaryEphemeralIdentity instance using the specified properties.
@@ -1065,17 +944,12 @@ $root.CompanionReg = (function() {
         PrimaryEphemeralIdentity.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            var properties = {};
-            if (message.publicKey != null && message.hasOwnProperty("publicKey")) {
-                properties._publicKey = 1;
+            if (message.publicKey != null && message.hasOwnProperty("publicKey"))
                 if (!(message.publicKey && typeof message.publicKey.length === "number" || $util.isString(message.publicKey)))
                     return "publicKey: buffer expected";
-            }
-            if (message.nonce != null && message.hasOwnProperty("nonce")) {
-                properties._nonce = 1;
+            if (message.nonce != null && message.hasOwnProperty("nonce"))
                 if (!(message.nonce && typeof message.nonce.length === "number" || $util.isString(message.nonce)))
                     return "nonce: buffer expected";
-            }
             return null;
         };
 
@@ -1117,16 +991,26 @@ $root.CompanionReg = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (message.publicKey != null && message.hasOwnProperty("publicKey")) {
+            if (options.defaults) {
+                if (options.bytes === String)
+                    object.publicKey = "";
+                else {
+                    object.publicKey = [];
+                    if (options.bytes !== Array)
+                        object.publicKey = $util.newBuffer(object.publicKey);
+                }
+                if (options.bytes === String)
+                    object.nonce = "";
+                else {
+                    object.nonce = [];
+                    if (options.bytes !== Array)
+                        object.nonce = $util.newBuffer(object.nonce);
+                }
+            }
+            if (message.publicKey != null && message.hasOwnProperty("publicKey"))
                 object.publicKey = options.bytes === String ? $util.base64.encode(message.publicKey, 0, message.publicKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.publicKey) : message.publicKey;
-                if (options.oneofs)
-                    object._publicKey = "publicKey";
-            }
-            if (message.nonce != null && message.hasOwnProperty("nonce")) {
+            if (message.nonce != null && message.hasOwnProperty("nonce"))
                 object.nonce = options.bytes === String ? $util.base64.encode(message.nonce, 0, message.nonce.length) : options.bytes === Array ? Array.prototype.slice.call(message.nonce) : message.nonce;
-                if (options.oneofs)
-                    object._nonce = "nonce";
-            }
             return object;
         };
 
@@ -1186,11 +1070,11 @@ $root.CompanionReg = (function() {
 
         /**
          * ProloguePayload companionEphemeralIdentity.
-         * @member {Uint8Array|null|undefined} companionEphemeralIdentity
+         * @member {Uint8Array} companionEphemeralIdentity
          * @memberof CompanionReg.ProloguePayload
          * @instance
          */
-        ProloguePayload.prototype.companionEphemeralIdentity = null;
+        ProloguePayload.prototype.companionEphemeralIdentity = $util.newBuffer([]);
 
         /**
          * ProloguePayload commitment.
@@ -1199,31 +1083,6 @@ $root.CompanionReg = (function() {
          * @instance
          */
         ProloguePayload.prototype.commitment = null;
-
-        // OneOf field names bound to virtual getters and setters
-        var $oneOfFields;
-
-        /**
-         * ProloguePayload _companionEphemeralIdentity.
-         * @member {"companionEphemeralIdentity"|undefined} _companionEphemeralIdentity
-         * @memberof CompanionReg.ProloguePayload
-         * @instance
-         */
-        Object.defineProperty(ProloguePayload.prototype, "_companionEphemeralIdentity", {
-            get: $util.oneOfGetter($oneOfFields = ["companionEphemeralIdentity"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * ProloguePayload _commitment.
-         * @member {"commitment"|undefined} _commitment
-         * @memberof CompanionReg.ProloguePayload
-         * @instance
-         */
-        Object.defineProperty(ProloguePayload.prototype, "_commitment", {
-            get: $util.oneOfGetter($oneOfFields = ["commitment"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
 
         /**
          * Creates a new ProloguePayload instance using the specified properties.
@@ -1332,19 +1191,13 @@ $root.CompanionReg = (function() {
         ProloguePayload.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            var properties = {};
-            if (message.companionEphemeralIdentity != null && message.hasOwnProperty("companionEphemeralIdentity")) {
-                properties._companionEphemeralIdentity = 1;
+            if (message.companionEphemeralIdentity != null && message.hasOwnProperty("companionEphemeralIdentity"))
                 if (!(message.companionEphemeralIdentity && typeof message.companionEphemeralIdentity.length === "number" || $util.isString(message.companionEphemeralIdentity)))
                     return "companionEphemeralIdentity: buffer expected";
-            }
             if (message.commitment != null && message.hasOwnProperty("commitment")) {
-                properties._commitment = 1;
-                {
-                    var error = $root.CompanionReg.CompanionCommitment.verify(message.commitment);
-                    if (error)
-                        return "commitment." + error;
-                }
+                var error = $root.CompanionReg.CompanionCommitment.verify(message.commitment);
+                if (error)
+                    return "commitment." + error;
             }
             return null;
         };
@@ -1387,16 +1240,20 @@ $root.CompanionReg = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (message.companionEphemeralIdentity != null && message.hasOwnProperty("companionEphemeralIdentity")) {
+            if (options.defaults) {
+                if (options.bytes === String)
+                    object.companionEphemeralIdentity = "";
+                else {
+                    object.companionEphemeralIdentity = [];
+                    if (options.bytes !== Array)
+                        object.companionEphemeralIdentity = $util.newBuffer(object.companionEphemeralIdentity);
+                }
+                object.commitment = null;
+            }
+            if (message.companionEphemeralIdentity != null && message.hasOwnProperty("companionEphemeralIdentity"))
                 object.companionEphemeralIdentity = options.bytes === String ? $util.base64.encode(message.companionEphemeralIdentity, 0, message.companionEphemeralIdentity.length) : options.bytes === Array ? Array.prototype.slice.call(message.companionEphemeralIdentity) : message.companionEphemeralIdentity;
-                if (options.oneofs)
-                    object._companionEphemeralIdentity = "companionEphemeralIdentity";
-            }
-            if (message.commitment != null && message.hasOwnProperty("commitment")) {
+            if (message.commitment != null && message.hasOwnProperty("commitment"))
                 object.commitment = $root.CompanionReg.CompanionCommitment.toObject(message.commitment, options);
-                if (options.oneofs)
-                    object._commitment = "commitment";
-            }
             return object;
         };
 
@@ -1455,25 +1312,11 @@ $root.CompanionReg = (function() {
 
         /**
          * CompanionCommitment hash.
-         * @member {Uint8Array|null|undefined} hash
+         * @member {Uint8Array} hash
          * @memberof CompanionReg.CompanionCommitment
          * @instance
          */
-        CompanionCommitment.prototype.hash = null;
-
-        // OneOf field names bound to virtual getters and setters
-        var $oneOfFields;
-
-        /**
-         * CompanionCommitment _hash.
-         * @member {"hash"|undefined} _hash
-         * @memberof CompanionReg.CompanionCommitment
-         * @instance
-         */
-        Object.defineProperty(CompanionCommitment.prototype, "_hash", {
-            get: $util.oneOfGetter($oneOfFields = ["hash"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
+        CompanionCommitment.prototype.hash = $util.newBuffer([]);
 
         /**
          * Creates a new CompanionCommitment instance using the specified properties.
@@ -1576,12 +1419,9 @@ $root.CompanionReg = (function() {
         CompanionCommitment.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            var properties = {};
-            if (message.hash != null && message.hasOwnProperty("hash")) {
-                properties._hash = 1;
+            if (message.hash != null && message.hasOwnProperty("hash"))
                 if (!(message.hash && typeof message.hash.length === "number" || $util.isString(message.hash)))
                     return "hash: buffer expected";
-            }
             return null;
         };
 
@@ -1618,11 +1458,16 @@ $root.CompanionReg = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (message.hash != null && message.hasOwnProperty("hash")) {
+            if (options.defaults)
+                if (options.bytes === String)
+                    object.hash = "";
+                else {
+                    object.hash = [];
+                    if (options.bytes !== Array)
+                        object.hash = $util.newBuffer(object.hash);
+                }
+            if (message.hash != null && message.hasOwnProperty("hash"))
                 object.hash = options.bytes === String ? $util.base64.encode(message.hash, 0, message.hash.length) : options.bytes === Array ? Array.prototype.slice.call(message.hash) : message.hash;
-                if (options.oneofs)
-                    object._hash = "hash";
-            }
             return object;
         };
 
@@ -1683,63 +1528,27 @@ $root.CompanionReg = (function() {
 
         /**
          * CompanionEphemeralIdentity publicKey.
-         * @member {Uint8Array|null|undefined} publicKey
+         * @member {Uint8Array} publicKey
          * @memberof CompanionReg.CompanionEphemeralIdentity
          * @instance
          */
-        CompanionEphemeralIdentity.prototype.publicKey = null;
+        CompanionEphemeralIdentity.prototype.publicKey = $util.newBuffer([]);
 
         /**
          * CompanionEphemeralIdentity deviceType.
-         * @member {CompanionReg.DeviceProps.PlatformType|null|undefined} deviceType
+         * @member {CompanionReg.DeviceProps.PlatformType} deviceType
          * @memberof CompanionReg.CompanionEphemeralIdentity
          * @instance
          */
-        CompanionEphemeralIdentity.prototype.deviceType = null;
+        CompanionEphemeralIdentity.prototype.deviceType = 0;
 
         /**
          * CompanionEphemeralIdentity ref.
-         * @member {string|null|undefined} ref
+         * @member {string} ref
          * @memberof CompanionReg.CompanionEphemeralIdentity
          * @instance
          */
-        CompanionEphemeralIdentity.prototype.ref = null;
-
-        // OneOf field names bound to virtual getters and setters
-        var $oneOfFields;
-
-        /**
-         * CompanionEphemeralIdentity _publicKey.
-         * @member {"publicKey"|undefined} _publicKey
-         * @memberof CompanionReg.CompanionEphemeralIdentity
-         * @instance
-         */
-        Object.defineProperty(CompanionEphemeralIdentity.prototype, "_publicKey", {
-            get: $util.oneOfGetter($oneOfFields = ["publicKey"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * CompanionEphemeralIdentity _deviceType.
-         * @member {"deviceType"|undefined} _deviceType
-         * @memberof CompanionReg.CompanionEphemeralIdentity
-         * @instance
-         */
-        Object.defineProperty(CompanionEphemeralIdentity.prototype, "_deviceType", {
-            get: $util.oneOfGetter($oneOfFields = ["deviceType"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * CompanionEphemeralIdentity _ref.
-         * @member {"ref"|undefined} _ref
-         * @memberof CompanionReg.CompanionEphemeralIdentity
-         * @instance
-         */
-        Object.defineProperty(CompanionEphemeralIdentity.prototype, "_ref", {
-            get: $util.oneOfGetter($oneOfFields = ["ref"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
+        CompanionEphemeralIdentity.prototype.ref = "";
 
         /**
          * Creates a new CompanionEphemeralIdentity instance using the specified properties.
@@ -1854,14 +1663,10 @@ $root.CompanionReg = (function() {
         CompanionEphemeralIdentity.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            var properties = {};
-            if (message.publicKey != null && message.hasOwnProperty("publicKey")) {
-                properties._publicKey = 1;
+            if (message.publicKey != null && message.hasOwnProperty("publicKey"))
                 if (!(message.publicKey && typeof message.publicKey.length === "number" || $util.isString(message.publicKey)))
                     return "publicKey: buffer expected";
-            }
-            if (message.deviceType != null && message.hasOwnProperty("deviceType")) {
-                properties._deviceType = 1;
+            if (message.deviceType != null && message.hasOwnProperty("deviceType"))
                 switch (message.deviceType) {
                 default:
                     return "deviceType: enum value expected";
@@ -1892,12 +1697,9 @@ $root.CompanionReg = (function() {
                 case 24:
                     break;
                 }
-            }
-            if (message.ref != null && message.hasOwnProperty("ref")) {
-                properties._ref = 1;
+            if (message.ref != null && message.hasOwnProperty("ref"))
                 if (!$util.isString(message.ref))
                     return "ref: string expected";
-            }
             return null;
         };
 
@@ -2044,21 +1846,23 @@ $root.CompanionReg = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (message.publicKey != null && message.hasOwnProperty("publicKey")) {
+            if (options.defaults) {
+                if (options.bytes === String)
+                    object.publicKey = "";
+                else {
+                    object.publicKey = [];
+                    if (options.bytes !== Array)
+                        object.publicKey = $util.newBuffer(object.publicKey);
+                }
+                object.deviceType = options.enums === String ? "UNKNOWN" : 0;
+                object.ref = "";
+            }
+            if (message.publicKey != null && message.hasOwnProperty("publicKey"))
                 object.publicKey = options.bytes === String ? $util.base64.encode(message.publicKey, 0, message.publicKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.publicKey) : message.publicKey;
-                if (options.oneofs)
-                    object._publicKey = "publicKey";
-            }
-            if (message.deviceType != null && message.hasOwnProperty("deviceType")) {
+            if (message.deviceType != null && message.hasOwnProperty("deviceType"))
                 object.deviceType = options.enums === String ? $root.CompanionReg.DeviceProps.PlatformType[message.deviceType] === undefined ? message.deviceType : $root.CompanionReg.DeviceProps.PlatformType[message.deviceType] : message.deviceType;
-                if (options.oneofs)
-                    object._deviceType = "deviceType";
-            }
-            if (message.ref != null && message.hasOwnProperty("ref")) {
+            if (message.ref != null && message.hasOwnProperty("ref"))
                 object.ref = message.ref;
-                if (options.oneofs)
-                    object._ref = "ref";
-            }
             return object;
         };
 
@@ -2121,11 +1925,11 @@ $root.CompanionReg = (function() {
 
         /**
          * DeviceProps os.
-         * @member {string|null|undefined} os
+         * @member {string} os
          * @memberof CompanionReg.DeviceProps
          * @instance
          */
-        DeviceProps.prototype.os = null;
+        DeviceProps.prototype.os = "";
 
         /**
          * DeviceProps version.
@@ -2137,19 +1941,19 @@ $root.CompanionReg = (function() {
 
         /**
          * DeviceProps platformType.
-         * @member {CompanionReg.DeviceProps.PlatformType|null|undefined} platformType
+         * @member {CompanionReg.DeviceProps.PlatformType} platformType
          * @memberof CompanionReg.DeviceProps
          * @instance
          */
-        DeviceProps.prototype.platformType = null;
+        DeviceProps.prototype.platformType = 0;
 
         /**
          * DeviceProps requireFullSync.
-         * @member {boolean|null|undefined} requireFullSync
+         * @member {boolean} requireFullSync
          * @memberof CompanionReg.DeviceProps
          * @instance
          */
-        DeviceProps.prototype.requireFullSync = null;
+        DeviceProps.prototype.requireFullSync = false;
 
         /**
          * DeviceProps historySyncConfig.
@@ -2158,64 +1962,6 @@ $root.CompanionReg = (function() {
          * @instance
          */
         DeviceProps.prototype.historySyncConfig = null;
-
-        // OneOf field names bound to virtual getters and setters
-        var $oneOfFields;
-
-        /**
-         * DeviceProps _os.
-         * @member {"os"|undefined} _os
-         * @memberof CompanionReg.DeviceProps
-         * @instance
-         */
-        Object.defineProperty(DeviceProps.prototype, "_os", {
-            get: $util.oneOfGetter($oneOfFields = ["os"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * DeviceProps _version.
-         * @member {"version"|undefined} _version
-         * @memberof CompanionReg.DeviceProps
-         * @instance
-         */
-        Object.defineProperty(DeviceProps.prototype, "_version", {
-            get: $util.oneOfGetter($oneOfFields = ["version"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * DeviceProps _platformType.
-         * @member {"platformType"|undefined} _platformType
-         * @memberof CompanionReg.DeviceProps
-         * @instance
-         */
-        Object.defineProperty(DeviceProps.prototype, "_platformType", {
-            get: $util.oneOfGetter($oneOfFields = ["platformType"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * DeviceProps _requireFullSync.
-         * @member {"requireFullSync"|undefined} _requireFullSync
-         * @memberof CompanionReg.DeviceProps
-         * @instance
-         */
-        Object.defineProperty(DeviceProps.prototype, "_requireFullSync", {
-            get: $util.oneOfGetter($oneOfFields = ["requireFullSync"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * DeviceProps _historySyncConfig.
-         * @member {"historySyncConfig"|undefined} _historySyncConfig
-         * @memberof CompanionReg.DeviceProps
-         * @instance
-         */
-        Object.defineProperty(DeviceProps.prototype, "_historySyncConfig", {
-            get: $util.oneOfGetter($oneOfFields = ["historySyncConfig"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
 
         /**
          * Creates a new DeviceProps instance using the specified properties.
@@ -2342,22 +2088,15 @@ $root.CompanionReg = (function() {
         DeviceProps.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            var properties = {};
-            if (message.os != null && message.hasOwnProperty("os")) {
-                properties._os = 1;
+            if (message.os != null && message.hasOwnProperty("os"))
                 if (!$util.isString(message.os))
                     return "os: string expected";
-            }
             if (message.version != null && message.hasOwnProperty("version")) {
-                properties._version = 1;
-                {
-                    var error = $root.CompanionReg.DeviceProps.AppVersion.verify(message.version);
-                    if (error)
-                        return "version." + error;
-                }
+                var error = $root.CompanionReg.DeviceProps.AppVersion.verify(message.version);
+                if (error)
+                    return "version." + error;
             }
-            if (message.platformType != null && message.hasOwnProperty("platformType")) {
-                properties._platformType = 1;
+            if (message.platformType != null && message.hasOwnProperty("platformType"))
                 switch (message.platformType) {
                 default:
                     return "platformType: enum value expected";
@@ -2388,19 +2127,13 @@ $root.CompanionReg = (function() {
                 case 24:
                     break;
                 }
-            }
-            if (message.requireFullSync != null && message.hasOwnProperty("requireFullSync")) {
-                properties._requireFullSync = 1;
+            if (message.requireFullSync != null && message.hasOwnProperty("requireFullSync"))
                 if (typeof message.requireFullSync !== "boolean")
                     return "requireFullSync: boolean expected";
-            }
             if (message.historySyncConfig != null && message.hasOwnProperty("historySyncConfig")) {
-                properties._historySyncConfig = 1;
-                {
-                    var error = $root.CompanionReg.DeviceProps.HistorySyncConfig.verify(message.historySyncConfig);
-                    if (error)
-                        return "historySyncConfig." + error;
-                }
+                var error = $root.CompanionReg.DeviceProps.HistorySyncConfig.verify(message.historySyncConfig);
+                if (error)
+                    return "historySyncConfig." + error;
             }
             return null;
         };
@@ -2555,31 +2288,23 @@ $root.CompanionReg = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (message.os != null && message.hasOwnProperty("os")) {
+            if (options.defaults) {
+                object.os = "";
+                object.version = null;
+                object.platformType = options.enums === String ? "UNKNOWN" : 0;
+                object.requireFullSync = false;
+                object.historySyncConfig = null;
+            }
+            if (message.os != null && message.hasOwnProperty("os"))
                 object.os = message.os;
-                if (options.oneofs)
-                    object._os = "os";
-            }
-            if (message.version != null && message.hasOwnProperty("version")) {
+            if (message.version != null && message.hasOwnProperty("version"))
                 object.version = $root.CompanionReg.DeviceProps.AppVersion.toObject(message.version, options);
-                if (options.oneofs)
-                    object._version = "version";
-            }
-            if (message.platformType != null && message.hasOwnProperty("platformType")) {
+            if (message.platformType != null && message.hasOwnProperty("platformType"))
                 object.platformType = options.enums === String ? $root.CompanionReg.DeviceProps.PlatformType[message.platformType] === undefined ? message.platformType : $root.CompanionReg.DeviceProps.PlatformType[message.platformType] : message.platformType;
-                if (options.oneofs)
-                    object._platformType = "platformType";
-            }
-            if (message.requireFullSync != null && message.hasOwnProperty("requireFullSync")) {
+            if (message.requireFullSync != null && message.hasOwnProperty("requireFullSync"))
                 object.requireFullSync = message.requireFullSync;
-                if (options.oneofs)
-                    object._requireFullSync = "requireFullSync";
-            }
-            if (message.historySyncConfig != null && message.hasOwnProperty("historySyncConfig")) {
+            if (message.historySyncConfig != null && message.hasOwnProperty("historySyncConfig"))
                 object.historySyncConfig = $root.CompanionReg.DeviceProps.HistorySyncConfig.toObject(message.historySyncConfig, options);
-                if (options.oneofs)
-                    object._historySyncConfig = "historySyncConfig";
-            }
             return object;
         };
 
@@ -2639,101 +2364,43 @@ $root.CompanionReg = (function() {
 
             /**
              * AppVersion primary.
-             * @member {number|null|undefined} primary
+             * @member {number} primary
              * @memberof CompanionReg.DeviceProps.AppVersion
              * @instance
              */
-            AppVersion.prototype.primary = null;
+            AppVersion.prototype.primary = 0;
 
             /**
              * AppVersion secondary.
-             * @member {number|null|undefined} secondary
+             * @member {number} secondary
              * @memberof CompanionReg.DeviceProps.AppVersion
              * @instance
              */
-            AppVersion.prototype.secondary = null;
+            AppVersion.prototype.secondary = 0;
 
             /**
              * AppVersion tertiary.
-             * @member {number|null|undefined} tertiary
+             * @member {number} tertiary
              * @memberof CompanionReg.DeviceProps.AppVersion
              * @instance
              */
-            AppVersion.prototype.tertiary = null;
+            AppVersion.prototype.tertiary = 0;
 
             /**
              * AppVersion quaternary.
-             * @member {number|null|undefined} quaternary
+             * @member {number} quaternary
              * @memberof CompanionReg.DeviceProps.AppVersion
              * @instance
              */
-            AppVersion.prototype.quaternary = null;
+            AppVersion.prototype.quaternary = 0;
 
             /**
              * AppVersion quinary.
-             * @member {number|null|undefined} quinary
+             * @member {number} quinary
              * @memberof CompanionReg.DeviceProps.AppVersion
              * @instance
              */
-            AppVersion.prototype.quinary = null;
-
-            // OneOf field names bound to virtual getters and setters
-            var $oneOfFields;
-
-            /**
-             * AppVersion _primary.
-             * @member {"primary"|undefined} _primary
-             * @memberof CompanionReg.DeviceProps.AppVersion
-             * @instance
-             */
-            Object.defineProperty(AppVersion.prototype, "_primary", {
-                get: $util.oneOfGetter($oneOfFields = ["primary"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * AppVersion _secondary.
-             * @member {"secondary"|undefined} _secondary
-             * @memberof CompanionReg.DeviceProps.AppVersion
-             * @instance
-             */
-            Object.defineProperty(AppVersion.prototype, "_secondary", {
-                get: $util.oneOfGetter($oneOfFields = ["secondary"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * AppVersion _tertiary.
-             * @member {"tertiary"|undefined} _tertiary
-             * @memberof CompanionReg.DeviceProps.AppVersion
-             * @instance
-             */
-            Object.defineProperty(AppVersion.prototype, "_tertiary", {
-                get: $util.oneOfGetter($oneOfFields = ["tertiary"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * AppVersion _quaternary.
-             * @member {"quaternary"|undefined} _quaternary
-             * @memberof CompanionReg.DeviceProps.AppVersion
-             * @instance
-             */
-            Object.defineProperty(AppVersion.prototype, "_quaternary", {
-                get: $util.oneOfGetter($oneOfFields = ["quaternary"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * AppVersion _quinary.
-             * @member {"quinary"|undefined} _quinary
-             * @memberof CompanionReg.DeviceProps.AppVersion
-             * @instance
-             */
-            Object.defineProperty(AppVersion.prototype, "_quinary", {
-                get: $util.oneOfGetter($oneOfFields = ["quinary"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
+            AppVersion.prototype.quinary = 0;
 
             /**
              * Creates a new AppVersion instance using the specified properties.
@@ -2860,32 +2527,21 @@ $root.CompanionReg = (function() {
             AppVersion.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                var properties = {};
-                if (message.primary != null && message.hasOwnProperty("primary")) {
-                    properties._primary = 1;
+                if (message.primary != null && message.hasOwnProperty("primary"))
                     if (!$util.isInteger(message.primary))
                         return "primary: integer expected";
-                }
-                if (message.secondary != null && message.hasOwnProperty("secondary")) {
-                    properties._secondary = 1;
+                if (message.secondary != null && message.hasOwnProperty("secondary"))
                     if (!$util.isInteger(message.secondary))
                         return "secondary: integer expected";
-                }
-                if (message.tertiary != null && message.hasOwnProperty("tertiary")) {
-                    properties._tertiary = 1;
+                if (message.tertiary != null && message.hasOwnProperty("tertiary"))
                     if (!$util.isInteger(message.tertiary))
                         return "tertiary: integer expected";
-                }
-                if (message.quaternary != null && message.hasOwnProperty("quaternary")) {
-                    properties._quaternary = 1;
+                if (message.quaternary != null && message.hasOwnProperty("quaternary"))
                     if (!$util.isInteger(message.quaternary))
                         return "quaternary: integer expected";
-                }
-                if (message.quinary != null && message.hasOwnProperty("quinary")) {
-                    properties._quinary = 1;
+                if (message.quinary != null && message.hasOwnProperty("quinary"))
                     if (!$util.isInteger(message.quinary))
                         return "quinary: integer expected";
-                }
                 return null;
             };
 
@@ -2927,31 +2583,23 @@ $root.CompanionReg = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (message.primary != null && message.hasOwnProperty("primary")) {
+                if (options.defaults) {
+                    object.primary = 0;
+                    object.secondary = 0;
+                    object.tertiary = 0;
+                    object.quaternary = 0;
+                    object.quinary = 0;
+                }
+                if (message.primary != null && message.hasOwnProperty("primary"))
                     object.primary = message.primary;
-                    if (options.oneofs)
-                        object._primary = "primary";
-                }
-                if (message.secondary != null && message.hasOwnProperty("secondary")) {
+                if (message.secondary != null && message.hasOwnProperty("secondary"))
                     object.secondary = message.secondary;
-                    if (options.oneofs)
-                        object._secondary = "secondary";
-                }
-                if (message.tertiary != null && message.hasOwnProperty("tertiary")) {
+                if (message.tertiary != null && message.hasOwnProperty("tertiary"))
                     object.tertiary = message.tertiary;
-                    if (options.oneofs)
-                        object._tertiary = "tertiary";
-                }
-                if (message.quaternary != null && message.hasOwnProperty("quaternary")) {
+                if (message.quaternary != null && message.hasOwnProperty("quaternary"))
                     object.quaternary = message.quaternary;
-                    if (options.oneofs)
-                        object._quaternary = "quaternary";
-                }
-                if (message.quinary != null && message.hasOwnProperty("quinary")) {
+                if (message.quinary != null && message.hasOwnProperty("quinary"))
                     object.quinary = message.quinary;
-                    if (options.oneofs)
-                        object._quinary = "quinary";
-                }
                 return object;
             };
 
@@ -3023,272 +2671,115 @@ $root.CompanionReg = (function() {
 
             /**
              * HistorySyncConfig fullSyncDaysLimit.
-             * @member {number|null|undefined} fullSyncDaysLimit
+             * @member {number} fullSyncDaysLimit
              * @memberof CompanionReg.DeviceProps.HistorySyncConfig
              * @instance
              */
-            HistorySyncConfig.prototype.fullSyncDaysLimit = null;
+            HistorySyncConfig.prototype.fullSyncDaysLimit = 0;
 
             /**
              * HistorySyncConfig fullSyncSizeMbLimit.
-             * @member {number|null|undefined} fullSyncSizeMbLimit
+             * @member {number} fullSyncSizeMbLimit
              * @memberof CompanionReg.DeviceProps.HistorySyncConfig
              * @instance
              */
-            HistorySyncConfig.prototype.fullSyncSizeMbLimit = null;
+            HistorySyncConfig.prototype.fullSyncSizeMbLimit = 0;
 
             /**
              * HistorySyncConfig storageQuotaMb.
-             * @member {number|null|undefined} storageQuotaMb
+             * @member {number} storageQuotaMb
              * @memberof CompanionReg.DeviceProps.HistorySyncConfig
              * @instance
              */
-            HistorySyncConfig.prototype.storageQuotaMb = null;
+            HistorySyncConfig.prototype.storageQuotaMb = 0;
 
             /**
              * HistorySyncConfig inlineInitialPayloadInE2EeMsg.
-             * @member {boolean|null|undefined} inlineInitialPayloadInE2EeMsg
+             * @member {boolean} inlineInitialPayloadInE2EeMsg
              * @memberof CompanionReg.DeviceProps.HistorySyncConfig
              * @instance
              */
-            HistorySyncConfig.prototype.inlineInitialPayloadInE2EeMsg = null;
+            HistorySyncConfig.prototype.inlineInitialPayloadInE2EeMsg = false;
 
             /**
              * HistorySyncConfig recentSyncDaysLimit.
-             * @member {number|null|undefined} recentSyncDaysLimit
+             * @member {number} recentSyncDaysLimit
              * @memberof CompanionReg.DeviceProps.HistorySyncConfig
              * @instance
              */
-            HistorySyncConfig.prototype.recentSyncDaysLimit = null;
+            HistorySyncConfig.prototype.recentSyncDaysLimit = 0;
 
             /**
              * HistorySyncConfig supportCallLogHistory.
-             * @member {boolean|null|undefined} supportCallLogHistory
+             * @member {boolean} supportCallLogHistory
              * @memberof CompanionReg.DeviceProps.HistorySyncConfig
              * @instance
              */
-            HistorySyncConfig.prototype.supportCallLogHistory = null;
+            HistorySyncConfig.prototype.supportCallLogHistory = false;
 
             /**
              * HistorySyncConfig supportBotUserAgentChatHistory.
-             * @member {boolean|null|undefined} supportBotUserAgentChatHistory
+             * @member {boolean} supportBotUserAgentChatHistory
              * @memberof CompanionReg.DeviceProps.HistorySyncConfig
              * @instance
              */
-            HistorySyncConfig.prototype.supportBotUserAgentChatHistory = null;
+            HistorySyncConfig.prototype.supportBotUserAgentChatHistory = false;
 
             /**
              * HistorySyncConfig supportCagReactionsAndPolls.
-             * @member {boolean|null|undefined} supportCagReactionsAndPolls
+             * @member {boolean} supportCagReactionsAndPolls
              * @memberof CompanionReg.DeviceProps.HistorySyncConfig
              * @instance
              */
-            HistorySyncConfig.prototype.supportCagReactionsAndPolls = null;
+            HistorySyncConfig.prototype.supportCagReactionsAndPolls = false;
 
             /**
              * HistorySyncConfig supportBizHostedMsg.
-             * @member {boolean|null|undefined} supportBizHostedMsg
+             * @member {boolean} supportBizHostedMsg
              * @memberof CompanionReg.DeviceProps.HistorySyncConfig
              * @instance
              */
-            HistorySyncConfig.prototype.supportBizHostedMsg = null;
+            HistorySyncConfig.prototype.supportBizHostedMsg = false;
 
             /**
              * HistorySyncConfig supportRecentSyncChunkMessageCountTuning.
-             * @member {boolean|null|undefined} supportRecentSyncChunkMessageCountTuning
+             * @member {boolean} supportRecentSyncChunkMessageCountTuning
              * @memberof CompanionReg.DeviceProps.HistorySyncConfig
              * @instance
              */
-            HistorySyncConfig.prototype.supportRecentSyncChunkMessageCountTuning = null;
+            HistorySyncConfig.prototype.supportRecentSyncChunkMessageCountTuning = false;
 
             /**
              * HistorySyncConfig supportHostedGroupMsg.
-             * @member {boolean|null|undefined} supportHostedGroupMsg
+             * @member {boolean} supportHostedGroupMsg
              * @memberof CompanionReg.DeviceProps.HistorySyncConfig
              * @instance
              */
-            HistorySyncConfig.prototype.supportHostedGroupMsg = null;
+            HistorySyncConfig.prototype.supportHostedGroupMsg = false;
 
             /**
              * HistorySyncConfig supportFbidBotChatHistory.
-             * @member {boolean|null|undefined} supportFbidBotChatHistory
+             * @member {boolean} supportFbidBotChatHistory
              * @memberof CompanionReg.DeviceProps.HistorySyncConfig
              * @instance
              */
-            HistorySyncConfig.prototype.supportFbidBotChatHistory = null;
+            HistorySyncConfig.prototype.supportFbidBotChatHistory = false;
 
             /**
              * HistorySyncConfig supportAddOnHistorySyncMigration.
-             * @member {boolean|null|undefined} supportAddOnHistorySyncMigration
+             * @member {boolean} supportAddOnHistorySyncMigration
              * @memberof CompanionReg.DeviceProps.HistorySyncConfig
              * @instance
              */
-            HistorySyncConfig.prototype.supportAddOnHistorySyncMigration = null;
+            HistorySyncConfig.prototype.supportAddOnHistorySyncMigration = false;
 
             /**
              * HistorySyncConfig supportMessageAssociation.
-             * @member {boolean|null|undefined} supportMessageAssociation
+             * @member {boolean} supportMessageAssociation
              * @memberof CompanionReg.DeviceProps.HistorySyncConfig
              * @instance
              */
-            HistorySyncConfig.prototype.supportMessageAssociation = null;
-
-            // OneOf field names bound to virtual getters and setters
-            var $oneOfFields;
-
-            /**
-             * HistorySyncConfig _fullSyncDaysLimit.
-             * @member {"fullSyncDaysLimit"|undefined} _fullSyncDaysLimit
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
-            Object.defineProperty(HistorySyncConfig.prototype, "_fullSyncDaysLimit", {
-                get: $util.oneOfGetter($oneOfFields = ["fullSyncDaysLimit"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * HistorySyncConfig _fullSyncSizeMbLimit.
-             * @member {"fullSyncSizeMbLimit"|undefined} _fullSyncSizeMbLimit
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
-            Object.defineProperty(HistorySyncConfig.prototype, "_fullSyncSizeMbLimit", {
-                get: $util.oneOfGetter($oneOfFields = ["fullSyncSizeMbLimit"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * HistorySyncConfig _storageQuotaMb.
-             * @member {"storageQuotaMb"|undefined} _storageQuotaMb
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
-            Object.defineProperty(HistorySyncConfig.prototype, "_storageQuotaMb", {
-                get: $util.oneOfGetter($oneOfFields = ["storageQuotaMb"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * HistorySyncConfig _inlineInitialPayloadInE2EeMsg.
-             * @member {"inlineInitialPayloadInE2EeMsg"|undefined} _inlineInitialPayloadInE2EeMsg
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
-            Object.defineProperty(HistorySyncConfig.prototype, "_inlineInitialPayloadInE2EeMsg", {
-                get: $util.oneOfGetter($oneOfFields = ["inlineInitialPayloadInE2EeMsg"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * HistorySyncConfig _recentSyncDaysLimit.
-             * @member {"recentSyncDaysLimit"|undefined} _recentSyncDaysLimit
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
-            Object.defineProperty(HistorySyncConfig.prototype, "_recentSyncDaysLimit", {
-                get: $util.oneOfGetter($oneOfFields = ["recentSyncDaysLimit"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * HistorySyncConfig _supportCallLogHistory.
-             * @member {"supportCallLogHistory"|undefined} _supportCallLogHistory
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
-            Object.defineProperty(HistorySyncConfig.prototype, "_supportCallLogHistory", {
-                get: $util.oneOfGetter($oneOfFields = ["supportCallLogHistory"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * HistorySyncConfig _supportBotUserAgentChatHistory.
-             * @member {"supportBotUserAgentChatHistory"|undefined} _supportBotUserAgentChatHistory
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
-            Object.defineProperty(HistorySyncConfig.prototype, "_supportBotUserAgentChatHistory", {
-                get: $util.oneOfGetter($oneOfFields = ["supportBotUserAgentChatHistory"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * HistorySyncConfig _supportCagReactionsAndPolls.
-             * @member {"supportCagReactionsAndPolls"|undefined} _supportCagReactionsAndPolls
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
-            Object.defineProperty(HistorySyncConfig.prototype, "_supportCagReactionsAndPolls", {
-                get: $util.oneOfGetter($oneOfFields = ["supportCagReactionsAndPolls"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * HistorySyncConfig _supportBizHostedMsg.
-             * @member {"supportBizHostedMsg"|undefined} _supportBizHostedMsg
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
-            Object.defineProperty(HistorySyncConfig.prototype, "_supportBizHostedMsg", {
-                get: $util.oneOfGetter($oneOfFields = ["supportBizHostedMsg"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * HistorySyncConfig _supportRecentSyncChunkMessageCountTuning.
-             * @member {"supportRecentSyncChunkMessageCountTuning"|undefined} _supportRecentSyncChunkMessageCountTuning
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
-            Object.defineProperty(HistorySyncConfig.prototype, "_supportRecentSyncChunkMessageCountTuning", {
-                get: $util.oneOfGetter($oneOfFields = ["supportRecentSyncChunkMessageCountTuning"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * HistorySyncConfig _supportHostedGroupMsg.
-             * @member {"supportHostedGroupMsg"|undefined} _supportHostedGroupMsg
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
-            Object.defineProperty(HistorySyncConfig.prototype, "_supportHostedGroupMsg", {
-                get: $util.oneOfGetter($oneOfFields = ["supportHostedGroupMsg"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * HistorySyncConfig _supportFbidBotChatHistory.
-             * @member {"supportFbidBotChatHistory"|undefined} _supportFbidBotChatHistory
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
-            Object.defineProperty(HistorySyncConfig.prototype, "_supportFbidBotChatHistory", {
-                get: $util.oneOfGetter($oneOfFields = ["supportFbidBotChatHistory"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * HistorySyncConfig _supportAddOnHistorySyncMigration.
-             * @member {"supportAddOnHistorySyncMigration"|undefined} _supportAddOnHistorySyncMigration
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
-            Object.defineProperty(HistorySyncConfig.prototype, "_supportAddOnHistorySyncMigration", {
-                get: $util.oneOfGetter($oneOfFields = ["supportAddOnHistorySyncMigration"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * HistorySyncConfig _supportMessageAssociation.
-             * @member {"supportMessageAssociation"|undefined} _supportMessageAssociation
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
-            Object.defineProperty(HistorySyncConfig.prototype, "_supportMessageAssociation", {
-                get: $util.oneOfGetter($oneOfFields = ["supportMessageAssociation"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
+            HistorySyncConfig.prototype.supportMessageAssociation = false;
 
             /**
              * Creates a new HistorySyncConfig instance using the specified properties.
@@ -3469,77 +2960,48 @@ $root.CompanionReg = (function() {
             HistorySyncConfig.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                var properties = {};
-                if (message.fullSyncDaysLimit != null && message.hasOwnProperty("fullSyncDaysLimit")) {
-                    properties._fullSyncDaysLimit = 1;
+                if (message.fullSyncDaysLimit != null && message.hasOwnProperty("fullSyncDaysLimit"))
                     if (!$util.isInteger(message.fullSyncDaysLimit))
                         return "fullSyncDaysLimit: integer expected";
-                }
-                if (message.fullSyncSizeMbLimit != null && message.hasOwnProperty("fullSyncSizeMbLimit")) {
-                    properties._fullSyncSizeMbLimit = 1;
+                if (message.fullSyncSizeMbLimit != null && message.hasOwnProperty("fullSyncSizeMbLimit"))
                     if (!$util.isInteger(message.fullSyncSizeMbLimit))
                         return "fullSyncSizeMbLimit: integer expected";
-                }
-                if (message.storageQuotaMb != null && message.hasOwnProperty("storageQuotaMb")) {
-                    properties._storageQuotaMb = 1;
+                if (message.storageQuotaMb != null && message.hasOwnProperty("storageQuotaMb"))
                     if (!$util.isInteger(message.storageQuotaMb))
                         return "storageQuotaMb: integer expected";
-                }
-                if (message.inlineInitialPayloadInE2EeMsg != null && message.hasOwnProperty("inlineInitialPayloadInE2EeMsg")) {
-                    properties._inlineInitialPayloadInE2EeMsg = 1;
+                if (message.inlineInitialPayloadInE2EeMsg != null && message.hasOwnProperty("inlineInitialPayloadInE2EeMsg"))
                     if (typeof message.inlineInitialPayloadInE2EeMsg !== "boolean")
                         return "inlineInitialPayloadInE2EeMsg: boolean expected";
-                }
-                if (message.recentSyncDaysLimit != null && message.hasOwnProperty("recentSyncDaysLimit")) {
-                    properties._recentSyncDaysLimit = 1;
+                if (message.recentSyncDaysLimit != null && message.hasOwnProperty("recentSyncDaysLimit"))
                     if (!$util.isInteger(message.recentSyncDaysLimit))
                         return "recentSyncDaysLimit: integer expected";
-                }
-                if (message.supportCallLogHistory != null && message.hasOwnProperty("supportCallLogHistory")) {
-                    properties._supportCallLogHistory = 1;
+                if (message.supportCallLogHistory != null && message.hasOwnProperty("supportCallLogHistory"))
                     if (typeof message.supportCallLogHistory !== "boolean")
                         return "supportCallLogHistory: boolean expected";
-                }
-                if (message.supportBotUserAgentChatHistory != null && message.hasOwnProperty("supportBotUserAgentChatHistory")) {
-                    properties._supportBotUserAgentChatHistory = 1;
+                if (message.supportBotUserAgentChatHistory != null && message.hasOwnProperty("supportBotUserAgentChatHistory"))
                     if (typeof message.supportBotUserAgentChatHistory !== "boolean")
                         return "supportBotUserAgentChatHistory: boolean expected";
-                }
-                if (message.supportCagReactionsAndPolls != null && message.hasOwnProperty("supportCagReactionsAndPolls")) {
-                    properties._supportCagReactionsAndPolls = 1;
+                if (message.supportCagReactionsAndPolls != null && message.hasOwnProperty("supportCagReactionsAndPolls"))
                     if (typeof message.supportCagReactionsAndPolls !== "boolean")
                         return "supportCagReactionsAndPolls: boolean expected";
-                }
-                if (message.supportBizHostedMsg != null && message.hasOwnProperty("supportBizHostedMsg")) {
-                    properties._supportBizHostedMsg = 1;
+                if (message.supportBizHostedMsg != null && message.hasOwnProperty("supportBizHostedMsg"))
                     if (typeof message.supportBizHostedMsg !== "boolean")
                         return "supportBizHostedMsg: boolean expected";
-                }
-                if (message.supportRecentSyncChunkMessageCountTuning != null && message.hasOwnProperty("supportRecentSyncChunkMessageCountTuning")) {
-                    properties._supportRecentSyncChunkMessageCountTuning = 1;
+                if (message.supportRecentSyncChunkMessageCountTuning != null && message.hasOwnProperty("supportRecentSyncChunkMessageCountTuning"))
                     if (typeof message.supportRecentSyncChunkMessageCountTuning !== "boolean")
                         return "supportRecentSyncChunkMessageCountTuning: boolean expected";
-                }
-                if (message.supportHostedGroupMsg != null && message.hasOwnProperty("supportHostedGroupMsg")) {
-                    properties._supportHostedGroupMsg = 1;
+                if (message.supportHostedGroupMsg != null && message.hasOwnProperty("supportHostedGroupMsg"))
                     if (typeof message.supportHostedGroupMsg !== "boolean")
                         return "supportHostedGroupMsg: boolean expected";
-                }
-                if (message.supportFbidBotChatHistory != null && message.hasOwnProperty("supportFbidBotChatHistory")) {
-                    properties._supportFbidBotChatHistory = 1;
+                if (message.supportFbidBotChatHistory != null && message.hasOwnProperty("supportFbidBotChatHistory"))
                     if (typeof message.supportFbidBotChatHistory !== "boolean")
                         return "supportFbidBotChatHistory: boolean expected";
-                }
-                if (message.supportAddOnHistorySyncMigration != null && message.hasOwnProperty("supportAddOnHistorySyncMigration")) {
-                    properties._supportAddOnHistorySyncMigration = 1;
+                if (message.supportAddOnHistorySyncMigration != null && message.hasOwnProperty("supportAddOnHistorySyncMigration"))
                     if (typeof message.supportAddOnHistorySyncMigration !== "boolean")
                         return "supportAddOnHistorySyncMigration: boolean expected";
-                }
-                if (message.supportMessageAssociation != null && message.hasOwnProperty("supportMessageAssociation")) {
-                    properties._supportMessageAssociation = 1;
+                if (message.supportMessageAssociation != null && message.hasOwnProperty("supportMessageAssociation"))
                     if (typeof message.supportMessageAssociation !== "boolean")
                         return "supportMessageAssociation: boolean expected";
-                }
                 return null;
             };
 
@@ -3599,76 +3061,50 @@ $root.CompanionReg = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (message.fullSyncDaysLimit != null && message.hasOwnProperty("fullSyncDaysLimit")) {
+                if (options.defaults) {
+                    object.fullSyncDaysLimit = 0;
+                    object.fullSyncSizeMbLimit = 0;
+                    object.storageQuotaMb = 0;
+                    object.inlineInitialPayloadInE2EeMsg = false;
+                    object.recentSyncDaysLimit = 0;
+                    object.supportCallLogHistory = false;
+                    object.supportBotUserAgentChatHistory = false;
+                    object.supportCagReactionsAndPolls = false;
+                    object.supportBizHostedMsg = false;
+                    object.supportRecentSyncChunkMessageCountTuning = false;
+                    object.supportHostedGroupMsg = false;
+                    object.supportFbidBotChatHistory = false;
+                    object.supportAddOnHistorySyncMigration = false;
+                    object.supportMessageAssociation = false;
+                }
+                if (message.fullSyncDaysLimit != null && message.hasOwnProperty("fullSyncDaysLimit"))
                     object.fullSyncDaysLimit = message.fullSyncDaysLimit;
-                    if (options.oneofs)
-                        object._fullSyncDaysLimit = "fullSyncDaysLimit";
-                }
-                if (message.fullSyncSizeMbLimit != null && message.hasOwnProperty("fullSyncSizeMbLimit")) {
+                if (message.fullSyncSizeMbLimit != null && message.hasOwnProperty("fullSyncSizeMbLimit"))
                     object.fullSyncSizeMbLimit = message.fullSyncSizeMbLimit;
-                    if (options.oneofs)
-                        object._fullSyncSizeMbLimit = "fullSyncSizeMbLimit";
-                }
-                if (message.storageQuotaMb != null && message.hasOwnProperty("storageQuotaMb")) {
+                if (message.storageQuotaMb != null && message.hasOwnProperty("storageQuotaMb"))
                     object.storageQuotaMb = message.storageQuotaMb;
-                    if (options.oneofs)
-                        object._storageQuotaMb = "storageQuotaMb";
-                }
-                if (message.inlineInitialPayloadInE2EeMsg != null && message.hasOwnProperty("inlineInitialPayloadInE2EeMsg")) {
+                if (message.inlineInitialPayloadInE2EeMsg != null && message.hasOwnProperty("inlineInitialPayloadInE2EeMsg"))
                     object.inlineInitialPayloadInE2EeMsg = message.inlineInitialPayloadInE2EeMsg;
-                    if (options.oneofs)
-                        object._inlineInitialPayloadInE2EeMsg = "inlineInitialPayloadInE2EeMsg";
-                }
-                if (message.recentSyncDaysLimit != null && message.hasOwnProperty("recentSyncDaysLimit")) {
+                if (message.recentSyncDaysLimit != null && message.hasOwnProperty("recentSyncDaysLimit"))
                     object.recentSyncDaysLimit = message.recentSyncDaysLimit;
-                    if (options.oneofs)
-                        object._recentSyncDaysLimit = "recentSyncDaysLimit";
-                }
-                if (message.supportCallLogHistory != null && message.hasOwnProperty("supportCallLogHistory")) {
+                if (message.supportCallLogHistory != null && message.hasOwnProperty("supportCallLogHistory"))
                     object.supportCallLogHistory = message.supportCallLogHistory;
-                    if (options.oneofs)
-                        object._supportCallLogHistory = "supportCallLogHistory";
-                }
-                if (message.supportBotUserAgentChatHistory != null && message.hasOwnProperty("supportBotUserAgentChatHistory")) {
+                if (message.supportBotUserAgentChatHistory != null && message.hasOwnProperty("supportBotUserAgentChatHistory"))
                     object.supportBotUserAgentChatHistory = message.supportBotUserAgentChatHistory;
-                    if (options.oneofs)
-                        object._supportBotUserAgentChatHistory = "supportBotUserAgentChatHistory";
-                }
-                if (message.supportCagReactionsAndPolls != null && message.hasOwnProperty("supportCagReactionsAndPolls")) {
+                if (message.supportCagReactionsAndPolls != null && message.hasOwnProperty("supportCagReactionsAndPolls"))
                     object.supportCagReactionsAndPolls = message.supportCagReactionsAndPolls;
-                    if (options.oneofs)
-                        object._supportCagReactionsAndPolls = "supportCagReactionsAndPolls";
-                }
-                if (message.supportBizHostedMsg != null && message.hasOwnProperty("supportBizHostedMsg")) {
+                if (message.supportBizHostedMsg != null && message.hasOwnProperty("supportBizHostedMsg"))
                     object.supportBizHostedMsg = message.supportBizHostedMsg;
-                    if (options.oneofs)
-                        object._supportBizHostedMsg = "supportBizHostedMsg";
-                }
-                if (message.supportRecentSyncChunkMessageCountTuning != null && message.hasOwnProperty("supportRecentSyncChunkMessageCountTuning")) {
+                if (message.supportRecentSyncChunkMessageCountTuning != null && message.hasOwnProperty("supportRecentSyncChunkMessageCountTuning"))
                     object.supportRecentSyncChunkMessageCountTuning = message.supportRecentSyncChunkMessageCountTuning;
-                    if (options.oneofs)
-                        object._supportRecentSyncChunkMessageCountTuning = "supportRecentSyncChunkMessageCountTuning";
-                }
-                if (message.supportHostedGroupMsg != null && message.hasOwnProperty("supportHostedGroupMsg")) {
+                if (message.supportHostedGroupMsg != null && message.hasOwnProperty("supportHostedGroupMsg"))
                     object.supportHostedGroupMsg = message.supportHostedGroupMsg;
-                    if (options.oneofs)
-                        object._supportHostedGroupMsg = "supportHostedGroupMsg";
-                }
-                if (message.supportFbidBotChatHistory != null && message.hasOwnProperty("supportFbidBotChatHistory")) {
+                if (message.supportFbidBotChatHistory != null && message.hasOwnProperty("supportFbidBotChatHistory"))
                     object.supportFbidBotChatHistory = message.supportFbidBotChatHistory;
-                    if (options.oneofs)
-                        object._supportFbidBotChatHistory = "supportFbidBotChatHistory";
-                }
-                if (message.supportAddOnHistorySyncMigration != null && message.hasOwnProperty("supportAddOnHistorySyncMigration")) {
+                if (message.supportAddOnHistorySyncMigration != null && message.hasOwnProperty("supportAddOnHistorySyncMigration"))
                     object.supportAddOnHistorySyncMigration = message.supportAddOnHistorySyncMigration;
-                    if (options.oneofs)
-                        object._supportAddOnHistorySyncMigration = "supportAddOnHistorySyncMigration";
-                }
-                if (message.supportMessageAssociation != null && message.hasOwnProperty("supportMessageAssociation")) {
+                if (message.supportMessageAssociation != null && message.hasOwnProperty("supportMessageAssociation"))
                     object.supportMessageAssociation = message.supportMessageAssociation;
-                    if (options.oneofs)
-                        object._supportMessageAssociation = "supportMessageAssociation";
-                }
                 return object;
             };
 
