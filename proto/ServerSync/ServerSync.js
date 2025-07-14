@@ -77,19 +77,19 @@ $root.ServerSync = (function() {
 
         /**
          * SyncdPatch snapshotMac.
-         * @member {Uint8Array} snapshotMac
+         * @member {Uint8Array|null|undefined} snapshotMac
          * @memberof ServerSync.SyncdPatch
          * @instance
          */
-        SyncdPatch.prototype.snapshotMac = $util.newBuffer([]);
+        SyncdPatch.prototype.snapshotMac = null;
 
         /**
          * SyncdPatch patchMac.
-         * @member {Uint8Array} patchMac
+         * @member {Uint8Array|null|undefined} patchMac
          * @memberof ServerSync.SyncdPatch
          * @instance
          */
-        SyncdPatch.prototype.patchMac = $util.newBuffer([]);
+        SyncdPatch.prototype.patchMac = null;
 
         /**
          * SyncdPatch keyId.
@@ -109,19 +109,110 @@ $root.ServerSync = (function() {
 
         /**
          * SyncdPatch deviceIndex.
-         * @member {number} deviceIndex
+         * @member {number|null|undefined} deviceIndex
          * @memberof ServerSync.SyncdPatch
          * @instance
          */
-        SyncdPatch.prototype.deviceIndex = 0;
+        SyncdPatch.prototype.deviceIndex = null;
 
         /**
          * SyncdPatch clientDebugData.
-         * @member {Uint8Array} clientDebugData
+         * @member {Uint8Array|null|undefined} clientDebugData
          * @memberof ServerSync.SyncdPatch
          * @instance
          */
-        SyncdPatch.prototype.clientDebugData = $util.newBuffer([]);
+        SyncdPatch.prototype.clientDebugData = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * SyncdPatch _version.
+         * @member {"version"|undefined} _version
+         * @memberof ServerSync.SyncdPatch
+         * @instance
+         */
+        Object.defineProperty(SyncdPatch.prototype, "_version", {
+            get: $util.oneOfGetter($oneOfFields = ["version"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * SyncdPatch _externalMutations.
+         * @member {"externalMutations"|undefined} _externalMutations
+         * @memberof ServerSync.SyncdPatch
+         * @instance
+         */
+        Object.defineProperty(SyncdPatch.prototype, "_externalMutations", {
+            get: $util.oneOfGetter($oneOfFields = ["externalMutations"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * SyncdPatch _snapshotMac.
+         * @member {"snapshotMac"|undefined} _snapshotMac
+         * @memberof ServerSync.SyncdPatch
+         * @instance
+         */
+        Object.defineProperty(SyncdPatch.prototype, "_snapshotMac", {
+            get: $util.oneOfGetter($oneOfFields = ["snapshotMac"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * SyncdPatch _patchMac.
+         * @member {"patchMac"|undefined} _patchMac
+         * @memberof ServerSync.SyncdPatch
+         * @instance
+         */
+        Object.defineProperty(SyncdPatch.prototype, "_patchMac", {
+            get: $util.oneOfGetter($oneOfFields = ["patchMac"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * SyncdPatch _keyId.
+         * @member {"keyId"|undefined} _keyId
+         * @memberof ServerSync.SyncdPatch
+         * @instance
+         */
+        Object.defineProperty(SyncdPatch.prototype, "_keyId", {
+            get: $util.oneOfGetter($oneOfFields = ["keyId"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * SyncdPatch _exitCode.
+         * @member {"exitCode"|undefined} _exitCode
+         * @memberof ServerSync.SyncdPatch
+         * @instance
+         */
+        Object.defineProperty(SyncdPatch.prototype, "_exitCode", {
+            get: $util.oneOfGetter($oneOfFields = ["exitCode"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * SyncdPatch _deviceIndex.
+         * @member {"deviceIndex"|undefined} _deviceIndex
+         * @memberof ServerSync.SyncdPatch
+         * @instance
+         */
+        Object.defineProperty(SyncdPatch.prototype, "_deviceIndex", {
+            get: $util.oneOfGetter($oneOfFields = ["deviceIndex"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * SyncdPatch _clientDebugData.
+         * @member {"clientDebugData"|undefined} _clientDebugData
+         * @memberof ServerSync.SyncdPatch
+         * @instance
+         */
+        Object.defineProperty(SyncdPatch.prototype, "_clientDebugData", {
+            get: $util.oneOfGetter($oneOfFields = ["clientDebugData"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new SyncdPatch instance using the specified properties.
@@ -275,10 +366,14 @@ $root.ServerSync = (function() {
         SyncdPatch.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            var properties = {};
             if (message.version != null && message.hasOwnProperty("version")) {
-                var error = $root.ServerSync.SyncdVersion.verify(message.version);
-                if (error)
-                    return "version." + error;
+                properties._version = 1;
+                {
+                    var error = $root.ServerSync.SyncdVersion.verify(message.version);
+                    if (error)
+                        return "version." + error;
+                }
             }
             if (message.mutations != null && message.hasOwnProperty("mutations")) {
                 if (!Array.isArray(message.mutations))
@@ -290,32 +385,49 @@ $root.ServerSync = (function() {
                 }
             }
             if (message.externalMutations != null && message.hasOwnProperty("externalMutations")) {
-                var error = $root.ServerSync.ExternalBlobReference.verify(message.externalMutations);
-                if (error)
-                    return "externalMutations." + error;
+                properties._externalMutations = 1;
+                {
+                    var error = $root.ServerSync.ExternalBlobReference.verify(message.externalMutations);
+                    if (error)
+                        return "externalMutations." + error;
+                }
             }
-            if (message.snapshotMac != null && message.hasOwnProperty("snapshotMac"))
+            if (message.snapshotMac != null && message.hasOwnProperty("snapshotMac")) {
+                properties._snapshotMac = 1;
                 if (!(message.snapshotMac && typeof message.snapshotMac.length === "number" || $util.isString(message.snapshotMac)))
                     return "snapshotMac: buffer expected";
-            if (message.patchMac != null && message.hasOwnProperty("patchMac"))
+            }
+            if (message.patchMac != null && message.hasOwnProperty("patchMac")) {
+                properties._patchMac = 1;
                 if (!(message.patchMac && typeof message.patchMac.length === "number" || $util.isString(message.patchMac)))
                     return "patchMac: buffer expected";
+            }
             if (message.keyId != null && message.hasOwnProperty("keyId")) {
-                var error = $root.ServerSync.KeyId.verify(message.keyId);
-                if (error)
-                    return "keyId." + error;
+                properties._keyId = 1;
+                {
+                    var error = $root.ServerSync.KeyId.verify(message.keyId);
+                    if (error)
+                        return "keyId." + error;
+                }
             }
             if (message.exitCode != null && message.hasOwnProperty("exitCode")) {
-                var error = $root.ServerSync.ExitCode.verify(message.exitCode);
-                if (error)
-                    return "exitCode." + error;
+                properties._exitCode = 1;
+                {
+                    var error = $root.ServerSync.ExitCode.verify(message.exitCode);
+                    if (error)
+                        return "exitCode." + error;
+                }
             }
-            if (message.deviceIndex != null && message.hasOwnProperty("deviceIndex"))
+            if (message.deviceIndex != null && message.hasOwnProperty("deviceIndex")) {
+                properties._deviceIndex = 1;
                 if (!$util.isInteger(message.deviceIndex))
                     return "deviceIndex: integer expected";
-            if (message.clientDebugData != null && message.hasOwnProperty("clientDebugData"))
+            }
+            if (message.clientDebugData != null && message.hasOwnProperty("clientDebugData")) {
+                properties._clientDebugData = 1;
                 if (!(message.clientDebugData && typeof message.clientDebugData.length === "number" || $util.isString(message.clientDebugData)))
                     return "clientDebugData: buffer expected";
+            }
             return null;
         };
 
@@ -396,55 +508,51 @@ $root.ServerSync = (function() {
             var object = {};
             if (options.arrays || options.defaults)
                 object.mutations = [];
-            if (options.defaults) {
-                object.version = null;
-                object.externalMutations = null;
-                if (options.bytes === String)
-                    object.snapshotMac = "";
-                else {
-                    object.snapshotMac = [];
-                    if (options.bytes !== Array)
-                        object.snapshotMac = $util.newBuffer(object.snapshotMac);
-                }
-                if (options.bytes === String)
-                    object.patchMac = "";
-                else {
-                    object.patchMac = [];
-                    if (options.bytes !== Array)
-                        object.patchMac = $util.newBuffer(object.patchMac);
-                }
-                object.keyId = null;
-                object.exitCode = null;
-                object.deviceIndex = 0;
-                if (options.bytes === String)
-                    object.clientDebugData = "";
-                else {
-                    object.clientDebugData = [];
-                    if (options.bytes !== Array)
-                        object.clientDebugData = $util.newBuffer(object.clientDebugData);
-                }
-            }
-            if (message.version != null && message.hasOwnProperty("version"))
+            if (message.version != null && message.hasOwnProperty("version")) {
                 object.version = $root.ServerSync.SyncdVersion.toObject(message.version, options);
+                if (options.oneofs)
+                    object._version = "version";
+            }
             if (message.mutations && message.mutations.length) {
                 object.mutations = [];
                 for (var j = 0; j < message.mutations.length; ++j)
                     object.mutations[j] = $root.ServerSync.SyncdMutation.toObject(message.mutations[j], options);
             }
-            if (message.externalMutations != null && message.hasOwnProperty("externalMutations"))
+            if (message.externalMutations != null && message.hasOwnProperty("externalMutations")) {
                 object.externalMutations = $root.ServerSync.ExternalBlobReference.toObject(message.externalMutations, options);
-            if (message.snapshotMac != null && message.hasOwnProperty("snapshotMac"))
+                if (options.oneofs)
+                    object._externalMutations = "externalMutations";
+            }
+            if (message.snapshotMac != null && message.hasOwnProperty("snapshotMac")) {
                 object.snapshotMac = options.bytes === String ? $util.base64.encode(message.snapshotMac, 0, message.snapshotMac.length) : options.bytes === Array ? Array.prototype.slice.call(message.snapshotMac) : message.snapshotMac;
-            if (message.patchMac != null && message.hasOwnProperty("patchMac"))
+                if (options.oneofs)
+                    object._snapshotMac = "snapshotMac";
+            }
+            if (message.patchMac != null && message.hasOwnProperty("patchMac")) {
                 object.patchMac = options.bytes === String ? $util.base64.encode(message.patchMac, 0, message.patchMac.length) : options.bytes === Array ? Array.prototype.slice.call(message.patchMac) : message.patchMac;
-            if (message.keyId != null && message.hasOwnProperty("keyId"))
+                if (options.oneofs)
+                    object._patchMac = "patchMac";
+            }
+            if (message.keyId != null && message.hasOwnProperty("keyId")) {
                 object.keyId = $root.ServerSync.KeyId.toObject(message.keyId, options);
-            if (message.exitCode != null && message.hasOwnProperty("exitCode"))
+                if (options.oneofs)
+                    object._keyId = "keyId";
+            }
+            if (message.exitCode != null && message.hasOwnProperty("exitCode")) {
                 object.exitCode = $root.ServerSync.ExitCode.toObject(message.exitCode, options);
-            if (message.deviceIndex != null && message.hasOwnProperty("deviceIndex"))
+                if (options.oneofs)
+                    object._exitCode = "exitCode";
+            }
+            if (message.deviceIndex != null && message.hasOwnProperty("deviceIndex")) {
                 object.deviceIndex = message.deviceIndex;
-            if (message.clientDebugData != null && message.hasOwnProperty("clientDebugData"))
+                if (options.oneofs)
+                    object._deviceIndex = "deviceIndex";
+            }
+            if (message.clientDebugData != null && message.hasOwnProperty("clientDebugData")) {
                 object.clientDebugData = options.bytes === String ? $util.base64.encode(message.clientDebugData, 0, message.clientDebugData.length) : options.bytes === Array ? Array.prototype.slice.call(message.clientDebugData) : message.clientDebugData;
+                if (options.oneofs)
+                    object._clientDebugData = "clientDebugData";
+            }
             return object;
         };
 
@@ -504,11 +612,11 @@ $root.ServerSync = (function() {
 
         /**
          * SyncdMutation operation.
-         * @member {ServerSync.SyncdMutation.SyncdOperation} operation
+         * @member {ServerSync.SyncdMutation.SyncdOperation|null|undefined} operation
          * @memberof ServerSync.SyncdMutation
          * @instance
          */
-        SyncdMutation.prototype.operation = 0;
+        SyncdMutation.prototype.operation = null;
 
         /**
          * SyncdMutation record.
@@ -517,6 +625,31 @@ $root.ServerSync = (function() {
          * @instance
          */
         SyncdMutation.prototype.record = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * SyncdMutation _operation.
+         * @member {"operation"|undefined} _operation
+         * @memberof ServerSync.SyncdMutation
+         * @instance
+         */
+        Object.defineProperty(SyncdMutation.prototype, "_operation", {
+            get: $util.oneOfGetter($oneOfFields = ["operation"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * SyncdMutation _record.
+         * @member {"record"|undefined} _record
+         * @memberof ServerSync.SyncdMutation
+         * @instance
+         */
+        Object.defineProperty(SyncdMutation.prototype, "_record", {
+            get: $util.oneOfGetter($oneOfFields = ["record"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new SyncdMutation instance using the specified properties.
@@ -625,7 +758,9 @@ $root.ServerSync = (function() {
         SyncdMutation.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.operation != null && message.hasOwnProperty("operation"))
+            var properties = {};
+            if (message.operation != null && message.hasOwnProperty("operation")) {
+                properties._operation = 1;
                 switch (message.operation) {
                 default:
                     return "operation: enum value expected";
@@ -633,10 +768,14 @@ $root.ServerSync = (function() {
                 case 1:
                     break;
                 }
+            }
             if (message.record != null && message.hasOwnProperty("record")) {
-                var error = $root.ServerSync.SyncdRecord.verify(message.record);
-                if (error)
-                    return "record." + error;
+                properties._record = 1;
+                {
+                    var error = $root.ServerSync.SyncdRecord.verify(message.record);
+                    if (error)
+                        return "record." + error;
+                }
             }
             return null;
         };
@@ -690,14 +829,16 @@ $root.ServerSync = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults) {
-                object.operation = options.enums === String ? "SET" : 0;
-                object.record = null;
-            }
-            if (message.operation != null && message.hasOwnProperty("operation"))
+            if (message.operation != null && message.hasOwnProperty("operation")) {
                 object.operation = options.enums === String ? $root.ServerSync.SyncdMutation.SyncdOperation[message.operation] === undefined ? message.operation : $root.ServerSync.SyncdMutation.SyncdOperation[message.operation] : message.operation;
-            if (message.record != null && message.hasOwnProperty("record"))
+                if (options.oneofs)
+                    object._operation = "operation";
+            }
+            if (message.record != null && message.hasOwnProperty("record")) {
                 object.record = $root.ServerSync.SyncdRecord.toObject(message.record, options);
+                if (options.oneofs)
+                    object._record = "record";
+            }
             return object;
         };
 
@@ -1016,11 +1157,11 @@ $root.ServerSync = (function() {
 
         /**
          * SyncdSnapshot mac.
-         * @member {Uint8Array} mac
+         * @member {Uint8Array|null|undefined} mac
          * @memberof ServerSync.SyncdSnapshot
          * @instance
          */
-        SyncdSnapshot.prototype.mac = $util.newBuffer([]);
+        SyncdSnapshot.prototype.mac = null;
 
         /**
          * SyncdSnapshot keyId.
@@ -1029,6 +1170,42 @@ $root.ServerSync = (function() {
          * @instance
          */
         SyncdSnapshot.prototype.keyId = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * SyncdSnapshot _version.
+         * @member {"version"|undefined} _version
+         * @memberof ServerSync.SyncdSnapshot
+         * @instance
+         */
+        Object.defineProperty(SyncdSnapshot.prototype, "_version", {
+            get: $util.oneOfGetter($oneOfFields = ["version"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * SyncdSnapshot _mac.
+         * @member {"mac"|undefined} _mac
+         * @memberof ServerSync.SyncdSnapshot
+         * @instance
+         */
+        Object.defineProperty(SyncdSnapshot.prototype, "_mac", {
+            get: $util.oneOfGetter($oneOfFields = ["mac"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * SyncdSnapshot _keyId.
+         * @member {"keyId"|undefined} _keyId
+         * @memberof ServerSync.SyncdSnapshot
+         * @instance
+         */
+        Object.defineProperty(SyncdSnapshot.prototype, "_keyId", {
+            get: $util.oneOfGetter($oneOfFields = ["keyId"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new SyncdSnapshot instance using the specified properties.
@@ -1152,10 +1329,14 @@ $root.ServerSync = (function() {
         SyncdSnapshot.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            var properties = {};
             if (message.version != null && message.hasOwnProperty("version")) {
-                var error = $root.ServerSync.SyncdVersion.verify(message.version);
-                if (error)
-                    return "version." + error;
+                properties._version = 1;
+                {
+                    var error = $root.ServerSync.SyncdVersion.verify(message.version);
+                    if (error)
+                        return "version." + error;
+                }
             }
             if (message.records != null && message.hasOwnProperty("records")) {
                 if (!Array.isArray(message.records))
@@ -1166,13 +1347,18 @@ $root.ServerSync = (function() {
                         return "records." + error;
                 }
             }
-            if (message.mac != null && message.hasOwnProperty("mac"))
+            if (message.mac != null && message.hasOwnProperty("mac")) {
+                properties._mac = 1;
                 if (!(message.mac && typeof message.mac.length === "number" || $util.isString(message.mac)))
                     return "mac: buffer expected";
+            }
             if (message.keyId != null && message.hasOwnProperty("keyId")) {
-                var error = $root.ServerSync.KeyId.verify(message.keyId);
-                if (error)
-                    return "keyId." + error;
+                properties._keyId = 1;
+                {
+                    var error = $root.ServerSync.KeyId.verify(message.keyId);
+                    if (error)
+                        return "keyId." + error;
+                }
             }
             return null;
         };
@@ -1232,28 +1418,26 @@ $root.ServerSync = (function() {
             var object = {};
             if (options.arrays || options.defaults)
                 object.records = [];
-            if (options.defaults) {
-                object.version = null;
-                if (options.bytes === String)
-                    object.mac = "";
-                else {
-                    object.mac = [];
-                    if (options.bytes !== Array)
-                        object.mac = $util.newBuffer(object.mac);
-                }
-                object.keyId = null;
-            }
-            if (message.version != null && message.hasOwnProperty("version"))
+            if (message.version != null && message.hasOwnProperty("version")) {
                 object.version = $root.ServerSync.SyncdVersion.toObject(message.version, options);
+                if (options.oneofs)
+                    object._version = "version";
+            }
             if (message.records && message.records.length) {
                 object.records = [];
                 for (var j = 0; j < message.records.length; ++j)
                     object.records[j] = $root.ServerSync.SyncdRecord.toObject(message.records[j], options);
             }
-            if (message.mac != null && message.hasOwnProperty("mac"))
+            if (message.mac != null && message.hasOwnProperty("mac")) {
                 object.mac = options.bytes === String ? $util.base64.encode(message.mac, 0, message.mac.length) : options.bytes === Array ? Array.prototype.slice.call(message.mac) : message.mac;
-            if (message.keyId != null && message.hasOwnProperty("keyId"))
+                if (options.oneofs)
+                    object._mac = "mac";
+            }
+            if (message.keyId != null && message.hasOwnProperty("keyId")) {
                 object.keyId = $root.ServerSync.KeyId.toObject(message.keyId, options);
+                if (options.oneofs)
+                    object._keyId = "keyId";
+            }
             return object;
         };
 
@@ -1317,51 +1501,120 @@ $root.ServerSync = (function() {
 
         /**
          * ExternalBlobReference mediaKey.
-         * @member {Uint8Array} mediaKey
+         * @member {Uint8Array|null|undefined} mediaKey
          * @memberof ServerSync.ExternalBlobReference
          * @instance
          */
-        ExternalBlobReference.prototype.mediaKey = $util.newBuffer([]);
+        ExternalBlobReference.prototype.mediaKey = null;
 
         /**
          * ExternalBlobReference directPath.
-         * @member {string} directPath
+         * @member {string|null|undefined} directPath
          * @memberof ServerSync.ExternalBlobReference
          * @instance
          */
-        ExternalBlobReference.prototype.directPath = "";
+        ExternalBlobReference.prototype.directPath = null;
 
         /**
          * ExternalBlobReference handle.
-         * @member {string} handle
+         * @member {string|null|undefined} handle
          * @memberof ServerSync.ExternalBlobReference
          * @instance
          */
-        ExternalBlobReference.prototype.handle = "";
+        ExternalBlobReference.prototype.handle = null;
 
         /**
          * ExternalBlobReference fileSizeBytes.
-         * @member {number|Long} fileSizeBytes
+         * @member {number|Long|null|undefined} fileSizeBytes
          * @memberof ServerSync.ExternalBlobReference
          * @instance
          */
-        ExternalBlobReference.prototype.fileSizeBytes = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        ExternalBlobReference.prototype.fileSizeBytes = null;
 
         /**
          * ExternalBlobReference fileSha256.
-         * @member {Uint8Array} fileSha256
+         * @member {Uint8Array|null|undefined} fileSha256
          * @memberof ServerSync.ExternalBlobReference
          * @instance
          */
-        ExternalBlobReference.prototype.fileSha256 = $util.newBuffer([]);
+        ExternalBlobReference.prototype.fileSha256 = null;
 
         /**
          * ExternalBlobReference fileEncSha256.
-         * @member {Uint8Array} fileEncSha256
+         * @member {Uint8Array|null|undefined} fileEncSha256
          * @memberof ServerSync.ExternalBlobReference
          * @instance
          */
-        ExternalBlobReference.prototype.fileEncSha256 = $util.newBuffer([]);
+        ExternalBlobReference.prototype.fileEncSha256 = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * ExternalBlobReference _mediaKey.
+         * @member {"mediaKey"|undefined} _mediaKey
+         * @memberof ServerSync.ExternalBlobReference
+         * @instance
+         */
+        Object.defineProperty(ExternalBlobReference.prototype, "_mediaKey", {
+            get: $util.oneOfGetter($oneOfFields = ["mediaKey"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ExternalBlobReference _directPath.
+         * @member {"directPath"|undefined} _directPath
+         * @memberof ServerSync.ExternalBlobReference
+         * @instance
+         */
+        Object.defineProperty(ExternalBlobReference.prototype, "_directPath", {
+            get: $util.oneOfGetter($oneOfFields = ["directPath"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ExternalBlobReference _handle.
+         * @member {"handle"|undefined} _handle
+         * @memberof ServerSync.ExternalBlobReference
+         * @instance
+         */
+        Object.defineProperty(ExternalBlobReference.prototype, "_handle", {
+            get: $util.oneOfGetter($oneOfFields = ["handle"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ExternalBlobReference _fileSizeBytes.
+         * @member {"fileSizeBytes"|undefined} _fileSizeBytes
+         * @memberof ServerSync.ExternalBlobReference
+         * @instance
+         */
+        Object.defineProperty(ExternalBlobReference.prototype, "_fileSizeBytes", {
+            get: $util.oneOfGetter($oneOfFields = ["fileSizeBytes"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ExternalBlobReference _fileSha256.
+         * @member {"fileSha256"|undefined} _fileSha256
+         * @memberof ServerSync.ExternalBlobReference
+         * @instance
+         */
+        Object.defineProperty(ExternalBlobReference.prototype, "_fileSha256", {
+            get: $util.oneOfGetter($oneOfFields = ["fileSha256"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ExternalBlobReference _fileEncSha256.
+         * @member {"fileEncSha256"|undefined} _fileEncSha256
+         * @memberof ServerSync.ExternalBlobReference
+         * @instance
+         */
+        Object.defineProperty(ExternalBlobReference.prototype, "_fileEncSha256", {
+            get: $util.oneOfGetter($oneOfFields = ["fileEncSha256"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new ExternalBlobReference instance using the specified properties.
@@ -1494,24 +1747,37 @@ $root.ServerSync = (function() {
         ExternalBlobReference.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.mediaKey != null && message.hasOwnProperty("mediaKey"))
+            var properties = {};
+            if (message.mediaKey != null && message.hasOwnProperty("mediaKey")) {
+                properties._mediaKey = 1;
                 if (!(message.mediaKey && typeof message.mediaKey.length === "number" || $util.isString(message.mediaKey)))
                     return "mediaKey: buffer expected";
-            if (message.directPath != null && message.hasOwnProperty("directPath"))
+            }
+            if (message.directPath != null && message.hasOwnProperty("directPath")) {
+                properties._directPath = 1;
                 if (!$util.isString(message.directPath))
                     return "directPath: string expected";
-            if (message.handle != null && message.hasOwnProperty("handle"))
+            }
+            if (message.handle != null && message.hasOwnProperty("handle")) {
+                properties._handle = 1;
                 if (!$util.isString(message.handle))
                     return "handle: string expected";
-            if (message.fileSizeBytes != null && message.hasOwnProperty("fileSizeBytes"))
+            }
+            if (message.fileSizeBytes != null && message.hasOwnProperty("fileSizeBytes")) {
+                properties._fileSizeBytes = 1;
                 if (!$util.isInteger(message.fileSizeBytes) && !(message.fileSizeBytes && $util.isInteger(message.fileSizeBytes.low) && $util.isInteger(message.fileSizeBytes.high)))
                     return "fileSizeBytes: integer|Long expected";
-            if (message.fileSha256 != null && message.hasOwnProperty("fileSha256"))
+            }
+            if (message.fileSha256 != null && message.hasOwnProperty("fileSha256")) {
+                properties._fileSha256 = 1;
                 if (!(message.fileSha256 && typeof message.fileSha256.length === "number" || $util.isString(message.fileSha256)))
                     return "fileSha256: buffer expected";
-            if (message.fileEncSha256 != null && message.hasOwnProperty("fileEncSha256"))
+            }
+            if (message.fileEncSha256 != null && message.hasOwnProperty("fileEncSha256")) {
+                properties._fileEncSha256 = 1;
                 if (!(message.fileEncSha256 && typeof message.fileEncSha256.length === "number" || $util.isString(message.fileEncSha256)))
                     return "fileEncSha256: buffer expected";
+            }
             return null;
         };
 
@@ -1571,51 +1837,39 @@ $root.ServerSync = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults) {
-                if (options.bytes === String)
-                    object.mediaKey = "";
-                else {
-                    object.mediaKey = [];
-                    if (options.bytes !== Array)
-                        object.mediaKey = $util.newBuffer(object.mediaKey);
-                }
-                object.directPath = "";
-                object.handle = "";
-                if ($util.Long) {
-                    var long = new $util.Long(0, 0, true);
-                    object.fileSizeBytes = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                } else
-                    object.fileSizeBytes = options.longs === String ? "0" : 0;
-                if (options.bytes === String)
-                    object.fileSha256 = "";
-                else {
-                    object.fileSha256 = [];
-                    if (options.bytes !== Array)
-                        object.fileSha256 = $util.newBuffer(object.fileSha256);
-                }
-                if (options.bytes === String)
-                    object.fileEncSha256 = "";
-                else {
-                    object.fileEncSha256 = [];
-                    if (options.bytes !== Array)
-                        object.fileEncSha256 = $util.newBuffer(object.fileEncSha256);
-                }
-            }
-            if (message.mediaKey != null && message.hasOwnProperty("mediaKey"))
+            if (message.mediaKey != null && message.hasOwnProperty("mediaKey")) {
                 object.mediaKey = options.bytes === String ? $util.base64.encode(message.mediaKey, 0, message.mediaKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.mediaKey) : message.mediaKey;
-            if (message.directPath != null && message.hasOwnProperty("directPath"))
+                if (options.oneofs)
+                    object._mediaKey = "mediaKey";
+            }
+            if (message.directPath != null && message.hasOwnProperty("directPath")) {
                 object.directPath = message.directPath;
-            if (message.handle != null && message.hasOwnProperty("handle"))
+                if (options.oneofs)
+                    object._directPath = "directPath";
+            }
+            if (message.handle != null && message.hasOwnProperty("handle")) {
                 object.handle = message.handle;
-            if (message.fileSizeBytes != null && message.hasOwnProperty("fileSizeBytes"))
+                if (options.oneofs)
+                    object._handle = "handle";
+            }
+            if (message.fileSizeBytes != null && message.hasOwnProperty("fileSizeBytes")) {
                 if (typeof message.fileSizeBytes === "number")
                     object.fileSizeBytes = options.longs === String ? String(message.fileSizeBytes) : message.fileSizeBytes;
                 else
                     object.fileSizeBytes = options.longs === String ? $util.Long.prototype.toString.call(message.fileSizeBytes) : options.longs === Number ? new $util.LongBits(message.fileSizeBytes.low >>> 0, message.fileSizeBytes.high >>> 0).toNumber(true) : message.fileSizeBytes;
-            if (message.fileSha256 != null && message.hasOwnProperty("fileSha256"))
+                if (options.oneofs)
+                    object._fileSizeBytes = "fileSizeBytes";
+            }
+            if (message.fileSha256 != null && message.hasOwnProperty("fileSha256")) {
                 object.fileSha256 = options.bytes === String ? $util.base64.encode(message.fileSha256, 0, message.fileSha256.length) : options.bytes === Array ? Array.prototype.slice.call(message.fileSha256) : message.fileSha256;
-            if (message.fileEncSha256 != null && message.hasOwnProperty("fileEncSha256"))
+                if (options.oneofs)
+                    object._fileSha256 = "fileSha256";
+            }
+            if (message.fileEncSha256 != null && message.hasOwnProperty("fileEncSha256")) {
                 object.fileEncSha256 = options.bytes === String ? $util.base64.encode(message.fileEncSha256, 0, message.fileEncSha256.length) : options.bytes === Array ? Array.prototype.slice.call(message.fileEncSha256) : message.fileEncSha256;
+                if (options.oneofs)
+                    object._fileEncSha256 = "fileEncSha256";
+            }
             return object;
         };
 
@@ -1697,6 +1951,42 @@ $root.ServerSync = (function() {
          * @instance
          */
         SyncdRecord.prototype.keyId = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * SyncdRecord _index.
+         * @member {"index"|undefined} _index
+         * @memberof ServerSync.SyncdRecord
+         * @instance
+         */
+        Object.defineProperty(SyncdRecord.prototype, "_index", {
+            get: $util.oneOfGetter($oneOfFields = ["index"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * SyncdRecord _value.
+         * @member {"value"|undefined} _value
+         * @memberof ServerSync.SyncdRecord
+         * @instance
+         */
+        Object.defineProperty(SyncdRecord.prototype, "_value", {
+            get: $util.oneOfGetter($oneOfFields = ["value"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * SyncdRecord _keyId.
+         * @member {"keyId"|undefined} _keyId
+         * @memberof ServerSync.SyncdRecord
+         * @instance
+         */
+        Object.defineProperty(SyncdRecord.prototype, "_keyId", {
+            get: $util.oneOfGetter($oneOfFields = ["keyId"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new SyncdRecord instance using the specified properties.
@@ -1811,20 +2101,30 @@ $root.ServerSync = (function() {
         SyncdRecord.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            var properties = {};
             if (message.index != null && message.hasOwnProperty("index")) {
-                var error = $root.ServerSync.SyncdIndex.verify(message.index);
-                if (error)
-                    return "index." + error;
+                properties._index = 1;
+                {
+                    var error = $root.ServerSync.SyncdIndex.verify(message.index);
+                    if (error)
+                        return "index." + error;
+                }
             }
             if (message.value != null && message.hasOwnProperty("value")) {
-                var error = $root.ServerSync.SyncdValue.verify(message.value);
-                if (error)
-                    return "value." + error;
+                properties._value = 1;
+                {
+                    var error = $root.ServerSync.SyncdValue.verify(message.value);
+                    if (error)
+                        return "value." + error;
+                }
             }
             if (message.keyId != null && message.hasOwnProperty("keyId")) {
-                var error = $root.ServerSync.KeyId.verify(message.keyId);
-                if (error)
-                    return "keyId." + error;
+                properties._keyId = 1;
+                {
+                    var error = $root.ServerSync.KeyId.verify(message.keyId);
+                    if (error)
+                        return "keyId." + error;
+                }
             }
             return null;
         };
@@ -1872,17 +2172,21 @@ $root.ServerSync = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults) {
-                object.index = null;
-                object.value = null;
-                object.keyId = null;
-            }
-            if (message.index != null && message.hasOwnProperty("index"))
+            if (message.index != null && message.hasOwnProperty("index")) {
                 object.index = $root.ServerSync.SyncdIndex.toObject(message.index, options);
-            if (message.value != null && message.hasOwnProperty("value"))
+                if (options.oneofs)
+                    object._index = "index";
+            }
+            if (message.value != null && message.hasOwnProperty("value")) {
                 object.value = $root.ServerSync.SyncdValue.toObject(message.value, options);
-            if (message.keyId != null && message.hasOwnProperty("keyId"))
+                if (options.oneofs)
+                    object._value = "value";
+            }
+            if (message.keyId != null && message.hasOwnProperty("keyId")) {
                 object.keyId = $root.ServerSync.KeyId.toObject(message.keyId, options);
+                if (options.oneofs)
+                    object._keyId = "keyId";
+            }
             return object;
         };
 
@@ -1941,11 +2245,25 @@ $root.ServerSync = (function() {
 
         /**
          * KeyId id.
-         * @member {Uint8Array} id
+         * @member {Uint8Array|null|undefined} id
          * @memberof ServerSync.KeyId
          * @instance
          */
-        KeyId.prototype.id = $util.newBuffer([]);
+        KeyId.prototype.id = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * KeyId _id.
+         * @member {"id"|undefined} _id
+         * @memberof ServerSync.KeyId
+         * @instance
+         */
+        Object.defineProperty(KeyId.prototype, "_id", {
+            get: $util.oneOfGetter($oneOfFields = ["id"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new KeyId instance using the specified properties.
@@ -2048,9 +2366,12 @@ $root.ServerSync = (function() {
         KeyId.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.id != null && message.hasOwnProperty("id"))
+            var properties = {};
+            if (message.id != null && message.hasOwnProperty("id")) {
+                properties._id = 1;
                 if (!(message.id && typeof message.id.length === "number" || $util.isString(message.id)))
                     return "id: buffer expected";
+            }
             return null;
         };
 
@@ -2087,16 +2408,11 @@ $root.ServerSync = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults)
-                if (options.bytes === String)
-                    object.id = "";
-                else {
-                    object.id = [];
-                    if (options.bytes !== Array)
-                        object.id = $util.newBuffer(object.id);
-                }
-            if (message.id != null && message.hasOwnProperty("id"))
+            if (message.id != null && message.hasOwnProperty("id")) {
                 object.id = options.bytes === String ? $util.base64.encode(message.id, 0, message.id.length) : options.bytes === Array ? Array.prototype.slice.call(message.id) : message.id;
+                if (options.oneofs)
+                    object._id = "id";
+            }
             return object;
         };
 
@@ -2155,11 +2471,25 @@ $root.ServerSync = (function() {
 
         /**
          * SyncdValue blob.
-         * @member {Uint8Array} blob
+         * @member {Uint8Array|null|undefined} blob
          * @memberof ServerSync.SyncdValue
          * @instance
          */
-        SyncdValue.prototype.blob = $util.newBuffer([]);
+        SyncdValue.prototype.blob = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * SyncdValue _blob.
+         * @member {"blob"|undefined} _blob
+         * @memberof ServerSync.SyncdValue
+         * @instance
+         */
+        Object.defineProperty(SyncdValue.prototype, "_blob", {
+            get: $util.oneOfGetter($oneOfFields = ["blob"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new SyncdValue instance using the specified properties.
@@ -2262,9 +2592,12 @@ $root.ServerSync = (function() {
         SyncdValue.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.blob != null && message.hasOwnProperty("blob"))
+            var properties = {};
+            if (message.blob != null && message.hasOwnProperty("blob")) {
+                properties._blob = 1;
                 if (!(message.blob && typeof message.blob.length === "number" || $util.isString(message.blob)))
                     return "blob: buffer expected";
+            }
             return null;
         };
 
@@ -2301,16 +2634,11 @@ $root.ServerSync = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults)
-                if (options.bytes === String)
-                    object.blob = "";
-                else {
-                    object.blob = [];
-                    if (options.bytes !== Array)
-                        object.blob = $util.newBuffer(object.blob);
-                }
-            if (message.blob != null && message.hasOwnProperty("blob"))
+            if (message.blob != null && message.hasOwnProperty("blob")) {
                 object.blob = options.bytes === String ? $util.base64.encode(message.blob, 0, message.blob.length) : options.bytes === Array ? Array.prototype.slice.call(message.blob) : message.blob;
+                if (options.oneofs)
+                    object._blob = "blob";
+            }
             return object;
         };
 
@@ -2369,11 +2697,25 @@ $root.ServerSync = (function() {
 
         /**
          * SyncdIndex blob.
-         * @member {Uint8Array} blob
+         * @member {Uint8Array|null|undefined} blob
          * @memberof ServerSync.SyncdIndex
          * @instance
          */
-        SyncdIndex.prototype.blob = $util.newBuffer([]);
+        SyncdIndex.prototype.blob = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * SyncdIndex _blob.
+         * @member {"blob"|undefined} _blob
+         * @memberof ServerSync.SyncdIndex
+         * @instance
+         */
+        Object.defineProperty(SyncdIndex.prototype, "_blob", {
+            get: $util.oneOfGetter($oneOfFields = ["blob"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new SyncdIndex instance using the specified properties.
@@ -2476,9 +2818,12 @@ $root.ServerSync = (function() {
         SyncdIndex.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.blob != null && message.hasOwnProperty("blob"))
+            var properties = {};
+            if (message.blob != null && message.hasOwnProperty("blob")) {
+                properties._blob = 1;
                 if (!(message.blob && typeof message.blob.length === "number" || $util.isString(message.blob)))
                     return "blob: buffer expected";
+            }
             return null;
         };
 
@@ -2515,16 +2860,11 @@ $root.ServerSync = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults)
-                if (options.bytes === String)
-                    object.blob = "";
-                else {
-                    object.blob = [];
-                    if (options.bytes !== Array)
-                        object.blob = $util.newBuffer(object.blob);
-                }
-            if (message.blob != null && message.hasOwnProperty("blob"))
+            if (message.blob != null && message.hasOwnProperty("blob")) {
                 object.blob = options.bytes === String ? $util.base64.encode(message.blob, 0, message.blob.length) : options.bytes === Array ? Array.prototype.slice.call(message.blob) : message.blob;
+                if (options.oneofs)
+                    object._blob = "blob";
+            }
             return object;
         };
 
@@ -2584,19 +2924,44 @@ $root.ServerSync = (function() {
 
         /**
          * ExitCode code.
-         * @member {number|Long} code
+         * @member {number|Long|null|undefined} code
          * @memberof ServerSync.ExitCode
          * @instance
          */
-        ExitCode.prototype.code = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        ExitCode.prototype.code = null;
 
         /**
          * ExitCode text.
-         * @member {string} text
+         * @member {string|null|undefined} text
          * @memberof ServerSync.ExitCode
          * @instance
          */
-        ExitCode.prototype.text = "";
+        ExitCode.prototype.text = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * ExitCode _code.
+         * @member {"code"|undefined} _code
+         * @memberof ServerSync.ExitCode
+         * @instance
+         */
+        Object.defineProperty(ExitCode.prototype, "_code", {
+            get: $util.oneOfGetter($oneOfFields = ["code"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ExitCode _text.
+         * @member {"text"|undefined} _text
+         * @memberof ServerSync.ExitCode
+         * @instance
+         */
+        Object.defineProperty(ExitCode.prototype, "_text", {
+            get: $util.oneOfGetter($oneOfFields = ["text"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new ExitCode instance using the specified properties.
@@ -2705,12 +3070,17 @@ $root.ServerSync = (function() {
         ExitCode.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.code != null && message.hasOwnProperty("code"))
+            var properties = {};
+            if (message.code != null && message.hasOwnProperty("code")) {
+                properties._code = 1;
                 if (!$util.isInteger(message.code) && !(message.code && $util.isInteger(message.code.low) && $util.isInteger(message.code.high)))
                     return "code: integer|Long expected";
-            if (message.text != null && message.hasOwnProperty("text"))
+            }
+            if (message.text != null && message.hasOwnProperty("text")) {
+                properties._text = 1;
                 if (!$util.isString(message.text))
                     return "text: string expected";
+            }
             return null;
         };
 
@@ -2753,21 +3123,19 @@ $root.ServerSync = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults) {
-                if ($util.Long) {
-                    var long = new $util.Long(0, 0, true);
-                    object.code = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                } else
-                    object.code = options.longs === String ? "0" : 0;
-                object.text = "";
-            }
-            if (message.code != null && message.hasOwnProperty("code"))
+            if (message.code != null && message.hasOwnProperty("code")) {
                 if (typeof message.code === "number")
                     object.code = options.longs === String ? String(message.code) : message.code;
                 else
                     object.code = options.longs === String ? $util.Long.prototype.toString.call(message.code) : options.longs === Number ? new $util.LongBits(message.code.low >>> 0, message.code.high >>> 0).toNumber(true) : message.code;
-            if (message.text != null && message.hasOwnProperty("text"))
+                if (options.oneofs)
+                    object._code = "code";
+            }
+            if (message.text != null && message.hasOwnProperty("text")) {
                 object.text = message.text;
+                if (options.oneofs)
+                    object._text = "text";
+            }
             return object;
         };
 
@@ -2826,11 +3194,25 @@ $root.ServerSync = (function() {
 
         /**
          * SyncdVersion version.
-         * @member {number|Long} version
+         * @member {number|Long|null|undefined} version
          * @memberof ServerSync.SyncdVersion
          * @instance
          */
-        SyncdVersion.prototype.version = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        SyncdVersion.prototype.version = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * SyncdVersion _version.
+         * @member {"version"|undefined} _version
+         * @memberof ServerSync.SyncdVersion
+         * @instance
+         */
+        Object.defineProperty(SyncdVersion.prototype, "_version", {
+            get: $util.oneOfGetter($oneOfFields = ["version"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new SyncdVersion instance using the specified properties.
@@ -2933,9 +3315,12 @@ $root.ServerSync = (function() {
         SyncdVersion.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.version != null && message.hasOwnProperty("version"))
+            var properties = {};
+            if (message.version != null && message.hasOwnProperty("version")) {
+                properties._version = 1;
                 if (!$util.isInteger(message.version) && !(message.version && $util.isInteger(message.version.low) && $util.isInteger(message.version.high)))
                     return "version: integer|Long expected";
+            }
             return null;
         };
 
@@ -2976,17 +3361,14 @@ $root.ServerSync = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults)
-                if ($util.Long) {
-                    var long = new $util.Long(0, 0, true);
-                    object.version = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                } else
-                    object.version = options.longs === String ? "0" : 0;
-            if (message.version != null && message.hasOwnProperty("version"))
+            if (message.version != null && message.hasOwnProperty("version")) {
                 if (typeof message.version === "number")
                     object.version = options.longs === String ? String(message.version) : message.version;
                 else
                     object.version = options.longs === String ? $util.Long.prototype.toString.call(message.version) : options.longs === Number ? new $util.LongBits(message.version.low >>> 0, message.version.high >>> 0).toNumber(true) : message.version;
+                if (options.oneofs)
+                    object._version = "version";
+            }
             return object;
         };
 

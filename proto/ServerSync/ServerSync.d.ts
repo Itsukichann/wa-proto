@@ -53,10 +53,10 @@ export namespace ServerSync {
         public externalMutations?: (ServerSync.IExternalBlobReference|null);
 
         /** SyncdPatch snapshotMac. */
-        public snapshotMac: Uint8Array;
+        public snapshotMac?: (Uint8Array|null);
 
         /** SyncdPatch patchMac. */
-        public patchMac: Uint8Array;
+        public patchMac?: (Uint8Array|null);
 
         /** SyncdPatch keyId. */
         public keyId?: (ServerSync.IKeyId|null);
@@ -65,10 +65,34 @@ export namespace ServerSync {
         public exitCode?: (ServerSync.IExitCode|null);
 
         /** SyncdPatch deviceIndex. */
-        public deviceIndex: number;
+        public deviceIndex?: (number|null);
 
         /** SyncdPatch clientDebugData. */
-        public clientDebugData: Uint8Array;
+        public clientDebugData?: (Uint8Array|null);
+
+        /** SyncdPatch _version. */
+        public _version?: "version";
+
+        /** SyncdPatch _externalMutations. */
+        public _externalMutations?: "externalMutations";
+
+        /** SyncdPatch _snapshotMac. */
+        public _snapshotMac?: "snapshotMac";
+
+        /** SyncdPatch _patchMac. */
+        public _patchMac?: "patchMac";
+
+        /** SyncdPatch _keyId. */
+        public _keyId?: "keyId";
+
+        /** SyncdPatch _exitCode. */
+        public _exitCode?: "exitCode";
+
+        /** SyncdPatch _deviceIndex. */
+        public _deviceIndex?: "deviceIndex";
+
+        /** SyncdPatch _clientDebugData. */
+        public _clientDebugData?: "clientDebugData";
 
         /**
          * Creates a new SyncdPatch instance using the specified properties.
@@ -168,10 +192,16 @@ export namespace ServerSync {
         constructor(properties?: ServerSync.ISyncdMutation);
 
         /** SyncdMutation operation. */
-        public operation: ServerSync.SyncdMutation.SyncdOperation;
+        public operation?: (ServerSync.SyncdMutation.SyncdOperation|null);
 
         /** SyncdMutation record. */
         public record?: (ServerSync.ISyncdRecord|null);
+
+        /** SyncdMutation _operation. */
+        public _operation?: "operation";
+
+        /** SyncdMutation _record. */
+        public _record?: "record";
 
         /**
          * Creates a new SyncdMutation instance using the specified properties.
@@ -389,10 +419,19 @@ export namespace ServerSync {
         public records: ServerSync.ISyncdRecord[];
 
         /** SyncdSnapshot mac. */
-        public mac: Uint8Array;
+        public mac?: (Uint8Array|null);
 
         /** SyncdSnapshot keyId. */
         public keyId?: (ServerSync.IKeyId|null);
+
+        /** SyncdSnapshot _version. */
+        public _version?: "version";
+
+        /** SyncdSnapshot _mac. */
+        public _mac?: "mac";
+
+        /** SyncdSnapshot _keyId. */
+        public _keyId?: "keyId";
 
         /**
          * Creates a new SyncdSnapshot instance using the specified properties.
@@ -504,22 +543,40 @@ export namespace ServerSync {
         constructor(properties?: ServerSync.IExternalBlobReference);
 
         /** ExternalBlobReference mediaKey. */
-        public mediaKey: Uint8Array;
+        public mediaKey?: (Uint8Array|null);
 
         /** ExternalBlobReference directPath. */
-        public directPath: string;
+        public directPath?: (string|null);
 
         /** ExternalBlobReference handle. */
-        public handle: string;
+        public handle?: (string|null);
 
         /** ExternalBlobReference fileSizeBytes. */
-        public fileSizeBytes: (number|Long);
+        public fileSizeBytes?: (number|Long|null);
 
         /** ExternalBlobReference fileSha256. */
-        public fileSha256: Uint8Array;
+        public fileSha256?: (Uint8Array|null);
 
         /** ExternalBlobReference fileEncSha256. */
-        public fileEncSha256: Uint8Array;
+        public fileEncSha256?: (Uint8Array|null);
+
+        /** ExternalBlobReference _mediaKey. */
+        public _mediaKey?: "mediaKey";
+
+        /** ExternalBlobReference _directPath. */
+        public _directPath?: "directPath";
+
+        /** ExternalBlobReference _handle. */
+        public _handle?: "handle";
+
+        /** ExternalBlobReference _fileSizeBytes. */
+        public _fileSizeBytes?: "fileSizeBytes";
+
+        /** ExternalBlobReference _fileSha256. */
+        public _fileSha256?: "fileSha256";
+
+        /** ExternalBlobReference _fileEncSha256. */
+        public _fileEncSha256?: "fileEncSha256";
 
         /**
          * Creates a new ExternalBlobReference instance using the specified properties.
@@ -630,6 +687,15 @@ export namespace ServerSync {
         /** SyncdRecord keyId. */
         public keyId?: (ServerSync.IKeyId|null);
 
+        /** SyncdRecord _index. */
+        public _index?: "index";
+
+        /** SyncdRecord _value. */
+        public _value?: "value";
+
+        /** SyncdRecord _keyId. */
+        public _keyId?: "keyId";
+
         /**
          * Creates a new SyncdRecord instance using the specified properties.
          * @param [properties] Properties to set
@@ -725,7 +791,10 @@ export namespace ServerSync {
         constructor(properties?: ServerSync.IKeyId);
 
         /** KeyId id. */
-        public id: Uint8Array;
+        public id?: (Uint8Array|null);
+
+        /** KeyId _id. */
+        public _id?: "id";
 
         /**
          * Creates a new KeyId instance using the specified properties.
@@ -822,7 +891,10 @@ export namespace ServerSync {
         constructor(properties?: ServerSync.ISyncdValue);
 
         /** SyncdValue blob. */
-        public blob: Uint8Array;
+        public blob?: (Uint8Array|null);
+
+        /** SyncdValue _blob. */
+        public _blob?: "blob";
 
         /**
          * Creates a new SyncdValue instance using the specified properties.
@@ -919,7 +991,10 @@ export namespace ServerSync {
         constructor(properties?: ServerSync.ISyncdIndex);
 
         /** SyncdIndex blob. */
-        public blob: Uint8Array;
+        public blob?: (Uint8Array|null);
+
+        /** SyncdIndex _blob. */
+        public _blob?: "blob";
 
         /**
          * Creates a new SyncdIndex instance using the specified properties.
@@ -1019,10 +1094,16 @@ export namespace ServerSync {
         constructor(properties?: ServerSync.IExitCode);
 
         /** ExitCode code. */
-        public code: (number|Long);
+        public code?: (number|Long|null);
 
         /** ExitCode text. */
-        public text: string;
+        public text?: (string|null);
+
+        /** ExitCode _code. */
+        public _code?: "code";
+
+        /** ExitCode _text. */
+        public _text?: "text";
 
         /**
          * Creates a new ExitCode instance using the specified properties.
@@ -1119,7 +1200,10 @@ export namespace ServerSync {
         constructor(properties?: ServerSync.ISyncdVersion);
 
         /** SyncdVersion version. */
-        public version: (number|Long);
+        public version?: (number|Long|null);
+
+        /** SyncdVersion _version. */
+        public _version?: "version";
 
         /**
          * Creates a new SyncdVersion instance using the specified properties.
