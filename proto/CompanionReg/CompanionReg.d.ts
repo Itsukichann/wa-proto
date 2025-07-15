@@ -1102,6 +1102,9 @@ export namespace CompanionReg {
 
             /** HistorySyncConfig supportMessageAssociation */
             supportMessageAssociation?: (boolean|null);
+
+            /** HistorySyncConfig supportGroupHistory */
+            supportGroupHistory?: (boolean|null);
         }
 
         /** Represents a HistorySyncConfig. */
@@ -1155,6 +1158,9 @@ export namespace CompanionReg {
             /** HistorySyncConfig supportMessageAssociation. */
             public supportMessageAssociation?: (boolean|null);
 
+            /** HistorySyncConfig supportGroupHistory. */
+            public supportGroupHistory?: (boolean|null);
+
             /** HistorySyncConfig _fullSyncDaysLimit. */
             public _fullSyncDaysLimit?: "fullSyncDaysLimit";
 
@@ -1196,6 +1202,9 @@ export namespace CompanionReg {
 
             /** HistorySyncConfig _supportMessageAssociation. */
             public _supportMessageAssociation?: "supportMessageAssociation";
+
+            /** HistorySyncConfig _supportGroupHistory. */
+            public _supportGroupHistory?: "supportGroupHistory";
 
             /**
              * Creates a new HistorySyncConfig instance using the specified properties.

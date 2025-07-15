@@ -3004,6 +3004,7 @@ $root.CompanionReg = (function() {
              * @property {boolean|null} [supportFbidBotChatHistory] HistorySyncConfig supportFbidBotChatHistory
              * @property {boolean|null} [supportAddOnHistorySyncMigration] HistorySyncConfig supportAddOnHistorySyncMigration
              * @property {boolean|null} [supportMessageAssociation] HistorySyncConfig supportMessageAssociation
+             * @property {boolean|null} [supportGroupHistory] HistorySyncConfig supportGroupHistory
              */
 
             /**
@@ -3132,6 +3133,14 @@ $root.CompanionReg = (function() {
              * @instance
              */
             HistorySyncConfig.prototype.supportMessageAssociation = null;
+
+            /**
+             * HistorySyncConfig supportGroupHistory.
+             * @member {boolean|null|undefined} supportGroupHistory
+             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
+             * @instance
+             */
+            HistorySyncConfig.prototype.supportGroupHistory = null;
 
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
@@ -3291,6 +3300,17 @@ $root.CompanionReg = (function() {
             });
 
             /**
+             * HistorySyncConfig _supportGroupHistory.
+             * @member {"supportGroupHistory"|undefined} _supportGroupHistory
+             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
+             * @instance
+             */
+            Object.defineProperty(HistorySyncConfig.prototype, "_supportGroupHistory", {
+                get: $util.oneOfGetter($oneOfFields = ["supportGroupHistory"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
              * Creates a new HistorySyncConfig instance using the specified properties.
              * @function create
              * @memberof CompanionReg.DeviceProps.HistorySyncConfig
@@ -3342,6 +3362,8 @@ $root.CompanionReg = (function() {
                     writer.uint32(/* id 13, wireType 0 =*/104).bool(message.supportAddOnHistorySyncMigration);
                 if (message.supportMessageAssociation != null && Object.hasOwnProperty.call(message, "supportMessageAssociation"))
                     writer.uint32(/* id 14, wireType 0 =*/112).bool(message.supportMessageAssociation);
+                if (message.supportGroupHistory != null && Object.hasOwnProperty.call(message, "supportGroupHistory"))
+                    writer.uint32(/* id 15, wireType 0 =*/120).bool(message.supportGroupHistory);
                 return writer;
             };
 
@@ -3432,6 +3454,10 @@ $root.CompanionReg = (function() {
                         }
                     case 14: {
                             message.supportMessageAssociation = reader.bool();
+                            break;
+                        }
+                    case 15: {
+                            message.supportGroupHistory = reader.bool();
                             break;
                         }
                     default:
@@ -3540,6 +3566,11 @@ $root.CompanionReg = (function() {
                     if (typeof message.supportMessageAssociation !== "boolean")
                         return "supportMessageAssociation: boolean expected";
                 }
+                if (message.supportGroupHistory != null && message.hasOwnProperty("supportGroupHistory")) {
+                    properties._supportGroupHistory = 1;
+                    if (typeof message.supportGroupHistory !== "boolean")
+                        return "supportGroupHistory: boolean expected";
+                }
                 return null;
             };
 
@@ -3583,6 +3614,8 @@ $root.CompanionReg = (function() {
                     message.supportAddOnHistorySyncMigration = Boolean(object.supportAddOnHistorySyncMigration);
                 if (object.supportMessageAssociation != null)
                     message.supportMessageAssociation = Boolean(object.supportMessageAssociation);
+                if (object.supportGroupHistory != null)
+                    message.supportGroupHistory = Boolean(object.supportGroupHistory);
                 return message;
             };
 
@@ -3668,6 +3701,11 @@ $root.CompanionReg = (function() {
                     object.supportMessageAssociation = message.supportMessageAssociation;
                     if (options.oneofs)
                         object._supportMessageAssociation = "supportMessageAssociation";
+                }
+                if (message.supportGroupHistory != null && message.hasOwnProperty("supportGroupHistory")) {
+                    object.supportGroupHistory = message.supportGroupHistory;
+                    if (options.oneofs)
+                        object._supportGroupHistory = "supportGroupHistory";
                 }
                 return object;
             };
