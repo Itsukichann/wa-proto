@@ -32,31 +32,19 @@ export namespace Reporting {
         constructor(properties?: Reporting.IField);
 
         /** Field minVersion. */
-        public minVersion?: (number|null);
+        public minVersion: number;
 
         /** Field maxVersion. */
-        public maxVersion?: (number|null);
+        public maxVersion: number;
 
         /** Field notReportableMinVersion. */
-        public notReportableMinVersion?: (number|null);
+        public notReportableMinVersion: number;
 
         /** Field isMessage. */
-        public isMessage?: (boolean|null);
+        public isMessage: boolean;
 
         /** Field subfield. */
         public subfield: { [k: string]: Reporting.IField };
-
-        /** Field _minVersion. */
-        public _minVersion?: "minVersion";
-
-        /** Field _maxVersion. */
-        public _maxVersion?: "maxVersion";
-
-        /** Field _notReportableMinVersion. */
-        public _notReportableMinVersion?: "notReportableMinVersion";
-
-        /** Field _isMessage. */
-        public _isMessage?: "isMessage";
 
         /**
          * Creates a new Field instance using the specified properties.
@@ -159,10 +147,7 @@ export namespace Reporting {
         public field: { [k: string]: Reporting.IField };
 
         /** Config version. */
-        public version?: (number|null);
-
-        /** Config _version. */
-        public _version?: "version";
+        public version: number;
 
         /**
          * Creates a new Config instance using the specified properties.
@@ -268,28 +253,16 @@ export namespace Reporting {
         constructor(properties?: Reporting.IReportable);
 
         /** Reportable minVersion. */
-        public minVersion?: (number|null);
+        public minVersion: number;
 
         /** Reportable maxVersion. */
-        public maxVersion?: (number|null);
+        public maxVersion: number;
 
         /** Reportable notReportableMinVersion. */
-        public notReportableMinVersion?: (number|null);
+        public notReportableMinVersion: number;
 
         /** Reportable never. */
-        public never?: (boolean|null);
-
-        /** Reportable _minVersion. */
-        public _minVersion?: "minVersion";
-
-        /** Reportable _maxVersion. */
-        public _maxVersion?: "maxVersion";
-
-        /** Reportable _notReportableMinVersion. */
-        public _notReportableMinVersion?: "notReportableMinVersion";
-
-        /** Reportable _never. */
-        public _never?: "never";
+        public never: boolean;
 
         /**
          * Creates a new Reportable instance using the specified properties.
