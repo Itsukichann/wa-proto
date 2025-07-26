@@ -3005,6 +3005,7 @@ $root.CompanionReg = (function() {
              * @property {boolean|null} [supportAddOnHistorySyncMigration] HistorySyncConfig supportAddOnHistorySyncMigration
              * @property {boolean|null} [supportMessageAssociation] HistorySyncConfig supportMessageAssociation
              * @property {boolean|null} [supportGroupHistory] HistorySyncConfig supportGroupHistory
+             * @property {boolean|null} [onDemandReady] HistorySyncConfig onDemandReady
              */
 
             /**
@@ -3141,6 +3142,14 @@ $root.CompanionReg = (function() {
              * @instance
              */
             HistorySyncConfig.prototype.supportGroupHistory = null;
+
+            /**
+             * HistorySyncConfig onDemandReady.
+             * @member {boolean|null|undefined} onDemandReady
+             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
+             * @instance
+             */
+            HistorySyncConfig.prototype.onDemandReady = null;
 
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
@@ -3311,6 +3320,17 @@ $root.CompanionReg = (function() {
             });
 
             /**
+             * HistorySyncConfig _onDemandReady.
+             * @member {"onDemandReady"|undefined} _onDemandReady
+             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
+             * @instance
+             */
+            Object.defineProperty(HistorySyncConfig.prototype, "_onDemandReady", {
+                get: $util.oneOfGetter($oneOfFields = ["onDemandReady"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
              * Creates a new HistorySyncConfig instance using the specified properties.
              * @function create
              * @memberof CompanionReg.DeviceProps.HistorySyncConfig
@@ -3364,6 +3384,8 @@ $root.CompanionReg = (function() {
                     writer.uint32(/* id 14, wireType 0 =*/112).bool(message.supportMessageAssociation);
                 if (message.supportGroupHistory != null && Object.hasOwnProperty.call(message, "supportGroupHistory"))
                     writer.uint32(/* id 15, wireType 0 =*/120).bool(message.supportGroupHistory);
+                if (message.onDemandReady != null && Object.hasOwnProperty.call(message, "onDemandReady"))
+                    writer.uint32(/* id 16, wireType 0 =*/128).bool(message.onDemandReady);
                 return writer;
             };
 
@@ -3458,6 +3480,10 @@ $root.CompanionReg = (function() {
                         }
                     case 15: {
                             message.supportGroupHistory = reader.bool();
+                            break;
+                        }
+                    case 16: {
+                            message.onDemandReady = reader.bool();
                             break;
                         }
                     default:
@@ -3571,6 +3597,11 @@ $root.CompanionReg = (function() {
                     if (typeof message.supportGroupHistory !== "boolean")
                         return "supportGroupHistory: boolean expected";
                 }
+                if (message.onDemandReady != null && message.hasOwnProperty("onDemandReady")) {
+                    properties._onDemandReady = 1;
+                    if (typeof message.onDemandReady !== "boolean")
+                        return "onDemandReady: boolean expected";
+                }
                 return null;
             };
 
@@ -3616,6 +3647,8 @@ $root.CompanionReg = (function() {
                     message.supportMessageAssociation = Boolean(object.supportMessageAssociation);
                 if (object.supportGroupHistory != null)
                     message.supportGroupHistory = Boolean(object.supportGroupHistory);
+                if (object.onDemandReady != null)
+                    message.onDemandReady = Boolean(object.onDemandReady);
                 return message;
             };
 
@@ -3706,6 +3739,11 @@ $root.CompanionReg = (function() {
                     object.supportGroupHistory = message.supportGroupHistory;
                     if (options.oneofs)
                         object._supportGroupHistory = "supportGroupHistory";
+                }
+                if (message.onDemandReady != null && message.hasOwnProperty("onDemandReady")) {
+                    object.onDemandReady = message.onDemandReady;
+                    if (options.oneofs)
+                        object._onDemandReady = "onDemandReady";
                 }
                 return object;
             };

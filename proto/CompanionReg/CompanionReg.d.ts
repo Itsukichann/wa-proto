@@ -1105,6 +1105,9 @@ export namespace CompanionReg {
 
             /** HistorySyncConfig supportGroupHistory */
             supportGroupHistory?: (boolean|null);
+
+            /** HistorySyncConfig onDemandReady */
+            onDemandReady?: (boolean|null);
         }
 
         /** Represents a HistorySyncConfig. */
@@ -1161,6 +1164,9 @@ export namespace CompanionReg {
             /** HistorySyncConfig supportGroupHistory. */
             public supportGroupHistory?: (boolean|null);
 
+            /** HistorySyncConfig onDemandReady. */
+            public onDemandReady?: (boolean|null);
+
             /** HistorySyncConfig _fullSyncDaysLimit. */
             public _fullSyncDaysLimit?: "fullSyncDaysLimit";
 
@@ -1205,6 +1211,9 @@ export namespace CompanionReg {
 
             /** HistorySyncConfig _supportGroupHistory. */
             public _supportGroupHistory?: "supportGroupHistory";
+
+            /** HistorySyncConfig _onDemandReady. */
+            public _onDemandReady?: "onDemandReady";
 
             /**
              * Creates a new HistorySyncConfig instance using the specified properties.
