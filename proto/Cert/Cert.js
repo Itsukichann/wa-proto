@@ -59,31 +59,6 @@ $root.Cert = (function() {
          */
         CertChain.prototype.intermediate = null;
 
-        // OneOf field names bound to virtual getters and setters
-        var $oneOfFields;
-
-        /**
-         * CertChain _leaf.
-         * @member {"leaf"|undefined} _leaf
-         * @memberof Cert.CertChain
-         * @instance
-         */
-        Object.defineProperty(CertChain.prototype, "_leaf", {
-            get: $util.oneOfGetter($oneOfFields = ["leaf"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * CertChain _intermediate.
-         * @member {"intermediate"|undefined} _intermediate
-         * @memberof Cert.CertChain
-         * @instance
-         */
-        Object.defineProperty(CertChain.prototype, "_intermediate", {
-            get: $util.oneOfGetter($oneOfFields = ["intermediate"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
         /**
          * Creates a new CertChain instance using the specified properties.
          * @function create
@@ -191,22 +166,15 @@ $root.Cert = (function() {
         CertChain.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            var properties = {};
             if (message.leaf != null && message.hasOwnProperty("leaf")) {
-                properties._leaf = 1;
-                {
-                    var error = $root.Cert.CertChain.NoiseCertificate.verify(message.leaf);
-                    if (error)
-                        return "leaf." + error;
-                }
+                var error = $root.Cert.CertChain.NoiseCertificate.verify(message.leaf);
+                if (error)
+                    return "leaf." + error;
             }
             if (message.intermediate != null && message.hasOwnProperty("intermediate")) {
-                properties._intermediate = 1;
-                {
-                    var error = $root.Cert.CertChain.NoiseCertificate.verify(message.intermediate);
-                    if (error)
-                        return "intermediate." + error;
-                }
+                var error = $root.Cert.CertChain.NoiseCertificate.verify(message.intermediate);
+                if (error)
+                    return "intermediate." + error;
             }
             return null;
         };
@@ -249,16 +217,14 @@ $root.Cert = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (message.leaf != null && message.hasOwnProperty("leaf")) {
+            if (options.defaults) {
+                object.leaf = null;
+                object.intermediate = null;
+            }
+            if (message.leaf != null && message.hasOwnProperty("leaf"))
                 object.leaf = $root.Cert.CertChain.NoiseCertificate.toObject(message.leaf, options);
-                if (options.oneofs)
-                    object._leaf = "leaf";
-            }
-            if (message.intermediate != null && message.hasOwnProperty("intermediate")) {
+            if (message.intermediate != null && message.hasOwnProperty("intermediate"))
                 object.intermediate = $root.Cert.CertChain.NoiseCertificate.toObject(message.intermediate, options);
-                if (options.oneofs)
-                    object._intermediate = "intermediate";
-            }
             return object;
         };
 
@@ -315,44 +281,19 @@ $root.Cert = (function() {
 
             /**
              * NoiseCertificate details.
-             * @member {Uint8Array|null|undefined} details
+             * @member {Uint8Array} details
              * @memberof Cert.CertChain.NoiseCertificate
              * @instance
              */
-            NoiseCertificate.prototype.details = null;
+            NoiseCertificate.prototype.details = $util.newBuffer([]);
 
             /**
              * NoiseCertificate signature.
-             * @member {Uint8Array|null|undefined} signature
+             * @member {Uint8Array} signature
              * @memberof Cert.CertChain.NoiseCertificate
              * @instance
              */
-            NoiseCertificate.prototype.signature = null;
-
-            // OneOf field names bound to virtual getters and setters
-            var $oneOfFields;
-
-            /**
-             * NoiseCertificate _details.
-             * @member {"details"|undefined} _details
-             * @memberof Cert.CertChain.NoiseCertificate
-             * @instance
-             */
-            Object.defineProperty(NoiseCertificate.prototype, "_details", {
-                get: $util.oneOfGetter($oneOfFields = ["details"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * NoiseCertificate _signature.
-             * @member {"signature"|undefined} _signature
-             * @memberof Cert.CertChain.NoiseCertificate
-             * @instance
-             */
-            Object.defineProperty(NoiseCertificate.prototype, "_signature", {
-                get: $util.oneOfGetter($oneOfFields = ["signature"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
+            NoiseCertificate.prototype.signature = $util.newBuffer([]);
 
             /**
              * Creates a new NoiseCertificate instance using the specified properties.
@@ -461,17 +402,12 @@ $root.Cert = (function() {
             NoiseCertificate.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                var properties = {};
-                if (message.details != null && message.hasOwnProperty("details")) {
-                    properties._details = 1;
+                if (message.details != null && message.hasOwnProperty("details"))
                     if (!(message.details && typeof message.details.length === "number" || $util.isString(message.details)))
                         return "details: buffer expected";
-                }
-                if (message.signature != null && message.hasOwnProperty("signature")) {
-                    properties._signature = 1;
+                if (message.signature != null && message.hasOwnProperty("signature"))
                     if (!(message.signature && typeof message.signature.length === "number" || $util.isString(message.signature)))
                         return "signature: buffer expected";
-                }
                 return null;
             };
 
@@ -513,16 +449,26 @@ $root.Cert = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (message.details != null && message.hasOwnProperty("details")) {
+                if (options.defaults) {
+                    if (options.bytes === String)
+                        object.details = "";
+                    else {
+                        object.details = [];
+                        if (options.bytes !== Array)
+                            object.details = $util.newBuffer(object.details);
+                    }
+                    if (options.bytes === String)
+                        object.signature = "";
+                    else {
+                        object.signature = [];
+                        if (options.bytes !== Array)
+                            object.signature = $util.newBuffer(object.signature);
+                    }
+                }
+                if (message.details != null && message.hasOwnProperty("details"))
                     object.details = options.bytes === String ? $util.base64.encode(message.details, 0, message.details.length) : options.bytes === Array ? Array.prototype.slice.call(message.details) : message.details;
-                    if (options.oneofs)
-                        object._details = "details";
-                }
-                if (message.signature != null && message.hasOwnProperty("signature")) {
+                if (message.signature != null && message.hasOwnProperty("signature"))
                     object.signature = options.bytes === String ? $util.base64.encode(message.signature, 0, message.signature.length) : options.bytes === Array ? Array.prototype.slice.call(message.signature) : message.signature;
-                    if (options.oneofs)
-                        object._signature = "signature";
-                }
                 return object;
             };
 
@@ -582,101 +528,43 @@ $root.Cert = (function() {
 
                 /**
                  * Details serial.
-                 * @member {number|null|undefined} serial
+                 * @member {number} serial
                  * @memberof Cert.CertChain.NoiseCertificate.Details
                  * @instance
                  */
-                Details.prototype.serial = null;
+                Details.prototype.serial = 0;
 
                 /**
                  * Details issuerSerial.
-                 * @member {number|null|undefined} issuerSerial
+                 * @member {number} issuerSerial
                  * @memberof Cert.CertChain.NoiseCertificate.Details
                  * @instance
                  */
-                Details.prototype.issuerSerial = null;
+                Details.prototype.issuerSerial = 0;
 
                 /**
                  * Details key.
-                 * @member {Uint8Array|null|undefined} key
+                 * @member {Uint8Array} key
                  * @memberof Cert.CertChain.NoiseCertificate.Details
                  * @instance
                  */
-                Details.prototype.key = null;
+                Details.prototype.key = $util.newBuffer([]);
 
                 /**
                  * Details notBefore.
-                 * @member {number|Long|null|undefined} notBefore
+                 * @member {number|Long} notBefore
                  * @memberof Cert.CertChain.NoiseCertificate.Details
                  * @instance
                  */
-                Details.prototype.notBefore = null;
+                Details.prototype.notBefore = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
                 /**
                  * Details notAfter.
-                 * @member {number|Long|null|undefined} notAfter
+                 * @member {number|Long} notAfter
                  * @memberof Cert.CertChain.NoiseCertificate.Details
                  * @instance
                  */
-                Details.prototype.notAfter = null;
-
-                // OneOf field names bound to virtual getters and setters
-                var $oneOfFields;
-
-                /**
-                 * Details _serial.
-                 * @member {"serial"|undefined} _serial
-                 * @memberof Cert.CertChain.NoiseCertificate.Details
-                 * @instance
-                 */
-                Object.defineProperty(Details.prototype, "_serial", {
-                    get: $util.oneOfGetter($oneOfFields = ["serial"]),
-                    set: $util.oneOfSetter($oneOfFields)
-                });
-
-                /**
-                 * Details _issuerSerial.
-                 * @member {"issuerSerial"|undefined} _issuerSerial
-                 * @memberof Cert.CertChain.NoiseCertificate.Details
-                 * @instance
-                 */
-                Object.defineProperty(Details.prototype, "_issuerSerial", {
-                    get: $util.oneOfGetter($oneOfFields = ["issuerSerial"]),
-                    set: $util.oneOfSetter($oneOfFields)
-                });
-
-                /**
-                 * Details _key.
-                 * @member {"key"|undefined} _key
-                 * @memberof Cert.CertChain.NoiseCertificate.Details
-                 * @instance
-                 */
-                Object.defineProperty(Details.prototype, "_key", {
-                    get: $util.oneOfGetter($oneOfFields = ["key"]),
-                    set: $util.oneOfSetter($oneOfFields)
-                });
-
-                /**
-                 * Details _notBefore.
-                 * @member {"notBefore"|undefined} _notBefore
-                 * @memberof Cert.CertChain.NoiseCertificate.Details
-                 * @instance
-                 */
-                Object.defineProperty(Details.prototype, "_notBefore", {
-                    get: $util.oneOfGetter($oneOfFields = ["notBefore"]),
-                    set: $util.oneOfSetter($oneOfFields)
-                });
-
-                /**
-                 * Details _notAfter.
-                 * @member {"notAfter"|undefined} _notAfter
-                 * @memberof Cert.CertChain.NoiseCertificate.Details
-                 * @instance
-                 */
-                Object.defineProperty(Details.prototype, "_notAfter", {
-                    get: $util.oneOfGetter($oneOfFields = ["notAfter"]),
-                    set: $util.oneOfSetter($oneOfFields)
-                });
+                Details.prototype.notAfter = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
                 /**
                  * Creates a new Details instance using the specified properties.
@@ -803,32 +691,21 @@ $root.Cert = (function() {
                 Details.verify = function verify(message) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    var properties = {};
-                    if (message.serial != null && message.hasOwnProperty("serial")) {
-                        properties._serial = 1;
+                    if (message.serial != null && message.hasOwnProperty("serial"))
                         if (!$util.isInteger(message.serial))
                             return "serial: integer expected";
-                    }
-                    if (message.issuerSerial != null && message.hasOwnProperty("issuerSerial")) {
-                        properties._issuerSerial = 1;
+                    if (message.issuerSerial != null && message.hasOwnProperty("issuerSerial"))
                         if (!$util.isInteger(message.issuerSerial))
                             return "issuerSerial: integer expected";
-                    }
-                    if (message.key != null && message.hasOwnProperty("key")) {
-                        properties._key = 1;
+                    if (message.key != null && message.hasOwnProperty("key"))
                         if (!(message.key && typeof message.key.length === "number" || $util.isString(message.key)))
                             return "key: buffer expected";
-                    }
-                    if (message.notBefore != null && message.hasOwnProperty("notBefore")) {
-                        properties._notBefore = 1;
+                    if (message.notBefore != null && message.hasOwnProperty("notBefore"))
                         if (!$util.isInteger(message.notBefore) && !(message.notBefore && $util.isInteger(message.notBefore.low) && $util.isInteger(message.notBefore.high)))
                             return "notBefore: integer|Long expected";
-                    }
-                    if (message.notAfter != null && message.hasOwnProperty("notAfter")) {
-                        properties._notAfter = 1;
+                    if (message.notAfter != null && message.hasOwnProperty("notAfter"))
                         if (!$util.isInteger(message.notAfter) && !(message.notAfter && $util.isInteger(message.notAfter.low) && $util.isInteger(message.notAfter.high)))
                             return "notAfter: integer|Long expected";
-                    }
                     return null;
                 };
 
@@ -887,37 +764,43 @@ $root.Cert = (function() {
                     if (!options)
                         options = {};
                     var object = {};
-                    if (message.serial != null && message.hasOwnProperty("serial")) {
+                    if (options.defaults) {
+                        object.serial = 0;
+                        object.issuerSerial = 0;
+                        if (options.bytes === String)
+                            object.key = "";
+                        else {
+                            object.key = [];
+                            if (options.bytes !== Array)
+                                object.key = $util.newBuffer(object.key);
+                        }
+                        if ($util.Long) {
+                            var long = new $util.Long(0, 0, true);
+                            object.notBefore = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                        } else
+                            object.notBefore = options.longs === String ? "0" : 0;
+                        if ($util.Long) {
+                            var long = new $util.Long(0, 0, true);
+                            object.notAfter = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                        } else
+                            object.notAfter = options.longs === String ? "0" : 0;
+                    }
+                    if (message.serial != null && message.hasOwnProperty("serial"))
                         object.serial = message.serial;
-                        if (options.oneofs)
-                            object._serial = "serial";
-                    }
-                    if (message.issuerSerial != null && message.hasOwnProperty("issuerSerial")) {
+                    if (message.issuerSerial != null && message.hasOwnProperty("issuerSerial"))
                         object.issuerSerial = message.issuerSerial;
-                        if (options.oneofs)
-                            object._issuerSerial = "issuerSerial";
-                    }
-                    if (message.key != null && message.hasOwnProperty("key")) {
+                    if (message.key != null && message.hasOwnProperty("key"))
                         object.key = options.bytes === String ? $util.base64.encode(message.key, 0, message.key.length) : options.bytes === Array ? Array.prototype.slice.call(message.key) : message.key;
-                        if (options.oneofs)
-                            object._key = "key";
-                    }
-                    if (message.notBefore != null && message.hasOwnProperty("notBefore")) {
+                    if (message.notBefore != null && message.hasOwnProperty("notBefore"))
                         if (typeof message.notBefore === "number")
                             object.notBefore = options.longs === String ? String(message.notBefore) : message.notBefore;
                         else
                             object.notBefore = options.longs === String ? $util.Long.prototype.toString.call(message.notBefore) : options.longs === Number ? new $util.LongBits(message.notBefore.low >>> 0, message.notBefore.high >>> 0).toNumber(true) : message.notBefore;
-                        if (options.oneofs)
-                            object._notBefore = "notBefore";
-                    }
-                    if (message.notAfter != null && message.hasOwnProperty("notAfter")) {
+                    if (message.notAfter != null && message.hasOwnProperty("notAfter"))
                         if (typeof message.notAfter === "number")
                             object.notAfter = options.longs === String ? String(message.notAfter) : message.notAfter;
                         else
                             object.notAfter = options.longs === String ? $util.Long.prototype.toString.call(message.notAfter) : options.longs === Number ? new $util.LongBits(message.notAfter.low >>> 0, message.notAfter.high >>> 0).toNumber(true) : message.notAfter;
-                        if (options.oneofs)
-                            object._notAfter = "notAfter";
-                    }
                     return object;
                 };
 
@@ -983,44 +866,19 @@ $root.Cert = (function() {
 
         /**
          * NoiseCertificate details.
-         * @member {Uint8Array|null|undefined} details
+         * @member {Uint8Array} details
          * @memberof Cert.NoiseCertificate
          * @instance
          */
-        NoiseCertificate.prototype.details = null;
+        NoiseCertificate.prototype.details = $util.newBuffer([]);
 
         /**
          * NoiseCertificate signature.
-         * @member {Uint8Array|null|undefined} signature
+         * @member {Uint8Array} signature
          * @memberof Cert.NoiseCertificate
          * @instance
          */
-        NoiseCertificate.prototype.signature = null;
-
-        // OneOf field names bound to virtual getters and setters
-        var $oneOfFields;
-
-        /**
-         * NoiseCertificate _details.
-         * @member {"details"|undefined} _details
-         * @memberof Cert.NoiseCertificate
-         * @instance
-         */
-        Object.defineProperty(NoiseCertificate.prototype, "_details", {
-            get: $util.oneOfGetter($oneOfFields = ["details"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * NoiseCertificate _signature.
-         * @member {"signature"|undefined} _signature
-         * @memberof Cert.NoiseCertificate
-         * @instance
-         */
-        Object.defineProperty(NoiseCertificate.prototype, "_signature", {
-            get: $util.oneOfGetter($oneOfFields = ["signature"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
+        NoiseCertificate.prototype.signature = $util.newBuffer([]);
 
         /**
          * Creates a new NoiseCertificate instance using the specified properties.
@@ -1129,17 +987,12 @@ $root.Cert = (function() {
         NoiseCertificate.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            var properties = {};
-            if (message.details != null && message.hasOwnProperty("details")) {
-                properties._details = 1;
+            if (message.details != null && message.hasOwnProperty("details"))
                 if (!(message.details && typeof message.details.length === "number" || $util.isString(message.details)))
                     return "details: buffer expected";
-            }
-            if (message.signature != null && message.hasOwnProperty("signature")) {
-                properties._signature = 1;
+            if (message.signature != null && message.hasOwnProperty("signature"))
                 if (!(message.signature && typeof message.signature.length === "number" || $util.isString(message.signature)))
                     return "signature: buffer expected";
-            }
             return null;
         };
 
@@ -1181,16 +1034,26 @@ $root.Cert = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (message.details != null && message.hasOwnProperty("details")) {
+            if (options.defaults) {
+                if (options.bytes === String)
+                    object.details = "";
+                else {
+                    object.details = [];
+                    if (options.bytes !== Array)
+                        object.details = $util.newBuffer(object.details);
+                }
+                if (options.bytes === String)
+                    object.signature = "";
+                else {
+                    object.signature = [];
+                    if (options.bytes !== Array)
+                        object.signature = $util.newBuffer(object.signature);
+                }
+            }
+            if (message.details != null && message.hasOwnProperty("details"))
                 object.details = options.bytes === String ? $util.base64.encode(message.details, 0, message.details.length) : options.bytes === Array ? Array.prototype.slice.call(message.details) : message.details;
-                if (options.oneofs)
-                    object._details = "details";
-            }
-            if (message.signature != null && message.hasOwnProperty("signature")) {
+            if (message.signature != null && message.hasOwnProperty("signature"))
                 object.signature = options.bytes === String ? $util.base64.encode(message.signature, 0, message.signature.length) : options.bytes === Array ? Array.prototype.slice.call(message.signature) : message.signature;
-                if (options.oneofs)
-                    object._signature = "signature";
-            }
             return object;
         };
 
@@ -1250,101 +1113,43 @@ $root.Cert = (function() {
 
             /**
              * Details serial.
-             * @member {number|null|undefined} serial
+             * @member {number} serial
              * @memberof Cert.NoiseCertificate.Details
              * @instance
              */
-            Details.prototype.serial = null;
+            Details.prototype.serial = 0;
 
             /**
              * Details issuer.
-             * @member {string|null|undefined} issuer
+             * @member {string} issuer
              * @memberof Cert.NoiseCertificate.Details
              * @instance
              */
-            Details.prototype.issuer = null;
+            Details.prototype.issuer = "";
 
             /**
              * Details expires.
-             * @member {number|Long|null|undefined} expires
+             * @member {number|Long} expires
              * @memberof Cert.NoiseCertificate.Details
              * @instance
              */
-            Details.prototype.expires = null;
+            Details.prototype.expires = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
             /**
              * Details subject.
-             * @member {string|null|undefined} subject
+             * @member {string} subject
              * @memberof Cert.NoiseCertificate.Details
              * @instance
              */
-            Details.prototype.subject = null;
+            Details.prototype.subject = "";
 
             /**
              * Details key.
-             * @member {Uint8Array|null|undefined} key
+             * @member {Uint8Array} key
              * @memberof Cert.NoiseCertificate.Details
              * @instance
              */
-            Details.prototype.key = null;
-
-            // OneOf field names bound to virtual getters and setters
-            var $oneOfFields;
-
-            /**
-             * Details _serial.
-             * @member {"serial"|undefined} _serial
-             * @memberof Cert.NoiseCertificate.Details
-             * @instance
-             */
-            Object.defineProperty(Details.prototype, "_serial", {
-                get: $util.oneOfGetter($oneOfFields = ["serial"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * Details _issuer.
-             * @member {"issuer"|undefined} _issuer
-             * @memberof Cert.NoiseCertificate.Details
-             * @instance
-             */
-            Object.defineProperty(Details.prototype, "_issuer", {
-                get: $util.oneOfGetter($oneOfFields = ["issuer"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * Details _expires.
-             * @member {"expires"|undefined} _expires
-             * @memberof Cert.NoiseCertificate.Details
-             * @instance
-             */
-            Object.defineProperty(Details.prototype, "_expires", {
-                get: $util.oneOfGetter($oneOfFields = ["expires"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * Details _subject.
-             * @member {"subject"|undefined} _subject
-             * @memberof Cert.NoiseCertificate.Details
-             * @instance
-             */
-            Object.defineProperty(Details.prototype, "_subject", {
-                get: $util.oneOfGetter($oneOfFields = ["subject"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * Details _key.
-             * @member {"key"|undefined} _key
-             * @memberof Cert.NoiseCertificate.Details
-             * @instance
-             */
-            Object.defineProperty(Details.prototype, "_key", {
-                get: $util.oneOfGetter($oneOfFields = ["key"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
+            Details.prototype.key = $util.newBuffer([]);
 
             /**
              * Creates a new Details instance using the specified properties.
@@ -1471,32 +1276,21 @@ $root.Cert = (function() {
             Details.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                var properties = {};
-                if (message.serial != null && message.hasOwnProperty("serial")) {
-                    properties._serial = 1;
+                if (message.serial != null && message.hasOwnProperty("serial"))
                     if (!$util.isInteger(message.serial))
                         return "serial: integer expected";
-                }
-                if (message.issuer != null && message.hasOwnProperty("issuer")) {
-                    properties._issuer = 1;
+                if (message.issuer != null && message.hasOwnProperty("issuer"))
                     if (!$util.isString(message.issuer))
                         return "issuer: string expected";
-                }
-                if (message.expires != null && message.hasOwnProperty("expires")) {
-                    properties._expires = 1;
+                if (message.expires != null && message.hasOwnProperty("expires"))
                     if (!$util.isInteger(message.expires) && !(message.expires && $util.isInteger(message.expires.low) && $util.isInteger(message.expires.high)))
                         return "expires: integer|Long expected";
-                }
-                if (message.subject != null && message.hasOwnProperty("subject")) {
-                    properties._subject = 1;
+                if (message.subject != null && message.hasOwnProperty("subject"))
                     if (!$util.isString(message.subject))
                         return "subject: string expected";
-                }
-                if (message.key != null && message.hasOwnProperty("key")) {
-                    properties._key = 1;
+                if (message.key != null && message.hasOwnProperty("key"))
                     if (!(message.key && typeof message.key.length === "number" || $util.isString(message.key)))
                         return "key: buffer expected";
-                }
                 return null;
             };
 
@@ -1548,34 +1342,36 @@ $root.Cert = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (message.serial != null && message.hasOwnProperty("serial")) {
+                if (options.defaults) {
+                    object.serial = 0;
+                    object.issuer = "";
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, true);
+                        object.expires = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.expires = options.longs === String ? "0" : 0;
+                    object.subject = "";
+                    if (options.bytes === String)
+                        object.key = "";
+                    else {
+                        object.key = [];
+                        if (options.bytes !== Array)
+                            object.key = $util.newBuffer(object.key);
+                    }
+                }
+                if (message.serial != null && message.hasOwnProperty("serial"))
                     object.serial = message.serial;
-                    if (options.oneofs)
-                        object._serial = "serial";
-                }
-                if (message.issuer != null && message.hasOwnProperty("issuer")) {
+                if (message.issuer != null && message.hasOwnProperty("issuer"))
                     object.issuer = message.issuer;
-                    if (options.oneofs)
-                        object._issuer = "issuer";
-                }
-                if (message.expires != null && message.hasOwnProperty("expires")) {
+                if (message.expires != null && message.hasOwnProperty("expires"))
                     if (typeof message.expires === "number")
                         object.expires = options.longs === String ? String(message.expires) : message.expires;
                     else
                         object.expires = options.longs === String ? $util.Long.prototype.toString.call(message.expires) : options.longs === Number ? new $util.LongBits(message.expires.low >>> 0, message.expires.high >>> 0).toNumber(true) : message.expires;
-                    if (options.oneofs)
-                        object._expires = "expires";
-                }
-                if (message.subject != null && message.hasOwnProperty("subject")) {
+                if (message.subject != null && message.hasOwnProperty("subject"))
                     object.subject = message.subject;
-                    if (options.oneofs)
-                        object._subject = "subject";
-                }
-                if (message.key != null && message.hasOwnProperty("key")) {
+                if (message.key != null && message.hasOwnProperty("key"))
                     object.key = options.bytes === String ? $util.base64.encode(message.key, 0, message.key.length) : options.bytes === Array ? Array.prototype.slice.call(message.key) : message.key;
-                    if (options.oneofs)
-                        object._key = "key";
-                }
                 return object;
             };
 
