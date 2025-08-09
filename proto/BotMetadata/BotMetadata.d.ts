@@ -92,6 +92,9 @@ export namespace BotMetadata {
 
         /** BotMetadata botMessageOriginMetadata */
         botMessageOriginMetadata?: (BotMetadata.IBotMessageOriginMetadata|null);
+
+        /** BotMetadata inThreadSurveyMetadata */
+        inThreadSurveyMetadata?: (BotMetadata.IInThreadSurveyMetadata|null);
     }
 
     /** Represents a BotMetadata. */
@@ -190,6 +193,9 @@ export namespace BotMetadata {
         /** BotMetadata botMessageOriginMetadata. */
         public botMessageOriginMetadata?: (BotMetadata.IBotMessageOriginMetadata|null);
 
+        /** BotMetadata inThreadSurveyMetadata. */
+        public inThreadSurveyMetadata?: (BotMetadata.IInThreadSurveyMetadata|null);
+
         /** BotMetadata _avatarMetadata. */
         public _avatarMetadata?: "avatarMetadata";
 
@@ -276,6 +282,9 @@ export namespace BotMetadata {
 
         /** BotMetadata _botMessageOriginMetadata. */
         public _botMessageOriginMetadata?: "botMessageOriginMetadata";
+
+        /** BotMetadata _inThreadSurveyMetadata. */
+        public _inThreadSurveyMetadata?: "inThreadSurveyMetadata";
 
         /**
          * Creates a new BotMetadata instance using the specified properties.
@@ -761,6 +770,589 @@ export namespace BotMetadata {
          * @returns The default type url
          */
         public static getTypeUrl(typeUrlPrefix?: string): string;
+    }
+
+    /** Properties of an InThreadSurveyMetadata. */
+    interface IInThreadSurveyMetadata {
+
+        /** InThreadSurveyMetadata tessaSessionId */
+        tessaSessionId?: (string|null);
+
+        /** InThreadSurveyMetadata simonSessionId */
+        simonSessionId?: (string|null);
+
+        /** InThreadSurveyMetadata simonSurveyId */
+        simonSurveyId?: (string|null);
+
+        /** InThreadSurveyMetadata tessaRootId */
+        tessaRootId?: (string|null);
+
+        /** InThreadSurveyMetadata requestId */
+        requestId?: (string|null);
+
+        /** InThreadSurveyMetadata tessaEvent */
+        tessaEvent?: (string|null);
+
+        /** InThreadSurveyMetadata invitationHeaderText */
+        invitationHeaderText?: (string|null);
+
+        /** InThreadSurveyMetadata invitationBodyText */
+        invitationBodyText?: (string|null);
+
+        /** InThreadSurveyMetadata invitationCtaText */
+        invitationCtaText?: (string|null);
+
+        /** InThreadSurveyMetadata invitationCtaUrl */
+        invitationCtaUrl?: (string|null);
+
+        /** InThreadSurveyMetadata surveyTitle */
+        surveyTitle?: (string|null);
+
+        /** InThreadSurveyMetadata questions */
+        questions?: (BotMetadata.InThreadSurveyMetadata.IInThreadSurveyQuestion[]|null);
+
+        /** InThreadSurveyMetadata surveyContinueButtonText */
+        surveyContinueButtonText?: (string|null);
+
+        /** InThreadSurveyMetadata surveySubmitButtonText */
+        surveySubmitButtonText?: (string|null);
+
+        /** InThreadSurveyMetadata privacyStatementFull */
+        privacyStatementFull?: (string|null);
+
+        /** InThreadSurveyMetadata privacyStatementParts */
+        privacyStatementParts?: (BotMetadata.InThreadSurveyMetadata.IInThreadSurveyPrivacyStatementPart[]|null);
+
+        /** InThreadSurveyMetadata feedbackToastText */
+        feedbackToastText?: (string|null);
+    }
+
+    /** Represents an InThreadSurveyMetadata. */
+    class InThreadSurveyMetadata implements IInThreadSurveyMetadata {
+
+        /**
+         * Constructs a new InThreadSurveyMetadata.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: BotMetadata.IInThreadSurveyMetadata);
+
+        /** InThreadSurveyMetadata tessaSessionId. */
+        public tessaSessionId?: (string|null);
+
+        /** InThreadSurveyMetadata simonSessionId. */
+        public simonSessionId?: (string|null);
+
+        /** InThreadSurveyMetadata simonSurveyId. */
+        public simonSurveyId?: (string|null);
+
+        /** InThreadSurveyMetadata tessaRootId. */
+        public tessaRootId?: (string|null);
+
+        /** InThreadSurveyMetadata requestId. */
+        public requestId?: (string|null);
+
+        /** InThreadSurveyMetadata tessaEvent. */
+        public tessaEvent?: (string|null);
+
+        /** InThreadSurveyMetadata invitationHeaderText. */
+        public invitationHeaderText?: (string|null);
+
+        /** InThreadSurveyMetadata invitationBodyText. */
+        public invitationBodyText?: (string|null);
+
+        /** InThreadSurveyMetadata invitationCtaText. */
+        public invitationCtaText?: (string|null);
+
+        /** InThreadSurveyMetadata invitationCtaUrl. */
+        public invitationCtaUrl?: (string|null);
+
+        /** InThreadSurveyMetadata surveyTitle. */
+        public surveyTitle?: (string|null);
+
+        /** InThreadSurveyMetadata questions. */
+        public questions: BotMetadata.InThreadSurveyMetadata.IInThreadSurveyQuestion[];
+
+        /** InThreadSurveyMetadata surveyContinueButtonText. */
+        public surveyContinueButtonText?: (string|null);
+
+        /** InThreadSurveyMetadata surveySubmitButtonText. */
+        public surveySubmitButtonText?: (string|null);
+
+        /** InThreadSurveyMetadata privacyStatementFull. */
+        public privacyStatementFull?: (string|null);
+
+        /** InThreadSurveyMetadata privacyStatementParts. */
+        public privacyStatementParts: BotMetadata.InThreadSurveyMetadata.IInThreadSurveyPrivacyStatementPart[];
+
+        /** InThreadSurveyMetadata feedbackToastText. */
+        public feedbackToastText?: (string|null);
+
+        /** InThreadSurveyMetadata _tessaSessionId. */
+        public _tessaSessionId?: "tessaSessionId";
+
+        /** InThreadSurveyMetadata _simonSessionId. */
+        public _simonSessionId?: "simonSessionId";
+
+        /** InThreadSurveyMetadata _simonSurveyId. */
+        public _simonSurveyId?: "simonSurveyId";
+
+        /** InThreadSurveyMetadata _tessaRootId. */
+        public _tessaRootId?: "tessaRootId";
+
+        /** InThreadSurveyMetadata _requestId. */
+        public _requestId?: "requestId";
+
+        /** InThreadSurveyMetadata _tessaEvent. */
+        public _tessaEvent?: "tessaEvent";
+
+        /** InThreadSurveyMetadata _invitationHeaderText. */
+        public _invitationHeaderText?: "invitationHeaderText";
+
+        /** InThreadSurveyMetadata _invitationBodyText. */
+        public _invitationBodyText?: "invitationBodyText";
+
+        /** InThreadSurveyMetadata _invitationCtaText. */
+        public _invitationCtaText?: "invitationCtaText";
+
+        /** InThreadSurveyMetadata _invitationCtaUrl. */
+        public _invitationCtaUrl?: "invitationCtaUrl";
+
+        /** InThreadSurveyMetadata _surveyTitle. */
+        public _surveyTitle?: "surveyTitle";
+
+        /** InThreadSurveyMetadata _surveyContinueButtonText. */
+        public _surveyContinueButtonText?: "surveyContinueButtonText";
+
+        /** InThreadSurveyMetadata _surveySubmitButtonText. */
+        public _surveySubmitButtonText?: "surveySubmitButtonText";
+
+        /** InThreadSurveyMetadata _privacyStatementFull. */
+        public _privacyStatementFull?: "privacyStatementFull";
+
+        /** InThreadSurveyMetadata _feedbackToastText. */
+        public _feedbackToastText?: "feedbackToastText";
+
+        /**
+         * Creates a new InThreadSurveyMetadata instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns InThreadSurveyMetadata instance
+         */
+        public static create(properties?: BotMetadata.IInThreadSurveyMetadata): BotMetadata.InThreadSurveyMetadata;
+
+        /**
+         * Encodes the specified InThreadSurveyMetadata message. Does not implicitly {@link BotMetadata.InThreadSurveyMetadata.verify|verify} messages.
+         * @param message InThreadSurveyMetadata message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: BotMetadata.IInThreadSurveyMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified InThreadSurveyMetadata message, length delimited. Does not implicitly {@link BotMetadata.InThreadSurveyMetadata.verify|verify} messages.
+         * @param message InThreadSurveyMetadata message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: BotMetadata.IInThreadSurveyMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an InThreadSurveyMetadata message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns InThreadSurveyMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): BotMetadata.InThreadSurveyMetadata;
+
+        /**
+         * Decodes an InThreadSurveyMetadata message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns InThreadSurveyMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): BotMetadata.InThreadSurveyMetadata;
+
+        /**
+         * Verifies an InThreadSurveyMetadata message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an InThreadSurveyMetadata message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns InThreadSurveyMetadata
+         */
+        public static fromObject(object: { [k: string]: any }): BotMetadata.InThreadSurveyMetadata;
+
+        /**
+         * Creates a plain object from an InThreadSurveyMetadata message. Also converts values to other types if specified.
+         * @param message InThreadSurveyMetadata
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: BotMetadata.InThreadSurveyMetadata, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this InThreadSurveyMetadata to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for InThreadSurveyMetadata
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
+    }
+
+    namespace InThreadSurveyMetadata {
+
+        /** Properties of an InThreadSurveyOption. */
+        interface IInThreadSurveyOption {
+
+            /** InThreadSurveyOption stringValue */
+            stringValue?: (string|null);
+
+            /** InThreadSurveyOption numericValue */
+            numericValue?: (number|null);
+
+            /** InThreadSurveyOption textTranslated */
+            textTranslated?: (string|null);
+        }
+
+        /** Represents an InThreadSurveyOption. */
+        class InThreadSurveyOption implements IInThreadSurveyOption {
+
+            /**
+             * Constructs a new InThreadSurveyOption.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: BotMetadata.InThreadSurveyMetadata.IInThreadSurveyOption);
+
+            /** InThreadSurveyOption stringValue. */
+            public stringValue?: (string|null);
+
+            /** InThreadSurveyOption numericValue. */
+            public numericValue?: (number|null);
+
+            /** InThreadSurveyOption textTranslated. */
+            public textTranslated?: (string|null);
+
+            /** InThreadSurveyOption _stringValue. */
+            public _stringValue?: "stringValue";
+
+            /** InThreadSurveyOption _numericValue. */
+            public _numericValue?: "numericValue";
+
+            /** InThreadSurveyOption _textTranslated. */
+            public _textTranslated?: "textTranslated";
+
+            /**
+             * Creates a new InThreadSurveyOption instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns InThreadSurveyOption instance
+             */
+            public static create(properties?: BotMetadata.InThreadSurveyMetadata.IInThreadSurveyOption): BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption;
+
+            /**
+             * Encodes the specified InThreadSurveyOption message. Does not implicitly {@link BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption.verify|verify} messages.
+             * @param message InThreadSurveyOption message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: BotMetadata.InThreadSurveyMetadata.IInThreadSurveyOption, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified InThreadSurveyOption message, length delimited. Does not implicitly {@link BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption.verify|verify} messages.
+             * @param message InThreadSurveyOption message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: BotMetadata.InThreadSurveyMetadata.IInThreadSurveyOption, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an InThreadSurveyOption message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns InThreadSurveyOption
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption;
+
+            /**
+             * Decodes an InThreadSurveyOption message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns InThreadSurveyOption
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption;
+
+            /**
+             * Verifies an InThreadSurveyOption message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an InThreadSurveyOption message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns InThreadSurveyOption
+             */
+            public static fromObject(object: { [k: string]: any }): BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption;
+
+            /**
+             * Creates a plain object from an InThreadSurveyOption message. Also converts values to other types if specified.
+             * @param message InThreadSurveyOption
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this InThreadSurveyOption to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for InThreadSurveyOption
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of an InThreadSurveyPrivacyStatementPart. */
+        interface IInThreadSurveyPrivacyStatementPart {
+
+            /** InThreadSurveyPrivacyStatementPart text */
+            text?: (string|null);
+
+            /** InThreadSurveyPrivacyStatementPart url */
+            url?: (string|null);
+        }
+
+        /** Represents an InThreadSurveyPrivacyStatementPart. */
+        class InThreadSurveyPrivacyStatementPart implements IInThreadSurveyPrivacyStatementPart {
+
+            /**
+             * Constructs a new InThreadSurveyPrivacyStatementPart.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: BotMetadata.InThreadSurveyMetadata.IInThreadSurveyPrivacyStatementPart);
+
+            /** InThreadSurveyPrivacyStatementPart text. */
+            public text?: (string|null);
+
+            /** InThreadSurveyPrivacyStatementPart url. */
+            public url?: (string|null);
+
+            /** InThreadSurveyPrivacyStatementPart _text. */
+            public _text?: "text";
+
+            /** InThreadSurveyPrivacyStatementPart _url. */
+            public _url?: "url";
+
+            /**
+             * Creates a new InThreadSurveyPrivacyStatementPart instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns InThreadSurveyPrivacyStatementPart instance
+             */
+            public static create(properties?: BotMetadata.InThreadSurveyMetadata.IInThreadSurveyPrivacyStatementPart): BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart;
+
+            /**
+             * Encodes the specified InThreadSurveyPrivacyStatementPart message. Does not implicitly {@link BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.verify|verify} messages.
+             * @param message InThreadSurveyPrivacyStatementPart message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: BotMetadata.InThreadSurveyMetadata.IInThreadSurveyPrivacyStatementPart, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified InThreadSurveyPrivacyStatementPart message, length delimited. Does not implicitly {@link BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.verify|verify} messages.
+             * @param message InThreadSurveyPrivacyStatementPart message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: BotMetadata.InThreadSurveyMetadata.IInThreadSurveyPrivacyStatementPart, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an InThreadSurveyPrivacyStatementPart message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns InThreadSurveyPrivacyStatementPart
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart;
+
+            /**
+             * Decodes an InThreadSurveyPrivacyStatementPart message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns InThreadSurveyPrivacyStatementPart
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart;
+
+            /**
+             * Verifies an InThreadSurveyPrivacyStatementPart message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an InThreadSurveyPrivacyStatementPart message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns InThreadSurveyPrivacyStatementPart
+             */
+            public static fromObject(object: { [k: string]: any }): BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart;
+
+            /**
+             * Creates a plain object from an InThreadSurveyPrivacyStatementPart message. Also converts values to other types if specified.
+             * @param message InThreadSurveyPrivacyStatementPart
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this InThreadSurveyPrivacyStatementPart to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for InThreadSurveyPrivacyStatementPart
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of an InThreadSurveyQuestion. */
+        interface IInThreadSurveyQuestion {
+
+            /** InThreadSurveyQuestion questionText */
+            questionText?: (string|null);
+
+            /** InThreadSurveyQuestion questionId */
+            questionId?: (string|null);
+
+            /** InThreadSurveyQuestion questionOptions */
+            questionOptions?: (BotMetadata.InThreadSurveyMetadata.IInThreadSurveyOption[]|null);
+        }
+
+        /** Represents an InThreadSurveyQuestion. */
+        class InThreadSurveyQuestion implements IInThreadSurveyQuestion {
+
+            /**
+             * Constructs a new InThreadSurveyQuestion.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: BotMetadata.InThreadSurveyMetadata.IInThreadSurveyQuestion);
+
+            /** InThreadSurveyQuestion questionText. */
+            public questionText?: (string|null);
+
+            /** InThreadSurveyQuestion questionId. */
+            public questionId?: (string|null);
+
+            /** InThreadSurveyQuestion questionOptions. */
+            public questionOptions: BotMetadata.InThreadSurveyMetadata.IInThreadSurveyOption[];
+
+            /** InThreadSurveyQuestion _questionText. */
+            public _questionText?: "questionText";
+
+            /** InThreadSurveyQuestion _questionId. */
+            public _questionId?: "questionId";
+
+            /**
+             * Creates a new InThreadSurveyQuestion instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns InThreadSurveyQuestion instance
+             */
+            public static create(properties?: BotMetadata.InThreadSurveyMetadata.IInThreadSurveyQuestion): BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion;
+
+            /**
+             * Encodes the specified InThreadSurveyQuestion message. Does not implicitly {@link BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion.verify|verify} messages.
+             * @param message InThreadSurveyQuestion message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: BotMetadata.InThreadSurveyMetadata.IInThreadSurveyQuestion, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified InThreadSurveyQuestion message, length delimited. Does not implicitly {@link BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion.verify|verify} messages.
+             * @param message InThreadSurveyQuestion message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: BotMetadata.InThreadSurveyMetadata.IInThreadSurveyQuestion, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an InThreadSurveyQuestion message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns InThreadSurveyQuestion
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion;
+
+            /**
+             * Decodes an InThreadSurveyQuestion message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns InThreadSurveyQuestion
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion;
+
+            /**
+             * Verifies an InThreadSurveyQuestion message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an InThreadSurveyQuestion message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns InThreadSurveyQuestion
+             */
+            public static fromObject(object: { [k: string]: any }): BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion;
+
+            /**
+             * Creates a plain object from an InThreadSurveyQuestion message. Also converts values to other types if specified.
+             * @param message InThreadSurveyQuestion
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this InThreadSurveyQuestion to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for InThreadSurveyQuestion
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
     }
 
     /** Properties of a BotSourcesMetadata. */
@@ -3463,7 +4055,8 @@ export namespace BotMetadata {
         /** BotPromotionType enum. */
         enum BotPromotionType {
             UNKNOWN_TYPE = 0,
-            C50 = 1
+            C50 = 1,
+            SURVEY_PLATFORM = 2
         }
     }
 

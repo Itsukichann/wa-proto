@@ -53,6 +53,7 @@ $root.BotMetadata = (function() {
          * @property {BotMetadata.IBotSignatureVerificationMetadata|null} [verificationMetadata] BotMetadata verificationMetadata
          * @property {BotMetadata.IBotUnifiedResponseMutation|null} [unifiedResponseMutation] BotMetadata unifiedResponseMutation
          * @property {BotMetadata.IBotMessageOriginMetadata|null} [botMessageOriginMetadata] BotMetadata botMessageOriginMetadata
+         * @property {BotMetadata.IInThreadSurveyMetadata|null} [inThreadSurveyMetadata] BotMetadata inThreadSurveyMetadata
          */
 
         /**
@@ -301,6 +302,14 @@ $root.BotMetadata = (function() {
          * @instance
          */
         BotMetadata.prototype.botMessageOriginMetadata = null;
+
+        /**
+         * BotMetadata inThreadSurveyMetadata.
+         * @member {BotMetadata.IInThreadSurveyMetadata|null|undefined} inThreadSurveyMetadata
+         * @memberof BotMetadata.BotMetadata
+         * @instance
+         */
+        BotMetadata.prototype.inThreadSurveyMetadata = null;
 
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
@@ -625,6 +634,17 @@ $root.BotMetadata = (function() {
         });
 
         /**
+         * BotMetadata _inThreadSurveyMetadata.
+         * @member {"inThreadSurveyMetadata"|undefined} _inThreadSurveyMetadata
+         * @memberof BotMetadata.BotMetadata
+         * @instance
+         */
+        Object.defineProperty(BotMetadata.prototype, "_inThreadSurveyMetadata", {
+            get: $util.oneOfGetter($oneOfFields = ["inThreadSurveyMetadata"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
          * Creates a new BotMetadata instance using the specified properties.
          * @function create
          * @memberof BotMetadata.BotMetadata
@@ -706,6 +726,8 @@ $root.BotMetadata = (function() {
                 $root.BotMetadata.BotUnifiedResponseMutation.encode(message.unifiedResponseMutation, writer.uint32(/* id 28, wireType 2 =*/226).fork()).ldelim();
             if (message.botMessageOriginMetadata != null && Object.hasOwnProperty.call(message, "botMessageOriginMetadata"))
                 $root.BotMetadata.BotMessageOriginMetadata.encode(message.botMessageOriginMetadata, writer.uint32(/* id 29, wireType 2 =*/234).fork()).ldelim();
+            if (message.inThreadSurveyMetadata != null && Object.hasOwnProperty.call(message, "inThreadSurveyMetadata"))
+                $root.BotMetadata.InThreadSurveyMetadata.encode(message.inThreadSurveyMetadata, writer.uint32(/* id 30, wireType 2 =*/242).fork()).ldelim();
             return writer;
         };
 
@@ -856,6 +878,10 @@ $root.BotMetadata = (function() {
                     }
                 case 29: {
                         message.botMessageOriginMetadata = $root.BotMetadata.BotMessageOriginMetadata.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 30: {
+                        message.inThreadSurveyMetadata = $root.BotMetadata.InThreadSurveyMetadata.decode(reader, reader.uint32());
                         break;
                     }
                 default:
@@ -1105,6 +1131,14 @@ $root.BotMetadata = (function() {
                         return "botMessageOriginMetadata." + error;
                 }
             }
+            if (message.inThreadSurveyMetadata != null && message.hasOwnProperty("inThreadSurveyMetadata")) {
+                properties._inThreadSurveyMetadata = 1;
+                {
+                    var error = $root.BotMetadata.InThreadSurveyMetadata.verify(message.inThreadSurveyMetadata);
+                    if (error)
+                        return "inThreadSurveyMetadata." + error;
+                }
+            }
             return null;
         };
 
@@ -1246,6 +1280,11 @@ $root.BotMetadata = (function() {
                 if (typeof object.botMessageOriginMetadata !== "object")
                     throw TypeError(".BotMetadata.BotMetadata.botMessageOriginMetadata: object expected");
                 message.botMessageOriginMetadata = $root.BotMetadata.BotMessageOriginMetadata.fromObject(object.botMessageOriginMetadata);
+            }
+            if (object.inThreadSurveyMetadata != null) {
+                if (typeof object.inThreadSurveyMetadata !== "object")
+                    throw TypeError(".BotMetadata.BotMetadata.inThreadSurveyMetadata: object expected");
+                message.inThreadSurveyMetadata = $root.BotMetadata.InThreadSurveyMetadata.fromObject(object.inThreadSurveyMetadata);
             }
             return message;
         };
@@ -1407,6 +1446,11 @@ $root.BotMetadata = (function() {
                 object.botMessageOriginMetadata = $root.BotMetadata.BotMessageOriginMetadata.toObject(message.botMessageOriginMetadata, options);
                 if (options.oneofs)
                     object._botMessageOriginMetadata = "botMessageOriginMetadata";
+            }
+            if (message.inThreadSurveyMetadata != null && message.hasOwnProperty("inThreadSurveyMetadata")) {
+                object.inThreadSurveyMetadata = $root.BotMetadata.InThreadSurveyMetadata.toObject(message.inThreadSurveyMetadata, options);
+                if (options.oneofs)
+                    object._inThreadSurveyMetadata = "inThreadSurveyMetadata";
             }
             return object;
         };
@@ -2365,6 +2409,1717 @@ $root.BotMetadata = (function() {
         };
 
         return BotMessageOriginMetadata;
+    })();
+
+    BotMetadata.InThreadSurveyMetadata = (function() {
+
+        /**
+         * Properties of an InThreadSurveyMetadata.
+         * @memberof BotMetadata
+         * @interface IInThreadSurveyMetadata
+         * @property {string|null} [tessaSessionId] InThreadSurveyMetadata tessaSessionId
+         * @property {string|null} [simonSessionId] InThreadSurveyMetadata simonSessionId
+         * @property {string|null} [simonSurveyId] InThreadSurveyMetadata simonSurveyId
+         * @property {string|null} [tessaRootId] InThreadSurveyMetadata tessaRootId
+         * @property {string|null} [requestId] InThreadSurveyMetadata requestId
+         * @property {string|null} [tessaEvent] InThreadSurveyMetadata tessaEvent
+         * @property {string|null} [invitationHeaderText] InThreadSurveyMetadata invitationHeaderText
+         * @property {string|null} [invitationBodyText] InThreadSurveyMetadata invitationBodyText
+         * @property {string|null} [invitationCtaText] InThreadSurveyMetadata invitationCtaText
+         * @property {string|null} [invitationCtaUrl] InThreadSurveyMetadata invitationCtaUrl
+         * @property {string|null} [surveyTitle] InThreadSurveyMetadata surveyTitle
+         * @property {Array.<BotMetadata.InThreadSurveyMetadata.IInThreadSurveyQuestion>|null} [questions] InThreadSurveyMetadata questions
+         * @property {string|null} [surveyContinueButtonText] InThreadSurveyMetadata surveyContinueButtonText
+         * @property {string|null} [surveySubmitButtonText] InThreadSurveyMetadata surveySubmitButtonText
+         * @property {string|null} [privacyStatementFull] InThreadSurveyMetadata privacyStatementFull
+         * @property {Array.<BotMetadata.InThreadSurveyMetadata.IInThreadSurveyPrivacyStatementPart>|null} [privacyStatementParts] InThreadSurveyMetadata privacyStatementParts
+         * @property {string|null} [feedbackToastText] InThreadSurveyMetadata feedbackToastText
+         */
+
+        /**
+         * Constructs a new InThreadSurveyMetadata.
+         * @memberof BotMetadata
+         * @classdesc Represents an InThreadSurveyMetadata.
+         * @implements IInThreadSurveyMetadata
+         * @constructor
+         * @param {BotMetadata.IInThreadSurveyMetadata=} [properties] Properties to set
+         */
+        function InThreadSurveyMetadata(properties) {
+            this.questions = [];
+            this.privacyStatementParts = [];
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * InThreadSurveyMetadata tessaSessionId.
+         * @member {string|null|undefined} tessaSessionId
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        InThreadSurveyMetadata.prototype.tessaSessionId = null;
+
+        /**
+         * InThreadSurveyMetadata simonSessionId.
+         * @member {string|null|undefined} simonSessionId
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        InThreadSurveyMetadata.prototype.simonSessionId = null;
+
+        /**
+         * InThreadSurveyMetadata simonSurveyId.
+         * @member {string|null|undefined} simonSurveyId
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        InThreadSurveyMetadata.prototype.simonSurveyId = null;
+
+        /**
+         * InThreadSurveyMetadata tessaRootId.
+         * @member {string|null|undefined} tessaRootId
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        InThreadSurveyMetadata.prototype.tessaRootId = null;
+
+        /**
+         * InThreadSurveyMetadata requestId.
+         * @member {string|null|undefined} requestId
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        InThreadSurveyMetadata.prototype.requestId = null;
+
+        /**
+         * InThreadSurveyMetadata tessaEvent.
+         * @member {string|null|undefined} tessaEvent
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        InThreadSurveyMetadata.prototype.tessaEvent = null;
+
+        /**
+         * InThreadSurveyMetadata invitationHeaderText.
+         * @member {string|null|undefined} invitationHeaderText
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        InThreadSurveyMetadata.prototype.invitationHeaderText = null;
+
+        /**
+         * InThreadSurveyMetadata invitationBodyText.
+         * @member {string|null|undefined} invitationBodyText
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        InThreadSurveyMetadata.prototype.invitationBodyText = null;
+
+        /**
+         * InThreadSurveyMetadata invitationCtaText.
+         * @member {string|null|undefined} invitationCtaText
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        InThreadSurveyMetadata.prototype.invitationCtaText = null;
+
+        /**
+         * InThreadSurveyMetadata invitationCtaUrl.
+         * @member {string|null|undefined} invitationCtaUrl
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        InThreadSurveyMetadata.prototype.invitationCtaUrl = null;
+
+        /**
+         * InThreadSurveyMetadata surveyTitle.
+         * @member {string|null|undefined} surveyTitle
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        InThreadSurveyMetadata.prototype.surveyTitle = null;
+
+        /**
+         * InThreadSurveyMetadata questions.
+         * @member {Array.<BotMetadata.InThreadSurveyMetadata.IInThreadSurveyQuestion>} questions
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        InThreadSurveyMetadata.prototype.questions = $util.emptyArray;
+
+        /**
+         * InThreadSurveyMetadata surveyContinueButtonText.
+         * @member {string|null|undefined} surveyContinueButtonText
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        InThreadSurveyMetadata.prototype.surveyContinueButtonText = null;
+
+        /**
+         * InThreadSurveyMetadata surveySubmitButtonText.
+         * @member {string|null|undefined} surveySubmitButtonText
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        InThreadSurveyMetadata.prototype.surveySubmitButtonText = null;
+
+        /**
+         * InThreadSurveyMetadata privacyStatementFull.
+         * @member {string|null|undefined} privacyStatementFull
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        InThreadSurveyMetadata.prototype.privacyStatementFull = null;
+
+        /**
+         * InThreadSurveyMetadata privacyStatementParts.
+         * @member {Array.<BotMetadata.InThreadSurveyMetadata.IInThreadSurveyPrivacyStatementPart>} privacyStatementParts
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        InThreadSurveyMetadata.prototype.privacyStatementParts = $util.emptyArray;
+
+        /**
+         * InThreadSurveyMetadata feedbackToastText.
+         * @member {string|null|undefined} feedbackToastText
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        InThreadSurveyMetadata.prototype.feedbackToastText = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * InThreadSurveyMetadata _tessaSessionId.
+         * @member {"tessaSessionId"|undefined} _tessaSessionId
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        Object.defineProperty(InThreadSurveyMetadata.prototype, "_tessaSessionId", {
+            get: $util.oneOfGetter($oneOfFields = ["tessaSessionId"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * InThreadSurveyMetadata _simonSessionId.
+         * @member {"simonSessionId"|undefined} _simonSessionId
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        Object.defineProperty(InThreadSurveyMetadata.prototype, "_simonSessionId", {
+            get: $util.oneOfGetter($oneOfFields = ["simonSessionId"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * InThreadSurveyMetadata _simonSurveyId.
+         * @member {"simonSurveyId"|undefined} _simonSurveyId
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        Object.defineProperty(InThreadSurveyMetadata.prototype, "_simonSurveyId", {
+            get: $util.oneOfGetter($oneOfFields = ["simonSurveyId"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * InThreadSurveyMetadata _tessaRootId.
+         * @member {"tessaRootId"|undefined} _tessaRootId
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        Object.defineProperty(InThreadSurveyMetadata.prototype, "_tessaRootId", {
+            get: $util.oneOfGetter($oneOfFields = ["tessaRootId"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * InThreadSurveyMetadata _requestId.
+         * @member {"requestId"|undefined} _requestId
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        Object.defineProperty(InThreadSurveyMetadata.prototype, "_requestId", {
+            get: $util.oneOfGetter($oneOfFields = ["requestId"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * InThreadSurveyMetadata _tessaEvent.
+         * @member {"tessaEvent"|undefined} _tessaEvent
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        Object.defineProperty(InThreadSurveyMetadata.prototype, "_tessaEvent", {
+            get: $util.oneOfGetter($oneOfFields = ["tessaEvent"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * InThreadSurveyMetadata _invitationHeaderText.
+         * @member {"invitationHeaderText"|undefined} _invitationHeaderText
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        Object.defineProperty(InThreadSurveyMetadata.prototype, "_invitationHeaderText", {
+            get: $util.oneOfGetter($oneOfFields = ["invitationHeaderText"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * InThreadSurveyMetadata _invitationBodyText.
+         * @member {"invitationBodyText"|undefined} _invitationBodyText
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        Object.defineProperty(InThreadSurveyMetadata.prototype, "_invitationBodyText", {
+            get: $util.oneOfGetter($oneOfFields = ["invitationBodyText"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * InThreadSurveyMetadata _invitationCtaText.
+         * @member {"invitationCtaText"|undefined} _invitationCtaText
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        Object.defineProperty(InThreadSurveyMetadata.prototype, "_invitationCtaText", {
+            get: $util.oneOfGetter($oneOfFields = ["invitationCtaText"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * InThreadSurveyMetadata _invitationCtaUrl.
+         * @member {"invitationCtaUrl"|undefined} _invitationCtaUrl
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        Object.defineProperty(InThreadSurveyMetadata.prototype, "_invitationCtaUrl", {
+            get: $util.oneOfGetter($oneOfFields = ["invitationCtaUrl"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * InThreadSurveyMetadata _surveyTitle.
+         * @member {"surveyTitle"|undefined} _surveyTitle
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        Object.defineProperty(InThreadSurveyMetadata.prototype, "_surveyTitle", {
+            get: $util.oneOfGetter($oneOfFields = ["surveyTitle"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * InThreadSurveyMetadata _surveyContinueButtonText.
+         * @member {"surveyContinueButtonText"|undefined} _surveyContinueButtonText
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        Object.defineProperty(InThreadSurveyMetadata.prototype, "_surveyContinueButtonText", {
+            get: $util.oneOfGetter($oneOfFields = ["surveyContinueButtonText"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * InThreadSurveyMetadata _surveySubmitButtonText.
+         * @member {"surveySubmitButtonText"|undefined} _surveySubmitButtonText
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        Object.defineProperty(InThreadSurveyMetadata.prototype, "_surveySubmitButtonText", {
+            get: $util.oneOfGetter($oneOfFields = ["surveySubmitButtonText"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * InThreadSurveyMetadata _privacyStatementFull.
+         * @member {"privacyStatementFull"|undefined} _privacyStatementFull
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        Object.defineProperty(InThreadSurveyMetadata.prototype, "_privacyStatementFull", {
+            get: $util.oneOfGetter($oneOfFields = ["privacyStatementFull"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * InThreadSurveyMetadata _feedbackToastText.
+         * @member {"feedbackToastText"|undefined} _feedbackToastText
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         */
+        Object.defineProperty(InThreadSurveyMetadata.prototype, "_feedbackToastText", {
+            get: $util.oneOfGetter($oneOfFields = ["feedbackToastText"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Creates a new InThreadSurveyMetadata instance using the specified properties.
+         * @function create
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @static
+         * @param {BotMetadata.IInThreadSurveyMetadata=} [properties] Properties to set
+         * @returns {BotMetadata.InThreadSurveyMetadata} InThreadSurveyMetadata instance
+         */
+        InThreadSurveyMetadata.create = function create(properties) {
+            return new InThreadSurveyMetadata(properties);
+        };
+
+        /**
+         * Encodes the specified InThreadSurveyMetadata message. Does not implicitly {@link BotMetadata.InThreadSurveyMetadata.verify|verify} messages.
+         * @function encode
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @static
+         * @param {BotMetadata.IInThreadSurveyMetadata} message InThreadSurveyMetadata message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        InThreadSurveyMetadata.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.tessaSessionId != null && Object.hasOwnProperty.call(message, "tessaSessionId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.tessaSessionId);
+            if (message.simonSessionId != null && Object.hasOwnProperty.call(message, "simonSessionId"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.simonSessionId);
+            if (message.simonSurveyId != null && Object.hasOwnProperty.call(message, "simonSurveyId"))
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.simonSurveyId);
+            if (message.tessaRootId != null && Object.hasOwnProperty.call(message, "tessaRootId"))
+                writer.uint32(/* id 4, wireType 2 =*/34).string(message.tessaRootId);
+            if (message.requestId != null && Object.hasOwnProperty.call(message, "requestId"))
+                writer.uint32(/* id 5, wireType 2 =*/42).string(message.requestId);
+            if (message.tessaEvent != null && Object.hasOwnProperty.call(message, "tessaEvent"))
+                writer.uint32(/* id 6, wireType 2 =*/50).string(message.tessaEvent);
+            if (message.invitationHeaderText != null && Object.hasOwnProperty.call(message, "invitationHeaderText"))
+                writer.uint32(/* id 7, wireType 2 =*/58).string(message.invitationHeaderText);
+            if (message.invitationBodyText != null && Object.hasOwnProperty.call(message, "invitationBodyText"))
+                writer.uint32(/* id 8, wireType 2 =*/66).string(message.invitationBodyText);
+            if (message.invitationCtaText != null && Object.hasOwnProperty.call(message, "invitationCtaText"))
+                writer.uint32(/* id 9, wireType 2 =*/74).string(message.invitationCtaText);
+            if (message.invitationCtaUrl != null && Object.hasOwnProperty.call(message, "invitationCtaUrl"))
+                writer.uint32(/* id 10, wireType 2 =*/82).string(message.invitationCtaUrl);
+            if (message.surveyTitle != null && Object.hasOwnProperty.call(message, "surveyTitle"))
+                writer.uint32(/* id 11, wireType 2 =*/90).string(message.surveyTitle);
+            if (message.questions != null && message.questions.length)
+                for (var i = 0; i < message.questions.length; ++i)
+                    $root.BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion.encode(message.questions[i], writer.uint32(/* id 12, wireType 2 =*/98).fork()).ldelim();
+            if (message.surveyContinueButtonText != null && Object.hasOwnProperty.call(message, "surveyContinueButtonText"))
+                writer.uint32(/* id 13, wireType 2 =*/106).string(message.surveyContinueButtonText);
+            if (message.surveySubmitButtonText != null && Object.hasOwnProperty.call(message, "surveySubmitButtonText"))
+                writer.uint32(/* id 14, wireType 2 =*/114).string(message.surveySubmitButtonText);
+            if (message.privacyStatementFull != null && Object.hasOwnProperty.call(message, "privacyStatementFull"))
+                writer.uint32(/* id 15, wireType 2 =*/122).string(message.privacyStatementFull);
+            if (message.privacyStatementParts != null && message.privacyStatementParts.length)
+                for (var i = 0; i < message.privacyStatementParts.length; ++i)
+                    $root.BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.encode(message.privacyStatementParts[i], writer.uint32(/* id 16, wireType 2 =*/130).fork()).ldelim();
+            if (message.feedbackToastText != null && Object.hasOwnProperty.call(message, "feedbackToastText"))
+                writer.uint32(/* id 17, wireType 2 =*/138).string(message.feedbackToastText);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified InThreadSurveyMetadata message, length delimited. Does not implicitly {@link BotMetadata.InThreadSurveyMetadata.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @static
+         * @param {BotMetadata.IInThreadSurveyMetadata} message InThreadSurveyMetadata message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        InThreadSurveyMetadata.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes an InThreadSurveyMetadata message from the specified reader or buffer.
+         * @function decode
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {BotMetadata.InThreadSurveyMetadata} InThreadSurveyMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        InThreadSurveyMetadata.decode = function decode(reader, length, error) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.BotMetadata.InThreadSurveyMetadata();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                if (tag === error)
+                    break;
+                switch (tag >>> 3) {
+                case 1: {
+                        message.tessaSessionId = reader.string();
+                        break;
+                    }
+                case 2: {
+                        message.simonSessionId = reader.string();
+                        break;
+                    }
+                case 3: {
+                        message.simonSurveyId = reader.string();
+                        break;
+                    }
+                case 4: {
+                        message.tessaRootId = reader.string();
+                        break;
+                    }
+                case 5: {
+                        message.requestId = reader.string();
+                        break;
+                    }
+                case 6: {
+                        message.tessaEvent = reader.string();
+                        break;
+                    }
+                case 7: {
+                        message.invitationHeaderText = reader.string();
+                        break;
+                    }
+                case 8: {
+                        message.invitationBodyText = reader.string();
+                        break;
+                    }
+                case 9: {
+                        message.invitationCtaText = reader.string();
+                        break;
+                    }
+                case 10: {
+                        message.invitationCtaUrl = reader.string();
+                        break;
+                    }
+                case 11: {
+                        message.surveyTitle = reader.string();
+                        break;
+                    }
+                case 12: {
+                        if (!(message.questions && message.questions.length))
+                            message.questions = [];
+                        message.questions.push($root.BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion.decode(reader, reader.uint32()));
+                        break;
+                    }
+                case 13: {
+                        message.surveyContinueButtonText = reader.string();
+                        break;
+                    }
+                case 14: {
+                        message.surveySubmitButtonText = reader.string();
+                        break;
+                    }
+                case 15: {
+                        message.privacyStatementFull = reader.string();
+                        break;
+                    }
+                case 16: {
+                        if (!(message.privacyStatementParts && message.privacyStatementParts.length))
+                            message.privacyStatementParts = [];
+                        message.privacyStatementParts.push($root.BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.decode(reader, reader.uint32()));
+                        break;
+                    }
+                case 17: {
+                        message.feedbackToastText = reader.string();
+                        break;
+                    }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes an InThreadSurveyMetadata message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {BotMetadata.InThreadSurveyMetadata} InThreadSurveyMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        InThreadSurveyMetadata.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an InThreadSurveyMetadata message.
+         * @function verify
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        InThreadSurveyMetadata.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            var properties = {};
+            if (message.tessaSessionId != null && message.hasOwnProperty("tessaSessionId")) {
+                properties._tessaSessionId = 1;
+                if (!$util.isString(message.tessaSessionId))
+                    return "tessaSessionId: string expected";
+            }
+            if (message.simonSessionId != null && message.hasOwnProperty("simonSessionId")) {
+                properties._simonSessionId = 1;
+                if (!$util.isString(message.simonSessionId))
+                    return "simonSessionId: string expected";
+            }
+            if (message.simonSurveyId != null && message.hasOwnProperty("simonSurveyId")) {
+                properties._simonSurveyId = 1;
+                if (!$util.isString(message.simonSurveyId))
+                    return "simonSurveyId: string expected";
+            }
+            if (message.tessaRootId != null && message.hasOwnProperty("tessaRootId")) {
+                properties._tessaRootId = 1;
+                if (!$util.isString(message.tessaRootId))
+                    return "tessaRootId: string expected";
+            }
+            if (message.requestId != null && message.hasOwnProperty("requestId")) {
+                properties._requestId = 1;
+                if (!$util.isString(message.requestId))
+                    return "requestId: string expected";
+            }
+            if (message.tessaEvent != null && message.hasOwnProperty("tessaEvent")) {
+                properties._tessaEvent = 1;
+                if (!$util.isString(message.tessaEvent))
+                    return "tessaEvent: string expected";
+            }
+            if (message.invitationHeaderText != null && message.hasOwnProperty("invitationHeaderText")) {
+                properties._invitationHeaderText = 1;
+                if (!$util.isString(message.invitationHeaderText))
+                    return "invitationHeaderText: string expected";
+            }
+            if (message.invitationBodyText != null && message.hasOwnProperty("invitationBodyText")) {
+                properties._invitationBodyText = 1;
+                if (!$util.isString(message.invitationBodyText))
+                    return "invitationBodyText: string expected";
+            }
+            if (message.invitationCtaText != null && message.hasOwnProperty("invitationCtaText")) {
+                properties._invitationCtaText = 1;
+                if (!$util.isString(message.invitationCtaText))
+                    return "invitationCtaText: string expected";
+            }
+            if (message.invitationCtaUrl != null && message.hasOwnProperty("invitationCtaUrl")) {
+                properties._invitationCtaUrl = 1;
+                if (!$util.isString(message.invitationCtaUrl))
+                    return "invitationCtaUrl: string expected";
+            }
+            if (message.surveyTitle != null && message.hasOwnProperty("surveyTitle")) {
+                properties._surveyTitle = 1;
+                if (!$util.isString(message.surveyTitle))
+                    return "surveyTitle: string expected";
+            }
+            if (message.questions != null && message.hasOwnProperty("questions")) {
+                if (!Array.isArray(message.questions))
+                    return "questions: array expected";
+                for (var i = 0; i < message.questions.length; ++i) {
+                    var error = $root.BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion.verify(message.questions[i]);
+                    if (error)
+                        return "questions." + error;
+                }
+            }
+            if (message.surveyContinueButtonText != null && message.hasOwnProperty("surveyContinueButtonText")) {
+                properties._surveyContinueButtonText = 1;
+                if (!$util.isString(message.surveyContinueButtonText))
+                    return "surveyContinueButtonText: string expected";
+            }
+            if (message.surveySubmitButtonText != null && message.hasOwnProperty("surveySubmitButtonText")) {
+                properties._surveySubmitButtonText = 1;
+                if (!$util.isString(message.surveySubmitButtonText))
+                    return "surveySubmitButtonText: string expected";
+            }
+            if (message.privacyStatementFull != null && message.hasOwnProperty("privacyStatementFull")) {
+                properties._privacyStatementFull = 1;
+                if (!$util.isString(message.privacyStatementFull))
+                    return "privacyStatementFull: string expected";
+            }
+            if (message.privacyStatementParts != null && message.hasOwnProperty("privacyStatementParts")) {
+                if (!Array.isArray(message.privacyStatementParts))
+                    return "privacyStatementParts: array expected";
+                for (var i = 0; i < message.privacyStatementParts.length; ++i) {
+                    var error = $root.BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.verify(message.privacyStatementParts[i]);
+                    if (error)
+                        return "privacyStatementParts." + error;
+                }
+            }
+            if (message.feedbackToastText != null && message.hasOwnProperty("feedbackToastText")) {
+                properties._feedbackToastText = 1;
+                if (!$util.isString(message.feedbackToastText))
+                    return "feedbackToastText: string expected";
+            }
+            return null;
+        };
+
+        /**
+         * Creates an InThreadSurveyMetadata message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {BotMetadata.InThreadSurveyMetadata} InThreadSurveyMetadata
+         */
+        InThreadSurveyMetadata.fromObject = function fromObject(object) {
+            if (object instanceof $root.BotMetadata.InThreadSurveyMetadata)
+                return object;
+            var message = new $root.BotMetadata.InThreadSurveyMetadata();
+            if (object.tessaSessionId != null)
+                message.tessaSessionId = String(object.tessaSessionId);
+            if (object.simonSessionId != null)
+                message.simonSessionId = String(object.simonSessionId);
+            if (object.simonSurveyId != null)
+                message.simonSurveyId = String(object.simonSurveyId);
+            if (object.tessaRootId != null)
+                message.tessaRootId = String(object.tessaRootId);
+            if (object.requestId != null)
+                message.requestId = String(object.requestId);
+            if (object.tessaEvent != null)
+                message.tessaEvent = String(object.tessaEvent);
+            if (object.invitationHeaderText != null)
+                message.invitationHeaderText = String(object.invitationHeaderText);
+            if (object.invitationBodyText != null)
+                message.invitationBodyText = String(object.invitationBodyText);
+            if (object.invitationCtaText != null)
+                message.invitationCtaText = String(object.invitationCtaText);
+            if (object.invitationCtaUrl != null)
+                message.invitationCtaUrl = String(object.invitationCtaUrl);
+            if (object.surveyTitle != null)
+                message.surveyTitle = String(object.surveyTitle);
+            if (object.questions) {
+                if (!Array.isArray(object.questions))
+                    throw TypeError(".BotMetadata.InThreadSurveyMetadata.questions: array expected");
+                message.questions = [];
+                for (var i = 0; i < object.questions.length; ++i) {
+                    if (typeof object.questions[i] !== "object")
+                        throw TypeError(".BotMetadata.InThreadSurveyMetadata.questions: object expected");
+                    message.questions[i] = $root.BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion.fromObject(object.questions[i]);
+                }
+            }
+            if (object.surveyContinueButtonText != null)
+                message.surveyContinueButtonText = String(object.surveyContinueButtonText);
+            if (object.surveySubmitButtonText != null)
+                message.surveySubmitButtonText = String(object.surveySubmitButtonText);
+            if (object.privacyStatementFull != null)
+                message.privacyStatementFull = String(object.privacyStatementFull);
+            if (object.privacyStatementParts) {
+                if (!Array.isArray(object.privacyStatementParts))
+                    throw TypeError(".BotMetadata.InThreadSurveyMetadata.privacyStatementParts: array expected");
+                message.privacyStatementParts = [];
+                for (var i = 0; i < object.privacyStatementParts.length; ++i) {
+                    if (typeof object.privacyStatementParts[i] !== "object")
+                        throw TypeError(".BotMetadata.InThreadSurveyMetadata.privacyStatementParts: object expected");
+                    message.privacyStatementParts[i] = $root.BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.fromObject(object.privacyStatementParts[i]);
+                }
+            }
+            if (object.feedbackToastText != null)
+                message.feedbackToastText = String(object.feedbackToastText);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an InThreadSurveyMetadata message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @static
+         * @param {BotMetadata.InThreadSurveyMetadata} message InThreadSurveyMetadata
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        InThreadSurveyMetadata.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.arrays || options.defaults) {
+                object.questions = [];
+                object.privacyStatementParts = [];
+            }
+            if (message.tessaSessionId != null && message.hasOwnProperty("tessaSessionId")) {
+                object.tessaSessionId = message.tessaSessionId;
+                if (options.oneofs)
+                    object._tessaSessionId = "tessaSessionId";
+            }
+            if (message.simonSessionId != null && message.hasOwnProperty("simonSessionId")) {
+                object.simonSessionId = message.simonSessionId;
+                if (options.oneofs)
+                    object._simonSessionId = "simonSessionId";
+            }
+            if (message.simonSurveyId != null && message.hasOwnProperty("simonSurveyId")) {
+                object.simonSurveyId = message.simonSurveyId;
+                if (options.oneofs)
+                    object._simonSurveyId = "simonSurveyId";
+            }
+            if (message.tessaRootId != null && message.hasOwnProperty("tessaRootId")) {
+                object.tessaRootId = message.tessaRootId;
+                if (options.oneofs)
+                    object._tessaRootId = "tessaRootId";
+            }
+            if (message.requestId != null && message.hasOwnProperty("requestId")) {
+                object.requestId = message.requestId;
+                if (options.oneofs)
+                    object._requestId = "requestId";
+            }
+            if (message.tessaEvent != null && message.hasOwnProperty("tessaEvent")) {
+                object.tessaEvent = message.tessaEvent;
+                if (options.oneofs)
+                    object._tessaEvent = "tessaEvent";
+            }
+            if (message.invitationHeaderText != null && message.hasOwnProperty("invitationHeaderText")) {
+                object.invitationHeaderText = message.invitationHeaderText;
+                if (options.oneofs)
+                    object._invitationHeaderText = "invitationHeaderText";
+            }
+            if (message.invitationBodyText != null && message.hasOwnProperty("invitationBodyText")) {
+                object.invitationBodyText = message.invitationBodyText;
+                if (options.oneofs)
+                    object._invitationBodyText = "invitationBodyText";
+            }
+            if (message.invitationCtaText != null && message.hasOwnProperty("invitationCtaText")) {
+                object.invitationCtaText = message.invitationCtaText;
+                if (options.oneofs)
+                    object._invitationCtaText = "invitationCtaText";
+            }
+            if (message.invitationCtaUrl != null && message.hasOwnProperty("invitationCtaUrl")) {
+                object.invitationCtaUrl = message.invitationCtaUrl;
+                if (options.oneofs)
+                    object._invitationCtaUrl = "invitationCtaUrl";
+            }
+            if (message.surveyTitle != null && message.hasOwnProperty("surveyTitle")) {
+                object.surveyTitle = message.surveyTitle;
+                if (options.oneofs)
+                    object._surveyTitle = "surveyTitle";
+            }
+            if (message.questions && message.questions.length) {
+                object.questions = [];
+                for (var j = 0; j < message.questions.length; ++j)
+                    object.questions[j] = $root.BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion.toObject(message.questions[j], options);
+            }
+            if (message.surveyContinueButtonText != null && message.hasOwnProperty("surveyContinueButtonText")) {
+                object.surveyContinueButtonText = message.surveyContinueButtonText;
+                if (options.oneofs)
+                    object._surveyContinueButtonText = "surveyContinueButtonText";
+            }
+            if (message.surveySubmitButtonText != null && message.hasOwnProperty("surveySubmitButtonText")) {
+                object.surveySubmitButtonText = message.surveySubmitButtonText;
+                if (options.oneofs)
+                    object._surveySubmitButtonText = "surveySubmitButtonText";
+            }
+            if (message.privacyStatementFull != null && message.hasOwnProperty("privacyStatementFull")) {
+                object.privacyStatementFull = message.privacyStatementFull;
+                if (options.oneofs)
+                    object._privacyStatementFull = "privacyStatementFull";
+            }
+            if (message.privacyStatementParts && message.privacyStatementParts.length) {
+                object.privacyStatementParts = [];
+                for (var j = 0; j < message.privacyStatementParts.length; ++j)
+                    object.privacyStatementParts[j] = $root.BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.toObject(message.privacyStatementParts[j], options);
+            }
+            if (message.feedbackToastText != null && message.hasOwnProperty("feedbackToastText")) {
+                object.feedbackToastText = message.feedbackToastText;
+                if (options.oneofs)
+                    object._feedbackToastText = "feedbackToastText";
+            }
+            return object;
+        };
+
+        /**
+         * Converts this InThreadSurveyMetadata to JSON.
+         * @function toJSON
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        InThreadSurveyMetadata.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for InThreadSurveyMetadata
+         * @function getTypeUrl
+         * @memberof BotMetadata.InThreadSurveyMetadata
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        InThreadSurveyMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/BotMetadata.InThreadSurveyMetadata";
+        };
+
+        InThreadSurveyMetadata.InThreadSurveyOption = (function() {
+
+            /**
+             * Properties of an InThreadSurveyOption.
+             * @memberof BotMetadata.InThreadSurveyMetadata
+             * @interface IInThreadSurveyOption
+             * @property {string|null} [stringValue] InThreadSurveyOption stringValue
+             * @property {number|null} [numericValue] InThreadSurveyOption numericValue
+             * @property {string|null} [textTranslated] InThreadSurveyOption textTranslated
+             */
+
+            /**
+             * Constructs a new InThreadSurveyOption.
+             * @memberof BotMetadata.InThreadSurveyMetadata
+             * @classdesc Represents an InThreadSurveyOption.
+             * @implements IInThreadSurveyOption
+             * @constructor
+             * @param {BotMetadata.InThreadSurveyMetadata.IInThreadSurveyOption=} [properties] Properties to set
+             */
+            function InThreadSurveyOption(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * InThreadSurveyOption stringValue.
+             * @member {string|null|undefined} stringValue
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption
+             * @instance
+             */
+            InThreadSurveyOption.prototype.stringValue = null;
+
+            /**
+             * InThreadSurveyOption numericValue.
+             * @member {number|null|undefined} numericValue
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption
+             * @instance
+             */
+            InThreadSurveyOption.prototype.numericValue = null;
+
+            /**
+             * InThreadSurveyOption textTranslated.
+             * @member {string|null|undefined} textTranslated
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption
+             * @instance
+             */
+            InThreadSurveyOption.prototype.textTranslated = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            /**
+             * InThreadSurveyOption _stringValue.
+             * @member {"stringValue"|undefined} _stringValue
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption
+             * @instance
+             */
+            Object.defineProperty(InThreadSurveyOption.prototype, "_stringValue", {
+                get: $util.oneOfGetter($oneOfFields = ["stringValue"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * InThreadSurveyOption _numericValue.
+             * @member {"numericValue"|undefined} _numericValue
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption
+             * @instance
+             */
+            Object.defineProperty(InThreadSurveyOption.prototype, "_numericValue", {
+                get: $util.oneOfGetter($oneOfFields = ["numericValue"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * InThreadSurveyOption _textTranslated.
+             * @member {"textTranslated"|undefined} _textTranslated
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption
+             * @instance
+             */
+            Object.defineProperty(InThreadSurveyOption.prototype, "_textTranslated", {
+                get: $util.oneOfGetter($oneOfFields = ["textTranslated"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new InThreadSurveyOption instance using the specified properties.
+             * @function create
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption
+             * @static
+             * @param {BotMetadata.InThreadSurveyMetadata.IInThreadSurveyOption=} [properties] Properties to set
+             * @returns {BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption} InThreadSurveyOption instance
+             */
+            InThreadSurveyOption.create = function create(properties) {
+                return new InThreadSurveyOption(properties);
+            };
+
+            /**
+             * Encodes the specified InThreadSurveyOption message. Does not implicitly {@link BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption.verify|verify} messages.
+             * @function encode
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption
+             * @static
+             * @param {BotMetadata.InThreadSurveyMetadata.IInThreadSurveyOption} message InThreadSurveyOption message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            InThreadSurveyOption.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.stringValue != null && Object.hasOwnProperty.call(message, "stringValue"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.stringValue);
+                if (message.numericValue != null && Object.hasOwnProperty.call(message, "numericValue"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.numericValue);
+                if (message.textTranslated != null && Object.hasOwnProperty.call(message, "textTranslated"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.textTranslated);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified InThreadSurveyOption message, length delimited. Does not implicitly {@link BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption
+             * @static
+             * @param {BotMetadata.InThreadSurveyMetadata.IInThreadSurveyOption} message InThreadSurveyOption message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            InThreadSurveyOption.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes an InThreadSurveyOption message from the specified reader or buffer.
+             * @function decode
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption} InThreadSurveyOption
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            InThreadSurveyOption.decode = function decode(reader, length, error) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    if (tag === error)
+                        break;
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.stringValue = reader.string();
+                            break;
+                        }
+                    case 2: {
+                            message.numericValue = reader.uint32();
+                            break;
+                        }
+                    case 3: {
+                            message.textTranslated = reader.string();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes an InThreadSurveyOption message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption} InThreadSurveyOption
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            InThreadSurveyOption.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an InThreadSurveyOption message.
+             * @function verify
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            InThreadSurveyOption.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                var properties = {};
+                if (message.stringValue != null && message.hasOwnProperty("stringValue")) {
+                    properties._stringValue = 1;
+                    if (!$util.isString(message.stringValue))
+                        return "stringValue: string expected";
+                }
+                if (message.numericValue != null && message.hasOwnProperty("numericValue")) {
+                    properties._numericValue = 1;
+                    if (!$util.isInteger(message.numericValue))
+                        return "numericValue: integer expected";
+                }
+                if (message.textTranslated != null && message.hasOwnProperty("textTranslated")) {
+                    properties._textTranslated = 1;
+                    if (!$util.isString(message.textTranslated))
+                        return "textTranslated: string expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates an InThreadSurveyOption message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption} InThreadSurveyOption
+             */
+            InThreadSurveyOption.fromObject = function fromObject(object) {
+                if (object instanceof $root.BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption)
+                    return object;
+                var message = new $root.BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption();
+                if (object.stringValue != null)
+                    message.stringValue = String(object.stringValue);
+                if (object.numericValue != null)
+                    message.numericValue = object.numericValue >>> 0;
+                if (object.textTranslated != null)
+                    message.textTranslated = String(object.textTranslated);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an InThreadSurveyOption message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption
+             * @static
+             * @param {BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption} message InThreadSurveyOption
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            InThreadSurveyOption.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (message.stringValue != null && message.hasOwnProperty("stringValue")) {
+                    object.stringValue = message.stringValue;
+                    if (options.oneofs)
+                        object._stringValue = "stringValue";
+                }
+                if (message.numericValue != null && message.hasOwnProperty("numericValue")) {
+                    object.numericValue = message.numericValue;
+                    if (options.oneofs)
+                        object._numericValue = "numericValue";
+                }
+                if (message.textTranslated != null && message.hasOwnProperty("textTranslated")) {
+                    object.textTranslated = message.textTranslated;
+                    if (options.oneofs)
+                        object._textTranslated = "textTranslated";
+                }
+                return object;
+            };
+
+            /**
+             * Converts this InThreadSurveyOption to JSON.
+             * @function toJSON
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            InThreadSurveyOption.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for InThreadSurveyOption
+             * @function getTypeUrl
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            InThreadSurveyOption.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption";
+            };
+
+            return InThreadSurveyOption;
+        })();
+
+        InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart = (function() {
+
+            /**
+             * Properties of an InThreadSurveyPrivacyStatementPart.
+             * @memberof BotMetadata.InThreadSurveyMetadata
+             * @interface IInThreadSurveyPrivacyStatementPart
+             * @property {string|null} [text] InThreadSurveyPrivacyStatementPart text
+             * @property {string|null} [url] InThreadSurveyPrivacyStatementPart url
+             */
+
+            /**
+             * Constructs a new InThreadSurveyPrivacyStatementPart.
+             * @memberof BotMetadata.InThreadSurveyMetadata
+             * @classdesc Represents an InThreadSurveyPrivacyStatementPart.
+             * @implements IInThreadSurveyPrivacyStatementPart
+             * @constructor
+             * @param {BotMetadata.InThreadSurveyMetadata.IInThreadSurveyPrivacyStatementPart=} [properties] Properties to set
+             */
+            function InThreadSurveyPrivacyStatementPart(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * InThreadSurveyPrivacyStatementPart text.
+             * @member {string|null|undefined} text
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart
+             * @instance
+             */
+            InThreadSurveyPrivacyStatementPart.prototype.text = null;
+
+            /**
+             * InThreadSurveyPrivacyStatementPart url.
+             * @member {string|null|undefined} url
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart
+             * @instance
+             */
+            InThreadSurveyPrivacyStatementPart.prototype.url = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            /**
+             * InThreadSurveyPrivacyStatementPart _text.
+             * @member {"text"|undefined} _text
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart
+             * @instance
+             */
+            Object.defineProperty(InThreadSurveyPrivacyStatementPart.prototype, "_text", {
+                get: $util.oneOfGetter($oneOfFields = ["text"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * InThreadSurveyPrivacyStatementPart _url.
+             * @member {"url"|undefined} _url
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart
+             * @instance
+             */
+            Object.defineProperty(InThreadSurveyPrivacyStatementPart.prototype, "_url", {
+                get: $util.oneOfGetter($oneOfFields = ["url"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new InThreadSurveyPrivacyStatementPart instance using the specified properties.
+             * @function create
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart
+             * @static
+             * @param {BotMetadata.InThreadSurveyMetadata.IInThreadSurveyPrivacyStatementPart=} [properties] Properties to set
+             * @returns {BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart} InThreadSurveyPrivacyStatementPart instance
+             */
+            InThreadSurveyPrivacyStatementPart.create = function create(properties) {
+                return new InThreadSurveyPrivacyStatementPart(properties);
+            };
+
+            /**
+             * Encodes the specified InThreadSurveyPrivacyStatementPart message. Does not implicitly {@link BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.verify|verify} messages.
+             * @function encode
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart
+             * @static
+             * @param {BotMetadata.InThreadSurveyMetadata.IInThreadSurveyPrivacyStatementPart} message InThreadSurveyPrivacyStatementPart message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            InThreadSurveyPrivacyStatementPart.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.text != null && Object.hasOwnProperty.call(message, "text"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.text);
+                if (message.url != null && Object.hasOwnProperty.call(message, "url"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.url);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified InThreadSurveyPrivacyStatementPart message, length delimited. Does not implicitly {@link BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart
+             * @static
+             * @param {BotMetadata.InThreadSurveyMetadata.IInThreadSurveyPrivacyStatementPart} message InThreadSurveyPrivacyStatementPart message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            InThreadSurveyPrivacyStatementPart.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes an InThreadSurveyPrivacyStatementPart message from the specified reader or buffer.
+             * @function decode
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart} InThreadSurveyPrivacyStatementPart
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            InThreadSurveyPrivacyStatementPart.decode = function decode(reader, length, error) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    if (tag === error)
+                        break;
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.text = reader.string();
+                            break;
+                        }
+                    case 2: {
+                            message.url = reader.string();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes an InThreadSurveyPrivacyStatementPart message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart} InThreadSurveyPrivacyStatementPart
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            InThreadSurveyPrivacyStatementPart.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an InThreadSurveyPrivacyStatementPart message.
+             * @function verify
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            InThreadSurveyPrivacyStatementPart.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                var properties = {};
+                if (message.text != null && message.hasOwnProperty("text")) {
+                    properties._text = 1;
+                    if (!$util.isString(message.text))
+                        return "text: string expected";
+                }
+                if (message.url != null && message.hasOwnProperty("url")) {
+                    properties._url = 1;
+                    if (!$util.isString(message.url))
+                        return "url: string expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates an InThreadSurveyPrivacyStatementPart message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart} InThreadSurveyPrivacyStatementPart
+             */
+            InThreadSurveyPrivacyStatementPart.fromObject = function fromObject(object) {
+                if (object instanceof $root.BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart)
+                    return object;
+                var message = new $root.BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart();
+                if (object.text != null)
+                    message.text = String(object.text);
+                if (object.url != null)
+                    message.url = String(object.url);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an InThreadSurveyPrivacyStatementPart message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart
+             * @static
+             * @param {BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart} message InThreadSurveyPrivacyStatementPart
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            InThreadSurveyPrivacyStatementPart.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (message.text != null && message.hasOwnProperty("text")) {
+                    object.text = message.text;
+                    if (options.oneofs)
+                        object._text = "text";
+                }
+                if (message.url != null && message.hasOwnProperty("url")) {
+                    object.url = message.url;
+                    if (options.oneofs)
+                        object._url = "url";
+                }
+                return object;
+            };
+
+            /**
+             * Converts this InThreadSurveyPrivacyStatementPart to JSON.
+             * @function toJSON
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            InThreadSurveyPrivacyStatementPart.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for InThreadSurveyPrivacyStatementPart
+             * @function getTypeUrl
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            InThreadSurveyPrivacyStatementPart.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/BotMetadata.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart";
+            };
+
+            return InThreadSurveyPrivacyStatementPart;
+        })();
+
+        InThreadSurveyMetadata.InThreadSurveyQuestion = (function() {
+
+            /**
+             * Properties of an InThreadSurveyQuestion.
+             * @memberof BotMetadata.InThreadSurveyMetadata
+             * @interface IInThreadSurveyQuestion
+             * @property {string|null} [questionText] InThreadSurveyQuestion questionText
+             * @property {string|null} [questionId] InThreadSurveyQuestion questionId
+             * @property {Array.<BotMetadata.InThreadSurveyMetadata.IInThreadSurveyOption>|null} [questionOptions] InThreadSurveyQuestion questionOptions
+             */
+
+            /**
+             * Constructs a new InThreadSurveyQuestion.
+             * @memberof BotMetadata.InThreadSurveyMetadata
+             * @classdesc Represents an InThreadSurveyQuestion.
+             * @implements IInThreadSurveyQuestion
+             * @constructor
+             * @param {BotMetadata.InThreadSurveyMetadata.IInThreadSurveyQuestion=} [properties] Properties to set
+             */
+            function InThreadSurveyQuestion(properties) {
+                this.questionOptions = [];
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * InThreadSurveyQuestion questionText.
+             * @member {string|null|undefined} questionText
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion
+             * @instance
+             */
+            InThreadSurveyQuestion.prototype.questionText = null;
+
+            /**
+             * InThreadSurveyQuestion questionId.
+             * @member {string|null|undefined} questionId
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion
+             * @instance
+             */
+            InThreadSurveyQuestion.prototype.questionId = null;
+
+            /**
+             * InThreadSurveyQuestion questionOptions.
+             * @member {Array.<BotMetadata.InThreadSurveyMetadata.IInThreadSurveyOption>} questionOptions
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion
+             * @instance
+             */
+            InThreadSurveyQuestion.prototype.questionOptions = $util.emptyArray;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            /**
+             * InThreadSurveyQuestion _questionText.
+             * @member {"questionText"|undefined} _questionText
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion
+             * @instance
+             */
+            Object.defineProperty(InThreadSurveyQuestion.prototype, "_questionText", {
+                get: $util.oneOfGetter($oneOfFields = ["questionText"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * InThreadSurveyQuestion _questionId.
+             * @member {"questionId"|undefined} _questionId
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion
+             * @instance
+             */
+            Object.defineProperty(InThreadSurveyQuestion.prototype, "_questionId", {
+                get: $util.oneOfGetter($oneOfFields = ["questionId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new InThreadSurveyQuestion instance using the specified properties.
+             * @function create
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion
+             * @static
+             * @param {BotMetadata.InThreadSurveyMetadata.IInThreadSurveyQuestion=} [properties] Properties to set
+             * @returns {BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion} InThreadSurveyQuestion instance
+             */
+            InThreadSurveyQuestion.create = function create(properties) {
+                return new InThreadSurveyQuestion(properties);
+            };
+
+            /**
+             * Encodes the specified InThreadSurveyQuestion message. Does not implicitly {@link BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion.verify|verify} messages.
+             * @function encode
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion
+             * @static
+             * @param {BotMetadata.InThreadSurveyMetadata.IInThreadSurveyQuestion} message InThreadSurveyQuestion message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            InThreadSurveyQuestion.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.questionText != null && Object.hasOwnProperty.call(message, "questionText"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.questionText);
+                if (message.questionId != null && Object.hasOwnProperty.call(message, "questionId"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.questionId);
+                if (message.questionOptions != null && message.questionOptions.length)
+                    for (var i = 0; i < message.questionOptions.length; ++i)
+                        $root.BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption.encode(message.questionOptions[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified InThreadSurveyQuestion message, length delimited. Does not implicitly {@link BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion
+             * @static
+             * @param {BotMetadata.InThreadSurveyMetadata.IInThreadSurveyQuestion} message InThreadSurveyQuestion message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            InThreadSurveyQuestion.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes an InThreadSurveyQuestion message from the specified reader or buffer.
+             * @function decode
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion} InThreadSurveyQuestion
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            InThreadSurveyQuestion.decode = function decode(reader, length, error) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    if (tag === error)
+                        break;
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.questionText = reader.string();
+                            break;
+                        }
+                    case 2: {
+                            message.questionId = reader.string();
+                            break;
+                        }
+                    case 3: {
+                            if (!(message.questionOptions && message.questionOptions.length))
+                                message.questionOptions = [];
+                            message.questionOptions.push($root.BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption.decode(reader, reader.uint32()));
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes an InThreadSurveyQuestion message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion} InThreadSurveyQuestion
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            InThreadSurveyQuestion.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an InThreadSurveyQuestion message.
+             * @function verify
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            InThreadSurveyQuestion.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                var properties = {};
+                if (message.questionText != null && message.hasOwnProperty("questionText")) {
+                    properties._questionText = 1;
+                    if (!$util.isString(message.questionText))
+                        return "questionText: string expected";
+                }
+                if (message.questionId != null && message.hasOwnProperty("questionId")) {
+                    properties._questionId = 1;
+                    if (!$util.isString(message.questionId))
+                        return "questionId: string expected";
+                }
+                if (message.questionOptions != null && message.hasOwnProperty("questionOptions")) {
+                    if (!Array.isArray(message.questionOptions))
+                        return "questionOptions: array expected";
+                    for (var i = 0; i < message.questionOptions.length; ++i) {
+                        var error = $root.BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption.verify(message.questionOptions[i]);
+                        if (error)
+                            return "questionOptions." + error;
+                    }
+                }
+                return null;
+            };
+
+            /**
+             * Creates an InThreadSurveyQuestion message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion} InThreadSurveyQuestion
+             */
+            InThreadSurveyQuestion.fromObject = function fromObject(object) {
+                if (object instanceof $root.BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion)
+                    return object;
+                var message = new $root.BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion();
+                if (object.questionText != null)
+                    message.questionText = String(object.questionText);
+                if (object.questionId != null)
+                    message.questionId = String(object.questionId);
+                if (object.questionOptions) {
+                    if (!Array.isArray(object.questionOptions))
+                        throw TypeError(".BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion.questionOptions: array expected");
+                    message.questionOptions = [];
+                    for (var i = 0; i < object.questionOptions.length; ++i) {
+                        if (typeof object.questionOptions[i] !== "object")
+                            throw TypeError(".BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion.questionOptions: object expected");
+                        message.questionOptions[i] = $root.BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption.fromObject(object.questionOptions[i]);
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an InThreadSurveyQuestion message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion
+             * @static
+             * @param {BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion} message InThreadSurveyQuestion
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            InThreadSurveyQuestion.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.questionOptions = [];
+                if (message.questionText != null && message.hasOwnProperty("questionText")) {
+                    object.questionText = message.questionText;
+                    if (options.oneofs)
+                        object._questionText = "questionText";
+                }
+                if (message.questionId != null && message.hasOwnProperty("questionId")) {
+                    object.questionId = message.questionId;
+                    if (options.oneofs)
+                        object._questionId = "questionId";
+                }
+                if (message.questionOptions && message.questionOptions.length) {
+                    object.questionOptions = [];
+                    for (var j = 0; j < message.questionOptions.length; ++j)
+                        object.questionOptions[j] = $root.BotMetadata.InThreadSurveyMetadata.InThreadSurveyOption.toObject(message.questionOptions[j], options);
+                }
+                return object;
+            };
+
+            /**
+             * Converts this InThreadSurveyQuestion to JSON.
+             * @function toJSON
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            InThreadSurveyQuestion.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for InThreadSurveyQuestion
+             * @function getTypeUrl
+             * @memberof BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            InThreadSurveyQuestion.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/BotMetadata.InThreadSurveyMetadata.InThreadSurveyQuestion";
+            };
+
+            return InThreadSurveyQuestion;
+        })();
+
+        return InThreadSurveyMetadata;
     })();
 
     BotMetadata.BotSourcesMetadata = (function() {
@@ -9835,6 +11590,7 @@ $root.BotMetadata = (function() {
                     return "promotionType: enum value expected";
                 case 0:
                 case 1:
+                case 2:
                     break;
                 }
             }
@@ -9872,6 +11628,10 @@ $root.BotMetadata = (function() {
             case "C50":
             case 1:
                 message.promotionType = 1;
+                break;
+            case "SURVEY_PLATFORM":
+            case 2:
+                message.promotionType = 2;
                 break;
             }
             if (object.buttonTitle != null)
@@ -9937,11 +11697,13 @@ $root.BotMetadata = (function() {
          * @enum {number}
          * @property {number} UNKNOWN_TYPE=0 UNKNOWN_TYPE value
          * @property {number} C50=1 C50 value
+         * @property {number} SURVEY_PLATFORM=2 SURVEY_PLATFORM value
          */
         BotPromotionMessageMetadata.BotPromotionType = (function() {
             var valuesById = {}, values = Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN_TYPE"] = 0;
             values[valuesById[1] = "C50"] = 1;
+            values[valuesById[2] = "SURVEY_PLATFORM"] = 2;
             return values;
         })();
 
