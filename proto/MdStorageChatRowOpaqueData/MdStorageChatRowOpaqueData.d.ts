@@ -22,9 +22,6 @@ export namespace MdStorageChatRowOpaqueData {
         /** ChatRowOpaqueData draftMessage. */
         public draftMessage?: (MdStorageChatRowOpaqueData.ChatRowOpaqueData.IDraftMessage|null);
 
-        /** ChatRowOpaqueData _draftMessage. */
-        public _draftMessage?: "draftMessage";
-
         /**
          * Creates a new ChatRowOpaqueData instance using the specified properties.
          * @param [properties] Properties to set
@@ -134,10 +131,10 @@ export namespace MdStorageChatRowOpaqueData {
             constructor(properties?: MdStorageChatRowOpaqueData.ChatRowOpaqueData.IDraftMessage);
 
             /** DraftMessage text. */
-            public text?: (string|null);
+            public text: string;
 
             /** DraftMessage omittedUrl. */
-            public omittedUrl?: (string|null);
+            public omittedUrl: string;
 
             /** DraftMessage ctwaContextLinkData. */
             public ctwaContextLinkData?: (MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.ICtwaContextLinkData|null);
@@ -146,22 +143,7 @@ export namespace MdStorageChatRowOpaqueData {
             public ctwaContext?: (MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.ICtwaContextData|null);
 
             /** DraftMessage timestamp. */
-            public timestamp?: (number|Long|null);
-
-            /** DraftMessage _text. */
-            public _text?: "text";
-
-            /** DraftMessage _omittedUrl. */
-            public _omittedUrl?: "omittedUrl";
-
-            /** DraftMessage _ctwaContextLinkData. */
-            public _ctwaContextLinkData?: "ctwaContextLinkData";
-
-            /** DraftMessage _ctwaContext. */
-            public _ctwaContext?: "ctwaContext";
-
-            /** DraftMessage _timestamp. */
-            public _timestamp?: "timestamp";
+            public timestamp: (number|Long);
 
             /**
              * Creates a new DraftMessage instance using the specified properties.
@@ -293,76 +275,40 @@ export namespace MdStorageChatRowOpaqueData {
                 constructor(properties?: MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.ICtwaContextData);
 
                 /** CtwaContextData conversionSource. */
-                public conversionSource?: (string|null);
+                public conversionSource: string;
 
                 /** CtwaContextData conversionData. */
-                public conversionData?: (Uint8Array|null);
+                public conversionData: Uint8Array;
 
                 /** CtwaContextData sourceUrl. */
-                public sourceUrl?: (string|null);
+                public sourceUrl: string;
 
                 /** CtwaContextData sourceId. */
-                public sourceId?: (string|null);
+                public sourceId: string;
 
                 /** CtwaContextData sourceType. */
-                public sourceType?: (string|null);
+                public sourceType: string;
 
                 /** CtwaContextData title. */
-                public title?: (string|null);
+                public title: string;
 
                 /** CtwaContextData description. */
-                public description?: (string|null);
+                public description: string;
 
                 /** CtwaContextData thumbnail. */
-                public thumbnail?: (string|null);
+                public thumbnail: string;
 
                 /** CtwaContextData thumbnailUrl. */
-                public thumbnailUrl?: (string|null);
+                public thumbnailUrl: string;
 
                 /** CtwaContextData mediaType. */
-                public mediaType?: (MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.ContextInfoExternalAdReplyInfoMediaType|null);
+                public mediaType: MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.ContextInfoExternalAdReplyInfoMediaType;
 
                 /** CtwaContextData mediaUrl. */
-                public mediaUrl?: (string|null);
+                public mediaUrl: string;
 
                 /** CtwaContextData isSuspiciousLink. */
-                public isSuspiciousLink?: (boolean|null);
-
-                /** CtwaContextData _conversionSource. */
-                public _conversionSource?: "conversionSource";
-
-                /** CtwaContextData _conversionData. */
-                public _conversionData?: "conversionData";
-
-                /** CtwaContextData _sourceUrl. */
-                public _sourceUrl?: "sourceUrl";
-
-                /** CtwaContextData _sourceId. */
-                public _sourceId?: "sourceId";
-
-                /** CtwaContextData _sourceType. */
-                public _sourceType?: "sourceType";
-
-                /** CtwaContextData _title. */
-                public _title?: "title";
-
-                /** CtwaContextData _description. */
-                public _description?: "description";
-
-                /** CtwaContextData _thumbnail. */
-                public _thumbnail?: "thumbnail";
-
-                /** CtwaContextData _thumbnailUrl. */
-                public _thumbnailUrl?: "thumbnailUrl";
-
-                /** CtwaContextData _mediaType. */
-                public _mediaType?: "mediaType";
-
-                /** CtwaContextData _mediaUrl. */
-                public _mediaUrl?: "mediaUrl";
-
-                /** CtwaContextData _isSuspiciousLink. */
-                public _isSuspiciousLink?: "isSuspiciousLink";
+                public isSuspiciousLink: boolean;
 
                 /**
                  * Creates a new CtwaContextData instance using the specified properties.
@@ -478,28 +424,16 @@ export namespace MdStorageChatRowOpaqueData {
                 constructor(properties?: MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.ICtwaContextLinkData);
 
                 /** CtwaContextLinkData context. */
-                public context?: (string|null);
+                public context: string;
 
                 /** CtwaContextLinkData sourceUrl. */
-                public sourceUrl?: (string|null);
+                public sourceUrl: string;
 
                 /** CtwaContextLinkData icebreaker. */
-                public icebreaker?: (string|null);
+                public icebreaker: string;
 
                 /** CtwaContextLinkData phone. */
-                public phone?: (string|null);
-
-                /** CtwaContextLinkData _context. */
-                public _context?: "context";
-
-                /** CtwaContextLinkData _sourceUrl. */
-                public _sourceUrl?: "sourceUrl";
-
-                /** CtwaContextLinkData _icebreaker. */
-                public _icebreaker?: "icebreaker";
-
-                /** CtwaContextLinkData _phone. */
-                public _phone?: "phone";
+                public phone: string;
 
                 /**
                  * Creates a new CtwaContextLinkData instance using the specified properties.

@@ -45,44 +45,19 @@ $root.SignalWhisperTextProtocol = (function() {
 
         /**
          * DeviceConsistencyCodeMessage generation.
-         * @member {number|null|undefined} generation
+         * @member {number} generation
          * @memberof SignalWhisperTextProtocol.DeviceConsistencyCodeMessage
          * @instance
          */
-        DeviceConsistencyCodeMessage.prototype.generation = null;
+        DeviceConsistencyCodeMessage.prototype.generation = 0;
 
         /**
          * DeviceConsistencyCodeMessage signature.
-         * @member {Uint8Array|null|undefined} signature
+         * @member {Uint8Array} signature
          * @memberof SignalWhisperTextProtocol.DeviceConsistencyCodeMessage
          * @instance
          */
-        DeviceConsistencyCodeMessage.prototype.signature = null;
-
-        // OneOf field names bound to virtual getters and setters
-        var $oneOfFields;
-
-        /**
-         * DeviceConsistencyCodeMessage _generation.
-         * @member {"generation"|undefined} _generation
-         * @memberof SignalWhisperTextProtocol.DeviceConsistencyCodeMessage
-         * @instance
-         */
-        Object.defineProperty(DeviceConsistencyCodeMessage.prototype, "_generation", {
-            get: $util.oneOfGetter($oneOfFields = ["generation"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * DeviceConsistencyCodeMessage _signature.
-         * @member {"signature"|undefined} _signature
-         * @memberof SignalWhisperTextProtocol.DeviceConsistencyCodeMessage
-         * @instance
-         */
-        Object.defineProperty(DeviceConsistencyCodeMessage.prototype, "_signature", {
-            get: $util.oneOfGetter($oneOfFields = ["signature"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
+        DeviceConsistencyCodeMessage.prototype.signature = $util.newBuffer([]);
 
         /**
          * Creates a new DeviceConsistencyCodeMessage instance using the specified properties.
@@ -191,17 +166,12 @@ $root.SignalWhisperTextProtocol = (function() {
         DeviceConsistencyCodeMessage.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            var properties = {};
-            if (message.generation != null && message.hasOwnProperty("generation")) {
-                properties._generation = 1;
+            if (message.generation != null && message.hasOwnProperty("generation"))
                 if (!$util.isInteger(message.generation))
                     return "generation: integer expected";
-            }
-            if (message.signature != null && message.hasOwnProperty("signature")) {
-                properties._signature = 1;
+            if (message.signature != null && message.hasOwnProperty("signature"))
                 if (!(message.signature && typeof message.signature.length === "number" || $util.isString(message.signature)))
                     return "signature: buffer expected";
-            }
             return null;
         };
 
@@ -240,16 +210,20 @@ $root.SignalWhisperTextProtocol = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (message.generation != null && message.hasOwnProperty("generation")) {
+            if (options.defaults) {
+                object.generation = 0;
+                if (options.bytes === String)
+                    object.signature = "";
+                else {
+                    object.signature = [];
+                    if (options.bytes !== Array)
+                        object.signature = $util.newBuffer(object.signature);
+                }
+            }
+            if (message.generation != null && message.hasOwnProperty("generation"))
                 object.generation = message.generation;
-                if (options.oneofs)
-                    object._generation = "generation";
-            }
-            if (message.signature != null && message.hasOwnProperty("signature")) {
+            if (message.signature != null && message.hasOwnProperty("signature"))
                 object.signature = options.bytes === String ? $util.base64.encode(message.signature, 0, message.signature.length) : options.bytes === Array ? Array.prototype.slice.call(message.signature) : message.signature;
-                if (options.oneofs)
-                    object._signature = "signature";
-            }
             return object;
         };
 
@@ -311,82 +285,35 @@ $root.SignalWhisperTextProtocol = (function() {
 
         /**
          * SenderKeyDistributionMessage id.
-         * @member {number|null|undefined} id
+         * @member {number} id
          * @memberof SignalWhisperTextProtocol.SenderKeyDistributionMessage
          * @instance
          */
-        SenderKeyDistributionMessage.prototype.id = null;
+        SenderKeyDistributionMessage.prototype.id = 0;
 
         /**
          * SenderKeyDistributionMessage iteration.
-         * @member {number|null|undefined} iteration
+         * @member {number} iteration
          * @memberof SignalWhisperTextProtocol.SenderKeyDistributionMessage
          * @instance
          */
-        SenderKeyDistributionMessage.prototype.iteration = null;
+        SenderKeyDistributionMessage.prototype.iteration = 0;
 
         /**
          * SenderKeyDistributionMessage chainKey.
-         * @member {Uint8Array|null|undefined} chainKey
+         * @member {Uint8Array} chainKey
          * @memberof SignalWhisperTextProtocol.SenderKeyDistributionMessage
          * @instance
          */
-        SenderKeyDistributionMessage.prototype.chainKey = null;
+        SenderKeyDistributionMessage.prototype.chainKey = $util.newBuffer([]);
 
         /**
          * SenderKeyDistributionMessage signingKey.
-         * @member {Uint8Array|null|undefined} signingKey
+         * @member {Uint8Array} signingKey
          * @memberof SignalWhisperTextProtocol.SenderKeyDistributionMessage
          * @instance
          */
-        SenderKeyDistributionMessage.prototype.signingKey = null;
-
-        // OneOf field names bound to virtual getters and setters
-        var $oneOfFields;
-
-        /**
-         * SenderKeyDistributionMessage _id.
-         * @member {"id"|undefined} _id
-         * @memberof SignalWhisperTextProtocol.SenderKeyDistributionMessage
-         * @instance
-         */
-        Object.defineProperty(SenderKeyDistributionMessage.prototype, "_id", {
-            get: $util.oneOfGetter($oneOfFields = ["id"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * SenderKeyDistributionMessage _iteration.
-         * @member {"iteration"|undefined} _iteration
-         * @memberof SignalWhisperTextProtocol.SenderKeyDistributionMessage
-         * @instance
-         */
-        Object.defineProperty(SenderKeyDistributionMessage.prototype, "_iteration", {
-            get: $util.oneOfGetter($oneOfFields = ["iteration"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * SenderKeyDistributionMessage _chainKey.
-         * @member {"chainKey"|undefined} _chainKey
-         * @memberof SignalWhisperTextProtocol.SenderKeyDistributionMessage
-         * @instance
-         */
-        Object.defineProperty(SenderKeyDistributionMessage.prototype, "_chainKey", {
-            get: $util.oneOfGetter($oneOfFields = ["chainKey"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * SenderKeyDistributionMessage _signingKey.
-         * @member {"signingKey"|undefined} _signingKey
-         * @memberof SignalWhisperTextProtocol.SenderKeyDistributionMessage
-         * @instance
-         */
-        Object.defineProperty(SenderKeyDistributionMessage.prototype, "_signingKey", {
-            get: $util.oneOfGetter($oneOfFields = ["signingKey"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
+        SenderKeyDistributionMessage.prototype.signingKey = $util.newBuffer([]);
 
         /**
          * Creates a new SenderKeyDistributionMessage instance using the specified properties.
@@ -507,27 +434,18 @@ $root.SignalWhisperTextProtocol = (function() {
         SenderKeyDistributionMessage.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            var properties = {};
-            if (message.id != null && message.hasOwnProperty("id")) {
-                properties._id = 1;
+            if (message.id != null && message.hasOwnProperty("id"))
                 if (!$util.isInteger(message.id))
                     return "id: integer expected";
-            }
-            if (message.iteration != null && message.hasOwnProperty("iteration")) {
-                properties._iteration = 1;
+            if (message.iteration != null && message.hasOwnProperty("iteration"))
                 if (!$util.isInteger(message.iteration))
                     return "iteration: integer expected";
-            }
-            if (message.chainKey != null && message.hasOwnProperty("chainKey")) {
-                properties._chainKey = 1;
+            if (message.chainKey != null && message.hasOwnProperty("chainKey"))
                 if (!(message.chainKey && typeof message.chainKey.length === "number" || $util.isString(message.chainKey)))
                     return "chainKey: buffer expected";
-            }
-            if (message.signingKey != null && message.hasOwnProperty("signingKey")) {
-                properties._signingKey = 1;
+            if (message.signingKey != null && message.hasOwnProperty("signingKey"))
                 if (!(message.signingKey && typeof message.signingKey.length === "number" || $util.isString(message.signingKey)))
                     return "signingKey: buffer expected";
-            }
             return null;
         };
 
@@ -573,26 +491,32 @@ $root.SignalWhisperTextProtocol = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (message.id != null && message.hasOwnProperty("id")) {
+            if (options.defaults) {
+                object.id = 0;
+                object.iteration = 0;
+                if (options.bytes === String)
+                    object.chainKey = "";
+                else {
+                    object.chainKey = [];
+                    if (options.bytes !== Array)
+                        object.chainKey = $util.newBuffer(object.chainKey);
+                }
+                if (options.bytes === String)
+                    object.signingKey = "";
+                else {
+                    object.signingKey = [];
+                    if (options.bytes !== Array)
+                        object.signingKey = $util.newBuffer(object.signingKey);
+                }
+            }
+            if (message.id != null && message.hasOwnProperty("id"))
                 object.id = message.id;
-                if (options.oneofs)
-                    object._id = "id";
-            }
-            if (message.iteration != null && message.hasOwnProperty("iteration")) {
+            if (message.iteration != null && message.hasOwnProperty("iteration"))
                 object.iteration = message.iteration;
-                if (options.oneofs)
-                    object._iteration = "iteration";
-            }
-            if (message.chainKey != null && message.hasOwnProperty("chainKey")) {
+            if (message.chainKey != null && message.hasOwnProperty("chainKey"))
                 object.chainKey = options.bytes === String ? $util.base64.encode(message.chainKey, 0, message.chainKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.chainKey) : message.chainKey;
-                if (options.oneofs)
-                    object._chainKey = "chainKey";
-            }
-            if (message.signingKey != null && message.hasOwnProperty("signingKey")) {
+            if (message.signingKey != null && message.hasOwnProperty("signingKey"))
                 object.signingKey = options.bytes === String ? $util.base64.encode(message.signingKey, 0, message.signingKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.signingKey) : message.signingKey;
-                if (options.oneofs)
-                    object._signingKey = "signingKey";
-            }
             return object;
         };
 
@@ -653,63 +577,27 @@ $root.SignalWhisperTextProtocol = (function() {
 
         /**
          * SenderKeyMessage id.
-         * @member {number|null|undefined} id
+         * @member {number} id
          * @memberof SignalWhisperTextProtocol.SenderKeyMessage
          * @instance
          */
-        SenderKeyMessage.prototype.id = null;
+        SenderKeyMessage.prototype.id = 0;
 
         /**
          * SenderKeyMessage iteration.
-         * @member {number|null|undefined} iteration
+         * @member {number} iteration
          * @memberof SignalWhisperTextProtocol.SenderKeyMessage
          * @instance
          */
-        SenderKeyMessage.prototype.iteration = null;
+        SenderKeyMessage.prototype.iteration = 0;
 
         /**
          * SenderKeyMessage ciphertext.
-         * @member {Uint8Array|null|undefined} ciphertext
+         * @member {Uint8Array} ciphertext
          * @memberof SignalWhisperTextProtocol.SenderKeyMessage
          * @instance
          */
-        SenderKeyMessage.prototype.ciphertext = null;
-
-        // OneOf field names bound to virtual getters and setters
-        var $oneOfFields;
-
-        /**
-         * SenderKeyMessage _id.
-         * @member {"id"|undefined} _id
-         * @memberof SignalWhisperTextProtocol.SenderKeyMessage
-         * @instance
-         */
-        Object.defineProperty(SenderKeyMessage.prototype, "_id", {
-            get: $util.oneOfGetter($oneOfFields = ["id"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * SenderKeyMessage _iteration.
-         * @member {"iteration"|undefined} _iteration
-         * @memberof SignalWhisperTextProtocol.SenderKeyMessage
-         * @instance
-         */
-        Object.defineProperty(SenderKeyMessage.prototype, "_iteration", {
-            get: $util.oneOfGetter($oneOfFields = ["iteration"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * SenderKeyMessage _ciphertext.
-         * @member {"ciphertext"|undefined} _ciphertext
-         * @memberof SignalWhisperTextProtocol.SenderKeyMessage
-         * @instance
-         */
-        Object.defineProperty(SenderKeyMessage.prototype, "_ciphertext", {
-            get: $util.oneOfGetter($oneOfFields = ["ciphertext"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
+        SenderKeyMessage.prototype.ciphertext = $util.newBuffer([]);
 
         /**
          * Creates a new SenderKeyMessage instance using the specified properties.
@@ -824,22 +712,15 @@ $root.SignalWhisperTextProtocol = (function() {
         SenderKeyMessage.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            var properties = {};
-            if (message.id != null && message.hasOwnProperty("id")) {
-                properties._id = 1;
+            if (message.id != null && message.hasOwnProperty("id"))
                 if (!$util.isInteger(message.id))
                     return "id: integer expected";
-            }
-            if (message.iteration != null && message.hasOwnProperty("iteration")) {
-                properties._iteration = 1;
+            if (message.iteration != null && message.hasOwnProperty("iteration"))
                 if (!$util.isInteger(message.iteration))
                     return "iteration: integer expected";
-            }
-            if (message.ciphertext != null && message.hasOwnProperty("ciphertext")) {
-                properties._ciphertext = 1;
+            if (message.ciphertext != null && message.hasOwnProperty("ciphertext"))
                 if (!(message.ciphertext && typeof message.ciphertext.length === "number" || $util.isString(message.ciphertext)))
                     return "ciphertext: buffer expected";
-            }
             return null;
         };
 
@@ -880,21 +761,23 @@ $root.SignalWhisperTextProtocol = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (message.id != null && message.hasOwnProperty("id")) {
+            if (options.defaults) {
+                object.id = 0;
+                object.iteration = 0;
+                if (options.bytes === String)
+                    object.ciphertext = "";
+                else {
+                    object.ciphertext = [];
+                    if (options.bytes !== Array)
+                        object.ciphertext = $util.newBuffer(object.ciphertext);
+                }
+            }
+            if (message.id != null && message.hasOwnProperty("id"))
                 object.id = message.id;
-                if (options.oneofs)
-                    object._id = "id";
-            }
-            if (message.iteration != null && message.hasOwnProperty("iteration")) {
+            if (message.iteration != null && message.hasOwnProperty("iteration"))
                 object.iteration = message.iteration;
-                if (options.oneofs)
-                    object._iteration = "iteration";
-            }
-            if (message.ciphertext != null && message.hasOwnProperty("ciphertext")) {
+            if (message.ciphertext != null && message.hasOwnProperty("ciphertext"))
                 object.ciphertext = options.bytes === String ? $util.base64.encode(message.ciphertext, 0, message.ciphertext.length) : options.bytes === Array ? Array.prototype.slice.call(message.ciphertext) : message.ciphertext;
-                if (options.oneofs)
-                    object._ciphertext = "ciphertext";
-            }
             return object;
         };
 
@@ -957,101 +840,43 @@ $root.SignalWhisperTextProtocol = (function() {
 
         /**
          * KeyExchangeMessage id.
-         * @member {number|null|undefined} id
+         * @member {number} id
          * @memberof SignalWhisperTextProtocol.KeyExchangeMessage
          * @instance
          */
-        KeyExchangeMessage.prototype.id = null;
+        KeyExchangeMessage.prototype.id = 0;
 
         /**
          * KeyExchangeMessage baseKey.
-         * @member {Uint8Array|null|undefined} baseKey
+         * @member {Uint8Array} baseKey
          * @memberof SignalWhisperTextProtocol.KeyExchangeMessage
          * @instance
          */
-        KeyExchangeMessage.prototype.baseKey = null;
+        KeyExchangeMessage.prototype.baseKey = $util.newBuffer([]);
 
         /**
          * KeyExchangeMessage ratchetKey.
-         * @member {Uint8Array|null|undefined} ratchetKey
+         * @member {Uint8Array} ratchetKey
          * @memberof SignalWhisperTextProtocol.KeyExchangeMessage
          * @instance
          */
-        KeyExchangeMessage.prototype.ratchetKey = null;
+        KeyExchangeMessage.prototype.ratchetKey = $util.newBuffer([]);
 
         /**
          * KeyExchangeMessage identityKey.
-         * @member {Uint8Array|null|undefined} identityKey
+         * @member {Uint8Array} identityKey
          * @memberof SignalWhisperTextProtocol.KeyExchangeMessage
          * @instance
          */
-        KeyExchangeMessage.prototype.identityKey = null;
+        KeyExchangeMessage.prototype.identityKey = $util.newBuffer([]);
 
         /**
          * KeyExchangeMessage baseKeySignature.
-         * @member {Uint8Array|null|undefined} baseKeySignature
+         * @member {Uint8Array} baseKeySignature
          * @memberof SignalWhisperTextProtocol.KeyExchangeMessage
          * @instance
          */
-        KeyExchangeMessage.prototype.baseKeySignature = null;
-
-        // OneOf field names bound to virtual getters and setters
-        var $oneOfFields;
-
-        /**
-         * KeyExchangeMessage _id.
-         * @member {"id"|undefined} _id
-         * @memberof SignalWhisperTextProtocol.KeyExchangeMessage
-         * @instance
-         */
-        Object.defineProperty(KeyExchangeMessage.prototype, "_id", {
-            get: $util.oneOfGetter($oneOfFields = ["id"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * KeyExchangeMessage _baseKey.
-         * @member {"baseKey"|undefined} _baseKey
-         * @memberof SignalWhisperTextProtocol.KeyExchangeMessage
-         * @instance
-         */
-        Object.defineProperty(KeyExchangeMessage.prototype, "_baseKey", {
-            get: $util.oneOfGetter($oneOfFields = ["baseKey"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * KeyExchangeMessage _ratchetKey.
-         * @member {"ratchetKey"|undefined} _ratchetKey
-         * @memberof SignalWhisperTextProtocol.KeyExchangeMessage
-         * @instance
-         */
-        Object.defineProperty(KeyExchangeMessage.prototype, "_ratchetKey", {
-            get: $util.oneOfGetter($oneOfFields = ["ratchetKey"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * KeyExchangeMessage _identityKey.
-         * @member {"identityKey"|undefined} _identityKey
-         * @memberof SignalWhisperTextProtocol.KeyExchangeMessage
-         * @instance
-         */
-        Object.defineProperty(KeyExchangeMessage.prototype, "_identityKey", {
-            get: $util.oneOfGetter($oneOfFields = ["identityKey"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * KeyExchangeMessage _baseKeySignature.
-         * @member {"baseKeySignature"|undefined} _baseKeySignature
-         * @memberof SignalWhisperTextProtocol.KeyExchangeMessage
-         * @instance
-         */
-        Object.defineProperty(KeyExchangeMessage.prototype, "_baseKeySignature", {
-            get: $util.oneOfGetter($oneOfFields = ["baseKeySignature"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
+        KeyExchangeMessage.prototype.baseKeySignature = $util.newBuffer([]);
 
         /**
          * Creates a new KeyExchangeMessage instance using the specified properties.
@@ -1178,32 +1003,21 @@ $root.SignalWhisperTextProtocol = (function() {
         KeyExchangeMessage.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            var properties = {};
-            if (message.id != null && message.hasOwnProperty("id")) {
-                properties._id = 1;
+            if (message.id != null && message.hasOwnProperty("id"))
                 if (!$util.isInteger(message.id))
                     return "id: integer expected";
-            }
-            if (message.baseKey != null && message.hasOwnProperty("baseKey")) {
-                properties._baseKey = 1;
+            if (message.baseKey != null && message.hasOwnProperty("baseKey"))
                 if (!(message.baseKey && typeof message.baseKey.length === "number" || $util.isString(message.baseKey)))
                     return "baseKey: buffer expected";
-            }
-            if (message.ratchetKey != null && message.hasOwnProperty("ratchetKey")) {
-                properties._ratchetKey = 1;
+            if (message.ratchetKey != null && message.hasOwnProperty("ratchetKey"))
                 if (!(message.ratchetKey && typeof message.ratchetKey.length === "number" || $util.isString(message.ratchetKey)))
                     return "ratchetKey: buffer expected";
-            }
-            if (message.identityKey != null && message.hasOwnProperty("identityKey")) {
-                properties._identityKey = 1;
+            if (message.identityKey != null && message.hasOwnProperty("identityKey"))
                 if (!(message.identityKey && typeof message.identityKey.length === "number" || $util.isString(message.identityKey)))
                     return "identityKey: buffer expected";
-            }
-            if (message.baseKeySignature != null && message.hasOwnProperty("baseKeySignature")) {
-                properties._baseKeySignature = 1;
+            if (message.baseKeySignature != null && message.hasOwnProperty("baseKeySignature"))
                 if (!(message.baseKeySignature && typeof message.baseKeySignature.length === "number" || $util.isString(message.baseKeySignature)))
                     return "baseKeySignature: buffer expected";
-            }
             return null;
         };
 
@@ -1257,31 +1071,47 @@ $root.SignalWhisperTextProtocol = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (message.id != null && message.hasOwnProperty("id")) {
+            if (options.defaults) {
+                object.id = 0;
+                if (options.bytes === String)
+                    object.baseKey = "";
+                else {
+                    object.baseKey = [];
+                    if (options.bytes !== Array)
+                        object.baseKey = $util.newBuffer(object.baseKey);
+                }
+                if (options.bytes === String)
+                    object.ratchetKey = "";
+                else {
+                    object.ratchetKey = [];
+                    if (options.bytes !== Array)
+                        object.ratchetKey = $util.newBuffer(object.ratchetKey);
+                }
+                if (options.bytes === String)
+                    object.identityKey = "";
+                else {
+                    object.identityKey = [];
+                    if (options.bytes !== Array)
+                        object.identityKey = $util.newBuffer(object.identityKey);
+                }
+                if (options.bytes === String)
+                    object.baseKeySignature = "";
+                else {
+                    object.baseKeySignature = [];
+                    if (options.bytes !== Array)
+                        object.baseKeySignature = $util.newBuffer(object.baseKeySignature);
+                }
+            }
+            if (message.id != null && message.hasOwnProperty("id"))
                 object.id = message.id;
-                if (options.oneofs)
-                    object._id = "id";
-            }
-            if (message.baseKey != null && message.hasOwnProperty("baseKey")) {
+            if (message.baseKey != null && message.hasOwnProperty("baseKey"))
                 object.baseKey = options.bytes === String ? $util.base64.encode(message.baseKey, 0, message.baseKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.baseKey) : message.baseKey;
-                if (options.oneofs)
-                    object._baseKey = "baseKey";
-            }
-            if (message.ratchetKey != null && message.hasOwnProperty("ratchetKey")) {
+            if (message.ratchetKey != null && message.hasOwnProperty("ratchetKey"))
                 object.ratchetKey = options.bytes === String ? $util.base64.encode(message.ratchetKey, 0, message.ratchetKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.ratchetKey) : message.ratchetKey;
-                if (options.oneofs)
-                    object._ratchetKey = "ratchetKey";
-            }
-            if (message.identityKey != null && message.hasOwnProperty("identityKey")) {
+            if (message.identityKey != null && message.hasOwnProperty("identityKey"))
                 object.identityKey = options.bytes === String ? $util.base64.encode(message.identityKey, 0, message.identityKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.identityKey) : message.identityKey;
-                if (options.oneofs)
-                    object._identityKey = "identityKey";
-            }
-            if (message.baseKeySignature != null && message.hasOwnProperty("baseKeySignature")) {
+            if (message.baseKeySignature != null && message.hasOwnProperty("baseKeySignature"))
                 object.baseKeySignature = options.bytes === String ? $util.base64.encode(message.baseKeySignature, 0, message.baseKeySignature.length) : options.bytes === Array ? Array.prototype.slice.call(message.baseKeySignature) : message.baseKeySignature;
-                if (options.oneofs)
-                    object._baseKeySignature = "baseKeySignature";
-            }
             return object;
         };
 
@@ -1345,120 +1175,51 @@ $root.SignalWhisperTextProtocol = (function() {
 
         /**
          * PreKeySignalMessage registrationId.
-         * @member {number|null|undefined} registrationId
+         * @member {number} registrationId
          * @memberof SignalWhisperTextProtocol.PreKeySignalMessage
          * @instance
          */
-        PreKeySignalMessage.prototype.registrationId = null;
+        PreKeySignalMessage.prototype.registrationId = 0;
 
         /**
          * PreKeySignalMessage preKeyId.
-         * @member {number|null|undefined} preKeyId
+         * @member {number} preKeyId
          * @memberof SignalWhisperTextProtocol.PreKeySignalMessage
          * @instance
          */
-        PreKeySignalMessage.prototype.preKeyId = null;
+        PreKeySignalMessage.prototype.preKeyId = 0;
 
         /**
          * PreKeySignalMessage signedPreKeyId.
-         * @member {number|null|undefined} signedPreKeyId
+         * @member {number} signedPreKeyId
          * @memberof SignalWhisperTextProtocol.PreKeySignalMessage
          * @instance
          */
-        PreKeySignalMessage.prototype.signedPreKeyId = null;
+        PreKeySignalMessage.prototype.signedPreKeyId = 0;
 
         /**
          * PreKeySignalMessage baseKey.
-         * @member {Uint8Array|null|undefined} baseKey
+         * @member {Uint8Array} baseKey
          * @memberof SignalWhisperTextProtocol.PreKeySignalMessage
          * @instance
          */
-        PreKeySignalMessage.prototype.baseKey = null;
+        PreKeySignalMessage.prototype.baseKey = $util.newBuffer([]);
 
         /**
          * PreKeySignalMessage identityKey.
-         * @member {Uint8Array|null|undefined} identityKey
+         * @member {Uint8Array} identityKey
          * @memberof SignalWhisperTextProtocol.PreKeySignalMessage
          * @instance
          */
-        PreKeySignalMessage.prototype.identityKey = null;
+        PreKeySignalMessage.prototype.identityKey = $util.newBuffer([]);
 
         /**
          * PreKeySignalMessage message.
-         * @member {Uint8Array|null|undefined} message
+         * @member {Uint8Array} message
          * @memberof SignalWhisperTextProtocol.PreKeySignalMessage
          * @instance
          */
-        PreKeySignalMessage.prototype.message = null;
-
-        // OneOf field names bound to virtual getters and setters
-        var $oneOfFields;
-
-        /**
-         * PreKeySignalMessage _registrationId.
-         * @member {"registrationId"|undefined} _registrationId
-         * @memberof SignalWhisperTextProtocol.PreKeySignalMessage
-         * @instance
-         */
-        Object.defineProperty(PreKeySignalMessage.prototype, "_registrationId", {
-            get: $util.oneOfGetter($oneOfFields = ["registrationId"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * PreKeySignalMessage _preKeyId.
-         * @member {"preKeyId"|undefined} _preKeyId
-         * @memberof SignalWhisperTextProtocol.PreKeySignalMessage
-         * @instance
-         */
-        Object.defineProperty(PreKeySignalMessage.prototype, "_preKeyId", {
-            get: $util.oneOfGetter($oneOfFields = ["preKeyId"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * PreKeySignalMessage _signedPreKeyId.
-         * @member {"signedPreKeyId"|undefined} _signedPreKeyId
-         * @memberof SignalWhisperTextProtocol.PreKeySignalMessage
-         * @instance
-         */
-        Object.defineProperty(PreKeySignalMessage.prototype, "_signedPreKeyId", {
-            get: $util.oneOfGetter($oneOfFields = ["signedPreKeyId"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * PreKeySignalMessage _baseKey.
-         * @member {"baseKey"|undefined} _baseKey
-         * @memberof SignalWhisperTextProtocol.PreKeySignalMessage
-         * @instance
-         */
-        Object.defineProperty(PreKeySignalMessage.prototype, "_baseKey", {
-            get: $util.oneOfGetter($oneOfFields = ["baseKey"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * PreKeySignalMessage _identityKey.
-         * @member {"identityKey"|undefined} _identityKey
-         * @memberof SignalWhisperTextProtocol.PreKeySignalMessage
-         * @instance
-         */
-        Object.defineProperty(PreKeySignalMessage.prototype, "_identityKey", {
-            get: $util.oneOfGetter($oneOfFields = ["identityKey"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * PreKeySignalMessage _message.
-         * @member {"message"|undefined} _message
-         * @memberof SignalWhisperTextProtocol.PreKeySignalMessage
-         * @instance
-         */
-        Object.defineProperty(PreKeySignalMessage.prototype, "_message", {
-            get: $util.oneOfGetter($oneOfFields = ["message"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
+        PreKeySignalMessage.prototype.message = $util.newBuffer([]);
 
         /**
          * Creates a new PreKeySignalMessage instance using the specified properties.
@@ -1591,37 +1352,24 @@ $root.SignalWhisperTextProtocol = (function() {
         PreKeySignalMessage.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            var properties = {};
-            if (message.registrationId != null && message.hasOwnProperty("registrationId")) {
-                properties._registrationId = 1;
+            if (message.registrationId != null && message.hasOwnProperty("registrationId"))
                 if (!$util.isInteger(message.registrationId))
                     return "registrationId: integer expected";
-            }
-            if (message.preKeyId != null && message.hasOwnProperty("preKeyId")) {
-                properties._preKeyId = 1;
+            if (message.preKeyId != null && message.hasOwnProperty("preKeyId"))
                 if (!$util.isInteger(message.preKeyId))
                     return "preKeyId: integer expected";
-            }
-            if (message.signedPreKeyId != null && message.hasOwnProperty("signedPreKeyId")) {
-                properties._signedPreKeyId = 1;
+            if (message.signedPreKeyId != null && message.hasOwnProperty("signedPreKeyId"))
                 if (!$util.isInteger(message.signedPreKeyId))
                     return "signedPreKeyId: integer expected";
-            }
-            if (message.baseKey != null && message.hasOwnProperty("baseKey")) {
-                properties._baseKey = 1;
+            if (message.baseKey != null && message.hasOwnProperty("baseKey"))
                 if (!(message.baseKey && typeof message.baseKey.length === "number" || $util.isString(message.baseKey)))
                     return "baseKey: buffer expected";
-            }
-            if (message.identityKey != null && message.hasOwnProperty("identityKey")) {
-                properties._identityKey = 1;
+            if (message.identityKey != null && message.hasOwnProperty("identityKey"))
                 if (!(message.identityKey && typeof message.identityKey.length === "number" || $util.isString(message.identityKey)))
                     return "identityKey: buffer expected";
-            }
-            if (message.message != null && message.hasOwnProperty("message")) {
-                properties._message = 1;
+            if (message.message != null && message.hasOwnProperty("message"))
                 if (!(message.message && typeof message.message.length === "number" || $util.isString(message.message)))
                     return "message: buffer expected";
-            }
             return null;
         };
 
@@ -1674,36 +1422,44 @@ $root.SignalWhisperTextProtocol = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (message.preKeyId != null && message.hasOwnProperty("preKeyId")) {
+            if (options.defaults) {
+                object.preKeyId = 0;
+                if (options.bytes === String)
+                    object.baseKey = "";
+                else {
+                    object.baseKey = [];
+                    if (options.bytes !== Array)
+                        object.baseKey = $util.newBuffer(object.baseKey);
+                }
+                if (options.bytes === String)
+                    object.identityKey = "";
+                else {
+                    object.identityKey = [];
+                    if (options.bytes !== Array)
+                        object.identityKey = $util.newBuffer(object.identityKey);
+                }
+                if (options.bytes === String)
+                    object.message = "";
+                else {
+                    object.message = [];
+                    if (options.bytes !== Array)
+                        object.message = $util.newBuffer(object.message);
+                }
+                object.registrationId = 0;
+                object.signedPreKeyId = 0;
+            }
+            if (message.preKeyId != null && message.hasOwnProperty("preKeyId"))
                 object.preKeyId = message.preKeyId;
-                if (options.oneofs)
-                    object._preKeyId = "preKeyId";
-            }
-            if (message.baseKey != null && message.hasOwnProperty("baseKey")) {
+            if (message.baseKey != null && message.hasOwnProperty("baseKey"))
                 object.baseKey = options.bytes === String ? $util.base64.encode(message.baseKey, 0, message.baseKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.baseKey) : message.baseKey;
-                if (options.oneofs)
-                    object._baseKey = "baseKey";
-            }
-            if (message.identityKey != null && message.hasOwnProperty("identityKey")) {
+            if (message.identityKey != null && message.hasOwnProperty("identityKey"))
                 object.identityKey = options.bytes === String ? $util.base64.encode(message.identityKey, 0, message.identityKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.identityKey) : message.identityKey;
-                if (options.oneofs)
-                    object._identityKey = "identityKey";
-            }
-            if (message.message != null && message.hasOwnProperty("message")) {
+            if (message.message != null && message.hasOwnProperty("message"))
                 object.message = options.bytes === String ? $util.base64.encode(message.message, 0, message.message.length) : options.bytes === Array ? Array.prototype.slice.call(message.message) : message.message;
-                if (options.oneofs)
-                    object._message = "message";
-            }
-            if (message.registrationId != null && message.hasOwnProperty("registrationId")) {
+            if (message.registrationId != null && message.hasOwnProperty("registrationId"))
                 object.registrationId = message.registrationId;
-                if (options.oneofs)
-                    object._registrationId = "registrationId";
-            }
-            if (message.signedPreKeyId != null && message.hasOwnProperty("signedPreKeyId")) {
+            if (message.signedPreKeyId != null && message.hasOwnProperty("signedPreKeyId"))
                 object.signedPreKeyId = message.signedPreKeyId;
-                if (options.oneofs)
-                    object._signedPreKeyId = "signedPreKeyId";
-            }
             return object;
         };
 
@@ -1765,82 +1521,35 @@ $root.SignalWhisperTextProtocol = (function() {
 
         /**
          * SignalMessage ratchetKey.
-         * @member {Uint8Array|null|undefined} ratchetKey
+         * @member {Uint8Array} ratchetKey
          * @memberof SignalWhisperTextProtocol.SignalMessage
          * @instance
          */
-        SignalMessage.prototype.ratchetKey = null;
+        SignalMessage.prototype.ratchetKey = $util.newBuffer([]);
 
         /**
          * SignalMessage counter.
-         * @member {number|null|undefined} counter
+         * @member {number} counter
          * @memberof SignalWhisperTextProtocol.SignalMessage
          * @instance
          */
-        SignalMessage.prototype.counter = null;
+        SignalMessage.prototype.counter = 0;
 
         /**
          * SignalMessage previousCounter.
-         * @member {number|null|undefined} previousCounter
+         * @member {number} previousCounter
          * @memberof SignalWhisperTextProtocol.SignalMessage
          * @instance
          */
-        SignalMessage.prototype.previousCounter = null;
+        SignalMessage.prototype.previousCounter = 0;
 
         /**
          * SignalMessage ciphertext.
-         * @member {Uint8Array|null|undefined} ciphertext
+         * @member {Uint8Array} ciphertext
          * @memberof SignalWhisperTextProtocol.SignalMessage
          * @instance
          */
-        SignalMessage.prototype.ciphertext = null;
-
-        // OneOf field names bound to virtual getters and setters
-        var $oneOfFields;
-
-        /**
-         * SignalMessage _ratchetKey.
-         * @member {"ratchetKey"|undefined} _ratchetKey
-         * @memberof SignalWhisperTextProtocol.SignalMessage
-         * @instance
-         */
-        Object.defineProperty(SignalMessage.prototype, "_ratchetKey", {
-            get: $util.oneOfGetter($oneOfFields = ["ratchetKey"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * SignalMessage _counter.
-         * @member {"counter"|undefined} _counter
-         * @memberof SignalWhisperTextProtocol.SignalMessage
-         * @instance
-         */
-        Object.defineProperty(SignalMessage.prototype, "_counter", {
-            get: $util.oneOfGetter($oneOfFields = ["counter"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * SignalMessage _previousCounter.
-         * @member {"previousCounter"|undefined} _previousCounter
-         * @memberof SignalWhisperTextProtocol.SignalMessage
-         * @instance
-         */
-        Object.defineProperty(SignalMessage.prototype, "_previousCounter", {
-            get: $util.oneOfGetter($oneOfFields = ["previousCounter"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * SignalMessage _ciphertext.
-         * @member {"ciphertext"|undefined} _ciphertext
-         * @memberof SignalWhisperTextProtocol.SignalMessage
-         * @instance
-         */
-        Object.defineProperty(SignalMessage.prototype, "_ciphertext", {
-            get: $util.oneOfGetter($oneOfFields = ["ciphertext"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
+        SignalMessage.prototype.ciphertext = $util.newBuffer([]);
 
         /**
          * Creates a new SignalMessage instance using the specified properties.
@@ -1961,27 +1670,18 @@ $root.SignalWhisperTextProtocol = (function() {
         SignalMessage.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            var properties = {};
-            if (message.ratchetKey != null && message.hasOwnProperty("ratchetKey")) {
-                properties._ratchetKey = 1;
+            if (message.ratchetKey != null && message.hasOwnProperty("ratchetKey"))
                 if (!(message.ratchetKey && typeof message.ratchetKey.length === "number" || $util.isString(message.ratchetKey)))
                     return "ratchetKey: buffer expected";
-            }
-            if (message.counter != null && message.hasOwnProperty("counter")) {
-                properties._counter = 1;
+            if (message.counter != null && message.hasOwnProperty("counter"))
                 if (!$util.isInteger(message.counter))
                     return "counter: integer expected";
-            }
-            if (message.previousCounter != null && message.hasOwnProperty("previousCounter")) {
-                properties._previousCounter = 1;
+            if (message.previousCounter != null && message.hasOwnProperty("previousCounter"))
                 if (!$util.isInteger(message.previousCounter))
                     return "previousCounter: integer expected";
-            }
-            if (message.ciphertext != null && message.hasOwnProperty("ciphertext")) {
-                properties._ciphertext = 1;
+            if (message.ciphertext != null && message.hasOwnProperty("ciphertext"))
                 if (!(message.ciphertext && typeof message.ciphertext.length === "number" || $util.isString(message.ciphertext)))
                     return "ciphertext: buffer expected";
-            }
             return null;
         };
 
@@ -2027,26 +1727,32 @@ $root.SignalWhisperTextProtocol = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (message.ratchetKey != null && message.hasOwnProperty("ratchetKey")) {
+            if (options.defaults) {
+                if (options.bytes === String)
+                    object.ratchetKey = "";
+                else {
+                    object.ratchetKey = [];
+                    if (options.bytes !== Array)
+                        object.ratchetKey = $util.newBuffer(object.ratchetKey);
+                }
+                object.counter = 0;
+                object.previousCounter = 0;
+                if (options.bytes === String)
+                    object.ciphertext = "";
+                else {
+                    object.ciphertext = [];
+                    if (options.bytes !== Array)
+                        object.ciphertext = $util.newBuffer(object.ciphertext);
+                }
+            }
+            if (message.ratchetKey != null && message.hasOwnProperty("ratchetKey"))
                 object.ratchetKey = options.bytes === String ? $util.base64.encode(message.ratchetKey, 0, message.ratchetKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.ratchetKey) : message.ratchetKey;
-                if (options.oneofs)
-                    object._ratchetKey = "ratchetKey";
-            }
-            if (message.counter != null && message.hasOwnProperty("counter")) {
+            if (message.counter != null && message.hasOwnProperty("counter"))
                 object.counter = message.counter;
-                if (options.oneofs)
-                    object._counter = "counter";
-            }
-            if (message.previousCounter != null && message.hasOwnProperty("previousCounter")) {
+            if (message.previousCounter != null && message.hasOwnProperty("previousCounter"))
                 object.previousCounter = message.previousCounter;
-                if (options.oneofs)
-                    object._previousCounter = "previousCounter";
-            }
-            if (message.ciphertext != null && message.hasOwnProperty("ciphertext")) {
+            if (message.ciphertext != null && message.hasOwnProperty("ciphertext"))
                 object.ciphertext = options.bytes === String ? $util.base64.encode(message.ciphertext, 0, message.ciphertext.length) : options.bytes === Array ? Array.prototype.slice.call(message.ciphertext) : message.ciphertext;
-                if (options.oneofs)
-                    object._ciphertext = "ciphertext";
-            }
             return object;
         };
 
