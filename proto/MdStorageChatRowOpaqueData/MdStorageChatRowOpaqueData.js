@@ -50,6 +50,20 @@ $root.MdStorageChatRowOpaqueData = (function() {
          */
         ChatRowOpaqueData.prototype.draftMessage = null;
 
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * ChatRowOpaqueData _draftMessage.
+         * @member {"draftMessage"|undefined} _draftMessage
+         * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData
+         * @instance
+         */
+        Object.defineProperty(ChatRowOpaqueData.prototype, "_draftMessage", {
+            get: $util.oneOfGetter($oneOfFields = ["draftMessage"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new ChatRowOpaqueData instance using the specified properties.
          * @function create
@@ -151,10 +165,14 @@ $root.MdStorageChatRowOpaqueData = (function() {
         ChatRowOpaqueData.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            var properties = {};
             if (message.draftMessage != null && message.hasOwnProperty("draftMessage")) {
-                var error = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.verify(message.draftMessage);
-                if (error)
-                    return "draftMessage." + error;
+                properties._draftMessage = 1;
+                {
+                    var error = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.verify(message.draftMessage);
+                    if (error)
+                        return "draftMessage." + error;
+                }
             }
             return null;
         };
@@ -192,10 +210,11 @@ $root.MdStorageChatRowOpaqueData = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults)
-                object.draftMessage = null;
-            if (message.draftMessage != null && message.hasOwnProperty("draftMessage"))
+            if (message.draftMessage != null && message.hasOwnProperty("draftMessage")) {
                 object.draftMessage = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.toObject(message.draftMessage, options);
+                if (options.oneofs)
+                    object._draftMessage = "draftMessage";
+            }
             return object;
         };
 
@@ -255,19 +274,19 @@ $root.MdStorageChatRowOpaqueData = (function() {
 
             /**
              * DraftMessage text.
-             * @member {string} text
+             * @member {string|null|undefined} text
              * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage
              * @instance
              */
-            DraftMessage.prototype.text = "";
+            DraftMessage.prototype.text = null;
 
             /**
              * DraftMessage omittedUrl.
-             * @member {string} omittedUrl
+             * @member {string|null|undefined} omittedUrl
              * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage
              * @instance
              */
-            DraftMessage.prototype.omittedUrl = "";
+            DraftMessage.prototype.omittedUrl = null;
 
             /**
              * DraftMessage ctwaContextLinkData.
@@ -287,11 +306,69 @@ $root.MdStorageChatRowOpaqueData = (function() {
 
             /**
              * DraftMessage timestamp.
-             * @member {number|Long} timestamp
+             * @member {number|Long|null|undefined} timestamp
              * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage
              * @instance
              */
-            DraftMessage.prototype.timestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+            DraftMessage.prototype.timestamp = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            /**
+             * DraftMessage _text.
+             * @member {"text"|undefined} _text
+             * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage
+             * @instance
+             */
+            Object.defineProperty(DraftMessage.prototype, "_text", {
+                get: $util.oneOfGetter($oneOfFields = ["text"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * DraftMessage _omittedUrl.
+             * @member {"omittedUrl"|undefined} _omittedUrl
+             * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage
+             * @instance
+             */
+            Object.defineProperty(DraftMessage.prototype, "_omittedUrl", {
+                get: $util.oneOfGetter($oneOfFields = ["omittedUrl"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * DraftMessage _ctwaContextLinkData.
+             * @member {"ctwaContextLinkData"|undefined} _ctwaContextLinkData
+             * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage
+             * @instance
+             */
+            Object.defineProperty(DraftMessage.prototype, "_ctwaContextLinkData", {
+                get: $util.oneOfGetter($oneOfFields = ["ctwaContextLinkData"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * DraftMessage _ctwaContext.
+             * @member {"ctwaContext"|undefined} _ctwaContext
+             * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage
+             * @instance
+             */
+            Object.defineProperty(DraftMessage.prototype, "_ctwaContext", {
+                get: $util.oneOfGetter($oneOfFields = ["ctwaContext"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * DraftMessage _timestamp.
+             * @member {"timestamp"|undefined} _timestamp
+             * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage
+             * @instance
+             */
+            Object.defineProperty(DraftMessage.prototype, "_timestamp", {
+                get: $util.oneOfGetter($oneOfFields = ["timestamp"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
 
             /**
              * Creates a new DraftMessage instance using the specified properties.
@@ -418,25 +495,38 @@ $root.MdStorageChatRowOpaqueData = (function() {
             DraftMessage.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.text != null && message.hasOwnProperty("text"))
+                var properties = {};
+                if (message.text != null && message.hasOwnProperty("text")) {
+                    properties._text = 1;
                     if (!$util.isString(message.text))
                         return "text: string expected";
-                if (message.omittedUrl != null && message.hasOwnProperty("omittedUrl"))
+                }
+                if (message.omittedUrl != null && message.hasOwnProperty("omittedUrl")) {
+                    properties._omittedUrl = 1;
                     if (!$util.isString(message.omittedUrl))
                         return "omittedUrl: string expected";
+                }
                 if (message.ctwaContextLinkData != null && message.hasOwnProperty("ctwaContextLinkData")) {
-                    var error = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.verify(message.ctwaContextLinkData);
-                    if (error)
-                        return "ctwaContextLinkData." + error;
+                    properties._ctwaContextLinkData = 1;
+                    {
+                        var error = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.verify(message.ctwaContextLinkData);
+                        if (error)
+                            return "ctwaContextLinkData." + error;
+                    }
                 }
                 if (message.ctwaContext != null && message.hasOwnProperty("ctwaContext")) {
-                    var error = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.verify(message.ctwaContext);
-                    if (error)
-                        return "ctwaContext." + error;
+                    properties._ctwaContext = 1;
+                    {
+                        var error = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.verify(message.ctwaContext);
+                        if (error)
+                            return "ctwaContext." + error;
+                    }
                 }
-                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                if (message.timestamp != null && message.hasOwnProperty("timestamp")) {
+                    properties._timestamp = 1;
                     if (!$util.isInteger(message.timestamp) && !(message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high)))
                         return "timestamp: integer|Long expected";
+                }
                 return null;
             };
 
@@ -491,30 +581,34 @@ $root.MdStorageChatRowOpaqueData = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults) {
-                    object.text = "";
-                    object.omittedUrl = "";
-                    object.ctwaContextLinkData = null;
-                    object.ctwaContext = null;
-                    if ($util.Long) {
-                        var long = new $util.Long(0, 0, false);
-                        object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                    } else
-                        object.timestamp = options.longs === String ? "0" : 0;
-                }
-                if (message.text != null && message.hasOwnProperty("text"))
+                if (message.text != null && message.hasOwnProperty("text")) {
                     object.text = message.text;
-                if (message.omittedUrl != null && message.hasOwnProperty("omittedUrl"))
+                    if (options.oneofs)
+                        object._text = "text";
+                }
+                if (message.omittedUrl != null && message.hasOwnProperty("omittedUrl")) {
                     object.omittedUrl = message.omittedUrl;
-                if (message.ctwaContextLinkData != null && message.hasOwnProperty("ctwaContextLinkData"))
+                    if (options.oneofs)
+                        object._omittedUrl = "omittedUrl";
+                }
+                if (message.ctwaContextLinkData != null && message.hasOwnProperty("ctwaContextLinkData")) {
                     object.ctwaContextLinkData = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.toObject(message.ctwaContextLinkData, options);
-                if (message.ctwaContext != null && message.hasOwnProperty("ctwaContext"))
+                    if (options.oneofs)
+                        object._ctwaContextLinkData = "ctwaContextLinkData";
+                }
+                if (message.ctwaContext != null && message.hasOwnProperty("ctwaContext")) {
                     object.ctwaContext = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.toObject(message.ctwaContext, options);
-                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (options.oneofs)
+                        object._ctwaContext = "ctwaContext";
+                }
+                if (message.timestamp != null && message.hasOwnProperty("timestamp")) {
                     if (typeof message.timestamp === "number")
                         object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
                     else
                         object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp;
+                    if (options.oneofs)
+                        object._timestamp = "timestamp";
+                }
                 return object;
             };
 
@@ -581,99 +675,234 @@ $root.MdStorageChatRowOpaqueData = (function() {
 
                 /**
                  * CtwaContextData conversionSource.
-                 * @member {string} conversionSource
+                 * @member {string|null|undefined} conversionSource
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
                  * @instance
                  */
-                CtwaContextData.prototype.conversionSource = "";
+                CtwaContextData.prototype.conversionSource = null;
 
                 /**
                  * CtwaContextData conversionData.
-                 * @member {Uint8Array} conversionData
+                 * @member {Uint8Array|null|undefined} conversionData
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
                  * @instance
                  */
-                CtwaContextData.prototype.conversionData = $util.newBuffer([]);
+                CtwaContextData.prototype.conversionData = null;
 
                 /**
                  * CtwaContextData sourceUrl.
-                 * @member {string} sourceUrl
+                 * @member {string|null|undefined} sourceUrl
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
                  * @instance
                  */
-                CtwaContextData.prototype.sourceUrl = "";
+                CtwaContextData.prototype.sourceUrl = null;
 
                 /**
                  * CtwaContextData sourceId.
-                 * @member {string} sourceId
+                 * @member {string|null|undefined} sourceId
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
                  * @instance
                  */
-                CtwaContextData.prototype.sourceId = "";
+                CtwaContextData.prototype.sourceId = null;
 
                 /**
                  * CtwaContextData sourceType.
-                 * @member {string} sourceType
+                 * @member {string|null|undefined} sourceType
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
                  * @instance
                  */
-                CtwaContextData.prototype.sourceType = "";
+                CtwaContextData.prototype.sourceType = null;
 
                 /**
                  * CtwaContextData title.
-                 * @member {string} title
+                 * @member {string|null|undefined} title
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
                  * @instance
                  */
-                CtwaContextData.prototype.title = "";
+                CtwaContextData.prototype.title = null;
 
                 /**
                  * CtwaContextData description.
-                 * @member {string} description
+                 * @member {string|null|undefined} description
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
                  * @instance
                  */
-                CtwaContextData.prototype.description = "";
+                CtwaContextData.prototype.description = null;
 
                 /**
                  * CtwaContextData thumbnail.
-                 * @member {string} thumbnail
+                 * @member {string|null|undefined} thumbnail
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
                  * @instance
                  */
-                CtwaContextData.prototype.thumbnail = "";
+                CtwaContextData.prototype.thumbnail = null;
 
                 /**
                  * CtwaContextData thumbnailUrl.
-                 * @member {string} thumbnailUrl
+                 * @member {string|null|undefined} thumbnailUrl
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
                  * @instance
                  */
-                CtwaContextData.prototype.thumbnailUrl = "";
+                CtwaContextData.prototype.thumbnailUrl = null;
 
                 /**
                  * CtwaContextData mediaType.
-                 * @member {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.ContextInfoExternalAdReplyInfoMediaType} mediaType
+                 * @member {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.ContextInfoExternalAdReplyInfoMediaType|null|undefined} mediaType
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
                  * @instance
                  */
-                CtwaContextData.prototype.mediaType = 0;
+                CtwaContextData.prototype.mediaType = null;
 
                 /**
                  * CtwaContextData mediaUrl.
-                 * @member {string} mediaUrl
+                 * @member {string|null|undefined} mediaUrl
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
                  * @instance
                  */
-                CtwaContextData.prototype.mediaUrl = "";
+                CtwaContextData.prototype.mediaUrl = null;
 
                 /**
                  * CtwaContextData isSuspiciousLink.
-                 * @member {boolean} isSuspiciousLink
+                 * @member {boolean|null|undefined} isSuspiciousLink
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
                  * @instance
                  */
-                CtwaContextData.prototype.isSuspiciousLink = false;
+                CtwaContextData.prototype.isSuspiciousLink = null;
+
+                // OneOf field names bound to virtual getters and setters
+                var $oneOfFields;
+
+                /**
+                 * CtwaContextData _conversionSource.
+                 * @member {"conversionSource"|undefined} _conversionSource
+                 * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
+                 * @instance
+                 */
+                Object.defineProperty(CtwaContextData.prototype, "_conversionSource", {
+                    get: $util.oneOfGetter($oneOfFields = ["conversionSource"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * CtwaContextData _conversionData.
+                 * @member {"conversionData"|undefined} _conversionData
+                 * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
+                 * @instance
+                 */
+                Object.defineProperty(CtwaContextData.prototype, "_conversionData", {
+                    get: $util.oneOfGetter($oneOfFields = ["conversionData"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * CtwaContextData _sourceUrl.
+                 * @member {"sourceUrl"|undefined} _sourceUrl
+                 * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
+                 * @instance
+                 */
+                Object.defineProperty(CtwaContextData.prototype, "_sourceUrl", {
+                    get: $util.oneOfGetter($oneOfFields = ["sourceUrl"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * CtwaContextData _sourceId.
+                 * @member {"sourceId"|undefined} _sourceId
+                 * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
+                 * @instance
+                 */
+                Object.defineProperty(CtwaContextData.prototype, "_sourceId", {
+                    get: $util.oneOfGetter($oneOfFields = ["sourceId"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * CtwaContextData _sourceType.
+                 * @member {"sourceType"|undefined} _sourceType
+                 * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
+                 * @instance
+                 */
+                Object.defineProperty(CtwaContextData.prototype, "_sourceType", {
+                    get: $util.oneOfGetter($oneOfFields = ["sourceType"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * CtwaContextData _title.
+                 * @member {"title"|undefined} _title
+                 * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
+                 * @instance
+                 */
+                Object.defineProperty(CtwaContextData.prototype, "_title", {
+                    get: $util.oneOfGetter($oneOfFields = ["title"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * CtwaContextData _description.
+                 * @member {"description"|undefined} _description
+                 * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
+                 * @instance
+                 */
+                Object.defineProperty(CtwaContextData.prototype, "_description", {
+                    get: $util.oneOfGetter($oneOfFields = ["description"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * CtwaContextData _thumbnail.
+                 * @member {"thumbnail"|undefined} _thumbnail
+                 * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
+                 * @instance
+                 */
+                Object.defineProperty(CtwaContextData.prototype, "_thumbnail", {
+                    get: $util.oneOfGetter($oneOfFields = ["thumbnail"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * CtwaContextData _thumbnailUrl.
+                 * @member {"thumbnailUrl"|undefined} _thumbnailUrl
+                 * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
+                 * @instance
+                 */
+                Object.defineProperty(CtwaContextData.prototype, "_thumbnailUrl", {
+                    get: $util.oneOfGetter($oneOfFields = ["thumbnailUrl"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * CtwaContextData _mediaType.
+                 * @member {"mediaType"|undefined} _mediaType
+                 * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
+                 * @instance
+                 */
+                Object.defineProperty(CtwaContextData.prototype, "_mediaType", {
+                    get: $util.oneOfGetter($oneOfFields = ["mediaType"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * CtwaContextData _mediaUrl.
+                 * @member {"mediaUrl"|undefined} _mediaUrl
+                 * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
+                 * @instance
+                 */
+                Object.defineProperty(CtwaContextData.prototype, "_mediaUrl", {
+                    get: $util.oneOfGetter($oneOfFields = ["mediaUrl"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * CtwaContextData _isSuspiciousLink.
+                 * @member {"isSuspiciousLink"|undefined} _isSuspiciousLink
+                 * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
+                 * @instance
+                 */
+                Object.defineProperty(CtwaContextData.prototype, "_isSuspiciousLink", {
+                    get: $util.oneOfGetter($oneOfFields = ["isSuspiciousLink"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
 
                 /**
                  * Creates a new CtwaContextData instance using the specified properties.
@@ -842,34 +1071,54 @@ $root.MdStorageChatRowOpaqueData = (function() {
                 CtwaContextData.verify = function verify(message) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    if (message.conversionSource != null && message.hasOwnProperty("conversionSource"))
+                    var properties = {};
+                    if (message.conversionSource != null && message.hasOwnProperty("conversionSource")) {
+                        properties._conversionSource = 1;
                         if (!$util.isString(message.conversionSource))
                             return "conversionSource: string expected";
-                    if (message.conversionData != null && message.hasOwnProperty("conversionData"))
+                    }
+                    if (message.conversionData != null && message.hasOwnProperty("conversionData")) {
+                        properties._conversionData = 1;
                         if (!(message.conversionData && typeof message.conversionData.length === "number" || $util.isString(message.conversionData)))
                             return "conversionData: buffer expected";
-                    if (message.sourceUrl != null && message.hasOwnProperty("sourceUrl"))
+                    }
+                    if (message.sourceUrl != null && message.hasOwnProperty("sourceUrl")) {
+                        properties._sourceUrl = 1;
                         if (!$util.isString(message.sourceUrl))
                             return "sourceUrl: string expected";
-                    if (message.sourceId != null && message.hasOwnProperty("sourceId"))
+                    }
+                    if (message.sourceId != null && message.hasOwnProperty("sourceId")) {
+                        properties._sourceId = 1;
                         if (!$util.isString(message.sourceId))
                             return "sourceId: string expected";
-                    if (message.sourceType != null && message.hasOwnProperty("sourceType"))
+                    }
+                    if (message.sourceType != null && message.hasOwnProperty("sourceType")) {
+                        properties._sourceType = 1;
                         if (!$util.isString(message.sourceType))
                             return "sourceType: string expected";
-                    if (message.title != null && message.hasOwnProperty("title"))
+                    }
+                    if (message.title != null && message.hasOwnProperty("title")) {
+                        properties._title = 1;
                         if (!$util.isString(message.title))
                             return "title: string expected";
-                    if (message.description != null && message.hasOwnProperty("description"))
+                    }
+                    if (message.description != null && message.hasOwnProperty("description")) {
+                        properties._description = 1;
                         if (!$util.isString(message.description))
                             return "description: string expected";
-                    if (message.thumbnail != null && message.hasOwnProperty("thumbnail"))
+                    }
+                    if (message.thumbnail != null && message.hasOwnProperty("thumbnail")) {
+                        properties._thumbnail = 1;
                         if (!$util.isString(message.thumbnail))
                             return "thumbnail: string expected";
-                    if (message.thumbnailUrl != null && message.hasOwnProperty("thumbnailUrl"))
+                    }
+                    if (message.thumbnailUrl != null && message.hasOwnProperty("thumbnailUrl")) {
+                        properties._thumbnailUrl = 1;
                         if (!$util.isString(message.thumbnailUrl))
                             return "thumbnailUrl: string expected";
-                    if (message.mediaType != null && message.hasOwnProperty("mediaType"))
+                    }
+                    if (message.mediaType != null && message.hasOwnProperty("mediaType")) {
+                        properties._mediaType = 1;
                         switch (message.mediaType) {
                         default:
                             return "mediaType: enum value expected";
@@ -878,12 +1127,17 @@ $root.MdStorageChatRowOpaqueData = (function() {
                         case 2:
                             break;
                         }
-                    if (message.mediaUrl != null && message.hasOwnProperty("mediaUrl"))
+                    }
+                    if (message.mediaUrl != null && message.hasOwnProperty("mediaUrl")) {
+                        properties._mediaUrl = 1;
                         if (!$util.isString(message.mediaUrl))
                             return "mediaUrl: string expected";
-                    if (message.isSuspiciousLink != null && message.hasOwnProperty("isSuspiciousLink"))
+                    }
+                    if (message.isSuspiciousLink != null && message.hasOwnProperty("isSuspiciousLink")) {
+                        properties._isSuspiciousLink = 1;
                         if (typeof message.isSuspiciousLink !== "boolean")
                             return "isSuspiciousLink: boolean expected";
+                    }
                     return null;
                 };
 
@@ -960,50 +1214,66 @@ $root.MdStorageChatRowOpaqueData = (function() {
                     if (!options)
                         options = {};
                     var object = {};
-                    if (options.defaults) {
-                        object.conversionSource = "";
-                        if (options.bytes === String)
-                            object.conversionData = "";
-                        else {
-                            object.conversionData = [];
-                            if (options.bytes !== Array)
-                                object.conversionData = $util.newBuffer(object.conversionData);
-                        }
-                        object.sourceUrl = "";
-                        object.sourceId = "";
-                        object.sourceType = "";
-                        object.title = "";
-                        object.description = "";
-                        object.thumbnail = "";
-                        object.thumbnailUrl = "";
-                        object.mediaType = options.enums === String ? "NONE" : 0;
-                        object.mediaUrl = "";
-                        object.isSuspiciousLink = false;
-                    }
-                    if (message.conversionSource != null && message.hasOwnProperty("conversionSource"))
+                    if (message.conversionSource != null && message.hasOwnProperty("conversionSource")) {
                         object.conversionSource = message.conversionSource;
-                    if (message.conversionData != null && message.hasOwnProperty("conversionData"))
+                        if (options.oneofs)
+                            object._conversionSource = "conversionSource";
+                    }
+                    if (message.conversionData != null && message.hasOwnProperty("conversionData")) {
                         object.conversionData = options.bytes === String ? $util.base64.encode(message.conversionData, 0, message.conversionData.length) : options.bytes === Array ? Array.prototype.slice.call(message.conversionData) : message.conversionData;
-                    if (message.sourceUrl != null && message.hasOwnProperty("sourceUrl"))
+                        if (options.oneofs)
+                            object._conversionData = "conversionData";
+                    }
+                    if (message.sourceUrl != null && message.hasOwnProperty("sourceUrl")) {
                         object.sourceUrl = message.sourceUrl;
-                    if (message.sourceId != null && message.hasOwnProperty("sourceId"))
+                        if (options.oneofs)
+                            object._sourceUrl = "sourceUrl";
+                    }
+                    if (message.sourceId != null && message.hasOwnProperty("sourceId")) {
                         object.sourceId = message.sourceId;
-                    if (message.sourceType != null && message.hasOwnProperty("sourceType"))
+                        if (options.oneofs)
+                            object._sourceId = "sourceId";
+                    }
+                    if (message.sourceType != null && message.hasOwnProperty("sourceType")) {
                         object.sourceType = message.sourceType;
-                    if (message.title != null && message.hasOwnProperty("title"))
+                        if (options.oneofs)
+                            object._sourceType = "sourceType";
+                    }
+                    if (message.title != null && message.hasOwnProperty("title")) {
                         object.title = message.title;
-                    if (message.description != null && message.hasOwnProperty("description"))
+                        if (options.oneofs)
+                            object._title = "title";
+                    }
+                    if (message.description != null && message.hasOwnProperty("description")) {
                         object.description = message.description;
-                    if (message.thumbnail != null && message.hasOwnProperty("thumbnail"))
+                        if (options.oneofs)
+                            object._description = "description";
+                    }
+                    if (message.thumbnail != null && message.hasOwnProperty("thumbnail")) {
                         object.thumbnail = message.thumbnail;
-                    if (message.thumbnailUrl != null && message.hasOwnProperty("thumbnailUrl"))
+                        if (options.oneofs)
+                            object._thumbnail = "thumbnail";
+                    }
+                    if (message.thumbnailUrl != null && message.hasOwnProperty("thumbnailUrl")) {
                         object.thumbnailUrl = message.thumbnailUrl;
-                    if (message.mediaType != null && message.hasOwnProperty("mediaType"))
+                        if (options.oneofs)
+                            object._thumbnailUrl = "thumbnailUrl";
+                    }
+                    if (message.mediaType != null && message.hasOwnProperty("mediaType")) {
                         object.mediaType = options.enums === String ? $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.ContextInfoExternalAdReplyInfoMediaType[message.mediaType] === undefined ? message.mediaType : $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.ContextInfoExternalAdReplyInfoMediaType[message.mediaType] : message.mediaType;
-                    if (message.mediaUrl != null && message.hasOwnProperty("mediaUrl"))
+                        if (options.oneofs)
+                            object._mediaType = "mediaType";
+                    }
+                    if (message.mediaUrl != null && message.hasOwnProperty("mediaUrl")) {
                         object.mediaUrl = message.mediaUrl;
-                    if (message.isSuspiciousLink != null && message.hasOwnProperty("isSuspiciousLink"))
+                        if (options.oneofs)
+                            object._mediaUrl = "mediaUrl";
+                    }
+                    if (message.isSuspiciousLink != null && message.hasOwnProperty("isSuspiciousLink")) {
                         object.isSuspiciousLink = message.isSuspiciousLink;
+                        if (options.oneofs)
+                            object._isSuspiciousLink = "isSuspiciousLink";
+                    }
                     return object;
                 };
 
@@ -1081,35 +1351,82 @@ $root.MdStorageChatRowOpaqueData = (function() {
 
                 /**
                  * CtwaContextLinkData context.
-                 * @member {string} context
+                 * @member {string|null|undefined} context
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData
                  * @instance
                  */
-                CtwaContextLinkData.prototype.context = "";
+                CtwaContextLinkData.prototype.context = null;
 
                 /**
                  * CtwaContextLinkData sourceUrl.
-                 * @member {string} sourceUrl
+                 * @member {string|null|undefined} sourceUrl
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData
                  * @instance
                  */
-                CtwaContextLinkData.prototype.sourceUrl = "";
+                CtwaContextLinkData.prototype.sourceUrl = null;
 
                 /**
                  * CtwaContextLinkData icebreaker.
-                 * @member {string} icebreaker
+                 * @member {string|null|undefined} icebreaker
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData
                  * @instance
                  */
-                CtwaContextLinkData.prototype.icebreaker = "";
+                CtwaContextLinkData.prototype.icebreaker = null;
 
                 /**
                  * CtwaContextLinkData phone.
-                 * @member {string} phone
+                 * @member {string|null|undefined} phone
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData
                  * @instance
                  */
-                CtwaContextLinkData.prototype.phone = "";
+                CtwaContextLinkData.prototype.phone = null;
+
+                // OneOf field names bound to virtual getters and setters
+                var $oneOfFields;
+
+                /**
+                 * CtwaContextLinkData _context.
+                 * @member {"context"|undefined} _context
+                 * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData
+                 * @instance
+                 */
+                Object.defineProperty(CtwaContextLinkData.prototype, "_context", {
+                    get: $util.oneOfGetter($oneOfFields = ["context"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * CtwaContextLinkData _sourceUrl.
+                 * @member {"sourceUrl"|undefined} _sourceUrl
+                 * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData
+                 * @instance
+                 */
+                Object.defineProperty(CtwaContextLinkData.prototype, "_sourceUrl", {
+                    get: $util.oneOfGetter($oneOfFields = ["sourceUrl"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * CtwaContextLinkData _icebreaker.
+                 * @member {"icebreaker"|undefined} _icebreaker
+                 * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData
+                 * @instance
+                 */
+                Object.defineProperty(CtwaContextLinkData.prototype, "_icebreaker", {
+                    get: $util.oneOfGetter($oneOfFields = ["icebreaker"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * CtwaContextLinkData _phone.
+                 * @member {"phone"|undefined} _phone
+                 * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData
+                 * @instance
+                 */
+                Object.defineProperty(CtwaContextLinkData.prototype, "_phone", {
+                    get: $util.oneOfGetter($oneOfFields = ["phone"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
 
                 /**
                  * Creates a new CtwaContextLinkData instance using the specified properties.
@@ -1230,18 +1547,27 @@ $root.MdStorageChatRowOpaqueData = (function() {
                 CtwaContextLinkData.verify = function verify(message) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    if (message.context != null && message.hasOwnProperty("context"))
+                    var properties = {};
+                    if (message.context != null && message.hasOwnProperty("context")) {
+                        properties._context = 1;
                         if (!$util.isString(message.context))
                             return "context: string expected";
-                    if (message.sourceUrl != null && message.hasOwnProperty("sourceUrl"))
+                    }
+                    if (message.sourceUrl != null && message.hasOwnProperty("sourceUrl")) {
+                        properties._sourceUrl = 1;
                         if (!$util.isString(message.sourceUrl))
                             return "sourceUrl: string expected";
-                    if (message.icebreaker != null && message.hasOwnProperty("icebreaker"))
+                    }
+                    if (message.icebreaker != null && message.hasOwnProperty("icebreaker")) {
+                        properties._icebreaker = 1;
                         if (!$util.isString(message.icebreaker))
                             return "icebreaker: string expected";
-                    if (message.phone != null && message.hasOwnProperty("phone"))
+                    }
+                    if (message.phone != null && message.hasOwnProperty("phone")) {
+                        properties._phone = 1;
                         if (!$util.isString(message.phone))
                             return "phone: string expected";
+                    }
                     return null;
                 };
 
@@ -1281,20 +1607,26 @@ $root.MdStorageChatRowOpaqueData = (function() {
                     if (!options)
                         options = {};
                     var object = {};
-                    if (options.defaults) {
-                        object.context = "";
-                        object.sourceUrl = "";
-                        object.icebreaker = "";
-                        object.phone = "";
-                    }
-                    if (message.context != null && message.hasOwnProperty("context"))
+                    if (message.context != null && message.hasOwnProperty("context")) {
                         object.context = message.context;
-                    if (message.sourceUrl != null && message.hasOwnProperty("sourceUrl"))
+                        if (options.oneofs)
+                            object._context = "context";
+                    }
+                    if (message.sourceUrl != null && message.hasOwnProperty("sourceUrl")) {
                         object.sourceUrl = message.sourceUrl;
-                    if (message.icebreaker != null && message.hasOwnProperty("icebreaker"))
+                        if (options.oneofs)
+                            object._sourceUrl = "sourceUrl";
+                    }
+                    if (message.icebreaker != null && message.hasOwnProperty("icebreaker")) {
                         object.icebreaker = message.icebreaker;
-                    if (message.phone != null && message.hasOwnProperty("phone"))
+                        if (options.oneofs)
+                            object._icebreaker = "icebreaker";
+                    }
+                    if (message.phone != null && message.hasOwnProperty("phone")) {
                         object.phone = message.phone;
+                        if (options.oneofs)
+                            object._phone = "phone";
+                    }
                     return object;
                 };
 

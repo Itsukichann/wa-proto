@@ -50,19 +50,19 @@ $root.StatusAttributions = (function() {
 
         /**
          * StatusAttribution type.
-         * @member {StatusAttributions.StatusAttribution.Type} type
+         * @member {StatusAttributions.StatusAttribution.Type|null|undefined} type
          * @memberof StatusAttributions.StatusAttribution
          * @instance
          */
-        StatusAttribution.prototype.type = 0;
+        StatusAttribution.prototype.type = null;
 
         /**
          * StatusAttribution actionUrl.
-         * @member {string} actionUrl
+         * @member {string|null|undefined} actionUrl
          * @memberof StatusAttributions.StatusAttribution
          * @instance
          */
-        StatusAttribution.prototype.actionUrl = "";
+        StatusAttribution.prototype.actionUrl = null;
 
         /**
          * StatusAttribution statusReshare.
@@ -106,6 +106,28 @@ $root.StatusAttributions = (function() {
 
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
+
+        /**
+         * StatusAttribution _type.
+         * @member {"type"|undefined} _type
+         * @memberof StatusAttributions.StatusAttribution
+         * @instance
+         */
+        Object.defineProperty(StatusAttribution.prototype, "_type", {
+            get: $util.oneOfGetter($oneOfFields = ["type"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * StatusAttribution _actionUrl.
+         * @member {"actionUrl"|undefined} _actionUrl
+         * @memberof StatusAttributions.StatusAttribution
+         * @instance
+         */
+        Object.defineProperty(StatusAttribution.prototype, "_actionUrl", {
+            get: $util.oneOfGetter($oneOfFields = ["actionUrl"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * StatusAttribution attributionData.
@@ -256,7 +278,8 @@ $root.StatusAttributions = (function() {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             var properties = {};
-            if (message.type != null && message.hasOwnProperty("type"))
+            if (message.type != null && message.hasOwnProperty("type")) {
+                properties._type = 1;
                 switch (message.type) {
                 default:
                     return "type: enum value expected";
@@ -269,9 +292,12 @@ $root.StatusAttributions = (function() {
                 case 6:
                     break;
                 }
-            if (message.actionUrl != null && message.hasOwnProperty("actionUrl"))
+            }
+            if (message.actionUrl != null && message.hasOwnProperty("actionUrl")) {
+                properties._actionUrl = 1;
                 if (!$util.isString(message.actionUrl))
                     return "actionUrl: string expected";
+            }
             if (message.statusReshare != null && message.hasOwnProperty("statusReshare")) {
                 properties.attributionData = 1;
                 {
@@ -414,14 +440,16 @@ $root.StatusAttributions = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults) {
-                object.type = options.enums === String ? "UNKNOWN" : 0;
-                object.actionUrl = "";
-            }
-            if (message.type != null && message.hasOwnProperty("type"))
+            if (message.type != null && message.hasOwnProperty("type")) {
                 object.type = options.enums === String ? $root.StatusAttributions.StatusAttribution.Type[message.type] === undefined ? message.type : $root.StatusAttributions.StatusAttribution.Type[message.type] : message.type;
-            if (message.actionUrl != null && message.hasOwnProperty("actionUrl"))
+                if (options.oneofs)
+                    object._type = "type";
+            }
+            if (message.actionUrl != null && message.hasOwnProperty("actionUrl")) {
                 object.actionUrl = message.actionUrl;
+                if (options.oneofs)
+                    object._actionUrl = "actionUrl";
+            }
             if (message.statusReshare != null && message.hasOwnProperty("statusReshare")) {
                 object.statusReshare = $root.StatusAttributions.StatusAttribution.StatusReshare.toObject(message.statusReshare, options);
                 if (options.oneofs)
@@ -505,35 +533,82 @@ $root.StatusAttributions = (function() {
 
             /**
              * ExternalShare actionUrl.
-             * @member {string} actionUrl
+             * @member {string|null|undefined} actionUrl
              * @memberof StatusAttributions.StatusAttribution.ExternalShare
              * @instance
              */
-            ExternalShare.prototype.actionUrl = "";
+            ExternalShare.prototype.actionUrl = null;
 
             /**
              * ExternalShare source.
-             * @member {StatusAttributions.StatusAttribution.ExternalShare.Source} source
+             * @member {StatusAttributions.StatusAttribution.ExternalShare.Source|null|undefined} source
              * @memberof StatusAttributions.StatusAttribution.ExternalShare
              * @instance
              */
-            ExternalShare.prototype.source = 0;
+            ExternalShare.prototype.source = null;
 
             /**
              * ExternalShare duration.
-             * @member {number} duration
+             * @member {number|null|undefined} duration
              * @memberof StatusAttributions.StatusAttribution.ExternalShare
              * @instance
              */
-            ExternalShare.prototype.duration = 0;
+            ExternalShare.prototype.duration = null;
 
             /**
              * ExternalShare actionFallbackUrl.
-             * @member {string} actionFallbackUrl
+             * @member {string|null|undefined} actionFallbackUrl
              * @memberof StatusAttributions.StatusAttribution.ExternalShare
              * @instance
              */
-            ExternalShare.prototype.actionFallbackUrl = "";
+            ExternalShare.prototype.actionFallbackUrl = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            /**
+             * ExternalShare _actionUrl.
+             * @member {"actionUrl"|undefined} _actionUrl
+             * @memberof StatusAttributions.StatusAttribution.ExternalShare
+             * @instance
+             */
+            Object.defineProperty(ExternalShare.prototype, "_actionUrl", {
+                get: $util.oneOfGetter($oneOfFields = ["actionUrl"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * ExternalShare _source.
+             * @member {"source"|undefined} _source
+             * @memberof StatusAttributions.StatusAttribution.ExternalShare
+             * @instance
+             */
+            Object.defineProperty(ExternalShare.prototype, "_source", {
+                get: $util.oneOfGetter($oneOfFields = ["source"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * ExternalShare _duration.
+             * @member {"duration"|undefined} _duration
+             * @memberof StatusAttributions.StatusAttribution.ExternalShare
+             * @instance
+             */
+            Object.defineProperty(ExternalShare.prototype, "_duration", {
+                get: $util.oneOfGetter($oneOfFields = ["duration"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * ExternalShare _actionFallbackUrl.
+             * @member {"actionFallbackUrl"|undefined} _actionFallbackUrl
+             * @memberof StatusAttributions.StatusAttribution.ExternalShare
+             * @instance
+             */
+            Object.defineProperty(ExternalShare.prototype, "_actionFallbackUrl", {
+                get: $util.oneOfGetter($oneOfFields = ["actionFallbackUrl"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
 
             /**
              * Creates a new ExternalShare instance using the specified properties.
@@ -654,10 +729,14 @@ $root.StatusAttributions = (function() {
             ExternalShare.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.actionUrl != null && message.hasOwnProperty("actionUrl"))
+                var properties = {};
+                if (message.actionUrl != null && message.hasOwnProperty("actionUrl")) {
+                    properties._actionUrl = 1;
                     if (!$util.isString(message.actionUrl))
                         return "actionUrl: string expected";
-                if (message.source != null && message.hasOwnProperty("source"))
+                }
+                if (message.source != null && message.hasOwnProperty("source")) {
+                    properties._source = 1;
                     switch (message.source) {
                     default:
                         return "source: enum value expected";
@@ -671,12 +750,17 @@ $root.StatusAttributions = (function() {
                     case 7:
                         break;
                     }
-                if (message.duration != null && message.hasOwnProperty("duration"))
+                }
+                if (message.duration != null && message.hasOwnProperty("duration")) {
+                    properties._duration = 1;
                     if (!$util.isInteger(message.duration))
                         return "duration: integer expected";
-                if (message.actionFallbackUrl != null && message.hasOwnProperty("actionFallbackUrl"))
+                }
+                if (message.actionFallbackUrl != null && message.hasOwnProperty("actionFallbackUrl")) {
+                    properties._actionFallbackUrl = 1;
                     if (!$util.isString(message.actionFallbackUrl))
                         return "actionFallbackUrl: string expected";
+                }
                 return null;
             };
 
@@ -754,20 +838,26 @@ $root.StatusAttributions = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults) {
-                    object.actionUrl = "";
-                    object.source = options.enums === String ? "UNKNOWN" : 0;
-                    object.duration = 0;
-                    object.actionFallbackUrl = "";
-                }
-                if (message.actionUrl != null && message.hasOwnProperty("actionUrl"))
+                if (message.actionUrl != null && message.hasOwnProperty("actionUrl")) {
                     object.actionUrl = message.actionUrl;
-                if (message.source != null && message.hasOwnProperty("source"))
+                    if (options.oneofs)
+                        object._actionUrl = "actionUrl";
+                }
+                if (message.source != null && message.hasOwnProperty("source")) {
                     object.source = options.enums === String ? $root.StatusAttributions.StatusAttribution.ExternalShare.Source[message.source] === undefined ? message.source : $root.StatusAttributions.StatusAttribution.ExternalShare.Source[message.source] : message.source;
-                if (message.duration != null && message.hasOwnProperty("duration"))
+                    if (options.oneofs)
+                        object._source = "source";
+                }
+                if (message.duration != null && message.hasOwnProperty("duration")) {
                     object.duration = message.duration;
-                if (message.actionFallbackUrl != null && message.hasOwnProperty("actionFallbackUrl"))
+                    if (options.oneofs)
+                        object._duration = "duration";
+                }
+                if (message.actionFallbackUrl != null && message.hasOwnProperty("actionFallbackUrl")) {
                     object.actionFallbackUrl = message.actionFallbackUrl;
+                    if (options.oneofs)
+                        object._actionFallbackUrl = "actionFallbackUrl";
+                }
                 return object;
             };
 
@@ -852,11 +942,25 @@ $root.StatusAttributions = (function() {
 
             /**
              * GroupStatus authorJid.
-             * @member {string} authorJid
+             * @member {string|null|undefined} authorJid
              * @memberof StatusAttributions.StatusAttribution.GroupStatus
              * @instance
              */
-            GroupStatus.prototype.authorJid = "";
+            GroupStatus.prototype.authorJid = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            /**
+             * GroupStatus _authorJid.
+             * @member {"authorJid"|undefined} _authorJid
+             * @memberof StatusAttributions.StatusAttribution.GroupStatus
+             * @instance
+             */
+            Object.defineProperty(GroupStatus.prototype, "_authorJid", {
+                get: $util.oneOfGetter($oneOfFields = ["authorJid"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
 
             /**
              * Creates a new GroupStatus instance using the specified properties.
@@ -959,9 +1063,12 @@ $root.StatusAttributions = (function() {
             GroupStatus.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.authorJid != null && message.hasOwnProperty("authorJid"))
+                var properties = {};
+                if (message.authorJid != null && message.hasOwnProperty("authorJid")) {
+                    properties._authorJid = 1;
                     if (!$util.isString(message.authorJid))
                         return "authorJid: string expected";
+                }
                 return null;
             };
 
@@ -995,10 +1102,11 @@ $root.StatusAttributions = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults)
-                    object.authorJid = "";
-                if (message.authorJid != null && message.hasOwnProperty("authorJid"))
+                if (message.authorJid != null && message.hasOwnProperty("authorJid")) {
                     object.authorJid = message.authorJid;
+                    if (options.oneofs)
+                        object._authorJid = "authorJid";
+                }
                 return object;
             };
 
@@ -1062,51 +1170,120 @@ $root.StatusAttributions = (function() {
 
             /**
              * Music authorName.
-             * @member {string} authorName
+             * @member {string|null|undefined} authorName
              * @memberof StatusAttributions.StatusAttribution.Music
              * @instance
              */
-            Music.prototype.authorName = "";
+            Music.prototype.authorName = null;
 
             /**
              * Music songId.
-             * @member {string} songId
+             * @member {string|null|undefined} songId
              * @memberof StatusAttributions.StatusAttribution.Music
              * @instance
              */
-            Music.prototype.songId = "";
+            Music.prototype.songId = null;
 
             /**
              * Music title.
-             * @member {string} title
+             * @member {string|null|undefined} title
              * @memberof StatusAttributions.StatusAttribution.Music
              * @instance
              */
-            Music.prototype.title = "";
+            Music.prototype.title = null;
 
             /**
              * Music author.
-             * @member {string} author
+             * @member {string|null|undefined} author
              * @memberof StatusAttributions.StatusAttribution.Music
              * @instance
              */
-            Music.prototype.author = "";
+            Music.prototype.author = null;
 
             /**
              * Music artistAttribution.
-             * @member {string} artistAttribution
+             * @member {string|null|undefined} artistAttribution
              * @memberof StatusAttributions.StatusAttribution.Music
              * @instance
              */
-            Music.prototype.artistAttribution = "";
+            Music.prototype.artistAttribution = null;
 
             /**
              * Music isExplicit.
-             * @member {boolean} isExplicit
+             * @member {boolean|null|undefined} isExplicit
              * @memberof StatusAttributions.StatusAttribution.Music
              * @instance
              */
-            Music.prototype.isExplicit = false;
+            Music.prototype.isExplicit = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            /**
+             * Music _authorName.
+             * @member {"authorName"|undefined} _authorName
+             * @memberof StatusAttributions.StatusAttribution.Music
+             * @instance
+             */
+            Object.defineProperty(Music.prototype, "_authorName", {
+                get: $util.oneOfGetter($oneOfFields = ["authorName"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Music _songId.
+             * @member {"songId"|undefined} _songId
+             * @memberof StatusAttributions.StatusAttribution.Music
+             * @instance
+             */
+            Object.defineProperty(Music.prototype, "_songId", {
+                get: $util.oneOfGetter($oneOfFields = ["songId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Music _title.
+             * @member {"title"|undefined} _title
+             * @memberof StatusAttributions.StatusAttribution.Music
+             * @instance
+             */
+            Object.defineProperty(Music.prototype, "_title", {
+                get: $util.oneOfGetter($oneOfFields = ["title"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Music _author.
+             * @member {"author"|undefined} _author
+             * @memberof StatusAttributions.StatusAttribution.Music
+             * @instance
+             */
+            Object.defineProperty(Music.prototype, "_author", {
+                get: $util.oneOfGetter($oneOfFields = ["author"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Music _artistAttribution.
+             * @member {"artistAttribution"|undefined} _artistAttribution
+             * @memberof StatusAttributions.StatusAttribution.Music
+             * @instance
+             */
+            Object.defineProperty(Music.prototype, "_artistAttribution", {
+                get: $util.oneOfGetter($oneOfFields = ["artistAttribution"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Music _isExplicit.
+             * @member {"isExplicit"|undefined} _isExplicit
+             * @memberof StatusAttributions.StatusAttribution.Music
+             * @instance
+             */
+            Object.defineProperty(Music.prototype, "_isExplicit", {
+                get: $util.oneOfGetter($oneOfFields = ["isExplicit"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
 
             /**
              * Creates a new Music instance using the specified properties.
@@ -1239,24 +1416,37 @@ $root.StatusAttributions = (function() {
             Music.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.authorName != null && message.hasOwnProperty("authorName"))
+                var properties = {};
+                if (message.authorName != null && message.hasOwnProperty("authorName")) {
+                    properties._authorName = 1;
                     if (!$util.isString(message.authorName))
                         return "authorName: string expected";
-                if (message.songId != null && message.hasOwnProperty("songId"))
+                }
+                if (message.songId != null && message.hasOwnProperty("songId")) {
+                    properties._songId = 1;
                     if (!$util.isString(message.songId))
                         return "songId: string expected";
-                if (message.title != null && message.hasOwnProperty("title"))
+                }
+                if (message.title != null && message.hasOwnProperty("title")) {
+                    properties._title = 1;
                     if (!$util.isString(message.title))
                         return "title: string expected";
-                if (message.author != null && message.hasOwnProperty("author"))
+                }
+                if (message.author != null && message.hasOwnProperty("author")) {
+                    properties._author = 1;
                     if (!$util.isString(message.author))
                         return "author: string expected";
-                if (message.artistAttribution != null && message.hasOwnProperty("artistAttribution"))
+                }
+                if (message.artistAttribution != null && message.hasOwnProperty("artistAttribution")) {
+                    properties._artistAttribution = 1;
                     if (!$util.isString(message.artistAttribution))
                         return "artistAttribution: string expected";
-                if (message.isExplicit != null && message.hasOwnProperty("isExplicit"))
+                }
+                if (message.isExplicit != null && message.hasOwnProperty("isExplicit")) {
+                    properties._isExplicit = 1;
                     if (typeof message.isExplicit !== "boolean")
                         return "isExplicit: boolean expected";
+                }
                 return null;
             };
 
@@ -1300,26 +1490,36 @@ $root.StatusAttributions = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults) {
-                    object.authorName = "";
-                    object.songId = "";
-                    object.title = "";
-                    object.author = "";
-                    object.artistAttribution = "";
-                    object.isExplicit = false;
-                }
-                if (message.authorName != null && message.hasOwnProperty("authorName"))
+                if (message.authorName != null && message.hasOwnProperty("authorName")) {
                     object.authorName = message.authorName;
-                if (message.songId != null && message.hasOwnProperty("songId"))
+                    if (options.oneofs)
+                        object._authorName = "authorName";
+                }
+                if (message.songId != null && message.hasOwnProperty("songId")) {
                     object.songId = message.songId;
-                if (message.title != null && message.hasOwnProperty("title"))
+                    if (options.oneofs)
+                        object._songId = "songId";
+                }
+                if (message.title != null && message.hasOwnProperty("title")) {
                     object.title = message.title;
-                if (message.author != null && message.hasOwnProperty("author"))
+                    if (options.oneofs)
+                        object._title = "title";
+                }
+                if (message.author != null && message.hasOwnProperty("author")) {
                     object.author = message.author;
-                if (message.artistAttribution != null && message.hasOwnProperty("artistAttribution"))
+                    if (options.oneofs)
+                        object._author = "author";
+                }
+                if (message.artistAttribution != null && message.hasOwnProperty("artistAttribution")) {
                     object.artistAttribution = message.artistAttribution;
-                if (message.isExplicit != null && message.hasOwnProperty("isExplicit"))
+                    if (options.oneofs)
+                        object._artistAttribution = "artistAttribution";
+                }
+                if (message.isExplicit != null && message.hasOwnProperty("isExplicit")) {
                     object.isExplicit = message.isExplicit;
+                    if (options.oneofs)
+                        object._isExplicit = "isExplicit";
+                }
                 return object;
             };
 
@@ -1378,11 +1578,25 @@ $root.StatusAttributions = (function() {
 
             /**
              * RLAttribution source.
-             * @member {StatusAttributions.StatusAttribution.RLAttribution.Source} source
+             * @member {StatusAttributions.StatusAttribution.RLAttribution.Source|null|undefined} source
              * @memberof StatusAttributions.StatusAttribution.RLAttribution
              * @instance
              */
-            RLAttribution.prototype.source = 0;
+            RLAttribution.prototype.source = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            /**
+             * RLAttribution _source.
+             * @member {"source"|undefined} _source
+             * @memberof StatusAttributions.StatusAttribution.RLAttribution
+             * @instance
+             */
+            Object.defineProperty(RLAttribution.prototype, "_source", {
+                get: $util.oneOfGetter($oneOfFields = ["source"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
 
             /**
              * Creates a new RLAttribution instance using the specified properties.
@@ -1485,7 +1699,9 @@ $root.StatusAttributions = (function() {
             RLAttribution.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.source != null && message.hasOwnProperty("source"))
+                var properties = {};
+                if (message.source != null && message.hasOwnProperty("source")) {
+                    properties._source = 1;
                     switch (message.source) {
                     default:
                         return "source: enum value expected";
@@ -1495,6 +1711,7 @@ $root.StatusAttributions = (function() {
                     case 3:
                         break;
                     }
+                }
                 return null;
             };
 
@@ -1550,10 +1767,11 @@ $root.StatusAttributions = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults)
-                    object.source = options.enums === String ? "UNKNOWN" : 0;
-                if (message.source != null && message.hasOwnProperty("source"))
+                if (message.source != null && message.hasOwnProperty("source")) {
                     object.source = options.enums === String ? $root.StatusAttributions.StatusAttribution.RLAttribution.Source[message.source] === undefined ? message.source : $root.StatusAttributions.StatusAttribution.RLAttribution.Source[message.source] : message.source;
+                    if (options.oneofs)
+                        object._source = "source";
+                }
                 return object;
             };
 
@@ -1631,11 +1849,11 @@ $root.StatusAttributions = (function() {
 
             /**
              * StatusReshare source.
-             * @member {StatusAttributions.StatusAttribution.StatusReshare.Source} source
+             * @member {StatusAttributions.StatusAttribution.StatusReshare.Source|null|undefined} source
              * @memberof StatusAttributions.StatusAttribution.StatusReshare
              * @instance
              */
-            StatusReshare.prototype.source = 0;
+            StatusReshare.prototype.source = null;
 
             /**
              * StatusReshare metadata.
@@ -1644,6 +1862,31 @@ $root.StatusAttributions = (function() {
              * @instance
              */
             StatusReshare.prototype.metadata = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            /**
+             * StatusReshare _source.
+             * @member {"source"|undefined} _source
+             * @memberof StatusAttributions.StatusAttribution.StatusReshare
+             * @instance
+             */
+            Object.defineProperty(StatusReshare.prototype, "_source", {
+                get: $util.oneOfGetter($oneOfFields = ["source"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * StatusReshare _metadata.
+             * @member {"metadata"|undefined} _metadata
+             * @memberof StatusAttributions.StatusAttribution.StatusReshare
+             * @instance
+             */
+            Object.defineProperty(StatusReshare.prototype, "_metadata", {
+                get: $util.oneOfGetter($oneOfFields = ["metadata"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
 
             /**
              * Creates a new StatusReshare instance using the specified properties.
@@ -1752,7 +1995,9 @@ $root.StatusAttributions = (function() {
             StatusReshare.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.source != null && message.hasOwnProperty("source"))
+                var properties = {};
+                if (message.source != null && message.hasOwnProperty("source")) {
+                    properties._source = 1;
                     switch (message.source) {
                     default:
                         return "source: enum value expected";
@@ -1762,10 +2007,14 @@ $root.StatusAttributions = (function() {
                     case 3:
                         break;
                     }
+                }
                 if (message.metadata != null && message.hasOwnProperty("metadata")) {
-                    var error = $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.verify(message.metadata);
-                    if (error)
-                        return "metadata." + error;
+                    properties._metadata = 1;
+                    {
+                        var error = $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.verify(message.metadata);
+                        if (error)
+                            return "metadata." + error;
+                    }
                 }
                 return null;
             };
@@ -1827,14 +2076,16 @@ $root.StatusAttributions = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults) {
-                    object.source = options.enums === String ? "UNKNOWN" : 0;
-                    object.metadata = null;
-                }
-                if (message.source != null && message.hasOwnProperty("source"))
+                if (message.source != null && message.hasOwnProperty("source")) {
                     object.source = options.enums === String ? $root.StatusAttributions.StatusAttribution.StatusReshare.Source[message.source] === undefined ? message.source : $root.StatusAttributions.StatusAttribution.StatusReshare.Source[message.source] : message.source;
-                if (message.metadata != null && message.hasOwnProperty("metadata"))
+                    if (options.oneofs)
+                        object._source = "source";
+                }
+                if (message.metadata != null && message.hasOwnProperty("metadata")) {
                     object.metadata = $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.toObject(message.metadata, options);
+                    if (options.oneofs)
+                        object._metadata = "metadata";
+                }
                 return object;
             };
 
@@ -1893,35 +2144,82 @@ $root.StatusAttributions = (function() {
 
                 /**
                  * Metadata duration.
-                 * @member {number} duration
+                 * @member {number|null|undefined} duration
                  * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
                  * @instance
                  */
-                Metadata.prototype.duration = 0;
+                Metadata.prototype.duration = null;
 
                 /**
                  * Metadata channelJid.
-                 * @member {string} channelJid
+                 * @member {string|null|undefined} channelJid
                  * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
                  * @instance
                  */
-                Metadata.prototype.channelJid = "";
+                Metadata.prototype.channelJid = null;
 
                 /**
                  * Metadata channelMessageId.
-                 * @member {number} channelMessageId
+                 * @member {number|null|undefined} channelMessageId
                  * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
                  * @instance
                  */
-                Metadata.prototype.channelMessageId = 0;
+                Metadata.prototype.channelMessageId = null;
 
                 /**
                  * Metadata hasMultipleReshares.
-                 * @member {boolean} hasMultipleReshares
+                 * @member {boolean|null|undefined} hasMultipleReshares
                  * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
                  * @instance
                  */
-                Metadata.prototype.hasMultipleReshares = false;
+                Metadata.prototype.hasMultipleReshares = null;
+
+                // OneOf field names bound to virtual getters and setters
+                var $oneOfFields;
+
+                /**
+                 * Metadata _duration.
+                 * @member {"duration"|undefined} _duration
+                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
+                 * @instance
+                 */
+                Object.defineProperty(Metadata.prototype, "_duration", {
+                    get: $util.oneOfGetter($oneOfFields = ["duration"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * Metadata _channelJid.
+                 * @member {"channelJid"|undefined} _channelJid
+                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
+                 * @instance
+                 */
+                Object.defineProperty(Metadata.prototype, "_channelJid", {
+                    get: $util.oneOfGetter($oneOfFields = ["channelJid"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * Metadata _channelMessageId.
+                 * @member {"channelMessageId"|undefined} _channelMessageId
+                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
+                 * @instance
+                 */
+                Object.defineProperty(Metadata.prototype, "_channelMessageId", {
+                    get: $util.oneOfGetter($oneOfFields = ["channelMessageId"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * Metadata _hasMultipleReshares.
+                 * @member {"hasMultipleReshares"|undefined} _hasMultipleReshares
+                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
+                 * @instance
+                 */
+                Object.defineProperty(Metadata.prototype, "_hasMultipleReshares", {
+                    get: $util.oneOfGetter($oneOfFields = ["hasMultipleReshares"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
 
                 /**
                  * Creates a new Metadata instance using the specified properties.
@@ -2042,18 +2340,27 @@ $root.StatusAttributions = (function() {
                 Metadata.verify = function verify(message) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    if (message.duration != null && message.hasOwnProperty("duration"))
+                    var properties = {};
+                    if (message.duration != null && message.hasOwnProperty("duration")) {
+                        properties._duration = 1;
                         if (!$util.isInteger(message.duration))
                             return "duration: integer expected";
-                    if (message.channelJid != null && message.hasOwnProperty("channelJid"))
+                    }
+                    if (message.channelJid != null && message.hasOwnProperty("channelJid")) {
+                        properties._channelJid = 1;
                         if (!$util.isString(message.channelJid))
                             return "channelJid: string expected";
-                    if (message.channelMessageId != null && message.hasOwnProperty("channelMessageId"))
+                    }
+                    if (message.channelMessageId != null && message.hasOwnProperty("channelMessageId")) {
+                        properties._channelMessageId = 1;
                         if (!$util.isInteger(message.channelMessageId))
                             return "channelMessageId: integer expected";
-                    if (message.hasMultipleReshares != null && message.hasOwnProperty("hasMultipleReshares"))
+                    }
+                    if (message.hasMultipleReshares != null && message.hasOwnProperty("hasMultipleReshares")) {
+                        properties._hasMultipleReshares = 1;
                         if (typeof message.hasMultipleReshares !== "boolean")
                             return "hasMultipleReshares: boolean expected";
+                    }
                     return null;
                 };
 
@@ -2093,20 +2400,26 @@ $root.StatusAttributions = (function() {
                     if (!options)
                         options = {};
                     var object = {};
-                    if (options.defaults) {
-                        object.duration = 0;
-                        object.channelJid = "";
-                        object.channelMessageId = 0;
-                        object.hasMultipleReshares = false;
-                    }
-                    if (message.duration != null && message.hasOwnProperty("duration"))
+                    if (message.duration != null && message.hasOwnProperty("duration")) {
                         object.duration = message.duration;
-                    if (message.channelJid != null && message.hasOwnProperty("channelJid"))
+                        if (options.oneofs)
+                            object._duration = "duration";
+                    }
+                    if (message.channelJid != null && message.hasOwnProperty("channelJid")) {
                         object.channelJid = message.channelJid;
-                    if (message.channelMessageId != null && message.hasOwnProperty("channelMessageId"))
+                        if (options.oneofs)
+                            object._channelJid = "channelJid";
+                    }
+                    if (message.channelMessageId != null && message.hasOwnProperty("channelMessageId")) {
                         object.channelMessageId = message.channelMessageId;
-                    if (message.hasMultipleReshares != null && message.hasOwnProperty("hasMultipleReshares"))
+                        if (options.oneofs)
+                            object._channelMessageId = "channelMessageId";
+                    }
+                    if (message.hasMultipleReshares != null && message.hasOwnProperty("hasMultipleReshares")) {
                         object.hasMultipleReshares = message.hasMultipleReshares;
+                        if (options.oneofs)
+                            object._hasMultipleReshares = "hasMultipleReshares";
+                    }
                     return object;
                 };
 
