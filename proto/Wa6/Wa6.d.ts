@@ -95,6 +95,9 @@ export namespace Wa6 {
 
         /** ClientPayload accountType */
         accountType?: (Wa6.ClientPayload.AccountType|null);
+
+        /** ClientPayload connectionSequenceInfo */
+        connectionSequenceInfo?: (number|null);
     }
 
     /** Represents a ClientPayload. */
@@ -196,6 +199,9 @@ export namespace Wa6 {
         /** ClientPayload accountType. */
         public accountType?: (Wa6.ClientPayload.AccountType|null);
 
+        /** ClientPayload connectionSequenceInfo. */
+        public connectionSequenceInfo?: (number|null);
+
         /** ClientPayload _username. */
         public _username?: "username";
 
@@ -282,6 +288,9 @@ export namespace Wa6 {
 
         /** ClientPayload _accountType. */
         public _accountType?: "accountType";
+
+        /** ClientPayload _connectionSequenceInfo. */
+        public _connectionSequenceInfo?: "connectionSequenceInfo";
 
         /**
          * Creates a new ClientPayload instance using the specified properties.
