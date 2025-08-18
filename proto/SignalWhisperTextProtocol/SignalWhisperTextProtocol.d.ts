@@ -23,16 +23,10 @@ export namespace SignalWhisperTextProtocol {
         constructor(properties?: SignalWhisperTextProtocol.IDeviceConsistencyCodeMessage);
 
         /** DeviceConsistencyCodeMessage generation. */
-        public generation?: (number|null);
+        public generation: number;
 
         /** DeviceConsistencyCodeMessage signature. */
-        public signature?: (Uint8Array|null);
-
-        /** DeviceConsistencyCodeMessage _generation. */
-        public _generation?: "generation";
-
-        /** DeviceConsistencyCodeMessage _signature. */
-        public _signature?: "signature";
+        public signature: Uint8Array;
 
         /**
          * Creates a new DeviceConsistencyCodeMessage instance using the specified properties.
@@ -138,28 +132,16 @@ export namespace SignalWhisperTextProtocol {
         constructor(properties?: SignalWhisperTextProtocol.ISenderKeyDistributionMessage);
 
         /** SenderKeyDistributionMessage id. */
-        public id?: (number|null);
+        public id: number;
 
         /** SenderKeyDistributionMessage iteration. */
-        public iteration?: (number|null);
+        public iteration: number;
 
         /** SenderKeyDistributionMessage chainKey. */
-        public chainKey?: (Uint8Array|null);
+        public chainKey: Uint8Array;
 
         /** SenderKeyDistributionMessage signingKey. */
-        public signingKey?: (Uint8Array|null);
-
-        /** SenderKeyDistributionMessage _id. */
-        public _id?: "id";
-
-        /** SenderKeyDistributionMessage _iteration. */
-        public _iteration?: "iteration";
-
-        /** SenderKeyDistributionMessage _chainKey. */
-        public _chainKey?: "chainKey";
-
-        /** SenderKeyDistributionMessage _signingKey. */
-        public _signingKey?: "signingKey";
+        public signingKey: Uint8Array;
 
         /**
          * Creates a new SenderKeyDistributionMessage instance using the specified properties.
@@ -262,22 +244,13 @@ export namespace SignalWhisperTextProtocol {
         constructor(properties?: SignalWhisperTextProtocol.ISenderKeyMessage);
 
         /** SenderKeyMessage id. */
-        public id?: (number|null);
+        public id: number;
 
         /** SenderKeyMessage iteration. */
-        public iteration?: (number|null);
+        public iteration: number;
 
         /** SenderKeyMessage ciphertext. */
-        public ciphertext?: (Uint8Array|null);
-
-        /** SenderKeyMessage _id. */
-        public _id?: "id";
-
-        /** SenderKeyMessage _iteration. */
-        public _iteration?: "iteration";
-
-        /** SenderKeyMessage _ciphertext. */
-        public _ciphertext?: "ciphertext";
+        public ciphertext: Uint8Array;
 
         /**
          * Creates a new SenderKeyMessage instance using the specified properties.
@@ -386,34 +359,19 @@ export namespace SignalWhisperTextProtocol {
         constructor(properties?: SignalWhisperTextProtocol.IKeyExchangeMessage);
 
         /** KeyExchangeMessage id. */
-        public id?: (number|null);
+        public id: number;
 
         /** KeyExchangeMessage baseKey. */
-        public baseKey?: (Uint8Array|null);
+        public baseKey: Uint8Array;
 
         /** KeyExchangeMessage ratchetKey. */
-        public ratchetKey?: (Uint8Array|null);
+        public ratchetKey: Uint8Array;
 
         /** KeyExchangeMessage identityKey. */
-        public identityKey?: (Uint8Array|null);
+        public identityKey: Uint8Array;
 
         /** KeyExchangeMessage baseKeySignature. */
-        public baseKeySignature?: (Uint8Array|null);
-
-        /** KeyExchangeMessage _id. */
-        public _id?: "id";
-
-        /** KeyExchangeMessage _baseKey. */
-        public _baseKey?: "baseKey";
-
-        /** KeyExchangeMessage _ratchetKey. */
-        public _ratchetKey?: "ratchetKey";
-
-        /** KeyExchangeMessage _identityKey. */
-        public _identityKey?: "identityKey";
-
-        /** KeyExchangeMessage _baseKeySignature. */
-        public _baseKeySignature?: "baseKeySignature";
+        public baseKeySignature: Uint8Array;
 
         /**
          * Creates a new KeyExchangeMessage instance using the specified properties.
@@ -525,40 +483,22 @@ export namespace SignalWhisperTextProtocol {
         constructor(properties?: SignalWhisperTextProtocol.IPreKeySignalMessage);
 
         /** PreKeySignalMessage registrationId. */
-        public registrationId?: (number|null);
+        public registrationId: number;
 
         /** PreKeySignalMessage preKeyId. */
-        public preKeyId?: (number|null);
+        public preKeyId: number;
 
         /** PreKeySignalMessage signedPreKeyId. */
-        public signedPreKeyId?: (number|null);
+        public signedPreKeyId: number;
 
         /** PreKeySignalMessage baseKey. */
-        public baseKey?: (Uint8Array|null);
+        public baseKey: Uint8Array;
 
         /** PreKeySignalMessage identityKey. */
-        public identityKey?: (Uint8Array|null);
+        public identityKey: Uint8Array;
 
         /** PreKeySignalMessage message. */
-        public message?: (Uint8Array|null);
-
-        /** PreKeySignalMessage _registrationId. */
-        public _registrationId?: "registrationId";
-
-        /** PreKeySignalMessage _preKeyId. */
-        public _preKeyId?: "preKeyId";
-
-        /** PreKeySignalMessage _signedPreKeyId. */
-        public _signedPreKeyId?: "signedPreKeyId";
-
-        /** PreKeySignalMessage _baseKey. */
-        public _baseKey?: "baseKey";
-
-        /** PreKeySignalMessage _identityKey. */
-        public _identityKey?: "identityKey";
-
-        /** PreKeySignalMessage _message. */
-        public _message?: "message";
+        public message: Uint8Array;
 
         /**
          * Creates a new PreKeySignalMessage instance using the specified properties.
@@ -664,28 +604,16 @@ export namespace SignalWhisperTextProtocol {
         constructor(properties?: SignalWhisperTextProtocol.ISignalMessage);
 
         /** SignalMessage ratchetKey. */
-        public ratchetKey?: (Uint8Array|null);
+        public ratchetKey: Uint8Array;
 
         /** SignalMessage counter. */
-        public counter?: (number|null);
+        public counter: number;
 
         /** SignalMessage previousCounter. */
-        public previousCounter?: (number|null);
+        public previousCounter: number;
 
         /** SignalMessage ciphertext. */
-        public ciphertext?: (Uint8Array|null);
-
-        /** SignalMessage _ratchetKey. */
-        public _ratchetKey?: "ratchetKey";
-
-        /** SignalMessage _counter. */
-        public _counter?: "counter";
-
-        /** SignalMessage _previousCounter. */
-        public _previousCounter?: "previousCounter";
-
-        /** SignalMessage _ciphertext. */
-        public _ciphertext?: "ciphertext";
+        public ciphertext: Uint8Array;
 
         /**
          * Creates a new SignalMessage instance using the specified properties.
