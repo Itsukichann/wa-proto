@@ -26,22 +26,13 @@ export namespace DeviceCapabilities {
         constructor(properties?: DeviceCapabilities.IDeviceCapabilities);
 
         /** DeviceCapabilities chatLockSupportLevel. */
-        public chatLockSupportLevel?: (DeviceCapabilities.DeviceCapabilities.ChatLockSupportLevel|null);
+        public chatLockSupportLevel: DeviceCapabilities.DeviceCapabilities.ChatLockSupportLevel;
 
         /** DeviceCapabilities lidMigration. */
         public lidMigration?: (DeviceCapabilities.DeviceCapabilities.ILIDMigration|null);
 
         /** DeviceCapabilities businessBroadcast. */
         public businessBroadcast?: (DeviceCapabilities.DeviceCapabilities.IBusinessBroadcast|null);
-
-        /** DeviceCapabilities _chatLockSupportLevel. */
-        public _chatLockSupportLevel?: "chatLockSupportLevel";
-
-        /** DeviceCapabilities _lidMigration. */
-        public _lidMigration?: "lidMigration";
-
-        /** DeviceCapabilities _businessBroadcast. */
-        public _businessBroadcast?: "businessBroadcast";
 
         /**
          * Creates a new DeviceCapabilities instance using the specified properties.
@@ -140,10 +131,7 @@ export namespace DeviceCapabilities {
             constructor(properties?: DeviceCapabilities.DeviceCapabilities.IBusinessBroadcast);
 
             /** BusinessBroadcast importListEnabled. */
-            public importListEnabled?: (boolean|null);
-
-            /** BusinessBroadcast _importListEnabled. */
-            public _importListEnabled?: "importListEnabled";
+            public importListEnabled: boolean;
 
             /**
              * Creates a new BusinessBroadcast instance using the specified properties.
@@ -247,10 +235,7 @@ export namespace DeviceCapabilities {
             constructor(properties?: DeviceCapabilities.DeviceCapabilities.ILIDMigration);
 
             /** LIDMigration chatDbMigrationTimestamp. */
-            public chatDbMigrationTimestamp?: (number|Long|null);
-
-            /** LIDMigration _chatDbMigrationTimestamp. */
-            public _chatDbMigrationTimestamp?: "chatDbMigrationTimestamp";
+            public chatDbMigrationTimestamp: (number|Long);
 
             /**
              * Creates a new LIDMigration instance using the specified properties.
