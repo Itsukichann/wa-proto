@@ -4812,6 +4812,9 @@ export namespace AICommon {
 
         /** BotAgeCollectionMetadata shouldTriggerAgeCollectionOnClient */
         shouldTriggerAgeCollectionOnClient?: (boolean|null);
+
+        /** BotAgeCollectionMetadata ageCollectionType */
+        ageCollectionType?: (AICommon.BotAgeCollectionMetadata.AgeCollectionType|null);
     }
 
     /** Represents a BotAgeCollectionMetadata. */
@@ -4829,11 +4832,17 @@ export namespace AICommon {
         /** BotAgeCollectionMetadata shouldTriggerAgeCollectionOnClient. */
         public shouldTriggerAgeCollectionOnClient?: (boolean|null);
 
+        /** BotAgeCollectionMetadata ageCollectionType. */
+        public ageCollectionType?: (AICommon.BotAgeCollectionMetadata.AgeCollectionType|null);
+
         /** BotAgeCollectionMetadata _ageCollectionEligible. */
         public _ageCollectionEligible?: "ageCollectionEligible";
 
         /** BotAgeCollectionMetadata _shouldTriggerAgeCollectionOnClient. */
         public _shouldTriggerAgeCollectionOnClient?: "shouldTriggerAgeCollectionOnClient";
+
+        /** BotAgeCollectionMetadata _ageCollectionType. */
+        public _ageCollectionType?: "ageCollectionType";
 
         /**
          * Creates a new BotAgeCollectionMetadata instance using the specified properties.
@@ -4911,6 +4920,15 @@ export namespace AICommon {
          * @returns The default type url
          */
         public static getTypeUrl(typeUrlPrefix?: string): string;
+    }
+
+    namespace BotAgeCollectionMetadata {
+
+        /** AgeCollectionType enum. */
+        enum AgeCollectionType {
+            O18_BINARY = 0,
+            WAFFLE = 1
+        }
     }
 
     /** Properties of a BotImagineMetadata. */
@@ -8682,8 +8700,10 @@ export namespace AICommon {
         INVOKE_META_AI_GROUP = 30,
         META_AI_FORWARD = 31,
         NEW_CHAT_AI_CONTACT = 32,
-        MESSAGE_QUICK_ACTION = 33,
-        ATTACHMENT_TRAY = 34
+        MESSAGE_QUICK_ACTION_1_ON_1_CHAT = 33,
+        MESSAGE_QUICK_ACTION_GROUP_CHAT = 34,
+        ATTACHMENT_TRAY_1_ON_1_CHAT = 35,
+        ATTACHMENT_TRAY_GROUP_CHAT = 36
     }
 }
 
