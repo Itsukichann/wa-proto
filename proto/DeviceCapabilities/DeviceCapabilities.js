@@ -27,6 +27,7 @@ $root.DeviceCapabilities = (function() {
          * @property {DeviceCapabilities.DeviceCapabilities.ChatLockSupportLevel|null} [chatLockSupportLevel] DeviceCapabilities chatLockSupportLevel
          * @property {DeviceCapabilities.DeviceCapabilities.ILIDMigration|null} [lidMigration] DeviceCapabilities lidMigration
          * @property {DeviceCapabilities.DeviceCapabilities.IBusinessBroadcast|null} [businessBroadcast] DeviceCapabilities businessBroadcast
+         * @property {DeviceCapabilities.DeviceCapabilities.IUserHasAvatar|null} [userHasAvatar] DeviceCapabilities userHasAvatar
          */
 
         /**
@@ -46,11 +47,11 @@ $root.DeviceCapabilities = (function() {
 
         /**
          * DeviceCapabilities chatLockSupportLevel.
-         * @member {DeviceCapabilities.DeviceCapabilities.ChatLockSupportLevel} chatLockSupportLevel
+         * @member {DeviceCapabilities.DeviceCapabilities.ChatLockSupportLevel|null|undefined} chatLockSupportLevel
          * @memberof DeviceCapabilities.DeviceCapabilities
          * @instance
          */
-        DeviceCapabilities.prototype.chatLockSupportLevel = 0;
+        DeviceCapabilities.prototype.chatLockSupportLevel = null;
 
         /**
          * DeviceCapabilities lidMigration.
@@ -67,6 +68,61 @@ $root.DeviceCapabilities = (function() {
          * @instance
          */
         DeviceCapabilities.prototype.businessBroadcast = null;
+
+        /**
+         * DeviceCapabilities userHasAvatar.
+         * @member {DeviceCapabilities.DeviceCapabilities.IUserHasAvatar|null|undefined} userHasAvatar
+         * @memberof DeviceCapabilities.DeviceCapabilities
+         * @instance
+         */
+        DeviceCapabilities.prototype.userHasAvatar = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * DeviceCapabilities _chatLockSupportLevel.
+         * @member {"chatLockSupportLevel"|undefined} _chatLockSupportLevel
+         * @memberof DeviceCapabilities.DeviceCapabilities
+         * @instance
+         */
+        Object.defineProperty(DeviceCapabilities.prototype, "_chatLockSupportLevel", {
+            get: $util.oneOfGetter($oneOfFields = ["chatLockSupportLevel"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * DeviceCapabilities _lidMigration.
+         * @member {"lidMigration"|undefined} _lidMigration
+         * @memberof DeviceCapabilities.DeviceCapabilities
+         * @instance
+         */
+        Object.defineProperty(DeviceCapabilities.prototype, "_lidMigration", {
+            get: $util.oneOfGetter($oneOfFields = ["lidMigration"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * DeviceCapabilities _businessBroadcast.
+         * @member {"businessBroadcast"|undefined} _businessBroadcast
+         * @memberof DeviceCapabilities.DeviceCapabilities
+         * @instance
+         */
+        Object.defineProperty(DeviceCapabilities.prototype, "_businessBroadcast", {
+            get: $util.oneOfGetter($oneOfFields = ["businessBroadcast"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * DeviceCapabilities _userHasAvatar.
+         * @member {"userHasAvatar"|undefined} _userHasAvatar
+         * @memberof DeviceCapabilities.DeviceCapabilities
+         * @instance
+         */
+        Object.defineProperty(DeviceCapabilities.prototype, "_userHasAvatar", {
+            get: $util.oneOfGetter($oneOfFields = ["userHasAvatar"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new DeviceCapabilities instance using the specified properties.
@@ -98,6 +154,8 @@ $root.DeviceCapabilities = (function() {
                 $root.DeviceCapabilities.DeviceCapabilities.LIDMigration.encode(message.lidMigration, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
             if (message.businessBroadcast != null && Object.hasOwnProperty.call(message, "businessBroadcast"))
                 $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.encode(message.businessBroadcast, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+            if (message.userHasAvatar != null && Object.hasOwnProperty.call(message, "userHasAvatar"))
+                $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.encode(message.userHasAvatar, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
             return writer;
         };
 
@@ -146,6 +204,10 @@ $root.DeviceCapabilities = (function() {
                         message.businessBroadcast = $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.decode(reader, reader.uint32());
                         break;
                     }
+                case 4: {
+                        message.userHasAvatar = $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.decode(reader, reader.uint32());
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -181,7 +243,9 @@ $root.DeviceCapabilities = (function() {
         DeviceCapabilities.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.chatLockSupportLevel != null && message.hasOwnProperty("chatLockSupportLevel"))
+            var properties = {};
+            if (message.chatLockSupportLevel != null && message.hasOwnProperty("chatLockSupportLevel")) {
+                properties._chatLockSupportLevel = 1;
                 switch (message.chatLockSupportLevel) {
                 default:
                     return "chatLockSupportLevel: enum value expected";
@@ -190,15 +254,30 @@ $root.DeviceCapabilities = (function() {
                 case 2:
                     break;
                 }
+            }
             if (message.lidMigration != null && message.hasOwnProperty("lidMigration")) {
-                var error = $root.DeviceCapabilities.DeviceCapabilities.LIDMigration.verify(message.lidMigration);
-                if (error)
-                    return "lidMigration." + error;
+                properties._lidMigration = 1;
+                {
+                    var error = $root.DeviceCapabilities.DeviceCapabilities.LIDMigration.verify(message.lidMigration);
+                    if (error)
+                        return "lidMigration." + error;
+                }
             }
             if (message.businessBroadcast != null && message.hasOwnProperty("businessBroadcast")) {
-                var error = $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.verify(message.businessBroadcast);
-                if (error)
-                    return "businessBroadcast." + error;
+                properties._businessBroadcast = 1;
+                {
+                    var error = $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.verify(message.businessBroadcast);
+                    if (error)
+                        return "businessBroadcast." + error;
+                }
+            }
+            if (message.userHasAvatar != null && message.hasOwnProperty("userHasAvatar")) {
+                properties._userHasAvatar = 1;
+                {
+                    var error = $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.verify(message.userHasAvatar);
+                    if (error)
+                        return "userHasAvatar." + error;
+                }
             }
             return null;
         };
@@ -245,6 +324,11 @@ $root.DeviceCapabilities = (function() {
                     throw TypeError(".DeviceCapabilities.DeviceCapabilities.businessBroadcast: object expected");
                 message.businessBroadcast = $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.fromObject(object.businessBroadcast);
             }
+            if (object.userHasAvatar != null) {
+                if (typeof object.userHasAvatar !== "object")
+                    throw TypeError(".DeviceCapabilities.DeviceCapabilities.userHasAvatar: object expected");
+                message.userHasAvatar = $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.fromObject(object.userHasAvatar);
+            }
             return message;
         };
 
@@ -261,17 +345,26 @@ $root.DeviceCapabilities = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults) {
-                object.chatLockSupportLevel = options.enums === String ? "NONE" : 0;
-                object.lidMigration = null;
-                object.businessBroadcast = null;
-            }
-            if (message.chatLockSupportLevel != null && message.hasOwnProperty("chatLockSupportLevel"))
+            if (message.chatLockSupportLevel != null && message.hasOwnProperty("chatLockSupportLevel")) {
                 object.chatLockSupportLevel = options.enums === String ? $root.DeviceCapabilities.DeviceCapabilities.ChatLockSupportLevel[message.chatLockSupportLevel] === undefined ? message.chatLockSupportLevel : $root.DeviceCapabilities.DeviceCapabilities.ChatLockSupportLevel[message.chatLockSupportLevel] : message.chatLockSupportLevel;
-            if (message.lidMigration != null && message.hasOwnProperty("lidMigration"))
+                if (options.oneofs)
+                    object._chatLockSupportLevel = "chatLockSupportLevel";
+            }
+            if (message.lidMigration != null && message.hasOwnProperty("lidMigration")) {
                 object.lidMigration = $root.DeviceCapabilities.DeviceCapabilities.LIDMigration.toObject(message.lidMigration, options);
-            if (message.businessBroadcast != null && message.hasOwnProperty("businessBroadcast"))
+                if (options.oneofs)
+                    object._lidMigration = "lidMigration";
+            }
+            if (message.businessBroadcast != null && message.hasOwnProperty("businessBroadcast")) {
                 object.businessBroadcast = $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.toObject(message.businessBroadcast, options);
+                if (options.oneofs)
+                    object._businessBroadcast = "businessBroadcast";
+            }
+            if (message.userHasAvatar != null && message.hasOwnProperty("userHasAvatar")) {
+                object.userHasAvatar = $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.toObject(message.userHasAvatar, options);
+                if (options.oneofs)
+                    object._userHasAvatar = "userHasAvatar";
+            }
             return object;
         };
 
@@ -327,11 +420,25 @@ $root.DeviceCapabilities = (function() {
 
             /**
              * BusinessBroadcast importListEnabled.
-             * @member {boolean} importListEnabled
+             * @member {boolean|null|undefined} importListEnabled
              * @memberof DeviceCapabilities.DeviceCapabilities.BusinessBroadcast
              * @instance
              */
-            BusinessBroadcast.prototype.importListEnabled = false;
+            BusinessBroadcast.prototype.importListEnabled = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            /**
+             * BusinessBroadcast _importListEnabled.
+             * @member {"importListEnabled"|undefined} _importListEnabled
+             * @memberof DeviceCapabilities.DeviceCapabilities.BusinessBroadcast
+             * @instance
+             */
+            Object.defineProperty(BusinessBroadcast.prototype, "_importListEnabled", {
+                get: $util.oneOfGetter($oneOfFields = ["importListEnabled"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
 
             /**
              * Creates a new BusinessBroadcast instance using the specified properties.
@@ -434,9 +541,12 @@ $root.DeviceCapabilities = (function() {
             BusinessBroadcast.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.importListEnabled != null && message.hasOwnProperty("importListEnabled"))
+                var properties = {};
+                if (message.importListEnabled != null && message.hasOwnProperty("importListEnabled")) {
+                    properties._importListEnabled = 1;
                     if (typeof message.importListEnabled !== "boolean")
                         return "importListEnabled: boolean expected";
+                }
                 return null;
             };
 
@@ -470,10 +580,11 @@ $root.DeviceCapabilities = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults)
-                    object.importListEnabled = false;
-                if (message.importListEnabled != null && message.hasOwnProperty("importListEnabled"))
+                if (message.importListEnabled != null && message.hasOwnProperty("importListEnabled")) {
                     object.importListEnabled = message.importListEnabled;
+                    if (options.oneofs)
+                        object._importListEnabled = "importListEnabled";
+                }
                 return object;
             };
 
@@ -548,11 +659,25 @@ $root.DeviceCapabilities = (function() {
 
             /**
              * LIDMigration chatDbMigrationTimestamp.
-             * @member {number|Long} chatDbMigrationTimestamp
+             * @member {number|Long|null|undefined} chatDbMigrationTimestamp
              * @memberof DeviceCapabilities.DeviceCapabilities.LIDMigration
              * @instance
              */
-            LIDMigration.prototype.chatDbMigrationTimestamp = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+            LIDMigration.prototype.chatDbMigrationTimestamp = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            /**
+             * LIDMigration _chatDbMigrationTimestamp.
+             * @member {"chatDbMigrationTimestamp"|undefined} _chatDbMigrationTimestamp
+             * @memberof DeviceCapabilities.DeviceCapabilities.LIDMigration
+             * @instance
+             */
+            Object.defineProperty(LIDMigration.prototype, "_chatDbMigrationTimestamp", {
+                get: $util.oneOfGetter($oneOfFields = ["chatDbMigrationTimestamp"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
 
             /**
              * Creates a new LIDMigration instance using the specified properties.
@@ -655,9 +780,12 @@ $root.DeviceCapabilities = (function() {
             LIDMigration.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.chatDbMigrationTimestamp != null && message.hasOwnProperty("chatDbMigrationTimestamp"))
+                var properties = {};
+                if (message.chatDbMigrationTimestamp != null && message.hasOwnProperty("chatDbMigrationTimestamp")) {
+                    properties._chatDbMigrationTimestamp = 1;
                     if (!$util.isInteger(message.chatDbMigrationTimestamp) && !(message.chatDbMigrationTimestamp && $util.isInteger(message.chatDbMigrationTimestamp.low) && $util.isInteger(message.chatDbMigrationTimestamp.high)))
                         return "chatDbMigrationTimestamp: integer|Long expected";
+                }
                 return null;
             };
 
@@ -698,17 +826,14 @@ $root.DeviceCapabilities = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults)
-                    if ($util.Long) {
-                        var long = new $util.Long(0, 0, true);
-                        object.chatDbMigrationTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                    } else
-                        object.chatDbMigrationTimestamp = options.longs === String ? "0" : 0;
-                if (message.chatDbMigrationTimestamp != null && message.hasOwnProperty("chatDbMigrationTimestamp"))
+                if (message.chatDbMigrationTimestamp != null && message.hasOwnProperty("chatDbMigrationTimestamp")) {
                     if (typeof message.chatDbMigrationTimestamp === "number")
                         object.chatDbMigrationTimestamp = options.longs === String ? String(message.chatDbMigrationTimestamp) : message.chatDbMigrationTimestamp;
                     else
                         object.chatDbMigrationTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.chatDbMigrationTimestamp) : options.longs === Number ? new $util.LongBits(message.chatDbMigrationTimestamp.low >>> 0, message.chatDbMigrationTimestamp.high >>> 0).toNumber(true) : message.chatDbMigrationTimestamp;
+                    if (options.oneofs)
+                        object._chatDbMigrationTimestamp = "chatDbMigrationTimestamp";
+                }
                 return object;
             };
 
@@ -739,6 +864,229 @@ $root.DeviceCapabilities = (function() {
             };
 
             return LIDMigration;
+        })();
+
+        DeviceCapabilities.UserHasAvatar = (function() {
+
+            /**
+             * Properties of a UserHasAvatar.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @interface IUserHasAvatar
+             * @property {boolean|null} [userHasAvatar] UserHasAvatar userHasAvatar
+             */
+
+            /**
+             * Constructs a new UserHasAvatar.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @classdesc Represents a UserHasAvatar.
+             * @implements IUserHasAvatar
+             * @constructor
+             * @param {DeviceCapabilities.DeviceCapabilities.IUserHasAvatar=} [properties] Properties to set
+             */
+            function UserHasAvatar(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * UserHasAvatar userHasAvatar.
+             * @member {boolean|null|undefined} userHasAvatar
+             * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
+             * @instance
+             */
+            UserHasAvatar.prototype.userHasAvatar = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            /**
+             * UserHasAvatar _userHasAvatar.
+             * @member {"userHasAvatar"|undefined} _userHasAvatar
+             * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
+             * @instance
+             */
+            Object.defineProperty(UserHasAvatar.prototype, "_userHasAvatar", {
+                get: $util.oneOfGetter($oneOfFields = ["userHasAvatar"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new UserHasAvatar instance using the specified properties.
+             * @function create
+             * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.IUserHasAvatar=} [properties] Properties to set
+             * @returns {DeviceCapabilities.DeviceCapabilities.UserHasAvatar} UserHasAvatar instance
+             */
+            UserHasAvatar.create = function create(properties) {
+                return new UserHasAvatar(properties);
+            };
+
+            /**
+             * Encodes the specified UserHasAvatar message. Does not implicitly {@link DeviceCapabilities.DeviceCapabilities.UserHasAvatar.verify|verify} messages.
+             * @function encode
+             * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.IUserHasAvatar} message UserHasAvatar message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            UserHasAvatar.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.userHasAvatar != null && Object.hasOwnProperty.call(message, "userHasAvatar"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).bool(message.userHasAvatar);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified UserHasAvatar message, length delimited. Does not implicitly {@link DeviceCapabilities.DeviceCapabilities.UserHasAvatar.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.IUserHasAvatar} message UserHasAvatar message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            UserHasAvatar.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a UserHasAvatar message from the specified reader or buffer.
+             * @function decode
+             * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {DeviceCapabilities.DeviceCapabilities.UserHasAvatar} UserHasAvatar
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            UserHasAvatar.decode = function decode(reader, length, error) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    if (tag === error)
+                        break;
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.userHasAvatar = reader.bool();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a UserHasAvatar message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {DeviceCapabilities.DeviceCapabilities.UserHasAvatar} UserHasAvatar
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            UserHasAvatar.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a UserHasAvatar message.
+             * @function verify
+             * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            UserHasAvatar.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                var properties = {};
+                if (message.userHasAvatar != null && message.hasOwnProperty("userHasAvatar")) {
+                    properties._userHasAvatar = 1;
+                    if (typeof message.userHasAvatar !== "boolean")
+                        return "userHasAvatar: boolean expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a UserHasAvatar message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {DeviceCapabilities.DeviceCapabilities.UserHasAvatar} UserHasAvatar
+             */
+            UserHasAvatar.fromObject = function fromObject(object) {
+                if (object instanceof $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar)
+                    return object;
+                var message = new $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar();
+                if (object.userHasAvatar != null)
+                    message.userHasAvatar = Boolean(object.userHasAvatar);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a UserHasAvatar message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.UserHasAvatar} message UserHasAvatar
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            UserHasAvatar.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (message.userHasAvatar != null && message.hasOwnProperty("userHasAvatar")) {
+                    object.userHasAvatar = message.userHasAvatar;
+                    if (options.oneofs)
+                        object._userHasAvatar = "userHasAvatar";
+                }
+                return object;
+            };
+
+            /**
+             * Converts this UserHasAvatar to JSON.
+             * @function toJSON
+             * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            UserHasAvatar.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for UserHasAvatar
+             * @function getTypeUrl
+             * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            UserHasAvatar.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/DeviceCapabilities.DeviceCapabilities.UserHasAvatar";
+            };
+
+            return UserHasAvatar;
         })();
 
         return DeviceCapabilities;
