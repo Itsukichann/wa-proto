@@ -2140,6 +2140,12 @@ export namespace AICommon {
 
         /** ForwardedAIBotMessageInfo creatorName */
         creatorName?: (string|null);
+
+        /** ForwardedAIBotMessageInfo botEntryPointOrigin */
+        botEntryPointOrigin?: (number|null);
+
+        /** ForwardedAIBotMessageInfo forwardScore */
+        forwardScore?: (number|null);
     }
 
     /** Represents a ForwardedAIBotMessageInfo. */
@@ -2160,6 +2166,12 @@ export namespace AICommon {
         /** ForwardedAIBotMessageInfo creatorName. */
         public creatorName?: (string|null);
 
+        /** ForwardedAIBotMessageInfo botEntryPointOrigin. */
+        public botEntryPointOrigin?: (number|null);
+
+        /** ForwardedAIBotMessageInfo forwardScore. */
+        public forwardScore?: (number|null);
+
         /** ForwardedAIBotMessageInfo _botName. */
         public _botName?: "botName";
 
@@ -2168,6 +2180,12 @@ export namespace AICommon {
 
         /** ForwardedAIBotMessageInfo _creatorName. */
         public _creatorName?: "creatorName";
+
+        /** ForwardedAIBotMessageInfo _botEntryPointOrigin. */
+        public _botEntryPointOrigin?: "botEntryPointOrigin";
+
+        /** ForwardedAIBotMessageInfo _forwardScore. */
+        public _forwardScore?: "forwardScore";
 
         /**
          * Creates a new ForwardedAIBotMessageInfo instance using the specified properties.

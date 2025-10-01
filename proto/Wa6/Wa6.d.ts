@@ -101,6 +101,12 @@ export namespace Wa6 {
 
         /** ClientPayload paaLink */
         paaLink?: (boolean|null);
+
+        /** ClientPayload preacksCount */
+        preacksCount?: (number|null);
+
+        /** ClientPayload processingQueueSize */
+        processingQueueSize?: (number|null);
     }
 
     /** Represents a ClientPayload. */
@@ -208,6 +214,12 @@ export namespace Wa6 {
         /** ClientPayload paaLink. */
         public paaLink?: (boolean|null);
 
+        /** ClientPayload preacksCount. */
+        public preacksCount?: (number|null);
+
+        /** ClientPayload processingQueueSize. */
+        public processingQueueSize?: (number|null);
+
         /** ClientPayload _username. */
         public _username?: "username";
 
@@ -300,6 +312,12 @@ export namespace Wa6 {
 
         /** ClientPayload _paaLink. */
         public _paaLink?: "paaLink";
+
+        /** ClientPayload _preacksCount. */
+        public _preacksCount?: "preacksCount";
+
+        /** ClientPayload _processingQueueSize. */
+        public _processingQueueSize?: "processingQueueSize";
 
         /**
          * Creates a new ClientPayload instance using the specified properties.

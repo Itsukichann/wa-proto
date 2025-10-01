@@ -5846,6 +5846,8 @@ $root.AICommon = (function() {
          * @property {string|null} [botName] ForwardedAIBotMessageInfo botName
          * @property {string|null} [botJid] ForwardedAIBotMessageInfo botJid
          * @property {string|null} [creatorName] ForwardedAIBotMessageInfo creatorName
+         * @property {number|null} [botEntryPointOrigin] ForwardedAIBotMessageInfo botEntryPointOrigin
+         * @property {number|null} [forwardScore] ForwardedAIBotMessageInfo forwardScore
          */
 
         /**
@@ -5887,6 +5889,22 @@ $root.AICommon = (function() {
          */
         ForwardedAIBotMessageInfo.prototype.creatorName = null;
 
+        /**
+         * ForwardedAIBotMessageInfo botEntryPointOrigin.
+         * @member {number|null|undefined} botEntryPointOrigin
+         * @memberof AICommon.ForwardedAIBotMessageInfo
+         * @instance
+         */
+        ForwardedAIBotMessageInfo.prototype.botEntryPointOrigin = null;
+
+        /**
+         * ForwardedAIBotMessageInfo forwardScore.
+         * @member {number|null|undefined} forwardScore
+         * @memberof AICommon.ForwardedAIBotMessageInfo
+         * @instance
+         */
+        ForwardedAIBotMessageInfo.prototype.forwardScore = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -5924,6 +5942,28 @@ $root.AICommon = (function() {
         });
 
         /**
+         * ForwardedAIBotMessageInfo _botEntryPointOrigin.
+         * @member {"botEntryPointOrigin"|undefined} _botEntryPointOrigin
+         * @memberof AICommon.ForwardedAIBotMessageInfo
+         * @instance
+         */
+        Object.defineProperty(ForwardedAIBotMessageInfo.prototype, "_botEntryPointOrigin", {
+            get: $util.oneOfGetter($oneOfFields = ["botEntryPointOrigin"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * ForwardedAIBotMessageInfo _forwardScore.
+         * @member {"forwardScore"|undefined} _forwardScore
+         * @memberof AICommon.ForwardedAIBotMessageInfo
+         * @instance
+         */
+        Object.defineProperty(ForwardedAIBotMessageInfo.prototype, "_forwardScore", {
+            get: $util.oneOfGetter($oneOfFields = ["forwardScore"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
          * Creates a new ForwardedAIBotMessageInfo instance using the specified properties.
          * @function create
          * @memberof AICommon.ForwardedAIBotMessageInfo
@@ -5953,6 +5993,10 @@ $root.AICommon = (function() {
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.botJid);
             if (message.creatorName != null && Object.hasOwnProperty.call(message, "creatorName"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.creatorName);
+            if (message.botEntryPointOrigin != null && Object.hasOwnProperty.call(message, "botEntryPointOrigin"))
+                writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.botEntryPointOrigin);
+            if (message.forwardScore != null && Object.hasOwnProperty.call(message, "forwardScore"))
+                writer.uint32(/* id 5, wireType 0 =*/40).uint32(message.forwardScore);
             return writer;
         };
 
@@ -5999,6 +6043,14 @@ $root.AICommon = (function() {
                     }
                 case 3: {
                         message.creatorName = reader.string();
+                        break;
+                    }
+                case 4: {
+                        message.botEntryPointOrigin = reader.uint32();
+                        break;
+                    }
+                case 5: {
+                        message.forwardScore = reader.uint32();
                         break;
                     }
                 default:
@@ -6052,6 +6104,16 @@ $root.AICommon = (function() {
                 if (!$util.isString(message.creatorName))
                     return "creatorName: string expected";
             }
+            if (message.botEntryPointOrigin != null && message.hasOwnProperty("botEntryPointOrigin")) {
+                properties._botEntryPointOrigin = 1;
+                if (!$util.isInteger(message.botEntryPointOrigin))
+                    return "botEntryPointOrigin: integer expected";
+            }
+            if (message.forwardScore != null && message.hasOwnProperty("forwardScore")) {
+                properties._forwardScore = 1;
+                if (!$util.isInteger(message.forwardScore))
+                    return "forwardScore: integer expected";
+            }
             return null;
         };
 
@@ -6073,6 +6135,10 @@ $root.AICommon = (function() {
                 message.botJid = String(object.botJid);
             if (object.creatorName != null)
                 message.creatorName = String(object.creatorName);
+            if (object.botEntryPointOrigin != null)
+                message.botEntryPointOrigin = object.botEntryPointOrigin >>> 0;
+            if (object.forwardScore != null)
+                message.forwardScore = object.forwardScore >>> 0;
             return message;
         };
 
@@ -6103,6 +6169,16 @@ $root.AICommon = (function() {
                 object.creatorName = message.creatorName;
                 if (options.oneofs)
                     object._creatorName = "creatorName";
+            }
+            if (message.botEntryPointOrigin != null && message.hasOwnProperty("botEntryPointOrigin")) {
+                object.botEntryPointOrigin = message.botEntryPointOrigin;
+                if (options.oneofs)
+                    object._botEntryPointOrigin = "botEntryPointOrigin";
+            }
+            if (message.forwardScore != null && message.hasOwnProperty("forwardScore")) {
+                object.forwardScore = message.forwardScore;
+                if (options.oneofs)
+                    object._forwardScore = "forwardScore";
             }
             return object;
         };
