@@ -44373,6 +44373,8 @@ $root.E2E = (function() {
                  * @memberof E2E.Message.InteractiveMessage
                  * @interface IFooter
                  * @property {string|null} [text] Footer text
+                 * @property {boolean|null} [hasMediaAttachment] Footer hasMediaAttachment
+                 * @property {E2E.Message.IAudioMessage|null} [audioMessage] Footer audioMessage
                  */
 
                 /**
@@ -44397,6 +44399,36 @@ $root.E2E = (function() {
                  * @instance
                  */
                 Footer.prototype.text = "";
+
+                /**
+                 * Footer hasMediaAttachment.
+                 * @member {boolean} hasMediaAttachment
+                 * @memberof E2E.Message.InteractiveMessage.Footer
+                 * @instance
+                 */
+                Footer.prototype.hasMediaAttachment = false;
+
+                /**
+                 * Footer audioMessage.
+                 * @member {E2E.Message.IAudioMessage|null|undefined} audioMessage
+                 * @memberof E2E.Message.InteractiveMessage.Footer
+                 * @instance
+                 */
+                Footer.prototype.audioMessage = null;
+
+                // OneOf field names bound to virtual getters and setters
+                var $oneOfFields;
+
+                /**
+                 * Footer media.
+                 * @member {"audioMessage"|undefined} media
+                 * @memberof E2E.Message.InteractiveMessage.Footer
+                 * @instance
+                 */
+                Object.defineProperty(Footer.prototype, "media", {
+                    get: $util.oneOfGetter($oneOfFields = ["audioMessage"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
 
                 /**
                  * Creates a new Footer instance using the specified properties.
@@ -44424,6 +44456,10 @@ $root.E2E = (function() {
                         writer = $Writer.create();
                     if (message.text != null && Object.hasOwnProperty.call(message, "text"))
                         writer.uint32(/* id 1, wireType 2 =*/10).string(message.text);
+                    if (message.audioMessage != null && Object.hasOwnProperty.call(message, "audioMessage"))
+                        $root.E2E.Message.AudioMessage.encode(message.audioMessage, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                    if (message.hasMediaAttachment != null && Object.hasOwnProperty.call(message, "hasMediaAttachment"))
+                        writer.uint32(/* id 3, wireType 0 =*/24).bool(message.hasMediaAttachment);
                     return writer;
                 };
 
@@ -44464,6 +44500,14 @@ $root.E2E = (function() {
                                 message.text = reader.string();
                                 break;
                             }
+                        case 3: {
+                                message.hasMediaAttachment = reader.bool();
+                                break;
+                            }
+                        case 2: {
+                                message.audioMessage = $root.E2E.Message.AudioMessage.decode(reader, reader.uint32());
+                                break;
+                            }
                         default:
                             reader.skipType(tag & 7);
                             break;
@@ -44499,9 +44543,21 @@ $root.E2E = (function() {
                 Footer.verify = function verify(message) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
+                    var properties = {};
                     if (message.text != null && message.hasOwnProperty("text"))
                         if (!$util.isString(message.text))
                             return "text: string expected";
+                    if (message.hasMediaAttachment != null && message.hasOwnProperty("hasMediaAttachment"))
+                        if (typeof message.hasMediaAttachment !== "boolean")
+                            return "hasMediaAttachment: boolean expected";
+                    if (message.audioMessage != null && message.hasOwnProperty("audioMessage")) {
+                        properties.media = 1;
+                        {
+                            var error = $root.E2E.Message.AudioMessage.verify(message.audioMessage);
+                            if (error)
+                                return "audioMessage." + error;
+                        }
+                    }
                     return null;
                 };
 
@@ -44519,6 +44575,13 @@ $root.E2E = (function() {
                     var message = new $root.E2E.Message.InteractiveMessage.Footer();
                     if (object.text != null)
                         message.text = String(object.text);
+                    if (object.hasMediaAttachment != null)
+                        message.hasMediaAttachment = Boolean(object.hasMediaAttachment);
+                    if (object.audioMessage != null) {
+                        if (typeof object.audioMessage !== "object")
+                            throw TypeError(".E2E.Message.InteractiveMessage.Footer.audioMessage: object expected");
+                        message.audioMessage = $root.E2E.Message.AudioMessage.fromObject(object.audioMessage);
+                    }
                     return message;
                 };
 
@@ -44535,10 +44598,19 @@ $root.E2E = (function() {
                     if (!options)
                         options = {};
                     var object = {};
-                    if (options.defaults)
+                    if (options.defaults) {
                         object.text = "";
+                        object.hasMediaAttachment = false;
+                    }
                     if (message.text != null && message.hasOwnProperty("text"))
                         object.text = message.text;
+                    if (message.audioMessage != null && message.hasOwnProperty("audioMessage")) {
+                        object.audioMessage = $root.E2E.Message.AudioMessage.toObject(message.audioMessage, options);
+                        if (options.oneofs)
+                            object.media = "audioMessage";
+                    }
+                    if (message.hasMediaAttachment != null && message.hasOwnProperty("hasMediaAttachment"))
+                        object.hasMediaAttachment = message.hasMediaAttachment;
                     return object;
                 };
 
@@ -80862,6 +80934,8 @@ $root.AICommon = (function() {
          * @property {string|null} [botName] ForwardedAIBotMessageInfo botName
          * @property {string|null} [botJid] ForwardedAIBotMessageInfo botJid
          * @property {string|null} [creatorName] ForwardedAIBotMessageInfo creatorName
+         * @property {number|null} [botEntryPointOrigin] ForwardedAIBotMessageInfo botEntryPointOrigin
+         * @property {number|null} [forwardScore] ForwardedAIBotMessageInfo forwardScore
          */
 
         /**
@@ -80904,6 +80978,22 @@ $root.AICommon = (function() {
         ForwardedAIBotMessageInfo.prototype.creatorName = "";
 
         /**
+         * ForwardedAIBotMessageInfo botEntryPointOrigin.
+         * @member {number} botEntryPointOrigin
+         * @memberof AICommon.ForwardedAIBotMessageInfo
+         * @instance
+         */
+        ForwardedAIBotMessageInfo.prototype.botEntryPointOrigin = 0;
+
+        /**
+         * ForwardedAIBotMessageInfo forwardScore.
+         * @member {number} forwardScore
+         * @memberof AICommon.ForwardedAIBotMessageInfo
+         * @instance
+         */
+        ForwardedAIBotMessageInfo.prototype.forwardScore = 0;
+
+        /**
          * Creates a new ForwardedAIBotMessageInfo instance using the specified properties.
          * @function create
          * @memberof AICommon.ForwardedAIBotMessageInfo
@@ -80933,6 +81023,10 @@ $root.AICommon = (function() {
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.botJid);
             if (message.creatorName != null && Object.hasOwnProperty.call(message, "creatorName"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.creatorName);
+            if (message.botEntryPointOrigin != null && Object.hasOwnProperty.call(message, "botEntryPointOrigin"))
+                writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.botEntryPointOrigin);
+            if (message.forwardScore != null && Object.hasOwnProperty.call(message, "forwardScore"))
+                writer.uint32(/* id 5, wireType 0 =*/40).uint32(message.forwardScore);
             return writer;
         };
 
@@ -80981,6 +81075,14 @@ $root.AICommon = (function() {
                         message.creatorName = reader.string();
                         break;
                     }
+                case 4: {
+                        message.botEntryPointOrigin = reader.uint32();
+                        break;
+                    }
+                case 5: {
+                        message.forwardScore = reader.uint32();
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -81025,6 +81127,12 @@ $root.AICommon = (function() {
             if (message.creatorName != null && message.hasOwnProperty("creatorName"))
                 if (!$util.isString(message.creatorName))
                     return "creatorName: string expected";
+            if (message.botEntryPointOrigin != null && message.hasOwnProperty("botEntryPointOrigin"))
+                if (!$util.isInteger(message.botEntryPointOrigin))
+                    return "botEntryPointOrigin: integer expected";
+            if (message.forwardScore != null && message.hasOwnProperty("forwardScore"))
+                if (!$util.isInteger(message.forwardScore))
+                    return "forwardScore: integer expected";
             return null;
         };
 
@@ -81046,6 +81154,10 @@ $root.AICommon = (function() {
                 message.botJid = String(object.botJid);
             if (object.creatorName != null)
                 message.creatorName = String(object.creatorName);
+            if (object.botEntryPointOrigin != null)
+                message.botEntryPointOrigin = object.botEntryPointOrigin >>> 0;
+            if (object.forwardScore != null)
+                message.forwardScore = object.forwardScore >>> 0;
             return message;
         };
 
@@ -81066,6 +81178,8 @@ $root.AICommon = (function() {
                 object.botName = "";
                 object.botJid = "";
                 object.creatorName = "";
+                object.botEntryPointOrigin = 0;
+                object.forwardScore = 0;
             }
             if (message.botName != null && message.hasOwnProperty("botName"))
                 object.botName = message.botName;
@@ -81073,6 +81187,10 @@ $root.AICommon = (function() {
                 object.botJid = message.botJid;
             if (message.creatorName != null && message.hasOwnProperty("creatorName"))
                 object.creatorName = message.creatorName;
+            if (message.botEntryPointOrigin != null && message.hasOwnProperty("botEntryPointOrigin"))
+                object.botEntryPointOrigin = message.botEntryPointOrigin;
+            if (message.forwardScore != null && message.hasOwnProperty("forwardScore"))
+                object.forwardScore = message.forwardScore;
             return object;
         };
 
@@ -87215,6 +87333,7 @@ $root.AICommon = (function() {
          * @interface IBotAgeCollectionMetadata
          * @property {boolean|null} [ageCollectionEligible] BotAgeCollectionMetadata ageCollectionEligible
          * @property {boolean|null} [shouldTriggerAgeCollectionOnClient] BotAgeCollectionMetadata shouldTriggerAgeCollectionOnClient
+         * @property {AICommon.BotAgeCollectionMetadata.AgeCollectionType|null} [ageCollectionType] BotAgeCollectionMetadata ageCollectionType
          */
 
         /**
@@ -87249,6 +87368,14 @@ $root.AICommon = (function() {
         BotAgeCollectionMetadata.prototype.shouldTriggerAgeCollectionOnClient = false;
 
         /**
+         * BotAgeCollectionMetadata ageCollectionType.
+         * @member {AICommon.BotAgeCollectionMetadata.AgeCollectionType} ageCollectionType
+         * @memberof AICommon.BotAgeCollectionMetadata
+         * @instance
+         */
+        BotAgeCollectionMetadata.prototype.ageCollectionType = 0;
+
+        /**
          * Creates a new BotAgeCollectionMetadata instance using the specified properties.
          * @function create
          * @memberof AICommon.BotAgeCollectionMetadata
@@ -87276,6 +87403,8 @@ $root.AICommon = (function() {
                 writer.uint32(/* id 1, wireType 0 =*/8).bool(message.ageCollectionEligible);
             if (message.shouldTriggerAgeCollectionOnClient != null && Object.hasOwnProperty.call(message, "shouldTriggerAgeCollectionOnClient"))
                 writer.uint32(/* id 2, wireType 0 =*/16).bool(message.shouldTriggerAgeCollectionOnClient);
+            if (message.ageCollectionType != null && Object.hasOwnProperty.call(message, "ageCollectionType"))
+                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.ageCollectionType);
             return writer;
         };
 
@@ -87320,6 +87449,10 @@ $root.AICommon = (function() {
                         message.shouldTriggerAgeCollectionOnClient = reader.bool();
                         break;
                     }
+                case 3: {
+                        message.ageCollectionType = reader.int32();
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -87361,6 +87494,14 @@ $root.AICommon = (function() {
             if (message.shouldTriggerAgeCollectionOnClient != null && message.hasOwnProperty("shouldTriggerAgeCollectionOnClient"))
                 if (typeof message.shouldTriggerAgeCollectionOnClient !== "boolean")
                     return "shouldTriggerAgeCollectionOnClient: boolean expected";
+            if (message.ageCollectionType != null && message.hasOwnProperty("ageCollectionType"))
+                switch (message.ageCollectionType) {
+                default:
+                    return "ageCollectionType: enum value expected";
+                case 0:
+                case 1:
+                    break;
+                }
             return null;
         };
 
@@ -87380,6 +87521,22 @@ $root.AICommon = (function() {
                 message.ageCollectionEligible = Boolean(object.ageCollectionEligible);
             if (object.shouldTriggerAgeCollectionOnClient != null)
                 message.shouldTriggerAgeCollectionOnClient = Boolean(object.shouldTriggerAgeCollectionOnClient);
+            switch (object.ageCollectionType) {
+            default:
+                if (typeof object.ageCollectionType === "number") {
+                    message.ageCollectionType = object.ageCollectionType;
+                    break;
+                }
+                break;
+            case "O18_BINARY":
+            case 0:
+                message.ageCollectionType = 0;
+                break;
+            case "WAFFLE":
+            case 1:
+                message.ageCollectionType = 1;
+                break;
+            }
             return message;
         };
 
@@ -87399,11 +87556,14 @@ $root.AICommon = (function() {
             if (options.defaults) {
                 object.ageCollectionEligible = false;
                 object.shouldTriggerAgeCollectionOnClient = false;
+                object.ageCollectionType = options.enums === String ? "O18_BINARY" : 0;
             }
             if (message.ageCollectionEligible != null && message.hasOwnProperty("ageCollectionEligible"))
                 object.ageCollectionEligible = message.ageCollectionEligible;
             if (message.shouldTriggerAgeCollectionOnClient != null && message.hasOwnProperty("shouldTriggerAgeCollectionOnClient"))
                 object.shouldTriggerAgeCollectionOnClient = message.shouldTriggerAgeCollectionOnClient;
+            if (message.ageCollectionType != null && message.hasOwnProperty("ageCollectionType"))
+                object.ageCollectionType = options.enums === String ? $root.AICommon.BotAgeCollectionMetadata.AgeCollectionType[message.ageCollectionType] === undefined ? message.ageCollectionType : $root.AICommon.BotAgeCollectionMetadata.AgeCollectionType[message.ageCollectionType] : message.ageCollectionType;
             return object;
         };
 
@@ -87432,6 +87592,20 @@ $root.AICommon = (function() {
             }
             return typeUrlPrefix + "/AICommon.BotAgeCollectionMetadata";
         };
+
+        /**
+         * AgeCollectionType enum.
+         * @name AICommon.BotAgeCollectionMetadata.AgeCollectionType
+         * @enum {number}
+         * @property {number} O18_BINARY=0 O18_BINARY value
+         * @property {number} WAFFLE=1 WAFFLE value
+         */
+        BotAgeCollectionMetadata.AgeCollectionType = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "O18_BINARY"] = 0;
+            values[valuesById[1] = "WAFFLE"] = 1;
+            return values;
+        })();
 
         return BotAgeCollectionMetadata;
     })();
@@ -92455,6 +92629,8 @@ $root.AICommon = (function() {
                 case 32:
                 case 33:
                 case 34:
+                case 35:
+                case 36:
                     break;
                 }
             if (message.threadOrigin != null && message.hasOwnProperty("threadOrigin"))
@@ -92624,13 +92800,21 @@ $root.AICommon = (function() {
             case 32:
                 message.destinationEntryPoint = 32;
                 break;
-            case "MESSAGE_QUICK_ACTION":
+            case "MESSAGE_QUICK_ACTION_1_ON_1_CHAT":
             case 33:
                 message.destinationEntryPoint = 33;
                 break;
-            case "ATTACHMENT_TRAY":
+            case "MESSAGE_QUICK_ACTION_GROUP_CHAT":
             case 34:
                 message.destinationEntryPoint = 34;
+                break;
+            case "ATTACHMENT_TRAY_1_ON_1_CHAT":
+            case 35:
+                message.destinationEntryPoint = 35;
+                break;
+            case "ATTACHMENT_TRAY_GROUP_CHAT":
+            case 36:
+                message.destinationEntryPoint = 36;
                 break;
             }
             switch (object.threadOrigin) {
@@ -96835,8 +97019,10 @@ $root.AICommon = (function() {
      * @property {number} INVOKE_META_AI_GROUP=30 INVOKE_META_AI_GROUP value
      * @property {number} META_AI_FORWARD=31 META_AI_FORWARD value
      * @property {number} NEW_CHAT_AI_CONTACT=32 NEW_CHAT_AI_CONTACT value
-     * @property {number} MESSAGE_QUICK_ACTION=33 MESSAGE_QUICK_ACTION value
-     * @property {number} ATTACHMENT_TRAY=34 ATTACHMENT_TRAY value
+     * @property {number} MESSAGE_QUICK_ACTION_1_ON_1_CHAT=33 MESSAGE_QUICK_ACTION_1_ON_1_CHAT value
+     * @property {number} MESSAGE_QUICK_ACTION_GROUP_CHAT=34 MESSAGE_QUICK_ACTION_GROUP_CHAT value
+     * @property {number} ATTACHMENT_TRAY_1_ON_1_CHAT=35 ATTACHMENT_TRAY_1_ON_1_CHAT value
+     * @property {number} ATTACHMENT_TRAY_GROUP_CHAT=36 ATTACHMENT_TRAY_GROUP_CHAT value
      */
     AICommon.BotMetricsEntryPoint = (function() {
         var valuesById = {}, values = Object.create(valuesById);
@@ -96873,8 +97059,10 @@ $root.AICommon = (function() {
         values[valuesById[30] = "INVOKE_META_AI_GROUP"] = 30;
         values[valuesById[31] = "META_AI_FORWARD"] = 31;
         values[valuesById[32] = "NEW_CHAT_AI_CONTACT"] = 32;
-        values[valuesById[33] = "MESSAGE_QUICK_ACTION"] = 33;
-        values[valuesById[34] = "ATTACHMENT_TRAY"] = 34;
+        values[valuesById[33] = "MESSAGE_QUICK_ACTION_1_ON_1_CHAT"] = 33;
+        values[valuesById[34] = "MESSAGE_QUICK_ACTION_GROUP_CHAT"] = 34;
+        values[valuesById[35] = "ATTACHMENT_TRAY_1_ON_1_CHAT"] = 35;
+        values[valuesById[36] = "ATTACHMENT_TRAY_GROUP_CHAT"] = 36;
         return values;
     })();
 
@@ -119410,6 +119598,8 @@ $root.SyncAction = (function() {
          * @property {SyncAction.SyncActionValue.IBusinessBroadcastListAction|null} [businessBroadcastListAction] SyncActionValue businessBroadcastListAction
          * @property {SyncAction.SyncActionValue.IMusicUserIdAction|null} [musicUserIdAction] SyncActionValue musicUserIdAction
          * @property {SyncAction.SyncActionValue.IStatusPostOptInNotificationPreferencesAction|null} [statusPostOptInNotificationPreferencesAction] SyncActionValue statusPostOptInNotificationPreferencesAction
+         * @property {SyncAction.SyncActionValue.IAvatarUpdatedAction|null} [avatarUpdatedAction] SyncActionValue avatarUpdatedAction
+         * @property {SyncAction.SyncActionValue.IGalaxyFlowAction|null} [galaxyFlowAction] SyncActionValue galaxyFlowAction
          */
 
         /**
@@ -119940,6 +120130,22 @@ $root.SyncAction = (function() {
         SyncActionValue.prototype.statusPostOptInNotificationPreferencesAction = null;
 
         /**
+         * SyncActionValue avatarUpdatedAction.
+         * @member {SyncAction.SyncActionValue.IAvatarUpdatedAction|null|undefined} avatarUpdatedAction
+         * @memberof SyncAction.SyncActionValue
+         * @instance
+         */
+        SyncActionValue.prototype.avatarUpdatedAction = null;
+
+        /**
+         * SyncActionValue galaxyFlowAction.
+         * @member {SyncAction.SyncActionValue.IGalaxyFlowAction|null|undefined} galaxyFlowAction
+         * @memberof SyncAction.SyncActionValue
+         * @instance
+         */
+        SyncActionValue.prototype.galaxyFlowAction = null;
+
+        /**
          * Creates a new SyncActionValue instance using the specified properties.
          * @function create
          * @memberof SyncAction.SyncActionValue
@@ -120091,6 +120297,10 @@ $root.SyncAction = (function() {
                 $root.SyncAction.SyncActionValue.MusicUserIdAction.encode(message.musicUserIdAction, writer.uint32(/* id 70, wireType 2 =*/562).fork()).ldelim();
             if (message.statusPostOptInNotificationPreferencesAction != null && Object.hasOwnProperty.call(message, "statusPostOptInNotificationPreferencesAction"))
                 $root.SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction.encode(message.statusPostOptInNotificationPreferencesAction, writer.uint32(/* id 71, wireType 2 =*/570).fork()).ldelim();
+            if (message.avatarUpdatedAction != null && Object.hasOwnProperty.call(message, "avatarUpdatedAction"))
+                $root.SyncAction.SyncActionValue.AvatarUpdatedAction.encode(message.avatarUpdatedAction, writer.uint32(/* id 72, wireType 2 =*/578).fork()).ldelim();
+            if (message.galaxyFlowAction != null && Object.hasOwnProperty.call(message, "galaxyFlowAction"))
+                $root.SyncAction.SyncActionValue.GalaxyFlowAction.encode(message.galaxyFlowAction, writer.uint32(/* id 73, wireType 2 =*/586).fork()).ldelim();
             return writer;
         };
 
@@ -120381,6 +120591,14 @@ $root.SyncAction = (function() {
                     }
                 case 71: {
                         message.statusPostOptInNotificationPreferencesAction = $root.SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 72: {
+                        message.avatarUpdatedAction = $root.SyncAction.SyncActionValue.AvatarUpdatedAction.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 73: {
+                        message.galaxyFlowAction = $root.SyncAction.SyncActionValue.GalaxyFlowAction.decode(reader, reader.uint32());
                         break;
                     }
                 default:
@@ -120736,6 +120954,16 @@ $root.SyncAction = (function() {
                 if (error)
                     return "statusPostOptInNotificationPreferencesAction." + error;
             }
+            if (message.avatarUpdatedAction != null && message.hasOwnProperty("avatarUpdatedAction")) {
+                var error = $root.SyncAction.SyncActionValue.AvatarUpdatedAction.verify(message.avatarUpdatedAction);
+                if (error)
+                    return "avatarUpdatedAction." + error;
+            }
+            if (message.galaxyFlowAction != null && message.hasOwnProperty("galaxyFlowAction")) {
+                var error = $root.SyncAction.SyncActionValue.GalaxyFlowAction.verify(message.galaxyFlowAction);
+                if (error)
+                    return "galaxyFlowAction." + error;
+            }
             return null;
         };
 
@@ -121075,6 +121303,16 @@ $root.SyncAction = (function() {
                     throw TypeError(".SyncAction.SyncActionValue.statusPostOptInNotificationPreferencesAction: object expected");
                 message.statusPostOptInNotificationPreferencesAction = $root.SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction.fromObject(object.statusPostOptInNotificationPreferencesAction);
             }
+            if (object.avatarUpdatedAction != null) {
+                if (typeof object.avatarUpdatedAction !== "object")
+                    throw TypeError(".SyncAction.SyncActionValue.avatarUpdatedAction: object expected");
+                message.avatarUpdatedAction = $root.SyncAction.SyncActionValue.AvatarUpdatedAction.fromObject(object.avatarUpdatedAction);
+            }
+            if (object.galaxyFlowAction != null) {
+                if (typeof object.galaxyFlowAction !== "object")
+                    throw TypeError(".SyncAction.SyncActionValue.galaxyFlowAction: object expected");
+                message.galaxyFlowAction = $root.SyncAction.SyncActionValue.GalaxyFlowAction.fromObject(object.galaxyFlowAction);
+            }
             return message;
         };
 
@@ -121160,6 +121398,8 @@ $root.SyncAction = (function() {
                 object.businessBroadcastListAction = null;
                 object.musicUserIdAction = null;
                 object.statusPostOptInNotificationPreferencesAction = null;
+                object.avatarUpdatedAction = null;
+                object.galaxyFlowAction = null;
             }
             if (message.timestamp != null && message.hasOwnProperty("timestamp"))
                 if (typeof message.timestamp === "number")
@@ -121292,6 +121532,10 @@ $root.SyncAction = (function() {
                 object.musicUserIdAction = $root.SyncAction.SyncActionValue.MusicUserIdAction.toObject(message.musicUserIdAction, options);
             if (message.statusPostOptInNotificationPreferencesAction != null && message.hasOwnProperty("statusPostOptInNotificationPreferencesAction"))
                 object.statusPostOptInNotificationPreferencesAction = $root.SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction.toObject(message.statusPostOptInNotificationPreferencesAction, options);
+            if (message.avatarUpdatedAction != null && message.hasOwnProperty("avatarUpdatedAction"))
+                object.avatarUpdatedAction = $root.SyncAction.SyncActionValue.AvatarUpdatedAction.toObject(message.avatarUpdatedAction, options);
+            if (message.galaxyFlowAction != null && message.hasOwnProperty("galaxyFlowAction"))
+                object.galaxyFlowAction = $root.SyncAction.SyncActionValue.GalaxyFlowAction.toObject(message.galaxyFlowAction, options);
             return object;
         };
 
@@ -122010,6 +122254,296 @@ $root.SyncAction = (function() {
             };
 
             return ArchiveChatAction;
+        })();
+
+        SyncActionValue.AvatarUpdatedAction = (function() {
+
+            /**
+             * Properties of an AvatarUpdatedAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IAvatarUpdatedAction
+             * @property {SyncAction.SyncActionValue.AvatarUpdatedAction.AvatarEventType|null} [eventType] AvatarUpdatedAction eventType
+             * @property {Array.<SyncAction.SyncActionValue.IStickerAction>|null} [recentAvatarStickers] AvatarUpdatedAction recentAvatarStickers
+             */
+
+            /**
+             * Constructs a new AvatarUpdatedAction.
+             * @memberof SyncAction.SyncActionValue
+             * @classdesc Represents an AvatarUpdatedAction.
+             * @implements IAvatarUpdatedAction
+             * @constructor
+             * @param {SyncAction.SyncActionValue.IAvatarUpdatedAction=} [properties] Properties to set
+             */
+            function AvatarUpdatedAction(properties) {
+                this.recentAvatarStickers = [];
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * AvatarUpdatedAction eventType.
+             * @member {SyncAction.SyncActionValue.AvatarUpdatedAction.AvatarEventType} eventType
+             * @memberof SyncAction.SyncActionValue.AvatarUpdatedAction
+             * @instance
+             */
+            AvatarUpdatedAction.prototype.eventType = 0;
+
+            /**
+             * AvatarUpdatedAction recentAvatarStickers.
+             * @member {Array.<SyncAction.SyncActionValue.IStickerAction>} recentAvatarStickers
+             * @memberof SyncAction.SyncActionValue.AvatarUpdatedAction
+             * @instance
+             */
+            AvatarUpdatedAction.prototype.recentAvatarStickers = $util.emptyArray;
+
+            /**
+             * Creates a new AvatarUpdatedAction instance using the specified properties.
+             * @function create
+             * @memberof SyncAction.SyncActionValue.AvatarUpdatedAction
+             * @static
+             * @param {SyncAction.SyncActionValue.IAvatarUpdatedAction=} [properties] Properties to set
+             * @returns {SyncAction.SyncActionValue.AvatarUpdatedAction} AvatarUpdatedAction instance
+             */
+            AvatarUpdatedAction.create = function create(properties) {
+                return new AvatarUpdatedAction(properties);
+            };
+
+            /**
+             * Encodes the specified AvatarUpdatedAction message. Does not implicitly {@link SyncAction.SyncActionValue.AvatarUpdatedAction.verify|verify} messages.
+             * @function encode
+             * @memberof SyncAction.SyncActionValue.AvatarUpdatedAction
+             * @static
+             * @param {SyncAction.SyncActionValue.IAvatarUpdatedAction} message AvatarUpdatedAction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AvatarUpdatedAction.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.eventType != null && Object.hasOwnProperty.call(message, "eventType"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.eventType);
+                if (message.recentAvatarStickers != null && message.recentAvatarStickers.length)
+                    for (var i = 0; i < message.recentAvatarStickers.length; ++i)
+                        $root.SyncAction.SyncActionValue.StickerAction.encode(message.recentAvatarStickers[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified AvatarUpdatedAction message, length delimited. Does not implicitly {@link SyncAction.SyncActionValue.AvatarUpdatedAction.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof SyncAction.SyncActionValue.AvatarUpdatedAction
+             * @static
+             * @param {SyncAction.SyncActionValue.IAvatarUpdatedAction} message AvatarUpdatedAction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AvatarUpdatedAction.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes an AvatarUpdatedAction message from the specified reader or buffer.
+             * @function decode
+             * @memberof SyncAction.SyncActionValue.AvatarUpdatedAction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {SyncAction.SyncActionValue.AvatarUpdatedAction} AvatarUpdatedAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AvatarUpdatedAction.decode = function decode(reader, length, error) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SyncAction.SyncActionValue.AvatarUpdatedAction();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    if (tag === error)
+                        break;
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.eventType = reader.int32();
+                            break;
+                        }
+                    case 2: {
+                            if (!(message.recentAvatarStickers && message.recentAvatarStickers.length))
+                                message.recentAvatarStickers = [];
+                            message.recentAvatarStickers.push($root.SyncAction.SyncActionValue.StickerAction.decode(reader, reader.uint32()));
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes an AvatarUpdatedAction message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof SyncAction.SyncActionValue.AvatarUpdatedAction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {SyncAction.SyncActionValue.AvatarUpdatedAction} AvatarUpdatedAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AvatarUpdatedAction.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an AvatarUpdatedAction message.
+             * @function verify
+             * @memberof SyncAction.SyncActionValue.AvatarUpdatedAction
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            AvatarUpdatedAction.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.eventType != null && message.hasOwnProperty("eventType"))
+                    switch (message.eventType) {
+                    default:
+                        return "eventType: enum value expected";
+                    case 0:
+                    case 1:
+                    case 2:
+                        break;
+                    }
+                if (message.recentAvatarStickers != null && message.hasOwnProperty("recentAvatarStickers")) {
+                    if (!Array.isArray(message.recentAvatarStickers))
+                        return "recentAvatarStickers: array expected";
+                    for (var i = 0; i < message.recentAvatarStickers.length; ++i) {
+                        var error = $root.SyncAction.SyncActionValue.StickerAction.verify(message.recentAvatarStickers[i]);
+                        if (error)
+                            return "recentAvatarStickers." + error;
+                    }
+                }
+                return null;
+            };
+
+            /**
+             * Creates an AvatarUpdatedAction message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof SyncAction.SyncActionValue.AvatarUpdatedAction
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {SyncAction.SyncActionValue.AvatarUpdatedAction} AvatarUpdatedAction
+             */
+            AvatarUpdatedAction.fromObject = function fromObject(object) {
+                if (object instanceof $root.SyncAction.SyncActionValue.AvatarUpdatedAction)
+                    return object;
+                var message = new $root.SyncAction.SyncActionValue.AvatarUpdatedAction();
+                switch (object.eventType) {
+                default:
+                    if (typeof object.eventType === "number") {
+                        message.eventType = object.eventType;
+                        break;
+                    }
+                    break;
+                case "UPDATED":
+                case 0:
+                    message.eventType = 0;
+                    break;
+                case "CREATED":
+                case 1:
+                    message.eventType = 1;
+                    break;
+                case "DELETED":
+                case 2:
+                    message.eventType = 2;
+                    break;
+                }
+                if (object.recentAvatarStickers) {
+                    if (!Array.isArray(object.recentAvatarStickers))
+                        throw TypeError(".SyncAction.SyncActionValue.AvatarUpdatedAction.recentAvatarStickers: array expected");
+                    message.recentAvatarStickers = [];
+                    for (var i = 0; i < object.recentAvatarStickers.length; ++i) {
+                        if (typeof object.recentAvatarStickers[i] !== "object")
+                            throw TypeError(".SyncAction.SyncActionValue.AvatarUpdatedAction.recentAvatarStickers: object expected");
+                        message.recentAvatarStickers[i] = $root.SyncAction.SyncActionValue.StickerAction.fromObject(object.recentAvatarStickers[i]);
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an AvatarUpdatedAction message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof SyncAction.SyncActionValue.AvatarUpdatedAction
+             * @static
+             * @param {SyncAction.SyncActionValue.AvatarUpdatedAction} message AvatarUpdatedAction
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            AvatarUpdatedAction.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.recentAvatarStickers = [];
+                if (options.defaults)
+                    object.eventType = options.enums === String ? "UPDATED" : 0;
+                if (message.eventType != null && message.hasOwnProperty("eventType"))
+                    object.eventType = options.enums === String ? $root.SyncAction.SyncActionValue.AvatarUpdatedAction.AvatarEventType[message.eventType] === undefined ? message.eventType : $root.SyncAction.SyncActionValue.AvatarUpdatedAction.AvatarEventType[message.eventType] : message.eventType;
+                if (message.recentAvatarStickers && message.recentAvatarStickers.length) {
+                    object.recentAvatarStickers = [];
+                    for (var j = 0; j < message.recentAvatarStickers.length; ++j)
+                        object.recentAvatarStickers[j] = $root.SyncAction.SyncActionValue.StickerAction.toObject(message.recentAvatarStickers[j], options);
+                }
+                return object;
+            };
+
+            /**
+             * Converts this AvatarUpdatedAction to JSON.
+             * @function toJSON
+             * @memberof SyncAction.SyncActionValue.AvatarUpdatedAction
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            AvatarUpdatedAction.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for AvatarUpdatedAction
+             * @function getTypeUrl
+             * @memberof SyncAction.SyncActionValue.AvatarUpdatedAction
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            AvatarUpdatedAction.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/SyncAction.SyncActionValue.AvatarUpdatedAction";
+            };
+
+            /**
+             * AvatarEventType enum.
+             * @name SyncAction.SyncActionValue.AvatarUpdatedAction.AvatarEventType
+             * @enum {number}
+             * @property {number} UPDATED=0 UPDATED value
+             * @property {number} CREATED=1 CREATED value
+             * @property {number} DELETED=2 DELETED value
+             */
+            AvatarUpdatedAction.AvatarEventType = (function() {
+                var valuesById = {}, values = Object.create(valuesById);
+                values[valuesById[0] = "UPDATED"] = 0;
+                values[valuesById[1] = "CREATED"] = 1;
+                values[valuesById[2] = "DELETED"] = 2;
+                return values;
+            })();
+
+            return AvatarUpdatedAction;
         })();
 
         SyncActionValue.BotWelcomeRequestAction = (function() {
@@ -126554,6 +127088,237 @@ $root.SyncAction = (function() {
             })();
 
             return FavoritesAction;
+        })();
+
+        SyncActionValue.GalaxyFlowAction = (function() {
+
+            /**
+             * Properties of a GalaxyFlowAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IGalaxyFlowAction
+             * @property {SyncAction.SyncActionValue.GalaxyFlowAction.GalaxyFlowActionType} type GalaxyFlowAction type
+             */
+
+            /**
+             * Constructs a new GalaxyFlowAction.
+             * @memberof SyncAction.SyncActionValue
+             * @classdesc Represents a GalaxyFlowAction.
+             * @implements IGalaxyFlowAction
+             * @constructor
+             * @param {SyncAction.SyncActionValue.IGalaxyFlowAction=} [properties] Properties to set
+             */
+            function GalaxyFlowAction(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * GalaxyFlowAction type.
+             * @member {SyncAction.SyncActionValue.GalaxyFlowAction.GalaxyFlowActionType} type
+             * @memberof SyncAction.SyncActionValue.GalaxyFlowAction
+             * @instance
+             */
+            GalaxyFlowAction.prototype.type = 1;
+
+            /**
+             * Creates a new GalaxyFlowAction instance using the specified properties.
+             * @function create
+             * @memberof SyncAction.SyncActionValue.GalaxyFlowAction
+             * @static
+             * @param {SyncAction.SyncActionValue.IGalaxyFlowAction=} [properties] Properties to set
+             * @returns {SyncAction.SyncActionValue.GalaxyFlowAction} GalaxyFlowAction instance
+             */
+            GalaxyFlowAction.create = function create(properties) {
+                return new GalaxyFlowAction(properties);
+            };
+
+            /**
+             * Encodes the specified GalaxyFlowAction message. Does not implicitly {@link SyncAction.SyncActionValue.GalaxyFlowAction.verify|verify} messages.
+             * @function encode
+             * @memberof SyncAction.SyncActionValue.GalaxyFlowAction
+             * @static
+             * @param {SyncAction.SyncActionValue.IGalaxyFlowAction} message GalaxyFlowAction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            GalaxyFlowAction.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.type);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified GalaxyFlowAction message, length delimited. Does not implicitly {@link SyncAction.SyncActionValue.GalaxyFlowAction.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof SyncAction.SyncActionValue.GalaxyFlowAction
+             * @static
+             * @param {SyncAction.SyncActionValue.IGalaxyFlowAction} message GalaxyFlowAction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            GalaxyFlowAction.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a GalaxyFlowAction message from the specified reader or buffer.
+             * @function decode
+             * @memberof SyncAction.SyncActionValue.GalaxyFlowAction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {SyncAction.SyncActionValue.GalaxyFlowAction} GalaxyFlowAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            GalaxyFlowAction.decode = function decode(reader, length, error) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SyncAction.SyncActionValue.GalaxyFlowAction();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    if (tag === error)
+                        break;
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.type = reader.int32();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                if (!message.hasOwnProperty("type"))
+                    throw $util.ProtocolError("missing required 'type'", { instance: message });
+                return message;
+            };
+
+            /**
+             * Decodes a GalaxyFlowAction message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof SyncAction.SyncActionValue.GalaxyFlowAction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {SyncAction.SyncActionValue.GalaxyFlowAction} GalaxyFlowAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            GalaxyFlowAction.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a GalaxyFlowAction message.
+             * @function verify
+             * @memberof SyncAction.SyncActionValue.GalaxyFlowAction
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            GalaxyFlowAction.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                switch (message.type) {
+                default:
+                    return "type: enum value expected";
+                case 1:
+                    break;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a GalaxyFlowAction message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof SyncAction.SyncActionValue.GalaxyFlowAction
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {SyncAction.SyncActionValue.GalaxyFlowAction} GalaxyFlowAction
+             */
+            GalaxyFlowAction.fromObject = function fromObject(object) {
+                if (object instanceof $root.SyncAction.SyncActionValue.GalaxyFlowAction)
+                    return object;
+                var message = new $root.SyncAction.SyncActionValue.GalaxyFlowAction();
+                switch (object.type) {
+                default:
+                    if (typeof object.type === "number") {
+                        message.type = object.type;
+                        break;
+                    }
+                    break;
+                case "LAUNCH":
+                case 1:
+                    message.type = 1;
+                    break;
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a GalaxyFlowAction message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof SyncAction.SyncActionValue.GalaxyFlowAction
+             * @static
+             * @param {SyncAction.SyncActionValue.GalaxyFlowAction} message GalaxyFlowAction
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            GalaxyFlowAction.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults)
+                    object.type = options.enums === String ? "LAUNCH" : 1;
+                if (message.type != null && message.hasOwnProperty("type"))
+                    object.type = options.enums === String ? $root.SyncAction.SyncActionValue.GalaxyFlowAction.GalaxyFlowActionType[message.type] === undefined ? message.type : $root.SyncAction.SyncActionValue.GalaxyFlowAction.GalaxyFlowActionType[message.type] : message.type;
+                return object;
+            };
+
+            /**
+             * Converts this GalaxyFlowAction to JSON.
+             * @function toJSON
+             * @memberof SyncAction.SyncActionValue.GalaxyFlowAction
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            GalaxyFlowAction.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for GalaxyFlowAction
+             * @function getTypeUrl
+             * @memberof SyncAction.SyncActionValue.GalaxyFlowAction
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            GalaxyFlowAction.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/SyncAction.SyncActionValue.GalaxyFlowAction";
+            };
+
+            /**
+             * GalaxyFlowActionType enum.
+             * @name SyncAction.SyncActionValue.GalaxyFlowAction.GalaxyFlowActionType
+             * @enum {number}
+             * @property {number} LAUNCH=1 LAUNCH value
+             */
+            GalaxyFlowAction.GalaxyFlowActionType = (function() {
+                var valuesById = {}, values = Object.create(valuesById);
+                values[valuesById[1] = "LAUNCH"] = 1;
+                return values;
+            })();
+
+            return GalaxyFlowAction;
         })();
 
         SyncActionValue.KeyExpiration = (function() {
@@ -138684,6 +139449,7 @@ $root.DeviceCapabilities = (function() {
          * @property {DeviceCapabilities.DeviceCapabilities.ChatLockSupportLevel|null} [chatLockSupportLevel] DeviceCapabilities chatLockSupportLevel
          * @property {DeviceCapabilities.DeviceCapabilities.ILIDMigration|null} [lidMigration] DeviceCapabilities lidMigration
          * @property {DeviceCapabilities.DeviceCapabilities.IBusinessBroadcast|null} [businessBroadcast] DeviceCapabilities businessBroadcast
+         * @property {DeviceCapabilities.DeviceCapabilities.IUserHasAvatar|null} [userHasAvatar] DeviceCapabilities userHasAvatar
          */
 
         /**
@@ -138726,6 +139492,14 @@ $root.DeviceCapabilities = (function() {
         DeviceCapabilities.prototype.businessBroadcast = null;
 
         /**
+         * DeviceCapabilities userHasAvatar.
+         * @member {DeviceCapabilities.DeviceCapabilities.IUserHasAvatar|null|undefined} userHasAvatar
+         * @memberof DeviceCapabilities.DeviceCapabilities
+         * @instance
+         */
+        DeviceCapabilities.prototype.userHasAvatar = null;
+
+        /**
          * Creates a new DeviceCapabilities instance using the specified properties.
          * @function create
          * @memberof DeviceCapabilities.DeviceCapabilities
@@ -138755,6 +139529,8 @@ $root.DeviceCapabilities = (function() {
                 $root.DeviceCapabilities.DeviceCapabilities.LIDMigration.encode(message.lidMigration, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
             if (message.businessBroadcast != null && Object.hasOwnProperty.call(message, "businessBroadcast"))
                 $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.encode(message.businessBroadcast, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+            if (message.userHasAvatar != null && Object.hasOwnProperty.call(message, "userHasAvatar"))
+                $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.encode(message.userHasAvatar, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
             return writer;
         };
 
@@ -138801,6 +139577,10 @@ $root.DeviceCapabilities = (function() {
                     }
                 case 3: {
                         message.businessBroadcast = $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 4: {
+                        message.userHasAvatar = $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.decode(reader, reader.uint32());
                         break;
                     }
                 default:
@@ -138857,6 +139637,11 @@ $root.DeviceCapabilities = (function() {
                 if (error)
                     return "businessBroadcast." + error;
             }
+            if (message.userHasAvatar != null && message.hasOwnProperty("userHasAvatar")) {
+                var error = $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.verify(message.userHasAvatar);
+                if (error)
+                    return "userHasAvatar." + error;
+            }
             return null;
         };
 
@@ -138902,6 +139687,11 @@ $root.DeviceCapabilities = (function() {
                     throw TypeError(".DeviceCapabilities.DeviceCapabilities.businessBroadcast: object expected");
                 message.businessBroadcast = $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.fromObject(object.businessBroadcast);
             }
+            if (object.userHasAvatar != null) {
+                if (typeof object.userHasAvatar !== "object")
+                    throw TypeError(".DeviceCapabilities.DeviceCapabilities.userHasAvatar: object expected");
+                message.userHasAvatar = $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.fromObject(object.userHasAvatar);
+            }
             return message;
         };
 
@@ -138922,6 +139712,7 @@ $root.DeviceCapabilities = (function() {
                 object.chatLockSupportLevel = options.enums === String ? "NONE" : 0;
                 object.lidMigration = null;
                 object.businessBroadcast = null;
+                object.userHasAvatar = null;
             }
             if (message.chatLockSupportLevel != null && message.hasOwnProperty("chatLockSupportLevel"))
                 object.chatLockSupportLevel = options.enums === String ? $root.DeviceCapabilities.DeviceCapabilities.ChatLockSupportLevel[message.chatLockSupportLevel] === undefined ? message.chatLockSupportLevel : $root.DeviceCapabilities.DeviceCapabilities.ChatLockSupportLevel[message.chatLockSupportLevel] : message.chatLockSupportLevel;
@@ -138929,6 +139720,8 @@ $root.DeviceCapabilities = (function() {
                 object.lidMigration = $root.DeviceCapabilities.DeviceCapabilities.LIDMigration.toObject(message.lidMigration, options);
             if (message.businessBroadcast != null && message.hasOwnProperty("businessBroadcast"))
                 object.businessBroadcast = $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.toObject(message.businessBroadcast, options);
+            if (message.userHasAvatar != null && message.hasOwnProperty("userHasAvatar"))
+                object.userHasAvatar = $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.toObject(message.userHasAvatar, options);
             return object;
         };
 
@@ -139396,6 +140189,211 @@ $root.DeviceCapabilities = (function() {
             };
 
             return LIDMigration;
+        })();
+
+        DeviceCapabilities.UserHasAvatar = (function() {
+
+            /**
+             * Properties of a UserHasAvatar.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @interface IUserHasAvatar
+             * @property {boolean|null} [userHasAvatar] UserHasAvatar userHasAvatar
+             */
+
+            /**
+             * Constructs a new UserHasAvatar.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @classdesc Represents a UserHasAvatar.
+             * @implements IUserHasAvatar
+             * @constructor
+             * @param {DeviceCapabilities.DeviceCapabilities.IUserHasAvatar=} [properties] Properties to set
+             */
+            function UserHasAvatar(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * UserHasAvatar userHasAvatar.
+             * @member {boolean} userHasAvatar
+             * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
+             * @instance
+             */
+            UserHasAvatar.prototype.userHasAvatar = false;
+
+            /**
+             * Creates a new UserHasAvatar instance using the specified properties.
+             * @function create
+             * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.IUserHasAvatar=} [properties] Properties to set
+             * @returns {DeviceCapabilities.DeviceCapabilities.UserHasAvatar} UserHasAvatar instance
+             */
+            UserHasAvatar.create = function create(properties) {
+                return new UserHasAvatar(properties);
+            };
+
+            /**
+             * Encodes the specified UserHasAvatar message. Does not implicitly {@link DeviceCapabilities.DeviceCapabilities.UserHasAvatar.verify|verify} messages.
+             * @function encode
+             * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.IUserHasAvatar} message UserHasAvatar message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            UserHasAvatar.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.userHasAvatar != null && Object.hasOwnProperty.call(message, "userHasAvatar"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).bool(message.userHasAvatar);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified UserHasAvatar message, length delimited. Does not implicitly {@link DeviceCapabilities.DeviceCapabilities.UserHasAvatar.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.IUserHasAvatar} message UserHasAvatar message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            UserHasAvatar.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a UserHasAvatar message from the specified reader or buffer.
+             * @function decode
+             * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {DeviceCapabilities.DeviceCapabilities.UserHasAvatar} UserHasAvatar
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            UserHasAvatar.decode = function decode(reader, length, error) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    if (tag === error)
+                        break;
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.userHasAvatar = reader.bool();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a UserHasAvatar message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {DeviceCapabilities.DeviceCapabilities.UserHasAvatar} UserHasAvatar
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            UserHasAvatar.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a UserHasAvatar message.
+             * @function verify
+             * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            UserHasAvatar.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.userHasAvatar != null && message.hasOwnProperty("userHasAvatar"))
+                    if (typeof message.userHasAvatar !== "boolean")
+                        return "userHasAvatar: boolean expected";
+                return null;
+            };
+
+            /**
+             * Creates a UserHasAvatar message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {DeviceCapabilities.DeviceCapabilities.UserHasAvatar} UserHasAvatar
+             */
+            UserHasAvatar.fromObject = function fromObject(object) {
+                if (object instanceof $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar)
+                    return object;
+                var message = new $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar();
+                if (object.userHasAvatar != null)
+                    message.userHasAvatar = Boolean(object.userHasAvatar);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a UserHasAvatar message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.UserHasAvatar} message UserHasAvatar
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            UserHasAvatar.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults)
+                    object.userHasAvatar = false;
+                if (message.userHasAvatar != null && message.hasOwnProperty("userHasAvatar"))
+                    object.userHasAvatar = message.userHasAvatar;
+                return object;
+            };
+
+            /**
+             * Converts this UserHasAvatar to JSON.
+             * @function toJSON
+             * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            UserHasAvatar.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for UserHasAvatar
+             * @function getTypeUrl
+             * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            UserHasAvatar.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/DeviceCapabilities.DeviceCapabilities.UserHasAvatar";
+            };
+
+            return UserHasAvatar;
         })();
 
         return DeviceCapabilities;

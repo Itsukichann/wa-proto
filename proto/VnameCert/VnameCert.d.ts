@@ -41,52 +41,28 @@ export namespace VnameCert {
         constructor(properties?: VnameCert.IBizIdentityInfo);
 
         /** BizIdentityInfo vlevel. */
-        public vlevel?: (VnameCert.BizIdentityInfo.VerifiedLevelValue|null);
+        public vlevel: VnameCert.BizIdentityInfo.VerifiedLevelValue;
 
         /** BizIdentityInfo vnameCert. */
         public vnameCert?: (VnameCert.IVerifiedNameCertificate|null);
 
         /** BizIdentityInfo signed. */
-        public signed?: (boolean|null);
+        public signed: boolean;
 
         /** BizIdentityInfo revoked. */
-        public revoked?: (boolean|null);
+        public revoked: boolean;
 
         /** BizIdentityInfo hostStorage. */
-        public hostStorage?: (VnameCert.BizIdentityInfo.HostStorageType|null);
+        public hostStorage: VnameCert.BizIdentityInfo.HostStorageType;
 
         /** BizIdentityInfo actualActors. */
-        public actualActors?: (VnameCert.BizIdentityInfo.ActualActorsType|null);
+        public actualActors: VnameCert.BizIdentityInfo.ActualActorsType;
 
         /** BizIdentityInfo privacyModeTs. */
-        public privacyModeTs?: (number|Long|null);
+        public privacyModeTs: (number|Long);
 
         /** BizIdentityInfo featureControls. */
-        public featureControls?: (number|Long|null);
-
-        /** BizIdentityInfo _vlevel. */
-        public _vlevel?: "vlevel";
-
-        /** BizIdentityInfo _vnameCert. */
-        public _vnameCert?: "vnameCert";
-
-        /** BizIdentityInfo _signed. */
-        public _signed?: "signed";
-
-        /** BizIdentityInfo _revoked. */
-        public _revoked?: "revoked";
-
-        /** BizIdentityInfo _hostStorage. */
-        public _hostStorage?: "hostStorage";
-
-        /** BizIdentityInfo _actualActors. */
-        public _actualActors?: "actualActors";
-
-        /** BizIdentityInfo _privacyModeTs. */
-        public _privacyModeTs?: "privacyModeTs";
-
-        /** BizIdentityInfo _featureControls. */
-        public _featureControls?: "featureControls";
+        public featureControls: (number|Long);
 
         /**
          * Creates a new BizIdentityInfo instance using the specified properties.
@@ -217,34 +193,19 @@ export namespace VnameCert {
         constructor(properties?: VnameCert.IBizAccountLinkInfo);
 
         /** BizAccountLinkInfo whatsappBizAcctFbid. */
-        public whatsappBizAcctFbid?: (number|Long|null);
+        public whatsappBizAcctFbid: (number|Long);
 
         /** BizAccountLinkInfo whatsappAcctNumber. */
-        public whatsappAcctNumber?: (string|null);
+        public whatsappAcctNumber: string;
 
         /** BizAccountLinkInfo issueTime. */
-        public issueTime?: (number|Long|null);
+        public issueTime: (number|Long);
 
         /** BizAccountLinkInfo hostStorage. */
-        public hostStorage?: (VnameCert.BizAccountLinkInfo.HostStorageType|null);
+        public hostStorage: VnameCert.BizAccountLinkInfo.HostStorageType;
 
         /** BizAccountLinkInfo accountType. */
-        public accountType?: (VnameCert.BizAccountLinkInfo.AccountType|null);
-
-        /** BizAccountLinkInfo _whatsappBizAcctFbid. */
-        public _whatsappBizAcctFbid?: "whatsappBizAcctFbid";
-
-        /** BizAccountLinkInfo _whatsappAcctNumber. */
-        public _whatsappAcctNumber?: "whatsappAcctNumber";
-
-        /** BizAccountLinkInfo _issueTime. */
-        public _issueTime?: "issueTime";
-
-        /** BizAccountLinkInfo _hostStorage. */
-        public _hostStorage?: "hostStorage";
-
-        /** BizAccountLinkInfo _accountType. */
-        public _accountType?: "accountType";
+        public accountType: VnameCert.BizAccountLinkInfo.AccountType;
 
         /**
          * Creates a new BizAccountLinkInfo instance using the specified properties.
@@ -361,13 +322,7 @@ export namespace VnameCert {
         public vnameCert?: (VnameCert.IVerifiedNameCertificate|null);
 
         /** BizAccountPayload bizAcctLinkInfo. */
-        public bizAcctLinkInfo?: (Uint8Array|null);
-
-        /** BizAccountPayload _vnameCert. */
-        public _vnameCert?: "vnameCert";
-
-        /** BizAccountPayload _bizAcctLinkInfo. */
-        public _bizAcctLinkInfo?: "bizAcctLinkInfo";
+        public bizAcctLinkInfo: Uint8Array;
 
         /**
          * Creates a new BizAccountPayload instance using the specified properties.
@@ -470,22 +425,13 @@ export namespace VnameCert {
         constructor(properties?: VnameCert.IVerifiedNameCertificate);
 
         /** VerifiedNameCertificate details. */
-        public details?: (Uint8Array|null);
+        public details: Uint8Array;
 
         /** VerifiedNameCertificate signature. */
-        public signature?: (Uint8Array|null);
+        public signature: Uint8Array;
 
         /** VerifiedNameCertificate serverSignature. */
-        public serverSignature?: (Uint8Array|null);
-
-        /** VerifiedNameCertificate _details. */
-        public _details?: "details";
-
-        /** VerifiedNameCertificate _signature. */
-        public _signature?: "signature";
-
-        /** VerifiedNameCertificate _serverSignature. */
-        public _serverSignature?: "serverSignature";
+        public serverSignature: Uint8Array;
 
         /**
          * Creates a new VerifiedNameCertificate instance using the specified properties.
@@ -596,31 +542,19 @@ export namespace VnameCert {
             constructor(properties?: VnameCert.VerifiedNameCertificate.IDetails);
 
             /** Details serial. */
-            public serial?: (number|Long|null);
+            public serial: (number|Long);
 
             /** Details issuer. */
-            public issuer?: (string|null);
+            public issuer: string;
 
             /** Details verifiedName. */
-            public verifiedName?: (string|null);
+            public verifiedName: string;
 
             /** Details localizedNames. */
             public localizedNames: VnameCert.ILocalizedName[];
 
             /** Details issueTime. */
-            public issueTime?: (number|Long|null);
-
-            /** Details _serial. */
-            public _serial?: "serial";
-
-            /** Details _issuer. */
-            public _issuer?: "issuer";
-
-            /** Details _verifiedName. */
-            public _verifiedName?: "verifiedName";
-
-            /** Details _issueTime. */
-            public _issueTime?: "issueTime";
+            public issueTime: (number|Long);
 
             /**
              * Creates a new Details instance using the specified properties.
@@ -724,22 +658,13 @@ export namespace VnameCert {
         constructor(properties?: VnameCert.ILocalizedName);
 
         /** LocalizedName lg. */
-        public lg?: (string|null);
+        public lg: string;
 
         /** LocalizedName lc. */
-        public lc?: (string|null);
+        public lc: string;
 
         /** LocalizedName verifiedName. */
-        public verifiedName?: (string|null);
-
-        /** LocalizedName _lg. */
-        public _lg?: "lg";
-
-        /** LocalizedName _lc. */
-        public _lc?: "lc";
-
-        /** LocalizedName _verifiedName. */
-        public _verifiedName?: "verifiedName";
+        public verifiedName: string;
 
         /**
          * Creates a new LocalizedName instance using the specified properties.
