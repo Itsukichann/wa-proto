@@ -28,6 +28,12 @@ export namespace Cert {
         /** CertChain intermediate. */
         public intermediate?: (Cert.CertChain.INoiseCertificate|null);
 
+        /** CertChain _leaf. */
+        public _leaf?: "leaf";
+
+        /** CertChain _intermediate. */
+        public _intermediate?: "intermediate";
+
         /**
          * Creates a new CertChain instance using the specified properties.
          * @param [properties] Properties to set
@@ -128,10 +134,16 @@ export namespace Cert {
             constructor(properties?: Cert.CertChain.INoiseCertificate);
 
             /** NoiseCertificate details. */
-            public details: Uint8Array;
+            public details?: (Uint8Array|null);
 
             /** NoiseCertificate signature. */
-            public signature: Uint8Array;
+            public signature?: (Uint8Array|null);
+
+            /** NoiseCertificate _details. */
+            public _details?: "details";
+
+            /** NoiseCertificate _signature. */
+            public _signature?: "signature";
 
             /**
              * Creates a new NoiseCertificate instance using the specified properties.
@@ -242,19 +254,34 @@ export namespace Cert {
                 constructor(properties?: Cert.CertChain.NoiseCertificate.IDetails);
 
                 /** Details serial. */
-                public serial: number;
+                public serial?: (number|null);
 
                 /** Details issuerSerial. */
-                public issuerSerial: number;
+                public issuerSerial?: (number|null);
 
                 /** Details key. */
-                public key: Uint8Array;
+                public key?: (Uint8Array|null);
 
                 /** Details notBefore. */
-                public notBefore: (number|Long);
+                public notBefore?: (number|Long|null);
 
                 /** Details notAfter. */
-                public notAfter: (number|Long);
+                public notAfter?: (number|Long|null);
+
+                /** Details _serial. */
+                public _serial?: "serial";
+
+                /** Details _issuerSerial. */
+                public _issuerSerial?: "issuerSerial";
+
+                /** Details _key. */
+                public _key?: "key";
+
+                /** Details _notBefore. */
+                public _notBefore?: "notBefore";
+
+                /** Details _notAfter. */
+                public _notAfter?: "notAfter";
 
                 /**
                  * Creates a new Details instance using the specified properties.
@@ -356,10 +383,16 @@ export namespace Cert {
         constructor(properties?: Cert.INoiseCertificate);
 
         /** NoiseCertificate details. */
-        public details: Uint8Array;
+        public details?: (Uint8Array|null);
 
         /** NoiseCertificate signature. */
-        public signature: Uint8Array;
+        public signature?: (Uint8Array|null);
+
+        /** NoiseCertificate _details. */
+        public _details?: "details";
+
+        /** NoiseCertificate _signature. */
+        public _signature?: "signature";
 
         /**
          * Creates a new NoiseCertificate instance using the specified properties.
@@ -470,19 +503,34 @@ export namespace Cert {
             constructor(properties?: Cert.NoiseCertificate.IDetails);
 
             /** Details serial. */
-            public serial: number;
+            public serial?: (number|null);
 
             /** Details issuer. */
-            public issuer: string;
+            public issuer?: (string|null);
 
             /** Details expires. */
-            public expires: (number|Long);
+            public expires?: (number|Long|null);
 
             /** Details subject. */
-            public subject: string;
+            public subject?: (string|null);
 
             /** Details key. */
-            public key: Uint8Array;
+            public key?: (Uint8Array|null);
+
+            /** Details _serial. */
+            public _serial?: "serial";
+
+            /** Details _issuer. */
+            public _issuer?: "issuer";
+
+            /** Details _expires. */
+            public _expires?: "expires";
+
+            /** Details _subject. */
+            public _subject?: "subject";
+
+            /** Details _key. */
+            public _key?: "key";
 
             /**
              * Creates a new Details instance using the specified properties.
