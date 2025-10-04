@@ -306,6 +306,7 @@ $root.StatusAttributions = (function() {
                 case 5:
                 case 6:
                 case 7:
+                case 8:
                     break;
                 }
             }
@@ -425,6 +426,10 @@ $root.StatusAttributions = (function() {
             case "AI_CREATED":
             case 7:
                 message.type = 7;
+                break;
+            case "LAYOUTS":
+            case 8:
+                message.type = 8;
                 break;
             }
             if (object.actionUrl != null)
@@ -2802,6 +2807,7 @@ $root.StatusAttributions = (function() {
          * @property {number} GROUP_STATUS=5 GROUP_STATUS value
          * @property {number} RL_ATTRIBUTION=6 RL_ATTRIBUTION value
          * @property {number} AI_CREATED=7 AI_CREATED value
+         * @property {number} LAYOUTS=8 LAYOUTS value
          */
         StatusAttribution.Type = (function() {
             var valuesById = {}, values = Object.create(valuesById);
@@ -2813,6 +2819,7 @@ $root.StatusAttributions = (function() {
             values[valuesById[5] = "GROUP_STATUS"] = 5;
             values[valuesById[6] = "RL_ATTRIBUTION"] = 6;
             values[valuesById[7] = "AI_CREATED"] = 7;
+            values[valuesById[8] = "LAYOUTS"] = 8;
             return values;
         })();
 
