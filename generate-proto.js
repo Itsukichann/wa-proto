@@ -1,71 +1,57 @@
-import fs from 'fs'
-import path from 'path'
-import { execSync } from 'child_process'
+const { execSync } = require('child_process');
+const path = require('path');
+const fs = require('fs');
 
-const PROTO_DIR = path.resolve('./proto')
+const PROTO_DIR = path.resolve(__dirname, 'proto');
 
-/**
- * Rekursif: ambil semua file .proto dari folder utama
- */
-function getAllProtoFiles(dir) {
-  const entries = fs.readdirSync(dir, { withFileTypes: true })
-  const files = []
-  for (const entry of entries) {
-    const full = path.join(dir, entry.name)
-    if (entry.isDirectory()) files.push(...getAllProtoFiles(full))
-    else if (entry.isFile() && entry.name.endsWith('.proto')) files.push(full)
-  }
+function getProtoFiles(dir) {
+  const files = fs.readdirSync(dir, { withFileTypes: true });
   return files
+    .flatMap((file) => {
+      const filePath = path.join(dir, file.name);
+      return file.isDirectory() ? getProtoFiles(filePath) : filePath;
+    })
+    .filter((file) => file.endsWith('.proto'));
 }
 
-/**
- * Jalankan pbjs + pbts dan pastikan hasil file tidak kosong
- */
-function generate(file) {
-  const dir = path.dirname(file)
-  const name = path.basename(file, '.proto')
-  const jsFile = path.join(dir, `${name}.js`)
-  const dtsFile = path.join(dir, `${name}.d.ts`)
+const protoFiles = getProtoFiles(PROTO_DIR);
+if (protoFiles.length === 0) {
+  console.error('No .proto files found in the proto directory.');
+  process.exit(1);
+}
 
-  console.log(`\n📦 Generating for ${file} ...`)
+let exportsText = '';
+
+protoFiles.forEach((file) => {
+  const fileName = path.basename(file);
 
   try {
-    // Hapus file lama jika ada
-    if (fs.existsSync(jsFile)) fs.unlinkSync(jsFile)
-    if (fs.existsSync(dtsFile)) fs.unlinkSync(dtsFile)
+    const outputJS = file.replace(/\.proto$/, '.js');
+    const outputTS = file.replace(/\.proto$/, '.d.ts');
 
-    // Generate JS (static module, commonjs)
-    execSync(`npx pbjs -t static-module -w commonjs -o "${jsFile}" "${file}"`, { stdio: 'inherit' })
+    const pbjsCommand = [
+      `npx pbjs`,
+      `-t static-module`,
+      `-w commonjs`,
+      `-o ${outputJS}`,
+      `-r default`,
+      file,
+    ].join(' ');
+    const pbtsCommand = [`npx pbts`, `-o ${outputTS}`, outputJS].join(' ');
 
-    // Generate TypeScript declarations
-    execSync(`npx pbts -o "${dtsFile}" "${jsFile}"`, { stdio: 'inherit' })
+    console.log(`Generating JS and TS for ${fileName}...`);
 
-    // Validasi hasil
-    const jsContent = fs.readFileSync(jsFile, 'utf8').trim()
-    const tsContent = fs.readFileSync(dtsFile, 'utf8').trim()
+    execSync(pbjsCommand, { stdio: 'inherit' });
+    execSync(pbtsCommand, { stdio: 'inherit' });
 
-    if (!jsContent.includes('require("protobufjs/minimal")') || jsContent.length < 200) {
-      throw new Error(`File ${name}.js tidak valid atau kosong`)
-    }
-
-    if (!tsContent.includes('declare namespace') || tsContent.length < 50) {
-      throw new Error(`File ${name}.d.ts tidak valid atau kosong`)
-    }
-
-    console.log(`✅ Sukses generate: ${name}.js & ${name}.d.ts`)
+    const exportName = fileName.replace(/\.proto$/, '');
+    exportsText += `exports.${exportName} = require('./${exportName}/${exportName}').${exportName};\n`;
   } catch (err) {
-    console.error(`❌ Gagal generate untuk ${file}: ${err.message}`)
+    console.error(`Error generating JS and TS for ${fileName}: ${err.message}`);
   }
-}
+});
 
-console.log('🚀 Memulai generate semua .proto...\n')
+// Write index.js file
+fs.writeFileSync(path.resolve(PROTO_DIR, 'index.js'), exportsText, 'utf8');
 
-const files = getAllProtoFiles(PROTO_DIR)
-if (files.length === 0) {
-  console.error('⚠️ Tidak ada file .proto ditemukan di folder proto/')
-  process.exit(1)
-}
-
-for (const f of files) generate(f)
-
-console.log('\n🎉 Semua file .proto telah berhasil dikompilasi!\n')
+console.log('Protobuf generation complete!');
