@@ -1,1 +1,0 @@
-// failed d.ts
