@@ -1,7 +1,7 @@
 {
   "name": "wa-proto",
   "version": "1.0.0",
-  "description": "Protobuf files from WhatsApp WEB",
+  "description": "Protobuf files from WhatsApp Web",
   "main": "proto/index.js",
   "files": [
     "proto/*"
@@ -9,7 +9,8 @@
   "scripts": {
     "build": "npm run fetch && npm run generate",
     "fetch": "node index.js",
-    "generate": "node generate-proto.js"
+    "generate": "node generate-proto.js",
+    "clean": "rm -rf proto/**/*.js proto/**/*.d.ts proto/index.js"
   },
   "repository": {
     "type": "git",
