@@ -4,18 +4,27 @@ const fs = require('fs');
 
 const PROTO_DIR = path.resolve(__dirname, 'proto');
 
+// Pastikan protobufjs tersedia
+try {
+  execSync('npx pbjs --version', { stdio: 'pipe' });
+} catch {
+  console.error('❌ "protobufjs" belum terpasang. Jalankan: npm install protobufjs --save-dev');
+  process.exit(1);
+}
+
 function getProtoFiles(dir) {
   if (!fs.existsSync(dir)) return [];
-  const files = fs.readdirSync(dir, { withFileTypes: true });
-  return files.flatMap(file => {
-    const filePath = path.join(dir, file.name);
-    return file.isDirectory() ? getProtoFiles(filePath) : filePath;
-  }).filter(file => file.endsWith('.proto'));
+  return fs.readdirSync(dir, { withFileTypes: true })
+    .flatMap(f => {
+      const filePath = path.join(dir, f.name);
+      return f.isDirectory() ? getProtoFiles(filePath) : filePath;
+    })
+    .filter(f => f.endsWith('.proto'));
 }
 
 const protoFiles = getProtoFiles(PROTO_DIR);
 if (protoFiles.length === 0) {
-  console.error('⚠️  Tidak ada file .proto di folder proto.');
+  console.error('⚠️  Tidak ada file .proto ditemukan.');
   process.exit(1);
 }
 
@@ -27,48 +36,34 @@ for (const file of protoFiles) {
   const outputJS = path.join(outputDir, `${fileName}.js`);
   const outputTS = path.join(outputDir, `${fileName}.d.ts`);
 
+  console.log(`\n🔧 Memproses: ${fileName}.proto`);
+
   try {
-    console.log(`\n🔧 Menghasilkan file untuk: ${fileName}.proto`);
-
-    // Pastikan direktori output ada
-    if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
-
     // Jalankan pbjs
-    const pbjsCommand = [
-      `npx pbjs`,
-      `-t static-module`,
-      `-w commonjs`,
-      `-o "${outputJS}"`,
-      `-r default`,
-      `"${file}"`
-    ].join(' ');
-    execSync(pbjsCommand, { stdio: 'inherit' });
+    const pbjsCmd = `npx pbjs -t static-module -w commonjs -o "${outputJS}" "${file}"`;
+    execSync(pbjsCmd, { stdio: 'inherit' });
 
     // Jalankan pbts
-    const pbtsCommand = [`npx pbts`, `-o "${outputTS}"`, `"${outputJS}"`].join(' ');
-    execSync(pbtsCommand, { stdio: 'inherit' });
+    const pbtsCmd = `npx pbts -o "${outputTS}" "${outputJS}"`;
+    execSync(pbtsCmd, { stdio: 'inherit' });
 
-    // Pastikan file hasil benar-benar ada
-    if (!fs.existsSync(outputJS)) {
-      console.warn(`⚠️  File .js tidak ditemukan untuk ${fileName}, membuat dummy file...`);
-      fs.writeFileSync(outputJS, '// dummy js\n');
-    }
-    if (!fs.existsSync(outputTS)) {
-      console.warn(`⚠️  File .d.ts tidak ditemukan untuk ${fileName}, membuat dummy file...`);
-      fs.writeFileSync(outputTS, '// dummy d.ts\n');
+    if (!fs.existsSync(outputJS) || !fs.existsSync(outputTS)) {
+      throw new Error('File hasil tidak ditemukan setelah kompilasi.');
     }
 
     exportsText += `exports.${fileName} = require('./${fileName}');\n`;
   } catch (err) {
-    console.error(`❌ Gagal memproses ${fileName}.proto: ${err.message}`);
-    // Buat file dummy agar ekspor tidak gagal
-    fs.writeFileSync(outputJS, '// failed js\n');
-    fs.writeFileSync(outputTS, '// failed d.ts\n');
+    console.error(`❌ Gagal kompilasi ${fileName}.proto`);
+    console.error(`   > ${err.message}`);
+    // Hapus dummy creation agar tidak commit file rusak
+    continue;
   }
 }
 
-// Tulis file index.js
-const indexPath = path.join(PROTO_DIR, 'index.js');
-fs.writeFileSync(indexPath, exportsText || '// no exports\n', 'utf8');
-
-console.log('\n✅ Protobuf generation complete!');
+if (exportsText.trim()) {
+  const indexPath = path.join(PROTO_DIR, 'index.js');
+  fs.writeFileSync(indexPath, exportsText, 'utf8');
+  console.log('\n✅ Semua .proto berhasil dikompilasi!');
+} else {
+  console.warn('\n⚠️ Tidak ada file yang berhasil dikompilasi.');
+}
