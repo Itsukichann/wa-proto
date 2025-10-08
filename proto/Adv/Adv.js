@@ -46,63 +46,27 @@ $root.Adv = (function() {
 
         /**
          * ADVSignedDeviceIdentityHMAC details.
-         * @member {Uint8Array|null|undefined} details
+         * @member {Uint8Array} details
          * @memberof Adv.ADVSignedDeviceIdentityHMAC
          * @instance
          */
-        ADVSignedDeviceIdentityHMAC.prototype.details = null;
+        ADVSignedDeviceIdentityHMAC.prototype.details = $util.newBuffer([]);
 
         /**
          * ADVSignedDeviceIdentityHMAC hmac.
-         * @member {Uint8Array|null|undefined} hmac
+         * @member {Uint8Array} hmac
          * @memberof Adv.ADVSignedDeviceIdentityHMAC
          * @instance
          */
-        ADVSignedDeviceIdentityHMAC.prototype.hmac = null;
+        ADVSignedDeviceIdentityHMAC.prototype.hmac = $util.newBuffer([]);
 
         /**
          * ADVSignedDeviceIdentityHMAC accountType.
-         * @member {Adv.ADVEncryptionType|null|undefined} accountType
+         * @member {Adv.ADVEncryptionType} accountType
          * @memberof Adv.ADVSignedDeviceIdentityHMAC
          * @instance
          */
-        ADVSignedDeviceIdentityHMAC.prototype.accountType = null;
-
-        // OneOf field names bound to virtual getters and setters
-        var $oneOfFields;
-
-        /**
-         * ADVSignedDeviceIdentityHMAC _details.
-         * @member {"details"|undefined} _details
-         * @memberof Adv.ADVSignedDeviceIdentityHMAC
-         * @instance
-         */
-        Object.defineProperty(ADVSignedDeviceIdentityHMAC.prototype, "_details", {
-            get: $util.oneOfGetter($oneOfFields = ["details"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * ADVSignedDeviceIdentityHMAC _hmac.
-         * @member {"hmac"|undefined} _hmac
-         * @memberof Adv.ADVSignedDeviceIdentityHMAC
-         * @instance
-         */
-        Object.defineProperty(ADVSignedDeviceIdentityHMAC.prototype, "_hmac", {
-            get: $util.oneOfGetter($oneOfFields = ["hmac"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * ADVSignedDeviceIdentityHMAC _accountType.
-         * @member {"accountType"|undefined} _accountType
-         * @memberof Adv.ADVSignedDeviceIdentityHMAC
-         * @instance
-         */
-        Object.defineProperty(ADVSignedDeviceIdentityHMAC.prototype, "_accountType", {
-            get: $util.oneOfGetter($oneOfFields = ["accountType"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
+        ADVSignedDeviceIdentityHMAC.prototype.accountType = 0;
 
         /**
          * Creates a new ADVSignedDeviceIdentityHMAC instance using the specified properties.
@@ -217,19 +181,13 @@ $root.Adv = (function() {
         ADVSignedDeviceIdentityHMAC.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            var properties = {};
-            if (message.details != null && message.hasOwnProperty("details")) {
-                properties._details = 1;
+            if (message.details != null && message.hasOwnProperty("details"))
                 if (!(message.details && typeof message.details.length === "number" || $util.isString(message.details)))
                     return "details: buffer expected";
-            }
-            if (message.hmac != null && message.hasOwnProperty("hmac")) {
-                properties._hmac = 1;
+            if (message.hmac != null && message.hasOwnProperty("hmac"))
                 if (!(message.hmac && typeof message.hmac.length === "number" || $util.isString(message.hmac)))
                     return "hmac: buffer expected";
-            }
-            if (message.accountType != null && message.hasOwnProperty("accountType")) {
-                properties._accountType = 1;
+            if (message.accountType != null && message.hasOwnProperty("accountType"))
                 switch (message.accountType) {
                 default:
                     return "accountType: enum value expected";
@@ -237,7 +195,6 @@ $root.Adv = (function() {
                 case 1:
                     break;
                 }
-            }
             return null;
         };
 
@@ -295,21 +252,29 @@ $root.Adv = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (message.details != null && message.hasOwnProperty("details")) {
+            if (options.defaults) {
+                if (options.bytes === String)
+                    object.details = "";
+                else {
+                    object.details = [];
+                    if (options.bytes !== Array)
+                        object.details = $util.newBuffer(object.details);
+                }
+                if (options.bytes === String)
+                    object.hmac = "";
+                else {
+                    object.hmac = [];
+                    if (options.bytes !== Array)
+                        object.hmac = $util.newBuffer(object.hmac);
+                }
+                object.accountType = options.enums === String ? "E2EE" : 0;
+            }
+            if (message.details != null && message.hasOwnProperty("details"))
                 object.details = options.bytes === String ? $util.base64.encode(message.details, 0, message.details.length) : options.bytes === Array ? Array.prototype.slice.call(message.details) : message.details;
-                if (options.oneofs)
-                    object._details = "details";
-            }
-            if (message.hmac != null && message.hasOwnProperty("hmac")) {
+            if (message.hmac != null && message.hasOwnProperty("hmac"))
                 object.hmac = options.bytes === String ? $util.base64.encode(message.hmac, 0, message.hmac.length) : options.bytes === Array ? Array.prototype.slice.call(message.hmac) : message.hmac;
-                if (options.oneofs)
-                    object._hmac = "hmac";
-            }
-            if (message.accountType != null && message.hasOwnProperty("accountType")) {
+            if (message.accountType != null && message.hasOwnProperty("accountType"))
                 object.accountType = options.enums === String ? $root.Adv.ADVEncryptionType[message.accountType] === undefined ? message.accountType : $root.Adv.ADVEncryptionType[message.accountType] : message.accountType;
-                if (options.oneofs)
-                    object._accountType = "accountType";
-            }
             return object;
         };
 
@@ -371,82 +336,35 @@ $root.Adv = (function() {
 
         /**
          * ADVSignedDeviceIdentity details.
-         * @member {Uint8Array|null|undefined} details
+         * @member {Uint8Array} details
          * @memberof Adv.ADVSignedDeviceIdentity
          * @instance
          */
-        ADVSignedDeviceIdentity.prototype.details = null;
+        ADVSignedDeviceIdentity.prototype.details = $util.newBuffer([]);
 
         /**
          * ADVSignedDeviceIdentity accountSignatureKey.
-         * @member {Uint8Array|null|undefined} accountSignatureKey
+         * @member {Uint8Array} accountSignatureKey
          * @memberof Adv.ADVSignedDeviceIdentity
          * @instance
          */
-        ADVSignedDeviceIdentity.prototype.accountSignatureKey = null;
+        ADVSignedDeviceIdentity.prototype.accountSignatureKey = $util.newBuffer([]);
 
         /**
          * ADVSignedDeviceIdentity accountSignature.
-         * @member {Uint8Array|null|undefined} accountSignature
+         * @member {Uint8Array} accountSignature
          * @memberof Adv.ADVSignedDeviceIdentity
          * @instance
          */
-        ADVSignedDeviceIdentity.prototype.accountSignature = null;
+        ADVSignedDeviceIdentity.prototype.accountSignature = $util.newBuffer([]);
 
         /**
          * ADVSignedDeviceIdentity deviceSignature.
-         * @member {Uint8Array|null|undefined} deviceSignature
+         * @member {Uint8Array} deviceSignature
          * @memberof Adv.ADVSignedDeviceIdentity
          * @instance
          */
-        ADVSignedDeviceIdentity.prototype.deviceSignature = null;
-
-        // OneOf field names bound to virtual getters and setters
-        var $oneOfFields;
-
-        /**
-         * ADVSignedDeviceIdentity _details.
-         * @member {"details"|undefined} _details
-         * @memberof Adv.ADVSignedDeviceIdentity
-         * @instance
-         */
-        Object.defineProperty(ADVSignedDeviceIdentity.prototype, "_details", {
-            get: $util.oneOfGetter($oneOfFields = ["details"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * ADVSignedDeviceIdentity _accountSignatureKey.
-         * @member {"accountSignatureKey"|undefined} _accountSignatureKey
-         * @memberof Adv.ADVSignedDeviceIdentity
-         * @instance
-         */
-        Object.defineProperty(ADVSignedDeviceIdentity.prototype, "_accountSignatureKey", {
-            get: $util.oneOfGetter($oneOfFields = ["accountSignatureKey"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * ADVSignedDeviceIdentity _accountSignature.
-         * @member {"accountSignature"|undefined} _accountSignature
-         * @memberof Adv.ADVSignedDeviceIdentity
-         * @instance
-         */
-        Object.defineProperty(ADVSignedDeviceIdentity.prototype, "_accountSignature", {
-            get: $util.oneOfGetter($oneOfFields = ["accountSignature"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * ADVSignedDeviceIdentity _deviceSignature.
-         * @member {"deviceSignature"|undefined} _deviceSignature
-         * @memberof Adv.ADVSignedDeviceIdentity
-         * @instance
-         */
-        Object.defineProperty(ADVSignedDeviceIdentity.prototype, "_deviceSignature", {
-            get: $util.oneOfGetter($oneOfFields = ["deviceSignature"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
+        ADVSignedDeviceIdentity.prototype.deviceSignature = $util.newBuffer([]);
 
         /**
          * Creates a new ADVSignedDeviceIdentity instance using the specified properties.
@@ -567,27 +485,18 @@ $root.Adv = (function() {
         ADVSignedDeviceIdentity.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            var properties = {};
-            if (message.details != null && message.hasOwnProperty("details")) {
-                properties._details = 1;
+            if (message.details != null && message.hasOwnProperty("details"))
                 if (!(message.details && typeof message.details.length === "number" || $util.isString(message.details)))
                     return "details: buffer expected";
-            }
-            if (message.accountSignatureKey != null && message.hasOwnProperty("accountSignatureKey")) {
-                properties._accountSignatureKey = 1;
+            if (message.accountSignatureKey != null && message.hasOwnProperty("accountSignatureKey"))
                 if (!(message.accountSignatureKey && typeof message.accountSignatureKey.length === "number" || $util.isString(message.accountSignatureKey)))
                     return "accountSignatureKey: buffer expected";
-            }
-            if (message.accountSignature != null && message.hasOwnProperty("accountSignature")) {
-                properties._accountSignature = 1;
+            if (message.accountSignature != null && message.hasOwnProperty("accountSignature"))
                 if (!(message.accountSignature && typeof message.accountSignature.length === "number" || $util.isString(message.accountSignature)))
                     return "accountSignature: buffer expected";
-            }
-            if (message.deviceSignature != null && message.hasOwnProperty("deviceSignature")) {
-                properties._deviceSignature = 1;
+            if (message.deviceSignature != null && message.hasOwnProperty("deviceSignature"))
                 if (!(message.deviceSignature && typeof message.deviceSignature.length === "number" || $util.isString(message.deviceSignature)))
                     return "deviceSignature: buffer expected";
-            }
             return null;
         };
 
@@ -639,26 +548,44 @@ $root.Adv = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (message.details != null && message.hasOwnProperty("details")) {
+            if (options.defaults) {
+                if (options.bytes === String)
+                    object.details = "";
+                else {
+                    object.details = [];
+                    if (options.bytes !== Array)
+                        object.details = $util.newBuffer(object.details);
+                }
+                if (options.bytes === String)
+                    object.accountSignatureKey = "";
+                else {
+                    object.accountSignatureKey = [];
+                    if (options.bytes !== Array)
+                        object.accountSignatureKey = $util.newBuffer(object.accountSignatureKey);
+                }
+                if (options.bytes === String)
+                    object.accountSignature = "";
+                else {
+                    object.accountSignature = [];
+                    if (options.bytes !== Array)
+                        object.accountSignature = $util.newBuffer(object.accountSignature);
+                }
+                if (options.bytes === String)
+                    object.deviceSignature = "";
+                else {
+                    object.deviceSignature = [];
+                    if (options.bytes !== Array)
+                        object.deviceSignature = $util.newBuffer(object.deviceSignature);
+                }
+            }
+            if (message.details != null && message.hasOwnProperty("details"))
                 object.details = options.bytes === String ? $util.base64.encode(message.details, 0, message.details.length) : options.bytes === Array ? Array.prototype.slice.call(message.details) : message.details;
-                if (options.oneofs)
-                    object._details = "details";
-            }
-            if (message.accountSignatureKey != null && message.hasOwnProperty("accountSignatureKey")) {
+            if (message.accountSignatureKey != null && message.hasOwnProperty("accountSignatureKey"))
                 object.accountSignatureKey = options.bytes === String ? $util.base64.encode(message.accountSignatureKey, 0, message.accountSignatureKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.accountSignatureKey) : message.accountSignatureKey;
-                if (options.oneofs)
-                    object._accountSignatureKey = "accountSignatureKey";
-            }
-            if (message.accountSignature != null && message.hasOwnProperty("accountSignature")) {
+            if (message.accountSignature != null && message.hasOwnProperty("accountSignature"))
                 object.accountSignature = options.bytes === String ? $util.base64.encode(message.accountSignature, 0, message.accountSignature.length) : options.bytes === Array ? Array.prototype.slice.call(message.accountSignature) : message.accountSignature;
-                if (options.oneofs)
-                    object._accountSignature = "accountSignature";
-            }
-            if (message.deviceSignature != null && message.hasOwnProperty("deviceSignature")) {
+            if (message.deviceSignature != null && message.hasOwnProperty("deviceSignature"))
                 object.deviceSignature = options.bytes === String ? $util.base64.encode(message.deviceSignature, 0, message.deviceSignature.length) : options.bytes === Array ? Array.prototype.slice.call(message.deviceSignature) : message.deviceSignature;
-                if (options.oneofs)
-                    object._deviceSignature = "deviceSignature";
-            }
             return object;
         };
 
@@ -721,101 +648,43 @@ $root.Adv = (function() {
 
         /**
          * ADVDeviceIdentity rawId.
-         * @member {number|null|undefined} rawId
+         * @member {number} rawId
          * @memberof Adv.ADVDeviceIdentity
          * @instance
          */
-        ADVDeviceIdentity.prototype.rawId = null;
+        ADVDeviceIdentity.prototype.rawId = 0;
 
         /**
          * ADVDeviceIdentity timestamp.
-         * @member {number|Long|null|undefined} timestamp
+         * @member {number|Long} timestamp
          * @memberof Adv.ADVDeviceIdentity
          * @instance
          */
-        ADVDeviceIdentity.prototype.timestamp = null;
+        ADVDeviceIdentity.prototype.timestamp = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
         /**
          * ADVDeviceIdentity keyIndex.
-         * @member {number|null|undefined} keyIndex
+         * @member {number} keyIndex
          * @memberof Adv.ADVDeviceIdentity
          * @instance
          */
-        ADVDeviceIdentity.prototype.keyIndex = null;
+        ADVDeviceIdentity.prototype.keyIndex = 0;
 
         /**
          * ADVDeviceIdentity accountType.
-         * @member {Adv.ADVEncryptionType|null|undefined} accountType
+         * @member {Adv.ADVEncryptionType} accountType
          * @memberof Adv.ADVDeviceIdentity
          * @instance
          */
-        ADVDeviceIdentity.prototype.accountType = null;
+        ADVDeviceIdentity.prototype.accountType = 0;
 
         /**
          * ADVDeviceIdentity deviceType.
-         * @member {Adv.ADVEncryptionType|null|undefined} deviceType
+         * @member {Adv.ADVEncryptionType} deviceType
          * @memberof Adv.ADVDeviceIdentity
          * @instance
          */
-        ADVDeviceIdentity.prototype.deviceType = null;
-
-        // OneOf field names bound to virtual getters and setters
-        var $oneOfFields;
-
-        /**
-         * ADVDeviceIdentity _rawId.
-         * @member {"rawId"|undefined} _rawId
-         * @memberof Adv.ADVDeviceIdentity
-         * @instance
-         */
-        Object.defineProperty(ADVDeviceIdentity.prototype, "_rawId", {
-            get: $util.oneOfGetter($oneOfFields = ["rawId"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * ADVDeviceIdentity _timestamp.
-         * @member {"timestamp"|undefined} _timestamp
-         * @memberof Adv.ADVDeviceIdentity
-         * @instance
-         */
-        Object.defineProperty(ADVDeviceIdentity.prototype, "_timestamp", {
-            get: $util.oneOfGetter($oneOfFields = ["timestamp"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * ADVDeviceIdentity _keyIndex.
-         * @member {"keyIndex"|undefined} _keyIndex
-         * @memberof Adv.ADVDeviceIdentity
-         * @instance
-         */
-        Object.defineProperty(ADVDeviceIdentity.prototype, "_keyIndex", {
-            get: $util.oneOfGetter($oneOfFields = ["keyIndex"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * ADVDeviceIdentity _accountType.
-         * @member {"accountType"|undefined} _accountType
-         * @memberof Adv.ADVDeviceIdentity
-         * @instance
-         */
-        Object.defineProperty(ADVDeviceIdentity.prototype, "_accountType", {
-            get: $util.oneOfGetter($oneOfFields = ["accountType"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * ADVDeviceIdentity _deviceType.
-         * @member {"deviceType"|undefined} _deviceType
-         * @memberof Adv.ADVDeviceIdentity
-         * @instance
-         */
-        Object.defineProperty(ADVDeviceIdentity.prototype, "_deviceType", {
-            get: $util.oneOfGetter($oneOfFields = ["deviceType"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
+        ADVDeviceIdentity.prototype.deviceType = 0;
 
         /**
          * Creates a new ADVDeviceIdentity instance using the specified properties.
@@ -942,24 +811,16 @@ $root.Adv = (function() {
         ADVDeviceIdentity.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            var properties = {};
-            if (message.rawId != null && message.hasOwnProperty("rawId")) {
-                properties._rawId = 1;
+            if (message.rawId != null && message.hasOwnProperty("rawId"))
                 if (!$util.isInteger(message.rawId))
                     return "rawId: integer expected";
-            }
-            if (message.timestamp != null && message.hasOwnProperty("timestamp")) {
-                properties._timestamp = 1;
+            if (message.timestamp != null && message.hasOwnProperty("timestamp"))
                 if (!$util.isInteger(message.timestamp) && !(message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high)))
                     return "timestamp: integer|Long expected";
-            }
-            if (message.keyIndex != null && message.hasOwnProperty("keyIndex")) {
-                properties._keyIndex = 1;
+            if (message.keyIndex != null && message.hasOwnProperty("keyIndex"))
                 if (!$util.isInteger(message.keyIndex))
                     return "keyIndex: integer expected";
-            }
-            if (message.accountType != null && message.hasOwnProperty("accountType")) {
-                properties._accountType = 1;
+            if (message.accountType != null && message.hasOwnProperty("accountType"))
                 switch (message.accountType) {
                 default:
                     return "accountType: enum value expected";
@@ -967,9 +828,7 @@ $root.Adv = (function() {
                 case 1:
                     break;
                 }
-            }
-            if (message.deviceType != null && message.hasOwnProperty("deviceType")) {
-                properties._deviceType = 1;
+            if (message.deviceType != null && message.hasOwnProperty("deviceType"))
                 switch (message.deviceType) {
                 default:
                     return "deviceType: enum value expected";
@@ -977,7 +836,6 @@ $root.Adv = (function() {
                 case 1:
                     break;
                 }
-            }
             return null;
         };
 
@@ -1054,34 +912,30 @@ $root.Adv = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (message.rawId != null && message.hasOwnProperty("rawId")) {
-                object.rawId = message.rawId;
-                if (options.oneofs)
-                    object._rawId = "rawId";
+            if (options.defaults) {
+                object.rawId = 0;
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, true);
+                    object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else
+                    object.timestamp = options.longs === String ? "0" : 0;
+                object.keyIndex = 0;
+                object.accountType = options.enums === String ? "E2EE" : 0;
+                object.deviceType = options.enums === String ? "E2EE" : 0;
             }
-            if (message.timestamp != null && message.hasOwnProperty("timestamp")) {
+            if (message.rawId != null && message.hasOwnProperty("rawId"))
+                object.rawId = message.rawId;
+            if (message.timestamp != null && message.hasOwnProperty("timestamp"))
                 if (typeof message.timestamp === "number")
                     object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
                 else
                     object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber(true) : message.timestamp;
-                if (options.oneofs)
-                    object._timestamp = "timestamp";
-            }
-            if (message.keyIndex != null && message.hasOwnProperty("keyIndex")) {
+            if (message.keyIndex != null && message.hasOwnProperty("keyIndex"))
                 object.keyIndex = message.keyIndex;
-                if (options.oneofs)
-                    object._keyIndex = "keyIndex";
-            }
-            if (message.accountType != null && message.hasOwnProperty("accountType")) {
+            if (message.accountType != null && message.hasOwnProperty("accountType"))
                 object.accountType = options.enums === String ? $root.Adv.ADVEncryptionType[message.accountType] === undefined ? message.accountType : $root.Adv.ADVEncryptionType[message.accountType] : message.accountType;
-                if (options.oneofs)
-                    object._accountType = "accountType";
-            }
-            if (message.deviceType != null && message.hasOwnProperty("deviceType")) {
+            if (message.deviceType != null && message.hasOwnProperty("deviceType"))
                 object.deviceType = options.enums === String ? $root.Adv.ADVEncryptionType[message.deviceType] === undefined ? message.deviceType : $root.Adv.ADVEncryptionType[message.deviceType] : message.deviceType;
-                if (options.oneofs)
-                    object._deviceType = "deviceType";
-            }
             return object;
         };
 
@@ -1142,63 +996,27 @@ $root.Adv = (function() {
 
         /**
          * ADVSignedKeyIndexList details.
-         * @member {Uint8Array|null|undefined} details
+         * @member {Uint8Array} details
          * @memberof Adv.ADVSignedKeyIndexList
          * @instance
          */
-        ADVSignedKeyIndexList.prototype.details = null;
+        ADVSignedKeyIndexList.prototype.details = $util.newBuffer([]);
 
         /**
          * ADVSignedKeyIndexList accountSignature.
-         * @member {Uint8Array|null|undefined} accountSignature
+         * @member {Uint8Array} accountSignature
          * @memberof Adv.ADVSignedKeyIndexList
          * @instance
          */
-        ADVSignedKeyIndexList.prototype.accountSignature = null;
+        ADVSignedKeyIndexList.prototype.accountSignature = $util.newBuffer([]);
 
         /**
          * ADVSignedKeyIndexList accountSignatureKey.
-         * @member {Uint8Array|null|undefined} accountSignatureKey
+         * @member {Uint8Array} accountSignatureKey
          * @memberof Adv.ADVSignedKeyIndexList
          * @instance
          */
-        ADVSignedKeyIndexList.prototype.accountSignatureKey = null;
-
-        // OneOf field names bound to virtual getters and setters
-        var $oneOfFields;
-
-        /**
-         * ADVSignedKeyIndexList _details.
-         * @member {"details"|undefined} _details
-         * @memberof Adv.ADVSignedKeyIndexList
-         * @instance
-         */
-        Object.defineProperty(ADVSignedKeyIndexList.prototype, "_details", {
-            get: $util.oneOfGetter($oneOfFields = ["details"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * ADVSignedKeyIndexList _accountSignature.
-         * @member {"accountSignature"|undefined} _accountSignature
-         * @memberof Adv.ADVSignedKeyIndexList
-         * @instance
-         */
-        Object.defineProperty(ADVSignedKeyIndexList.prototype, "_accountSignature", {
-            get: $util.oneOfGetter($oneOfFields = ["accountSignature"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * ADVSignedKeyIndexList _accountSignatureKey.
-         * @member {"accountSignatureKey"|undefined} _accountSignatureKey
-         * @memberof Adv.ADVSignedKeyIndexList
-         * @instance
-         */
-        Object.defineProperty(ADVSignedKeyIndexList.prototype, "_accountSignatureKey", {
-            get: $util.oneOfGetter($oneOfFields = ["accountSignatureKey"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
+        ADVSignedKeyIndexList.prototype.accountSignatureKey = $util.newBuffer([]);
 
         /**
          * Creates a new ADVSignedKeyIndexList instance using the specified properties.
@@ -1313,22 +1131,15 @@ $root.Adv = (function() {
         ADVSignedKeyIndexList.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            var properties = {};
-            if (message.details != null && message.hasOwnProperty("details")) {
-                properties._details = 1;
+            if (message.details != null && message.hasOwnProperty("details"))
                 if (!(message.details && typeof message.details.length === "number" || $util.isString(message.details)))
                     return "details: buffer expected";
-            }
-            if (message.accountSignature != null && message.hasOwnProperty("accountSignature")) {
-                properties._accountSignature = 1;
+            if (message.accountSignature != null && message.hasOwnProperty("accountSignature"))
                 if (!(message.accountSignature && typeof message.accountSignature.length === "number" || $util.isString(message.accountSignature)))
                     return "accountSignature: buffer expected";
-            }
-            if (message.accountSignatureKey != null && message.hasOwnProperty("accountSignatureKey")) {
-                properties._accountSignatureKey = 1;
+            if (message.accountSignatureKey != null && message.hasOwnProperty("accountSignatureKey"))
                 if (!(message.accountSignatureKey && typeof message.accountSignatureKey.length === "number" || $util.isString(message.accountSignatureKey)))
                     return "accountSignatureKey: buffer expected";
-            }
             return null;
         };
 
@@ -1375,21 +1186,35 @@ $root.Adv = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (message.details != null && message.hasOwnProperty("details")) {
+            if (options.defaults) {
+                if (options.bytes === String)
+                    object.details = "";
+                else {
+                    object.details = [];
+                    if (options.bytes !== Array)
+                        object.details = $util.newBuffer(object.details);
+                }
+                if (options.bytes === String)
+                    object.accountSignature = "";
+                else {
+                    object.accountSignature = [];
+                    if (options.bytes !== Array)
+                        object.accountSignature = $util.newBuffer(object.accountSignature);
+                }
+                if (options.bytes === String)
+                    object.accountSignatureKey = "";
+                else {
+                    object.accountSignatureKey = [];
+                    if (options.bytes !== Array)
+                        object.accountSignatureKey = $util.newBuffer(object.accountSignatureKey);
+                }
+            }
+            if (message.details != null && message.hasOwnProperty("details"))
                 object.details = options.bytes === String ? $util.base64.encode(message.details, 0, message.details.length) : options.bytes === Array ? Array.prototype.slice.call(message.details) : message.details;
-                if (options.oneofs)
-                    object._details = "details";
-            }
-            if (message.accountSignature != null && message.hasOwnProperty("accountSignature")) {
+            if (message.accountSignature != null && message.hasOwnProperty("accountSignature"))
                 object.accountSignature = options.bytes === String ? $util.base64.encode(message.accountSignature, 0, message.accountSignature.length) : options.bytes === Array ? Array.prototype.slice.call(message.accountSignature) : message.accountSignature;
-                if (options.oneofs)
-                    object._accountSignature = "accountSignature";
-            }
-            if (message.accountSignatureKey != null && message.hasOwnProperty("accountSignatureKey")) {
+            if (message.accountSignatureKey != null && message.hasOwnProperty("accountSignatureKey"))
                 object.accountSignatureKey = options.bytes === String ? $util.base64.encode(message.accountSignatureKey, 0, message.accountSignatureKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.accountSignatureKey) : message.accountSignatureKey;
-                if (options.oneofs)
-                    object._accountSignatureKey = "accountSignatureKey";
-            }
             return object;
         };
 
@@ -1453,27 +1278,27 @@ $root.Adv = (function() {
 
         /**
          * ADVKeyIndexList rawId.
-         * @member {number|null|undefined} rawId
+         * @member {number} rawId
          * @memberof Adv.ADVKeyIndexList
          * @instance
          */
-        ADVKeyIndexList.prototype.rawId = null;
+        ADVKeyIndexList.prototype.rawId = 0;
 
         /**
          * ADVKeyIndexList timestamp.
-         * @member {number|Long|null|undefined} timestamp
+         * @member {number|Long} timestamp
          * @memberof Adv.ADVKeyIndexList
          * @instance
          */
-        ADVKeyIndexList.prototype.timestamp = null;
+        ADVKeyIndexList.prototype.timestamp = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
         /**
          * ADVKeyIndexList currentIndex.
-         * @member {number|null|undefined} currentIndex
+         * @member {number} currentIndex
          * @memberof Adv.ADVKeyIndexList
          * @instance
          */
-        ADVKeyIndexList.prototype.currentIndex = null;
+        ADVKeyIndexList.prototype.currentIndex = 0;
 
         /**
          * ADVKeyIndexList validIndexes.
@@ -1485,58 +1310,11 @@ $root.Adv = (function() {
 
         /**
          * ADVKeyIndexList accountType.
-         * @member {Adv.ADVEncryptionType|null|undefined} accountType
+         * @member {Adv.ADVEncryptionType} accountType
          * @memberof Adv.ADVKeyIndexList
          * @instance
          */
-        ADVKeyIndexList.prototype.accountType = null;
-
-        // OneOf field names bound to virtual getters and setters
-        var $oneOfFields;
-
-        /**
-         * ADVKeyIndexList _rawId.
-         * @member {"rawId"|undefined} _rawId
-         * @memberof Adv.ADVKeyIndexList
-         * @instance
-         */
-        Object.defineProperty(ADVKeyIndexList.prototype, "_rawId", {
-            get: $util.oneOfGetter($oneOfFields = ["rawId"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * ADVKeyIndexList _timestamp.
-         * @member {"timestamp"|undefined} _timestamp
-         * @memberof Adv.ADVKeyIndexList
-         * @instance
-         */
-        Object.defineProperty(ADVKeyIndexList.prototype, "_timestamp", {
-            get: $util.oneOfGetter($oneOfFields = ["timestamp"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * ADVKeyIndexList _currentIndex.
-         * @member {"currentIndex"|undefined} _currentIndex
-         * @memberof Adv.ADVKeyIndexList
-         * @instance
-         */
-        Object.defineProperty(ADVKeyIndexList.prototype, "_currentIndex", {
-            get: $util.oneOfGetter($oneOfFields = ["currentIndex"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * ADVKeyIndexList _accountType.
-         * @member {"accountType"|undefined} _accountType
-         * @memberof Adv.ADVKeyIndexList
-         * @instance
-         */
-        Object.defineProperty(ADVKeyIndexList.prototype, "_accountType", {
-            get: $util.oneOfGetter($oneOfFields = ["accountType"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
+        ADVKeyIndexList.prototype.accountType = 0;
 
         /**
          * Creates a new ADVKeyIndexList instance using the specified properties.
@@ -1674,22 +1452,15 @@ $root.Adv = (function() {
         ADVKeyIndexList.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            var properties = {};
-            if (message.rawId != null && message.hasOwnProperty("rawId")) {
-                properties._rawId = 1;
+            if (message.rawId != null && message.hasOwnProperty("rawId"))
                 if (!$util.isInteger(message.rawId))
                     return "rawId: integer expected";
-            }
-            if (message.timestamp != null && message.hasOwnProperty("timestamp")) {
-                properties._timestamp = 1;
+            if (message.timestamp != null && message.hasOwnProperty("timestamp"))
                 if (!$util.isInteger(message.timestamp) && !(message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high)))
                     return "timestamp: integer|Long expected";
-            }
-            if (message.currentIndex != null && message.hasOwnProperty("currentIndex")) {
-                properties._currentIndex = 1;
+            if (message.currentIndex != null && message.hasOwnProperty("currentIndex"))
                 if (!$util.isInteger(message.currentIndex))
                     return "currentIndex: integer expected";
-            }
             if (message.validIndexes != null && message.hasOwnProperty("validIndexes")) {
                 if (!Array.isArray(message.validIndexes))
                     return "validIndexes: array expected";
@@ -1697,8 +1468,7 @@ $root.Adv = (function() {
                     if (!$util.isInteger(message.validIndexes[i]))
                         return "validIndexes: integer[] expected";
             }
-            if (message.accountType != null && message.hasOwnProperty("accountType")) {
-                properties._accountType = 1;
+            if (message.accountType != null && message.hasOwnProperty("accountType"))
                 switch (message.accountType) {
                 default:
                     return "accountType: enum value expected";
@@ -1706,7 +1476,6 @@ $root.Adv = (function() {
                 case 1:
                     break;
                 }
-            }
             return null;
         };
 
@@ -1776,34 +1545,32 @@ $root.Adv = (function() {
             var object = {};
             if (options.arrays || options.defaults)
                 object.validIndexes = [];
-            if (message.rawId != null && message.hasOwnProperty("rawId")) {
-                object.rawId = message.rawId;
-                if (options.oneofs)
-                    object._rawId = "rawId";
+            if (options.defaults) {
+                object.rawId = 0;
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, true);
+                    object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else
+                    object.timestamp = options.longs === String ? "0" : 0;
+                object.currentIndex = 0;
+                object.accountType = options.enums === String ? "E2EE" : 0;
             }
-            if (message.timestamp != null && message.hasOwnProperty("timestamp")) {
+            if (message.rawId != null && message.hasOwnProperty("rawId"))
+                object.rawId = message.rawId;
+            if (message.timestamp != null && message.hasOwnProperty("timestamp"))
                 if (typeof message.timestamp === "number")
                     object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
                 else
                     object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber(true) : message.timestamp;
-                if (options.oneofs)
-                    object._timestamp = "timestamp";
-            }
-            if (message.currentIndex != null && message.hasOwnProperty("currentIndex")) {
+            if (message.currentIndex != null && message.hasOwnProperty("currentIndex"))
                 object.currentIndex = message.currentIndex;
-                if (options.oneofs)
-                    object._currentIndex = "currentIndex";
-            }
             if (message.validIndexes && message.validIndexes.length) {
                 object.validIndexes = [];
                 for (var j = 0; j < message.validIndexes.length; ++j)
                     object.validIndexes[j] = message.validIndexes[j];
             }
-            if (message.accountType != null && message.hasOwnProperty("accountType")) {
+            if (message.accountType != null && message.hasOwnProperty("accountType"))
                 object.accountType = options.enums === String ? $root.Adv.ADVEncryptionType[message.accountType] === undefined ? message.accountType : $root.Adv.ADVEncryptionType[message.accountType] : message.accountType;
-                if (options.oneofs)
-                    object._accountType = "accountType";
-            }
             return object;
         };
 
