@@ -47,13 +47,13 @@ export namespace AICommon {
         constructor(properties?: AICommon.IAIRichResponseSubMessage);
 
         /** AIRichResponseSubMessage messageType. */
-        public messageType: AICommon.AIRichResponseSubMessageType;
+        public messageType?: (AICommon.AIRichResponseSubMessageType|null);
 
         /** AIRichResponseSubMessage gridImageMetadata. */
         public gridImageMetadata?: (AICommon.IAIRichResponseGridImageMetadata|null);
 
         /** AIRichResponseSubMessage messageText. */
-        public messageText: string;
+        public messageText?: (string|null);
 
         /** AIRichResponseSubMessage imageMetadata. */
         public imageMetadata?: (AICommon.IAIRichResponseInlineImageMetadata|null);
@@ -75,6 +75,36 @@ export namespace AICommon {
 
         /** AIRichResponseSubMessage contentItemsMetadata. */
         public contentItemsMetadata?: (AICommon.IAIRichResponseContentItemsMetadata|null);
+
+        /** AIRichResponseSubMessage _messageType. */
+        public _messageType?: "messageType";
+
+        /** AIRichResponseSubMessage _gridImageMetadata. */
+        public _gridImageMetadata?: "gridImageMetadata";
+
+        /** AIRichResponseSubMessage _messageText. */
+        public _messageText?: "messageText";
+
+        /** AIRichResponseSubMessage _imageMetadata. */
+        public _imageMetadata?: "imageMetadata";
+
+        /** AIRichResponseSubMessage _codeMetadata. */
+        public _codeMetadata?: "codeMetadata";
+
+        /** AIRichResponseSubMessage _tableMetadata. */
+        public _tableMetadata?: "tableMetadata";
+
+        /** AIRichResponseSubMessage _dynamicMetadata. */
+        public _dynamicMetadata?: "dynamicMetadata";
+
+        /** AIRichResponseSubMessage _latexMetadata. */
+        public _latexMetadata?: "latexMetadata";
+
+        /** AIRichResponseSubMessage _mapMetadata. */
+        public _mapMetadata?: "mapMetadata";
+
+        /** AIRichResponseSubMessage _contentItemsMetadata. */
+        public _contentItemsMetadata?: "contentItemsMetadata";
 
         /**
          * Creates a new AIRichResponseSubMessage instance using the specified properties.
@@ -177,7 +207,10 @@ export namespace AICommon {
         public itemsMetadata: AICommon.AIRichResponseContentItemsMetadata.IAIRichResponseContentItemMetadata[];
 
         /** AIRichResponseContentItemsMetadata contentType. */
-        public contentType: AICommon.AIRichResponseContentItemsMetadata.ContentType;
+        public contentType?: (AICommon.AIRichResponseContentItemsMetadata.ContentType|null);
+
+        /** AIRichResponseContentItemsMetadata _contentType. */
+        public _contentType?: "contentType";
 
         /**
          * Creates a new AIRichResponseContentItemsMetadata instance using the specified properties.
@@ -385,16 +418,28 @@ export namespace AICommon {
             constructor(properties?: AICommon.AIRichResponseContentItemsMetadata.IAIRichResponseReelItem);
 
             /** AIRichResponseReelItem title. */
-            public title: string;
+            public title?: (string|null);
 
             /** AIRichResponseReelItem profileIconUrl. */
-            public profileIconUrl: string;
+            public profileIconUrl?: (string|null);
 
             /** AIRichResponseReelItem thumbnailUrl. */
-            public thumbnailUrl: string;
+            public thumbnailUrl?: (string|null);
 
             /** AIRichResponseReelItem videoUrl. */
-            public videoUrl: string;
+            public videoUrl?: (string|null);
+
+            /** AIRichResponseReelItem _title. */
+            public _title?: "title";
+
+            /** AIRichResponseReelItem _profileIconUrl. */
+            public _profileIconUrl?: "profileIconUrl";
+
+            /** AIRichResponseReelItem _thumbnailUrl. */
+            public _thumbnailUrl?: "thumbnailUrl";
+
+            /** AIRichResponseReelItem _videoUrl. */
+            public _videoUrl?: "videoUrl";
 
             /**
              * Creates a new AIRichResponseReelItem instance using the specified properties.
@@ -513,22 +558,37 @@ export namespace AICommon {
         constructor(properties?: AICommon.IAIRichResponseMapMetadata);
 
         /** AIRichResponseMapMetadata centerLatitude. */
-        public centerLatitude: number;
+        public centerLatitude?: (number|null);
 
         /** AIRichResponseMapMetadata centerLongitude. */
-        public centerLongitude: number;
+        public centerLongitude?: (number|null);
 
         /** AIRichResponseMapMetadata latitudeDelta. */
-        public latitudeDelta: number;
+        public latitudeDelta?: (number|null);
 
         /** AIRichResponseMapMetadata longitudeDelta. */
-        public longitudeDelta: number;
+        public longitudeDelta?: (number|null);
 
         /** AIRichResponseMapMetadata annotations. */
         public annotations: AICommon.AIRichResponseMapMetadata.IAIRichResponseMapAnnotation[];
 
         /** AIRichResponseMapMetadata showInfoList. */
-        public showInfoList: boolean;
+        public showInfoList?: (boolean|null);
+
+        /** AIRichResponseMapMetadata _centerLatitude. */
+        public _centerLatitude?: "centerLatitude";
+
+        /** AIRichResponseMapMetadata _centerLongitude. */
+        public _centerLongitude?: "centerLongitude";
+
+        /** AIRichResponseMapMetadata _latitudeDelta. */
+        public _latitudeDelta?: "latitudeDelta";
+
+        /** AIRichResponseMapMetadata _longitudeDelta. */
+        public _longitudeDelta?: "longitudeDelta";
+
+        /** AIRichResponseMapMetadata _showInfoList. */
+        public _showInfoList?: "showInfoList";
 
         /**
          * Creates a new AIRichResponseMapMetadata instance using the specified properties.
@@ -639,19 +699,34 @@ export namespace AICommon {
             constructor(properties?: AICommon.AIRichResponseMapMetadata.IAIRichResponseMapAnnotation);
 
             /** AIRichResponseMapAnnotation annotationNumber. */
-            public annotationNumber: number;
+            public annotationNumber?: (number|null);
 
             /** AIRichResponseMapAnnotation latitude. */
-            public latitude: number;
+            public latitude?: (number|null);
 
             /** AIRichResponseMapAnnotation longitude. */
-            public longitude: number;
+            public longitude?: (number|null);
 
             /** AIRichResponseMapAnnotation title. */
-            public title: string;
+            public title?: (string|null);
 
             /** AIRichResponseMapAnnotation body. */
-            public body: string;
+            public body?: (string|null);
+
+            /** AIRichResponseMapAnnotation _annotationNumber. */
+            public _annotationNumber?: "annotationNumber";
+
+            /** AIRichResponseMapAnnotation _latitude. */
+            public _latitude?: "latitude";
+
+            /** AIRichResponseMapAnnotation _longitude. */
+            public _longitude?: "longitude";
+
+            /** AIRichResponseMapAnnotation _title. */
+            public _title?: "title";
+
+            /** AIRichResponseMapAnnotation _body. */
+            public _body?: "body";
 
             /**
              * Creates a new AIRichResponseMapAnnotation instance using the specified properties.
@@ -752,10 +827,13 @@ export namespace AICommon {
         constructor(properties?: AICommon.IAIRichResponseLatexMetadata);
 
         /** AIRichResponseLatexMetadata text. */
-        public text: string;
+        public text?: (string|null);
 
         /** AIRichResponseLatexMetadata expressions. */
         public expressions: AICommon.AIRichResponseLatexMetadata.IAIRichResponseLatexExpression[];
+
+        /** AIRichResponseLatexMetadata _text. */
+        public _text?: "text";
 
         /**
          * Creates a new AIRichResponseLatexMetadata instance using the specified properties.
@@ -878,31 +956,58 @@ export namespace AICommon {
             constructor(properties?: AICommon.AIRichResponseLatexMetadata.IAIRichResponseLatexExpression);
 
             /** AIRichResponseLatexExpression latexExpression. */
-            public latexExpression: string;
+            public latexExpression?: (string|null);
 
             /** AIRichResponseLatexExpression url. */
-            public url: string;
+            public url?: (string|null);
 
             /** AIRichResponseLatexExpression width. */
-            public width: number;
+            public width?: (number|null);
 
             /** AIRichResponseLatexExpression height. */
-            public height: number;
+            public height?: (number|null);
 
             /** AIRichResponseLatexExpression fontHeight. */
-            public fontHeight: number;
+            public fontHeight?: (number|null);
 
             /** AIRichResponseLatexExpression imageTopPadding. */
-            public imageTopPadding: number;
+            public imageTopPadding?: (number|null);
 
             /** AIRichResponseLatexExpression imageLeadingPadding. */
-            public imageLeadingPadding: number;
+            public imageLeadingPadding?: (number|null);
 
             /** AIRichResponseLatexExpression imageBottomPadding. */
-            public imageBottomPadding: number;
+            public imageBottomPadding?: (number|null);
 
             /** AIRichResponseLatexExpression imageTrailingPadding. */
-            public imageTrailingPadding: number;
+            public imageTrailingPadding?: (number|null);
+
+            /** AIRichResponseLatexExpression _latexExpression. */
+            public _latexExpression?: "latexExpression";
+
+            /** AIRichResponseLatexExpression _url. */
+            public _url?: "url";
+
+            /** AIRichResponseLatexExpression _width. */
+            public _width?: "width";
+
+            /** AIRichResponseLatexExpression _height. */
+            public _height?: "height";
+
+            /** AIRichResponseLatexExpression _fontHeight. */
+            public _fontHeight?: "fontHeight";
+
+            /** AIRichResponseLatexExpression _imageTopPadding. */
+            public _imageTopPadding?: "imageTopPadding";
+
+            /** AIRichResponseLatexExpression _imageLeadingPadding. */
+            public _imageLeadingPadding?: "imageLeadingPadding";
+
+            /** AIRichResponseLatexExpression _imageBottomPadding. */
+            public _imageBottomPadding?: "imageBottomPadding";
+
+            /** AIRichResponseLatexExpression _imageTrailingPadding. */
+            public _imageTrailingPadding?: "imageTrailingPadding";
 
             /**
              * Creates a new AIRichResponseLatexExpression instance using the specified properties.
@@ -1000,7 +1105,10 @@ export namespace AICommon {
         constructor(properties?: AICommon.IAIRichResponseUnifiedResponse);
 
         /** AIRichResponseUnifiedResponse data. */
-        public data: Uint8Array;
+        public data?: (Uint8Array|null);
+
+        /** AIRichResponseUnifiedResponse _data. */
+        public _data?: "data";
 
         /**
          * Creates a new AIRichResponseUnifiedResponse instance using the specified properties.
@@ -1106,16 +1214,28 @@ export namespace AICommon {
         constructor(properties?: AICommon.IAIRichResponseDynamicMetadata);
 
         /** AIRichResponseDynamicMetadata type. */
-        public type: AICommon.AIRichResponseDynamicMetadata.AIRichResponseDynamicMetadataType;
+        public type?: (AICommon.AIRichResponseDynamicMetadata.AIRichResponseDynamicMetadataType|null);
 
         /** AIRichResponseDynamicMetadata version. */
-        public version: (number|Long);
+        public version?: (number|Long|null);
 
         /** AIRichResponseDynamicMetadata url. */
-        public url: string;
+        public url?: (string|null);
 
         /** AIRichResponseDynamicMetadata loopCount. */
-        public loopCount: number;
+        public loopCount?: (number|null);
+
+        /** AIRichResponseDynamicMetadata _type. */
+        public _type?: "type";
+
+        /** AIRichResponseDynamicMetadata _version. */
+        public _version?: "version";
+
+        /** AIRichResponseDynamicMetadata _url. */
+        public _url?: "url";
+
+        /** AIRichResponseDynamicMetadata _loopCount. */
+        public _loopCount?: "loopCount";
 
         /**
          * Creates a new AIRichResponseDynamicMetadata instance using the specified properties.
@@ -1228,7 +1348,10 @@ export namespace AICommon {
         public rows: AICommon.AIRichResponseTableMetadata.IAIRichResponseTableRow[];
 
         /** AIRichResponseTableMetadata title. */
-        public title: string;
+        public title?: (string|null);
+
+        /** AIRichResponseTableMetadata _title. */
+        public _title?: "title";
 
         /**
          * Creates a new AIRichResponseTableMetadata instance using the specified properties.
@@ -1333,7 +1456,10 @@ export namespace AICommon {
             public items: string[];
 
             /** AIRichResponseTableRow isHeading. */
-            public isHeading: boolean;
+            public isHeading?: (boolean|null);
+
+            /** AIRichResponseTableRow _isHeading. */
+            public _isHeading?: "isHeading";
 
             /**
              * Creates a new AIRichResponseTableRow instance using the specified properties.
@@ -1434,10 +1560,13 @@ export namespace AICommon {
         constructor(properties?: AICommon.IAIRichResponseCodeMetadata);
 
         /** AIRichResponseCodeMetadata codeLanguage. */
-        public codeLanguage: string;
+        public codeLanguage?: (string|null);
 
         /** AIRichResponseCodeMetadata codeBlocks. */
         public codeBlocks: AICommon.AIRichResponseCodeMetadata.IAIRichResponseCodeBlock[];
+
+        /** AIRichResponseCodeMetadata _codeLanguage. */
+        public _codeLanguage?: "codeLanguage";
 
         /**
          * Creates a new AIRichResponseCodeMetadata instance using the specified properties.
@@ -1539,10 +1668,16 @@ export namespace AICommon {
             constructor(properties?: AICommon.AIRichResponseCodeMetadata.IAIRichResponseCodeBlock);
 
             /** AIRichResponseCodeBlock highlightType. */
-            public highlightType: AICommon.AIRichResponseCodeMetadata.AIRichResponseCodeHighlightType;
+            public highlightType?: (AICommon.AIRichResponseCodeMetadata.AIRichResponseCodeHighlightType|null);
 
             /** AIRichResponseCodeBlock codeContent. */
-            public codeContent: string;
+            public codeContent?: (string|null);
+
+            /** AIRichResponseCodeBlock _highlightType. */
+            public _highlightType?: "highlightType";
+
+            /** AIRichResponseCodeBlock _codeContent. */
+            public _codeContent?: "codeContent";
 
             /**
              * Creates a new AIRichResponseCodeBlock instance using the specified properties.
@@ -1662,13 +1797,25 @@ export namespace AICommon {
         public imageUrl?: (AICommon.IAIRichResponseImageURL|null);
 
         /** AIRichResponseInlineImageMetadata imageText. */
-        public imageText: string;
+        public imageText?: (string|null);
 
         /** AIRichResponseInlineImageMetadata alignment. */
-        public alignment: AICommon.AIRichResponseInlineImageMetadata.AIRichResponseImageAlignment;
+        public alignment?: (AICommon.AIRichResponseInlineImageMetadata.AIRichResponseImageAlignment|null);
 
         /** AIRichResponseInlineImageMetadata tapLinkUrl. */
-        public tapLinkUrl: string;
+        public tapLinkUrl?: (string|null);
+
+        /** AIRichResponseInlineImageMetadata _imageUrl. */
+        public _imageUrl?: "imageUrl";
+
+        /** AIRichResponseInlineImageMetadata _imageText. */
+        public _imageText?: "imageText";
+
+        /** AIRichResponseInlineImageMetadata _alignment. */
+        public _alignment?: "alignment";
+
+        /** AIRichResponseInlineImageMetadata _tapLinkUrl. */
+        public _tapLinkUrl?: "tapLinkUrl";
 
         /**
          * Creates a new AIRichResponseInlineImageMetadata instance using the specified properties.
@@ -1783,6 +1930,9 @@ export namespace AICommon {
         /** AIRichResponseGridImageMetadata imageUrls. */
         public imageUrls: AICommon.IAIRichResponseImageURL[];
 
+        /** AIRichResponseGridImageMetadata _gridImageUrl. */
+        public _gridImageUrl?: "gridImageUrl";
+
         /**
          * Creates a new AIRichResponseGridImageMetadata instance using the specified properties.
          * @param [properties] Properties to set
@@ -1884,13 +2034,22 @@ export namespace AICommon {
         constructor(properties?: AICommon.IAIRichResponseImageURL);
 
         /** AIRichResponseImageURL imagePreviewUrl. */
-        public imagePreviewUrl: string;
+        public imagePreviewUrl?: (string|null);
 
         /** AIRichResponseImageURL imageHighResUrl. */
-        public imageHighResUrl: string;
+        public imageHighResUrl?: (string|null);
 
         /** AIRichResponseImageURL sourceUrl. */
-        public sourceUrl: string;
+        public sourceUrl?: (string|null);
+
+        /** AIRichResponseImageURL _imagePreviewUrl. */
+        public _imagePreviewUrl?: "imagePreviewUrl";
+
+        /** AIRichResponseImageURL _imageHighResUrl. */
+        public _imageHighResUrl?: "imageHighResUrl";
+
+        /** AIRichResponseImageURL _sourceUrl. */
+        public _sourceUrl?: "sourceUrl";
 
         /**
          * Creates a new AIRichResponseImageURL instance using the specified properties.
@@ -1990,10 +2149,16 @@ export namespace AICommon {
         constructor(properties?: AICommon.IBotMessageSharingInfo);
 
         /** BotMessageSharingInfo botEntryPointOrigin. */
-        public botEntryPointOrigin: AICommon.BotMetricsEntryPoint;
+        public botEntryPointOrigin?: (AICommon.BotMetricsEntryPoint|null);
 
         /** BotMessageSharingInfo forwardScore. */
-        public forwardScore: number;
+        public forwardScore?: (number|null);
+
+        /** BotMessageSharingInfo _botEntryPointOrigin. */
+        public _botEntryPointOrigin?: "botEntryPointOrigin";
+
+        /** BotMessageSharingInfo _forwardScore. */
+        public _forwardScore?: "forwardScore";
 
         /**
          * Creates a new BotMessageSharingInfo instance using the specified properties.
@@ -2096,13 +2261,22 @@ export namespace AICommon {
         constructor(properties?: AICommon.IForwardedAIBotMessageInfo);
 
         /** ForwardedAIBotMessageInfo botName. */
-        public botName: string;
+        public botName?: (string|null);
 
         /** ForwardedAIBotMessageInfo botJid. */
-        public botJid: string;
+        public botJid?: (string|null);
 
         /** ForwardedAIBotMessageInfo creatorName. */
-        public creatorName: string;
+        public creatorName?: (string|null);
+
+        /** ForwardedAIBotMessageInfo _botName. */
+        public _botName?: "botName";
+
+        /** ForwardedAIBotMessageInfo _botJid. */
+        public _botJid?: "botJid";
+
+        /** ForwardedAIBotMessageInfo _creatorName. */
+        public _creatorName?: "creatorName";
 
         /**
          * Creates a new ForwardedAIBotMessageInfo instance using the specified properties.
@@ -2220,22 +2394,43 @@ export namespace AICommon {
         public messageKey?: (Protocol.IMessageKey|null);
 
         /** BotFeedbackMessage kind. */
-        public kind: AICommon.BotFeedbackMessage.BotFeedbackKind;
+        public kind?: (AICommon.BotFeedbackMessage.BotFeedbackKind|null);
 
         /** BotFeedbackMessage text. */
-        public text: string;
+        public text?: (string|null);
 
         /** BotFeedbackMessage kindNegative. */
-        public kindNegative: (number|Long);
+        public kindNegative?: (number|Long|null);
 
         /** BotFeedbackMessage kindPositive. */
-        public kindPositive: (number|Long);
+        public kindPositive?: (number|Long|null);
 
         /** BotFeedbackMessage kindReport. */
-        public kindReport: AICommon.BotFeedbackMessage.ReportKind;
+        public kindReport?: (AICommon.BotFeedbackMessage.ReportKind|null);
 
         /** BotFeedbackMessage sideBySideSurveyMetadata. */
         public sideBySideSurveyMetadata?: (AICommon.BotFeedbackMessage.ISideBySideSurveyMetadata|null);
+
+        /** BotFeedbackMessage _messageKey. */
+        public _messageKey?: "messageKey";
+
+        /** BotFeedbackMessage _kind. */
+        public _kind?: "kind";
+
+        /** BotFeedbackMessage _text. */
+        public _text?: "text";
+
+        /** BotFeedbackMessage _kindNegative. */
+        public _kindNegative?: "kindNegative";
+
+        /** BotFeedbackMessage _kindPositive. */
+        public _kindPositive?: "kindPositive";
+
+        /** BotFeedbackMessage _kindReport. */
+        public _kindReport?: "kindReport";
+
+        /** BotFeedbackMessage _sideBySideSurveyMetadata. */
+        public _sideBySideSurveyMetadata?: "sideBySideSurveyMetadata";
 
         /**
          * Creates a new BotFeedbackMessage instance using the specified properties.
@@ -2398,28 +2593,52 @@ export namespace AICommon {
             constructor(properties?: AICommon.BotFeedbackMessage.ISideBySideSurveyMetadata);
 
             /** SideBySideSurveyMetadata selectedRequestId. */
-            public selectedRequestId: string;
+            public selectedRequestId?: (string|null);
 
             /** SideBySideSurveyMetadata surveyId. */
-            public surveyId: number;
+            public surveyId?: (number|null);
 
             /** SideBySideSurveyMetadata simonSessionFbid. */
-            public simonSessionFbid: string;
+            public simonSessionFbid?: (string|null);
 
             /** SideBySideSurveyMetadata responseOtid. */
-            public responseOtid: string;
+            public responseOtid?: (string|null);
 
             /** SideBySideSurveyMetadata responseTimestampMsString. */
-            public responseTimestampMsString: string;
+            public responseTimestampMsString?: (string|null);
 
             /** SideBySideSurveyMetadata isSelectedResponsePrimary. */
-            public isSelectedResponsePrimary: boolean;
+            public isSelectedResponsePrimary?: (boolean|null);
 
             /** SideBySideSurveyMetadata messageIdToEdit. */
-            public messageIdToEdit: string;
+            public messageIdToEdit?: (string|null);
 
             /** SideBySideSurveyMetadata analyticsData. */
             public analyticsData?: (AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.ISideBySideSurveyAnalyticsData|null);
+
+            /** SideBySideSurveyMetadata _selectedRequestId. */
+            public _selectedRequestId?: "selectedRequestId";
+
+            /** SideBySideSurveyMetadata _surveyId. */
+            public _surveyId?: "surveyId";
+
+            /** SideBySideSurveyMetadata _simonSessionFbid. */
+            public _simonSessionFbid?: "simonSessionFbid";
+
+            /** SideBySideSurveyMetadata _responseOtid. */
+            public _responseOtid?: "responseOtid";
+
+            /** SideBySideSurveyMetadata _responseTimestampMsString. */
+            public _responseTimestampMsString?: "responseTimestampMsString";
+
+            /** SideBySideSurveyMetadata _isSelectedResponsePrimary. */
+            public _isSelectedResponsePrimary?: "isSelectedResponsePrimary";
+
+            /** SideBySideSurveyMetadata _messageIdToEdit. */
+            public _messageIdToEdit?: "messageIdToEdit";
+
+            /** SideBySideSurveyMetadata _analyticsData. */
+            public _analyticsData?: "analyticsData";
 
             /**
              * Creates a new SideBySideSurveyMetadata instance using the specified properties.
@@ -2521,10 +2740,16 @@ export namespace AICommon {
                 constructor(properties?: AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.ISideBySideSurveyAnalyticsData);
 
                 /** SideBySideSurveyAnalyticsData tessaEvent. */
-                public tessaEvent: string;
+                public tessaEvent?: (string|null);
 
                 /** SideBySideSurveyAnalyticsData tessaSessionFbid. */
-                public tessaSessionFbid: string;
+                public tessaSessionFbid?: (string|null);
+
+                /** SideBySideSurveyAnalyticsData _tessaEvent. */
+                public _tessaEvent?: "tessaEvent";
+
+                /** SideBySideSurveyAnalyticsData _tessaSessionFbid. */
+                public _tessaSessionFbid?: "tessaSessionFbid";
 
                 /**
                  * Creates a new SideBySideSurveyAnalyticsData instance using the specified properties.
@@ -2719,7 +2944,7 @@ export namespace AICommon {
         public avatarMetadata?: (AICommon.IBotAvatarMetadata|null);
 
         /** BotMetadata personaId. */
-        public personaId: string;
+        public personaId?: (string|null);
 
         /** BotMetadata pluginMetadata. */
         public pluginMetadata?: (AICommon.IBotPluginMetadata|null);
@@ -2728,7 +2953,7 @@ export namespace AICommon {
         public suggestedPromptMetadata?: (AICommon.IBotSuggestedPromptMetadata|null);
 
         /** BotMetadata invokerJid. */
-        public invokerJid: string;
+        public invokerJid?: (string|null);
 
         /** BotMetadata sessionMetadata. */
         public sessionMetadata?: (AICommon.IBotSessionMetadata|null);
@@ -2737,7 +2962,7 @@ export namespace AICommon {
         public memuMetadata?: (AICommon.IBotMemuMetadata|null);
 
         /** BotMetadata timezone. */
-        public timezone: string;
+        public timezone?: (string|null);
 
         /** BotMetadata reminderMetadata. */
         public reminderMetadata?: (AICommon.IBotReminderMetadata|null);
@@ -2746,7 +2971,7 @@ export namespace AICommon {
         public modelMetadata?: (AICommon.IBotModelMetadata|null);
 
         /** BotMetadata messageDisclaimerText. */
-        public messageDisclaimerText: string;
+        public messageDisclaimerText?: (string|null);
 
         /** BotMetadata progressIndicatorMetadata. */
         public progressIndicatorMetadata?: (AICommon.IBotProgressIndicatorMetadata|null);
@@ -2773,7 +2998,7 @@ export namespace AICommon {
         public richResponseSourcesMetadata?: (AICommon.IBotSourcesMetadata|null);
 
         /** BotMetadata aiConversationContext. */
-        public aiConversationContext: Uint8Array;
+        public aiConversationContext?: (Uint8Array|null);
 
         /** BotMetadata botPromotionMessageMetadata. */
         public botPromotionMessageMetadata?: (AICommon.IBotPromotionMessageMetadata|null);
@@ -2788,10 +3013,10 @@ export namespace AICommon {
         public botAgeCollectionMetadata?: (AICommon.IBotAgeCollectionMetadata|null);
 
         /** BotMetadata conversationStarterPromptId. */
-        public conversationStarterPromptId: string;
+        public conversationStarterPromptId?: (string|null);
 
         /** BotMetadata botResponseId. */
-        public botResponseId: string;
+        public botResponseId?: (string|null);
 
         /** BotMetadata verificationMetadata. */
         public verificationMetadata?: (AICommon.IBotSignatureVerificationMetadata|null);
@@ -2809,7 +3034,103 @@ export namespace AICommon {
         public botThreadInfo?: (AICommon.IAIThreadInfo|null);
 
         /** BotMetadata internalMetadata. */
-        public internalMetadata: Uint8Array;
+        public internalMetadata?: (Uint8Array|null);
+
+        /** BotMetadata _avatarMetadata. */
+        public _avatarMetadata?: "avatarMetadata";
+
+        /** BotMetadata _personaId. */
+        public _personaId?: "personaId";
+
+        /** BotMetadata _pluginMetadata. */
+        public _pluginMetadata?: "pluginMetadata";
+
+        /** BotMetadata _suggestedPromptMetadata. */
+        public _suggestedPromptMetadata?: "suggestedPromptMetadata";
+
+        /** BotMetadata _invokerJid. */
+        public _invokerJid?: "invokerJid";
+
+        /** BotMetadata _sessionMetadata. */
+        public _sessionMetadata?: "sessionMetadata";
+
+        /** BotMetadata _memuMetadata. */
+        public _memuMetadata?: "memuMetadata";
+
+        /** BotMetadata _timezone. */
+        public _timezone?: "timezone";
+
+        /** BotMetadata _reminderMetadata. */
+        public _reminderMetadata?: "reminderMetadata";
+
+        /** BotMetadata _modelMetadata. */
+        public _modelMetadata?: "modelMetadata";
+
+        /** BotMetadata _messageDisclaimerText. */
+        public _messageDisclaimerText?: "messageDisclaimerText";
+
+        /** BotMetadata _progressIndicatorMetadata. */
+        public _progressIndicatorMetadata?: "progressIndicatorMetadata";
+
+        /** BotMetadata _capabilityMetadata. */
+        public _capabilityMetadata?: "capabilityMetadata";
+
+        /** BotMetadata _imagineMetadata. */
+        public _imagineMetadata?: "imagineMetadata";
+
+        /** BotMetadata _memoryMetadata. */
+        public _memoryMetadata?: "memoryMetadata";
+
+        /** BotMetadata _renderingMetadata. */
+        public _renderingMetadata?: "renderingMetadata";
+
+        /** BotMetadata _botMetricsMetadata. */
+        public _botMetricsMetadata?: "botMetricsMetadata";
+
+        /** BotMetadata _botLinkedAccountsMetadata. */
+        public _botLinkedAccountsMetadata?: "botLinkedAccountsMetadata";
+
+        /** BotMetadata _richResponseSourcesMetadata. */
+        public _richResponseSourcesMetadata?: "richResponseSourcesMetadata";
+
+        /** BotMetadata _aiConversationContext. */
+        public _aiConversationContext?: "aiConversationContext";
+
+        /** BotMetadata _botPromotionMessageMetadata. */
+        public _botPromotionMessageMetadata?: "botPromotionMessageMetadata";
+
+        /** BotMetadata _botModeSelectionMetadata. */
+        public _botModeSelectionMetadata?: "botModeSelectionMetadata";
+
+        /** BotMetadata _botQuotaMetadata. */
+        public _botQuotaMetadata?: "botQuotaMetadata";
+
+        /** BotMetadata _botAgeCollectionMetadata. */
+        public _botAgeCollectionMetadata?: "botAgeCollectionMetadata";
+
+        /** BotMetadata _conversationStarterPromptId. */
+        public _conversationStarterPromptId?: "conversationStarterPromptId";
+
+        /** BotMetadata _botResponseId. */
+        public _botResponseId?: "botResponseId";
+
+        /** BotMetadata _verificationMetadata. */
+        public _verificationMetadata?: "verificationMetadata";
+
+        /** BotMetadata _unifiedResponseMutation. */
+        public _unifiedResponseMutation?: "unifiedResponseMutation";
+
+        /** BotMetadata _botMessageOriginMetadata. */
+        public _botMessageOriginMetadata?: "botMessageOriginMetadata";
+
+        /** BotMetadata _inThreadSurveyMetadata. */
+        public _inThreadSurveyMetadata?: "inThreadSurveyMetadata";
+
+        /** BotMetadata _botThreadInfo. */
+        public _botThreadInfo?: "botThreadInfo";
+
+        /** BotMetadata _internalMetadata. */
+        public _internalMetadata?: "internalMetadata";
 
         /**
          * Creates a new BotMetadata instance using the specified properties.
@@ -2914,6 +3235,12 @@ export namespace AICommon {
         /** AIThreadInfo clientInfo. */
         public clientInfo?: (AICommon.AIThreadInfo.IAIThreadClientInfo|null);
 
+        /** AIThreadInfo _serverInfo. */
+        public _serverInfo?: "serverInfo";
+
+        /** AIThreadInfo _clientInfo. */
+        public _clientInfo?: "clientInfo";
+
         /**
          * Creates a new AIThreadInfo instance using the specified properties.
          * @param [properties] Properties to set
@@ -3011,7 +3338,10 @@ export namespace AICommon {
             constructor(properties?: AICommon.AIThreadInfo.IAIThreadClientInfo);
 
             /** AIThreadClientInfo type. */
-            public type: AICommon.AIThreadInfo.AIThreadClientInfo.AIThreadType;
+            public type?: (AICommon.AIThreadInfo.AIThreadClientInfo.AIThreadType|null);
+
+            /** AIThreadClientInfo _type. */
+            public _type?: "type";
 
             /**
              * Creates a new AIThreadClientInfo instance using the specified properties.
@@ -3118,7 +3448,10 @@ export namespace AICommon {
             constructor(properties?: AICommon.AIThreadInfo.IAIThreadServerInfo);
 
             /** AIThreadServerInfo title. */
-            public title: string;
+            public title?: (string|null);
+
+            /** AIThreadServerInfo _title. */
+            public _title?: "title";
 
             /**
              * Creates a new AIThreadServerInfo instance using the specified properties.
@@ -3224,6 +3557,9 @@ export namespace AICommon {
         /** BotUnifiedResponseMutation mediaDetailsMetadataList. */
         public mediaDetailsMetadataList: AICommon.BotUnifiedResponseMutation.IMediaDetailsMetadata[];
 
+        /** BotUnifiedResponseMutation _sbsMetadata. */
+        public _sbsMetadata?: "sbsMetadata";
+
         /**
          * Creates a new BotUnifiedResponseMutation instance using the specified properties.
          * @param [properties] Properties to set
@@ -3327,13 +3663,22 @@ export namespace AICommon {
             constructor(properties?: AICommon.BotUnifiedResponseMutation.IMediaDetailsMetadata);
 
             /** MediaDetailsMetadata id. */
-            public id: string;
+            public id?: (string|null);
 
             /** MediaDetailsMetadata highResMedia. */
             public highResMedia?: (AICommon.IBotMediaMetadata|null);
 
             /** MediaDetailsMetadata previewMedia. */
             public previewMedia?: (AICommon.IBotMediaMetadata|null);
+
+            /** MediaDetailsMetadata _id. */
+            public _id?: "id";
+
+            /** MediaDetailsMetadata _highResMedia. */
+            public _highResMedia?: "highResMedia";
+
+            /** MediaDetailsMetadata _previewMedia. */
+            public _previewMedia?: "previewMedia";
 
             /**
              * Creates a new MediaDetailsMetadata instance using the specified properties.
@@ -3430,7 +3775,10 @@ export namespace AICommon {
             constructor(properties?: AICommon.BotUnifiedResponseMutation.ISideBySideMetadata);
 
             /** SideBySideMetadata primaryResponseId. */
-            public primaryResponseId: string;
+            public primaryResponseId?: (string|null);
+
+            /** SideBySideMetadata _primaryResponseId. */
+            public _primaryResponseId?: "primaryResponseId";
 
             /**
              * Creates a new SideBySideMetadata instance using the specified properties.
@@ -3528,7 +3876,10 @@ export namespace AICommon {
         constructor(properties?: AICommon.IBotMessageOrigin);
 
         /** BotMessageOrigin type. */
-        public type: AICommon.BotMessageOrigin.BotMessageOriginType;
+        public type?: (AICommon.BotMessageOrigin.BotMessageOriginType|null);
+
+        /** BotMessageOrigin _type. */
+        public _type?: "type";
 
         /**
          * Creates a new BotMessageOrigin instance using the specified properties.
@@ -3778,55 +4129,100 @@ export namespace AICommon {
         constructor(properties?: AICommon.IInThreadSurveyMetadata);
 
         /** InThreadSurveyMetadata tessaSessionId. */
-        public tessaSessionId: string;
+        public tessaSessionId?: (string|null);
 
         /** InThreadSurveyMetadata simonSessionId. */
-        public simonSessionId: string;
+        public simonSessionId?: (string|null);
 
         /** InThreadSurveyMetadata simonSurveyId. */
-        public simonSurveyId: string;
+        public simonSurveyId?: (string|null);
 
         /** InThreadSurveyMetadata tessaRootId. */
-        public tessaRootId: string;
+        public tessaRootId?: (string|null);
 
         /** InThreadSurveyMetadata requestId. */
-        public requestId: string;
+        public requestId?: (string|null);
 
         /** InThreadSurveyMetadata tessaEvent. */
-        public tessaEvent: string;
+        public tessaEvent?: (string|null);
 
         /** InThreadSurveyMetadata invitationHeaderText. */
-        public invitationHeaderText: string;
+        public invitationHeaderText?: (string|null);
 
         /** InThreadSurveyMetadata invitationBodyText. */
-        public invitationBodyText: string;
+        public invitationBodyText?: (string|null);
 
         /** InThreadSurveyMetadata invitationCtaText. */
-        public invitationCtaText: string;
+        public invitationCtaText?: (string|null);
 
         /** InThreadSurveyMetadata invitationCtaUrl. */
-        public invitationCtaUrl: string;
+        public invitationCtaUrl?: (string|null);
 
         /** InThreadSurveyMetadata surveyTitle. */
-        public surveyTitle: string;
+        public surveyTitle?: (string|null);
 
         /** InThreadSurveyMetadata questions. */
         public questions: AICommon.InThreadSurveyMetadata.IInThreadSurveyQuestion[];
 
         /** InThreadSurveyMetadata surveyContinueButtonText. */
-        public surveyContinueButtonText: string;
+        public surveyContinueButtonText?: (string|null);
 
         /** InThreadSurveyMetadata surveySubmitButtonText. */
-        public surveySubmitButtonText: string;
+        public surveySubmitButtonText?: (string|null);
 
         /** InThreadSurveyMetadata privacyStatementFull. */
-        public privacyStatementFull: string;
+        public privacyStatementFull?: (string|null);
 
         /** InThreadSurveyMetadata privacyStatementParts. */
         public privacyStatementParts: AICommon.InThreadSurveyMetadata.IInThreadSurveyPrivacyStatementPart[];
 
         /** InThreadSurveyMetadata feedbackToastText. */
-        public feedbackToastText: string;
+        public feedbackToastText?: (string|null);
+
+        /** InThreadSurveyMetadata _tessaSessionId. */
+        public _tessaSessionId?: "tessaSessionId";
+
+        /** InThreadSurveyMetadata _simonSessionId. */
+        public _simonSessionId?: "simonSessionId";
+
+        /** InThreadSurveyMetadata _simonSurveyId. */
+        public _simonSurveyId?: "simonSurveyId";
+
+        /** InThreadSurveyMetadata _tessaRootId. */
+        public _tessaRootId?: "tessaRootId";
+
+        /** InThreadSurveyMetadata _requestId. */
+        public _requestId?: "requestId";
+
+        /** InThreadSurveyMetadata _tessaEvent. */
+        public _tessaEvent?: "tessaEvent";
+
+        /** InThreadSurveyMetadata _invitationHeaderText. */
+        public _invitationHeaderText?: "invitationHeaderText";
+
+        /** InThreadSurveyMetadata _invitationBodyText. */
+        public _invitationBodyText?: "invitationBodyText";
+
+        /** InThreadSurveyMetadata _invitationCtaText. */
+        public _invitationCtaText?: "invitationCtaText";
+
+        /** InThreadSurveyMetadata _invitationCtaUrl. */
+        public _invitationCtaUrl?: "invitationCtaUrl";
+
+        /** InThreadSurveyMetadata _surveyTitle. */
+        public _surveyTitle?: "surveyTitle";
+
+        /** InThreadSurveyMetadata _surveyContinueButtonText. */
+        public _surveyContinueButtonText?: "surveyContinueButtonText";
+
+        /** InThreadSurveyMetadata _surveySubmitButtonText. */
+        public _surveySubmitButtonText?: "surveySubmitButtonText";
+
+        /** InThreadSurveyMetadata _privacyStatementFull. */
+        public _privacyStatementFull?: "privacyStatementFull";
+
+        /** InThreadSurveyMetadata _feedbackToastText. */
+        public _feedbackToastText?: "feedbackToastText";
 
         /**
          * Creates a new InThreadSurveyMetadata instance using the specified properties.
@@ -3931,13 +4327,22 @@ export namespace AICommon {
             constructor(properties?: AICommon.InThreadSurveyMetadata.IInThreadSurveyOption);
 
             /** InThreadSurveyOption stringValue. */
-            public stringValue: string;
+            public stringValue?: (string|null);
 
             /** InThreadSurveyOption numericValue. */
-            public numericValue: number;
+            public numericValue?: (number|null);
 
             /** InThreadSurveyOption textTranslated. */
-            public textTranslated: string;
+            public textTranslated?: (string|null);
+
+            /** InThreadSurveyOption _stringValue. */
+            public _stringValue?: "stringValue";
+
+            /** InThreadSurveyOption _numericValue. */
+            public _numericValue?: "numericValue";
+
+            /** InThreadSurveyOption _textTranslated. */
+            public _textTranslated?: "textTranslated";
 
             /**
              * Creates a new InThreadSurveyOption instance using the specified properties.
@@ -4037,10 +4442,16 @@ export namespace AICommon {
             constructor(properties?: AICommon.InThreadSurveyMetadata.IInThreadSurveyPrivacyStatementPart);
 
             /** InThreadSurveyPrivacyStatementPart text. */
-            public text: string;
+            public text?: (string|null);
 
             /** InThreadSurveyPrivacyStatementPart url. */
-            public url: string;
+            public url?: (string|null);
+
+            /** InThreadSurveyPrivacyStatementPart _text. */
+            public _text?: "text";
+
+            /** InThreadSurveyPrivacyStatementPart _url. */
+            public _url?: "url";
 
             /**
              * Creates a new InThreadSurveyPrivacyStatementPart instance using the specified properties.
@@ -4143,13 +4554,19 @@ export namespace AICommon {
             constructor(properties?: AICommon.InThreadSurveyMetadata.IInThreadSurveyQuestion);
 
             /** InThreadSurveyQuestion questionText. */
-            public questionText: string;
+            public questionText?: (string|null);
 
             /** InThreadSurveyQuestion questionId. */
-            public questionId: string;
+            public questionId?: (string|null);
 
             /** InThreadSurveyQuestion questionOptions. */
             public questionOptions: AICommon.InThreadSurveyMetadata.IInThreadSurveyOption[];
+
+            /** InThreadSurveyQuestion _questionText. */
+            public _questionText?: "questionText";
+
+            /** InThreadSurveyQuestion _questionId. */
+            public _questionId?: "questionId";
 
             /**
              * Creates a new InThreadSurveyQuestion instance using the specified properties.
@@ -4364,25 +4781,46 @@ export namespace AICommon {
             constructor(properties?: AICommon.BotSourcesMetadata.IBotSourceItem);
 
             /** BotSourceItem provider. */
-            public provider: AICommon.BotSourcesMetadata.BotSourceItem.SourceProvider;
+            public provider?: (AICommon.BotSourcesMetadata.BotSourceItem.SourceProvider|null);
 
             /** BotSourceItem thumbnailCdnUrl. */
-            public thumbnailCdnUrl: string;
+            public thumbnailCdnUrl?: (string|null);
 
             /** BotSourceItem sourceProviderUrl. */
-            public sourceProviderUrl: string;
+            public sourceProviderUrl?: (string|null);
 
             /** BotSourceItem sourceQuery. */
-            public sourceQuery: string;
+            public sourceQuery?: (string|null);
 
             /** BotSourceItem faviconCdnUrl. */
-            public faviconCdnUrl: string;
+            public faviconCdnUrl?: (string|null);
 
             /** BotSourceItem citationNumber. */
-            public citationNumber: number;
+            public citationNumber?: (number|null);
 
             /** BotSourceItem sourceTitle. */
-            public sourceTitle: string;
+            public sourceTitle?: (string|null);
+
+            /** BotSourceItem _provider. */
+            public _provider?: "provider";
+
+            /** BotSourceItem _thumbnailCdnUrl. */
+            public _thumbnailCdnUrl?: "thumbnailCdnUrl";
+
+            /** BotSourceItem _sourceProviderUrl. */
+            public _sourceProviderUrl?: "sourceProviderUrl";
+
+            /** BotSourceItem _sourceQuery. */
+            public _sourceQuery?: "sourceQuery";
+
+            /** BotSourceItem _faviconCdnUrl. */
+            public _faviconCdnUrl?: "faviconCdnUrl";
+
+            /** BotSourceItem _citationNumber. */
+            public _citationNumber?: "citationNumber";
+
+            /** BotSourceItem _sourceTitle. */
+            public _sourceTitle?: "sourceTitle";
 
             /**
              * Creates a new BotSourceItem instance using the specified properties.
@@ -4498,13 +4936,22 @@ export namespace AICommon {
         constructor(properties?: AICommon.IBotAgeCollectionMetadata);
 
         /** BotAgeCollectionMetadata ageCollectionEligible. */
-        public ageCollectionEligible: boolean;
+        public ageCollectionEligible?: (boolean|null);
 
         /** BotAgeCollectionMetadata shouldTriggerAgeCollectionOnClient. */
-        public shouldTriggerAgeCollectionOnClient: boolean;
+        public shouldTriggerAgeCollectionOnClient?: (boolean|null);
 
         /** BotAgeCollectionMetadata ageCollectionType. */
-        public ageCollectionType: AICommon.BotAgeCollectionMetadata.AgeCollectionType;
+        public ageCollectionType?: (AICommon.BotAgeCollectionMetadata.AgeCollectionType|null);
+
+        /** BotAgeCollectionMetadata _ageCollectionEligible. */
+        public _ageCollectionEligible?: "ageCollectionEligible";
+
+        /** BotAgeCollectionMetadata _shouldTriggerAgeCollectionOnClient. */
+        public _shouldTriggerAgeCollectionOnClient?: "shouldTriggerAgeCollectionOnClient";
+
+        /** BotAgeCollectionMetadata _ageCollectionType. */
+        public _ageCollectionType?: "ageCollectionType";
 
         /**
          * Creates a new BotAgeCollectionMetadata instance using the specified properties.
@@ -4610,7 +5057,10 @@ export namespace AICommon {
         constructor(properties?: AICommon.IBotImagineMetadata);
 
         /** BotImagineMetadata imagineType. */
-        public imagineType: AICommon.BotImagineMetadata.ImagineType;
+        public imagineType?: (AICommon.BotImagineMetadata.ImagineType|null);
+
+        /** BotImagineMetadata _imagineType. */
+        public _imagineType?: "imagineType";
 
         /**
          * Creates a new BotImagineMetadata instance using the specified properties.
@@ -4824,13 +5274,22 @@ export namespace AICommon {
             constructor(properties?: AICommon.BotQuotaMetadata.IBotFeatureQuotaMetadata);
 
             /** BotFeatureQuotaMetadata featureType. */
-            public featureType: AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.BotFeatureType;
+            public featureType?: (AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.BotFeatureType|null);
 
             /** BotFeatureQuotaMetadata remainingQuota. */
-            public remainingQuota: number;
+            public remainingQuota?: (number|null);
 
             /** BotFeatureQuotaMetadata expirationTimestamp. */
-            public expirationTimestamp: (number|Long);
+            public expirationTimestamp?: (number|Long|null);
+
+            /** BotFeatureQuotaMetadata _featureType. */
+            public _featureType?: "featureType";
+
+            /** BotFeatureQuotaMetadata _remainingQuota. */
+            public _remainingQuota?: "remainingQuota";
+
+            /** BotFeatureQuotaMetadata _expirationTimestamp. */
+            public _expirationTimestamp?: "expirationTimestamp";
 
             /**
              * Creates a new BotFeatureQuotaMetadata instance using the specified properties.
@@ -5197,10 +5656,13 @@ export namespace AICommon {
         constructor(properties?: AICommon.IBotProgressIndicatorMetadata);
 
         /** BotProgressIndicatorMetadata progressDescription. */
-        public progressDescription: string;
+        public progressDescription?: (string|null);
 
         /** BotProgressIndicatorMetadata stepsMetadata. */
         public stepsMetadata: AICommon.BotProgressIndicatorMetadata.IBotPlanningStepMetadata[];
+
+        /** BotProgressIndicatorMetadata _progressDescription. */
+        public _progressDescription?: "progressDescription";
 
         /**
          * Creates a new BotProgressIndicatorMetadata instance using the specified properties.
@@ -5317,25 +5779,40 @@ export namespace AICommon {
             constructor(properties?: AICommon.BotProgressIndicatorMetadata.IBotPlanningStepMetadata);
 
             /** BotPlanningStepMetadata statusTitle. */
-            public statusTitle: string;
+            public statusTitle?: (string|null);
 
             /** BotPlanningStepMetadata statusBody. */
-            public statusBody: string;
+            public statusBody?: (string|null);
 
             /** BotPlanningStepMetadata sourcesMetadata. */
             public sourcesMetadata: AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningSearchSourcesMetadata[];
 
             /** BotPlanningStepMetadata status. */
-            public status: AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.PlanningStepStatus;
+            public status?: (AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.PlanningStepStatus|null);
 
             /** BotPlanningStepMetadata isReasoning. */
-            public isReasoning: boolean;
+            public isReasoning?: (boolean|null);
 
             /** BotPlanningStepMetadata isEnhancedSearch. */
-            public isEnhancedSearch: boolean;
+            public isEnhancedSearch?: (boolean|null);
 
             /** BotPlanningStepMetadata sections. */
             public sections: AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningStepSectionMetadata[];
+
+            /** BotPlanningStepMetadata _statusTitle. */
+            public _statusTitle?: "statusTitle";
+
+            /** BotPlanningStepMetadata _statusBody. */
+            public _statusBody?: "statusBody";
+
+            /** BotPlanningStepMetadata _status. */
+            public _status?: "status";
+
+            /** BotPlanningStepMetadata _isReasoning. */
+            public _isReasoning?: "isReasoning";
+
+            /** BotPlanningStepMetadata _isEnhancedSearch. */
+            public _isEnhancedSearch?: "isEnhancedSearch";
 
             /**
              * Creates a new BotPlanningStepMetadata instance using the specified properties.
@@ -5443,16 +5920,28 @@ export namespace AICommon {
                 constructor(properties?: AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningSearchSourceMetadata);
 
                 /** BotPlanningSearchSourceMetadata title. */
-                public title: string;
+                public title?: (string|null);
 
                 /** BotPlanningSearchSourceMetadata provider. */
-                public provider: AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotSearchSourceProvider;
+                public provider?: (AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotSearchSourceProvider|null);
 
                 /** BotPlanningSearchSourceMetadata sourceUrl. */
-                public sourceUrl: string;
+                public sourceUrl?: (string|null);
 
                 /** BotPlanningSearchSourceMetadata favIconUrl. */
-                public favIconUrl: string;
+                public favIconUrl?: (string|null);
+
+                /** BotPlanningSearchSourceMetadata _title. */
+                public _title?: "title";
+
+                /** BotPlanningSearchSourceMetadata _provider. */
+                public _provider?: "provider";
+
+                /** BotPlanningSearchSourceMetadata _sourceUrl. */
+                public _sourceUrl?: "sourceUrl";
+
+                /** BotPlanningSearchSourceMetadata _favIconUrl. */
+                public _favIconUrl?: "favIconUrl";
 
                 /**
                  * Creates a new BotPlanningSearchSourceMetadata instance using the specified properties.
@@ -5555,13 +6044,22 @@ export namespace AICommon {
                 constructor(properties?: AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningSearchSourcesMetadata);
 
                 /** BotPlanningSearchSourcesMetadata sourceTitle. */
-                public sourceTitle: string;
+                public sourceTitle?: (string|null);
 
                 /** BotPlanningSearchSourcesMetadata provider. */
-                public provider: AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.BotPlanningSearchSourceProvider;
+                public provider?: (AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.BotPlanningSearchSourceProvider|null);
 
                 /** BotPlanningSearchSourcesMetadata sourceUrl. */
-                public sourceUrl: string;
+                public sourceUrl?: (string|null);
+
+                /** BotPlanningSearchSourcesMetadata _sourceTitle. */
+                public _sourceTitle?: "sourceTitle";
+
+                /** BotPlanningSearchSourcesMetadata _provider. */
+                public _provider?: "provider";
+
+                /** BotPlanningSearchSourcesMetadata _sourceUrl. */
+                public _sourceUrl?: "sourceUrl";
 
                 /**
                  * Creates a new BotPlanningSearchSourcesMetadata instance using the specified properties.
@@ -5675,13 +6173,19 @@ export namespace AICommon {
                 constructor(properties?: AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningStepSectionMetadata);
 
                 /** BotPlanningStepSectionMetadata sectionTitle. */
-                public sectionTitle: string;
+                public sectionTitle?: (string|null);
 
                 /** BotPlanningStepSectionMetadata sectionBody. */
-                public sectionBody: string;
+                public sectionBody?: (string|null);
 
                 /** BotPlanningStepSectionMetadata sourcesMetadata. */
                 public sourcesMetadata: AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningSearchSourceMetadata[];
+
+                /** BotPlanningStepSectionMetadata _sectionTitle. */
+                public _sectionTitle?: "sectionTitle";
+
+                /** BotPlanningStepSectionMetadata _sectionBody. */
+                public _sectionBody?: "sectionBody";
 
                 /**
                  * Creates a new BotPlanningStepSectionMetadata instance using the specified properties.
@@ -5799,10 +6303,16 @@ export namespace AICommon {
         constructor(properties?: AICommon.IBotModelMetadata);
 
         /** BotModelMetadata modelType. */
-        public modelType: AICommon.BotModelMetadata.ModelType;
+        public modelType?: (AICommon.BotModelMetadata.ModelType|null);
 
         /** BotModelMetadata premiumModelStatus. */
-        public premiumModelStatus: AICommon.BotModelMetadata.PremiumModelStatus;
+        public premiumModelStatus?: (AICommon.BotModelMetadata.PremiumModelStatus|null);
+
+        /** BotModelMetadata _modelType. */
+        public _modelType?: "modelType";
+
+        /** BotModelMetadata _premiumModelStatus. */
+        public _premiumModelStatus?: "premiumModelStatus";
 
         /**
          * Creates a new BotModelMetadata instance using the specified properties.
@@ -5931,16 +6441,31 @@ export namespace AICommon {
         public requestMessageKey?: (Protocol.IMessageKey|null);
 
         /** BotReminderMetadata action. */
-        public action: AICommon.BotReminderMetadata.ReminderAction;
+        public action?: (AICommon.BotReminderMetadata.ReminderAction|null);
 
         /** BotReminderMetadata name. */
-        public name: string;
+        public name?: (string|null);
 
         /** BotReminderMetadata nextTriggerTimestamp. */
-        public nextTriggerTimestamp: (number|Long);
+        public nextTriggerTimestamp?: (number|Long|null);
 
         /** BotReminderMetadata frequency. */
-        public frequency: AICommon.BotReminderMetadata.ReminderFrequency;
+        public frequency?: (AICommon.BotReminderMetadata.ReminderFrequency|null);
+
+        /** BotReminderMetadata _requestMessageKey. */
+        public _requestMessageKey?: "requestMessageKey";
+
+        /** BotReminderMetadata _action. */
+        public _action?: "action";
+
+        /** BotReminderMetadata _name. */
+        public _name?: "name";
+
+        /** BotReminderMetadata _nextTriggerTimestamp. */
+        public _nextTriggerTimestamp?: "nextTriggerTimestamp";
+
+        /** BotReminderMetadata _frequency. */
+        public _frequency?: "frequency";
 
         /**
          * Creates a new BotReminderMetadata instance using the specified properties.
@@ -6172,25 +6697,46 @@ export namespace AICommon {
         constructor(properties?: AICommon.IBotMediaMetadata);
 
         /** BotMediaMetadata fileSha256. */
-        public fileSha256: string;
+        public fileSha256?: (string|null);
 
         /** BotMediaMetadata mediaKey. */
-        public mediaKey: string;
+        public mediaKey?: (string|null);
 
         /** BotMediaMetadata fileEncSha256. */
-        public fileEncSha256: string;
+        public fileEncSha256?: (string|null);
 
         /** BotMediaMetadata directPath. */
-        public directPath: string;
+        public directPath?: (string|null);
 
         /** BotMediaMetadata mediaKeyTimestamp. */
-        public mediaKeyTimestamp: (number|Long);
+        public mediaKeyTimestamp?: (number|Long|null);
 
         /** BotMediaMetadata mimetype. */
-        public mimetype: string;
+        public mimetype?: (string|null);
 
         /** BotMediaMetadata orientationType. */
-        public orientationType: AICommon.BotMediaMetadata.OrientationType;
+        public orientationType?: (AICommon.BotMediaMetadata.OrientationType|null);
+
+        /** BotMediaMetadata _fileSha256. */
+        public _fileSha256?: "fileSha256";
+
+        /** BotMediaMetadata _mediaKey. */
+        public _mediaKey?: "mediaKey";
+
+        /** BotMediaMetadata _fileEncSha256. */
+        public _fileEncSha256?: "fileEncSha256";
+
+        /** BotMediaMetadata _directPath. */
+        public _directPath?: "directPath";
+
+        /** BotMediaMetadata _mediaKeyTimestamp. */
+        public _mediaKeyTimestamp?: "mediaKeyTimestamp";
+
+        /** BotMediaMetadata _mimetype. */
+        public _mimetype?: "mimetype";
+
+        /** BotMediaMetadata _orientationType. */
+        public _orientationType?: "orientationType";
 
         /**
          * Creates a new BotMediaMetadata instance using the specified properties.
@@ -6300,10 +6846,16 @@ export namespace AICommon {
         constructor(properties?: AICommon.IBotSessionMetadata);
 
         /** BotSessionMetadata sessionId. */
-        public sessionId: string;
+        public sessionId?: (string|null);
 
         /** BotSessionMetadata sessionSource. */
-        public sessionSource: AICommon.BotSessionSource;
+        public sessionSource?: (AICommon.BotSessionSource|null);
+
+        /** BotSessionMetadata _sessionId. */
+        public _sessionId?: "sessionId";
+
+        /** BotSessionMetadata _sessionSource. */
+        public _sessionSource?: "sessionSource";
 
         /**
          * Creates a new BotSessionMetadata instance using the specified properties.
@@ -6406,13 +6958,22 @@ export namespace AICommon {
         constructor(properties?: AICommon.IBotMetricsMetadata);
 
         /** BotMetricsMetadata destinationId. */
-        public destinationId: string;
+        public destinationId?: (string|null);
 
         /** BotMetricsMetadata destinationEntryPoint. */
-        public destinationEntryPoint: AICommon.BotMetricsEntryPoint;
+        public destinationEntryPoint?: (AICommon.BotMetricsEntryPoint|null);
 
         /** BotMetricsMetadata threadOrigin. */
-        public threadOrigin: AICommon.BotMetricsThreadEntryPoint;
+        public threadOrigin?: (AICommon.BotMetricsThreadEntryPoint|null);
+
+        /** BotMetricsMetadata _destinationId. */
+        public _destinationId?: "destinationId";
+
+        /** BotMetricsMetadata _destinationEntryPoint. */
+        public _destinationEntryPoint?: "destinationEntryPoint";
+
+        /** BotMetricsMetadata _threadOrigin. */
+        public _threadOrigin?: "threadOrigin";
 
         /**
          * Creates a new BotMetricsMetadata instance using the specified properties.
@@ -6611,10 +7172,13 @@ export namespace AICommon {
             constructor(properties?: AICommon.BotRenderingMetadata.IKeyword);
 
             /** Keyword value. */
-            public value: string;
+            public value?: (string|null);
 
             /** Keyword associatedPrompts. */
             public associatedPrompts: string[];
+
+            /** Keyword _value. */
+            public _value?: "value";
 
             /**
              * Creates a new Keyword instance using the specified properties.
@@ -6715,10 +7279,16 @@ export namespace AICommon {
         constructor(properties?: AICommon.IBotPromotionMessageMetadata);
 
         /** BotPromotionMessageMetadata promotionType. */
-        public promotionType: AICommon.BotPromotionMessageMetadata.BotPromotionType;
+        public promotionType?: (AICommon.BotPromotionMessageMetadata.BotPromotionType|null);
 
         /** BotPromotionMessageMetadata buttonTitle. */
-        public buttonTitle: string;
+        public buttonTitle?: (string|null);
+
+        /** BotPromotionMessageMetadata _promotionType. */
+        public _promotionType?: "promotionType";
+
+        /** BotPromotionMessageMetadata _buttonTitle. */
+        public _buttonTitle?: "buttonTitle";
 
         /**
          * Creates a new BotPromotionMessageMetadata instance using the specified properties.
@@ -6834,16 +7404,25 @@ export namespace AICommon {
         constructor(properties?: AICommon.IBotSignatureVerificationUseCaseProof);
 
         /** BotSignatureVerificationUseCaseProof version. */
-        public version: number;
+        public version?: (number|null);
 
         /** BotSignatureVerificationUseCaseProof useCase. */
-        public useCase: AICommon.BotSignatureVerificationUseCaseProof.BotSignatureUseCase;
+        public useCase?: (AICommon.BotSignatureVerificationUseCaseProof.BotSignatureUseCase|null);
 
         /** BotSignatureVerificationUseCaseProof signature. */
-        public signature: Uint8Array;
+        public signature?: (Uint8Array|null);
 
         /** BotSignatureVerificationUseCaseProof certificateChain. */
         public certificateChain: Uint8Array[];
+
+        /** BotSignatureVerificationUseCaseProof _version. */
+        public _version?: "version";
+
+        /** BotSignatureVerificationUseCaseProof _useCase. */
+        public _useCase?: "useCase";
+
+        /** BotSignatureVerificationUseCaseProof _signature. */
+        public _signature?: "signature";
 
         /**
          * Creates a new BotSignatureVerificationUseCaseProof instance using the specified properties.
@@ -7049,10 +7628,16 @@ export namespace AICommon {
         constructor(properties?: AICommon.IBotMemoryFact);
 
         /** BotMemoryFact fact. */
-        public fact: string;
+        public fact?: (string|null);
 
         /** BotMemoryFact factId. */
-        public factId: string;
+        public factId?: (string|null);
+
+        /** BotMemoryFact _fact. */
+        public _fact?: "fact";
+
+        /** BotMemoryFact _factId. */
+        public _factId?: "factId";
 
         /**
          * Creates a new BotMemoryFact instance using the specified properties.
@@ -7161,7 +7746,10 @@ export namespace AICommon {
         public removedFacts: AICommon.IBotMemoryFact[];
 
         /** BotMemoryMetadata disclaimer. */
-        public disclaimer: string;
+        public disclaimer?: (string|null);
+
+        /** BotMemoryMetadata _disclaimer. */
+        public _disclaimer?: "disclaimer";
 
         /**
          * Creates a new BotMemoryMetadata instance using the specified properties.
@@ -7258,7 +7846,10 @@ export namespace AICommon {
         constructor(properties?: AICommon.IBotLinkedAccount);
 
         /** BotLinkedAccount type. */
-        public type: AICommon.BotLinkedAccount.BotLinkedAccountType;
+        public type?: (AICommon.BotLinkedAccount.BotLinkedAccountType|null);
+
+        /** BotLinkedAccount _type. */
+        public _type?: "type";
 
         /**
          * Creates a new BotLinkedAccount instance using the specified properties.
@@ -7372,10 +7963,16 @@ export namespace AICommon {
         public accounts: AICommon.IBotLinkedAccount[];
 
         /** BotLinkedAccountsMetadata acAuthTokens. */
-        public acAuthTokens: Uint8Array;
+        public acAuthTokens?: (Uint8Array|null);
 
         /** BotLinkedAccountsMetadata acErrorCode. */
-        public acErrorCode: number;
+        public acErrorCode?: (number|null);
+
+        /** BotLinkedAccountsMetadata _acAuthTokens. */
+        public _acAuthTokens?: "acAuthTokens";
+
+        /** BotLinkedAccountsMetadata _acErrorCode. */
+        public _acErrorCode?: "acErrorCode";
 
         /**
          * Creates a new BotLinkedAccountsMetadata instance using the specified properties.
@@ -7475,10 +8072,16 @@ export namespace AICommon {
         constructor(properties?: AICommon.IBotPromptSuggestion);
 
         /** BotPromptSuggestion prompt. */
-        public prompt: string;
+        public prompt?: (string|null);
 
         /** BotPromptSuggestion promptId. */
-        public promptId: string;
+        public promptId?: (string|null);
+
+        /** BotPromptSuggestion _prompt. */
+        public _prompt?: "prompt";
+
+        /** BotPromptSuggestion _promptId. */
+        public _promptId?: "promptId";
 
         /**
          * Creates a new BotPromptSuggestion instance using the specified properties.
@@ -7684,13 +8287,22 @@ export namespace AICommon {
         public suggestedPrompts: string[];
 
         /** BotSuggestedPromptMetadata selectedPromptIndex. */
-        public selectedPromptIndex: number;
+        public selectedPromptIndex?: (number|null);
 
         /** BotSuggestedPromptMetadata promptSuggestions. */
         public promptSuggestions?: (AICommon.IBotPromptSuggestions|null);
 
         /** BotSuggestedPromptMetadata selectedPromptId. */
-        public selectedPromptId: string;
+        public selectedPromptId?: (string|null);
+
+        /** BotSuggestedPromptMetadata _selectedPromptIndex. */
+        public _selectedPromptIndex?: "selectedPromptIndex";
+
+        /** BotSuggestedPromptMetadata _promptSuggestions. */
+        public _promptSuggestions?: "promptSuggestions";
+
+        /** BotSuggestedPromptMetadata _selectedPromptId. */
+        public _selectedPromptId?: "selectedPromptId";
 
         /**
          * Creates a new BotSuggestedPromptMetadata instance using the specified properties.
@@ -7820,40 +8432,76 @@ export namespace AICommon {
         constructor(properties?: AICommon.IBotPluginMetadata);
 
         /** BotPluginMetadata provider. */
-        public provider: AICommon.BotPluginMetadata.SearchProvider;
+        public provider?: (AICommon.BotPluginMetadata.SearchProvider|null);
 
         /** BotPluginMetadata pluginType. */
-        public pluginType: AICommon.BotPluginMetadata.PluginType;
+        public pluginType?: (AICommon.BotPluginMetadata.PluginType|null);
 
         /** BotPluginMetadata thumbnailCdnUrl. */
-        public thumbnailCdnUrl: string;
+        public thumbnailCdnUrl?: (string|null);
 
         /** BotPluginMetadata profilePhotoCdnUrl. */
-        public profilePhotoCdnUrl: string;
+        public profilePhotoCdnUrl?: (string|null);
 
         /** BotPluginMetadata searchProviderUrl. */
-        public searchProviderUrl: string;
+        public searchProviderUrl?: (string|null);
 
         /** BotPluginMetadata referenceIndex. */
-        public referenceIndex: number;
+        public referenceIndex?: (number|null);
 
         /** BotPluginMetadata expectedLinksCount. */
-        public expectedLinksCount: number;
+        public expectedLinksCount?: (number|null);
 
         /** BotPluginMetadata searchQuery. */
-        public searchQuery: string;
+        public searchQuery?: (string|null);
 
         /** BotPluginMetadata parentPluginMessageKey. */
         public parentPluginMessageKey?: (Protocol.IMessageKey|null);
 
         /** BotPluginMetadata deprecatedField. */
-        public deprecatedField: AICommon.BotPluginMetadata.PluginType;
+        public deprecatedField?: (AICommon.BotPluginMetadata.PluginType|null);
 
         /** BotPluginMetadata parentPluginType. */
-        public parentPluginType: AICommon.BotPluginMetadata.PluginType;
+        public parentPluginType?: (AICommon.BotPluginMetadata.PluginType|null);
 
         /** BotPluginMetadata faviconCdnUrl. */
-        public faviconCdnUrl: string;
+        public faviconCdnUrl?: (string|null);
+
+        /** BotPluginMetadata _provider. */
+        public _provider?: "provider";
+
+        /** BotPluginMetadata _pluginType. */
+        public _pluginType?: "pluginType";
+
+        /** BotPluginMetadata _thumbnailCdnUrl. */
+        public _thumbnailCdnUrl?: "thumbnailCdnUrl";
+
+        /** BotPluginMetadata _profilePhotoCdnUrl. */
+        public _profilePhotoCdnUrl?: "profilePhotoCdnUrl";
+
+        /** BotPluginMetadata _searchProviderUrl. */
+        public _searchProviderUrl?: "searchProviderUrl";
+
+        /** BotPluginMetadata _referenceIndex. */
+        public _referenceIndex?: "referenceIndex";
+
+        /** BotPluginMetadata _expectedLinksCount. */
+        public _expectedLinksCount?: "expectedLinksCount";
+
+        /** BotPluginMetadata _searchQuery. */
+        public _searchQuery?: "searchQuery";
+
+        /** BotPluginMetadata _parentPluginMessageKey. */
+        public _parentPluginMessageKey?: "parentPluginMessageKey";
+
+        /** BotPluginMetadata _deprecatedField. */
+        public _deprecatedField?: "deprecatedField";
+
+        /** BotPluginMetadata _parentPluginType. */
+        public _parentPluginType?: "parentPluginType";
+
+        /** BotPluginMetadata _faviconCdnUrl. */
+        public _faviconCdnUrl?: "faviconCdnUrl";
 
         /**
          * Creates a new BotPluginMetadata instance using the specified properties.
@@ -7980,19 +8628,34 @@ export namespace AICommon {
         constructor(properties?: AICommon.IBotAvatarMetadata);
 
         /** BotAvatarMetadata sentiment. */
-        public sentiment: number;
+        public sentiment?: (number|null);
 
         /** BotAvatarMetadata behaviorGraph. */
-        public behaviorGraph: string;
+        public behaviorGraph?: (string|null);
 
         /** BotAvatarMetadata action. */
-        public action: number;
+        public action?: (number|null);
 
         /** BotAvatarMetadata intensity. */
-        public intensity: number;
+        public intensity?: (number|null);
 
         /** BotAvatarMetadata wordCount. */
-        public wordCount: number;
+        public wordCount?: (number|null);
+
+        /** BotAvatarMetadata _sentiment. */
+        public _sentiment?: "sentiment";
+
+        /** BotAvatarMetadata _behaviorGraph. */
+        public _behaviorGraph?: "behaviorGraph";
+
+        /** BotAvatarMetadata _action. */
+        public _action?: "action";
+
+        /** BotAvatarMetadata _intensity. */
+        public _intensity?: "intensity";
+
+        /** BotAvatarMetadata _wordCount. */
+        public _wordCount?: "wordCount";
 
         /**
          * Creates a new BotAvatarMetadata instance using the specified properties.
@@ -8195,10 +8858,10 @@ export namespace StatusAttributions {
         constructor(properties?: StatusAttributions.IStatusAttribution);
 
         /** StatusAttribution type. */
-        public type: StatusAttributions.StatusAttribution.Type;
+        public type?: (StatusAttributions.StatusAttribution.Type|null);
 
         /** StatusAttribution actionUrl. */
-        public actionUrl: string;
+        public actionUrl?: (string|null);
 
         /** StatusAttribution statusReshare. */
         public statusReshare?: (StatusAttributions.StatusAttribution.IStatusReshare|null);
@@ -8217,6 +8880,12 @@ export namespace StatusAttributions {
 
         /** StatusAttribution aiCreatedAttribution. */
         public aiCreatedAttribution?: (StatusAttributions.StatusAttribution.IAiCreatedAttribution|null);
+
+        /** StatusAttribution _type. */
+        public _type?: "type";
+
+        /** StatusAttribution _actionUrl. */
+        public _actionUrl?: "actionUrl";
 
         /** StatusAttribution attributionData. */
         public attributionData?: ("statusReshare"|"externalShare"|"music"|"groupStatus"|"rlAttribution"|"aiCreatedAttribution");
@@ -8318,7 +8987,10 @@ export namespace StatusAttributions {
             constructor(properties?: StatusAttributions.StatusAttribution.IAiCreatedAttribution);
 
             /** AiCreatedAttribution source. */
-            public source: StatusAttributions.StatusAttribution.AiCreatedAttribution.Source;
+            public source?: (StatusAttributions.StatusAttribution.AiCreatedAttribution.Source|null);
+
+            /** AiCreatedAttribution _source. */
+            public _source?: "source";
 
             /**
              * Creates a new AiCreatedAttribution instance using the specified properties.
@@ -8433,16 +9105,28 @@ export namespace StatusAttributions {
             constructor(properties?: StatusAttributions.StatusAttribution.IExternalShare);
 
             /** ExternalShare actionUrl. */
-            public actionUrl: string;
+            public actionUrl?: (string|null);
 
             /** ExternalShare source. */
-            public source: StatusAttributions.StatusAttribution.ExternalShare.Source;
+            public source?: (StatusAttributions.StatusAttribution.ExternalShare.Source|null);
 
             /** ExternalShare duration. */
-            public duration: number;
+            public duration?: (number|null);
 
             /** ExternalShare actionFallbackUrl. */
-            public actionFallbackUrl: string;
+            public actionFallbackUrl?: (string|null);
+
+            /** ExternalShare _actionUrl. */
+            public _actionUrl?: "actionUrl";
+
+            /** ExternalShare _source. */
+            public _source?: "source";
+
+            /** ExternalShare _duration. */
+            public _duration?: "duration";
+
+            /** ExternalShare _actionFallbackUrl. */
+            public _actionFallbackUrl?: "actionFallbackUrl";
 
             /**
              * Creates a new ExternalShare instance using the specified properties.
@@ -8556,7 +9240,10 @@ export namespace StatusAttributions {
             constructor(properties?: StatusAttributions.StatusAttribution.IGroupStatus);
 
             /** GroupStatus authorJid. */
-            public authorJid: string;
+            public authorJid?: (string|null);
+
+            /** GroupStatus _authorJid. */
+            public _authorJid?: "authorJid";
 
             /**
              * Creates a new GroupStatus instance using the specified properties.
@@ -8668,22 +9355,40 @@ export namespace StatusAttributions {
             constructor(properties?: StatusAttributions.StatusAttribution.IMusic);
 
             /** Music authorName. */
-            public authorName: string;
+            public authorName?: (string|null);
 
             /** Music songId. */
-            public songId: string;
+            public songId?: (string|null);
 
             /** Music title. */
-            public title: string;
+            public title?: (string|null);
 
             /** Music author. */
-            public author: string;
+            public author?: (string|null);
 
             /** Music artistAttribution. */
-            public artistAttribution: string;
+            public artistAttribution?: (string|null);
 
             /** Music isExplicit. */
-            public isExplicit: boolean;
+            public isExplicit?: (boolean|null);
+
+            /** Music _authorName. */
+            public _authorName?: "authorName";
+
+            /** Music _songId. */
+            public _songId?: "songId";
+
+            /** Music _title. */
+            public _title?: "title";
+
+            /** Music _author. */
+            public _author?: "author";
+
+            /** Music _artistAttribution. */
+            public _artistAttribution?: "artistAttribution";
+
+            /** Music _isExplicit. */
+            public _isExplicit?: "isExplicit";
 
             /**
              * Creates a new Music instance using the specified properties.
@@ -8780,7 +9485,10 @@ export namespace StatusAttributions {
             constructor(properties?: StatusAttributions.StatusAttribution.IRLAttribution);
 
             /** RLAttribution source. */
-            public source: StatusAttributions.StatusAttribution.RLAttribution.Source;
+            public source?: (StatusAttributions.StatusAttribution.RLAttribution.Source|null);
+
+            /** RLAttribution _source. */
+            public _source?: "source";
 
             /**
              * Creates a new RLAttribution instance using the specified properties.
@@ -8891,10 +9599,16 @@ export namespace StatusAttributions {
             constructor(properties?: StatusAttributions.StatusAttribution.IStatusReshare);
 
             /** StatusReshare source. */
-            public source: StatusAttributions.StatusAttribution.StatusReshare.Source;
+            public source?: (StatusAttributions.StatusAttribution.StatusReshare.Source|null);
 
             /** StatusReshare metadata. */
             public metadata?: (StatusAttributions.StatusAttribution.StatusReshare.IMetadata|null);
+
+            /** StatusReshare _source. */
+            public _source?: "source";
+
+            /** StatusReshare _metadata. */
+            public _metadata?: "metadata";
 
             /**
              * Creates a new StatusReshare instance using the specified properties.
@@ -9002,16 +9716,28 @@ export namespace StatusAttributions {
                 constructor(properties?: StatusAttributions.StatusAttribution.StatusReshare.IMetadata);
 
                 /** Metadata duration. */
-                public duration: number;
+                public duration?: (number|null);
 
                 /** Metadata channelJid. */
-                public channelJid: string;
+                public channelJid?: (string|null);
 
                 /** Metadata channelMessageId. */
-                public channelMessageId: number;
+                public channelMessageId?: (number|null);
 
                 /** Metadata hasMultipleReshares. */
-                public hasMultipleReshares: boolean;
+                public hasMultipleReshares?: (boolean|null);
+
+                /** Metadata _duration. */
+                public _duration?: "duration";
+
+                /** Metadata _channelJid. */
+                public _channelJid?: "channelJid";
+
+                /** Metadata _channelMessageId. */
+                public _channelMessageId?: "channelMessageId";
+
+                /** Metadata _hasMultipleReshares. */
+                public _hasMultipleReshares?: "hasMultipleReshares";
 
                 /**
                  * Creates a new Metadata instance using the specified properties.
@@ -9145,16 +9871,28 @@ export namespace Protocol {
         constructor(properties?: Protocol.ILimitSharing);
 
         /** LimitSharing sharingLimited. */
-        public sharingLimited: boolean;
+        public sharingLimited?: (boolean|null);
 
         /** LimitSharing trigger. */
-        public trigger: Protocol.LimitSharing.TriggerType;
+        public trigger?: (Protocol.LimitSharing.TriggerType|null);
 
         /** LimitSharing limitSharingSettingTimestamp. */
-        public limitSharingSettingTimestamp: (number|Long);
+        public limitSharingSettingTimestamp?: (number|Long|null);
 
         /** LimitSharing initiatedByMe. */
-        public initiatedByMe: boolean;
+        public initiatedByMe?: (boolean|null);
+
+        /** LimitSharing _sharingLimited. */
+        public _sharingLimited?: "sharingLimited";
+
+        /** LimitSharing _trigger. */
+        public _trigger?: "trigger";
+
+        /** LimitSharing _limitSharingSettingTimestamp. */
+        public _limitSharingSettingTimestamp?: "limitSharingSettingTimestamp";
+
+        /** LimitSharing _initiatedByMe. */
+        public _initiatedByMe?: "initiatedByMe";
 
         /**
          * Creates a new LimitSharing instance using the specified properties.
@@ -9271,16 +10009,28 @@ export namespace Protocol {
         constructor(properties?: Protocol.IMessageKey);
 
         /** MessageKey remoteJid. */
-        public remoteJid: string;
+        public remoteJid?: (string|null);
 
         /** MessageKey fromMe. */
-        public fromMe: boolean;
+        public fromMe?: (boolean|null);
 
         /** MessageKey id. */
-        public id: string;
+        public id?: (string|null);
 
         /** MessageKey participant. */
-        public participant: string;
+        public participant?: (string|null);
+
+        /** MessageKey _remoteJid. */
+        public _remoteJid?: "remoteJid";
+
+        /** MessageKey _fromMe. */
+        public _fromMe?: "fromMe";
+
+        /** MessageKey _id. */
+        public _id?: "id";
+
+        /** MessageKey _participant. */
+        public _participant?: "participant";
 
         /**
          * Creates a new MessageKey instance using the specified properties.

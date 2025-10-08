@@ -47,11 +47,11 @@ $root.DeviceCapabilities = (function() {
 
         /**
          * DeviceCapabilities chatLockSupportLevel.
-         * @member {DeviceCapabilities.DeviceCapabilities.ChatLockSupportLevel} chatLockSupportLevel
+         * @member {DeviceCapabilities.DeviceCapabilities.ChatLockSupportLevel|null|undefined} chatLockSupportLevel
          * @memberof DeviceCapabilities.DeviceCapabilities
          * @instance
          */
-        DeviceCapabilities.prototype.chatLockSupportLevel = 0;
+        DeviceCapabilities.prototype.chatLockSupportLevel = null;
 
         /**
          * DeviceCapabilities lidMigration.
@@ -76,6 +76,53 @@ $root.DeviceCapabilities = (function() {
          * @instance
          */
         DeviceCapabilities.prototype.userHasAvatar = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * DeviceCapabilities _chatLockSupportLevel.
+         * @member {"chatLockSupportLevel"|undefined} _chatLockSupportLevel
+         * @memberof DeviceCapabilities.DeviceCapabilities
+         * @instance
+         */
+        Object.defineProperty(DeviceCapabilities.prototype, "_chatLockSupportLevel", {
+            get: $util.oneOfGetter($oneOfFields = ["chatLockSupportLevel"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * DeviceCapabilities _lidMigration.
+         * @member {"lidMigration"|undefined} _lidMigration
+         * @memberof DeviceCapabilities.DeviceCapabilities
+         * @instance
+         */
+        Object.defineProperty(DeviceCapabilities.prototype, "_lidMigration", {
+            get: $util.oneOfGetter($oneOfFields = ["lidMigration"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * DeviceCapabilities _businessBroadcast.
+         * @member {"businessBroadcast"|undefined} _businessBroadcast
+         * @memberof DeviceCapabilities.DeviceCapabilities
+         * @instance
+         */
+        Object.defineProperty(DeviceCapabilities.prototype, "_businessBroadcast", {
+            get: $util.oneOfGetter($oneOfFields = ["businessBroadcast"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * DeviceCapabilities _userHasAvatar.
+         * @member {"userHasAvatar"|undefined} _userHasAvatar
+         * @memberof DeviceCapabilities.DeviceCapabilities
+         * @instance
+         */
+        Object.defineProperty(DeviceCapabilities.prototype, "_userHasAvatar", {
+            get: $util.oneOfGetter($oneOfFields = ["userHasAvatar"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new DeviceCapabilities instance using the specified properties.
@@ -196,7 +243,9 @@ $root.DeviceCapabilities = (function() {
         DeviceCapabilities.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.chatLockSupportLevel != null && message.hasOwnProperty("chatLockSupportLevel"))
+            var properties = {};
+            if (message.chatLockSupportLevel != null && message.hasOwnProperty("chatLockSupportLevel")) {
+                properties._chatLockSupportLevel = 1;
                 switch (message.chatLockSupportLevel) {
                 default:
                     return "chatLockSupportLevel: enum value expected";
@@ -205,20 +254,30 @@ $root.DeviceCapabilities = (function() {
                 case 2:
                     break;
                 }
+            }
             if (message.lidMigration != null && message.hasOwnProperty("lidMigration")) {
-                var error = $root.DeviceCapabilities.DeviceCapabilities.LIDMigration.verify(message.lidMigration);
-                if (error)
-                    return "lidMigration." + error;
+                properties._lidMigration = 1;
+                {
+                    var error = $root.DeviceCapabilities.DeviceCapabilities.LIDMigration.verify(message.lidMigration);
+                    if (error)
+                        return "lidMigration." + error;
+                }
             }
             if (message.businessBroadcast != null && message.hasOwnProperty("businessBroadcast")) {
-                var error = $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.verify(message.businessBroadcast);
-                if (error)
-                    return "businessBroadcast." + error;
+                properties._businessBroadcast = 1;
+                {
+                    var error = $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.verify(message.businessBroadcast);
+                    if (error)
+                        return "businessBroadcast." + error;
+                }
             }
             if (message.userHasAvatar != null && message.hasOwnProperty("userHasAvatar")) {
-                var error = $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.verify(message.userHasAvatar);
-                if (error)
-                    return "userHasAvatar." + error;
+                properties._userHasAvatar = 1;
+                {
+                    var error = $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.verify(message.userHasAvatar);
+                    if (error)
+                        return "userHasAvatar." + error;
+                }
             }
             return null;
         };
@@ -286,20 +345,26 @@ $root.DeviceCapabilities = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults) {
-                object.chatLockSupportLevel = options.enums === String ? "NONE" : 0;
-                object.lidMigration = null;
-                object.businessBroadcast = null;
-                object.userHasAvatar = null;
-            }
-            if (message.chatLockSupportLevel != null && message.hasOwnProperty("chatLockSupportLevel"))
+            if (message.chatLockSupportLevel != null && message.hasOwnProperty("chatLockSupportLevel")) {
                 object.chatLockSupportLevel = options.enums === String ? $root.DeviceCapabilities.DeviceCapabilities.ChatLockSupportLevel[message.chatLockSupportLevel] === undefined ? message.chatLockSupportLevel : $root.DeviceCapabilities.DeviceCapabilities.ChatLockSupportLevel[message.chatLockSupportLevel] : message.chatLockSupportLevel;
-            if (message.lidMigration != null && message.hasOwnProperty("lidMigration"))
+                if (options.oneofs)
+                    object._chatLockSupportLevel = "chatLockSupportLevel";
+            }
+            if (message.lidMigration != null && message.hasOwnProperty("lidMigration")) {
                 object.lidMigration = $root.DeviceCapabilities.DeviceCapabilities.LIDMigration.toObject(message.lidMigration, options);
-            if (message.businessBroadcast != null && message.hasOwnProperty("businessBroadcast"))
+                if (options.oneofs)
+                    object._lidMigration = "lidMigration";
+            }
+            if (message.businessBroadcast != null && message.hasOwnProperty("businessBroadcast")) {
                 object.businessBroadcast = $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.toObject(message.businessBroadcast, options);
-            if (message.userHasAvatar != null && message.hasOwnProperty("userHasAvatar"))
+                if (options.oneofs)
+                    object._businessBroadcast = "businessBroadcast";
+            }
+            if (message.userHasAvatar != null && message.hasOwnProperty("userHasAvatar")) {
                 object.userHasAvatar = $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.toObject(message.userHasAvatar, options);
+                if (options.oneofs)
+                    object._userHasAvatar = "userHasAvatar";
+            }
             return object;
         };
 
@@ -355,11 +420,25 @@ $root.DeviceCapabilities = (function() {
 
             /**
              * BusinessBroadcast importListEnabled.
-             * @member {boolean} importListEnabled
+             * @member {boolean|null|undefined} importListEnabled
              * @memberof DeviceCapabilities.DeviceCapabilities.BusinessBroadcast
              * @instance
              */
-            BusinessBroadcast.prototype.importListEnabled = false;
+            BusinessBroadcast.prototype.importListEnabled = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            /**
+             * BusinessBroadcast _importListEnabled.
+             * @member {"importListEnabled"|undefined} _importListEnabled
+             * @memberof DeviceCapabilities.DeviceCapabilities.BusinessBroadcast
+             * @instance
+             */
+            Object.defineProperty(BusinessBroadcast.prototype, "_importListEnabled", {
+                get: $util.oneOfGetter($oneOfFields = ["importListEnabled"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
 
             /**
              * Creates a new BusinessBroadcast instance using the specified properties.
@@ -462,9 +541,12 @@ $root.DeviceCapabilities = (function() {
             BusinessBroadcast.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.importListEnabled != null && message.hasOwnProperty("importListEnabled"))
+                var properties = {};
+                if (message.importListEnabled != null && message.hasOwnProperty("importListEnabled")) {
+                    properties._importListEnabled = 1;
                     if (typeof message.importListEnabled !== "boolean")
                         return "importListEnabled: boolean expected";
+                }
                 return null;
             };
 
@@ -498,10 +580,11 @@ $root.DeviceCapabilities = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults)
-                    object.importListEnabled = false;
-                if (message.importListEnabled != null && message.hasOwnProperty("importListEnabled"))
+                if (message.importListEnabled != null && message.hasOwnProperty("importListEnabled")) {
                     object.importListEnabled = message.importListEnabled;
+                    if (options.oneofs)
+                        object._importListEnabled = "importListEnabled";
+                }
                 return object;
             };
 
@@ -576,11 +659,25 @@ $root.DeviceCapabilities = (function() {
 
             /**
              * LIDMigration chatDbMigrationTimestamp.
-             * @member {number|Long} chatDbMigrationTimestamp
+             * @member {number|Long|null|undefined} chatDbMigrationTimestamp
              * @memberof DeviceCapabilities.DeviceCapabilities.LIDMigration
              * @instance
              */
-            LIDMigration.prototype.chatDbMigrationTimestamp = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+            LIDMigration.prototype.chatDbMigrationTimestamp = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            /**
+             * LIDMigration _chatDbMigrationTimestamp.
+             * @member {"chatDbMigrationTimestamp"|undefined} _chatDbMigrationTimestamp
+             * @memberof DeviceCapabilities.DeviceCapabilities.LIDMigration
+             * @instance
+             */
+            Object.defineProperty(LIDMigration.prototype, "_chatDbMigrationTimestamp", {
+                get: $util.oneOfGetter($oneOfFields = ["chatDbMigrationTimestamp"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
 
             /**
              * Creates a new LIDMigration instance using the specified properties.
@@ -683,9 +780,12 @@ $root.DeviceCapabilities = (function() {
             LIDMigration.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.chatDbMigrationTimestamp != null && message.hasOwnProperty("chatDbMigrationTimestamp"))
+                var properties = {};
+                if (message.chatDbMigrationTimestamp != null && message.hasOwnProperty("chatDbMigrationTimestamp")) {
+                    properties._chatDbMigrationTimestamp = 1;
                     if (!$util.isInteger(message.chatDbMigrationTimestamp) && !(message.chatDbMigrationTimestamp && $util.isInteger(message.chatDbMigrationTimestamp.low) && $util.isInteger(message.chatDbMigrationTimestamp.high)))
                         return "chatDbMigrationTimestamp: integer|Long expected";
+                }
                 return null;
             };
 
@@ -726,17 +826,14 @@ $root.DeviceCapabilities = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults)
-                    if ($util.Long) {
-                        var long = new $util.Long(0, 0, true);
-                        object.chatDbMigrationTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                    } else
-                        object.chatDbMigrationTimestamp = options.longs === String ? "0" : 0;
-                if (message.chatDbMigrationTimestamp != null && message.hasOwnProperty("chatDbMigrationTimestamp"))
+                if (message.chatDbMigrationTimestamp != null && message.hasOwnProperty("chatDbMigrationTimestamp")) {
                     if (typeof message.chatDbMigrationTimestamp === "number")
                         object.chatDbMigrationTimestamp = options.longs === String ? String(message.chatDbMigrationTimestamp) : message.chatDbMigrationTimestamp;
                     else
                         object.chatDbMigrationTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.chatDbMigrationTimestamp) : options.longs === Number ? new $util.LongBits(message.chatDbMigrationTimestamp.low >>> 0, message.chatDbMigrationTimestamp.high >>> 0).toNumber(true) : message.chatDbMigrationTimestamp;
+                    if (options.oneofs)
+                        object._chatDbMigrationTimestamp = "chatDbMigrationTimestamp";
+                }
                 return object;
             };
 
@@ -795,11 +892,25 @@ $root.DeviceCapabilities = (function() {
 
             /**
              * UserHasAvatar userHasAvatar.
-             * @member {boolean} userHasAvatar
+             * @member {boolean|null|undefined} userHasAvatar
              * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
              * @instance
              */
-            UserHasAvatar.prototype.userHasAvatar = false;
+            UserHasAvatar.prototype.userHasAvatar = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            /**
+             * UserHasAvatar _userHasAvatar.
+             * @member {"userHasAvatar"|undefined} _userHasAvatar
+             * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
+             * @instance
+             */
+            Object.defineProperty(UserHasAvatar.prototype, "_userHasAvatar", {
+                get: $util.oneOfGetter($oneOfFields = ["userHasAvatar"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
 
             /**
              * Creates a new UserHasAvatar instance using the specified properties.
@@ -902,9 +1013,12 @@ $root.DeviceCapabilities = (function() {
             UserHasAvatar.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.userHasAvatar != null && message.hasOwnProperty("userHasAvatar"))
+                var properties = {};
+                if (message.userHasAvatar != null && message.hasOwnProperty("userHasAvatar")) {
+                    properties._userHasAvatar = 1;
                     if (typeof message.userHasAvatar !== "boolean")
                         return "userHasAvatar: boolean expected";
+                }
                 return null;
             };
 
@@ -938,10 +1052,11 @@ $root.DeviceCapabilities = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults)
-                    object.userHasAvatar = false;
-                if (message.userHasAvatar != null && message.hasOwnProperty("userHasAvatar"))
+                if (message.userHasAvatar != null && message.hasOwnProperty("userHasAvatar")) {
                     object.userHasAvatar = message.userHasAvatar;
+                    if (options.oneofs)
+                        object._userHasAvatar = "userHasAvatar";
+                }
                 return object;
             };
 

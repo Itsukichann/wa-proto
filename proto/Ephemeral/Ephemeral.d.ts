@@ -23,10 +23,16 @@ export namespace Ephemeral {
         constructor(properties?: Ephemeral.IEphemeralSetting);
 
         /** EphemeralSetting duration. */
-        public duration: number;
+        public duration?: (number|null);
 
         /** EphemeralSetting timestamp. */
-        public timestamp: (number|Long);
+        public timestamp?: (number|Long|null);
+
+        /** EphemeralSetting _duration. */
+        public _duration?: "duration";
+
+        /** EphemeralSetting _timestamp. */
+        public _timestamp?: "timestamp";
 
         /**
          * Creates a new EphemeralSetting instance using the specified properties.
