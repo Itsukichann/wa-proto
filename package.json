@@ -13,27 +13,27 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DikaArdnt/wa-proto.git"
+    "url": "git+https://github.com/Itsukichann/wa-proto.git"
   },
   "author": {
-    "name": "Dika Ardnt",
-    "url": "https://dikaardnt.com"
+    "name": "Itsukichann",
+    "url": "https://github.com/Itsukichann"
   },
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/DikaArdnt/wa-proto/issues"
+    "url": "https://github.com/Itsukichann/wa-proto/issues"
   },
-  "homepage": "https://github.com/DikaArdnt/wa-proto#readme",
+  "homepage": "https://github.com/Itsukichann/wa-proto#readme",
   "dependencies": {
-    "long": "*",
-    "protobufjs": "*"
+    "long": "latest",
+    "protobufjs": "latest"
   },
   "devDependencies": {
-    "acorn": "^8.14.0",
-    "acorn-walk": "^8.3.4",
-    "protobufjs-cli": "*",
-    "request": "^2.88.2",
-    "request-promise-core": "^1.1.4",
-    "request-promise-native": "^1.0.9"
+    "acorn": "latest",
+    "acorn-walk": "latest",
+    "protobufjs-cli": "latest",
+    "request": "latest",
+    "request-promise-core": "latest",
+    "request-promise-native": "latest"
   }
 }
