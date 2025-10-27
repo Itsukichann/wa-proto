@@ -28,6 +28,7 @@ $root.DeviceCapabilities = (function() {
          * @property {DeviceCapabilities.DeviceCapabilities.ILIDMigration|null} [lidMigration] DeviceCapabilities lidMigration
          * @property {DeviceCapabilities.DeviceCapabilities.IBusinessBroadcast|null} [businessBroadcast] DeviceCapabilities businessBroadcast
          * @property {DeviceCapabilities.DeviceCapabilities.IUserHasAvatar|null} [userHasAvatar] DeviceCapabilities userHasAvatar
+         * @property {DeviceCapabilities.DeviceCapabilities.MemberNameTagPrimarySupport|null} [memberNameTagPrimarySupport] DeviceCapabilities memberNameTagPrimarySupport
          */
 
         /**
@@ -77,6 +78,14 @@ $root.DeviceCapabilities = (function() {
          */
         DeviceCapabilities.prototype.userHasAvatar = null;
 
+        /**
+         * DeviceCapabilities memberNameTagPrimarySupport.
+         * @member {DeviceCapabilities.DeviceCapabilities.MemberNameTagPrimarySupport|null|undefined} memberNameTagPrimarySupport
+         * @memberof DeviceCapabilities.DeviceCapabilities
+         * @instance
+         */
+        DeviceCapabilities.prototype.memberNameTagPrimarySupport = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -125,6 +134,17 @@ $root.DeviceCapabilities = (function() {
         });
 
         /**
+         * DeviceCapabilities _memberNameTagPrimarySupport.
+         * @member {"memberNameTagPrimarySupport"|undefined} _memberNameTagPrimarySupport
+         * @memberof DeviceCapabilities.DeviceCapabilities
+         * @instance
+         */
+        Object.defineProperty(DeviceCapabilities.prototype, "_memberNameTagPrimarySupport", {
+            get: $util.oneOfGetter($oneOfFields = ["memberNameTagPrimarySupport"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
          * Creates a new DeviceCapabilities instance using the specified properties.
          * @function create
          * @memberof DeviceCapabilities.DeviceCapabilities
@@ -156,6 +176,8 @@ $root.DeviceCapabilities = (function() {
                 $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.encode(message.businessBroadcast, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
             if (message.userHasAvatar != null && Object.hasOwnProperty.call(message, "userHasAvatar"))
                 $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.encode(message.userHasAvatar, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+            if (message.memberNameTagPrimarySupport != null && Object.hasOwnProperty.call(message, "memberNameTagPrimarySupport"))
+                writer.uint32(/* id 5, wireType 0 =*/40).int32(message.memberNameTagPrimarySupport);
             return writer;
         };
 
@@ -206,6 +228,10 @@ $root.DeviceCapabilities = (function() {
                     }
                 case 4: {
                         message.userHasAvatar = $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 5: {
+                        message.memberNameTagPrimarySupport = reader.int32();
                         break;
                     }
                 default:
@@ -279,6 +305,17 @@ $root.DeviceCapabilities = (function() {
                         return "userHasAvatar." + error;
                 }
             }
+            if (message.memberNameTagPrimarySupport != null && message.hasOwnProperty("memberNameTagPrimarySupport")) {
+                properties._memberNameTagPrimarySupport = 1;
+                switch (message.memberNameTagPrimarySupport) {
+                default:
+                    return "memberNameTagPrimarySupport: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                    break;
+                }
+            }
             return null;
         };
 
@@ -329,6 +366,26 @@ $root.DeviceCapabilities = (function() {
                     throw TypeError(".DeviceCapabilities.DeviceCapabilities.userHasAvatar: object expected");
                 message.userHasAvatar = $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.fromObject(object.userHasAvatar);
             }
+            switch (object.memberNameTagPrimarySupport) {
+            default:
+                if (typeof object.memberNameTagPrimarySupport === "number") {
+                    message.memberNameTagPrimarySupport = object.memberNameTagPrimarySupport;
+                    break;
+                }
+                break;
+            case "DISABLED":
+            case 0:
+                message.memberNameTagPrimarySupport = 0;
+                break;
+            case "RECEIVER_ENABLED":
+            case 1:
+                message.memberNameTagPrimarySupport = 1;
+                break;
+            case "SENDER_ENABLED":
+            case 2:
+                message.memberNameTagPrimarySupport = 2;
+                break;
+            }
             return message;
         };
 
@@ -364,6 +421,11 @@ $root.DeviceCapabilities = (function() {
                 object.userHasAvatar = $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.toObject(message.userHasAvatar, options);
                 if (options.oneofs)
                     object._userHasAvatar = "userHasAvatar";
+            }
+            if (message.memberNameTagPrimarySupport != null && message.hasOwnProperty("memberNameTagPrimarySupport")) {
+                object.memberNameTagPrimarySupport = options.enums === String ? $root.DeviceCapabilities.DeviceCapabilities.MemberNameTagPrimarySupport[message.memberNameTagPrimarySupport] === undefined ? message.memberNameTagPrimarySupport : $root.DeviceCapabilities.DeviceCapabilities.MemberNameTagPrimarySupport[message.memberNameTagPrimarySupport] : message.memberNameTagPrimarySupport;
+                if (options.oneofs)
+                    object._memberNameTagPrimarySupport = "memberNameTagPrimarySupport";
             }
             return object;
         };
@@ -864,6 +926,22 @@ $root.DeviceCapabilities = (function() {
             };
 
             return LIDMigration;
+        })();
+
+        /**
+         * MemberNameTagPrimarySupport enum.
+         * @name DeviceCapabilities.DeviceCapabilities.MemberNameTagPrimarySupport
+         * @enum {number}
+         * @property {number} DISABLED=0 DISABLED value
+         * @property {number} RECEIVER_ENABLED=1 RECEIVER_ENABLED value
+         * @property {number} SENDER_ENABLED=2 SENDER_ENABLED value
+         */
+        DeviceCapabilities.MemberNameTagPrimarySupport = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "DISABLED"] = 0;
+            values[valuesById[1] = "RECEIVER_ENABLED"] = 1;
+            values[valuesById[2] = "SENDER_ENABLED"] = 2;
+            return values;
         })();
 
         DeviceCapabilities.UserHasAvatar = (function() {

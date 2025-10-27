@@ -3007,6 +3007,8 @@ $root.CompanionReg = (function() {
              * @property {boolean|null} [supportGroupHistory] HistorySyncConfig supportGroupHistory
              * @property {boolean|null} [onDemandReady] HistorySyncConfig onDemandReady
              * @property {boolean|null} [supportGuestChat] HistorySyncConfig supportGuestChat
+             * @property {boolean|null} [completeOnDemandReady] HistorySyncConfig completeOnDemandReady
+             * @property {number|null} [thumbnailSyncDaysLimit] HistorySyncConfig thumbnailSyncDaysLimit
              */
 
             /**
@@ -3159,6 +3161,22 @@ $root.CompanionReg = (function() {
              * @instance
              */
             HistorySyncConfig.prototype.supportGuestChat = null;
+
+            /**
+             * HistorySyncConfig completeOnDemandReady.
+             * @member {boolean|null|undefined} completeOnDemandReady
+             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
+             * @instance
+             */
+            HistorySyncConfig.prototype.completeOnDemandReady = null;
+
+            /**
+             * HistorySyncConfig thumbnailSyncDaysLimit.
+             * @member {number|null|undefined} thumbnailSyncDaysLimit
+             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
+             * @instance
+             */
+            HistorySyncConfig.prototype.thumbnailSyncDaysLimit = null;
 
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
@@ -3351,6 +3369,28 @@ $root.CompanionReg = (function() {
             });
 
             /**
+             * HistorySyncConfig _completeOnDemandReady.
+             * @member {"completeOnDemandReady"|undefined} _completeOnDemandReady
+             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
+             * @instance
+             */
+            Object.defineProperty(HistorySyncConfig.prototype, "_completeOnDemandReady", {
+                get: $util.oneOfGetter($oneOfFields = ["completeOnDemandReady"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * HistorySyncConfig _thumbnailSyncDaysLimit.
+             * @member {"thumbnailSyncDaysLimit"|undefined} _thumbnailSyncDaysLimit
+             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
+             * @instance
+             */
+            Object.defineProperty(HistorySyncConfig.prototype, "_thumbnailSyncDaysLimit", {
+                get: $util.oneOfGetter($oneOfFields = ["thumbnailSyncDaysLimit"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
              * Creates a new HistorySyncConfig instance using the specified properties.
              * @function create
              * @memberof CompanionReg.DeviceProps.HistorySyncConfig
@@ -3408,6 +3448,10 @@ $root.CompanionReg = (function() {
                     writer.uint32(/* id 16, wireType 0 =*/128).bool(message.onDemandReady);
                 if (message.supportGuestChat != null && Object.hasOwnProperty.call(message, "supportGuestChat"))
                     writer.uint32(/* id 17, wireType 0 =*/136).bool(message.supportGuestChat);
+                if (message.completeOnDemandReady != null && Object.hasOwnProperty.call(message, "completeOnDemandReady"))
+                    writer.uint32(/* id 18, wireType 0 =*/144).bool(message.completeOnDemandReady);
+                if (message.thumbnailSyncDaysLimit != null && Object.hasOwnProperty.call(message, "thumbnailSyncDaysLimit"))
+                    writer.uint32(/* id 19, wireType 0 =*/152).uint32(message.thumbnailSyncDaysLimit);
                 return writer;
             };
 
@@ -3510,6 +3554,14 @@ $root.CompanionReg = (function() {
                         }
                     case 17: {
                             message.supportGuestChat = reader.bool();
+                            break;
+                        }
+                    case 18: {
+                            message.completeOnDemandReady = reader.bool();
+                            break;
+                        }
+                    case 19: {
+                            message.thumbnailSyncDaysLimit = reader.uint32();
                             break;
                         }
                     default:
@@ -3633,6 +3685,16 @@ $root.CompanionReg = (function() {
                     if (typeof message.supportGuestChat !== "boolean")
                         return "supportGuestChat: boolean expected";
                 }
+                if (message.completeOnDemandReady != null && message.hasOwnProperty("completeOnDemandReady")) {
+                    properties._completeOnDemandReady = 1;
+                    if (typeof message.completeOnDemandReady !== "boolean")
+                        return "completeOnDemandReady: boolean expected";
+                }
+                if (message.thumbnailSyncDaysLimit != null && message.hasOwnProperty("thumbnailSyncDaysLimit")) {
+                    properties._thumbnailSyncDaysLimit = 1;
+                    if (!$util.isInteger(message.thumbnailSyncDaysLimit))
+                        return "thumbnailSyncDaysLimit: integer expected";
+                }
                 return null;
             };
 
@@ -3682,6 +3744,10 @@ $root.CompanionReg = (function() {
                     message.onDemandReady = Boolean(object.onDemandReady);
                 if (object.supportGuestChat != null)
                     message.supportGuestChat = Boolean(object.supportGuestChat);
+                if (object.completeOnDemandReady != null)
+                    message.completeOnDemandReady = Boolean(object.completeOnDemandReady);
+                if (object.thumbnailSyncDaysLimit != null)
+                    message.thumbnailSyncDaysLimit = object.thumbnailSyncDaysLimit >>> 0;
                 return message;
             };
 
@@ -3782,6 +3848,16 @@ $root.CompanionReg = (function() {
                     object.supportGuestChat = message.supportGuestChat;
                     if (options.oneofs)
                         object._supportGuestChat = "supportGuestChat";
+                }
+                if (message.completeOnDemandReady != null && message.hasOwnProperty("completeOnDemandReady")) {
+                    object.completeOnDemandReady = message.completeOnDemandReady;
+                    if (options.oneofs)
+                        object._completeOnDemandReady = "completeOnDemandReady";
+                }
+                if (message.thumbnailSyncDaysLimit != null && message.hasOwnProperty("thumbnailSyncDaysLimit")) {
+                    object.thumbnailSyncDaysLimit = message.thumbnailSyncDaysLimit;
+                    if (options.oneofs)
+                        object._thumbnailSyncDaysLimit = "thumbnailSyncDaysLimit";
                 }
                 return object;
             };

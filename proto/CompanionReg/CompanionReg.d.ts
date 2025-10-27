@@ -1111,6 +1111,12 @@ export namespace CompanionReg {
 
             /** HistorySyncConfig supportGuestChat */
             supportGuestChat?: (boolean|null);
+
+            /** HistorySyncConfig completeOnDemandReady */
+            completeOnDemandReady?: (boolean|null);
+
+            /** HistorySyncConfig thumbnailSyncDaysLimit */
+            thumbnailSyncDaysLimit?: (number|null);
         }
 
         /** Represents a HistorySyncConfig. */
@@ -1173,6 +1179,12 @@ export namespace CompanionReg {
             /** HistorySyncConfig supportGuestChat. */
             public supportGuestChat?: (boolean|null);
 
+            /** HistorySyncConfig completeOnDemandReady. */
+            public completeOnDemandReady?: (boolean|null);
+
+            /** HistorySyncConfig thumbnailSyncDaysLimit. */
+            public thumbnailSyncDaysLimit?: (number|null);
+
             /** HistorySyncConfig _fullSyncDaysLimit. */
             public _fullSyncDaysLimit?: "fullSyncDaysLimit";
 
@@ -1223,6 +1235,12 @@ export namespace CompanionReg {
 
             /** HistorySyncConfig _supportGuestChat. */
             public _supportGuestChat?: "supportGuestChat";
+
+            /** HistorySyncConfig _completeOnDemandReady. */
+            public _completeOnDemandReady?: "completeOnDemandReady";
+
+            /** HistorySyncConfig _thumbnailSyncDaysLimit. */
+            public _thumbnailSyncDaysLimit?: "thumbnailSyncDaysLimit";
 
             /**
              * Creates a new HistorySyncConfig instance using the specified properties.

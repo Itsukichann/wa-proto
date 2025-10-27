@@ -18,6 +18,1365 @@ $root.AICommon = (function() {
      */
     var AICommon = {};
 
+    AICommon.AIHomeState = (function() {
+
+        /**
+         * Properties of a AIHomeState.
+         * @memberof AICommon
+         * @interface IAIHomeState
+         * @property {number|Long|null} [lastFetchTime] AIHomeState lastFetchTime
+         * @property {Array.<AICommon.AIHomeState.IAIHomeOption>|null} [capabilityOptions] AIHomeState capabilityOptions
+         * @property {Array.<AICommon.AIHomeState.IAIHomeOption>|null} [conversationOptions] AIHomeState conversationOptions
+         */
+
+        /**
+         * Constructs a new AIHomeState.
+         * @memberof AICommon
+         * @classdesc Represents a AIHomeState.
+         * @implements IAIHomeState
+         * @constructor
+         * @param {AICommon.IAIHomeState=} [properties] Properties to set
+         */
+        function AIHomeState(properties) {
+            this.capabilityOptions = [];
+            this.conversationOptions = [];
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * AIHomeState lastFetchTime.
+         * @member {number|Long|null|undefined} lastFetchTime
+         * @memberof AICommon.AIHomeState
+         * @instance
+         */
+        AIHomeState.prototype.lastFetchTime = null;
+
+        /**
+         * AIHomeState capabilityOptions.
+         * @member {Array.<AICommon.AIHomeState.IAIHomeOption>} capabilityOptions
+         * @memberof AICommon.AIHomeState
+         * @instance
+         */
+        AIHomeState.prototype.capabilityOptions = $util.emptyArray;
+
+        /**
+         * AIHomeState conversationOptions.
+         * @member {Array.<AICommon.AIHomeState.IAIHomeOption>} conversationOptions
+         * @memberof AICommon.AIHomeState
+         * @instance
+         */
+        AIHomeState.prototype.conversationOptions = $util.emptyArray;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * AIHomeState _lastFetchTime.
+         * @member {"lastFetchTime"|undefined} _lastFetchTime
+         * @memberof AICommon.AIHomeState
+         * @instance
+         */
+        Object.defineProperty(AIHomeState.prototype, "_lastFetchTime", {
+            get: $util.oneOfGetter($oneOfFields = ["lastFetchTime"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Creates a new AIHomeState instance using the specified properties.
+         * @function create
+         * @memberof AICommon.AIHomeState
+         * @static
+         * @param {AICommon.IAIHomeState=} [properties] Properties to set
+         * @returns {AICommon.AIHomeState} AIHomeState instance
+         */
+        AIHomeState.create = function create(properties) {
+            return new AIHomeState(properties);
+        };
+
+        /**
+         * Encodes the specified AIHomeState message. Does not implicitly {@link AICommon.AIHomeState.verify|verify} messages.
+         * @function encode
+         * @memberof AICommon.AIHomeState
+         * @static
+         * @param {AICommon.IAIHomeState} message AIHomeState message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        AIHomeState.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.lastFetchTime != null && Object.hasOwnProperty.call(message, "lastFetchTime"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int64(message.lastFetchTime);
+            if (message.capabilityOptions != null && message.capabilityOptions.length)
+                for (var i = 0; i < message.capabilityOptions.length; ++i)
+                    $root.AICommon.AIHomeState.AIHomeOption.encode(message.capabilityOptions[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+            if (message.conversationOptions != null && message.conversationOptions.length)
+                for (var i = 0; i < message.conversationOptions.length; ++i)
+                    $root.AICommon.AIHomeState.AIHomeOption.encode(message.conversationOptions[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified AIHomeState message, length delimited. Does not implicitly {@link AICommon.AIHomeState.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof AICommon.AIHomeState
+         * @static
+         * @param {AICommon.IAIHomeState} message AIHomeState message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        AIHomeState.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a AIHomeState message from the specified reader or buffer.
+         * @function decode
+         * @memberof AICommon.AIHomeState
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {AICommon.AIHomeState} AIHomeState
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        AIHomeState.decode = function decode(reader, length, error) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.AIHomeState();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                if (tag === error)
+                    break;
+                switch (tag >>> 3) {
+                case 1: {
+                        message.lastFetchTime = reader.int64();
+                        break;
+                    }
+                case 2: {
+                        if (!(message.capabilityOptions && message.capabilityOptions.length))
+                            message.capabilityOptions = [];
+                        message.capabilityOptions.push($root.AICommon.AIHomeState.AIHomeOption.decode(reader, reader.uint32()));
+                        break;
+                    }
+                case 3: {
+                        if (!(message.conversationOptions && message.conversationOptions.length))
+                            message.conversationOptions = [];
+                        message.conversationOptions.push($root.AICommon.AIHomeState.AIHomeOption.decode(reader, reader.uint32()));
+                        break;
+                    }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a AIHomeState message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof AICommon.AIHomeState
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {AICommon.AIHomeState} AIHomeState
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        AIHomeState.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a AIHomeState message.
+         * @function verify
+         * @memberof AICommon.AIHomeState
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        AIHomeState.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            var properties = {};
+            if (message.lastFetchTime != null && message.hasOwnProperty("lastFetchTime")) {
+                properties._lastFetchTime = 1;
+                if (!$util.isInteger(message.lastFetchTime) && !(message.lastFetchTime && $util.isInteger(message.lastFetchTime.low) && $util.isInteger(message.lastFetchTime.high)))
+                    return "lastFetchTime: integer|Long expected";
+            }
+            if (message.capabilityOptions != null && message.hasOwnProperty("capabilityOptions")) {
+                if (!Array.isArray(message.capabilityOptions))
+                    return "capabilityOptions: array expected";
+                for (var i = 0; i < message.capabilityOptions.length; ++i) {
+                    var error = $root.AICommon.AIHomeState.AIHomeOption.verify(message.capabilityOptions[i]);
+                    if (error)
+                        return "capabilityOptions." + error;
+                }
+            }
+            if (message.conversationOptions != null && message.hasOwnProperty("conversationOptions")) {
+                if (!Array.isArray(message.conversationOptions))
+                    return "conversationOptions: array expected";
+                for (var i = 0; i < message.conversationOptions.length; ++i) {
+                    var error = $root.AICommon.AIHomeState.AIHomeOption.verify(message.conversationOptions[i]);
+                    if (error)
+                        return "conversationOptions." + error;
+                }
+            }
+            return null;
+        };
+
+        /**
+         * Creates a AIHomeState message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof AICommon.AIHomeState
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {AICommon.AIHomeState} AIHomeState
+         */
+        AIHomeState.fromObject = function fromObject(object) {
+            if (object instanceof $root.AICommon.AIHomeState)
+                return object;
+            var message = new $root.AICommon.AIHomeState();
+            if (object.lastFetchTime != null)
+                if ($util.Long)
+                    (message.lastFetchTime = $util.Long.fromValue(object.lastFetchTime)).unsigned = false;
+                else if (typeof object.lastFetchTime === "string")
+                    message.lastFetchTime = parseInt(object.lastFetchTime, 10);
+                else if (typeof object.lastFetchTime === "number")
+                    message.lastFetchTime = object.lastFetchTime;
+                else if (typeof object.lastFetchTime === "object")
+                    message.lastFetchTime = new $util.LongBits(object.lastFetchTime.low >>> 0, object.lastFetchTime.high >>> 0).toNumber();
+            if (object.capabilityOptions) {
+                if (!Array.isArray(object.capabilityOptions))
+                    throw TypeError(".AICommon.AIHomeState.capabilityOptions: array expected");
+                message.capabilityOptions = [];
+                for (var i = 0; i < object.capabilityOptions.length; ++i) {
+                    if (typeof object.capabilityOptions[i] !== "object")
+                        throw TypeError(".AICommon.AIHomeState.capabilityOptions: object expected");
+                    message.capabilityOptions[i] = $root.AICommon.AIHomeState.AIHomeOption.fromObject(object.capabilityOptions[i]);
+                }
+            }
+            if (object.conversationOptions) {
+                if (!Array.isArray(object.conversationOptions))
+                    throw TypeError(".AICommon.AIHomeState.conversationOptions: array expected");
+                message.conversationOptions = [];
+                for (var i = 0; i < object.conversationOptions.length; ++i) {
+                    if (typeof object.conversationOptions[i] !== "object")
+                        throw TypeError(".AICommon.AIHomeState.conversationOptions: object expected");
+                    message.conversationOptions[i] = $root.AICommon.AIHomeState.AIHomeOption.fromObject(object.conversationOptions[i]);
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a AIHomeState message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof AICommon.AIHomeState
+         * @static
+         * @param {AICommon.AIHomeState} message AIHomeState
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        AIHomeState.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.arrays || options.defaults) {
+                object.capabilityOptions = [];
+                object.conversationOptions = [];
+            }
+            if (message.lastFetchTime != null && message.hasOwnProperty("lastFetchTime")) {
+                if (typeof message.lastFetchTime === "number")
+                    object.lastFetchTime = options.longs === String ? String(message.lastFetchTime) : message.lastFetchTime;
+                else
+                    object.lastFetchTime = options.longs === String ? $util.Long.prototype.toString.call(message.lastFetchTime) : options.longs === Number ? new $util.LongBits(message.lastFetchTime.low >>> 0, message.lastFetchTime.high >>> 0).toNumber() : message.lastFetchTime;
+                if (options.oneofs)
+                    object._lastFetchTime = "lastFetchTime";
+            }
+            if (message.capabilityOptions && message.capabilityOptions.length) {
+                object.capabilityOptions = [];
+                for (var j = 0; j < message.capabilityOptions.length; ++j)
+                    object.capabilityOptions[j] = $root.AICommon.AIHomeState.AIHomeOption.toObject(message.capabilityOptions[j], options);
+            }
+            if (message.conversationOptions && message.conversationOptions.length) {
+                object.conversationOptions = [];
+                for (var j = 0; j < message.conversationOptions.length; ++j)
+                    object.conversationOptions[j] = $root.AICommon.AIHomeState.AIHomeOption.toObject(message.conversationOptions[j], options);
+            }
+            return object;
+        };
+
+        /**
+         * Converts this AIHomeState to JSON.
+         * @function toJSON
+         * @memberof AICommon.AIHomeState
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        AIHomeState.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for AIHomeState
+         * @function getTypeUrl
+         * @memberof AICommon.AIHomeState
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        AIHomeState.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/AICommon.AIHomeState";
+        };
+
+        AIHomeState.AIHomeOption = (function() {
+
+            /**
+             * Properties of a AIHomeOption.
+             * @memberof AICommon.AIHomeState
+             * @interface IAIHomeOption
+             * @property {AICommon.AIHomeState.AIHomeOption.AIHomeActionType|null} [type] AIHomeOption type
+             * @property {string|null} [title] AIHomeOption title
+             * @property {string|null} [promptText] AIHomeOption promptText
+             * @property {string|null} [sessionId] AIHomeOption sessionId
+             * @property {string|null} [imageWdsIdentifier] AIHomeOption imageWdsIdentifier
+             * @property {string|null} [imageTintColor] AIHomeOption imageTintColor
+             * @property {string|null} [imageBackgroundColor] AIHomeOption imageBackgroundColor
+             */
+
+            /**
+             * Constructs a new AIHomeOption.
+             * @memberof AICommon.AIHomeState
+             * @classdesc Represents a AIHomeOption.
+             * @implements IAIHomeOption
+             * @constructor
+             * @param {AICommon.AIHomeState.IAIHomeOption=} [properties] Properties to set
+             */
+            function AIHomeOption(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * AIHomeOption type.
+             * @member {AICommon.AIHomeState.AIHomeOption.AIHomeActionType|null|undefined} type
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @instance
+             */
+            AIHomeOption.prototype.type = null;
+
+            /**
+             * AIHomeOption title.
+             * @member {string|null|undefined} title
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @instance
+             */
+            AIHomeOption.prototype.title = null;
+
+            /**
+             * AIHomeOption promptText.
+             * @member {string|null|undefined} promptText
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @instance
+             */
+            AIHomeOption.prototype.promptText = null;
+
+            /**
+             * AIHomeOption sessionId.
+             * @member {string|null|undefined} sessionId
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @instance
+             */
+            AIHomeOption.prototype.sessionId = null;
+
+            /**
+             * AIHomeOption imageWdsIdentifier.
+             * @member {string|null|undefined} imageWdsIdentifier
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @instance
+             */
+            AIHomeOption.prototype.imageWdsIdentifier = null;
+
+            /**
+             * AIHomeOption imageTintColor.
+             * @member {string|null|undefined} imageTintColor
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @instance
+             */
+            AIHomeOption.prototype.imageTintColor = null;
+
+            /**
+             * AIHomeOption imageBackgroundColor.
+             * @member {string|null|undefined} imageBackgroundColor
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @instance
+             */
+            AIHomeOption.prototype.imageBackgroundColor = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            /**
+             * AIHomeOption _type.
+             * @member {"type"|undefined} _type
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @instance
+             */
+            Object.defineProperty(AIHomeOption.prototype, "_type", {
+                get: $util.oneOfGetter($oneOfFields = ["type"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * AIHomeOption _title.
+             * @member {"title"|undefined} _title
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @instance
+             */
+            Object.defineProperty(AIHomeOption.prototype, "_title", {
+                get: $util.oneOfGetter($oneOfFields = ["title"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * AIHomeOption _promptText.
+             * @member {"promptText"|undefined} _promptText
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @instance
+             */
+            Object.defineProperty(AIHomeOption.prototype, "_promptText", {
+                get: $util.oneOfGetter($oneOfFields = ["promptText"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * AIHomeOption _sessionId.
+             * @member {"sessionId"|undefined} _sessionId
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @instance
+             */
+            Object.defineProperty(AIHomeOption.prototype, "_sessionId", {
+                get: $util.oneOfGetter($oneOfFields = ["sessionId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * AIHomeOption _imageWdsIdentifier.
+             * @member {"imageWdsIdentifier"|undefined} _imageWdsIdentifier
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @instance
+             */
+            Object.defineProperty(AIHomeOption.prototype, "_imageWdsIdentifier", {
+                get: $util.oneOfGetter($oneOfFields = ["imageWdsIdentifier"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * AIHomeOption _imageTintColor.
+             * @member {"imageTintColor"|undefined} _imageTintColor
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @instance
+             */
+            Object.defineProperty(AIHomeOption.prototype, "_imageTintColor", {
+                get: $util.oneOfGetter($oneOfFields = ["imageTintColor"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * AIHomeOption _imageBackgroundColor.
+             * @member {"imageBackgroundColor"|undefined} _imageBackgroundColor
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @instance
+             */
+            Object.defineProperty(AIHomeOption.prototype, "_imageBackgroundColor", {
+                get: $util.oneOfGetter($oneOfFields = ["imageBackgroundColor"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new AIHomeOption instance using the specified properties.
+             * @function create
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @static
+             * @param {AICommon.AIHomeState.IAIHomeOption=} [properties] Properties to set
+             * @returns {AICommon.AIHomeState.AIHomeOption} AIHomeOption instance
+             */
+            AIHomeOption.create = function create(properties) {
+                return new AIHomeOption(properties);
+            };
+
+            /**
+             * Encodes the specified AIHomeOption message. Does not implicitly {@link AICommon.AIHomeState.AIHomeOption.verify|verify} messages.
+             * @function encode
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @static
+             * @param {AICommon.AIHomeState.IAIHomeOption} message AIHomeOption message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AIHomeOption.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.type);
+                if (message.title != null && Object.hasOwnProperty.call(message, "title"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.title);
+                if (message.promptText != null && Object.hasOwnProperty.call(message, "promptText"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.promptText);
+                if (message.sessionId != null && Object.hasOwnProperty.call(message, "sessionId"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.sessionId);
+                if (message.imageWdsIdentifier != null && Object.hasOwnProperty.call(message, "imageWdsIdentifier"))
+                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.imageWdsIdentifier);
+                if (message.imageTintColor != null && Object.hasOwnProperty.call(message, "imageTintColor"))
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.imageTintColor);
+                if (message.imageBackgroundColor != null && Object.hasOwnProperty.call(message, "imageBackgroundColor"))
+                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.imageBackgroundColor);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified AIHomeOption message, length delimited. Does not implicitly {@link AICommon.AIHomeState.AIHomeOption.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @static
+             * @param {AICommon.AIHomeState.IAIHomeOption} message AIHomeOption message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AIHomeOption.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a AIHomeOption message from the specified reader or buffer.
+             * @function decode
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {AICommon.AIHomeState.AIHomeOption} AIHomeOption
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AIHomeOption.decode = function decode(reader, length, error) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.AIHomeState.AIHomeOption();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    if (tag === error)
+                        break;
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.type = reader.int32();
+                            break;
+                        }
+                    case 2: {
+                            message.title = reader.string();
+                            break;
+                        }
+                    case 3: {
+                            message.promptText = reader.string();
+                            break;
+                        }
+                    case 4: {
+                            message.sessionId = reader.string();
+                            break;
+                        }
+                    case 5: {
+                            message.imageWdsIdentifier = reader.string();
+                            break;
+                        }
+                    case 6: {
+                            message.imageTintColor = reader.string();
+                            break;
+                        }
+                    case 7: {
+                            message.imageBackgroundColor = reader.string();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a AIHomeOption message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {AICommon.AIHomeState.AIHomeOption} AIHomeOption
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AIHomeOption.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a AIHomeOption message.
+             * @function verify
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            AIHomeOption.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                var properties = {};
+                if (message.type != null && message.hasOwnProperty("type")) {
+                    properties._type = 1;
+                    switch (message.type) {
+                    default:
+                        return "type: enum value expected";
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                        break;
+                    }
+                }
+                if (message.title != null && message.hasOwnProperty("title")) {
+                    properties._title = 1;
+                    if (!$util.isString(message.title))
+                        return "title: string expected";
+                }
+                if (message.promptText != null && message.hasOwnProperty("promptText")) {
+                    properties._promptText = 1;
+                    if (!$util.isString(message.promptText))
+                        return "promptText: string expected";
+                }
+                if (message.sessionId != null && message.hasOwnProperty("sessionId")) {
+                    properties._sessionId = 1;
+                    if (!$util.isString(message.sessionId))
+                        return "sessionId: string expected";
+                }
+                if (message.imageWdsIdentifier != null && message.hasOwnProperty("imageWdsIdentifier")) {
+                    properties._imageWdsIdentifier = 1;
+                    if (!$util.isString(message.imageWdsIdentifier))
+                        return "imageWdsIdentifier: string expected";
+                }
+                if (message.imageTintColor != null && message.hasOwnProperty("imageTintColor")) {
+                    properties._imageTintColor = 1;
+                    if (!$util.isString(message.imageTintColor))
+                        return "imageTintColor: string expected";
+                }
+                if (message.imageBackgroundColor != null && message.hasOwnProperty("imageBackgroundColor")) {
+                    properties._imageBackgroundColor = 1;
+                    if (!$util.isString(message.imageBackgroundColor))
+                        return "imageBackgroundColor: string expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a AIHomeOption message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {AICommon.AIHomeState.AIHomeOption} AIHomeOption
+             */
+            AIHomeOption.fromObject = function fromObject(object) {
+                if (object instanceof $root.AICommon.AIHomeState.AIHomeOption)
+                    return object;
+                var message = new $root.AICommon.AIHomeState.AIHomeOption();
+                switch (object.type) {
+                default:
+                    if (typeof object.type === "number") {
+                        message.type = object.type;
+                        break;
+                    }
+                    break;
+                case "PROMPT":
+                case 0:
+                    message.type = 0;
+                    break;
+                case "CREATE_IMAGE":
+                case 1:
+                    message.type = 1;
+                    break;
+                case "ANIMATE_PHOTO":
+                case 2:
+                    message.type = 2;
+                    break;
+                case "ANALYZE_FILE":
+                case 3:
+                    message.type = 3;
+                    break;
+                }
+                if (object.title != null)
+                    message.title = String(object.title);
+                if (object.promptText != null)
+                    message.promptText = String(object.promptText);
+                if (object.sessionId != null)
+                    message.sessionId = String(object.sessionId);
+                if (object.imageWdsIdentifier != null)
+                    message.imageWdsIdentifier = String(object.imageWdsIdentifier);
+                if (object.imageTintColor != null)
+                    message.imageTintColor = String(object.imageTintColor);
+                if (object.imageBackgroundColor != null)
+                    message.imageBackgroundColor = String(object.imageBackgroundColor);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a AIHomeOption message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @static
+             * @param {AICommon.AIHomeState.AIHomeOption} message AIHomeOption
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            AIHomeOption.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (message.type != null && message.hasOwnProperty("type")) {
+                    object.type = options.enums === String ? $root.AICommon.AIHomeState.AIHomeOption.AIHomeActionType[message.type] === undefined ? message.type : $root.AICommon.AIHomeState.AIHomeOption.AIHomeActionType[message.type] : message.type;
+                    if (options.oneofs)
+                        object._type = "type";
+                }
+                if (message.title != null && message.hasOwnProperty("title")) {
+                    object.title = message.title;
+                    if (options.oneofs)
+                        object._title = "title";
+                }
+                if (message.promptText != null && message.hasOwnProperty("promptText")) {
+                    object.promptText = message.promptText;
+                    if (options.oneofs)
+                        object._promptText = "promptText";
+                }
+                if (message.sessionId != null && message.hasOwnProperty("sessionId")) {
+                    object.sessionId = message.sessionId;
+                    if (options.oneofs)
+                        object._sessionId = "sessionId";
+                }
+                if (message.imageWdsIdentifier != null && message.hasOwnProperty("imageWdsIdentifier")) {
+                    object.imageWdsIdentifier = message.imageWdsIdentifier;
+                    if (options.oneofs)
+                        object._imageWdsIdentifier = "imageWdsIdentifier";
+                }
+                if (message.imageTintColor != null && message.hasOwnProperty("imageTintColor")) {
+                    object.imageTintColor = message.imageTintColor;
+                    if (options.oneofs)
+                        object._imageTintColor = "imageTintColor";
+                }
+                if (message.imageBackgroundColor != null && message.hasOwnProperty("imageBackgroundColor")) {
+                    object.imageBackgroundColor = message.imageBackgroundColor;
+                    if (options.oneofs)
+                        object._imageBackgroundColor = "imageBackgroundColor";
+                }
+                return object;
+            };
+
+            /**
+             * Converts this AIHomeOption to JSON.
+             * @function toJSON
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            AIHomeOption.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for AIHomeOption
+             * @function getTypeUrl
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            AIHomeOption.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/AICommon.AIHomeState.AIHomeOption";
+            };
+
+            /**
+             * AIHomeActionType enum.
+             * @name AICommon.AIHomeState.AIHomeOption.AIHomeActionType
+             * @enum {number}
+             * @property {number} PROMPT=0 PROMPT value
+             * @property {number} CREATE_IMAGE=1 CREATE_IMAGE value
+             * @property {number} ANIMATE_PHOTO=2 ANIMATE_PHOTO value
+             * @property {number} ANALYZE_FILE=3 ANALYZE_FILE value
+             */
+            AIHomeOption.AIHomeActionType = (function() {
+                var valuesById = {}, values = Object.create(valuesById);
+                values[valuesById[0] = "PROMPT"] = 0;
+                values[valuesById[1] = "CREATE_IMAGE"] = 1;
+                values[valuesById[2] = "ANIMATE_PHOTO"] = 2;
+                values[valuesById[3] = "ANALYZE_FILE"] = 3;
+                return values;
+            })();
+
+            return AIHomeOption;
+        })();
+
+        return AIHomeState;
+    })();
+
+    AICommon.SessionTransparencyMetadata = (function() {
+
+        /**
+         * Properties of a SessionTransparencyMetadata.
+         * @memberof AICommon
+         * @interface ISessionTransparencyMetadata
+         * @property {string|null} [disclaimerText] SessionTransparencyMetadata disclaimerText
+         * @property {string|null} [hcaId] SessionTransparencyMetadata hcaId
+         */
+
+        /**
+         * Constructs a new SessionTransparencyMetadata.
+         * @memberof AICommon
+         * @classdesc Represents a SessionTransparencyMetadata.
+         * @implements ISessionTransparencyMetadata
+         * @constructor
+         * @param {AICommon.ISessionTransparencyMetadata=} [properties] Properties to set
+         */
+        function SessionTransparencyMetadata(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * SessionTransparencyMetadata disclaimerText.
+         * @member {string|null|undefined} disclaimerText
+         * @memberof AICommon.SessionTransparencyMetadata
+         * @instance
+         */
+        SessionTransparencyMetadata.prototype.disclaimerText = null;
+
+        /**
+         * SessionTransparencyMetadata hcaId.
+         * @member {string|null|undefined} hcaId
+         * @memberof AICommon.SessionTransparencyMetadata
+         * @instance
+         */
+        SessionTransparencyMetadata.prototype.hcaId = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * SessionTransparencyMetadata _disclaimerText.
+         * @member {"disclaimerText"|undefined} _disclaimerText
+         * @memberof AICommon.SessionTransparencyMetadata
+         * @instance
+         */
+        Object.defineProperty(SessionTransparencyMetadata.prototype, "_disclaimerText", {
+            get: $util.oneOfGetter($oneOfFields = ["disclaimerText"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * SessionTransparencyMetadata _hcaId.
+         * @member {"hcaId"|undefined} _hcaId
+         * @memberof AICommon.SessionTransparencyMetadata
+         * @instance
+         */
+        Object.defineProperty(SessionTransparencyMetadata.prototype, "_hcaId", {
+            get: $util.oneOfGetter($oneOfFields = ["hcaId"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Creates a new SessionTransparencyMetadata instance using the specified properties.
+         * @function create
+         * @memberof AICommon.SessionTransparencyMetadata
+         * @static
+         * @param {AICommon.ISessionTransparencyMetadata=} [properties] Properties to set
+         * @returns {AICommon.SessionTransparencyMetadata} SessionTransparencyMetadata instance
+         */
+        SessionTransparencyMetadata.create = function create(properties) {
+            return new SessionTransparencyMetadata(properties);
+        };
+
+        /**
+         * Encodes the specified SessionTransparencyMetadata message. Does not implicitly {@link AICommon.SessionTransparencyMetadata.verify|verify} messages.
+         * @function encode
+         * @memberof AICommon.SessionTransparencyMetadata
+         * @static
+         * @param {AICommon.ISessionTransparencyMetadata} message SessionTransparencyMetadata message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SessionTransparencyMetadata.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.disclaimerText != null && Object.hasOwnProperty.call(message, "disclaimerText"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.disclaimerText);
+            if (message.hcaId != null && Object.hasOwnProperty.call(message, "hcaId"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.hcaId);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified SessionTransparencyMetadata message, length delimited. Does not implicitly {@link AICommon.SessionTransparencyMetadata.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof AICommon.SessionTransparencyMetadata
+         * @static
+         * @param {AICommon.ISessionTransparencyMetadata} message SessionTransparencyMetadata message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SessionTransparencyMetadata.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a SessionTransparencyMetadata message from the specified reader or buffer.
+         * @function decode
+         * @memberof AICommon.SessionTransparencyMetadata
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {AICommon.SessionTransparencyMetadata} SessionTransparencyMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SessionTransparencyMetadata.decode = function decode(reader, length, error) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.SessionTransparencyMetadata();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                if (tag === error)
+                    break;
+                switch (tag >>> 3) {
+                case 1: {
+                        message.disclaimerText = reader.string();
+                        break;
+                    }
+                case 2: {
+                        message.hcaId = reader.string();
+                        break;
+                    }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a SessionTransparencyMetadata message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof AICommon.SessionTransparencyMetadata
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {AICommon.SessionTransparencyMetadata} SessionTransparencyMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SessionTransparencyMetadata.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a SessionTransparencyMetadata message.
+         * @function verify
+         * @memberof AICommon.SessionTransparencyMetadata
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        SessionTransparencyMetadata.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            var properties = {};
+            if (message.disclaimerText != null && message.hasOwnProperty("disclaimerText")) {
+                properties._disclaimerText = 1;
+                if (!$util.isString(message.disclaimerText))
+                    return "disclaimerText: string expected";
+            }
+            if (message.hcaId != null && message.hasOwnProperty("hcaId")) {
+                properties._hcaId = 1;
+                if (!$util.isString(message.hcaId))
+                    return "hcaId: string expected";
+            }
+            return null;
+        };
+
+        /**
+         * Creates a SessionTransparencyMetadata message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof AICommon.SessionTransparencyMetadata
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {AICommon.SessionTransparencyMetadata} SessionTransparencyMetadata
+         */
+        SessionTransparencyMetadata.fromObject = function fromObject(object) {
+            if (object instanceof $root.AICommon.SessionTransparencyMetadata)
+                return object;
+            var message = new $root.AICommon.SessionTransparencyMetadata();
+            if (object.disclaimerText != null)
+                message.disclaimerText = String(object.disclaimerText);
+            if (object.hcaId != null)
+                message.hcaId = String(object.hcaId);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a SessionTransparencyMetadata message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof AICommon.SessionTransparencyMetadata
+         * @static
+         * @param {AICommon.SessionTransparencyMetadata} message SessionTransparencyMetadata
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        SessionTransparencyMetadata.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (message.disclaimerText != null && message.hasOwnProperty("disclaimerText")) {
+                object.disclaimerText = message.disclaimerText;
+                if (options.oneofs)
+                    object._disclaimerText = "disclaimerText";
+            }
+            if (message.hcaId != null && message.hasOwnProperty("hcaId")) {
+                object.hcaId = message.hcaId;
+                if (options.oneofs)
+                    object._hcaId = "hcaId";
+            }
+            return object;
+        };
+
+        /**
+         * Converts this SessionTransparencyMetadata to JSON.
+         * @function toJSON
+         * @memberof AICommon.SessionTransparencyMetadata
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        SessionTransparencyMetadata.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for SessionTransparencyMetadata
+         * @function getTypeUrl
+         * @memberof AICommon.SessionTransparencyMetadata
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        SessionTransparencyMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/AICommon.SessionTransparencyMetadata";
+        };
+
+        return SessionTransparencyMetadata;
+    })();
+
+    AICommon.AIRegenerateMetadata = (function() {
+
+        /**
+         * Properties of a AIRegenerateMetadata.
+         * @memberof AICommon
+         * @interface IAIRegenerateMetadata
+         * @property {Protocol.IMessageKey|null} [messageKey] AIRegenerateMetadata messageKey
+         * @property {number|Long|null} [responseTimestampMs] AIRegenerateMetadata responseTimestampMs
+         */
+
+        /**
+         * Constructs a new AIRegenerateMetadata.
+         * @memberof AICommon
+         * @classdesc Represents a AIRegenerateMetadata.
+         * @implements IAIRegenerateMetadata
+         * @constructor
+         * @param {AICommon.IAIRegenerateMetadata=} [properties] Properties to set
+         */
+        function AIRegenerateMetadata(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * AIRegenerateMetadata messageKey.
+         * @member {Protocol.IMessageKey|null|undefined} messageKey
+         * @memberof AICommon.AIRegenerateMetadata
+         * @instance
+         */
+        AIRegenerateMetadata.prototype.messageKey = null;
+
+        /**
+         * AIRegenerateMetadata responseTimestampMs.
+         * @member {number|Long|null|undefined} responseTimestampMs
+         * @memberof AICommon.AIRegenerateMetadata
+         * @instance
+         */
+        AIRegenerateMetadata.prototype.responseTimestampMs = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * AIRegenerateMetadata _messageKey.
+         * @member {"messageKey"|undefined} _messageKey
+         * @memberof AICommon.AIRegenerateMetadata
+         * @instance
+         */
+        Object.defineProperty(AIRegenerateMetadata.prototype, "_messageKey", {
+            get: $util.oneOfGetter($oneOfFields = ["messageKey"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * AIRegenerateMetadata _responseTimestampMs.
+         * @member {"responseTimestampMs"|undefined} _responseTimestampMs
+         * @memberof AICommon.AIRegenerateMetadata
+         * @instance
+         */
+        Object.defineProperty(AIRegenerateMetadata.prototype, "_responseTimestampMs", {
+            get: $util.oneOfGetter($oneOfFields = ["responseTimestampMs"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Creates a new AIRegenerateMetadata instance using the specified properties.
+         * @function create
+         * @memberof AICommon.AIRegenerateMetadata
+         * @static
+         * @param {AICommon.IAIRegenerateMetadata=} [properties] Properties to set
+         * @returns {AICommon.AIRegenerateMetadata} AIRegenerateMetadata instance
+         */
+        AIRegenerateMetadata.create = function create(properties) {
+            return new AIRegenerateMetadata(properties);
+        };
+
+        /**
+         * Encodes the specified AIRegenerateMetadata message. Does not implicitly {@link AICommon.AIRegenerateMetadata.verify|verify} messages.
+         * @function encode
+         * @memberof AICommon.AIRegenerateMetadata
+         * @static
+         * @param {AICommon.IAIRegenerateMetadata} message AIRegenerateMetadata message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        AIRegenerateMetadata.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.messageKey != null && Object.hasOwnProperty.call(message, "messageKey"))
+                $root.Protocol.MessageKey.encode(message.messageKey, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.responseTimestampMs != null && Object.hasOwnProperty.call(message, "responseTimestampMs"))
+                writer.uint32(/* id 2, wireType 0 =*/16).int64(message.responseTimestampMs);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified AIRegenerateMetadata message, length delimited. Does not implicitly {@link AICommon.AIRegenerateMetadata.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof AICommon.AIRegenerateMetadata
+         * @static
+         * @param {AICommon.IAIRegenerateMetadata} message AIRegenerateMetadata message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        AIRegenerateMetadata.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a AIRegenerateMetadata message from the specified reader or buffer.
+         * @function decode
+         * @memberof AICommon.AIRegenerateMetadata
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {AICommon.AIRegenerateMetadata} AIRegenerateMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        AIRegenerateMetadata.decode = function decode(reader, length, error) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.AIRegenerateMetadata();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                if (tag === error)
+                    break;
+                switch (tag >>> 3) {
+                case 1: {
+                        message.messageKey = $root.Protocol.MessageKey.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 2: {
+                        message.responseTimestampMs = reader.int64();
+                        break;
+                    }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a AIRegenerateMetadata message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof AICommon.AIRegenerateMetadata
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {AICommon.AIRegenerateMetadata} AIRegenerateMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        AIRegenerateMetadata.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a AIRegenerateMetadata message.
+         * @function verify
+         * @memberof AICommon.AIRegenerateMetadata
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        AIRegenerateMetadata.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            var properties = {};
+            if (message.messageKey != null && message.hasOwnProperty("messageKey")) {
+                properties._messageKey = 1;
+                {
+                    var error = $root.Protocol.MessageKey.verify(message.messageKey);
+                    if (error)
+                        return "messageKey." + error;
+                }
+            }
+            if (message.responseTimestampMs != null && message.hasOwnProperty("responseTimestampMs")) {
+                properties._responseTimestampMs = 1;
+                if (!$util.isInteger(message.responseTimestampMs) && !(message.responseTimestampMs && $util.isInteger(message.responseTimestampMs.low) && $util.isInteger(message.responseTimestampMs.high)))
+                    return "responseTimestampMs: integer|Long expected";
+            }
+            return null;
+        };
+
+        /**
+         * Creates a AIRegenerateMetadata message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof AICommon.AIRegenerateMetadata
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {AICommon.AIRegenerateMetadata} AIRegenerateMetadata
+         */
+        AIRegenerateMetadata.fromObject = function fromObject(object) {
+            if (object instanceof $root.AICommon.AIRegenerateMetadata)
+                return object;
+            var message = new $root.AICommon.AIRegenerateMetadata();
+            if (object.messageKey != null) {
+                if (typeof object.messageKey !== "object")
+                    throw TypeError(".AICommon.AIRegenerateMetadata.messageKey: object expected");
+                message.messageKey = $root.Protocol.MessageKey.fromObject(object.messageKey);
+            }
+            if (object.responseTimestampMs != null)
+                if ($util.Long)
+                    (message.responseTimestampMs = $util.Long.fromValue(object.responseTimestampMs)).unsigned = false;
+                else if (typeof object.responseTimestampMs === "string")
+                    message.responseTimestampMs = parseInt(object.responseTimestampMs, 10);
+                else if (typeof object.responseTimestampMs === "number")
+                    message.responseTimestampMs = object.responseTimestampMs;
+                else if (typeof object.responseTimestampMs === "object")
+                    message.responseTimestampMs = new $util.LongBits(object.responseTimestampMs.low >>> 0, object.responseTimestampMs.high >>> 0).toNumber();
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a AIRegenerateMetadata message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof AICommon.AIRegenerateMetadata
+         * @static
+         * @param {AICommon.AIRegenerateMetadata} message AIRegenerateMetadata
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        AIRegenerateMetadata.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (message.messageKey != null && message.hasOwnProperty("messageKey")) {
+                object.messageKey = $root.Protocol.MessageKey.toObject(message.messageKey, options);
+                if (options.oneofs)
+                    object._messageKey = "messageKey";
+            }
+            if (message.responseTimestampMs != null && message.hasOwnProperty("responseTimestampMs")) {
+                if (typeof message.responseTimestampMs === "number")
+                    object.responseTimestampMs = options.longs === String ? String(message.responseTimestampMs) : message.responseTimestampMs;
+                else
+                    object.responseTimestampMs = options.longs === String ? $util.Long.prototype.toString.call(message.responseTimestampMs) : options.longs === Number ? new $util.LongBits(message.responseTimestampMs.low >>> 0, message.responseTimestampMs.high >>> 0).toNumber() : message.responseTimestampMs;
+                if (options.oneofs)
+                    object._responseTimestampMs = "responseTimestampMs";
+            }
+            return object;
+        };
+
+        /**
+         * Converts this AIRegenerateMetadata to JSON.
+         * @function toJSON
+         * @memberof AICommon.AIRegenerateMetadata
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        AIRegenerateMetadata.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for AIRegenerateMetadata
+         * @function getTypeUrl
+         * @memberof AICommon.AIRegenerateMetadata
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        AIRegenerateMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/AICommon.AIRegenerateMetadata";
+        };
+
+        return AIRegenerateMetadata;
+    })();
+
     AICommon.AIRichResponseSubMessage = (function() {
 
         /**
@@ -6053,6 +7412,8 @@ $root.AICommon = (function() {
                 case 34:
                 case 35:
                 case 36:
+                case 37:
+                case 38:
                     break;
                 }
             }
@@ -6230,6 +7591,14 @@ $root.AICommon = (function() {
             case "ATTACHMENT_TRAY_GROUP_CHAT":
             case 36:
                 message.botEntryPointOrigin = 36;
+                break;
+            case "ASK_META_AI_MEDIA_VIEWER_1ON1":
+            case 37:
+                message.botEntryPointOrigin = 37;
+                break;
+            case "ASK_META_AI_MEDIA_VIEWER_GROUP":
+            case 38:
+                message.botEntryPointOrigin = 38;
                 break;
             }
             if (object.forwardScore != null)
@@ -7812,6 +9181,7 @@ $root.AICommon = (function() {
                  * @interface ISideBySideSurveyAnalyticsData
                  * @property {string|null} [tessaEvent] SideBySideSurveyAnalyticsData tessaEvent
                  * @property {string|null} [tessaSessionFbid] SideBySideSurveyAnalyticsData tessaSessionFbid
+                 * @property {string|null} [simonSessionFbid] SideBySideSurveyAnalyticsData simonSessionFbid
                  */
 
                 /**
@@ -7845,6 +9215,14 @@ $root.AICommon = (function() {
                  */
                 SideBySideSurveyAnalyticsData.prototype.tessaSessionFbid = null;
 
+                /**
+                 * SideBySideSurveyAnalyticsData simonSessionFbid.
+                 * @member {string|null|undefined} simonSessionFbid
+                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData
+                 * @instance
+                 */
+                SideBySideSurveyAnalyticsData.prototype.simonSessionFbid = null;
+
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
@@ -7867,6 +9245,17 @@ $root.AICommon = (function() {
                  */
                 Object.defineProperty(SideBySideSurveyAnalyticsData.prototype, "_tessaSessionFbid", {
                     get: $util.oneOfGetter($oneOfFields = ["tessaSessionFbid"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * SideBySideSurveyAnalyticsData _simonSessionFbid.
+                 * @member {"simonSessionFbid"|undefined} _simonSessionFbid
+                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData
+                 * @instance
+                 */
+                Object.defineProperty(SideBySideSurveyAnalyticsData.prototype, "_simonSessionFbid", {
+                    get: $util.oneOfGetter($oneOfFields = ["simonSessionFbid"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
@@ -7898,6 +9287,8 @@ $root.AICommon = (function() {
                         writer.uint32(/* id 1, wireType 2 =*/10).string(message.tessaEvent);
                     if (message.tessaSessionFbid != null && Object.hasOwnProperty.call(message, "tessaSessionFbid"))
                         writer.uint32(/* id 2, wireType 2 =*/18).string(message.tessaSessionFbid);
+                    if (message.simonSessionFbid != null && Object.hasOwnProperty.call(message, "simonSessionFbid"))
+                        writer.uint32(/* id 3, wireType 2 =*/26).string(message.simonSessionFbid);
                     return writer;
                 };
 
@@ -7940,6 +9331,10 @@ $root.AICommon = (function() {
                             }
                         case 2: {
                                 message.tessaSessionFbid = reader.string();
+                                break;
+                            }
+                        case 3: {
+                                message.simonSessionFbid = reader.string();
                                 break;
                             }
                         default:
@@ -7988,6 +9383,11 @@ $root.AICommon = (function() {
                         if (!$util.isString(message.tessaSessionFbid))
                             return "tessaSessionFbid: string expected";
                     }
+                    if (message.simonSessionFbid != null && message.hasOwnProperty("simonSessionFbid")) {
+                        properties._simonSessionFbid = 1;
+                        if (!$util.isString(message.simonSessionFbid))
+                            return "simonSessionFbid: string expected";
+                    }
                     return null;
                 };
 
@@ -8007,6 +9407,8 @@ $root.AICommon = (function() {
                         message.tessaEvent = String(object.tessaEvent);
                     if (object.tessaSessionFbid != null)
                         message.tessaSessionFbid = String(object.tessaSessionFbid);
+                    if (object.simonSessionFbid != null)
+                        message.simonSessionFbid = String(object.simonSessionFbid);
                     return message;
                 };
 
@@ -8032,6 +9434,11 @@ $root.AICommon = (function() {
                         object.tessaSessionFbid = message.tessaSessionFbid;
                         if (options.oneofs)
                             object._tessaSessionFbid = "tessaSessionFbid";
+                    }
+                    if (message.simonSessionFbid != null && message.hasOwnProperty("simonSessionFbid")) {
+                        object.simonSessionFbid = message.simonSessionFbid;
+                        if (options.oneofs)
+                            object._simonSessionFbid = "simonSessionFbid";
                     }
                     return object;
                 };
@@ -9510,6 +10917,7 @@ $root.AICommon = (function() {
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
                      * @interface ISideBySideSurveyResponseEventData
                      * @property {string|null} [responseDwellTimeMsString] SideBySideSurveyResponseEventData responseDwellTimeMsString
+                     * @property {string|null} [selectedResponseId] SideBySideSurveyResponseEventData selectedResponseId
                      */
 
                     /**
@@ -9535,6 +10943,14 @@ $root.AICommon = (function() {
                      */
                     SideBySideSurveyResponseEventData.prototype.responseDwellTimeMsString = null;
 
+                    /**
+                     * SideBySideSurveyResponseEventData selectedResponseId.
+                     * @member {string|null|undefined} selectedResponseId
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData
+                     * @instance
+                     */
+                    SideBySideSurveyResponseEventData.prototype.selectedResponseId = null;
+
                     // OneOf field names bound to virtual getters and setters
                     var $oneOfFields;
 
@@ -9546,6 +10962,17 @@ $root.AICommon = (function() {
                      */
                     Object.defineProperty(SideBySideSurveyResponseEventData.prototype, "_responseDwellTimeMsString", {
                         get: $util.oneOfGetter($oneOfFields = ["responseDwellTimeMsString"]),
+                        set: $util.oneOfSetter($oneOfFields)
+                    });
+
+                    /**
+                     * SideBySideSurveyResponseEventData _selectedResponseId.
+                     * @member {"selectedResponseId"|undefined} _selectedResponseId
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData
+                     * @instance
+                     */
+                    Object.defineProperty(SideBySideSurveyResponseEventData.prototype, "_selectedResponseId", {
+                        get: $util.oneOfGetter($oneOfFields = ["selectedResponseId"]),
                         set: $util.oneOfSetter($oneOfFields)
                     });
 
@@ -9575,6 +11002,8 @@ $root.AICommon = (function() {
                             writer = $Writer.create();
                         if (message.responseDwellTimeMsString != null && Object.hasOwnProperty.call(message, "responseDwellTimeMsString"))
                             writer.uint32(/* id 1, wireType 2 =*/10).string(message.responseDwellTimeMsString);
+                        if (message.selectedResponseId != null && Object.hasOwnProperty.call(message, "selectedResponseId"))
+                            writer.uint32(/* id 2, wireType 2 =*/18).string(message.selectedResponseId);
                         return writer;
                     };
 
@@ -9613,6 +11042,10 @@ $root.AICommon = (function() {
                             switch (tag >>> 3) {
                             case 1: {
                                     message.responseDwellTimeMsString = reader.string();
+                                    break;
+                                }
+                            case 2: {
+                                    message.selectedResponseId = reader.string();
                                     break;
                                 }
                             default:
@@ -9656,6 +11089,11 @@ $root.AICommon = (function() {
                             if (!$util.isString(message.responseDwellTimeMsString))
                                 return "responseDwellTimeMsString: string expected";
                         }
+                        if (message.selectedResponseId != null && message.hasOwnProperty("selectedResponseId")) {
+                            properties._selectedResponseId = 1;
+                            if (!$util.isString(message.selectedResponseId))
+                                return "selectedResponseId: string expected";
+                        }
                         return null;
                     };
 
@@ -9673,6 +11111,8 @@ $root.AICommon = (function() {
                         var message = new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData();
                         if (object.responseDwellTimeMsString != null)
                             message.responseDwellTimeMsString = String(object.responseDwellTimeMsString);
+                        if (object.selectedResponseId != null)
+                            message.selectedResponseId = String(object.selectedResponseId);
                         return message;
                     };
 
@@ -9693,6 +11133,11 @@ $root.AICommon = (function() {
                             object.responseDwellTimeMsString = message.responseDwellTimeMsString;
                             if (options.oneofs)
                                 object._responseDwellTimeMsString = "responseDwellTimeMsString";
+                        }
+                        if (message.selectedResponseId != null && message.hasOwnProperty("selectedResponseId")) {
+                            object.selectedResponseId = message.selectedResponseId;
+                            if (options.oneofs)
+                                object._selectedResponseId = "selectedResponseId";
                         }
                         return object;
                     };
@@ -9772,6 +11217,8 @@ $root.AICommon = (function() {
          * @property {AICommon.IBotMessageOriginMetadata|null} [botMessageOriginMetadata] BotMetadata botMessageOriginMetadata
          * @property {AICommon.IInThreadSurveyMetadata|null} [inThreadSurveyMetadata] BotMetadata inThreadSurveyMetadata
          * @property {AICommon.IAIThreadInfo|null} [botThreadInfo] BotMetadata botThreadInfo
+         * @property {AICommon.IAIRegenerateMetadata|null} [regenerateMetadata] BotMetadata regenerateMetadata
+         * @property {AICommon.ISessionTransparencyMetadata|null} [sessionTransparencyMetadata] BotMetadata sessionTransparencyMetadata
          * @property {Uint8Array|null} [internalMetadata] BotMetadata internalMetadata
          */
 
@@ -10037,6 +11484,22 @@ $root.AICommon = (function() {
          * @instance
          */
         BotMetadata.prototype.botThreadInfo = null;
+
+        /**
+         * BotMetadata regenerateMetadata.
+         * @member {AICommon.IAIRegenerateMetadata|null|undefined} regenerateMetadata
+         * @memberof AICommon.BotMetadata
+         * @instance
+         */
+        BotMetadata.prototype.regenerateMetadata = null;
+
+        /**
+         * BotMetadata sessionTransparencyMetadata.
+         * @member {AICommon.ISessionTransparencyMetadata|null|undefined} sessionTransparencyMetadata
+         * @memberof AICommon.BotMetadata
+         * @instance
+         */
+        BotMetadata.prototype.sessionTransparencyMetadata = null;
 
         /**
          * BotMetadata internalMetadata.
@@ -10391,6 +11854,28 @@ $root.AICommon = (function() {
         });
 
         /**
+         * BotMetadata _regenerateMetadata.
+         * @member {"regenerateMetadata"|undefined} _regenerateMetadata
+         * @memberof AICommon.BotMetadata
+         * @instance
+         */
+        Object.defineProperty(BotMetadata.prototype, "_regenerateMetadata", {
+            get: $util.oneOfGetter($oneOfFields = ["regenerateMetadata"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * BotMetadata _sessionTransparencyMetadata.
+         * @member {"sessionTransparencyMetadata"|undefined} _sessionTransparencyMetadata
+         * @memberof AICommon.BotMetadata
+         * @instance
+         */
+        Object.defineProperty(BotMetadata.prototype, "_sessionTransparencyMetadata", {
+            get: $util.oneOfGetter($oneOfFields = ["sessionTransparencyMetadata"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
          * BotMetadata _internalMetadata.
          * @member {"internalMetadata"|undefined} _internalMetadata
          * @memberof AICommon.BotMetadata
@@ -10487,6 +11972,10 @@ $root.AICommon = (function() {
                 $root.AICommon.InThreadSurveyMetadata.encode(message.inThreadSurveyMetadata, writer.uint32(/* id 30, wireType 2 =*/242).fork()).ldelim();
             if (message.botThreadInfo != null && Object.hasOwnProperty.call(message, "botThreadInfo"))
                 $root.AICommon.AIThreadInfo.encode(message.botThreadInfo, writer.uint32(/* id 31, wireType 2 =*/250).fork()).ldelim();
+            if (message.regenerateMetadata != null && Object.hasOwnProperty.call(message, "regenerateMetadata"))
+                $root.AICommon.AIRegenerateMetadata.encode(message.regenerateMetadata, writer.uint32(/* id 32, wireType 2 =*/258).fork()).ldelim();
+            if (message.sessionTransparencyMetadata != null && Object.hasOwnProperty.call(message, "sessionTransparencyMetadata"))
+                $root.AICommon.SessionTransparencyMetadata.encode(message.sessionTransparencyMetadata, writer.uint32(/* id 33, wireType 2 =*/266).fork()).ldelim();
             if (message.internalMetadata != null && Object.hasOwnProperty.call(message, "internalMetadata"))
                 writer.uint32(/* id 999, wireType 2 =*/7994).bytes(message.internalMetadata);
             return writer;
@@ -10647,6 +12136,14 @@ $root.AICommon = (function() {
                     }
                 case 31: {
                         message.botThreadInfo = $root.AICommon.AIThreadInfo.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 32: {
+                        message.regenerateMetadata = $root.AICommon.AIRegenerateMetadata.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 33: {
+                        message.sessionTransparencyMetadata = $root.AICommon.SessionTransparencyMetadata.decode(reader, reader.uint32());
                         break;
                     }
                 case 999: {
@@ -10916,6 +12413,22 @@ $root.AICommon = (function() {
                         return "botThreadInfo." + error;
                 }
             }
+            if (message.regenerateMetadata != null && message.hasOwnProperty("regenerateMetadata")) {
+                properties._regenerateMetadata = 1;
+                {
+                    var error = $root.AICommon.AIRegenerateMetadata.verify(message.regenerateMetadata);
+                    if (error)
+                        return "regenerateMetadata." + error;
+                }
+            }
+            if (message.sessionTransparencyMetadata != null && message.hasOwnProperty("sessionTransparencyMetadata")) {
+                properties._sessionTransparencyMetadata = 1;
+                {
+                    var error = $root.AICommon.SessionTransparencyMetadata.verify(message.sessionTransparencyMetadata);
+                    if (error)
+                        return "sessionTransparencyMetadata." + error;
+                }
+            }
             if (message.internalMetadata != null && message.hasOwnProperty("internalMetadata")) {
                 properties._internalMetadata = 1;
                 if (!(message.internalMetadata && typeof message.internalMetadata.length === "number" || $util.isString(message.internalMetadata)))
@@ -11072,6 +12585,16 @@ $root.AICommon = (function() {
                 if (typeof object.botThreadInfo !== "object")
                     throw TypeError(".AICommon.BotMetadata.botThreadInfo: object expected");
                 message.botThreadInfo = $root.AICommon.AIThreadInfo.fromObject(object.botThreadInfo);
+            }
+            if (object.regenerateMetadata != null) {
+                if (typeof object.regenerateMetadata !== "object")
+                    throw TypeError(".AICommon.BotMetadata.regenerateMetadata: object expected");
+                message.regenerateMetadata = $root.AICommon.AIRegenerateMetadata.fromObject(object.regenerateMetadata);
+            }
+            if (object.sessionTransparencyMetadata != null) {
+                if (typeof object.sessionTransparencyMetadata !== "object")
+                    throw TypeError(".AICommon.BotMetadata.sessionTransparencyMetadata: object expected");
+                message.sessionTransparencyMetadata = $root.AICommon.SessionTransparencyMetadata.fromObject(object.sessionTransparencyMetadata);
             }
             if (object.internalMetadata != null)
                 if (typeof object.internalMetadata === "string")
@@ -11248,6 +12771,16 @@ $root.AICommon = (function() {
                 object.botThreadInfo = $root.AICommon.AIThreadInfo.toObject(message.botThreadInfo, options);
                 if (options.oneofs)
                     object._botThreadInfo = "botThreadInfo";
+            }
+            if (message.regenerateMetadata != null && message.hasOwnProperty("regenerateMetadata")) {
+                object.regenerateMetadata = $root.AICommon.AIRegenerateMetadata.toObject(message.regenerateMetadata, options);
+                if (options.oneofs)
+                    object._regenerateMetadata = "regenerateMetadata";
+            }
+            if (message.sessionTransparencyMetadata != null && message.hasOwnProperty("sessionTransparencyMetadata")) {
+                object.sessionTransparencyMetadata = $root.AICommon.SessionTransparencyMetadata.toObject(message.sessionTransparencyMetadata, options);
+                if (options.oneofs)
+                    object._sessionTransparencyMetadata = "sessionTransparencyMetadata";
             }
             if (message.internalMetadata != null && message.hasOwnProperty("internalMetadata")) {
                 object.internalMetadata = options.bytes === String ? $util.base64.encode(message.internalMetadata, 0, message.internalMetadata.length) : options.bytes === Array ? Array.prototype.slice.call(message.internalMetadata) : message.internalMetadata;
@@ -12634,6 +14167,7 @@ $root.AICommon = (function() {
              * @memberof AICommon.BotUnifiedResponseMutation
              * @interface ISideBySideMetadata
              * @property {string|null} [primaryResponseId] SideBySideMetadata primaryResponseId
+             * @property {boolean|null} [surveyCtaHasRendered] SideBySideMetadata surveyCtaHasRendered
              */
 
             /**
@@ -12659,6 +14193,14 @@ $root.AICommon = (function() {
              */
             SideBySideMetadata.prototype.primaryResponseId = null;
 
+            /**
+             * SideBySideMetadata surveyCtaHasRendered.
+             * @member {boolean|null|undefined} surveyCtaHasRendered
+             * @memberof AICommon.BotUnifiedResponseMutation.SideBySideMetadata
+             * @instance
+             */
+            SideBySideMetadata.prototype.surveyCtaHasRendered = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -12670,6 +14212,17 @@ $root.AICommon = (function() {
              */
             Object.defineProperty(SideBySideMetadata.prototype, "_primaryResponseId", {
                 get: $util.oneOfGetter($oneOfFields = ["primaryResponseId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * SideBySideMetadata _surveyCtaHasRendered.
+             * @member {"surveyCtaHasRendered"|undefined} _surveyCtaHasRendered
+             * @memberof AICommon.BotUnifiedResponseMutation.SideBySideMetadata
+             * @instance
+             */
+            Object.defineProperty(SideBySideMetadata.prototype, "_surveyCtaHasRendered", {
+                get: $util.oneOfGetter($oneOfFields = ["surveyCtaHasRendered"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -12699,6 +14252,8 @@ $root.AICommon = (function() {
                     writer = $Writer.create();
                 if (message.primaryResponseId != null && Object.hasOwnProperty.call(message, "primaryResponseId"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.primaryResponseId);
+                if (message.surveyCtaHasRendered != null && Object.hasOwnProperty.call(message, "surveyCtaHasRendered"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).bool(message.surveyCtaHasRendered);
                 return writer;
             };
 
@@ -12737,6 +14292,10 @@ $root.AICommon = (function() {
                     switch (tag >>> 3) {
                     case 1: {
                             message.primaryResponseId = reader.string();
+                            break;
+                        }
+                    case 2: {
+                            message.surveyCtaHasRendered = reader.bool();
                             break;
                         }
                     default:
@@ -12780,6 +14339,11 @@ $root.AICommon = (function() {
                     if (!$util.isString(message.primaryResponseId))
                         return "primaryResponseId: string expected";
                 }
+                if (message.surveyCtaHasRendered != null && message.hasOwnProperty("surveyCtaHasRendered")) {
+                    properties._surveyCtaHasRendered = 1;
+                    if (typeof message.surveyCtaHasRendered !== "boolean")
+                        return "surveyCtaHasRendered: boolean expected";
+                }
                 return null;
             };
 
@@ -12797,6 +14361,8 @@ $root.AICommon = (function() {
                 var message = new $root.AICommon.BotUnifiedResponseMutation.SideBySideMetadata();
                 if (object.primaryResponseId != null)
                     message.primaryResponseId = String(object.primaryResponseId);
+                if (object.surveyCtaHasRendered != null)
+                    message.surveyCtaHasRendered = Boolean(object.surveyCtaHasRendered);
                 return message;
             };
 
@@ -12817,6 +14383,11 @@ $root.AICommon = (function() {
                     object.primaryResponseId = message.primaryResponseId;
                     if (options.oneofs)
                         object._primaryResponseId = "primaryResponseId";
+                }
+                if (message.surveyCtaHasRendered != null && message.hasOwnProperty("surveyCtaHasRendered")) {
+                    object.surveyCtaHasRendered = message.surveyCtaHasRendered;
+                    if (options.oneofs)
+                        object._surveyCtaHasRendered = "surveyCtaHasRendered";
                 }
                 return object;
             };
@@ -17409,6 +18980,7 @@ $root.AICommon = (function() {
                     case 45:
                     case 46:
                     case 47:
+                    case 48:
                         break;
                     }
             }
@@ -17630,6 +19202,10 @@ $root.AICommon = (function() {
                     case 47:
                         message.capabilities[i] = 47;
                         break;
+                    case "SESSION_TRANSPARENCY_SYSTEM_MESSAGE":
+                    case 48:
+                        message.capabilities[i] = 48;
+                        break;
                     }
             }
             return message;
@@ -17736,6 +19312,7 @@ $root.AICommon = (function() {
          * @property {number} RICH_RESPONSE_UR_TIMESTAMP_PLACEHOLDER=45 RICH_RESPONSE_UR_TIMESTAMP_PLACEHOLDER value
          * @property {number} RICH_RESPONSE_IN_APP_SURVEY=46 RICH_RESPONSE_IN_APP_SURVEY value
          * @property {number} AI_RESPONSE_MODEL_BRANDING=47 AI_RESPONSE_MODEL_BRANDING value
+         * @property {number} SESSION_TRANSPARENCY_SYSTEM_MESSAGE=48 SESSION_TRANSPARENCY_SYSTEM_MESSAGE value
          */
         BotCapabilityMetadata.BotCapabilityType = (function() {
             var valuesById = {}, values = Object.create(valuesById);
@@ -17787,6 +19364,7 @@ $root.AICommon = (function() {
             values[valuesById[45] = "RICH_RESPONSE_UR_TIMESTAMP_PLACEHOLDER"] = 45;
             values[valuesById[46] = "RICH_RESPONSE_IN_APP_SURVEY"] = 46;
             values[valuesById[47] = "AI_RESPONSE_MODEL_BRANDING"] = 47;
+            values[valuesById[48] = "SESSION_TRANSPARENCY_SYSTEM_MESSAGE"] = 48;
             return values;
         })();
 
@@ -21759,6 +23337,8 @@ $root.AICommon = (function() {
                 case 34:
                 case 35:
                 case 36:
+                case 37:
+                case 38:
                     break;
                 }
             }
@@ -21946,6 +23526,14 @@ $root.AICommon = (function() {
             case "ATTACHMENT_TRAY_GROUP_CHAT":
             case 36:
                 message.destinationEntryPoint = 36;
+                break;
+            case "ASK_META_AI_MEDIA_VIEWER_1ON1":
+            case 37:
+                message.destinationEntryPoint = 37;
+                break;
+            case "ASK_META_AI_MEDIA_VIEWER_GROUP":
+            case 38:
+                message.destinationEntryPoint = 38;
                 break;
             }
             switch (object.threadOrigin) {
@@ -26683,6 +28271,8 @@ $root.AICommon = (function() {
      * @property {number} MESSAGE_QUICK_ACTION_GROUP_CHAT=34 MESSAGE_QUICK_ACTION_GROUP_CHAT value
      * @property {number} ATTACHMENT_TRAY_1_ON_1_CHAT=35 ATTACHMENT_TRAY_1_ON_1_CHAT value
      * @property {number} ATTACHMENT_TRAY_GROUP_CHAT=36 ATTACHMENT_TRAY_GROUP_CHAT value
+     * @property {number} ASK_META_AI_MEDIA_VIEWER_1ON1=37 ASK_META_AI_MEDIA_VIEWER_1ON1 value
+     * @property {number} ASK_META_AI_MEDIA_VIEWER_GROUP=38 ASK_META_AI_MEDIA_VIEWER_GROUP value
      */
     AICommon.BotMetricsEntryPoint = (function() {
         var valuesById = {}, values = Object.create(valuesById);
@@ -26723,10 +28313,755 @@ $root.AICommon = (function() {
         values[valuesById[34] = "MESSAGE_QUICK_ACTION_GROUP_CHAT"] = 34;
         values[valuesById[35] = "ATTACHMENT_TRAY_1_ON_1_CHAT"] = 35;
         values[valuesById[36] = "ATTACHMENT_TRAY_GROUP_CHAT"] = 36;
+        values[valuesById[37] = "ASK_META_AI_MEDIA_VIEWER_1ON1"] = 37;
+        values[valuesById[38] = "ASK_META_AI_MEDIA_VIEWER_GROUP"] = 38;
         return values;
     })();
 
     return AICommon;
+})();
+
+$root.Protocol = (function() {
+
+    /**
+     * Namespace Protocol.
+     * @exports Protocol
+     * @namespace
+     */
+    var Protocol = {};
+
+    Protocol.LimitSharing = (function() {
+
+        /**
+         * Properties of a LimitSharing.
+         * @memberof Protocol
+         * @interface ILimitSharing
+         * @property {boolean|null} [sharingLimited] LimitSharing sharingLimited
+         * @property {Protocol.LimitSharing.TriggerType|null} [trigger] LimitSharing trigger
+         * @property {number|Long|null} [limitSharingSettingTimestamp] LimitSharing limitSharingSettingTimestamp
+         * @property {boolean|null} [initiatedByMe] LimitSharing initiatedByMe
+         */
+
+        /**
+         * Constructs a new LimitSharing.
+         * @memberof Protocol
+         * @classdesc Represents a LimitSharing.
+         * @implements ILimitSharing
+         * @constructor
+         * @param {Protocol.ILimitSharing=} [properties] Properties to set
+         */
+        function LimitSharing(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * LimitSharing sharingLimited.
+         * @member {boolean|null|undefined} sharingLimited
+         * @memberof Protocol.LimitSharing
+         * @instance
+         */
+        LimitSharing.prototype.sharingLimited = null;
+
+        /**
+         * LimitSharing trigger.
+         * @member {Protocol.LimitSharing.TriggerType|null|undefined} trigger
+         * @memberof Protocol.LimitSharing
+         * @instance
+         */
+        LimitSharing.prototype.trigger = null;
+
+        /**
+         * LimitSharing limitSharingSettingTimestamp.
+         * @member {number|Long|null|undefined} limitSharingSettingTimestamp
+         * @memberof Protocol.LimitSharing
+         * @instance
+         */
+        LimitSharing.prototype.limitSharingSettingTimestamp = null;
+
+        /**
+         * LimitSharing initiatedByMe.
+         * @member {boolean|null|undefined} initiatedByMe
+         * @memberof Protocol.LimitSharing
+         * @instance
+         */
+        LimitSharing.prototype.initiatedByMe = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * LimitSharing _sharingLimited.
+         * @member {"sharingLimited"|undefined} _sharingLimited
+         * @memberof Protocol.LimitSharing
+         * @instance
+         */
+        Object.defineProperty(LimitSharing.prototype, "_sharingLimited", {
+            get: $util.oneOfGetter($oneOfFields = ["sharingLimited"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * LimitSharing _trigger.
+         * @member {"trigger"|undefined} _trigger
+         * @memberof Protocol.LimitSharing
+         * @instance
+         */
+        Object.defineProperty(LimitSharing.prototype, "_trigger", {
+            get: $util.oneOfGetter($oneOfFields = ["trigger"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * LimitSharing _limitSharingSettingTimestamp.
+         * @member {"limitSharingSettingTimestamp"|undefined} _limitSharingSettingTimestamp
+         * @memberof Protocol.LimitSharing
+         * @instance
+         */
+        Object.defineProperty(LimitSharing.prototype, "_limitSharingSettingTimestamp", {
+            get: $util.oneOfGetter($oneOfFields = ["limitSharingSettingTimestamp"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * LimitSharing _initiatedByMe.
+         * @member {"initiatedByMe"|undefined} _initiatedByMe
+         * @memberof Protocol.LimitSharing
+         * @instance
+         */
+        Object.defineProperty(LimitSharing.prototype, "_initiatedByMe", {
+            get: $util.oneOfGetter($oneOfFields = ["initiatedByMe"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Creates a new LimitSharing instance using the specified properties.
+         * @function create
+         * @memberof Protocol.LimitSharing
+         * @static
+         * @param {Protocol.ILimitSharing=} [properties] Properties to set
+         * @returns {Protocol.LimitSharing} LimitSharing instance
+         */
+        LimitSharing.create = function create(properties) {
+            return new LimitSharing(properties);
+        };
+
+        /**
+         * Encodes the specified LimitSharing message. Does not implicitly {@link Protocol.LimitSharing.verify|verify} messages.
+         * @function encode
+         * @memberof Protocol.LimitSharing
+         * @static
+         * @param {Protocol.ILimitSharing} message LimitSharing message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        LimitSharing.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.sharingLimited != null && Object.hasOwnProperty.call(message, "sharingLimited"))
+                writer.uint32(/* id 1, wireType 0 =*/8).bool(message.sharingLimited);
+            if (message.trigger != null && Object.hasOwnProperty.call(message, "trigger"))
+                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.trigger);
+            if (message.limitSharingSettingTimestamp != null && Object.hasOwnProperty.call(message, "limitSharingSettingTimestamp"))
+                writer.uint32(/* id 3, wireType 0 =*/24).int64(message.limitSharingSettingTimestamp);
+            if (message.initiatedByMe != null && Object.hasOwnProperty.call(message, "initiatedByMe"))
+                writer.uint32(/* id 4, wireType 0 =*/32).bool(message.initiatedByMe);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified LimitSharing message, length delimited. Does not implicitly {@link Protocol.LimitSharing.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof Protocol.LimitSharing
+         * @static
+         * @param {Protocol.ILimitSharing} message LimitSharing message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        LimitSharing.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a LimitSharing message from the specified reader or buffer.
+         * @function decode
+         * @memberof Protocol.LimitSharing
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {Protocol.LimitSharing} LimitSharing
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        LimitSharing.decode = function decode(reader, length, error) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Protocol.LimitSharing();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                if (tag === error)
+                    break;
+                switch (tag >>> 3) {
+                case 1: {
+                        message.sharingLimited = reader.bool();
+                        break;
+                    }
+                case 2: {
+                        message.trigger = reader.int32();
+                        break;
+                    }
+                case 3: {
+                        message.limitSharingSettingTimestamp = reader.int64();
+                        break;
+                    }
+                case 4: {
+                        message.initiatedByMe = reader.bool();
+                        break;
+                    }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a LimitSharing message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof Protocol.LimitSharing
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {Protocol.LimitSharing} LimitSharing
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        LimitSharing.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a LimitSharing message.
+         * @function verify
+         * @memberof Protocol.LimitSharing
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        LimitSharing.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            var properties = {};
+            if (message.sharingLimited != null && message.hasOwnProperty("sharingLimited")) {
+                properties._sharingLimited = 1;
+                if (typeof message.sharingLimited !== "boolean")
+                    return "sharingLimited: boolean expected";
+            }
+            if (message.trigger != null && message.hasOwnProperty("trigger")) {
+                properties._trigger = 1;
+                switch (message.trigger) {
+                default:
+                    return "trigger: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                    break;
+                }
+            }
+            if (message.limitSharingSettingTimestamp != null && message.hasOwnProperty("limitSharingSettingTimestamp")) {
+                properties._limitSharingSettingTimestamp = 1;
+                if (!$util.isInteger(message.limitSharingSettingTimestamp) && !(message.limitSharingSettingTimestamp && $util.isInteger(message.limitSharingSettingTimestamp.low) && $util.isInteger(message.limitSharingSettingTimestamp.high)))
+                    return "limitSharingSettingTimestamp: integer|Long expected";
+            }
+            if (message.initiatedByMe != null && message.hasOwnProperty("initiatedByMe")) {
+                properties._initiatedByMe = 1;
+                if (typeof message.initiatedByMe !== "boolean")
+                    return "initiatedByMe: boolean expected";
+            }
+            return null;
+        };
+
+        /**
+         * Creates a LimitSharing message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof Protocol.LimitSharing
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {Protocol.LimitSharing} LimitSharing
+         */
+        LimitSharing.fromObject = function fromObject(object) {
+            if (object instanceof $root.Protocol.LimitSharing)
+                return object;
+            var message = new $root.Protocol.LimitSharing();
+            if (object.sharingLimited != null)
+                message.sharingLimited = Boolean(object.sharingLimited);
+            switch (object.trigger) {
+            default:
+                if (typeof object.trigger === "number") {
+                    message.trigger = object.trigger;
+                    break;
+                }
+                break;
+            case "UNKNOWN":
+            case 0:
+                message.trigger = 0;
+                break;
+            case "CHAT_SETTING":
+            case 1:
+                message.trigger = 1;
+                break;
+            case "BIZ_SUPPORTS_FB_HOSTING":
+            case 2:
+                message.trigger = 2;
+                break;
+            case "UNKNOWN_GROUP":
+            case 3:
+                message.trigger = 3;
+                break;
+            }
+            if (object.limitSharingSettingTimestamp != null)
+                if ($util.Long)
+                    (message.limitSharingSettingTimestamp = $util.Long.fromValue(object.limitSharingSettingTimestamp)).unsigned = false;
+                else if (typeof object.limitSharingSettingTimestamp === "string")
+                    message.limitSharingSettingTimestamp = parseInt(object.limitSharingSettingTimestamp, 10);
+                else if (typeof object.limitSharingSettingTimestamp === "number")
+                    message.limitSharingSettingTimestamp = object.limitSharingSettingTimestamp;
+                else if (typeof object.limitSharingSettingTimestamp === "object")
+                    message.limitSharingSettingTimestamp = new $util.LongBits(object.limitSharingSettingTimestamp.low >>> 0, object.limitSharingSettingTimestamp.high >>> 0).toNumber();
+            if (object.initiatedByMe != null)
+                message.initiatedByMe = Boolean(object.initiatedByMe);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a LimitSharing message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof Protocol.LimitSharing
+         * @static
+         * @param {Protocol.LimitSharing} message LimitSharing
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        LimitSharing.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (message.sharingLimited != null && message.hasOwnProperty("sharingLimited")) {
+                object.sharingLimited = message.sharingLimited;
+                if (options.oneofs)
+                    object._sharingLimited = "sharingLimited";
+            }
+            if (message.trigger != null && message.hasOwnProperty("trigger")) {
+                object.trigger = options.enums === String ? $root.Protocol.LimitSharing.TriggerType[message.trigger] === undefined ? message.trigger : $root.Protocol.LimitSharing.TriggerType[message.trigger] : message.trigger;
+                if (options.oneofs)
+                    object._trigger = "trigger";
+            }
+            if (message.limitSharingSettingTimestamp != null && message.hasOwnProperty("limitSharingSettingTimestamp")) {
+                if (typeof message.limitSharingSettingTimestamp === "number")
+                    object.limitSharingSettingTimestamp = options.longs === String ? String(message.limitSharingSettingTimestamp) : message.limitSharingSettingTimestamp;
+                else
+                    object.limitSharingSettingTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.limitSharingSettingTimestamp) : options.longs === Number ? new $util.LongBits(message.limitSharingSettingTimestamp.low >>> 0, message.limitSharingSettingTimestamp.high >>> 0).toNumber() : message.limitSharingSettingTimestamp;
+                if (options.oneofs)
+                    object._limitSharingSettingTimestamp = "limitSharingSettingTimestamp";
+            }
+            if (message.initiatedByMe != null && message.hasOwnProperty("initiatedByMe")) {
+                object.initiatedByMe = message.initiatedByMe;
+                if (options.oneofs)
+                    object._initiatedByMe = "initiatedByMe";
+            }
+            return object;
+        };
+
+        /**
+         * Converts this LimitSharing to JSON.
+         * @function toJSON
+         * @memberof Protocol.LimitSharing
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        LimitSharing.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for LimitSharing
+         * @function getTypeUrl
+         * @memberof Protocol.LimitSharing
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        LimitSharing.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/Protocol.LimitSharing";
+        };
+
+        /**
+         * TriggerType enum.
+         * @name Protocol.LimitSharing.TriggerType
+         * @enum {number}
+         * @property {number} UNKNOWN=0 UNKNOWN value
+         * @property {number} CHAT_SETTING=1 CHAT_SETTING value
+         * @property {number} BIZ_SUPPORTS_FB_HOSTING=2 BIZ_SUPPORTS_FB_HOSTING value
+         * @property {number} UNKNOWN_GROUP=3 UNKNOWN_GROUP value
+         */
+        LimitSharing.TriggerType = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "UNKNOWN"] = 0;
+            values[valuesById[1] = "CHAT_SETTING"] = 1;
+            values[valuesById[2] = "BIZ_SUPPORTS_FB_HOSTING"] = 2;
+            values[valuesById[3] = "UNKNOWN_GROUP"] = 3;
+            return values;
+        })();
+
+        return LimitSharing;
+    })();
+
+    Protocol.MessageKey = (function() {
+
+        /**
+         * Properties of a MessageKey.
+         * @memberof Protocol
+         * @interface IMessageKey
+         * @property {string|null} [remoteJid] MessageKey remoteJid
+         * @property {boolean|null} [fromMe] MessageKey fromMe
+         * @property {string|null} [id] MessageKey id
+         * @property {string|null} [participant] MessageKey participant
+         */
+
+        /**
+         * Constructs a new MessageKey.
+         * @memberof Protocol
+         * @classdesc Represents a MessageKey.
+         * @implements IMessageKey
+         * @constructor
+         * @param {Protocol.IMessageKey=} [properties] Properties to set
+         */
+        function MessageKey(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * MessageKey remoteJid.
+         * @member {string|null|undefined} remoteJid
+         * @memberof Protocol.MessageKey
+         * @instance
+         */
+        MessageKey.prototype.remoteJid = null;
+
+        /**
+         * MessageKey fromMe.
+         * @member {boolean|null|undefined} fromMe
+         * @memberof Protocol.MessageKey
+         * @instance
+         */
+        MessageKey.prototype.fromMe = null;
+
+        /**
+         * MessageKey id.
+         * @member {string|null|undefined} id
+         * @memberof Protocol.MessageKey
+         * @instance
+         */
+        MessageKey.prototype.id = null;
+
+        /**
+         * MessageKey participant.
+         * @member {string|null|undefined} participant
+         * @memberof Protocol.MessageKey
+         * @instance
+         */
+        MessageKey.prototype.participant = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * MessageKey _remoteJid.
+         * @member {"remoteJid"|undefined} _remoteJid
+         * @memberof Protocol.MessageKey
+         * @instance
+         */
+        Object.defineProperty(MessageKey.prototype, "_remoteJid", {
+            get: $util.oneOfGetter($oneOfFields = ["remoteJid"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * MessageKey _fromMe.
+         * @member {"fromMe"|undefined} _fromMe
+         * @memberof Protocol.MessageKey
+         * @instance
+         */
+        Object.defineProperty(MessageKey.prototype, "_fromMe", {
+            get: $util.oneOfGetter($oneOfFields = ["fromMe"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * MessageKey _id.
+         * @member {"id"|undefined} _id
+         * @memberof Protocol.MessageKey
+         * @instance
+         */
+        Object.defineProperty(MessageKey.prototype, "_id", {
+            get: $util.oneOfGetter($oneOfFields = ["id"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * MessageKey _participant.
+         * @member {"participant"|undefined} _participant
+         * @memberof Protocol.MessageKey
+         * @instance
+         */
+        Object.defineProperty(MessageKey.prototype, "_participant", {
+            get: $util.oneOfGetter($oneOfFields = ["participant"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Creates a new MessageKey instance using the specified properties.
+         * @function create
+         * @memberof Protocol.MessageKey
+         * @static
+         * @param {Protocol.IMessageKey=} [properties] Properties to set
+         * @returns {Protocol.MessageKey} MessageKey instance
+         */
+        MessageKey.create = function create(properties) {
+            return new MessageKey(properties);
+        };
+
+        /**
+         * Encodes the specified MessageKey message. Does not implicitly {@link Protocol.MessageKey.verify|verify} messages.
+         * @function encode
+         * @memberof Protocol.MessageKey
+         * @static
+         * @param {Protocol.IMessageKey} message MessageKey message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        MessageKey.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.remoteJid != null && Object.hasOwnProperty.call(message, "remoteJid"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.remoteJid);
+            if (message.fromMe != null && Object.hasOwnProperty.call(message, "fromMe"))
+                writer.uint32(/* id 2, wireType 0 =*/16).bool(message.fromMe);
+            if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.id);
+            if (message.participant != null && Object.hasOwnProperty.call(message, "participant"))
+                writer.uint32(/* id 4, wireType 2 =*/34).string(message.participant);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified MessageKey message, length delimited. Does not implicitly {@link Protocol.MessageKey.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof Protocol.MessageKey
+         * @static
+         * @param {Protocol.IMessageKey} message MessageKey message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        MessageKey.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a MessageKey message from the specified reader or buffer.
+         * @function decode
+         * @memberof Protocol.MessageKey
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {Protocol.MessageKey} MessageKey
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        MessageKey.decode = function decode(reader, length, error) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Protocol.MessageKey();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                if (tag === error)
+                    break;
+                switch (tag >>> 3) {
+                case 1: {
+                        message.remoteJid = reader.string();
+                        break;
+                    }
+                case 2: {
+                        message.fromMe = reader.bool();
+                        break;
+                    }
+                case 3: {
+                        message.id = reader.string();
+                        break;
+                    }
+                case 4: {
+                        message.participant = reader.string();
+                        break;
+                    }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a MessageKey message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof Protocol.MessageKey
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {Protocol.MessageKey} MessageKey
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        MessageKey.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a MessageKey message.
+         * @function verify
+         * @memberof Protocol.MessageKey
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        MessageKey.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            var properties = {};
+            if (message.remoteJid != null && message.hasOwnProperty("remoteJid")) {
+                properties._remoteJid = 1;
+                if (!$util.isString(message.remoteJid))
+                    return "remoteJid: string expected";
+            }
+            if (message.fromMe != null && message.hasOwnProperty("fromMe")) {
+                properties._fromMe = 1;
+                if (typeof message.fromMe !== "boolean")
+                    return "fromMe: boolean expected";
+            }
+            if (message.id != null && message.hasOwnProperty("id")) {
+                properties._id = 1;
+                if (!$util.isString(message.id))
+                    return "id: string expected";
+            }
+            if (message.participant != null && message.hasOwnProperty("participant")) {
+                properties._participant = 1;
+                if (!$util.isString(message.participant))
+                    return "participant: string expected";
+            }
+            return null;
+        };
+
+        /**
+         * Creates a MessageKey message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof Protocol.MessageKey
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {Protocol.MessageKey} MessageKey
+         */
+        MessageKey.fromObject = function fromObject(object) {
+            if (object instanceof $root.Protocol.MessageKey)
+                return object;
+            var message = new $root.Protocol.MessageKey();
+            if (object.remoteJid != null)
+                message.remoteJid = String(object.remoteJid);
+            if (object.fromMe != null)
+                message.fromMe = Boolean(object.fromMe);
+            if (object.id != null)
+                message.id = String(object.id);
+            if (object.participant != null)
+                message.participant = String(object.participant);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a MessageKey message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof Protocol.MessageKey
+         * @static
+         * @param {Protocol.MessageKey} message MessageKey
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        MessageKey.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (message.remoteJid != null && message.hasOwnProperty("remoteJid")) {
+                object.remoteJid = message.remoteJid;
+                if (options.oneofs)
+                    object._remoteJid = "remoteJid";
+            }
+            if (message.fromMe != null && message.hasOwnProperty("fromMe")) {
+                object.fromMe = message.fromMe;
+                if (options.oneofs)
+                    object._fromMe = "fromMe";
+            }
+            if (message.id != null && message.hasOwnProperty("id")) {
+                object.id = message.id;
+                if (options.oneofs)
+                    object._id = "id";
+            }
+            if (message.participant != null && message.hasOwnProperty("participant")) {
+                object.participant = message.participant;
+                if (options.oneofs)
+                    object._participant = "participant";
+            }
+            return object;
+        };
+
+        /**
+         * Converts this MessageKey to JSON.
+         * @function toJSON
+         * @memberof Protocol.MessageKey
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        MessageKey.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for MessageKey
+         * @function getTypeUrl
+         * @memberof Protocol.MessageKey
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        MessageKey.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/Protocol.MessageKey";
+        };
+
+        return MessageKey;
+    })();
+
+    return Protocol;
 })();
 
 $root.StatusAttributions = (function() {
@@ -27771,6 +30106,7 @@ $root.StatusAttributions = (function() {
                     case 7:
                     case 8:
                     case 9:
+                    case 10:
                         break;
                     }
                 }
@@ -27847,6 +30183,10 @@ $root.StatusAttributions = (function() {
                 case "SHARECHAT":
                 case 9:
                     message.source = 9;
+                    break;
+                case "GOOGLE_PHOTOS":
+                case 10:
+                    message.source = 10;
                     break;
                 }
                 if (object.duration != null)
@@ -27932,6 +30272,7 @@ $root.StatusAttributions = (function() {
              * @property {number} THREADS=7 THREADS value
              * @property {number} APPLE_MUSIC=8 APPLE_MUSIC value
              * @property {number} SHARECHAT=9 SHARECHAT value
+             * @property {number} GOOGLE_PHOTOS=10 GOOGLE_PHOTOS value
              */
             ExternalShare.Source = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
@@ -27945,6 +30286,7 @@ $root.StatusAttributions = (function() {
                 values[valuesById[7] = "THREADS"] = 7;
                 values[valuesById[8] = "APPLE_MUSIC"] = 8;
                 values[valuesById[9] = "SHARECHAT"] = 9;
+                values[valuesById[10] = "GOOGLE_PHOTOS"] = 10;
                 return values;
             })();
 
@@ -29547,749 +31889,6 @@ $root.StatusAttributions = (function() {
     })();
 
     return StatusAttributions;
-})();
-
-$root.Protocol = (function() {
-
-    /**
-     * Namespace Protocol.
-     * @exports Protocol
-     * @namespace
-     */
-    var Protocol = {};
-
-    Protocol.LimitSharing = (function() {
-
-        /**
-         * Properties of a LimitSharing.
-         * @memberof Protocol
-         * @interface ILimitSharing
-         * @property {boolean|null} [sharingLimited] LimitSharing sharingLimited
-         * @property {Protocol.LimitSharing.TriggerType|null} [trigger] LimitSharing trigger
-         * @property {number|Long|null} [limitSharingSettingTimestamp] LimitSharing limitSharingSettingTimestamp
-         * @property {boolean|null} [initiatedByMe] LimitSharing initiatedByMe
-         */
-
-        /**
-         * Constructs a new LimitSharing.
-         * @memberof Protocol
-         * @classdesc Represents a LimitSharing.
-         * @implements ILimitSharing
-         * @constructor
-         * @param {Protocol.ILimitSharing=} [properties] Properties to set
-         */
-        function LimitSharing(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * LimitSharing sharingLimited.
-         * @member {boolean|null|undefined} sharingLimited
-         * @memberof Protocol.LimitSharing
-         * @instance
-         */
-        LimitSharing.prototype.sharingLimited = null;
-
-        /**
-         * LimitSharing trigger.
-         * @member {Protocol.LimitSharing.TriggerType|null|undefined} trigger
-         * @memberof Protocol.LimitSharing
-         * @instance
-         */
-        LimitSharing.prototype.trigger = null;
-
-        /**
-         * LimitSharing limitSharingSettingTimestamp.
-         * @member {number|Long|null|undefined} limitSharingSettingTimestamp
-         * @memberof Protocol.LimitSharing
-         * @instance
-         */
-        LimitSharing.prototype.limitSharingSettingTimestamp = null;
-
-        /**
-         * LimitSharing initiatedByMe.
-         * @member {boolean|null|undefined} initiatedByMe
-         * @memberof Protocol.LimitSharing
-         * @instance
-         */
-        LimitSharing.prototype.initiatedByMe = null;
-
-        // OneOf field names bound to virtual getters and setters
-        var $oneOfFields;
-
-        /**
-         * LimitSharing _sharingLimited.
-         * @member {"sharingLimited"|undefined} _sharingLimited
-         * @memberof Protocol.LimitSharing
-         * @instance
-         */
-        Object.defineProperty(LimitSharing.prototype, "_sharingLimited", {
-            get: $util.oneOfGetter($oneOfFields = ["sharingLimited"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * LimitSharing _trigger.
-         * @member {"trigger"|undefined} _trigger
-         * @memberof Protocol.LimitSharing
-         * @instance
-         */
-        Object.defineProperty(LimitSharing.prototype, "_trigger", {
-            get: $util.oneOfGetter($oneOfFields = ["trigger"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * LimitSharing _limitSharingSettingTimestamp.
-         * @member {"limitSharingSettingTimestamp"|undefined} _limitSharingSettingTimestamp
-         * @memberof Protocol.LimitSharing
-         * @instance
-         */
-        Object.defineProperty(LimitSharing.prototype, "_limitSharingSettingTimestamp", {
-            get: $util.oneOfGetter($oneOfFields = ["limitSharingSettingTimestamp"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * LimitSharing _initiatedByMe.
-         * @member {"initiatedByMe"|undefined} _initiatedByMe
-         * @memberof Protocol.LimitSharing
-         * @instance
-         */
-        Object.defineProperty(LimitSharing.prototype, "_initiatedByMe", {
-            get: $util.oneOfGetter($oneOfFields = ["initiatedByMe"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * Creates a new LimitSharing instance using the specified properties.
-         * @function create
-         * @memberof Protocol.LimitSharing
-         * @static
-         * @param {Protocol.ILimitSharing=} [properties] Properties to set
-         * @returns {Protocol.LimitSharing} LimitSharing instance
-         */
-        LimitSharing.create = function create(properties) {
-            return new LimitSharing(properties);
-        };
-
-        /**
-         * Encodes the specified LimitSharing message. Does not implicitly {@link Protocol.LimitSharing.verify|verify} messages.
-         * @function encode
-         * @memberof Protocol.LimitSharing
-         * @static
-         * @param {Protocol.ILimitSharing} message LimitSharing message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        LimitSharing.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.sharingLimited != null && Object.hasOwnProperty.call(message, "sharingLimited"))
-                writer.uint32(/* id 1, wireType 0 =*/8).bool(message.sharingLimited);
-            if (message.trigger != null && Object.hasOwnProperty.call(message, "trigger"))
-                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.trigger);
-            if (message.limitSharingSettingTimestamp != null && Object.hasOwnProperty.call(message, "limitSharingSettingTimestamp"))
-                writer.uint32(/* id 3, wireType 0 =*/24).int64(message.limitSharingSettingTimestamp);
-            if (message.initiatedByMe != null && Object.hasOwnProperty.call(message, "initiatedByMe"))
-                writer.uint32(/* id 4, wireType 0 =*/32).bool(message.initiatedByMe);
-            return writer;
-        };
-
-        /**
-         * Encodes the specified LimitSharing message, length delimited. Does not implicitly {@link Protocol.LimitSharing.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof Protocol.LimitSharing
-         * @static
-         * @param {Protocol.ILimitSharing} message LimitSharing message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        LimitSharing.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-
-        /**
-         * Decodes a LimitSharing message from the specified reader or buffer.
-         * @function decode
-         * @memberof Protocol.LimitSharing
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {Protocol.LimitSharing} LimitSharing
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        LimitSharing.decode = function decode(reader, length, error) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Protocol.LimitSharing();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.sharingLimited = reader.bool();
-                        break;
-                    }
-                case 2: {
-                        message.trigger = reader.int32();
-                        break;
-                    }
-                case 3: {
-                        message.limitSharingSettingTimestamp = reader.int64();
-                        break;
-                    }
-                case 4: {
-                        message.initiatedByMe = reader.bool();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Decodes a LimitSharing message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof Protocol.LimitSharing
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {Protocol.LimitSharing} LimitSharing
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        LimitSharing.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-
-        /**
-         * Verifies a LimitSharing message.
-         * @function verify
-         * @memberof Protocol.LimitSharing
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        LimitSharing.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            var properties = {};
-            if (message.sharingLimited != null && message.hasOwnProperty("sharingLimited")) {
-                properties._sharingLimited = 1;
-                if (typeof message.sharingLimited !== "boolean")
-                    return "sharingLimited: boolean expected";
-            }
-            if (message.trigger != null && message.hasOwnProperty("trigger")) {
-                properties._trigger = 1;
-                switch (message.trigger) {
-                default:
-                    return "trigger: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                    break;
-                }
-            }
-            if (message.limitSharingSettingTimestamp != null && message.hasOwnProperty("limitSharingSettingTimestamp")) {
-                properties._limitSharingSettingTimestamp = 1;
-                if (!$util.isInteger(message.limitSharingSettingTimestamp) && !(message.limitSharingSettingTimestamp && $util.isInteger(message.limitSharingSettingTimestamp.low) && $util.isInteger(message.limitSharingSettingTimestamp.high)))
-                    return "limitSharingSettingTimestamp: integer|Long expected";
-            }
-            if (message.initiatedByMe != null && message.hasOwnProperty("initiatedByMe")) {
-                properties._initiatedByMe = 1;
-                if (typeof message.initiatedByMe !== "boolean")
-                    return "initiatedByMe: boolean expected";
-            }
-            return null;
-        };
-
-        /**
-         * Creates a LimitSharing message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof Protocol.LimitSharing
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {Protocol.LimitSharing} LimitSharing
-         */
-        LimitSharing.fromObject = function fromObject(object) {
-            if (object instanceof $root.Protocol.LimitSharing)
-                return object;
-            var message = new $root.Protocol.LimitSharing();
-            if (object.sharingLimited != null)
-                message.sharingLimited = Boolean(object.sharingLimited);
-            switch (object.trigger) {
-            default:
-                if (typeof object.trigger === "number") {
-                    message.trigger = object.trigger;
-                    break;
-                }
-                break;
-            case "UNKNOWN":
-            case 0:
-                message.trigger = 0;
-                break;
-            case "CHAT_SETTING":
-            case 1:
-                message.trigger = 1;
-                break;
-            case "BIZ_SUPPORTS_FB_HOSTING":
-            case 2:
-                message.trigger = 2;
-                break;
-            case "UNKNOWN_GROUP":
-            case 3:
-                message.trigger = 3;
-                break;
-            }
-            if (object.limitSharingSettingTimestamp != null)
-                if ($util.Long)
-                    (message.limitSharingSettingTimestamp = $util.Long.fromValue(object.limitSharingSettingTimestamp)).unsigned = false;
-                else if (typeof object.limitSharingSettingTimestamp === "string")
-                    message.limitSharingSettingTimestamp = parseInt(object.limitSharingSettingTimestamp, 10);
-                else if (typeof object.limitSharingSettingTimestamp === "number")
-                    message.limitSharingSettingTimestamp = object.limitSharingSettingTimestamp;
-                else if (typeof object.limitSharingSettingTimestamp === "object")
-                    message.limitSharingSettingTimestamp = new $util.LongBits(object.limitSharingSettingTimestamp.low >>> 0, object.limitSharingSettingTimestamp.high >>> 0).toNumber();
-            if (object.initiatedByMe != null)
-                message.initiatedByMe = Boolean(object.initiatedByMe);
-            return message;
-        };
-
-        /**
-         * Creates a plain object from a LimitSharing message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof Protocol.LimitSharing
-         * @static
-         * @param {Protocol.LimitSharing} message LimitSharing
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        LimitSharing.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (message.sharingLimited != null && message.hasOwnProperty("sharingLimited")) {
-                object.sharingLimited = message.sharingLimited;
-                if (options.oneofs)
-                    object._sharingLimited = "sharingLimited";
-            }
-            if (message.trigger != null && message.hasOwnProperty("trigger")) {
-                object.trigger = options.enums === String ? $root.Protocol.LimitSharing.TriggerType[message.trigger] === undefined ? message.trigger : $root.Protocol.LimitSharing.TriggerType[message.trigger] : message.trigger;
-                if (options.oneofs)
-                    object._trigger = "trigger";
-            }
-            if (message.limitSharingSettingTimestamp != null && message.hasOwnProperty("limitSharingSettingTimestamp")) {
-                if (typeof message.limitSharingSettingTimestamp === "number")
-                    object.limitSharingSettingTimestamp = options.longs === String ? String(message.limitSharingSettingTimestamp) : message.limitSharingSettingTimestamp;
-                else
-                    object.limitSharingSettingTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.limitSharingSettingTimestamp) : options.longs === Number ? new $util.LongBits(message.limitSharingSettingTimestamp.low >>> 0, message.limitSharingSettingTimestamp.high >>> 0).toNumber() : message.limitSharingSettingTimestamp;
-                if (options.oneofs)
-                    object._limitSharingSettingTimestamp = "limitSharingSettingTimestamp";
-            }
-            if (message.initiatedByMe != null && message.hasOwnProperty("initiatedByMe")) {
-                object.initiatedByMe = message.initiatedByMe;
-                if (options.oneofs)
-                    object._initiatedByMe = "initiatedByMe";
-            }
-            return object;
-        };
-
-        /**
-         * Converts this LimitSharing to JSON.
-         * @function toJSON
-         * @memberof Protocol.LimitSharing
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        LimitSharing.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        /**
-         * Gets the default type url for LimitSharing
-         * @function getTypeUrl
-         * @memberof Protocol.LimitSharing
-         * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
-         */
-        LimitSharing.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/Protocol.LimitSharing";
-        };
-
-        /**
-         * TriggerType enum.
-         * @name Protocol.LimitSharing.TriggerType
-         * @enum {number}
-         * @property {number} UNKNOWN=0 UNKNOWN value
-         * @property {number} CHAT_SETTING=1 CHAT_SETTING value
-         * @property {number} BIZ_SUPPORTS_FB_HOSTING=2 BIZ_SUPPORTS_FB_HOSTING value
-         * @property {number} UNKNOWN_GROUP=3 UNKNOWN_GROUP value
-         */
-        LimitSharing.TriggerType = (function() {
-            var valuesById = {}, values = Object.create(valuesById);
-            values[valuesById[0] = "UNKNOWN"] = 0;
-            values[valuesById[1] = "CHAT_SETTING"] = 1;
-            values[valuesById[2] = "BIZ_SUPPORTS_FB_HOSTING"] = 2;
-            values[valuesById[3] = "UNKNOWN_GROUP"] = 3;
-            return values;
-        })();
-
-        return LimitSharing;
-    })();
-
-    Protocol.MessageKey = (function() {
-
-        /**
-         * Properties of a MessageKey.
-         * @memberof Protocol
-         * @interface IMessageKey
-         * @property {string|null} [remoteJid] MessageKey remoteJid
-         * @property {boolean|null} [fromMe] MessageKey fromMe
-         * @property {string|null} [id] MessageKey id
-         * @property {string|null} [participant] MessageKey participant
-         */
-
-        /**
-         * Constructs a new MessageKey.
-         * @memberof Protocol
-         * @classdesc Represents a MessageKey.
-         * @implements IMessageKey
-         * @constructor
-         * @param {Protocol.IMessageKey=} [properties] Properties to set
-         */
-        function MessageKey(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * MessageKey remoteJid.
-         * @member {string|null|undefined} remoteJid
-         * @memberof Protocol.MessageKey
-         * @instance
-         */
-        MessageKey.prototype.remoteJid = null;
-
-        /**
-         * MessageKey fromMe.
-         * @member {boolean|null|undefined} fromMe
-         * @memberof Protocol.MessageKey
-         * @instance
-         */
-        MessageKey.prototype.fromMe = null;
-
-        /**
-         * MessageKey id.
-         * @member {string|null|undefined} id
-         * @memberof Protocol.MessageKey
-         * @instance
-         */
-        MessageKey.prototype.id = null;
-
-        /**
-         * MessageKey participant.
-         * @member {string|null|undefined} participant
-         * @memberof Protocol.MessageKey
-         * @instance
-         */
-        MessageKey.prototype.participant = null;
-
-        // OneOf field names bound to virtual getters and setters
-        var $oneOfFields;
-
-        /**
-         * MessageKey _remoteJid.
-         * @member {"remoteJid"|undefined} _remoteJid
-         * @memberof Protocol.MessageKey
-         * @instance
-         */
-        Object.defineProperty(MessageKey.prototype, "_remoteJid", {
-            get: $util.oneOfGetter($oneOfFields = ["remoteJid"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * MessageKey _fromMe.
-         * @member {"fromMe"|undefined} _fromMe
-         * @memberof Protocol.MessageKey
-         * @instance
-         */
-        Object.defineProperty(MessageKey.prototype, "_fromMe", {
-            get: $util.oneOfGetter($oneOfFields = ["fromMe"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * MessageKey _id.
-         * @member {"id"|undefined} _id
-         * @memberof Protocol.MessageKey
-         * @instance
-         */
-        Object.defineProperty(MessageKey.prototype, "_id", {
-            get: $util.oneOfGetter($oneOfFields = ["id"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * MessageKey _participant.
-         * @member {"participant"|undefined} _participant
-         * @memberof Protocol.MessageKey
-         * @instance
-         */
-        Object.defineProperty(MessageKey.prototype, "_participant", {
-            get: $util.oneOfGetter($oneOfFields = ["participant"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * Creates a new MessageKey instance using the specified properties.
-         * @function create
-         * @memberof Protocol.MessageKey
-         * @static
-         * @param {Protocol.IMessageKey=} [properties] Properties to set
-         * @returns {Protocol.MessageKey} MessageKey instance
-         */
-        MessageKey.create = function create(properties) {
-            return new MessageKey(properties);
-        };
-
-        /**
-         * Encodes the specified MessageKey message. Does not implicitly {@link Protocol.MessageKey.verify|verify} messages.
-         * @function encode
-         * @memberof Protocol.MessageKey
-         * @static
-         * @param {Protocol.IMessageKey} message MessageKey message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        MessageKey.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.remoteJid != null && Object.hasOwnProperty.call(message, "remoteJid"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.remoteJid);
-            if (message.fromMe != null && Object.hasOwnProperty.call(message, "fromMe"))
-                writer.uint32(/* id 2, wireType 0 =*/16).bool(message.fromMe);
-            if (message.id != null && Object.hasOwnProperty.call(message, "id"))
-                writer.uint32(/* id 3, wireType 2 =*/26).string(message.id);
-            if (message.participant != null && Object.hasOwnProperty.call(message, "participant"))
-                writer.uint32(/* id 4, wireType 2 =*/34).string(message.participant);
-            return writer;
-        };
-
-        /**
-         * Encodes the specified MessageKey message, length delimited. Does not implicitly {@link Protocol.MessageKey.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof Protocol.MessageKey
-         * @static
-         * @param {Protocol.IMessageKey} message MessageKey message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        MessageKey.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-
-        /**
-         * Decodes a MessageKey message from the specified reader or buffer.
-         * @function decode
-         * @memberof Protocol.MessageKey
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {Protocol.MessageKey} MessageKey
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        MessageKey.decode = function decode(reader, length, error) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Protocol.MessageKey();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.remoteJid = reader.string();
-                        break;
-                    }
-                case 2: {
-                        message.fromMe = reader.bool();
-                        break;
-                    }
-                case 3: {
-                        message.id = reader.string();
-                        break;
-                    }
-                case 4: {
-                        message.participant = reader.string();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Decodes a MessageKey message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof Protocol.MessageKey
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {Protocol.MessageKey} MessageKey
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        MessageKey.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-
-        /**
-         * Verifies a MessageKey message.
-         * @function verify
-         * @memberof Protocol.MessageKey
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        MessageKey.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            var properties = {};
-            if (message.remoteJid != null && message.hasOwnProperty("remoteJid")) {
-                properties._remoteJid = 1;
-                if (!$util.isString(message.remoteJid))
-                    return "remoteJid: string expected";
-            }
-            if (message.fromMe != null && message.hasOwnProperty("fromMe")) {
-                properties._fromMe = 1;
-                if (typeof message.fromMe !== "boolean")
-                    return "fromMe: boolean expected";
-            }
-            if (message.id != null && message.hasOwnProperty("id")) {
-                properties._id = 1;
-                if (!$util.isString(message.id))
-                    return "id: string expected";
-            }
-            if (message.participant != null && message.hasOwnProperty("participant")) {
-                properties._participant = 1;
-                if (!$util.isString(message.participant))
-                    return "participant: string expected";
-            }
-            return null;
-        };
-
-        /**
-         * Creates a MessageKey message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof Protocol.MessageKey
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {Protocol.MessageKey} MessageKey
-         */
-        MessageKey.fromObject = function fromObject(object) {
-            if (object instanceof $root.Protocol.MessageKey)
-                return object;
-            var message = new $root.Protocol.MessageKey();
-            if (object.remoteJid != null)
-                message.remoteJid = String(object.remoteJid);
-            if (object.fromMe != null)
-                message.fromMe = Boolean(object.fromMe);
-            if (object.id != null)
-                message.id = String(object.id);
-            if (object.participant != null)
-                message.participant = String(object.participant);
-            return message;
-        };
-
-        /**
-         * Creates a plain object from a MessageKey message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof Protocol.MessageKey
-         * @static
-         * @param {Protocol.MessageKey} message MessageKey
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        MessageKey.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (message.remoteJid != null && message.hasOwnProperty("remoteJid")) {
-                object.remoteJid = message.remoteJid;
-                if (options.oneofs)
-                    object._remoteJid = "remoteJid";
-            }
-            if (message.fromMe != null && message.hasOwnProperty("fromMe")) {
-                object.fromMe = message.fromMe;
-                if (options.oneofs)
-                    object._fromMe = "fromMe";
-            }
-            if (message.id != null && message.hasOwnProperty("id")) {
-                object.id = message.id;
-                if (options.oneofs)
-                    object._id = "id";
-            }
-            if (message.participant != null && message.hasOwnProperty("participant")) {
-                object.participant = message.participant;
-                if (options.oneofs)
-                    object._participant = "participant";
-            }
-            return object;
-        };
-
-        /**
-         * Converts this MessageKey to JSON.
-         * @function toJSON
-         * @memberof Protocol.MessageKey
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        MessageKey.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        /**
-         * Gets the default type url for MessageKey
-         * @function getTypeUrl
-         * @memberof Protocol.MessageKey
-         * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
-         */
-        MessageKey.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/Protocol.MessageKey";
-        };
-
-        return MessageKey;
-    })();
-
-    return Protocol;
 })();
 
 module.exports = $root;
