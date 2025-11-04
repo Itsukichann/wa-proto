@@ -1280,7 +1280,8 @@ export namespace Wa6 {
                 IPAD = 33,
                 TEST = 34,
                 SMART_GLASSES = 35,
-                BLUE_VR = 36
+                BLUE_VR = 36,
+                AR_WRIST = 37
             }
 
             /** ReleaseChannel enum. */
