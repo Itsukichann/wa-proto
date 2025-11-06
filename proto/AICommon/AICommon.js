@@ -847,7 +847,6 @@ $root.AICommon = (function() {
          * @interface ISessionTransparencyMetadata
          * @property {string|null} [disclaimerText] SessionTransparencyMetadata disclaimerText
          * @property {string|null} [hcaId] SessionTransparencyMetadata hcaId
-         * @property {AICommon.SessionTransparencyType|null} [sessionTransparencyType] SessionTransparencyMetadata sessionTransparencyType
          */
 
         /**
@@ -881,14 +880,6 @@ $root.AICommon = (function() {
          */
         SessionTransparencyMetadata.prototype.hcaId = null;
 
-        /**
-         * SessionTransparencyMetadata sessionTransparencyType.
-         * @member {AICommon.SessionTransparencyType|null|undefined} sessionTransparencyType
-         * @memberof AICommon.SessionTransparencyMetadata
-         * @instance
-         */
-        SessionTransparencyMetadata.prototype.sessionTransparencyType = null;
-
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -911,17 +902,6 @@ $root.AICommon = (function() {
          */
         Object.defineProperty(SessionTransparencyMetadata.prototype, "_hcaId", {
             get: $util.oneOfGetter($oneOfFields = ["hcaId"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * SessionTransparencyMetadata _sessionTransparencyType.
-         * @member {"sessionTransparencyType"|undefined} _sessionTransparencyType
-         * @memberof AICommon.SessionTransparencyMetadata
-         * @instance
-         */
-        Object.defineProperty(SessionTransparencyMetadata.prototype, "_sessionTransparencyType", {
-            get: $util.oneOfGetter($oneOfFields = ["sessionTransparencyType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
@@ -953,8 +933,6 @@ $root.AICommon = (function() {
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.disclaimerText);
             if (message.hcaId != null && Object.hasOwnProperty.call(message, "hcaId"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.hcaId);
-            if (message.sessionTransparencyType != null && Object.hasOwnProperty.call(message, "sessionTransparencyType"))
-                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.sessionTransparencyType);
             return writer;
         };
 
@@ -997,10 +975,6 @@ $root.AICommon = (function() {
                     }
                 case 2: {
                         message.hcaId = reader.string();
-                        break;
-                    }
-                case 3: {
-                        message.sessionTransparencyType = reader.int32();
                         break;
                     }
                 default:
@@ -1049,16 +1023,6 @@ $root.AICommon = (function() {
                 if (!$util.isString(message.hcaId))
                     return "hcaId: string expected";
             }
-            if (message.sessionTransparencyType != null && message.hasOwnProperty("sessionTransparencyType")) {
-                properties._sessionTransparencyType = 1;
-                switch (message.sessionTransparencyType) {
-                default:
-                    return "sessionTransparencyType: enum value expected";
-                case 0:
-                case 1:
-                    break;
-                }
-            }
             return null;
         };
 
@@ -1078,22 +1042,6 @@ $root.AICommon = (function() {
                 message.disclaimerText = String(object.disclaimerText);
             if (object.hcaId != null)
                 message.hcaId = String(object.hcaId);
-            switch (object.sessionTransparencyType) {
-            default:
-                if (typeof object.sessionTransparencyType === "number") {
-                    message.sessionTransparencyType = object.sessionTransparencyType;
-                    break;
-                }
-                break;
-            case "UNKNOWN_TYPE":
-            case 0:
-                message.sessionTransparencyType = 0;
-                break;
-            case "NY_AI_SAFETY_DISCLAIMER":
-            case 1:
-                message.sessionTransparencyType = 1;
-                break;
-            }
             return message;
         };
 
@@ -1119,11 +1067,6 @@ $root.AICommon = (function() {
                 object.hcaId = message.hcaId;
                 if (options.oneofs)
                     object._hcaId = "hcaId";
-            }
-            if (message.sessionTransparencyType != null && message.hasOwnProperty("sessionTransparencyType")) {
-                object.sessionTransparencyType = options.enums === String ? $root.AICommon.SessionTransparencyType[message.sessionTransparencyType] === undefined ? message.sessionTransparencyType : $root.AICommon.SessionTransparencyType[message.sessionTransparencyType] : message.sessionTransparencyType;
-                if (options.oneofs)
-                    object._sessionTransparencyType = "sessionTransparencyType";
             }
             return object;
         };
@@ -28204,20 +28147,6 @@ $root.AICommon = (function() {
         };
 
         return BotAvatarMetadata;
-    })();
-
-    /**
-     * SessionTransparencyType enum.
-     * @name AICommon.SessionTransparencyType
-     * @enum {number}
-     * @property {number} UNKNOWN_TYPE=0 UNKNOWN_TYPE value
-     * @property {number} NY_AI_SAFETY_DISCLAIMER=1 NY_AI_SAFETY_DISCLAIMER value
-     */
-    AICommon.SessionTransparencyType = (function() {
-        var valuesById = {}, values = Object.create(valuesById);
-        values[valuesById[0] = "UNKNOWN_TYPE"] = 0;
-        values[valuesById[1] = "NY_AI_SAFETY_DISCLAIMER"] = 1;
-        return values;
     })();
 
     /**
