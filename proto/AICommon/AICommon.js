@@ -14979,6 +14979,7 @@ $root.AICommon = (function() {
          * @property {string|null} [privacyStatementFull] InThreadSurveyMetadata privacyStatementFull
          * @property {Array.<AICommon.InThreadSurveyMetadata.IInThreadSurveyPrivacyStatementPart>|null} [privacyStatementParts] InThreadSurveyMetadata privacyStatementParts
          * @property {string|null} [feedbackToastText] InThreadSurveyMetadata feedbackToastText
+         * @property {number|null} [startQuestionIndex] InThreadSurveyMetadata startQuestionIndex
          */
 
         /**
@@ -15133,6 +15134,14 @@ $root.AICommon = (function() {
          * @instance
          */
         InThreadSurveyMetadata.prototype.feedbackToastText = null;
+
+        /**
+         * InThreadSurveyMetadata startQuestionIndex.
+         * @member {number|null|undefined} startQuestionIndex
+         * @memberof AICommon.InThreadSurveyMetadata
+         * @instance
+         */
+        InThreadSurveyMetadata.prototype.startQuestionIndex = null;
 
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
@@ -15303,6 +15312,17 @@ $root.AICommon = (function() {
         });
 
         /**
+         * InThreadSurveyMetadata _startQuestionIndex.
+         * @member {"startQuestionIndex"|undefined} _startQuestionIndex
+         * @memberof AICommon.InThreadSurveyMetadata
+         * @instance
+         */
+        Object.defineProperty(InThreadSurveyMetadata.prototype, "_startQuestionIndex", {
+            get: $util.oneOfGetter($oneOfFields = ["startQuestionIndex"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
          * Creates a new InThreadSurveyMetadata instance using the specified properties.
          * @function create
          * @memberof AICommon.InThreadSurveyMetadata
@@ -15362,6 +15382,8 @@ $root.AICommon = (function() {
                     $root.AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.encode(message.privacyStatementParts[i], writer.uint32(/* id 16, wireType 2 =*/130).fork()).ldelim();
             if (message.feedbackToastText != null && Object.hasOwnProperty.call(message, "feedbackToastText"))
                 writer.uint32(/* id 17, wireType 2 =*/138).string(message.feedbackToastText);
+            if (message.startQuestionIndex != null && Object.hasOwnProperty.call(message, "startQuestionIndex"))
+                writer.uint32(/* id 18, wireType 0 =*/144).int32(message.startQuestionIndex);
             return writer;
         };
 
@@ -15468,6 +15490,10 @@ $root.AICommon = (function() {
                     }
                 case 17: {
                         message.feedbackToastText = reader.string();
+                        break;
+                    }
+                case 18: {
+                        message.startQuestionIndex = reader.int32();
                         break;
                     }
                 default:
@@ -15599,6 +15625,11 @@ $root.AICommon = (function() {
                 if (!$util.isString(message.feedbackToastText))
                     return "feedbackToastText: string expected";
             }
+            if (message.startQuestionIndex != null && message.hasOwnProperty("startQuestionIndex")) {
+                properties._startQuestionIndex = 1;
+                if (!$util.isInteger(message.startQuestionIndex))
+                    return "startQuestionIndex: integer expected";
+            }
             return null;
         };
 
@@ -15664,6 +15695,8 @@ $root.AICommon = (function() {
             }
             if (object.feedbackToastText != null)
                 message.feedbackToastText = String(object.feedbackToastText);
+            if (object.startQuestionIndex != null)
+                message.startQuestionIndex = object.startQuestionIndex | 0;
             return message;
         };
 
@@ -15768,6 +15801,11 @@ $root.AICommon = (function() {
                 object.feedbackToastText = message.feedbackToastText;
                 if (options.oneofs)
                     object._feedbackToastText = "feedbackToastText";
+            }
+            if (message.startQuestionIndex != null && message.hasOwnProperty("startQuestionIndex")) {
+                object.startQuestionIndex = message.startQuestionIndex;
+                if (options.oneofs)
+                    object._startQuestionIndex = "startQuestionIndex";
             }
             return object;
         };

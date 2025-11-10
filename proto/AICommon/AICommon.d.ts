@@ -5353,6 +5353,9 @@ export namespace AICommon {
 
         /** InThreadSurveyMetadata feedbackToastText */
         feedbackToastText?: (string|null);
+
+        /** InThreadSurveyMetadata startQuestionIndex */
+        startQuestionIndex?: (number|null);
     }
 
     /** Represents an InThreadSurveyMetadata. */
@@ -5415,6 +5418,9 @@ export namespace AICommon {
         /** InThreadSurveyMetadata feedbackToastText. */
         public feedbackToastText?: (string|null);
 
+        /** InThreadSurveyMetadata startQuestionIndex. */
+        public startQuestionIndex?: (number|null);
+
         /** InThreadSurveyMetadata _tessaSessionId. */
         public _tessaSessionId?: "tessaSessionId";
 
@@ -5459,6 +5465,9 @@ export namespace AICommon {
 
         /** InThreadSurveyMetadata _feedbackToastText. */
         public _feedbackToastText?: "feedbackToastText";
+
+        /** InThreadSurveyMetadata _startQuestionIndex. */
+        public _startQuestionIndex?: "startQuestionIndex";
 
         /**
          * Creates a new InThreadSurveyMetadata instance using the specified properties.
