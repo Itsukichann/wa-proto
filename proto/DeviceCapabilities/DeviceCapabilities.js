@@ -29,6 +29,7 @@ $root.DeviceCapabilities = (function() {
          * @property {DeviceCapabilities.DeviceCapabilities.IBusinessBroadcast|null} [businessBroadcast] DeviceCapabilities businessBroadcast
          * @property {DeviceCapabilities.DeviceCapabilities.IUserHasAvatar|null} [userHasAvatar] DeviceCapabilities userHasAvatar
          * @property {DeviceCapabilities.DeviceCapabilities.MemberNameTagPrimarySupport|null} [memberNameTagPrimarySupport] DeviceCapabilities memberNameTagPrimarySupport
+         * @property {DeviceCapabilities.DeviceCapabilities.IAiThread|null} [aiThread] DeviceCapabilities aiThread
          */
 
         /**
@@ -85,6 +86,14 @@ $root.DeviceCapabilities = (function() {
          * @instance
          */
         DeviceCapabilities.prototype.memberNameTagPrimarySupport = null;
+
+        /**
+         * DeviceCapabilities aiThread.
+         * @member {DeviceCapabilities.DeviceCapabilities.IAiThread|null|undefined} aiThread
+         * @memberof DeviceCapabilities.DeviceCapabilities
+         * @instance
+         */
+        DeviceCapabilities.prototype.aiThread = null;
 
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
@@ -145,6 +154,17 @@ $root.DeviceCapabilities = (function() {
         });
 
         /**
+         * DeviceCapabilities _aiThread.
+         * @member {"aiThread"|undefined} _aiThread
+         * @memberof DeviceCapabilities.DeviceCapabilities
+         * @instance
+         */
+        Object.defineProperty(DeviceCapabilities.prototype, "_aiThread", {
+            get: $util.oneOfGetter($oneOfFields = ["aiThread"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
          * Creates a new DeviceCapabilities instance using the specified properties.
          * @function create
          * @memberof DeviceCapabilities.DeviceCapabilities
@@ -178,6 +198,8 @@ $root.DeviceCapabilities = (function() {
                 $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.encode(message.userHasAvatar, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
             if (message.memberNameTagPrimarySupport != null && Object.hasOwnProperty.call(message, "memberNameTagPrimarySupport"))
                 writer.uint32(/* id 5, wireType 0 =*/40).int32(message.memberNameTagPrimarySupport);
+            if (message.aiThread != null && Object.hasOwnProperty.call(message, "aiThread"))
+                $root.DeviceCapabilities.DeviceCapabilities.AiThread.encode(message.aiThread, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
             return writer;
         };
 
@@ -232,6 +254,10 @@ $root.DeviceCapabilities = (function() {
                     }
                 case 5: {
                         message.memberNameTagPrimarySupport = reader.int32();
+                        break;
+                    }
+                case 6: {
+                        message.aiThread = $root.DeviceCapabilities.DeviceCapabilities.AiThread.decode(reader, reader.uint32());
                         break;
                     }
                 default:
@@ -316,6 +342,14 @@ $root.DeviceCapabilities = (function() {
                     break;
                 }
             }
+            if (message.aiThread != null && message.hasOwnProperty("aiThread")) {
+                properties._aiThread = 1;
+                {
+                    var error = $root.DeviceCapabilities.DeviceCapabilities.AiThread.verify(message.aiThread);
+                    if (error)
+                        return "aiThread." + error;
+                }
+            }
             return null;
         };
 
@@ -386,6 +420,11 @@ $root.DeviceCapabilities = (function() {
                 message.memberNameTagPrimarySupport = 2;
                 break;
             }
+            if (object.aiThread != null) {
+                if (typeof object.aiThread !== "object")
+                    throw TypeError(".DeviceCapabilities.DeviceCapabilities.aiThread: object expected");
+                message.aiThread = $root.DeviceCapabilities.DeviceCapabilities.AiThread.fromObject(object.aiThread);
+            }
             return message;
         };
 
@@ -427,6 +466,11 @@ $root.DeviceCapabilities = (function() {
                 if (options.oneofs)
                     object._memberNameTagPrimarySupport = "memberNameTagPrimarySupport";
             }
+            if (message.aiThread != null && message.hasOwnProperty("aiThread")) {
+                object.aiThread = $root.DeviceCapabilities.DeviceCapabilities.AiThread.toObject(message.aiThread, options);
+                if (options.oneofs)
+                    object._aiThread = "aiThread";
+            }
             return object;
         };
 
@@ -455,6 +499,269 @@ $root.DeviceCapabilities = (function() {
             }
             return typeUrlPrefix + "/DeviceCapabilities.DeviceCapabilities";
         };
+
+        DeviceCapabilities.AiThread = (function() {
+
+            /**
+             * Properties of an AiThread.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @interface IAiThread
+             * @property {DeviceCapabilities.DeviceCapabilities.AiThread.SupportLevel|null} [supportLevel] AiThread supportLevel
+             */
+
+            /**
+             * Constructs a new AiThread.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @classdesc Represents an AiThread.
+             * @implements IAiThread
+             * @constructor
+             * @param {DeviceCapabilities.DeviceCapabilities.IAiThread=} [properties] Properties to set
+             */
+            function AiThread(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * AiThread supportLevel.
+             * @member {DeviceCapabilities.DeviceCapabilities.AiThread.SupportLevel|null|undefined} supportLevel
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiThread
+             * @instance
+             */
+            AiThread.prototype.supportLevel = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            /**
+             * AiThread _supportLevel.
+             * @member {"supportLevel"|undefined} _supportLevel
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiThread
+             * @instance
+             */
+            Object.defineProperty(AiThread.prototype, "_supportLevel", {
+                get: $util.oneOfGetter($oneOfFields = ["supportLevel"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new AiThread instance using the specified properties.
+             * @function create
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiThread
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.IAiThread=} [properties] Properties to set
+             * @returns {DeviceCapabilities.DeviceCapabilities.AiThread} AiThread instance
+             */
+            AiThread.create = function create(properties) {
+                return new AiThread(properties);
+            };
+
+            /**
+             * Encodes the specified AiThread message. Does not implicitly {@link DeviceCapabilities.DeviceCapabilities.AiThread.verify|verify} messages.
+             * @function encode
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiThread
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.IAiThread} message AiThread message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AiThread.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.supportLevel != null && Object.hasOwnProperty.call(message, "supportLevel"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.supportLevel);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified AiThread message, length delimited. Does not implicitly {@link DeviceCapabilities.DeviceCapabilities.AiThread.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiThread
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.IAiThread} message AiThread message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AiThread.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes an AiThread message from the specified reader or buffer.
+             * @function decode
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiThread
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {DeviceCapabilities.DeviceCapabilities.AiThread} AiThread
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AiThread.decode = function decode(reader, length, error) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.DeviceCapabilities.DeviceCapabilities.AiThread();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    if (tag === error)
+                        break;
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.supportLevel = reader.int32();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes an AiThread message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiThread
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {DeviceCapabilities.DeviceCapabilities.AiThread} AiThread
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AiThread.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an AiThread message.
+             * @function verify
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiThread
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            AiThread.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                var properties = {};
+                if (message.supportLevel != null && message.hasOwnProperty("supportLevel")) {
+                    properties._supportLevel = 1;
+                    switch (message.supportLevel) {
+                    default:
+                        return "supportLevel: enum value expected";
+                    case 0:
+                    case 1:
+                    case 2:
+                        break;
+                    }
+                }
+                return null;
+            };
+
+            /**
+             * Creates an AiThread message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiThread
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {DeviceCapabilities.DeviceCapabilities.AiThread} AiThread
+             */
+            AiThread.fromObject = function fromObject(object) {
+                if (object instanceof $root.DeviceCapabilities.DeviceCapabilities.AiThread)
+                    return object;
+                var message = new $root.DeviceCapabilities.DeviceCapabilities.AiThread();
+                switch (object.supportLevel) {
+                default:
+                    if (typeof object.supportLevel === "number") {
+                        message.supportLevel = object.supportLevel;
+                        break;
+                    }
+                    break;
+                case "NONE":
+                case 0:
+                    message.supportLevel = 0;
+                    break;
+                case "INFRA":
+                case 1:
+                    message.supportLevel = 1;
+                    break;
+                case "FULL":
+                case 2:
+                    message.supportLevel = 2;
+                    break;
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an AiThread message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiThread
+             * @static
+             * @param {DeviceCapabilities.DeviceCapabilities.AiThread} message AiThread
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            AiThread.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (message.supportLevel != null && message.hasOwnProperty("supportLevel")) {
+                    object.supportLevel = options.enums === String ? $root.DeviceCapabilities.DeviceCapabilities.AiThread.SupportLevel[message.supportLevel] === undefined ? message.supportLevel : $root.DeviceCapabilities.DeviceCapabilities.AiThread.SupportLevel[message.supportLevel] : message.supportLevel;
+                    if (options.oneofs)
+                        object._supportLevel = "supportLevel";
+                }
+                return object;
+            };
+
+            /**
+             * Converts this AiThread to JSON.
+             * @function toJSON
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiThread
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            AiThread.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for AiThread
+             * @function getTypeUrl
+             * @memberof DeviceCapabilities.DeviceCapabilities.AiThread
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            AiThread.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/DeviceCapabilities.DeviceCapabilities.AiThread";
+            };
+
+            /**
+             * SupportLevel enum.
+             * @name DeviceCapabilities.DeviceCapabilities.AiThread.SupportLevel
+             * @enum {number}
+             * @property {number} NONE=0 NONE value
+             * @property {number} INFRA=1 INFRA value
+             * @property {number} FULL=2 FULL value
+             */
+            AiThread.SupportLevel = (function() {
+                var valuesById = {}, values = Object.create(valuesById);
+                values[valuesById[0] = "NONE"] = 0;
+                values[valuesById[1] = "INFRA"] = 1;
+                values[valuesById[2] = "FULL"] = 2;
+                return values;
+            })();
+
+            return AiThread;
+        })();
 
         DeviceCapabilities.BusinessBroadcast = (function() {
 
