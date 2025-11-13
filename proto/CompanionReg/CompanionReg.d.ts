@@ -14,6 +14,9 @@ export namespace CompanionReg {
 
         /** ClientPairingProps isSyncdSnapshotRecoveryEnabled */
         isSyncdSnapshotRecoveryEnabled?: (boolean|null);
+
+        /** ClientPairingProps isHsThumbnailSyncEnabled */
+        isHsThumbnailSyncEnabled?: (boolean|null);
     }
 
     /** Represents a ClientPairingProps. */
@@ -34,6 +37,9 @@ export namespace CompanionReg {
         /** ClientPairingProps isSyncdSnapshotRecoveryEnabled. */
         public isSyncdSnapshotRecoveryEnabled?: (boolean|null);
 
+        /** ClientPairingProps isHsThumbnailSyncEnabled. */
+        public isHsThumbnailSyncEnabled?: (boolean|null);
+
         /** ClientPairingProps _isChatDbLidMigrated. */
         public _isChatDbLidMigrated?: "isChatDbLidMigrated";
 
@@ -42,6 +48,9 @@ export namespace CompanionReg {
 
         /** ClientPairingProps _isSyncdSnapshotRecoveryEnabled. */
         public _isSyncdSnapshotRecoveryEnabled?: "isSyncdSnapshotRecoveryEnabled";
+
+        /** ClientPairingProps _isHsThumbnailSyncEnabled. */
+        public _isHsThumbnailSyncEnabled?: "isHsThumbnailSyncEnabled";
 
         /**
          * Creates a new ClientPairingProps instance using the specified properties.
