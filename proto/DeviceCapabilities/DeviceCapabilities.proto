@@ -2,14 +2,14 @@ syntax = "proto3";
 package DeviceCapabilities;
 
 message DeviceCapabilities {
-     ChatLockSupportLevel chatLockSupportLevel = 1;
-     LIDMigration lidMigration = 2;
-     BusinessBroadcast businessBroadcast = 3;
-     UserHasAvatar userHasAvatar = 4;
-     MemberNameTagPrimarySupport memberNameTagPrimarySupport = 5;
-     AiThread aiThread = 6;
+    optional ChatLockSupportLevel chatLockSupportLevel = 1;
+    optional LIDMigration lidMigration = 2;
+    optional BusinessBroadcast businessBroadcast = 3;
+    optional UserHasAvatar userHasAvatar = 4;
+    optional MemberNameTagPrimarySupport memberNameTagPrimarySupport = 5;
+    optional AiThread aiThread = 6;
     message AiThread {
-         SupportLevel supportLevel = 1;
+        optional SupportLevel supportLevel = 1;
         enum SupportLevel {
             NONE = 0;
             INFRA = 1;
@@ -17,7 +17,7 @@ message DeviceCapabilities {
         }
     }
     message BusinessBroadcast {
-         bool importListEnabled = 1;
+        optional bool importListEnabled = 1;
     }
     enum ChatLockSupportLevel {
         NONE = 0;
@@ -25,7 +25,7 @@ message DeviceCapabilities {
         FULL = 2;
     }
     message LIDMigration {
-         uint64 chatDbMigrationTimestamp = 1;
+        optional uint64 chatDbMigrationTimestamp = 1;
     }
     enum MemberNameTagPrimarySupport {
         DISABLED = 0;
@@ -33,6 +33,6 @@ message DeviceCapabilities {
         SENDER_ENABLED = 2;
     }
     message UserHasAvatar {
-         bool userHasAvatar = 1;
+        optional bool userHasAvatar = 1;
     }
 }

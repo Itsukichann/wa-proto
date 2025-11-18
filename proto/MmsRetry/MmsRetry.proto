@@ -2,14 +2,14 @@ syntax = "proto3";
 package MmsRetry;
 
 message ServerErrorReceipt {
-     string stanzaId = 1;
+    optional string stanzaId = 1;
 }
 
 message MediaRetryNotification {
-     string stanzaId = 1;
-     string directPath = 2;
-     ResultType result = 3;
-     bytes messageSecret = 4;
+    optional string stanzaId = 1;
+    optional string directPath = 2;
+    optional ResultType result = 3;
+    optional bytes messageSecret = 4;
     enum ResultType {
         GENERAL_ERROR = 0;
         SUCCESS = 1;

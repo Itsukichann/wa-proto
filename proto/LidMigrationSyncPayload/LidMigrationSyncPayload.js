@@ -54,11 +54,25 @@ $root.LidMigrationSyncPayload = (function() {
 
         /**
          * LIDMigrationMappingSyncPayload chatDbMigrationTimestamp.
-         * @member {number|Long} chatDbMigrationTimestamp
+         * @member {number|Long|null|undefined} chatDbMigrationTimestamp
          * @memberof LidMigrationSyncPayload.LIDMigrationMappingSyncPayload
          * @instance
          */
-        LIDMigrationMappingSyncPayload.prototype.chatDbMigrationTimestamp = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        LIDMigrationMappingSyncPayload.prototype.chatDbMigrationTimestamp = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * LIDMigrationMappingSyncPayload _chatDbMigrationTimestamp.
+         * @member {"chatDbMigrationTimestamp"|undefined} _chatDbMigrationTimestamp
+         * @memberof LidMigrationSyncPayload.LIDMigrationMappingSyncPayload
+         * @instance
+         */
+        Object.defineProperty(LIDMigrationMappingSyncPayload.prototype, "_chatDbMigrationTimestamp", {
+            get: $util.oneOfGetter($oneOfFields = ["chatDbMigrationTimestamp"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new LIDMigrationMappingSyncPayload instance using the specified properties.
@@ -170,6 +184,7 @@ $root.LidMigrationSyncPayload = (function() {
         LIDMigrationMappingSyncPayload.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            var properties = {};
             if (message.pnToLidMappings != null && message.hasOwnProperty("pnToLidMappings")) {
                 if (!Array.isArray(message.pnToLidMappings))
                     return "pnToLidMappings: array expected";
@@ -179,9 +194,11 @@ $root.LidMigrationSyncPayload = (function() {
                         return "pnToLidMappings." + error;
                 }
             }
-            if (message.chatDbMigrationTimestamp != null && message.hasOwnProperty("chatDbMigrationTimestamp"))
+            if (message.chatDbMigrationTimestamp != null && message.hasOwnProperty("chatDbMigrationTimestamp")) {
+                properties._chatDbMigrationTimestamp = 1;
                 if (!$util.isInteger(message.chatDbMigrationTimestamp) && !(message.chatDbMigrationTimestamp && $util.isInteger(message.chatDbMigrationTimestamp.low) && $util.isInteger(message.chatDbMigrationTimestamp.high)))
                     return "chatDbMigrationTimestamp: integer|Long expected";
+            }
             return null;
         };
 
@@ -234,22 +251,19 @@ $root.LidMigrationSyncPayload = (function() {
             var object = {};
             if (options.arrays || options.defaults)
                 object.pnToLidMappings = [];
-            if (options.defaults)
-                if ($util.Long) {
-                    var long = new $util.Long(0, 0, true);
-                    object.chatDbMigrationTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                } else
-                    object.chatDbMigrationTimestamp = options.longs === String ? "0" : 0;
             if (message.pnToLidMappings && message.pnToLidMappings.length) {
                 object.pnToLidMappings = [];
                 for (var j = 0; j < message.pnToLidMappings.length; ++j)
                     object.pnToLidMappings[j] = $root.LidMigrationSyncPayload.LIDMigrationMapping.toObject(message.pnToLidMappings[j], options);
             }
-            if (message.chatDbMigrationTimestamp != null && message.hasOwnProperty("chatDbMigrationTimestamp"))
+            if (message.chatDbMigrationTimestamp != null && message.hasOwnProperty("chatDbMigrationTimestamp")) {
                 if (typeof message.chatDbMigrationTimestamp === "number")
                     object.chatDbMigrationTimestamp = options.longs === String ? String(message.chatDbMigrationTimestamp) : message.chatDbMigrationTimestamp;
                 else
                     object.chatDbMigrationTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.chatDbMigrationTimestamp) : options.longs === Number ? new $util.LongBits(message.chatDbMigrationTimestamp.low >>> 0, message.chatDbMigrationTimestamp.high >>> 0).toNumber(true) : message.chatDbMigrationTimestamp;
+                if (options.oneofs)
+                    object._chatDbMigrationTimestamp = "chatDbMigrationTimestamp";
+            }
             return object;
         };
 
@@ -310,27 +324,63 @@ $root.LidMigrationSyncPayload = (function() {
 
         /**
          * LIDMigrationMapping pn.
-         * @member {number|Long} pn
+         * @member {number|Long|null|undefined} pn
          * @memberof LidMigrationSyncPayload.LIDMigrationMapping
          * @instance
          */
-        LIDMigrationMapping.prototype.pn = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        LIDMigrationMapping.prototype.pn = null;
 
         /**
          * LIDMigrationMapping assignedLid.
-         * @member {number|Long} assignedLid
+         * @member {number|Long|null|undefined} assignedLid
          * @memberof LidMigrationSyncPayload.LIDMigrationMapping
          * @instance
          */
-        LIDMigrationMapping.prototype.assignedLid = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        LIDMigrationMapping.prototype.assignedLid = null;
 
         /**
          * LIDMigrationMapping latestLid.
-         * @member {number|Long} latestLid
+         * @member {number|Long|null|undefined} latestLid
          * @memberof LidMigrationSyncPayload.LIDMigrationMapping
          * @instance
          */
-        LIDMigrationMapping.prototype.latestLid = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        LIDMigrationMapping.prototype.latestLid = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * LIDMigrationMapping _pn.
+         * @member {"pn"|undefined} _pn
+         * @memberof LidMigrationSyncPayload.LIDMigrationMapping
+         * @instance
+         */
+        Object.defineProperty(LIDMigrationMapping.prototype, "_pn", {
+            get: $util.oneOfGetter($oneOfFields = ["pn"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * LIDMigrationMapping _assignedLid.
+         * @member {"assignedLid"|undefined} _assignedLid
+         * @memberof LidMigrationSyncPayload.LIDMigrationMapping
+         * @instance
+         */
+        Object.defineProperty(LIDMigrationMapping.prototype, "_assignedLid", {
+            get: $util.oneOfGetter($oneOfFields = ["assignedLid"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * LIDMigrationMapping _latestLid.
+         * @member {"latestLid"|undefined} _latestLid
+         * @memberof LidMigrationSyncPayload.LIDMigrationMapping
+         * @instance
+         */
+        Object.defineProperty(LIDMigrationMapping.prototype, "_latestLid", {
+            get: $util.oneOfGetter($oneOfFields = ["latestLid"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
 
         /**
          * Creates a new LIDMigrationMapping instance using the specified properties.
@@ -445,15 +495,22 @@ $root.LidMigrationSyncPayload = (function() {
         LIDMigrationMapping.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.pn != null && message.hasOwnProperty("pn"))
+            var properties = {};
+            if (message.pn != null && message.hasOwnProperty("pn")) {
+                properties._pn = 1;
                 if (!$util.isInteger(message.pn) && !(message.pn && $util.isInteger(message.pn.low) && $util.isInteger(message.pn.high)))
                     return "pn: integer|Long expected";
-            if (message.assignedLid != null && message.hasOwnProperty("assignedLid"))
+            }
+            if (message.assignedLid != null && message.hasOwnProperty("assignedLid")) {
+                properties._assignedLid = 1;
                 if (!$util.isInteger(message.assignedLid) && !(message.assignedLid && $util.isInteger(message.assignedLid.low) && $util.isInteger(message.assignedLid.high)))
                     return "assignedLid: integer|Long expected";
-            if (message.latestLid != null && message.hasOwnProperty("latestLid"))
+            }
+            if (message.latestLid != null && message.hasOwnProperty("latestLid")) {
+                properties._latestLid = 1;
                 if (!$util.isInteger(message.latestLid) && !(message.latestLid && $util.isInteger(message.latestLid.low) && $util.isInteger(message.latestLid.high)))
                     return "latestLid: integer|Long expected";
+            }
             return null;
         };
 
@@ -512,38 +569,30 @@ $root.LidMigrationSyncPayload = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults) {
-                if ($util.Long) {
-                    var long = new $util.Long(0, 0, true);
-                    object.pn = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                } else
-                    object.pn = options.longs === String ? "0" : 0;
-                if ($util.Long) {
-                    var long = new $util.Long(0, 0, true);
-                    object.assignedLid = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                } else
-                    object.assignedLid = options.longs === String ? "0" : 0;
-                if ($util.Long) {
-                    var long = new $util.Long(0, 0, true);
-                    object.latestLid = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                } else
-                    object.latestLid = options.longs === String ? "0" : 0;
-            }
-            if (message.pn != null && message.hasOwnProperty("pn"))
+            if (message.pn != null && message.hasOwnProperty("pn")) {
                 if (typeof message.pn === "number")
                     object.pn = options.longs === String ? String(message.pn) : message.pn;
                 else
                     object.pn = options.longs === String ? $util.Long.prototype.toString.call(message.pn) : options.longs === Number ? new $util.LongBits(message.pn.low >>> 0, message.pn.high >>> 0).toNumber(true) : message.pn;
-            if (message.assignedLid != null && message.hasOwnProperty("assignedLid"))
+                if (options.oneofs)
+                    object._pn = "pn";
+            }
+            if (message.assignedLid != null && message.hasOwnProperty("assignedLid")) {
                 if (typeof message.assignedLid === "number")
                     object.assignedLid = options.longs === String ? String(message.assignedLid) : message.assignedLid;
                 else
                     object.assignedLid = options.longs === String ? $util.Long.prototype.toString.call(message.assignedLid) : options.longs === Number ? new $util.LongBits(message.assignedLid.low >>> 0, message.assignedLid.high >>> 0).toNumber(true) : message.assignedLid;
-            if (message.latestLid != null && message.hasOwnProperty("latestLid"))
+                if (options.oneofs)
+                    object._assignedLid = "assignedLid";
+            }
+            if (message.latestLid != null && message.hasOwnProperty("latestLid")) {
                 if (typeof message.latestLid === "number")
                     object.latestLid = options.longs === String ? String(message.latestLid) : message.latestLid;
                 else
                     object.latestLid = options.longs === String ? $util.Long.prototype.toString.call(message.latestLid) : options.longs === Number ? new $util.LongBits(message.latestLid.low >>> 0, message.latestLid.high >>> 0).toNumber(true) : message.latestLid;
+                if (options.oneofs)
+                    object._latestLid = "latestLid";
+            }
             return object;
         };
 

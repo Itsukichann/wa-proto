@@ -2,10 +2,10 @@ syntax = "proto3";
 package Protocol;
 
 message LimitSharing {
-     bool sharingLimited = 1;
-     TriggerType trigger = 2;
-     int64 limitSharingSettingTimestamp = 3;
-     bool initiatedByMe = 4;
+    optional bool sharingLimited = 1;
+    optional TriggerType trigger = 2;
+    optional int64 limitSharingSettingTimestamp = 3;
+    optional bool initiatedByMe = 4;
     enum TriggerType {
         UNKNOWN = 0;
         CHAT_SETTING = 1;
@@ -15,8 +15,8 @@ message LimitSharing {
 }
 
 message MessageKey {
-     string remoteJid = 1;
-     bool fromMe = 2;
-     string id = 3;
-     string participant = 4;
+    optional string remoteJid = 1;
+    optional bool fromMe = 2;
+    optional string id = 3;
+    optional string participant = 4;
 }

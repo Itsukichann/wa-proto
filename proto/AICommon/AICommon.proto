@@ -5,17 +5,17 @@ import "../Protocol/Protocol.proto";
 import "../StatusAttributions/StatusAttributions.proto";
 
 message AIHomeState {
-     int64 lastFetchTime = 1;
+    optional int64 lastFetchTime = 1;
     repeated AIHomeOption capabilityOptions = 2;
     repeated AIHomeOption conversationOptions = 3;
     message AIHomeOption {
-         AIHomeActionType type = 1;
-         string title = 2;
-         string promptText = 3;
-         string sessionId = 4;
-         string imageWdsIdentifier = 5;
-         string imageTintColor = 6;
-         string imageBackgroundColor = 7;
+        optional AIHomeActionType type = 1;
+        optional string title = 2;
+        optional string promptText = 3;
+        optional string sessionId = 4;
+        optional string imageWdsIdentifier = 5;
+        optional string imageTintColor = 6;
+        optional string imageBackgroundColor = 7;
         enum AIHomeActionType {
             PROMPT = 0;
             CREATE_IMAGE = 1;
@@ -26,7 +26,7 @@ message AIHomeState {
 }
 
 message BotDocumentMessageMetadata {
-     DocumentPluginType pluginType = 1;
+    optional DocumentPluginType pluginType = 1;
     enum DocumentPluginType {
         TEXT_EXTRACTION = 0;
         OCR_AND_IMAGES = 1;
@@ -34,42 +34,42 @@ message BotDocumentMessageMetadata {
 }
 
 message SessionTransparencyMetadata {
-     string disclaimerText = 1;
-     string hcaId = 2;
-     SessionTransparencyType sessionTransparencyType = 3;
+    optional string disclaimerText = 1;
+    optional string hcaId = 2;
+    optional SessionTransparencyType sessionTransparencyType = 3;
 }
 
 message AIRegenerateMetadata {
-     Protocol.MessageKey messageKey = 1;
-     int64 responseTimestampMs = 2;
+    optional Protocol.MessageKey messageKey = 1;
+    optional int64 responseTimestampMs = 2;
 }
 
 message AIRichResponseSubMessage {
-     AIRichResponseSubMessageType messageType = 1;
-     AIRichResponseGridImageMetadata gridImageMetadata = 2;
-     string messageText = 3;
-     AIRichResponseInlineImageMetadata imageMetadata = 4;
-     AIRichResponseCodeMetadata codeMetadata = 5;
-     AIRichResponseTableMetadata tableMetadata = 6;
-     AIRichResponseDynamicMetadata dynamicMetadata = 7;
-     AIRichResponseLatexMetadata latexMetadata = 8;
-     AIRichResponseMapMetadata mapMetadata = 9;
-     AIRichResponseContentItemsMetadata contentItemsMetadata = 10;
+    optional AIRichResponseSubMessageType messageType = 1;
+    optional AIRichResponseGridImageMetadata gridImageMetadata = 2;
+    optional string messageText = 3;
+    optional AIRichResponseInlineImageMetadata imageMetadata = 4;
+    optional AIRichResponseCodeMetadata codeMetadata = 5;
+    optional AIRichResponseTableMetadata tableMetadata = 6;
+    optional AIRichResponseDynamicMetadata dynamicMetadata = 7;
+    optional AIRichResponseLatexMetadata latexMetadata = 8;
+    optional AIRichResponseMapMetadata mapMetadata = 9;
+    optional AIRichResponseContentItemsMetadata contentItemsMetadata = 10;
 }
 
 message AIRichResponseContentItemsMetadata {
     repeated AIRichResponseContentItemMetadata itemsMetadata = 1;
-     ContentType contentType = 2;
+    optional ContentType contentType = 2;
     message AIRichResponseContentItemMetadata {
         oneof aIRichResponseContentItem {
             AIRichResponseContentItemsMetadata.AIRichResponseReelItem reelItem = 1;
         }
     }
     message AIRichResponseReelItem {
-         string title = 1;
-         string profileIconUrl = 2;
-         string thumbnailUrl = 3;
-         string videoUrl = 4;
+        optional string title = 1;
+        optional string profileIconUrl = 2;
+        optional string thumbnailUrl = 3;
+        optional string videoUrl = 4;
     }
     enum ContentType {
         DEFAULT = 0;
@@ -78,46 +78,46 @@ message AIRichResponseContentItemsMetadata {
 }
 
 message AIRichResponseMapMetadata {
-     double centerLatitude = 1;
-     double centerLongitude = 2;
-     double latitudeDelta = 3;
-     double longitudeDelta = 4;
+    optional double centerLatitude = 1;
+    optional double centerLongitude = 2;
+    optional double latitudeDelta = 3;
+    optional double longitudeDelta = 4;
     repeated AIRichResponseMapAnnotation annotations = 5;
-     bool showInfoList = 6;
+    optional bool showInfoList = 6;
     message AIRichResponseMapAnnotation {
-         uint32 annotationNumber = 1;
-         double latitude = 2;
-         double longitude = 3;
-         string title = 4;
-         string body = 5;
+        optional uint32 annotationNumber = 1;
+        optional double latitude = 2;
+        optional double longitude = 3;
+        optional string title = 4;
+        optional string body = 5;
     }
 }
 
 message AIRichResponseLatexMetadata {
-     string text = 1;
+    optional string text = 1;
     repeated AIRichResponseLatexExpression expressions = 2;
     message AIRichResponseLatexExpression {
-         string latexExpression = 1;
-         string url = 2;
-         double width = 3;
-         double height = 4;
-         double fontHeight = 5;
-         double imageTopPadding = 6;
-         double imageLeadingPadding = 7;
-         double imageBottomPadding = 8;
-         double imageTrailingPadding = 9;
+        optional string latexExpression = 1;
+        optional string url = 2;
+        optional double width = 3;
+        optional double height = 4;
+        optional double fontHeight = 5;
+        optional double imageTopPadding = 6;
+        optional double imageLeadingPadding = 7;
+        optional double imageBottomPadding = 8;
+        optional double imageTrailingPadding = 9;
     }
 }
 
 message AIRichResponseUnifiedResponse {
-     bytes data = 1;
+    optional bytes data = 1;
 }
 
 message AIRichResponseDynamicMetadata {
-     AIRichResponseDynamicMetadataType type = 1;
-     uint64 version = 2;
-     string url = 3;
-     uint32 loopCount = 4;
+    optional AIRichResponseDynamicMetadataType type = 1;
+    optional uint64 version = 2;
+    optional string url = 3;
+    optional uint32 loopCount = 4;
     enum AIRichResponseDynamicMetadataType {
         AI_RICH_RESPONSE_DYNAMIC_METADATA_TYPE_UNKNOWN = 0;
         AI_RICH_RESPONSE_DYNAMIC_METADATA_TYPE_IMAGE = 1;
@@ -127,19 +127,19 @@ message AIRichResponseDynamicMetadata {
 
 message AIRichResponseTableMetadata {
     repeated AIRichResponseTableRow rows = 1;
-     string title = 2;
+    optional string title = 2;
     message AIRichResponseTableRow {
         repeated string items = 1;
-         bool isHeading = 2;
+        optional bool isHeading = 2;
     }
 }
 
 message AIRichResponseCodeMetadata {
-     string codeLanguage = 1;
+    optional string codeLanguage = 1;
     repeated AIRichResponseCodeBlock codeBlocks = 2;
     message AIRichResponseCodeBlock {
-         AIRichResponseCodeMetadata.AIRichResponseCodeHighlightType highlightType = 1;
-         string codeContent = 2;
+        optional AIRichResponseCodeMetadata.AIRichResponseCodeHighlightType highlightType = 1;
+        optional string codeContent = 2;
     }
     enum AIRichResponseCodeHighlightType {
         AI_RICH_RESPONSE_CODE_HIGHLIGHT_DEFAULT = 0;
@@ -152,10 +152,10 @@ message AIRichResponseCodeMetadata {
 }
 
 message AIRichResponseInlineImageMetadata {
-     AIRichResponseImageURL imageUrl = 1;
-     string imageText = 2;
-     AIRichResponseImageAlignment alignment = 3;
-     string tapLinkUrl = 4;
+    optional AIRichResponseImageURL imageUrl = 1;
+    optional string imageText = 2;
+    optional AIRichResponseImageAlignment alignment = 3;
+    optional string tapLinkUrl = 4;
     enum AIRichResponseImageAlignment {
         AI_RICH_RESPONSE_IMAGE_LAYOUT_LEADING_ALIGNED = 0;
         AI_RICH_RESPONSE_IMAGE_LAYOUT_TRAILING_ALIGNED = 1;
@@ -164,35 +164,35 @@ message AIRichResponseInlineImageMetadata {
 }
 
 message AIRichResponseGridImageMetadata {
-     AIRichResponseImageURL gridImageUrl = 1;
+    optional AIRichResponseImageURL gridImageUrl = 1;
     repeated AIRichResponseImageURL imageUrls = 2;
 }
 
 message AIRichResponseImageURL {
-     string imagePreviewUrl = 1;
-     string imageHighResUrl = 2;
-     string sourceUrl = 3;
+    optional string imagePreviewUrl = 1;
+    optional string imageHighResUrl = 2;
+    optional string sourceUrl = 3;
 }
 
 message BotMessageSharingInfo {
-     BotMetricsEntryPoint botEntryPointOrigin = 1;
-     uint32 forwardScore = 2;
+    optional BotMetricsEntryPoint botEntryPointOrigin = 1;
+    optional uint32 forwardScore = 2;
 }
 
 message ForwardedAIBotMessageInfo {
-     string botName = 1;
-     string botJid = 2;
-     string creatorName = 3;
+    optional string botName = 1;
+    optional string botJid = 2;
+    optional string creatorName = 3;
 }
 
 message BotFeedbackMessage {
-     Protocol.MessageKey messageKey = 1;
-     BotFeedbackKind kind = 2;
-     string text = 3;
-     uint64 kindNegative = 4;
-     uint64 kindPositive = 5;
-     ReportKind kindReport = 6;
-     SideBySideSurveyMetadata sideBySideSurveyMetadata = 7;
+    optional Protocol.MessageKey messageKey = 1;
+    optional BotFeedbackKind kind = 2;
+    optional string text = 3;
+    optional uint64 kindNegative = 4;
+    optional uint64 kindPositive = 5;
+    optional ReportKind kindReport = 6;
+    optional SideBySideSurveyMetadata sideBySideSurveyMetadata = 7;
     enum BotFeedbackKind {
         BOT_FEEDBACK_POSITIVE = 0;
         BOT_FEEDBACK_NEGATIVE_GENERIC = 1;
@@ -229,52 +229,52 @@ message BotFeedbackMessage {
         GENERIC = 1;
     }
     message SideBySideSurveyMetadata {
-         string selectedRequestId = 1;
-         uint32 surveyId = 2;
-         string simonSessionFbid = 3;
-         string responseOtid = 4;
-         string responseTimestampMsString = 5;
-         bool isSelectedResponsePrimary = 6;
-         string messageIdToEdit = 7;
-         SideBySideSurveyAnalyticsData analyticsData = 8;
-         SidebySideSurveyMetaAiAnalyticsData metaAiAnalyticsData = 9;
+        optional string selectedRequestId = 1;
+        optional uint32 surveyId = 2;
+        optional string simonSessionFbid = 3;
+        optional string responseOtid = 4;
+        optional string responseTimestampMsString = 5;
+        optional bool isSelectedResponsePrimary = 6;
+        optional string messageIdToEdit = 7;
+        optional SideBySideSurveyAnalyticsData analyticsData = 8;
+        optional SidebySideSurveyMetaAiAnalyticsData metaAiAnalyticsData = 9;
         message SideBySideSurveyAnalyticsData {
-             string tessaEvent = 1;
-             string tessaSessionFbid = 2;
-             string simonSessionFbid = 3;
+            optional string tessaEvent = 1;
+            optional string tessaSessionFbid = 2;
+            optional string simonSessionFbid = 3;
         }
         message SidebySideSurveyMetaAiAnalyticsData {
-             uint32 surveyId = 1;
-             string primaryResponseId = 2;
-             string testArmName = 3;
-             string timestampMsString = 4;
-             SideBySideSurveyCTAImpressionEventData ctaImpressionEvent = 5;
-             SideBySideSurveyCTAClickEventData ctaClickEvent = 6;
-             SideBySideSurveyCardImpressionEventData cardImpressionEvent = 7;
-             SideBySideSurveyResponseEventData responseEvent = 8;
-             SideBySideSurveyAbandonEventData abandonEvent = 9;
+            optional uint32 surveyId = 1;
+            optional string primaryResponseId = 2;
+            optional string testArmName = 3;
+            optional string timestampMsString = 4;
+            optional SideBySideSurveyCTAImpressionEventData ctaImpressionEvent = 5;
+            optional SideBySideSurveyCTAClickEventData ctaClickEvent = 6;
+            optional SideBySideSurveyCardImpressionEventData cardImpressionEvent = 7;
+            optional SideBySideSurveyResponseEventData responseEvent = 8;
+            optional SideBySideSurveyAbandonEventData abandonEvent = 9;
             message SideBySideSurveyAbandonEventData {
-                 string abandonDwellTimeMsString = 1;
+                optional string abandonDwellTimeMsString = 1;
             }
             message SideBySideSurveyCTAClickEventData {
-                 bool isSurveyExpired = 1;
-                 string clickDwellTimeMsString = 2;
+                optional bool isSurveyExpired = 1;
+                optional string clickDwellTimeMsString = 2;
             }
             message SideBySideSurveyCTAImpressionEventData {
-                 bool isSurveyExpired = 1;
+                optional bool isSurveyExpired = 1;
             }
             message SideBySideSurveyCardImpressionEventData {
             }
             message SideBySideSurveyResponseEventData {
-                 string responseDwellTimeMsString = 1;
-                 string selectedResponseId = 2;
+                optional string responseDwellTimeMsString = 1;
+                optional string selectedResponseId = 2;
             }
         }
     }
 }
 
 message BotGroupParticipantMetadata {
-     string botFbid = 1;
+    optional string botFbid = 1;
 }
 
 message BotGroupMetadata {
@@ -282,49 +282,49 @@ message BotGroupMetadata {
 }
 
 message BotMetadata {
-     BotAvatarMetadata avatarMetadata = 1;
-     string personaId = 2;
-     BotPluginMetadata pluginMetadata = 3;
-     BotSuggestedPromptMetadata suggestedPromptMetadata = 4;
-     string invokerJid = 5;
-     BotSessionMetadata sessionMetadata = 6;
-     BotMemuMetadata memuMetadata = 7;
-     string timezone = 8;
-     BotReminderMetadata reminderMetadata = 9;
-     BotModelMetadata modelMetadata = 10;
-     string messageDisclaimerText = 11;
-     BotProgressIndicatorMetadata progressIndicatorMetadata = 12;
-     BotCapabilityMetadata capabilityMetadata = 13;
-     BotImagineMetadata imagineMetadata = 14;
-     BotMemoryMetadata memoryMetadata = 15;
-     BotRenderingMetadata renderingMetadata = 16;
-     BotMetricsMetadata botMetricsMetadata = 17;
-     BotLinkedAccountsMetadata botLinkedAccountsMetadata = 18;
-     BotSourcesMetadata richResponseSourcesMetadata = 19;
-     bytes aiConversationContext = 20;
-     BotPromotionMessageMetadata botPromotionMessageMetadata = 21;
-     BotModeSelectionMetadata botModeSelectionMetadata = 22;
-     BotQuotaMetadata botQuotaMetadata = 23;
-     BotAgeCollectionMetadata botAgeCollectionMetadata = 24;
-     string conversationStarterPromptId = 25;
-     string botResponseId = 26;
-     BotSignatureVerificationMetadata verificationMetadata = 27;
-     BotUnifiedResponseMutation unifiedResponseMutation = 28;
-     BotMessageOriginMetadata botMessageOriginMetadata = 29;
-     InThreadSurveyMetadata inThreadSurveyMetadata = 30;
-     AIThreadInfo botThreadInfo = 31;
-     AIRegenerateMetadata regenerateMetadata = 32;
-     SessionTransparencyMetadata sessionTransparencyMetadata = 33;
-     BotDocumentMessageMetadata botDocumentMessageMetadata = 34;
-     BotGroupMetadata botGroupMetadata = 35;
-     bytes internalMetadata = 999;
+    optional BotAvatarMetadata avatarMetadata = 1;
+    optional string personaId = 2;
+    optional BotPluginMetadata pluginMetadata = 3;
+    optional BotSuggestedPromptMetadata suggestedPromptMetadata = 4;
+    optional string invokerJid = 5;
+    optional BotSessionMetadata sessionMetadata = 6;
+    optional BotMemuMetadata memuMetadata = 7;
+    optional string timezone = 8;
+    optional BotReminderMetadata reminderMetadata = 9;
+    optional BotModelMetadata modelMetadata = 10;
+    optional string messageDisclaimerText = 11;
+    optional BotProgressIndicatorMetadata progressIndicatorMetadata = 12;
+    optional BotCapabilityMetadata capabilityMetadata = 13;
+    optional BotImagineMetadata imagineMetadata = 14;
+    optional BotMemoryMetadata memoryMetadata = 15;
+    optional BotRenderingMetadata renderingMetadata = 16;
+    optional BotMetricsMetadata botMetricsMetadata = 17;
+    optional BotLinkedAccountsMetadata botLinkedAccountsMetadata = 18;
+    optional BotSourcesMetadata richResponseSourcesMetadata = 19;
+    optional bytes aiConversationContext = 20;
+    optional BotPromotionMessageMetadata botPromotionMessageMetadata = 21;
+    optional BotModeSelectionMetadata botModeSelectionMetadata = 22;
+    optional BotQuotaMetadata botQuotaMetadata = 23;
+    optional BotAgeCollectionMetadata botAgeCollectionMetadata = 24;
+    optional string conversationStarterPromptId = 25;
+    optional string botResponseId = 26;
+    optional BotSignatureVerificationMetadata verificationMetadata = 27;
+    optional BotUnifiedResponseMutation unifiedResponseMutation = 28;
+    optional BotMessageOriginMetadata botMessageOriginMetadata = 29;
+    optional InThreadSurveyMetadata inThreadSurveyMetadata = 30;
+    optional AIThreadInfo botThreadInfo = 31;
+    optional AIRegenerateMetadata regenerateMetadata = 32;
+    optional SessionTransparencyMetadata sessionTransparencyMetadata = 33;
+    optional BotDocumentMessageMetadata botDocumentMessageMetadata = 34;
+    optional BotGroupMetadata botGroupMetadata = 35;
+    optional bytes internalMetadata = 999;
 }
 
 message AIThreadInfo {
-     AIThreadServerInfo serverInfo = 1;
-     AIThreadClientInfo clientInfo = 2;
+    optional AIThreadServerInfo serverInfo = 1;
+    optional AIThreadClientInfo clientInfo = 2;
     message AIThreadClientInfo {
-         AIThreadType type = 1;
+        optional AIThreadType type = 1;
         enum AIThreadType {
             UNKNOWN = 0;
             DEFAULT = 1;
@@ -332,26 +332,26 @@ message AIThreadInfo {
         }
     }
     message AIThreadServerInfo {
-         string title = 1;
+        optional string title = 1;
     }
 }
 
 message BotUnifiedResponseMutation {
-     SideBySideMetadata sbsMetadata = 1;
+    optional SideBySideMetadata sbsMetadata = 1;
     repeated MediaDetailsMetadata mediaDetailsMetadataList = 2;
     message MediaDetailsMetadata {
-         string id = 1;
-         BotMediaMetadata highResMedia = 2;
-         BotMediaMetadata previewMedia = 3;
+        optional string id = 1;
+        optional BotMediaMetadata highResMedia = 2;
+        optional BotMediaMetadata previewMedia = 3;
     }
     message SideBySideMetadata {
-         string primaryResponseId = 1;
-         bool surveyCtaHasRendered = 2;
+        optional string primaryResponseId = 1;
+        optional bool surveyCtaHasRendered = 2;
     }
 }
 
 message BotMessageOrigin {
-     BotMessageOriginType type = 1;
+    optional BotMessageOriginType type = 1;
     enum BotMessageOriginType {
         BOT_MESSAGE_ORIGIN_TYPE_AI_INITIATED = 0;
     }
@@ -362,36 +362,36 @@ message BotMessageOriginMetadata {
 }
 
 message InThreadSurveyMetadata {
-     string tessaSessionId = 1;
-     string simonSessionId = 2;
-     string simonSurveyId = 3;
-     string tessaRootId = 4;
-     string requestId = 5;
-     string tessaEvent = 6;
-     string invitationHeaderText = 7;
-     string invitationBodyText = 8;
-     string invitationCtaText = 9;
-     string invitationCtaUrl = 10;
-     string surveyTitle = 11;
+    optional string tessaSessionId = 1;
+    optional string simonSessionId = 2;
+    optional string simonSurveyId = 3;
+    optional string tessaRootId = 4;
+    optional string requestId = 5;
+    optional string tessaEvent = 6;
+    optional string invitationHeaderText = 7;
+    optional string invitationBodyText = 8;
+    optional string invitationCtaText = 9;
+    optional string invitationCtaUrl = 10;
+    optional string surveyTitle = 11;
     repeated InThreadSurveyQuestion questions = 12;
-     string surveyContinueButtonText = 13;
-     string surveySubmitButtonText = 14;
-     string privacyStatementFull = 15;
+    optional string surveyContinueButtonText = 13;
+    optional string surveySubmitButtonText = 14;
+    optional string privacyStatementFull = 15;
     repeated InThreadSurveyPrivacyStatementPart privacyStatementParts = 16;
-     string feedbackToastText = 17;
-     int32 startQuestionIndex = 18;
+    optional string feedbackToastText = 17;
+    optional int32 startQuestionIndex = 18;
     message InThreadSurveyOption {
-         string stringValue = 1;
-         uint32 numericValue = 2;
-         string textTranslated = 3;
+        optional string stringValue = 1;
+        optional uint32 numericValue = 2;
+        optional string textTranslated = 3;
     }
     message InThreadSurveyPrivacyStatementPart {
-         string text = 1;
-         string url = 2;
+        optional string text = 1;
+        optional string url = 2;
     }
     message InThreadSurveyQuestion {
-         string questionText = 1;
-         string questionId = 2;
+        optional string questionText = 1;
+        optional string questionId = 2;
         repeated InThreadSurveyMetadata.InThreadSurveyOption questionOptions = 3;
     }
 }
@@ -399,13 +399,13 @@ message InThreadSurveyMetadata {
 message BotSourcesMetadata {
     repeated BotSourceItem sources = 1;
     message BotSourceItem {
-         SourceProvider provider = 1;
-         string thumbnailCdnUrl = 2;
-         string sourceProviderUrl = 3;
-         string sourceQuery = 4;
-         string faviconCdnUrl = 5;
-         uint32 citationNumber = 6;
-         string sourceTitle = 7;
+        optional SourceProvider provider = 1;
+        optional string thumbnailCdnUrl = 2;
+        optional string sourceProviderUrl = 3;
+        optional string sourceQuery = 4;
+        optional string faviconCdnUrl = 5;
+        optional uint32 citationNumber = 6;
+        optional string sourceTitle = 7;
         enum SourceProvider {
             UNKNOWN = 0;
             BING = 1;
@@ -417,9 +417,9 @@ message BotSourcesMetadata {
 }
 
 message BotAgeCollectionMetadata {
-     bool ageCollectionEligible = 1;
-     bool shouldTriggerAgeCollectionOnClient = 2;
-     AgeCollectionType ageCollectionType = 3;
+    optional bool ageCollectionEligible = 1;
+    optional bool shouldTriggerAgeCollectionOnClient = 2;
+    optional AgeCollectionType ageCollectionType = 3;
     enum AgeCollectionType {
         O18_BINARY = 0;
         WAFFLE = 1;
@@ -427,7 +427,7 @@ message BotAgeCollectionMetadata {
 }
 
 message BotImagineMetadata {
-     ImagineType imagineType = 1;
+    optional ImagineType imagineType = 1;
     enum ImagineType {
         UNKNOWN = 0;
         IMAGINE = 1;
@@ -440,9 +440,9 @@ message BotImagineMetadata {
 message BotQuotaMetadata {
     repeated BotFeatureQuotaMetadata botFeatureQuotaMetadata = 1;
     message BotFeatureQuotaMetadata {
-         BotFeatureType featureType = 1;
-         uint32 remainingQuota = 2;
-         uint64 expirationTimestamp = 3;
+        optional BotFeatureType featureType = 1;
+        optional uint32 remainingQuota = 2;
+        optional uint64 expirationTimestamp = 3;
         enum BotFeatureType {
             UNKNOWN_FEATURE = 0;
             REASONING_FEATURE = 1;
@@ -515,26 +515,26 @@ message BotCapabilityMetadata {
 }
 
 message BotProgressIndicatorMetadata {
-     string progressDescription = 1;
+    optional string progressDescription = 1;
     repeated BotPlanningStepMetadata stepsMetadata = 2;
     message BotPlanningStepMetadata {
-         string statusTitle = 1;
-         string statusBody = 2;
+        optional string statusTitle = 1;
+        optional string statusBody = 2;
         repeated BotPlanningSearchSourcesMetadata sourcesMetadata = 3;
-         PlanningStepStatus status = 4;
-         bool isReasoning = 5;
-         bool isEnhancedSearch = 6;
+        optional PlanningStepStatus status = 4;
+        optional bool isReasoning = 5;
+        optional bool isEnhancedSearch = 6;
         repeated BotPlanningStepSectionMetadata sections = 7;
         message BotPlanningSearchSourceMetadata {
-             string title = 1;
-             BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotSearchSourceProvider provider = 2;
-             string sourceUrl = 3;
-             string favIconUrl = 4;
+            optional string title = 1;
+            optional BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotSearchSourceProvider provider = 2;
+            optional string sourceUrl = 3;
+            optional string favIconUrl = 4;
         }
         message BotPlanningSearchSourcesMetadata {
-             string sourceTitle = 1;
-             BotPlanningSearchSourceProvider provider = 2;
-             string sourceUrl = 3;
+            optional string sourceTitle = 1;
+            optional BotPlanningSearchSourceProvider provider = 2;
+            optional string sourceUrl = 3;
             enum BotPlanningSearchSourceProvider {
                 UNKNOWN = 0;
                 OTHER = 1;
@@ -543,8 +543,8 @@ message BotProgressIndicatorMetadata {
             }
         }
         message BotPlanningStepSectionMetadata {
-             string sectionTitle = 1;
-             string sectionBody = 2;
+            optional string sectionTitle = 1;
+            optional string sectionBody = 2;
             repeated BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata sourcesMetadata = 3;
         }
         enum BotSearchSourceProvider {
@@ -563,9 +563,9 @@ message BotProgressIndicatorMetadata {
 }
 
 message BotModelMetadata {
-     ModelType modelType = 1;
-     PremiumModelStatus premiumModelStatus = 2;
-     string modelNameOverride = 3;
+    optional ModelType modelType = 1;
+    optional PremiumModelStatus premiumModelStatus = 2;
+    optional string modelNameOverride = 3;
     enum ModelType {
         UNKNOWN_TYPE = 0;
         LLAMA_PROD = 1;
@@ -579,11 +579,11 @@ message BotModelMetadata {
 }
 
 message BotReminderMetadata {
-     Protocol.MessageKey requestMessageKey = 1;
-     ReminderAction action = 2;
-     string name = 3;
-     uint64 nextTriggerTimestamp = 4;
-     ReminderFrequency frequency = 5;
+    optional Protocol.MessageKey requestMessageKey = 1;
+    optional ReminderAction action = 2;
+    optional string name = 3;
+    optional uint64 nextTriggerTimestamp = 4;
+    optional ReminderFrequency frequency = 5;
     enum ReminderAction {
         NOTIFY = 1;
         CREATE = 2;
@@ -604,13 +604,13 @@ message BotMemuMetadata {
 }
 
 message BotMediaMetadata {
-     string fileSha256 = 1;
-     string mediaKey = 2;
-     string fileEncSha256 = 3;
-     string directPath = 4;
-     int64 mediaKeyTimestamp = 5;
-     string mimetype = 6;
-     OrientationType orientationType = 7;
+    optional string fileSha256 = 1;
+    optional string mediaKey = 2;
+    optional string fileEncSha256 = 3;
+    optional string directPath = 4;
+    optional int64 mediaKeyTimestamp = 5;
+    optional string mimetype = 6;
+    optional OrientationType orientationType = 7;
     enum OrientationType {
         CENTER = 1;
         LEFT = 2;
@@ -619,27 +619,27 @@ message BotMediaMetadata {
 }
 
 message BotSessionMetadata {
-     string sessionId = 1;
-     BotSessionSource sessionSource = 2;
+    optional string sessionId = 1;
+    optional BotSessionSource sessionSource = 2;
 }
 
 message BotMetricsMetadata {
-     string destinationId = 1;
-     BotMetricsEntryPoint destinationEntryPoint = 2;
-     BotMetricsThreadEntryPoint threadOrigin = 3;
+    optional string destinationId = 1;
+    optional BotMetricsEntryPoint destinationEntryPoint = 2;
+    optional BotMetricsThreadEntryPoint threadOrigin = 3;
 }
 
 message BotRenderingMetadata {
     repeated Keyword keywords = 1;
     message Keyword {
-         string value = 1;
+        optional string value = 1;
         repeated string associatedPrompts = 2;
     }
 }
 
 message BotPromotionMessageMetadata {
-     BotPromotionType promotionType = 1;
-     string buttonTitle = 2;
+    optional BotPromotionType promotionType = 1;
+    optional string buttonTitle = 2;
     enum BotPromotionType {
         UNKNOWN_TYPE = 0;
         C50 = 1;
@@ -648,9 +648,9 @@ message BotPromotionMessageMetadata {
 }
 
 message BotSignatureVerificationUseCaseProof {
-     int32 version = 1;
-     BotSignatureUseCase useCase = 2;
-     bytes signature = 3;
+    optional int32 version = 1;
+    optional BotSignatureUseCase useCase = 2;
+    optional bytes signature = 3;
     repeated bytes certificateChain = 4;
     enum BotSignatureUseCase {
         UNSPECIFIED = 0;
@@ -663,18 +663,18 @@ message BotSignatureVerificationMetadata {
 }
 
 message BotMemoryFact {
-     string fact = 1;
-     string factId = 2;
+    optional string fact = 1;
+    optional string factId = 2;
 }
 
 message BotMemoryMetadata {
     repeated BotMemoryFact addedFacts = 1;
     repeated BotMemoryFact removedFacts = 2;
-     string disclaimer = 3;
+    optional string disclaimer = 3;
 }
 
 message BotLinkedAccount {
-     BotLinkedAccountType type = 1;
+    optional BotLinkedAccountType type = 1;
     enum BotLinkedAccountType {
         BOT_LINKED_ACCOUNT_TYPE_1P = 0;
     }
@@ -682,13 +682,13 @@ message BotLinkedAccount {
 
 message BotLinkedAccountsMetadata {
     repeated BotLinkedAccount accounts = 1;
-     bytes acAuthTokens = 2;
-     int32 acErrorCode = 3;
+    optional bytes acAuthTokens = 2;
+    optional int32 acErrorCode = 3;
 }
 
 message BotPromptSuggestion {
-     string prompt = 1;
-     string promptId = 2;
+    optional string prompt = 1;
+    optional string promptId = 2;
 }
 
 message BotPromptSuggestions {
@@ -697,24 +697,24 @@ message BotPromptSuggestions {
 
 message BotSuggestedPromptMetadata {
     repeated string suggestedPrompts = 1;
-     uint32 selectedPromptIndex = 2;
-     BotPromptSuggestions promptSuggestions = 3;
-     string selectedPromptId = 4;
+    optional uint32 selectedPromptIndex = 2;
+    optional BotPromptSuggestions promptSuggestions = 3;
+    optional string selectedPromptId = 4;
 }
 
 message BotPluginMetadata {
-     SearchProvider provider = 1;
-     PluginType pluginType = 2;
-     string thumbnailCdnUrl = 3;
-     string profilePhotoCdnUrl = 4;
-     string searchProviderUrl = 5;
-     uint32 referenceIndex = 6;
-     uint32 expectedLinksCount = 7;
-     string searchQuery = 9;
-     Protocol.MessageKey parentPluginMessageKey = 10;
-     PluginType deprecatedField = 11;
-     PluginType parentPluginType = 12;
-     string faviconCdnUrl = 13;
+    optional SearchProvider provider = 1;
+    optional PluginType pluginType = 2;
+    optional string thumbnailCdnUrl = 3;
+    optional string profilePhotoCdnUrl = 4;
+    optional string searchProviderUrl = 5;
+    optional uint32 referenceIndex = 6;
+    optional uint32 expectedLinksCount = 7;
+    optional string searchQuery = 9;
+    optional Protocol.MessageKey parentPluginMessageKey = 10;
+    optional PluginType deprecatedField = 11;
+    optional PluginType parentPluginType = 12;
+    optional string faviconCdnUrl = 13;
     enum PluginType {
         UNKNOWN_PLUGIN = 0;
         REELS = 1;
@@ -729,11 +729,11 @@ message BotPluginMetadata {
 }
 
 message BotAvatarMetadata {
-     uint32 sentiment = 1;
-     string behaviorGraph = 2;
-     uint32 action = 3;
-     uint32 intensity = 4;
-     uint32 wordCount = 5;
+    optional uint32 sentiment = 1;
+    optional string behaviorGraph = 2;
+    optional uint32 action = 3;
+    optional uint32 intensity = 4;
+    optional uint32 wordCount = 5;
 }
 
 enum SessionTransparencyType {

@@ -35,7 +35,7 @@ export namespace DeviceCapabilities {
         constructor(properties?: DeviceCapabilities.IDeviceCapabilities);
 
         /** DeviceCapabilities chatLockSupportLevel. */
-        public chatLockSupportLevel: DeviceCapabilities.DeviceCapabilities.ChatLockSupportLevel;
+        public chatLockSupportLevel?: (DeviceCapabilities.DeviceCapabilities.ChatLockSupportLevel|null);
 
         /** DeviceCapabilities lidMigration. */
         public lidMigration?: (DeviceCapabilities.DeviceCapabilities.ILIDMigration|null);
@@ -47,10 +47,28 @@ export namespace DeviceCapabilities {
         public userHasAvatar?: (DeviceCapabilities.DeviceCapabilities.IUserHasAvatar|null);
 
         /** DeviceCapabilities memberNameTagPrimarySupport. */
-        public memberNameTagPrimarySupport: DeviceCapabilities.DeviceCapabilities.MemberNameTagPrimarySupport;
+        public memberNameTagPrimarySupport?: (DeviceCapabilities.DeviceCapabilities.MemberNameTagPrimarySupport|null);
 
         /** DeviceCapabilities aiThread. */
         public aiThread?: (DeviceCapabilities.DeviceCapabilities.IAiThread|null);
+
+        /** DeviceCapabilities _chatLockSupportLevel. */
+        public _chatLockSupportLevel?: "chatLockSupportLevel";
+
+        /** DeviceCapabilities _lidMigration. */
+        public _lidMigration?: "lidMigration";
+
+        /** DeviceCapabilities _businessBroadcast. */
+        public _businessBroadcast?: "businessBroadcast";
+
+        /** DeviceCapabilities _userHasAvatar. */
+        public _userHasAvatar?: "userHasAvatar";
+
+        /** DeviceCapabilities _memberNameTagPrimarySupport. */
+        public _memberNameTagPrimarySupport?: "memberNameTagPrimarySupport";
+
+        /** DeviceCapabilities _aiThread. */
+        public _aiThread?: "aiThread";
 
         /**
          * Creates a new DeviceCapabilities instance using the specified properties.
@@ -149,7 +167,10 @@ export namespace DeviceCapabilities {
             constructor(properties?: DeviceCapabilities.DeviceCapabilities.IAiThread);
 
             /** AiThread supportLevel. */
-            public supportLevel: DeviceCapabilities.DeviceCapabilities.AiThread.SupportLevel;
+            public supportLevel?: (DeviceCapabilities.DeviceCapabilities.AiThread.SupportLevel|null);
+
+            /** AiThread _supportLevel. */
+            public _supportLevel?: "supportLevel";
 
             /**
              * Creates a new AiThread instance using the specified properties.
@@ -256,7 +277,10 @@ export namespace DeviceCapabilities {
             constructor(properties?: DeviceCapabilities.DeviceCapabilities.IBusinessBroadcast);
 
             /** BusinessBroadcast importListEnabled. */
-            public importListEnabled: boolean;
+            public importListEnabled?: (boolean|null);
+
+            /** BusinessBroadcast _importListEnabled. */
+            public _importListEnabled?: "importListEnabled";
 
             /**
              * Creates a new BusinessBroadcast instance using the specified properties.
@@ -360,7 +384,10 @@ export namespace DeviceCapabilities {
             constructor(properties?: DeviceCapabilities.DeviceCapabilities.ILIDMigration);
 
             /** LIDMigration chatDbMigrationTimestamp. */
-            public chatDbMigrationTimestamp: (number|Long);
+            public chatDbMigrationTimestamp?: (number|Long|null);
+
+            /** LIDMigration _chatDbMigrationTimestamp. */
+            public _chatDbMigrationTimestamp?: "chatDbMigrationTimestamp";
 
             /**
              * Creates a new LIDMigration instance using the specified properties.
@@ -464,7 +491,10 @@ export namespace DeviceCapabilities {
             constructor(properties?: DeviceCapabilities.DeviceCapabilities.IUserHasAvatar);
 
             /** UserHasAvatar userHasAvatar. */
-            public userHasAvatar: boolean;
+            public userHasAvatar?: (boolean|null);
+
+            /** UserHasAvatar _userHasAvatar. */
+            public _userHasAvatar?: "userHasAvatar";
 
             /**
              * Creates a new UserHasAvatar instance using the specified properties.
