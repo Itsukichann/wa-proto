@@ -18,6 +18,244 @@ $root.Web = (function() {
      */
     var Web = {};
 
+    Web.QuarantinedMessage = (function() {
+
+        /**
+         * Properties of a QuarantinedMessage.
+         * @memberof Web
+         * @interface IQuarantinedMessage
+         * @property {Uint8Array|null} [originalData] QuarantinedMessage originalData
+         * @property {string|null} [extractedText] QuarantinedMessage extractedText
+         */
+
+        /**
+         * Constructs a new QuarantinedMessage.
+         * @memberof Web
+         * @classdesc Represents a QuarantinedMessage.
+         * @implements IQuarantinedMessage
+         * @constructor
+         * @param {Web.IQuarantinedMessage=} [properties] Properties to set
+         */
+        function QuarantinedMessage(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * QuarantinedMessage originalData.
+         * @member {Uint8Array} originalData
+         * @memberof Web.QuarantinedMessage
+         * @instance
+         */
+        QuarantinedMessage.prototype.originalData = $util.newBuffer([]);
+
+        /**
+         * QuarantinedMessage extractedText.
+         * @member {string} extractedText
+         * @memberof Web.QuarantinedMessage
+         * @instance
+         */
+        QuarantinedMessage.prototype.extractedText = "";
+
+        /**
+         * Creates a new QuarantinedMessage instance using the specified properties.
+         * @function create
+         * @memberof Web.QuarantinedMessage
+         * @static
+         * @param {Web.IQuarantinedMessage=} [properties] Properties to set
+         * @returns {Web.QuarantinedMessage} QuarantinedMessage instance
+         */
+        QuarantinedMessage.create = function create(properties) {
+            return new QuarantinedMessage(properties);
+        };
+
+        /**
+         * Encodes the specified QuarantinedMessage message. Does not implicitly {@link Web.QuarantinedMessage.verify|verify} messages.
+         * @function encode
+         * @memberof Web.QuarantinedMessage
+         * @static
+         * @param {Web.IQuarantinedMessage} message QuarantinedMessage message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        QuarantinedMessage.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.originalData != null && Object.hasOwnProperty.call(message, "originalData"))
+                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.originalData);
+            if (message.extractedText != null && Object.hasOwnProperty.call(message, "extractedText"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.extractedText);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified QuarantinedMessage message, length delimited. Does not implicitly {@link Web.QuarantinedMessage.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof Web.QuarantinedMessage
+         * @static
+         * @param {Web.IQuarantinedMessage} message QuarantinedMessage message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        QuarantinedMessage.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a QuarantinedMessage message from the specified reader or buffer.
+         * @function decode
+         * @memberof Web.QuarantinedMessage
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {Web.QuarantinedMessage} QuarantinedMessage
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        QuarantinedMessage.decode = function decode(reader, length, error) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Web.QuarantinedMessage();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                if (tag === error)
+                    break;
+                switch (tag >>> 3) {
+                case 1: {
+                        message.originalData = reader.bytes();
+                        break;
+                    }
+                case 2: {
+                        message.extractedText = reader.string();
+                        break;
+                    }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a QuarantinedMessage message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof Web.QuarantinedMessage
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {Web.QuarantinedMessage} QuarantinedMessage
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        QuarantinedMessage.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a QuarantinedMessage message.
+         * @function verify
+         * @memberof Web.QuarantinedMessage
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        QuarantinedMessage.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.originalData != null && message.hasOwnProperty("originalData"))
+                if (!(message.originalData && typeof message.originalData.length === "number" || $util.isString(message.originalData)))
+                    return "originalData: buffer expected";
+            if (message.extractedText != null && message.hasOwnProperty("extractedText"))
+                if (!$util.isString(message.extractedText))
+                    return "extractedText: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a QuarantinedMessage message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof Web.QuarantinedMessage
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {Web.QuarantinedMessage} QuarantinedMessage
+         */
+        QuarantinedMessage.fromObject = function fromObject(object) {
+            if (object instanceof $root.Web.QuarantinedMessage)
+                return object;
+            var message = new $root.Web.QuarantinedMessage();
+            if (object.originalData != null)
+                if (typeof object.originalData === "string")
+                    $util.base64.decode(object.originalData, message.originalData = $util.newBuffer($util.base64.length(object.originalData)), 0);
+                else if (object.originalData.length >= 0)
+                    message.originalData = object.originalData;
+            if (object.extractedText != null)
+                message.extractedText = String(object.extractedText);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a QuarantinedMessage message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof Web.QuarantinedMessage
+         * @static
+         * @param {Web.QuarantinedMessage} message QuarantinedMessage
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        QuarantinedMessage.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                if (options.bytes === String)
+                    object.originalData = "";
+                else {
+                    object.originalData = [];
+                    if (options.bytes !== Array)
+                        object.originalData = $util.newBuffer(object.originalData);
+                }
+                object.extractedText = "";
+            }
+            if (message.originalData != null && message.hasOwnProperty("originalData"))
+                object.originalData = options.bytes === String ? $util.base64.encode(message.originalData, 0, message.originalData.length) : options.bytes === Array ? Array.prototype.slice.call(message.originalData) : message.originalData;
+            if (message.extractedText != null && message.hasOwnProperty("extractedText"))
+                object.extractedText = message.extractedText;
+            return object;
+        };
+
+        /**
+         * Converts this QuarantinedMessage to JSON.
+         * @function toJSON
+         * @memberof Web.QuarantinedMessage
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        QuarantinedMessage.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for QuarantinedMessage
+         * @function getTypeUrl
+         * @memberof Web.QuarantinedMessage
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        QuarantinedMessage.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/Web.QuarantinedMessage";
+        };
+
+        return QuarantinedMessage;
+    })();
+
     Web.GroupHistoryBundleInfo = (function() {
 
         /**
@@ -179,6 +417,7 @@ $root.Web = (function() {
                 case 1:
                 case 2:
                 case 3:
+                case 4:
                     break;
                 }
             return null;
@@ -223,6 +462,10 @@ $root.Web = (function() {
             case "INJECTION_FAILED":
             case 3:
                 message.processState = 3;
+                break;
+            case "INJECTION_FAILED_NO_RETRY":
+            case 4:
+                message.processState = 4;
                 break;
             }
             return message;
@@ -286,6 +529,7 @@ $root.Web = (function() {
          * @property {number} INJECTED=1 INJECTED value
          * @property {number} INJECTED_PARTIAL=2 INJECTED_PARTIAL value
          * @property {number} INJECTION_FAILED=3 INJECTION_FAILED value
+         * @property {number} INJECTION_FAILED_NO_RETRY=4 INJECTION_FAILED_NO_RETRY value
          */
         GroupHistoryBundleInfo.ProcessState = (function() {
             var valuesById = {}, values = Object.create(valuesById);
@@ -293,6 +537,7 @@ $root.Web = (function() {
             values[valuesById[1] = "INJECTED"] = 1;
             values[valuesById[2] = "INJECTED_PARTIAL"] = 2;
             values[valuesById[3] = "INJECTION_FAILED"] = 3;
+            values[valuesById[4] = "INJECTION_FAILED_NO_RETRY"] = 4;
             return values;
         })();
 
@@ -306,6 +551,7 @@ $root.Web = (function() {
          * @memberof Web
          * @interface IGroupHistoryIndividualMessageInfo
          * @property {Protocol.IMessageKey|null} [bundleMessageKey] GroupHistoryIndividualMessageInfo bundleMessageKey
+         * @property {boolean|null} [editedAfterReceivedAsHistory] GroupHistoryIndividualMessageInfo editedAfterReceivedAsHistory
          */
 
         /**
@@ -330,6 +576,14 @@ $root.Web = (function() {
          * @instance
          */
         GroupHistoryIndividualMessageInfo.prototype.bundleMessageKey = null;
+
+        /**
+         * GroupHistoryIndividualMessageInfo editedAfterReceivedAsHistory.
+         * @member {boolean} editedAfterReceivedAsHistory
+         * @memberof Web.GroupHistoryIndividualMessageInfo
+         * @instance
+         */
+        GroupHistoryIndividualMessageInfo.prototype.editedAfterReceivedAsHistory = false;
 
         /**
          * Creates a new GroupHistoryIndividualMessageInfo instance using the specified properties.
@@ -357,6 +611,8 @@ $root.Web = (function() {
                 writer = $Writer.create();
             if (message.bundleMessageKey != null && Object.hasOwnProperty.call(message, "bundleMessageKey"))
                 $root.Protocol.MessageKey.encode(message.bundleMessageKey, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.editedAfterReceivedAsHistory != null && Object.hasOwnProperty.call(message, "editedAfterReceivedAsHistory"))
+                writer.uint32(/* id 2, wireType 0 =*/16).bool(message.editedAfterReceivedAsHistory);
             return writer;
         };
 
@@ -395,6 +651,10 @@ $root.Web = (function() {
                 switch (tag >>> 3) {
                 case 1: {
                         message.bundleMessageKey = $root.Protocol.MessageKey.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 2: {
+                        message.editedAfterReceivedAsHistory = reader.bool();
                         break;
                     }
                 default:
@@ -437,6 +697,9 @@ $root.Web = (function() {
                 if (error)
                     return "bundleMessageKey." + error;
             }
+            if (message.editedAfterReceivedAsHistory != null && message.hasOwnProperty("editedAfterReceivedAsHistory"))
+                if (typeof message.editedAfterReceivedAsHistory !== "boolean")
+                    return "editedAfterReceivedAsHistory: boolean expected";
             return null;
         };
 
@@ -457,6 +720,8 @@ $root.Web = (function() {
                     throw TypeError(".Web.GroupHistoryIndividualMessageInfo.bundleMessageKey: object expected");
                 message.bundleMessageKey = $root.Protocol.MessageKey.fromObject(object.bundleMessageKey);
             }
+            if (object.editedAfterReceivedAsHistory != null)
+                message.editedAfterReceivedAsHistory = Boolean(object.editedAfterReceivedAsHistory);
             return message;
         };
 
@@ -473,10 +738,14 @@ $root.Web = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults)
+            if (options.defaults) {
                 object.bundleMessageKey = null;
+                object.editedAfterReceivedAsHistory = false;
+            }
             if (message.bundleMessageKey != null && message.hasOwnProperty("bundleMessageKey"))
                 object.bundleMessageKey = $root.Protocol.MessageKey.toObject(message.bundleMessageKey, options);
+            if (message.editedAfterReceivedAsHistory != null && message.hasOwnProperty("editedAfterReceivedAsHistory"))
+                object.editedAfterReceivedAsHistory = message.editedAfterReceivedAsHistory;
             return object;
         };
 
@@ -515,10 +784,10 @@ $root.Web = (function() {
          * Properties of a Citation.
          * @memberof Web
          * @interface ICitation
-         * @property {string} title Citation title
-         * @property {string} subtitle Citation subtitle
-         * @property {string} cmsId Citation cmsId
-         * @property {string} imageUrl Citation imageUrl
+         * @property {string|null} [title] Citation title
+         * @property {string|null} [subtitle] Citation subtitle
+         * @property {string|null} [cmsId] Citation cmsId
+         * @property {string|null} [imageUrl] Citation imageUrl
          */
 
         /**
@@ -592,10 +861,14 @@ $root.Web = (function() {
         Citation.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            writer.uint32(/* id 1, wireType 2 =*/10).string(message.title);
-            writer.uint32(/* id 2, wireType 2 =*/18).string(message.subtitle);
-            writer.uint32(/* id 3, wireType 2 =*/26).string(message.cmsId);
-            writer.uint32(/* id 4, wireType 2 =*/34).string(message.imageUrl);
+            if (message.title != null && Object.hasOwnProperty.call(message, "title"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.title);
+            if (message.subtitle != null && Object.hasOwnProperty.call(message, "subtitle"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.subtitle);
+            if (message.cmsId != null && Object.hasOwnProperty.call(message, "cmsId"))
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.cmsId);
+            if (message.imageUrl != null && Object.hasOwnProperty.call(message, "imageUrl"))
+                writer.uint32(/* id 4, wireType 2 =*/34).string(message.imageUrl);
             return writer;
         };
 
@@ -653,14 +926,6 @@ $root.Web = (function() {
                     break;
                 }
             }
-            if (!message.hasOwnProperty("title"))
-                throw $util.ProtocolError("missing required 'title'", { instance: message });
-            if (!message.hasOwnProperty("subtitle"))
-                throw $util.ProtocolError("missing required 'subtitle'", { instance: message });
-            if (!message.hasOwnProperty("cmsId"))
-                throw $util.ProtocolError("missing required 'cmsId'", { instance: message });
-            if (!message.hasOwnProperty("imageUrl"))
-                throw $util.ProtocolError("missing required 'imageUrl'", { instance: message });
             return message;
         };
 
@@ -691,14 +956,18 @@ $root.Web = (function() {
         Citation.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (!$util.isString(message.title))
-                return "title: string expected";
-            if (!$util.isString(message.subtitle))
-                return "subtitle: string expected";
-            if (!$util.isString(message.cmsId))
-                return "cmsId: string expected";
-            if (!$util.isString(message.imageUrl))
-                return "imageUrl: string expected";
+            if (message.title != null && message.hasOwnProperty("title"))
+                if (!$util.isString(message.title))
+                    return "title: string expected";
+            if (message.subtitle != null && message.hasOwnProperty("subtitle"))
+                if (!$util.isString(message.subtitle))
+                    return "subtitle: string expected";
+            if (message.cmsId != null && message.hasOwnProperty("cmsId"))
+                if (!$util.isString(message.cmsId))
+                    return "cmsId: string expected";
+            if (message.imageUrl != null && message.hasOwnProperty("imageUrl"))
+                if (!$util.isString(message.imageUrl))
+                    return "imageUrl: string expected";
             return null;
         };
 
@@ -4535,7 +4804,7 @@ $root.Web = (function() {
          * Properties of a UserReceipt.
          * @memberof Web
          * @interface IUserReceipt
-         * @property {string} userJid UserReceipt userJid
+         * @property {string|null} [userJid] UserReceipt userJid
          * @property {number|Long|null} [receiptTimestamp] UserReceipt receiptTimestamp
          * @property {number|Long|null} [readTimestamp] UserReceipt readTimestamp
          * @property {number|Long|null} [playedTimestamp] UserReceipt playedTimestamp
@@ -4632,7 +4901,8 @@ $root.Web = (function() {
         UserReceipt.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            writer.uint32(/* id 1, wireType 2 =*/10).string(message.userJid);
+            if (message.userJid != null && Object.hasOwnProperty.call(message, "userJid"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.userJid);
             if (message.receiptTimestamp != null && Object.hasOwnProperty.call(message, "receiptTimestamp"))
                 writer.uint32(/* id 2, wireType 0 =*/16).int64(message.receiptTimestamp);
             if (message.readTimestamp != null && Object.hasOwnProperty.call(message, "readTimestamp"))
@@ -4714,8 +4984,6 @@ $root.Web = (function() {
                     break;
                 }
             }
-            if (!message.hasOwnProperty("userJid"))
-                throw $util.ProtocolError("missing required 'userJid'", { instance: message });
             return message;
         };
 
@@ -4746,8 +5014,9 @@ $root.Web = (function() {
         UserReceipt.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (!$util.isString(message.userJid))
-                return "userJid: string expected";
+            if (message.userJid != null && message.hasOwnProperty("userJid"))
+                if (!$util.isString(message.userJid))
+                    return "userJid: string expected";
             if (message.receiptTimestamp != null && message.hasOwnProperty("receiptTimestamp"))
                 if (!$util.isInteger(message.receiptTimestamp) && !(message.receiptTimestamp && $util.isInteger(message.receiptTimestamp.low) && $util.isInteger(message.receiptTimestamp.high)))
                     return "receiptTimestamp: integer|Long expected";
@@ -4932,7 +5201,7 @@ $root.Web = (function() {
          * Properties of a StatusPSA.
          * @memberof Web
          * @interface IStatusPSA
-         * @property {number|Long} campaignId StatusPSA campaignId
+         * @property {number|Long|null} [campaignId] StatusPSA campaignId
          * @property {number|Long|null} [campaignExpirationTimestamp] StatusPSA campaignExpirationTimestamp
          */
 
@@ -4991,7 +5260,8 @@ $root.Web = (function() {
         StatusPSA.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            writer.uint32(/* id 44, wireType 0 =*/352).uint64(message.campaignId);
+            if (message.campaignId != null && Object.hasOwnProperty.call(message, "campaignId"))
+                writer.uint32(/* id 44, wireType 0 =*/352).uint64(message.campaignId);
             if (message.campaignExpirationTimestamp != null && Object.hasOwnProperty.call(message, "campaignExpirationTimestamp"))
                 writer.uint32(/* id 45, wireType 0 =*/360).uint64(message.campaignExpirationTimestamp);
             return writer;
@@ -5043,8 +5313,6 @@ $root.Web = (function() {
                     break;
                 }
             }
-            if (!message.hasOwnProperty("campaignId"))
-                throw $util.ProtocolError("missing required 'campaignId'", { instance: message });
             return message;
         };
 
@@ -5075,8 +5343,9 @@ $root.Web = (function() {
         StatusPSA.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (!$util.isInteger(message.campaignId) && !(message.campaignId && $util.isInteger(message.campaignId.low) && $util.isInteger(message.campaignId.high)))
-                return "campaignId: integer|Long expected";
+            if (message.campaignId != null && message.hasOwnProperty("campaignId"))
+                if (!$util.isInteger(message.campaignId) && !(message.campaignId && $util.isInteger(message.campaignId.low) && $util.isInteger(message.campaignId.high)))
+                    return "campaignId: integer|Long expected";
             if (message.campaignExpirationTimestamp != null && message.hasOwnProperty("campaignExpirationTimestamp"))
                 if (!$util.isInteger(message.campaignExpirationTimestamp) && !(message.campaignExpirationTimestamp && $util.isInteger(message.campaignExpirationTimestamp.low) && $util.isInteger(message.campaignExpirationTimestamp.high)))
                     return "campaignExpirationTimestamp: integer|Long expected";
@@ -10181,7 +10450,7 @@ $root.Web = (function() {
          * Properties of a WebMessageInfo.
          * @memberof Web
          * @interface IWebMessageInfo
-         * @property {Protocol.IMessageKey} key WebMessageInfo key
+         * @property {Protocol.IMessageKey|null} [key] WebMessageInfo key
          * @property {E2E.IMessage|null} [message] WebMessageInfo message
          * @property {number|Long|null} [messageTimestamp] WebMessageInfo messageTimestamp
          * @property {Web.WebMessageInfo.Status|null} [status] WebMessageInfo status
@@ -10246,6 +10515,7 @@ $root.Web = (function() {
          * @property {Web.IGroupHistoryIndividualMessageInfo|null} [groupHistoryIndividualMessageInfo] WebMessageInfo groupHistoryIndividualMessageInfo
          * @property {Web.IGroupHistoryBundleInfo|null} [groupHistoryBundleInfo] WebMessageInfo groupHistoryBundleInfo
          * @property {Web.IInteractiveMessageAdditionalMetadata|null} [interactiveMessageAdditionalMetadata] WebMessageInfo interactiveMessageAdditionalMetadata
+         * @property {Web.IQuarantinedMessage|null} [quarantinedMessage] WebMessageInfo quarantinedMessage
          */
 
         /**
@@ -10275,7 +10545,7 @@ $root.Web = (function() {
 
         /**
          * WebMessageInfo key.
-         * @member {Protocol.IMessageKey} key
+         * @member {Protocol.IMessageKey|null|undefined} key
          * @memberof Web.WebMessageInfo
          * @instance
          */
@@ -10794,6 +11064,14 @@ $root.Web = (function() {
         WebMessageInfo.prototype.interactiveMessageAdditionalMetadata = null;
 
         /**
+         * WebMessageInfo quarantinedMessage.
+         * @member {Web.IQuarantinedMessage|null|undefined} quarantinedMessage
+         * @memberof Web.WebMessageInfo
+         * @instance
+         */
+        WebMessageInfo.prototype.quarantinedMessage = null;
+
+        /**
          * Creates a new WebMessageInfo instance using the specified properties.
          * @function create
          * @memberof Web.WebMessageInfo
@@ -10817,7 +11095,8 @@ $root.Web = (function() {
         WebMessageInfo.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            $root.Protocol.MessageKey.encode(message.key, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.key != null && Object.hasOwnProperty.call(message, "key"))
+                $root.Protocol.MessageKey.encode(message.key, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
             if (message.message != null && Object.hasOwnProperty.call(message, "message"))
                 $root.E2E.Message.encode(message.message, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
             if (message.messageTimestamp != null && Object.hasOwnProperty.call(message, "messageTimestamp"))
@@ -10956,6 +11235,8 @@ $root.Web = (function() {
                 $root.Web.GroupHistoryBundleInfo.encode(message.groupHistoryBundleInfo, writer.uint32(/* id 75, wireType 2 =*/602).fork()).ldelim();
             if (message.interactiveMessageAdditionalMetadata != null && Object.hasOwnProperty.call(message, "interactiveMessageAdditionalMetadata"))
                 $root.Web.InteractiveMessageAdditionalMetadata.encode(message.interactiveMessageAdditionalMetadata, writer.uint32(/* id 76, wireType 2 =*/610).fork()).ldelim();
+            if (message.quarantinedMessage != null && Object.hasOwnProperty.call(message, "quarantinedMessage"))
+                $root.Web.QuarantinedMessage.encode(message.quarantinedMessage, writer.uint32(/* id 77, wireType 2 =*/618).fork()).ldelim();
             return writer;
         };
 
@@ -11272,13 +11553,15 @@ $root.Web = (function() {
                         message.interactiveMessageAdditionalMetadata = $root.Web.InteractiveMessageAdditionalMetadata.decode(reader, reader.uint32());
                         break;
                     }
+                case 77: {
+                        message.quarantinedMessage = $root.Web.QuarantinedMessage.decode(reader, reader.uint32());
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
                 }
             }
-            if (!message.hasOwnProperty("key"))
-                throw $util.ProtocolError("missing required 'key'", { instance: message });
             return message;
         };
 
@@ -11309,7 +11592,7 @@ $root.Web = (function() {
         WebMessageInfo.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            {
+            if (message.key != null && message.hasOwnProperty("key")) {
                 var error = $root.Protocol.MessageKey.verify(message.key);
                 if (error)
                     return "key." + error;
@@ -11588,6 +11871,10 @@ $root.Web = (function() {
                 case 217:
                 case 218:
                 case 219:
+                case 220:
+                case 221:
+                case 222:
+                case 223:
                     break;
                 }
             if (message.clearMedia != null && message.hasOwnProperty("clearMedia"))
@@ -11836,6 +12123,11 @@ $root.Web = (function() {
                 var error = $root.Web.InteractiveMessageAdditionalMetadata.verify(message.interactiveMessageAdditionalMetadata);
                 if (error)
                     return "interactiveMessageAdditionalMetadata." + error;
+            }
+            if (message.quarantinedMessage != null && message.hasOwnProperty("quarantinedMessage")) {
+                var error = $root.Web.QuarantinedMessage.verify(message.quarantinedMessage);
+                if (error)
+                    return "quarantinedMessage." + error;
             }
             return null;
         };
@@ -12820,6 +13112,22 @@ $root.Web = (function() {
             case 219:
                 message.messageStubType = 219;
                 break;
+            case "QUARANTINED_MESSAGE":
+            case 220:
+                message.messageStubType = 220;
+                break;
+            case "GROUP_MEMBER_SHARE_GROUP_HISTORY_MODE":
+            case 221:
+                message.messageStubType = 221;
+                break;
+            case "GROUP_OPEN_BOT_ADDED":
+            case 222:
+                message.messageStubType = 222;
+                break;
+            case "GROUP_TEE_BOT_ADDED":
+            case 223:
+                message.messageStubType = 223;
+                break;
             }
             if (object.clearMedia != null)
                 message.clearMedia = Boolean(object.clearMedia);
@@ -13095,6 +13403,11 @@ $root.Web = (function() {
                     throw TypeError(".Web.WebMessageInfo.interactiveMessageAdditionalMetadata: object expected");
                 message.interactiveMessageAdditionalMetadata = $root.Web.InteractiveMessageAdditionalMetadata.fromObject(object.interactiveMessageAdditionalMetadata);
             }
+            if (object.quarantinedMessage != null) {
+                if (typeof object.quarantinedMessage !== "object")
+                    throw TypeError(".Web.WebMessageInfo.quarantinedMessage: object expected");
+                message.quarantinedMessage = $root.Web.QuarantinedMessage.fromObject(object.quarantinedMessage);
+            }
             return message;
         };
 
@@ -13217,6 +13530,7 @@ $root.Web = (function() {
                 object.groupHistoryIndividualMessageInfo = null;
                 object.groupHistoryBundleInfo = null;
                 object.interactiveMessageAdditionalMetadata = null;
+                object.quarantinedMessage = null;
             }
             if (message.key != null && message.hasOwnProperty("key"))
                 object.key = $root.Protocol.MessageKey.toObject(message.key, options);
@@ -13393,6 +13707,8 @@ $root.Web = (function() {
                 object.groupHistoryBundleInfo = $root.Web.GroupHistoryBundleInfo.toObject(message.groupHistoryBundleInfo, options);
             if (message.interactiveMessageAdditionalMetadata != null && message.hasOwnProperty("interactiveMessageAdditionalMetadata"))
                 object.interactiveMessageAdditionalMetadata = $root.Web.InteractiveMessageAdditionalMetadata.toObject(message.interactiveMessageAdditionalMetadata, options);
+            if (message.quarantinedMessage != null && message.hasOwnProperty("quarantinedMessage"))
+                object.quarantinedMessage = $root.Web.QuarantinedMessage.toObject(message.quarantinedMessage, options);
             return object;
         };
 
@@ -13686,6 +14002,10 @@ $root.Web = (function() {
          * @property {number} GROUP_MEMBER_LINK_MODE=217 GROUP_MEMBER_LINK_MODE value
          * @property {number} BIZ_AUTOMATICALLY_LABELED_CHAT_SYSTEM_MESSAGE=218 BIZ_AUTOMATICALLY_LABELED_CHAT_SYSTEM_MESSAGE value
          * @property {number} PHONE_NUMBER_HIDING_CHAT_DEPRECATED_MESSAGE=219 PHONE_NUMBER_HIDING_CHAT_DEPRECATED_MESSAGE value
+         * @property {number} QUARANTINED_MESSAGE=220 QUARANTINED_MESSAGE value
+         * @property {number} GROUP_MEMBER_SHARE_GROUP_HISTORY_MODE=221 GROUP_MEMBER_SHARE_GROUP_HISTORY_MODE value
+         * @property {number} GROUP_OPEN_BOT_ADDED=222 GROUP_OPEN_BOT_ADDED value
+         * @property {number} GROUP_TEE_BOT_ADDED=223 GROUP_TEE_BOT_ADDED value
          */
         WebMessageInfo.StubType = (function() {
             var valuesById = {}, values = Object.create(valuesById);
@@ -13909,6 +14229,10 @@ $root.Web = (function() {
             values[valuesById[217] = "GROUP_MEMBER_LINK_MODE"] = 217;
             values[valuesById[218] = "BIZ_AUTOMATICALLY_LABELED_CHAT_SYSTEM_MESSAGE"] = 218;
             values[valuesById[219] = "PHONE_NUMBER_HIDING_CHAT_DEPRECATED_MESSAGE"] = 219;
+            values[valuesById[220] = "QUARANTINED_MESSAGE"] = 220;
+            values[valuesById[221] = "GROUP_MEMBER_SHARE_GROUP_HISTORY_MODE"] = 221;
+            values[valuesById[222] = "GROUP_OPEN_BOT_ADDED"] = 222;
+            values[valuesById[223] = "GROUP_TEE_BOT_ADDED"] = 223;
             return values;
         })();
 
@@ -23376,6 +23700,7 @@ $root.E2E = (function() {
          * @property {Protocol.ILimitSharing|null} [limitSharing] MessageContextInfo limitSharing
          * @property {Protocol.ILimitSharing|null} [limitSharingV2] MessageContextInfo limitSharingV2
          * @property {Array.<E2E.IThreadID>|null} [threadId] MessageContextInfo threadId
+         * @property {E2E.WebLinkRenderConfig|null} [weblinkRenderConfig] MessageContextInfo weblinkRenderConfig
          */
 
         /**
@@ -23515,6 +23840,14 @@ $root.E2E = (function() {
         MessageContextInfo.prototype.threadId = $util.emptyArray;
 
         /**
+         * MessageContextInfo weblinkRenderConfig.
+         * @member {E2E.WebLinkRenderConfig} weblinkRenderConfig
+         * @memberof E2E.MessageContextInfo
+         * @instance
+         */
+        MessageContextInfo.prototype.weblinkRenderConfig = 0;
+
+        /**
          * Creates a new MessageContextInfo instance using the specified properties.
          * @function create
          * @memberof E2E.MessageContextInfo
@@ -23569,6 +23902,8 @@ $root.E2E = (function() {
             if (message.threadId != null && message.threadId.length)
                 for (var i = 0; i < message.threadId.length; ++i)
                     $root.E2E.ThreadID.encode(message.threadId[i], writer.uint32(/* id 15, wireType 2 =*/122).fork()).ldelim();
+            if (message.weblinkRenderConfig != null && Object.hasOwnProperty.call(message, "weblinkRenderConfig"))
+                writer.uint32(/* id 16, wireType 0 =*/128).int32(message.weblinkRenderConfig);
             return writer;
         };
 
@@ -23665,6 +24000,10 @@ $root.E2E = (function() {
                         if (!(message.threadId && message.threadId.length))
                             message.threadId = [];
                         message.threadId.push($root.E2E.ThreadID.decode(reader, reader.uint32()));
+                        break;
+                    }
+                case 16: {
+                        message.weblinkRenderConfig = reader.int32();
                         break;
                     }
                 default:
@@ -23768,6 +24107,14 @@ $root.E2E = (function() {
                         return "threadId." + error;
                 }
             }
+            if (message.weblinkRenderConfig != null && message.hasOwnProperty("weblinkRenderConfig"))
+                switch (message.weblinkRenderConfig) {
+                default:
+                    return "weblinkRenderConfig: enum value expected";
+                case 0:
+                case 1:
+                    break;
+                }
             return null;
         };
 
@@ -23859,6 +24206,22 @@ $root.E2E = (function() {
                     message.threadId[i] = $root.E2E.ThreadID.fromObject(object.threadId[i]);
                 }
             }
+            switch (object.weblinkRenderConfig) {
+            default:
+                if (typeof object.weblinkRenderConfig === "number") {
+                    message.weblinkRenderConfig = object.weblinkRenderConfig;
+                    break;
+                }
+                break;
+            case "WEBVIEW":
+            case 0:
+                message.weblinkRenderConfig = 0;
+                break;
+            case "SYSTEM":
+            case 1:
+                message.weblinkRenderConfig = 1;
+                break;
+            }
             return message;
         };
 
@@ -23910,6 +24273,7 @@ $root.E2E = (function() {
                 object.supportPayload = "";
                 object.limitSharing = null;
                 object.limitSharingV2 = null;
+                object.weblinkRenderConfig = options.enums === String ? "WEBVIEW" : 0;
             }
             if (message.deviceListMetadata != null && message.hasOwnProperty("deviceListMetadata"))
                 object.deviceListMetadata = $root.E2E.DeviceListMetadata.toObject(message.deviceListMetadata, options);
@@ -23944,6 +24308,8 @@ $root.E2E = (function() {
                 for (var j = 0; j < message.threadId.length; ++j)
                     object.threadId[j] = $root.E2E.ThreadID.toObject(message.threadId[j], options);
             }
+            if (message.weblinkRenderConfig != null && message.hasOwnProperty("weblinkRenderConfig"))
+                object.weblinkRenderConfig = options.enums === String ? $root.E2E.WebLinkRenderConfig[message.weblinkRenderConfig] === undefined ? message.weblinkRenderConfig : $root.E2E.WebLinkRenderConfig[message.weblinkRenderConfig] : message.weblinkRenderConfig;
             return object;
         };
 
@@ -30109,13 +30475,11 @@ $root.E2E = (function() {
          * @property {E2E.Message.IStatusQuestionAnswerMessage|null} [statusQuestionAnswerMessage] Message statusQuestionAnswerMessage
          * @property {E2E.Message.IFutureProofMessage|null} [questionReplyMessage] Message questionReplyMessage
          * @property {E2E.Message.IQuestionResponseMessage|null} [questionResponseMessage] Message questionResponseMessage
-         * @property {E2E.Message.INewsletterFollowerInviteMessage|null} [newsletterFollowerInviteMessage] Message newsletterFollowerInviteMessage
          * @property {E2E.Message.IStatusQuotedMessage|null} [statusQuotedMessage] Message statusQuotedMessage
          * @property {E2E.Message.IStatusStickerInteractionMessage|null} [statusStickerInteractionMessage] Message statusStickerInteractionMessage
          * @property {E2E.Message.IPollCreationMessage|null} [pollCreationMessageV5] Message pollCreationMessageV5
-         * @property {E2E.Message.IPollResultSnapshotMessage|null} [pollResultSnapshotMessageV2] Message pollResultSnapshotMessageV2
          * @property {E2E.Message.INewsletterFollowerInviteMessage|null} [newsletterFollowerInviteMessageV2] Message newsletterFollowerInviteMessageV2
-         * @property {E2E.Message.IRequestContactInfoMessage|null} [requestContactInfoMessage] Message requestContactInfoMessage
+         * @property {E2E.Message.IPollResultSnapshotMessage|null} [pollResultSnapshotMessageV3] Message pollResultSnapshotMessageV3
          */
 
         /**
@@ -30854,14 +31218,6 @@ $root.E2E = (function() {
         Message.prototype.questionResponseMessage = null;
 
         /**
-         * Message newsletterFollowerInviteMessage.
-         * @member {E2E.Message.INewsletterFollowerInviteMessage|null|undefined} newsletterFollowerInviteMessage
-         * @memberof E2E.Message
-         * @instance
-         */
-        Message.prototype.newsletterFollowerInviteMessage = null;
-
-        /**
          * Message statusQuotedMessage.
          * @member {E2E.Message.IStatusQuotedMessage|null|undefined} statusQuotedMessage
          * @memberof E2E.Message
@@ -30886,14 +31242,6 @@ $root.E2E = (function() {
         Message.prototype.pollCreationMessageV5 = null;
 
         /**
-         * Message pollResultSnapshotMessageV2.
-         * @member {E2E.Message.IPollResultSnapshotMessage|null|undefined} pollResultSnapshotMessageV2
-         * @memberof E2E.Message
-         * @instance
-         */
-        Message.prototype.pollResultSnapshotMessageV2 = null;
-
-        /**
          * Message newsletterFollowerInviteMessageV2.
          * @member {E2E.Message.INewsletterFollowerInviteMessage|null|undefined} newsletterFollowerInviteMessageV2
          * @memberof E2E.Message
@@ -30902,12 +31250,12 @@ $root.E2E = (function() {
         Message.prototype.newsletterFollowerInviteMessageV2 = null;
 
         /**
-         * Message requestContactInfoMessage.
-         * @member {E2E.Message.IRequestContactInfoMessage|null|undefined} requestContactInfoMessage
+         * Message pollResultSnapshotMessageV3.
+         * @member {E2E.Message.IPollResultSnapshotMessage|null|undefined} pollResultSnapshotMessageV3
          * @memberof E2E.Message
          * @instance
          */
-        Message.prototype.requestContactInfoMessage = null;
+        Message.prototype.pollResultSnapshotMessageV3 = null;
 
         /**
          * Creates a new Message instance using the specified properties.
@@ -31113,20 +31461,16 @@ $root.E2E = (function() {
                 $root.E2E.Message.FutureProofMessage.encode(message.questionReplyMessage, writer.uint32(/* id 106, wireType 2 =*/850).fork()).ldelim();
             if (message.questionResponseMessage != null && Object.hasOwnProperty.call(message, "questionResponseMessage"))
                 $root.E2E.Message.QuestionResponseMessage.encode(message.questionResponseMessage, writer.uint32(/* id 107, wireType 2 =*/858).fork()).ldelim();
-            if (message.newsletterFollowerInviteMessage != null && Object.hasOwnProperty.call(message, "newsletterFollowerInviteMessage"))
-                $root.E2E.Message.NewsletterFollowerInviteMessage.encode(message.newsletterFollowerInviteMessage, writer.uint32(/* id 108, wireType 2 =*/866).fork()).ldelim();
             if (message.statusQuotedMessage != null && Object.hasOwnProperty.call(message, "statusQuotedMessage"))
                 $root.E2E.Message.StatusQuotedMessage.encode(message.statusQuotedMessage, writer.uint32(/* id 109, wireType 2 =*/874).fork()).ldelim();
             if (message.statusStickerInteractionMessage != null && Object.hasOwnProperty.call(message, "statusStickerInteractionMessage"))
                 $root.E2E.Message.StatusStickerInteractionMessage.encode(message.statusStickerInteractionMessage, writer.uint32(/* id 110, wireType 2 =*/882).fork()).ldelim();
             if (message.pollCreationMessageV5 != null && Object.hasOwnProperty.call(message, "pollCreationMessageV5"))
                 $root.E2E.Message.PollCreationMessage.encode(message.pollCreationMessageV5, writer.uint32(/* id 111, wireType 2 =*/890).fork()).ldelim();
-            if (message.pollResultSnapshotMessageV2 != null && Object.hasOwnProperty.call(message, "pollResultSnapshotMessageV2"))
-                $root.E2E.Message.PollResultSnapshotMessage.encode(message.pollResultSnapshotMessageV2, writer.uint32(/* id 112, wireType 2 =*/898).fork()).ldelim();
             if (message.newsletterFollowerInviteMessageV2 != null && Object.hasOwnProperty.call(message, "newsletterFollowerInviteMessageV2"))
                 $root.E2E.Message.NewsletterFollowerInviteMessage.encode(message.newsletterFollowerInviteMessageV2, writer.uint32(/* id 113, wireType 2 =*/906).fork()).ldelim();
-            if (message.requestContactInfoMessage != null && Object.hasOwnProperty.call(message, "requestContactInfoMessage"))
-                $root.E2E.Message.RequestContactInfoMessage.encode(message.requestContactInfoMessage, writer.uint32(/* id 114, wireType 2 =*/914).fork()).ldelim();
+            if (message.pollResultSnapshotMessageV3 != null && Object.hasOwnProperty.call(message, "pollResultSnapshotMessageV3"))
+                $root.E2E.Message.PollResultSnapshotMessage.encode(message.pollResultSnapshotMessageV3, writer.uint32(/* id 115, wireType 2 =*/922).fork()).ldelim();
             return writer;
         };
 
@@ -31523,10 +31867,6 @@ $root.E2E = (function() {
                         message.questionResponseMessage = $root.E2E.Message.QuestionResponseMessage.decode(reader, reader.uint32());
                         break;
                     }
-                case 108: {
-                        message.newsletterFollowerInviteMessage = $root.E2E.Message.NewsletterFollowerInviteMessage.decode(reader, reader.uint32());
-                        break;
-                    }
                 case 109: {
                         message.statusQuotedMessage = $root.E2E.Message.StatusQuotedMessage.decode(reader, reader.uint32());
                         break;
@@ -31539,16 +31879,12 @@ $root.E2E = (function() {
                         message.pollCreationMessageV5 = $root.E2E.Message.PollCreationMessage.decode(reader, reader.uint32());
                         break;
                     }
-                case 112: {
-                        message.pollResultSnapshotMessageV2 = $root.E2E.Message.PollResultSnapshotMessage.decode(reader, reader.uint32());
-                        break;
-                    }
                 case 113: {
                         message.newsletterFollowerInviteMessageV2 = $root.E2E.Message.NewsletterFollowerInviteMessage.decode(reader, reader.uint32());
                         break;
                     }
-                case 114: {
-                        message.requestContactInfoMessage = $root.E2E.Message.RequestContactInfoMessage.decode(reader, reader.uint32());
+                case 115: {
+                        message.pollResultSnapshotMessageV3 = $root.E2E.Message.PollResultSnapshotMessage.decode(reader, reader.uint32());
                         break;
                     }
                 default:
@@ -32034,11 +32370,6 @@ $root.E2E = (function() {
                 if (error)
                     return "questionResponseMessage." + error;
             }
-            if (message.newsletterFollowerInviteMessage != null && message.hasOwnProperty("newsletterFollowerInviteMessage")) {
-                var error = $root.E2E.Message.NewsletterFollowerInviteMessage.verify(message.newsletterFollowerInviteMessage);
-                if (error)
-                    return "newsletterFollowerInviteMessage." + error;
-            }
             if (message.statusQuotedMessage != null && message.hasOwnProperty("statusQuotedMessage")) {
                 var error = $root.E2E.Message.StatusQuotedMessage.verify(message.statusQuotedMessage);
                 if (error)
@@ -32054,20 +32385,15 @@ $root.E2E = (function() {
                 if (error)
                     return "pollCreationMessageV5." + error;
             }
-            if (message.pollResultSnapshotMessageV2 != null && message.hasOwnProperty("pollResultSnapshotMessageV2")) {
-                var error = $root.E2E.Message.PollResultSnapshotMessage.verify(message.pollResultSnapshotMessageV2);
-                if (error)
-                    return "pollResultSnapshotMessageV2." + error;
-            }
             if (message.newsletterFollowerInviteMessageV2 != null && message.hasOwnProperty("newsletterFollowerInviteMessageV2")) {
                 var error = $root.E2E.Message.NewsletterFollowerInviteMessage.verify(message.newsletterFollowerInviteMessageV2);
                 if (error)
                     return "newsletterFollowerInviteMessageV2." + error;
             }
-            if (message.requestContactInfoMessage != null && message.hasOwnProperty("requestContactInfoMessage")) {
-                var error = $root.E2E.Message.RequestContactInfoMessage.verify(message.requestContactInfoMessage);
+            if (message.pollResultSnapshotMessageV3 != null && message.hasOwnProperty("pollResultSnapshotMessageV3")) {
+                var error = $root.E2E.Message.PollResultSnapshotMessage.verify(message.pollResultSnapshotMessageV3);
                 if (error)
-                    return "requestContactInfoMessage." + error;
+                    return "pollResultSnapshotMessageV3." + error;
             }
             return null;
         };
@@ -32531,11 +32857,6 @@ $root.E2E = (function() {
                     throw TypeError(".E2E.Message.questionResponseMessage: object expected");
                 message.questionResponseMessage = $root.E2E.Message.QuestionResponseMessage.fromObject(object.questionResponseMessage);
             }
-            if (object.newsletterFollowerInviteMessage != null) {
-                if (typeof object.newsletterFollowerInviteMessage !== "object")
-                    throw TypeError(".E2E.Message.newsletterFollowerInviteMessage: object expected");
-                message.newsletterFollowerInviteMessage = $root.E2E.Message.NewsletterFollowerInviteMessage.fromObject(object.newsletterFollowerInviteMessage);
-            }
             if (object.statusQuotedMessage != null) {
                 if (typeof object.statusQuotedMessage !== "object")
                     throw TypeError(".E2E.Message.statusQuotedMessage: object expected");
@@ -32551,20 +32872,15 @@ $root.E2E = (function() {
                     throw TypeError(".E2E.Message.pollCreationMessageV5: object expected");
                 message.pollCreationMessageV5 = $root.E2E.Message.PollCreationMessage.fromObject(object.pollCreationMessageV5);
             }
-            if (object.pollResultSnapshotMessageV2 != null) {
-                if (typeof object.pollResultSnapshotMessageV2 !== "object")
-                    throw TypeError(".E2E.Message.pollResultSnapshotMessageV2: object expected");
-                message.pollResultSnapshotMessageV2 = $root.E2E.Message.PollResultSnapshotMessage.fromObject(object.pollResultSnapshotMessageV2);
-            }
             if (object.newsletterFollowerInviteMessageV2 != null) {
                 if (typeof object.newsletterFollowerInviteMessageV2 !== "object")
                     throw TypeError(".E2E.Message.newsletterFollowerInviteMessageV2: object expected");
                 message.newsletterFollowerInviteMessageV2 = $root.E2E.Message.NewsletterFollowerInviteMessage.fromObject(object.newsletterFollowerInviteMessageV2);
             }
-            if (object.requestContactInfoMessage != null) {
-                if (typeof object.requestContactInfoMessage !== "object")
-                    throw TypeError(".E2E.Message.requestContactInfoMessage: object expected");
-                message.requestContactInfoMessage = $root.E2E.Message.RequestContactInfoMessage.fromObject(object.requestContactInfoMessage);
+            if (object.pollResultSnapshotMessageV3 != null) {
+                if (typeof object.pollResultSnapshotMessageV3 !== "object")
+                    throw TypeError(".E2E.Message.pollResultSnapshotMessageV3: object expected");
+                message.pollResultSnapshotMessageV3 = $root.E2E.Message.PollResultSnapshotMessage.fromObject(object.pollResultSnapshotMessageV3);
             }
             return message;
         };
@@ -32673,13 +32989,11 @@ $root.E2E = (function() {
                 object.statusQuestionAnswerMessage = null;
                 object.questionReplyMessage = null;
                 object.questionResponseMessage = null;
-                object.newsletterFollowerInviteMessage = null;
                 object.statusQuotedMessage = null;
                 object.statusStickerInteractionMessage = null;
                 object.pollCreationMessageV5 = null;
-                object.pollResultSnapshotMessageV2 = null;
                 object.newsletterFollowerInviteMessageV2 = null;
-                object.requestContactInfoMessage = null;
+                object.pollResultSnapshotMessageV3 = null;
             }
             if (message.conversation != null && message.hasOwnProperty("conversation"))
                 object.conversation = message.conversation;
@@ -32861,20 +33175,16 @@ $root.E2E = (function() {
                 object.questionReplyMessage = $root.E2E.Message.FutureProofMessage.toObject(message.questionReplyMessage, options);
             if (message.questionResponseMessage != null && message.hasOwnProperty("questionResponseMessage"))
                 object.questionResponseMessage = $root.E2E.Message.QuestionResponseMessage.toObject(message.questionResponseMessage, options);
-            if (message.newsletterFollowerInviteMessage != null && message.hasOwnProperty("newsletterFollowerInviteMessage"))
-                object.newsletterFollowerInviteMessage = $root.E2E.Message.NewsletterFollowerInviteMessage.toObject(message.newsletterFollowerInviteMessage, options);
             if (message.statusQuotedMessage != null && message.hasOwnProperty("statusQuotedMessage"))
                 object.statusQuotedMessage = $root.E2E.Message.StatusQuotedMessage.toObject(message.statusQuotedMessage, options);
             if (message.statusStickerInteractionMessage != null && message.hasOwnProperty("statusStickerInteractionMessage"))
                 object.statusStickerInteractionMessage = $root.E2E.Message.StatusStickerInteractionMessage.toObject(message.statusStickerInteractionMessage, options);
             if (message.pollCreationMessageV5 != null && message.hasOwnProperty("pollCreationMessageV5"))
                 object.pollCreationMessageV5 = $root.E2E.Message.PollCreationMessage.toObject(message.pollCreationMessageV5, options);
-            if (message.pollResultSnapshotMessageV2 != null && message.hasOwnProperty("pollResultSnapshotMessageV2"))
-                object.pollResultSnapshotMessageV2 = $root.E2E.Message.PollResultSnapshotMessage.toObject(message.pollResultSnapshotMessageV2, options);
             if (message.newsletterFollowerInviteMessageV2 != null && message.hasOwnProperty("newsletterFollowerInviteMessageV2"))
                 object.newsletterFollowerInviteMessageV2 = $root.E2E.Message.NewsletterFollowerInviteMessage.toObject(message.newsletterFollowerInviteMessageV2, options);
-            if (message.requestContactInfoMessage != null && message.hasOwnProperty("requestContactInfoMessage"))
-                object.requestContactInfoMessage = $root.E2E.Message.RequestContactInfoMessage.toObject(message.requestContactInfoMessage, options);
+            if (message.pollResultSnapshotMessageV3 != null && message.hasOwnProperty("pollResultSnapshotMessageV3"))
+                object.pollResultSnapshotMessageV3 = $root.E2E.Message.PollResultSnapshotMessage.toObject(message.pollResultSnapshotMessageV3, options);
             return object;
         };
 
@@ -37573,6 +37883,7 @@ $root.E2E = (function() {
              * @property {E2E.IContextInfo|null} [contextInfo] Call contextInfo
              * @property {string|null} [nativeFlowCallButtonPayload] Call nativeFlowCallButtonPayload
              * @property {string|null} [deeplinkPayload] Call deeplinkPayload
+             * @property {E2E.IMessageContextInfo|null} [messageContextInfo] Call messageContextInfo
              */
 
             /**
@@ -37663,6 +37974,14 @@ $root.E2E = (function() {
             Call.prototype.deeplinkPayload = "";
 
             /**
+             * Call messageContextInfo.
+             * @member {E2E.IMessageContextInfo|null|undefined} messageContextInfo
+             * @memberof E2E.Message.Call
+             * @instance
+             */
+            Call.prototype.messageContextInfo = null;
+
+            /**
              * Creates a new Call instance using the specified properties.
              * @function create
              * @memberof E2E.Message.Call
@@ -37704,6 +38023,8 @@ $root.E2E = (function() {
                     writer.uint32(/* id 8, wireType 2 =*/66).string(message.nativeFlowCallButtonPayload);
                 if (message.deeplinkPayload != null && Object.hasOwnProperty.call(message, "deeplinkPayload"))
                     writer.uint32(/* id 9, wireType 2 =*/74).string(message.deeplinkPayload);
+                if (message.messageContextInfo != null && Object.hasOwnProperty.call(message, "messageContextInfo"))
+                    $root.E2E.MessageContextInfo.encode(message.messageContextInfo, writer.uint32(/* id 10, wireType 2 =*/82).fork()).ldelim();
                 return writer;
             };
 
@@ -37776,6 +38097,10 @@ $root.E2E = (function() {
                             message.deeplinkPayload = reader.string();
                             break;
                         }
+                    case 10: {
+                            message.messageContextInfo = $root.E2E.MessageContextInfo.decode(reader, reader.uint32());
+                            break;
+                        }
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -37840,6 +38165,11 @@ $root.E2E = (function() {
                 if (message.deeplinkPayload != null && message.hasOwnProperty("deeplinkPayload"))
                     if (!$util.isString(message.deeplinkPayload))
                         return "deeplinkPayload: string expected";
+                if (message.messageContextInfo != null && message.hasOwnProperty("messageContextInfo")) {
+                    var error = $root.E2E.MessageContextInfo.verify(message.messageContextInfo);
+                    if (error)
+                        return "messageContextInfo." + error;
+                }
                 return null;
             };
 
@@ -37885,6 +38215,11 @@ $root.E2E = (function() {
                     message.nativeFlowCallButtonPayload = String(object.nativeFlowCallButtonPayload);
                 if (object.deeplinkPayload != null)
                     message.deeplinkPayload = String(object.deeplinkPayload);
+                if (object.messageContextInfo != null) {
+                    if (typeof object.messageContextInfo !== "object")
+                        throw TypeError(".E2E.Message.Call.messageContextInfo: object expected");
+                    message.messageContextInfo = $root.E2E.MessageContextInfo.fromObject(object.messageContextInfo);
+                }
                 return message;
             };
 
@@ -37929,6 +38264,7 @@ $root.E2E = (function() {
                     object.contextInfo = null;
                     object.nativeFlowCallButtonPayload = "";
                     object.deeplinkPayload = "";
+                    object.messageContextInfo = null;
                 }
                 if (message.callKey != null && message.hasOwnProperty("callKey"))
                     object.callKey = options.bytes === String ? $util.base64.encode(message.callKey, 0, message.callKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.callKey) : message.callKey;
@@ -37948,6 +38284,8 @@ $root.E2E = (function() {
                     object.nativeFlowCallButtonPayload = message.nativeFlowCallButtonPayload;
                 if (message.deeplinkPayload != null && message.hasOwnProperty("deeplinkPayload"))
                     object.deeplinkPayload = message.deeplinkPayload;
+                if (message.messageContextInfo != null && message.hasOwnProperty("messageContextInfo"))
+                    object.messageContextInfo = $root.E2E.MessageContextInfo.toObject(message.messageContextInfo, options);
                 return object;
             };
 
@@ -42648,6 +42986,8 @@ $root.E2E = (function() {
              * @property {number|Long|null} [endTime] EventMessage endTime
              * @property {boolean|null} [extraGuestsAllowed] EventMessage extraGuestsAllowed
              * @property {boolean|null} [isScheduleCall] EventMessage isScheduleCall
+             * @property {boolean|null} [hasReminder] EventMessage hasReminder
+             * @property {number|Long|null} [reminderOffsetSec] EventMessage reminderOffsetSec
              */
 
             /**
@@ -42746,6 +43086,22 @@ $root.E2E = (function() {
             EventMessage.prototype.isScheduleCall = false;
 
             /**
+             * EventMessage hasReminder.
+             * @member {boolean} hasReminder
+             * @memberof E2E.Message.EventMessage
+             * @instance
+             */
+            EventMessage.prototype.hasReminder = false;
+
+            /**
+             * EventMessage reminderOffsetSec.
+             * @member {number|Long} reminderOffsetSec
+             * @memberof E2E.Message.EventMessage
+             * @instance
+             */
+            EventMessage.prototype.reminderOffsetSec = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+            /**
              * Creates a new EventMessage instance using the specified properties.
              * @function create
              * @memberof E2E.Message.EventMessage
@@ -42789,6 +43145,10 @@ $root.E2E = (function() {
                     writer.uint32(/* id 9, wireType 0 =*/72).bool(message.extraGuestsAllowed);
                 if (message.isScheduleCall != null && Object.hasOwnProperty.call(message, "isScheduleCall"))
                     writer.uint32(/* id 10, wireType 0 =*/80).bool(message.isScheduleCall);
+                if (message.hasReminder != null && Object.hasOwnProperty.call(message, "hasReminder"))
+                    writer.uint32(/* id 11, wireType 0 =*/88).bool(message.hasReminder);
+                if (message.reminderOffsetSec != null && Object.hasOwnProperty.call(message, "reminderOffsetSec"))
+                    writer.uint32(/* id 12, wireType 0 =*/96).int64(message.reminderOffsetSec);
                 return writer;
             };
 
@@ -42865,6 +43225,14 @@ $root.E2E = (function() {
                             message.isScheduleCall = reader.bool();
                             break;
                         }
+                    case 11: {
+                            message.hasReminder = reader.bool();
+                            break;
+                        }
+                    case 12: {
+                            message.reminderOffsetSec = reader.int64();
+                            break;
+                        }
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -42934,6 +43302,12 @@ $root.E2E = (function() {
                 if (message.isScheduleCall != null && message.hasOwnProperty("isScheduleCall"))
                     if (typeof message.isScheduleCall !== "boolean")
                         return "isScheduleCall: boolean expected";
+                if (message.hasReminder != null && message.hasOwnProperty("hasReminder"))
+                    if (typeof message.hasReminder !== "boolean")
+                        return "hasReminder: boolean expected";
+                if (message.reminderOffsetSec != null && message.hasOwnProperty("reminderOffsetSec"))
+                    if (!$util.isInteger(message.reminderOffsetSec) && !(message.reminderOffsetSec && $util.isInteger(message.reminderOffsetSec.low) && $util.isInteger(message.reminderOffsetSec.high)))
+                        return "reminderOffsetSec: integer|Long expected";
                 return null;
             };
 
@@ -42989,6 +43363,17 @@ $root.E2E = (function() {
                     message.extraGuestsAllowed = Boolean(object.extraGuestsAllowed);
                 if (object.isScheduleCall != null)
                     message.isScheduleCall = Boolean(object.isScheduleCall);
+                if (object.hasReminder != null)
+                    message.hasReminder = Boolean(object.hasReminder);
+                if (object.reminderOffsetSec != null)
+                    if ($util.Long)
+                        (message.reminderOffsetSec = $util.Long.fromValue(object.reminderOffsetSec)).unsigned = false;
+                    else if (typeof object.reminderOffsetSec === "string")
+                        message.reminderOffsetSec = parseInt(object.reminderOffsetSec, 10);
+                    else if (typeof object.reminderOffsetSec === "number")
+                        message.reminderOffsetSec = object.reminderOffsetSec;
+                    else if (typeof object.reminderOffsetSec === "object")
+                        message.reminderOffsetSec = new $util.LongBits(object.reminderOffsetSec.low >>> 0, object.reminderOffsetSec.high >>> 0).toNumber();
                 return message;
             };
 
@@ -43024,6 +43409,12 @@ $root.E2E = (function() {
                         object.endTime = options.longs === String ? "0" : 0;
                     object.extraGuestsAllowed = false;
                     object.isScheduleCall = false;
+                    object.hasReminder = false;
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.reminderOffsetSec = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.reminderOffsetSec = options.longs === String ? "0" : 0;
                 }
                 if (message.contextInfo != null && message.hasOwnProperty("contextInfo"))
                     object.contextInfo = $root.E2E.ContextInfo.toObject(message.contextInfo, options);
@@ -43051,6 +43442,13 @@ $root.E2E = (function() {
                     object.extraGuestsAllowed = message.extraGuestsAllowed;
                 if (message.isScheduleCall != null && message.hasOwnProperty("isScheduleCall"))
                     object.isScheduleCall = message.isScheduleCall;
+                if (message.hasReminder != null && message.hasOwnProperty("hasReminder"))
+                    object.hasReminder = message.hasReminder;
+                if (message.reminderOffsetSec != null && message.hasOwnProperty("reminderOffsetSec"))
+                    if (typeof message.reminderOffsetSec === "number")
+                        object.reminderOffsetSec = options.longs === String ? String(message.reminderOffsetSec) : message.reminderOffsetSec;
+                    else
+                        object.reminderOffsetSec = options.longs === String ? $util.Long.prototype.toString.call(message.reminderOffsetSec) : options.longs === Number ? new $util.LongBits(message.reminderOffsetSec.low >>> 0, message.reminderOffsetSec.high >>> 0).toNumber() : message.reminderOffsetSec;
                 return object;
             };
 
@@ -47374,6 +47772,211 @@ $root.E2E = (function() {
             return HighlyStructuredMessage;
         })();
 
+        Message.HistorySyncMessageAccessStatus = (function() {
+
+            /**
+             * Properties of a HistorySyncMessageAccessStatus.
+             * @memberof E2E.Message
+             * @interface IHistorySyncMessageAccessStatus
+             * @property {boolean|null} [completeAccessGranted] HistorySyncMessageAccessStatus completeAccessGranted
+             */
+
+            /**
+             * Constructs a new HistorySyncMessageAccessStatus.
+             * @memberof E2E.Message
+             * @classdesc Represents a HistorySyncMessageAccessStatus.
+             * @implements IHistorySyncMessageAccessStatus
+             * @constructor
+             * @param {E2E.Message.IHistorySyncMessageAccessStatus=} [properties] Properties to set
+             */
+            function HistorySyncMessageAccessStatus(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * HistorySyncMessageAccessStatus completeAccessGranted.
+             * @member {boolean} completeAccessGranted
+             * @memberof E2E.Message.HistorySyncMessageAccessStatus
+             * @instance
+             */
+            HistorySyncMessageAccessStatus.prototype.completeAccessGranted = false;
+
+            /**
+             * Creates a new HistorySyncMessageAccessStatus instance using the specified properties.
+             * @function create
+             * @memberof E2E.Message.HistorySyncMessageAccessStatus
+             * @static
+             * @param {E2E.Message.IHistorySyncMessageAccessStatus=} [properties] Properties to set
+             * @returns {E2E.Message.HistorySyncMessageAccessStatus} HistorySyncMessageAccessStatus instance
+             */
+            HistorySyncMessageAccessStatus.create = function create(properties) {
+                return new HistorySyncMessageAccessStatus(properties);
+            };
+
+            /**
+             * Encodes the specified HistorySyncMessageAccessStatus message. Does not implicitly {@link E2E.Message.HistorySyncMessageAccessStatus.verify|verify} messages.
+             * @function encode
+             * @memberof E2E.Message.HistorySyncMessageAccessStatus
+             * @static
+             * @param {E2E.Message.IHistorySyncMessageAccessStatus} message HistorySyncMessageAccessStatus message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            HistorySyncMessageAccessStatus.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.completeAccessGranted != null && Object.hasOwnProperty.call(message, "completeAccessGranted"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).bool(message.completeAccessGranted);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified HistorySyncMessageAccessStatus message, length delimited. Does not implicitly {@link E2E.Message.HistorySyncMessageAccessStatus.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof E2E.Message.HistorySyncMessageAccessStatus
+             * @static
+             * @param {E2E.Message.IHistorySyncMessageAccessStatus} message HistorySyncMessageAccessStatus message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            HistorySyncMessageAccessStatus.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a HistorySyncMessageAccessStatus message from the specified reader or buffer.
+             * @function decode
+             * @memberof E2E.Message.HistorySyncMessageAccessStatus
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {E2E.Message.HistorySyncMessageAccessStatus} HistorySyncMessageAccessStatus
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            HistorySyncMessageAccessStatus.decode = function decode(reader, length, error) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.E2E.Message.HistorySyncMessageAccessStatus();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    if (tag === error)
+                        break;
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.completeAccessGranted = reader.bool();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a HistorySyncMessageAccessStatus message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof E2E.Message.HistorySyncMessageAccessStatus
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {E2E.Message.HistorySyncMessageAccessStatus} HistorySyncMessageAccessStatus
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            HistorySyncMessageAccessStatus.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a HistorySyncMessageAccessStatus message.
+             * @function verify
+             * @memberof E2E.Message.HistorySyncMessageAccessStatus
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            HistorySyncMessageAccessStatus.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.completeAccessGranted != null && message.hasOwnProperty("completeAccessGranted"))
+                    if (typeof message.completeAccessGranted !== "boolean")
+                        return "completeAccessGranted: boolean expected";
+                return null;
+            };
+
+            /**
+             * Creates a HistorySyncMessageAccessStatus message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof E2E.Message.HistorySyncMessageAccessStatus
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {E2E.Message.HistorySyncMessageAccessStatus} HistorySyncMessageAccessStatus
+             */
+            HistorySyncMessageAccessStatus.fromObject = function fromObject(object) {
+                if (object instanceof $root.E2E.Message.HistorySyncMessageAccessStatus)
+                    return object;
+                var message = new $root.E2E.Message.HistorySyncMessageAccessStatus();
+                if (object.completeAccessGranted != null)
+                    message.completeAccessGranted = Boolean(object.completeAccessGranted);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a HistorySyncMessageAccessStatus message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof E2E.Message.HistorySyncMessageAccessStatus
+             * @static
+             * @param {E2E.Message.HistorySyncMessageAccessStatus} message HistorySyncMessageAccessStatus
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            HistorySyncMessageAccessStatus.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults)
+                    object.completeAccessGranted = false;
+                if (message.completeAccessGranted != null && message.hasOwnProperty("completeAccessGranted"))
+                    object.completeAccessGranted = message.completeAccessGranted;
+                return object;
+            };
+
+            /**
+             * Converts this HistorySyncMessageAccessStatus to JSON.
+             * @function toJSON
+             * @memberof E2E.Message.HistorySyncMessageAccessStatus
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            HistorySyncMessageAccessStatus.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for HistorySyncMessageAccessStatus
+             * @function getTypeUrl
+             * @memberof E2E.Message.HistorySyncMessageAccessStatus
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            HistorySyncMessageAccessStatus.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/E2E.Message.HistorySyncMessageAccessStatus";
+            };
+
+            return HistorySyncMessageAccessStatus;
+        })();
+
         Message.HistorySyncNotification = (function() {
 
             /**
@@ -47394,6 +47997,7 @@ $root.E2E = (function() {
              * @property {string|null} [peerDataRequestSessionId] HistorySyncNotification peerDataRequestSessionId
              * @property {E2E.Message.IFullHistorySyncOnDemandRequestMetadata|null} [fullHistorySyncOnDemandRequestMetadata] HistorySyncNotification fullHistorySyncOnDemandRequestMetadata
              * @property {string|null} [encHandle] HistorySyncNotification encHandle
+             * @property {E2E.Message.IHistorySyncMessageAccessStatus|null} [messageAccessStatus] HistorySyncNotification messageAccessStatus
              */
 
             /**
@@ -47524,6 +48128,14 @@ $root.E2E = (function() {
             HistorySyncNotification.prototype.encHandle = "";
 
             /**
+             * HistorySyncNotification messageAccessStatus.
+             * @member {E2E.Message.IHistorySyncMessageAccessStatus|null|undefined} messageAccessStatus
+             * @memberof E2E.Message.HistorySyncNotification
+             * @instance
+             */
+            HistorySyncNotification.prototype.messageAccessStatus = null;
+
+            /**
              * Creates a new HistorySyncNotification instance using the specified properties.
              * @function create
              * @memberof E2E.Message.HistorySyncNotification
@@ -47575,6 +48187,8 @@ $root.E2E = (function() {
                     $root.E2E.Message.FullHistorySyncOnDemandRequestMetadata.encode(message.fullHistorySyncOnDemandRequestMetadata, writer.uint32(/* id 13, wireType 2 =*/106).fork()).ldelim();
                 if (message.encHandle != null && Object.hasOwnProperty.call(message, "encHandle"))
                     writer.uint32(/* id 14, wireType 2 =*/114).string(message.encHandle);
+                if (message.messageAccessStatus != null && Object.hasOwnProperty.call(message, "messageAccessStatus"))
+                    $root.E2E.Message.HistorySyncMessageAccessStatus.encode(message.messageAccessStatus, writer.uint32(/* id 15, wireType 2 =*/122).fork()).ldelim();
                 return writer;
             };
 
@@ -47667,6 +48281,10 @@ $root.E2E = (function() {
                             message.encHandle = reader.string();
                             break;
                         }
+                    case 15: {
+                            message.messageAccessStatus = $root.E2E.Message.HistorySyncMessageAccessStatus.decode(reader, reader.uint32());
+                            break;
+                        }
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -47729,6 +48347,7 @@ $root.E2E = (function() {
                     case 5:
                     case 6:
                     case 7:
+                    case 8:
                         break;
                     }
                 if (message.chunkOrder != null && message.hasOwnProperty("chunkOrder"))
@@ -47757,6 +48376,11 @@ $root.E2E = (function() {
                 if (message.encHandle != null && message.hasOwnProperty("encHandle"))
                     if (!$util.isString(message.encHandle))
                         return "encHandle: string expected";
+                if (message.messageAccessStatus != null && message.hasOwnProperty("messageAccessStatus")) {
+                    var error = $root.E2E.Message.HistorySyncMessageAccessStatus.verify(message.messageAccessStatus);
+                    if (error)
+                        return "messageAccessStatus." + error;
+                }
                 return null;
             };
 
@@ -47837,6 +48461,10 @@ $root.E2E = (function() {
                 case 7:
                     message.syncType = 7;
                     break;
+                case "MESSAGE_ACCESS_STATUS":
+                case 8:
+                    message.syncType = 8;
+                    break;
                 }
                 if (object.chunkOrder != null)
                     message.chunkOrder = object.chunkOrder >>> 0;
@@ -47867,6 +48495,11 @@ $root.E2E = (function() {
                 }
                 if (object.encHandle != null)
                     message.encHandle = String(object.encHandle);
+                if (object.messageAccessStatus != null) {
+                    if (typeof object.messageAccessStatus !== "object")
+                        throw TypeError(".E2E.Message.HistorySyncNotification.messageAccessStatus: object expected");
+                    message.messageAccessStatus = $root.E2E.Message.HistorySyncMessageAccessStatus.fromObject(object.messageAccessStatus);
+                }
                 return message;
             };
 
@@ -47930,6 +48563,7 @@ $root.E2E = (function() {
                     object.peerDataRequestSessionId = "";
                     object.fullHistorySyncOnDemandRequestMetadata = null;
                     object.encHandle = "";
+                    object.messageAccessStatus = null;
                 }
                 if (message.fileSha256 != null && message.hasOwnProperty("fileSha256"))
                     object.fileSha256 = options.bytes === String ? $util.base64.encode(message.fileSha256, 0, message.fileSha256.length) : options.bytes === Array ? Array.prototype.slice.call(message.fileSha256) : message.fileSha256;
@@ -47965,6 +48599,8 @@ $root.E2E = (function() {
                     object.fullHistorySyncOnDemandRequestMetadata = $root.E2E.Message.FullHistorySyncOnDemandRequestMetadata.toObject(message.fullHistorySyncOnDemandRequestMetadata, options);
                 if (message.encHandle != null && message.hasOwnProperty("encHandle"))
                     object.encHandle = message.encHandle;
+                if (message.messageAccessStatus != null && message.hasOwnProperty("messageAccessStatus"))
+                    object.messageAccessStatus = $root.E2E.Message.HistorySyncMessageAccessStatus.toObject(message.messageAccessStatus, options);
                 return object;
             };
 
@@ -48009,6 +48645,7 @@ $root.E2E = (function() {
          * @property {number} NON_BLOCKING_DATA=5 NON_BLOCKING_DATA value
          * @property {number} ON_DEMAND=6 ON_DEMAND value
          * @property {number} NO_HISTORY=7 NO_HISTORY value
+         * @property {number} MESSAGE_ACCESS_STATUS=8 MESSAGE_ACCESS_STATUS value
          */
         Message.HistorySyncType = (function() {
             var valuesById = {}, values = Object.create(valuesById);
@@ -48020,6 +48657,7 @@ $root.E2E = (function() {
             values[valuesById[5] = "NON_BLOCKING_DATA"] = 5;
             values[valuesById[6] = "ON_DEMAND"] = 6;
             values[valuesById[7] = "NO_HISTORY"] = 7;
+            values[valuesById[8] = "MESSAGE_ACCESS_STATUS"] = 8;
             return values;
         })();
 
@@ -48389,9 +49027,12 @@ $root.E2E = (function() {
                     writer.uint32(/* id 20, wireType 0 =*/160).uint32(message.experimentGroupId);
                 if (message.scansSidecar != null && Object.hasOwnProperty.call(message, "scansSidecar"))
                     writer.uint32(/* id 21, wireType 2 =*/170).bytes(message.scansSidecar);
-                if (message.scanLengths != null && message.scanLengths.length)
+                if (message.scanLengths != null && message.scanLengths.length) {
+                    writer.uint32(/* id 22, wireType 2 =*/178).fork();
                     for (var i = 0; i < message.scanLengths.length; ++i)
-                        writer.uint32(/* id 22, wireType 0 =*/176).uint32(message.scanLengths[i]);
+                        writer.uint32(message.scanLengths[i]);
+                    writer.ldelim();
+                }
                 if (message.midQualityFileSha256 != null && Object.hasOwnProperty.call(message, "midQualityFileSha256"))
                     writer.uint32(/* id 23, wireType 2 =*/186).bytes(message.midQualityFileSha256);
                 if (message.midQualityFileEncSha256 != null && Object.hasOwnProperty.call(message, "midQualityFileEncSha256"))
@@ -60334,7 +60975,6 @@ $root.E2E = (function() {
              * @interface IPaymentExtendedMetadata
              * @property {number|null} [type] PaymentExtendedMetadata type
              * @property {string|null} [platform] PaymentExtendedMetadata platform
-             * @property {string|null} [messageParamsJson] PaymentExtendedMetadata messageParamsJson
              */
 
             /**
@@ -60369,14 +61009,6 @@ $root.E2E = (function() {
             PaymentExtendedMetadata.prototype.platform = "";
 
             /**
-             * PaymentExtendedMetadata messageParamsJson.
-             * @member {string} messageParamsJson
-             * @memberof E2E.Message.PaymentExtendedMetadata
-             * @instance
-             */
-            PaymentExtendedMetadata.prototype.messageParamsJson = "";
-
-            /**
              * Creates a new PaymentExtendedMetadata instance using the specified properties.
              * @function create
              * @memberof E2E.Message.PaymentExtendedMetadata
@@ -60404,8 +61036,6 @@ $root.E2E = (function() {
                     writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.type);
                 if (message.platform != null && Object.hasOwnProperty.call(message, "platform"))
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.platform);
-                if (message.messageParamsJson != null && Object.hasOwnProperty.call(message, "messageParamsJson"))
-                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.messageParamsJson);
                 return writer;
             };
 
@@ -60450,10 +61080,6 @@ $root.E2E = (function() {
                             message.platform = reader.string();
                             break;
                         }
-                    case 3: {
-                            message.messageParamsJson = reader.string();
-                            break;
-                        }
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -60495,9 +61121,6 @@ $root.E2E = (function() {
                 if (message.platform != null && message.hasOwnProperty("platform"))
                     if (!$util.isString(message.platform))
                         return "platform: string expected";
-                if (message.messageParamsJson != null && message.hasOwnProperty("messageParamsJson"))
-                    if (!$util.isString(message.messageParamsJson))
-                        return "messageParamsJson: string expected";
                 return null;
             };
 
@@ -60517,8 +61140,6 @@ $root.E2E = (function() {
                     message.type = object.type >>> 0;
                 if (object.platform != null)
                     message.platform = String(object.platform);
-                if (object.messageParamsJson != null)
-                    message.messageParamsJson = String(object.messageParamsJson);
                 return message;
             };
 
@@ -60538,14 +61159,11 @@ $root.E2E = (function() {
                 if (options.defaults) {
                     object.type = 0;
                     object.platform = "";
-                    object.messageParamsJson = "";
                 }
                 if (message.type != null && message.hasOwnProperty("type"))
                     object.type = message.type;
                 if (message.platform != null && message.hasOwnProperty("platform"))
                     object.platform = message.platform;
-                if (message.messageParamsJson != null && message.hasOwnProperty("messageParamsJson"))
-                    object.messageParamsJson = message.messageParamsJson;
                 return object;
             };
 
@@ -62574,9 +63192,9 @@ $root.E2E = (function() {
                  * Properties of a GalaxyFlowAction.
                  * @memberof E2E.Message.PeerDataOperationRequestMessage
                  * @interface IGalaxyFlowAction
-                 * @property {E2E.Message.PeerDataOperationRequestMessage.GalaxyFlowAction.GalaxyFlowActionType} type GalaxyFlowAction type
-                 * @property {string} flowId GalaxyFlowAction flowId
-                 * @property {string} stanzaId GalaxyFlowAction stanzaId
+                 * @property {E2E.Message.PeerDataOperationRequestMessage.GalaxyFlowAction.GalaxyFlowActionType|null} [type] GalaxyFlowAction type
+                 * @property {string|null} [flowId] GalaxyFlowAction flowId
+                 * @property {string|null} [stanzaId] GalaxyFlowAction stanzaId
                  */
 
                 /**
@@ -62642,9 +63260,12 @@ $root.E2E = (function() {
                 GalaxyFlowAction.encode = function encode(message, writer) {
                     if (!writer)
                         writer = $Writer.create();
-                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.type);
-                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.flowId);
-                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.stanzaId);
+                    if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                        writer.uint32(/* id 1, wireType 0 =*/8).int32(message.type);
+                    if (message.flowId != null && Object.hasOwnProperty.call(message, "flowId"))
+                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.flowId);
+                    if (message.stanzaId != null && Object.hasOwnProperty.call(message, "stanzaId"))
+                        writer.uint32(/* id 3, wireType 2 =*/26).string(message.stanzaId);
                     return writer;
                 };
 
@@ -62698,12 +63319,6 @@ $root.E2E = (function() {
                             break;
                         }
                     }
-                    if (!message.hasOwnProperty("type"))
-                        throw $util.ProtocolError("missing required 'type'", { instance: message });
-                    if (!message.hasOwnProperty("flowId"))
-                        throw $util.ProtocolError("missing required 'flowId'", { instance: message });
-                    if (!message.hasOwnProperty("stanzaId"))
-                        throw $util.ProtocolError("missing required 'stanzaId'", { instance: message });
                     return message;
                 };
 
@@ -62734,16 +63349,19 @@ $root.E2E = (function() {
                 GalaxyFlowAction.verify = function verify(message) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    switch (message.type) {
-                    default:
-                        return "type: enum value expected";
-                    case 1:
-                        break;
-                    }
-                    if (!$util.isString(message.flowId))
-                        return "flowId: string expected";
-                    if (!$util.isString(message.stanzaId))
-                        return "stanzaId: string expected";
+                    if (message.type != null && message.hasOwnProperty("type"))
+                        switch (message.type) {
+                        default:
+                            return "type: enum value expected";
+                        case 1:
+                            break;
+                        }
+                    if (message.flowId != null && message.hasOwnProperty("flowId"))
+                        if (!$util.isString(message.flowId))
+                            return "flowId: string expected";
+                    if (message.stanzaId != null && message.hasOwnProperty("stanzaId"))
+                        if (!$util.isString(message.stanzaId))
+                            return "stanzaId: string expected";
                     return null;
                 };
 
@@ -63036,6 +63654,7 @@ $root.E2E = (function() {
                         case 5:
                         case 6:
                         case 7:
+                        case 8:
                             break;
                         }
                     if (message.chunkOrder != null && message.hasOwnProperty("chunkOrder"))
@@ -63100,6 +63719,10 @@ $root.E2E = (function() {
                     case "NO_HISTORY":
                     case 7:
                         message.syncType = 7;
+                        break;
+                    case "MESSAGE_ACCESS_STATUS":
+                    case 8:
+                        message.syncType = 8;
                         break;
                     }
                     if (object.chunkOrder != null)
@@ -66183,6 +66806,7 @@ $root.E2E = (function() {
                             case 5:
                             case 6:
                             case 7:
+                            case 8:
                                 break;
                             }
                         if (message.chunkOrder != null && message.hasOwnProperty("chunkOrder"))
@@ -66259,6 +66883,10 @@ $root.E2E = (function() {
                         case "NO_HISTORY":
                         case 7:
                             message.syncType = 7;
+                            break;
+                        case "MESSAGE_ACCESS_STATUS":
+                        case 8:
+                            message.syncType = 8;
                             break;
                         }
                         if (object.chunkOrder != null)
@@ -73531,263 +74159,6 @@ $root.E2E = (function() {
             };
 
             return ReactionMessage;
-        })();
-
-        Message.RequestContactInfoMessage = (function() {
-
-            /**
-             * Properties of a RequestContactInfoMessage.
-             * @memberof E2E.Message
-             * @interface IRequestContactInfoMessage
-             * @property {string|null} [text] RequestContactInfoMessage text
-             * @property {string|null} [ctaButtonText] RequestContactInfoMessage ctaButtonText
-             * @property {E2E.IContextInfo|null} [contextInfo] RequestContactInfoMessage contextInfo
-             */
-
-            /**
-             * Constructs a new RequestContactInfoMessage.
-             * @memberof E2E.Message
-             * @classdesc Represents a RequestContactInfoMessage.
-             * @implements IRequestContactInfoMessage
-             * @constructor
-             * @param {E2E.Message.IRequestContactInfoMessage=} [properties] Properties to set
-             */
-            function RequestContactInfoMessage(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * RequestContactInfoMessage text.
-             * @member {string} text
-             * @memberof E2E.Message.RequestContactInfoMessage
-             * @instance
-             */
-            RequestContactInfoMessage.prototype.text = "";
-
-            /**
-             * RequestContactInfoMessage ctaButtonText.
-             * @member {string} ctaButtonText
-             * @memberof E2E.Message.RequestContactInfoMessage
-             * @instance
-             */
-            RequestContactInfoMessage.prototype.ctaButtonText = "";
-
-            /**
-             * RequestContactInfoMessage contextInfo.
-             * @member {E2E.IContextInfo|null|undefined} contextInfo
-             * @memberof E2E.Message.RequestContactInfoMessage
-             * @instance
-             */
-            RequestContactInfoMessage.prototype.contextInfo = null;
-
-            /**
-             * Creates a new RequestContactInfoMessage instance using the specified properties.
-             * @function create
-             * @memberof E2E.Message.RequestContactInfoMessage
-             * @static
-             * @param {E2E.Message.IRequestContactInfoMessage=} [properties] Properties to set
-             * @returns {E2E.Message.RequestContactInfoMessage} RequestContactInfoMessage instance
-             */
-            RequestContactInfoMessage.create = function create(properties) {
-                return new RequestContactInfoMessage(properties);
-            };
-
-            /**
-             * Encodes the specified RequestContactInfoMessage message. Does not implicitly {@link E2E.Message.RequestContactInfoMessage.verify|verify} messages.
-             * @function encode
-             * @memberof E2E.Message.RequestContactInfoMessage
-             * @static
-             * @param {E2E.Message.IRequestContactInfoMessage} message RequestContactInfoMessage message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RequestContactInfoMessage.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.text != null && Object.hasOwnProperty.call(message, "text"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.text);
-                if (message.ctaButtonText != null && Object.hasOwnProperty.call(message, "ctaButtonText"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.ctaButtonText);
-                if (message.contextInfo != null && Object.hasOwnProperty.call(message, "contextInfo"))
-                    $root.E2E.ContextInfo.encode(message.contextInfo, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified RequestContactInfoMessage message, length delimited. Does not implicitly {@link E2E.Message.RequestContactInfoMessage.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof E2E.Message.RequestContactInfoMessage
-             * @static
-             * @param {E2E.Message.IRequestContactInfoMessage} message RequestContactInfoMessage message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RequestContactInfoMessage.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a RequestContactInfoMessage message from the specified reader or buffer.
-             * @function decode
-             * @memberof E2E.Message.RequestContactInfoMessage
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {E2E.Message.RequestContactInfoMessage} RequestContactInfoMessage
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RequestContactInfoMessage.decode = function decode(reader, length, error) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.E2E.Message.RequestContactInfoMessage();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.text = reader.string();
-                            break;
-                        }
-                    case 2: {
-                            message.ctaButtonText = reader.string();
-                            break;
-                        }
-                    case 3: {
-                            message.contextInfo = $root.E2E.ContextInfo.decode(reader, reader.uint32());
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a RequestContactInfoMessage message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof E2E.Message.RequestContactInfoMessage
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {E2E.Message.RequestContactInfoMessage} RequestContactInfoMessage
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RequestContactInfoMessage.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a RequestContactInfoMessage message.
-             * @function verify
-             * @memberof E2E.Message.RequestContactInfoMessage
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            RequestContactInfoMessage.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message.text != null && message.hasOwnProperty("text"))
-                    if (!$util.isString(message.text))
-                        return "text: string expected";
-                if (message.ctaButtonText != null && message.hasOwnProperty("ctaButtonText"))
-                    if (!$util.isString(message.ctaButtonText))
-                        return "ctaButtonText: string expected";
-                if (message.contextInfo != null && message.hasOwnProperty("contextInfo")) {
-                    var error = $root.E2E.ContextInfo.verify(message.contextInfo);
-                    if (error)
-                        return "contextInfo." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a RequestContactInfoMessage message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof E2E.Message.RequestContactInfoMessage
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {E2E.Message.RequestContactInfoMessage} RequestContactInfoMessage
-             */
-            RequestContactInfoMessage.fromObject = function fromObject(object) {
-                if (object instanceof $root.E2E.Message.RequestContactInfoMessage)
-                    return object;
-                var message = new $root.E2E.Message.RequestContactInfoMessage();
-                if (object.text != null)
-                    message.text = String(object.text);
-                if (object.ctaButtonText != null)
-                    message.ctaButtonText = String(object.ctaButtonText);
-                if (object.contextInfo != null) {
-                    if (typeof object.contextInfo !== "object")
-                        throw TypeError(".E2E.Message.RequestContactInfoMessage.contextInfo: object expected");
-                    message.contextInfo = $root.E2E.ContextInfo.fromObject(object.contextInfo);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a RequestContactInfoMessage message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof E2E.Message.RequestContactInfoMessage
-             * @static
-             * @param {E2E.Message.RequestContactInfoMessage} message RequestContactInfoMessage
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            RequestContactInfoMessage.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object.text = "";
-                    object.ctaButtonText = "";
-                    object.contextInfo = null;
-                }
-                if (message.text != null && message.hasOwnProperty("text"))
-                    object.text = message.text;
-                if (message.ctaButtonText != null && message.hasOwnProperty("ctaButtonText"))
-                    object.ctaButtonText = message.ctaButtonText;
-                if (message.contextInfo != null && message.hasOwnProperty("contextInfo"))
-                    object.contextInfo = $root.E2E.ContextInfo.toObject(message.contextInfo, options);
-                return object;
-            };
-
-            /**
-             * Converts this RequestContactInfoMessage to JSON.
-             * @function toJSON
-             * @memberof E2E.Message.RequestContactInfoMessage
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            RequestContactInfoMessage.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            /**
-             * Gets the default type url for RequestContactInfoMessage
-             * @function getTypeUrl
-             * @memberof E2E.Message.RequestContactInfoMessage
-             * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
-             */
-            RequestContactInfoMessage.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/E2E.Message.RequestContactInfoMessage";
-            };
-
-            return RequestContactInfoMessage;
         })();
 
         Message.RequestPaymentMessage = (function() {
@@ -81336,10 +81707,10 @@ $root.E2E = (function() {
              * Properties of a VideoEndCard.
              * @memberof E2E.Message
              * @interface IVideoEndCard
-             * @property {string} username VideoEndCard username
-             * @property {string} caption VideoEndCard caption
-             * @property {string} thumbnailImageUrl VideoEndCard thumbnailImageUrl
-             * @property {string} profilePictureUrl VideoEndCard profilePictureUrl
+             * @property {string|null} [username] VideoEndCard username
+             * @property {string|null} [caption] VideoEndCard caption
+             * @property {string|null} [thumbnailImageUrl] VideoEndCard thumbnailImageUrl
+             * @property {string|null} [profilePictureUrl] VideoEndCard profilePictureUrl
              */
 
             /**
@@ -81413,10 +81784,14 @@ $root.E2E = (function() {
             VideoEndCard.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.username);
-                writer.uint32(/* id 2, wireType 2 =*/18).string(message.caption);
-                writer.uint32(/* id 3, wireType 2 =*/26).string(message.thumbnailImageUrl);
-                writer.uint32(/* id 4, wireType 2 =*/34).string(message.profilePictureUrl);
+                if (message.username != null && Object.hasOwnProperty.call(message, "username"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.username);
+                if (message.caption != null && Object.hasOwnProperty.call(message, "caption"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.caption);
+                if (message.thumbnailImageUrl != null && Object.hasOwnProperty.call(message, "thumbnailImageUrl"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.thumbnailImageUrl);
+                if (message.profilePictureUrl != null && Object.hasOwnProperty.call(message, "profilePictureUrl"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.profilePictureUrl);
                 return writer;
             };
 
@@ -81474,14 +81849,6 @@ $root.E2E = (function() {
                         break;
                     }
                 }
-                if (!message.hasOwnProperty("username"))
-                    throw $util.ProtocolError("missing required 'username'", { instance: message });
-                if (!message.hasOwnProperty("caption"))
-                    throw $util.ProtocolError("missing required 'caption'", { instance: message });
-                if (!message.hasOwnProperty("thumbnailImageUrl"))
-                    throw $util.ProtocolError("missing required 'thumbnailImageUrl'", { instance: message });
-                if (!message.hasOwnProperty("profilePictureUrl"))
-                    throw $util.ProtocolError("missing required 'profilePictureUrl'", { instance: message });
                 return message;
             };
 
@@ -81512,14 +81879,18 @@ $root.E2E = (function() {
             VideoEndCard.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (!$util.isString(message.username))
-                    return "username: string expected";
-                if (!$util.isString(message.caption))
-                    return "caption: string expected";
-                if (!$util.isString(message.thumbnailImageUrl))
-                    return "thumbnailImageUrl: string expected";
-                if (!$util.isString(message.profilePictureUrl))
-                    return "profilePictureUrl: string expected";
+                if (message.username != null && message.hasOwnProperty("username"))
+                    if (!$util.isString(message.username))
+                        return "username: string expected";
+                if (message.caption != null && message.hasOwnProperty("caption"))
+                    if (!$util.isString(message.caption))
+                        return "caption: string expected";
+                if (message.thumbnailImageUrl != null && message.hasOwnProperty("thumbnailImageUrl"))
+                    if (!$util.isString(message.thumbnailImageUrl))
+                        return "thumbnailImageUrl: string expected";
+                if (message.profilePictureUrl != null && message.hasOwnProperty("profilePictureUrl"))
+                    if (!$util.isString(message.profilePictureUrl))
+                        return "profilePictureUrl: string expected";
                 return null;
             };
 
@@ -82809,6 +83180,20 @@ $root.E2E = (function() {
         return values;
     })();
 
+    /**
+     * WebLinkRenderConfig enum.
+     * @name E2E.WebLinkRenderConfig
+     * @enum {number}
+     * @property {number} WEBVIEW=0 WEBVIEW value
+     * @property {number} SYSTEM=1 SYSTEM value
+     */
+    E2E.WebLinkRenderConfig = (function() {
+        var valuesById = {}, values = Object.create(valuesById);
+        values[valuesById[0] = "WEBVIEW"] = 0;
+        values[valuesById[1] = "SYSTEM"] = 1;
+        return values;
+    })();
+
     return E2E;
 })();
 
@@ -83443,6 +83828,1463 @@ $root.AICommon = (function() {
      * @namespace
      */
     var AICommon = {};
+
+    AICommon.AIHomeState = (function() {
+
+        /**
+         * Properties of a AIHomeState.
+         * @memberof AICommon
+         * @interface IAIHomeState
+         * @property {number|Long|null} [lastFetchTime] AIHomeState lastFetchTime
+         * @property {Array.<AICommon.AIHomeState.IAIHomeOption>|null} [capabilityOptions] AIHomeState capabilityOptions
+         * @property {Array.<AICommon.AIHomeState.IAIHomeOption>|null} [conversationOptions] AIHomeState conversationOptions
+         */
+
+        /**
+         * Constructs a new AIHomeState.
+         * @memberof AICommon
+         * @classdesc Represents a AIHomeState.
+         * @implements IAIHomeState
+         * @constructor
+         * @param {AICommon.IAIHomeState=} [properties] Properties to set
+         */
+        function AIHomeState(properties) {
+            this.capabilityOptions = [];
+            this.conversationOptions = [];
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * AIHomeState lastFetchTime.
+         * @member {number|Long} lastFetchTime
+         * @memberof AICommon.AIHomeState
+         * @instance
+         */
+        AIHomeState.prototype.lastFetchTime = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+        /**
+         * AIHomeState capabilityOptions.
+         * @member {Array.<AICommon.AIHomeState.IAIHomeOption>} capabilityOptions
+         * @memberof AICommon.AIHomeState
+         * @instance
+         */
+        AIHomeState.prototype.capabilityOptions = $util.emptyArray;
+
+        /**
+         * AIHomeState conversationOptions.
+         * @member {Array.<AICommon.AIHomeState.IAIHomeOption>} conversationOptions
+         * @memberof AICommon.AIHomeState
+         * @instance
+         */
+        AIHomeState.prototype.conversationOptions = $util.emptyArray;
+
+        /**
+         * Creates a new AIHomeState instance using the specified properties.
+         * @function create
+         * @memberof AICommon.AIHomeState
+         * @static
+         * @param {AICommon.IAIHomeState=} [properties] Properties to set
+         * @returns {AICommon.AIHomeState} AIHomeState instance
+         */
+        AIHomeState.create = function create(properties) {
+            return new AIHomeState(properties);
+        };
+
+        /**
+         * Encodes the specified AIHomeState message. Does not implicitly {@link AICommon.AIHomeState.verify|verify} messages.
+         * @function encode
+         * @memberof AICommon.AIHomeState
+         * @static
+         * @param {AICommon.IAIHomeState} message AIHomeState message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        AIHomeState.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.lastFetchTime != null && Object.hasOwnProperty.call(message, "lastFetchTime"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int64(message.lastFetchTime);
+            if (message.capabilityOptions != null && message.capabilityOptions.length)
+                for (var i = 0; i < message.capabilityOptions.length; ++i)
+                    $root.AICommon.AIHomeState.AIHomeOption.encode(message.capabilityOptions[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+            if (message.conversationOptions != null && message.conversationOptions.length)
+                for (var i = 0; i < message.conversationOptions.length; ++i)
+                    $root.AICommon.AIHomeState.AIHomeOption.encode(message.conversationOptions[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified AIHomeState message, length delimited. Does not implicitly {@link AICommon.AIHomeState.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof AICommon.AIHomeState
+         * @static
+         * @param {AICommon.IAIHomeState} message AIHomeState message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        AIHomeState.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a AIHomeState message from the specified reader or buffer.
+         * @function decode
+         * @memberof AICommon.AIHomeState
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {AICommon.AIHomeState} AIHomeState
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        AIHomeState.decode = function decode(reader, length, error) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.AIHomeState();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                if (tag === error)
+                    break;
+                switch (tag >>> 3) {
+                case 1: {
+                        message.lastFetchTime = reader.int64();
+                        break;
+                    }
+                case 2: {
+                        if (!(message.capabilityOptions && message.capabilityOptions.length))
+                            message.capabilityOptions = [];
+                        message.capabilityOptions.push($root.AICommon.AIHomeState.AIHomeOption.decode(reader, reader.uint32()));
+                        break;
+                    }
+                case 3: {
+                        if (!(message.conversationOptions && message.conversationOptions.length))
+                            message.conversationOptions = [];
+                        message.conversationOptions.push($root.AICommon.AIHomeState.AIHomeOption.decode(reader, reader.uint32()));
+                        break;
+                    }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a AIHomeState message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof AICommon.AIHomeState
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {AICommon.AIHomeState} AIHomeState
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        AIHomeState.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a AIHomeState message.
+         * @function verify
+         * @memberof AICommon.AIHomeState
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        AIHomeState.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.lastFetchTime != null && message.hasOwnProperty("lastFetchTime"))
+                if (!$util.isInteger(message.lastFetchTime) && !(message.lastFetchTime && $util.isInteger(message.lastFetchTime.low) && $util.isInteger(message.lastFetchTime.high)))
+                    return "lastFetchTime: integer|Long expected";
+            if (message.capabilityOptions != null && message.hasOwnProperty("capabilityOptions")) {
+                if (!Array.isArray(message.capabilityOptions))
+                    return "capabilityOptions: array expected";
+                for (var i = 0; i < message.capabilityOptions.length; ++i) {
+                    var error = $root.AICommon.AIHomeState.AIHomeOption.verify(message.capabilityOptions[i]);
+                    if (error)
+                        return "capabilityOptions." + error;
+                }
+            }
+            if (message.conversationOptions != null && message.hasOwnProperty("conversationOptions")) {
+                if (!Array.isArray(message.conversationOptions))
+                    return "conversationOptions: array expected";
+                for (var i = 0; i < message.conversationOptions.length; ++i) {
+                    var error = $root.AICommon.AIHomeState.AIHomeOption.verify(message.conversationOptions[i]);
+                    if (error)
+                        return "conversationOptions." + error;
+                }
+            }
+            return null;
+        };
+
+        /**
+         * Creates a AIHomeState message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof AICommon.AIHomeState
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {AICommon.AIHomeState} AIHomeState
+         */
+        AIHomeState.fromObject = function fromObject(object) {
+            if (object instanceof $root.AICommon.AIHomeState)
+                return object;
+            var message = new $root.AICommon.AIHomeState();
+            if (object.lastFetchTime != null)
+                if ($util.Long)
+                    (message.lastFetchTime = $util.Long.fromValue(object.lastFetchTime)).unsigned = false;
+                else if (typeof object.lastFetchTime === "string")
+                    message.lastFetchTime = parseInt(object.lastFetchTime, 10);
+                else if (typeof object.lastFetchTime === "number")
+                    message.lastFetchTime = object.lastFetchTime;
+                else if (typeof object.lastFetchTime === "object")
+                    message.lastFetchTime = new $util.LongBits(object.lastFetchTime.low >>> 0, object.lastFetchTime.high >>> 0).toNumber();
+            if (object.capabilityOptions) {
+                if (!Array.isArray(object.capabilityOptions))
+                    throw TypeError(".AICommon.AIHomeState.capabilityOptions: array expected");
+                message.capabilityOptions = [];
+                for (var i = 0; i < object.capabilityOptions.length; ++i) {
+                    if (typeof object.capabilityOptions[i] !== "object")
+                        throw TypeError(".AICommon.AIHomeState.capabilityOptions: object expected");
+                    message.capabilityOptions[i] = $root.AICommon.AIHomeState.AIHomeOption.fromObject(object.capabilityOptions[i]);
+                }
+            }
+            if (object.conversationOptions) {
+                if (!Array.isArray(object.conversationOptions))
+                    throw TypeError(".AICommon.AIHomeState.conversationOptions: array expected");
+                message.conversationOptions = [];
+                for (var i = 0; i < object.conversationOptions.length; ++i) {
+                    if (typeof object.conversationOptions[i] !== "object")
+                        throw TypeError(".AICommon.AIHomeState.conversationOptions: object expected");
+                    message.conversationOptions[i] = $root.AICommon.AIHomeState.AIHomeOption.fromObject(object.conversationOptions[i]);
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a AIHomeState message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof AICommon.AIHomeState
+         * @static
+         * @param {AICommon.AIHomeState} message AIHomeState
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        AIHomeState.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.arrays || options.defaults) {
+                object.capabilityOptions = [];
+                object.conversationOptions = [];
+            }
+            if (options.defaults)
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, false);
+                    object.lastFetchTime = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else
+                    object.lastFetchTime = options.longs === String ? "0" : 0;
+            if (message.lastFetchTime != null && message.hasOwnProperty("lastFetchTime"))
+                if (typeof message.lastFetchTime === "number")
+                    object.lastFetchTime = options.longs === String ? String(message.lastFetchTime) : message.lastFetchTime;
+                else
+                    object.lastFetchTime = options.longs === String ? $util.Long.prototype.toString.call(message.lastFetchTime) : options.longs === Number ? new $util.LongBits(message.lastFetchTime.low >>> 0, message.lastFetchTime.high >>> 0).toNumber() : message.lastFetchTime;
+            if (message.capabilityOptions && message.capabilityOptions.length) {
+                object.capabilityOptions = [];
+                for (var j = 0; j < message.capabilityOptions.length; ++j)
+                    object.capabilityOptions[j] = $root.AICommon.AIHomeState.AIHomeOption.toObject(message.capabilityOptions[j], options);
+            }
+            if (message.conversationOptions && message.conversationOptions.length) {
+                object.conversationOptions = [];
+                for (var j = 0; j < message.conversationOptions.length; ++j)
+                    object.conversationOptions[j] = $root.AICommon.AIHomeState.AIHomeOption.toObject(message.conversationOptions[j], options);
+            }
+            return object;
+        };
+
+        /**
+         * Converts this AIHomeState to JSON.
+         * @function toJSON
+         * @memberof AICommon.AIHomeState
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        AIHomeState.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for AIHomeState
+         * @function getTypeUrl
+         * @memberof AICommon.AIHomeState
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        AIHomeState.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/AICommon.AIHomeState";
+        };
+
+        AIHomeState.AIHomeOption = (function() {
+
+            /**
+             * Properties of a AIHomeOption.
+             * @memberof AICommon.AIHomeState
+             * @interface IAIHomeOption
+             * @property {AICommon.AIHomeState.AIHomeOption.AIHomeActionType|null} [type] AIHomeOption type
+             * @property {string|null} [title] AIHomeOption title
+             * @property {string|null} [promptText] AIHomeOption promptText
+             * @property {string|null} [sessionId] AIHomeOption sessionId
+             * @property {string|null} [imageWdsIdentifier] AIHomeOption imageWdsIdentifier
+             * @property {string|null} [imageTintColor] AIHomeOption imageTintColor
+             * @property {string|null} [imageBackgroundColor] AIHomeOption imageBackgroundColor
+             */
+
+            /**
+             * Constructs a new AIHomeOption.
+             * @memberof AICommon.AIHomeState
+             * @classdesc Represents a AIHomeOption.
+             * @implements IAIHomeOption
+             * @constructor
+             * @param {AICommon.AIHomeState.IAIHomeOption=} [properties] Properties to set
+             */
+            function AIHomeOption(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * AIHomeOption type.
+             * @member {AICommon.AIHomeState.AIHomeOption.AIHomeActionType} type
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @instance
+             */
+            AIHomeOption.prototype.type = 0;
+
+            /**
+             * AIHomeOption title.
+             * @member {string} title
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @instance
+             */
+            AIHomeOption.prototype.title = "";
+
+            /**
+             * AIHomeOption promptText.
+             * @member {string} promptText
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @instance
+             */
+            AIHomeOption.prototype.promptText = "";
+
+            /**
+             * AIHomeOption sessionId.
+             * @member {string} sessionId
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @instance
+             */
+            AIHomeOption.prototype.sessionId = "";
+
+            /**
+             * AIHomeOption imageWdsIdentifier.
+             * @member {string} imageWdsIdentifier
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @instance
+             */
+            AIHomeOption.prototype.imageWdsIdentifier = "";
+
+            /**
+             * AIHomeOption imageTintColor.
+             * @member {string} imageTintColor
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @instance
+             */
+            AIHomeOption.prototype.imageTintColor = "";
+
+            /**
+             * AIHomeOption imageBackgroundColor.
+             * @member {string} imageBackgroundColor
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @instance
+             */
+            AIHomeOption.prototype.imageBackgroundColor = "";
+
+            /**
+             * Creates a new AIHomeOption instance using the specified properties.
+             * @function create
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @static
+             * @param {AICommon.AIHomeState.IAIHomeOption=} [properties] Properties to set
+             * @returns {AICommon.AIHomeState.AIHomeOption} AIHomeOption instance
+             */
+            AIHomeOption.create = function create(properties) {
+                return new AIHomeOption(properties);
+            };
+
+            /**
+             * Encodes the specified AIHomeOption message. Does not implicitly {@link AICommon.AIHomeState.AIHomeOption.verify|verify} messages.
+             * @function encode
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @static
+             * @param {AICommon.AIHomeState.IAIHomeOption} message AIHomeOption message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AIHomeOption.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.type);
+                if (message.title != null && Object.hasOwnProperty.call(message, "title"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.title);
+                if (message.promptText != null && Object.hasOwnProperty.call(message, "promptText"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.promptText);
+                if (message.sessionId != null && Object.hasOwnProperty.call(message, "sessionId"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.sessionId);
+                if (message.imageWdsIdentifier != null && Object.hasOwnProperty.call(message, "imageWdsIdentifier"))
+                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.imageWdsIdentifier);
+                if (message.imageTintColor != null && Object.hasOwnProperty.call(message, "imageTintColor"))
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.imageTintColor);
+                if (message.imageBackgroundColor != null && Object.hasOwnProperty.call(message, "imageBackgroundColor"))
+                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.imageBackgroundColor);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified AIHomeOption message, length delimited. Does not implicitly {@link AICommon.AIHomeState.AIHomeOption.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @static
+             * @param {AICommon.AIHomeState.IAIHomeOption} message AIHomeOption message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AIHomeOption.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a AIHomeOption message from the specified reader or buffer.
+             * @function decode
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {AICommon.AIHomeState.AIHomeOption} AIHomeOption
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AIHomeOption.decode = function decode(reader, length, error) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.AIHomeState.AIHomeOption();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    if (tag === error)
+                        break;
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.type = reader.int32();
+                            break;
+                        }
+                    case 2: {
+                            message.title = reader.string();
+                            break;
+                        }
+                    case 3: {
+                            message.promptText = reader.string();
+                            break;
+                        }
+                    case 4: {
+                            message.sessionId = reader.string();
+                            break;
+                        }
+                    case 5: {
+                            message.imageWdsIdentifier = reader.string();
+                            break;
+                        }
+                    case 6: {
+                            message.imageTintColor = reader.string();
+                            break;
+                        }
+                    case 7: {
+                            message.imageBackgroundColor = reader.string();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a AIHomeOption message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {AICommon.AIHomeState.AIHomeOption} AIHomeOption
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AIHomeOption.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a AIHomeOption message.
+             * @function verify
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            AIHomeOption.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.type != null && message.hasOwnProperty("type"))
+                    switch (message.type) {
+                    default:
+                        return "type: enum value expected";
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                        break;
+                    }
+                if (message.title != null && message.hasOwnProperty("title"))
+                    if (!$util.isString(message.title))
+                        return "title: string expected";
+                if (message.promptText != null && message.hasOwnProperty("promptText"))
+                    if (!$util.isString(message.promptText))
+                        return "promptText: string expected";
+                if (message.sessionId != null && message.hasOwnProperty("sessionId"))
+                    if (!$util.isString(message.sessionId))
+                        return "sessionId: string expected";
+                if (message.imageWdsIdentifier != null && message.hasOwnProperty("imageWdsIdentifier"))
+                    if (!$util.isString(message.imageWdsIdentifier))
+                        return "imageWdsIdentifier: string expected";
+                if (message.imageTintColor != null && message.hasOwnProperty("imageTintColor"))
+                    if (!$util.isString(message.imageTintColor))
+                        return "imageTintColor: string expected";
+                if (message.imageBackgroundColor != null && message.hasOwnProperty("imageBackgroundColor"))
+                    if (!$util.isString(message.imageBackgroundColor))
+                        return "imageBackgroundColor: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a AIHomeOption message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {AICommon.AIHomeState.AIHomeOption} AIHomeOption
+             */
+            AIHomeOption.fromObject = function fromObject(object) {
+                if (object instanceof $root.AICommon.AIHomeState.AIHomeOption)
+                    return object;
+                var message = new $root.AICommon.AIHomeState.AIHomeOption();
+                switch (object.type) {
+                default:
+                    if (typeof object.type === "number") {
+                        message.type = object.type;
+                        break;
+                    }
+                    break;
+                case "PROMPT":
+                case 0:
+                    message.type = 0;
+                    break;
+                case "CREATE_IMAGE":
+                case 1:
+                    message.type = 1;
+                    break;
+                case "ANIMATE_PHOTO":
+                case 2:
+                    message.type = 2;
+                    break;
+                case "ANALYZE_FILE":
+                case 3:
+                    message.type = 3;
+                    break;
+                }
+                if (object.title != null)
+                    message.title = String(object.title);
+                if (object.promptText != null)
+                    message.promptText = String(object.promptText);
+                if (object.sessionId != null)
+                    message.sessionId = String(object.sessionId);
+                if (object.imageWdsIdentifier != null)
+                    message.imageWdsIdentifier = String(object.imageWdsIdentifier);
+                if (object.imageTintColor != null)
+                    message.imageTintColor = String(object.imageTintColor);
+                if (object.imageBackgroundColor != null)
+                    message.imageBackgroundColor = String(object.imageBackgroundColor);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a AIHomeOption message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @static
+             * @param {AICommon.AIHomeState.AIHomeOption} message AIHomeOption
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            AIHomeOption.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.type = options.enums === String ? "PROMPT" : 0;
+                    object.title = "";
+                    object.promptText = "";
+                    object.sessionId = "";
+                    object.imageWdsIdentifier = "";
+                    object.imageTintColor = "";
+                    object.imageBackgroundColor = "";
+                }
+                if (message.type != null && message.hasOwnProperty("type"))
+                    object.type = options.enums === String ? $root.AICommon.AIHomeState.AIHomeOption.AIHomeActionType[message.type] === undefined ? message.type : $root.AICommon.AIHomeState.AIHomeOption.AIHomeActionType[message.type] : message.type;
+                if (message.title != null && message.hasOwnProperty("title"))
+                    object.title = message.title;
+                if (message.promptText != null && message.hasOwnProperty("promptText"))
+                    object.promptText = message.promptText;
+                if (message.sessionId != null && message.hasOwnProperty("sessionId"))
+                    object.sessionId = message.sessionId;
+                if (message.imageWdsIdentifier != null && message.hasOwnProperty("imageWdsIdentifier"))
+                    object.imageWdsIdentifier = message.imageWdsIdentifier;
+                if (message.imageTintColor != null && message.hasOwnProperty("imageTintColor"))
+                    object.imageTintColor = message.imageTintColor;
+                if (message.imageBackgroundColor != null && message.hasOwnProperty("imageBackgroundColor"))
+                    object.imageBackgroundColor = message.imageBackgroundColor;
+                return object;
+            };
+
+            /**
+             * Converts this AIHomeOption to JSON.
+             * @function toJSON
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            AIHomeOption.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for AIHomeOption
+             * @function getTypeUrl
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            AIHomeOption.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/AICommon.AIHomeState.AIHomeOption";
+            };
+
+            /**
+             * AIHomeActionType enum.
+             * @name AICommon.AIHomeState.AIHomeOption.AIHomeActionType
+             * @enum {number}
+             * @property {number} PROMPT=0 PROMPT value
+             * @property {number} CREATE_IMAGE=1 CREATE_IMAGE value
+             * @property {number} ANIMATE_PHOTO=2 ANIMATE_PHOTO value
+             * @property {number} ANALYZE_FILE=3 ANALYZE_FILE value
+             */
+            AIHomeOption.AIHomeActionType = (function() {
+                var valuesById = {}, values = Object.create(valuesById);
+                values[valuesById[0] = "PROMPT"] = 0;
+                values[valuesById[1] = "CREATE_IMAGE"] = 1;
+                values[valuesById[2] = "ANIMATE_PHOTO"] = 2;
+                values[valuesById[3] = "ANALYZE_FILE"] = 3;
+                return values;
+            })();
+
+            return AIHomeOption;
+        })();
+
+        return AIHomeState;
+    })();
+
+    AICommon.BotDocumentMessageMetadata = (function() {
+
+        /**
+         * Properties of a BotDocumentMessageMetadata.
+         * @memberof AICommon
+         * @interface IBotDocumentMessageMetadata
+         * @property {AICommon.BotDocumentMessageMetadata.DocumentPluginType|null} [pluginType] BotDocumentMessageMetadata pluginType
+         */
+
+        /**
+         * Constructs a new BotDocumentMessageMetadata.
+         * @memberof AICommon
+         * @classdesc Represents a BotDocumentMessageMetadata.
+         * @implements IBotDocumentMessageMetadata
+         * @constructor
+         * @param {AICommon.IBotDocumentMessageMetadata=} [properties] Properties to set
+         */
+        function BotDocumentMessageMetadata(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * BotDocumentMessageMetadata pluginType.
+         * @member {AICommon.BotDocumentMessageMetadata.DocumentPluginType} pluginType
+         * @memberof AICommon.BotDocumentMessageMetadata
+         * @instance
+         */
+        BotDocumentMessageMetadata.prototype.pluginType = 0;
+
+        /**
+         * Creates a new BotDocumentMessageMetadata instance using the specified properties.
+         * @function create
+         * @memberof AICommon.BotDocumentMessageMetadata
+         * @static
+         * @param {AICommon.IBotDocumentMessageMetadata=} [properties] Properties to set
+         * @returns {AICommon.BotDocumentMessageMetadata} BotDocumentMessageMetadata instance
+         */
+        BotDocumentMessageMetadata.create = function create(properties) {
+            return new BotDocumentMessageMetadata(properties);
+        };
+
+        /**
+         * Encodes the specified BotDocumentMessageMetadata message. Does not implicitly {@link AICommon.BotDocumentMessageMetadata.verify|verify} messages.
+         * @function encode
+         * @memberof AICommon.BotDocumentMessageMetadata
+         * @static
+         * @param {AICommon.IBotDocumentMessageMetadata} message BotDocumentMessageMetadata message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        BotDocumentMessageMetadata.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.pluginType != null && Object.hasOwnProperty.call(message, "pluginType"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.pluginType);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified BotDocumentMessageMetadata message, length delimited. Does not implicitly {@link AICommon.BotDocumentMessageMetadata.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof AICommon.BotDocumentMessageMetadata
+         * @static
+         * @param {AICommon.IBotDocumentMessageMetadata} message BotDocumentMessageMetadata message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        BotDocumentMessageMetadata.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a BotDocumentMessageMetadata message from the specified reader or buffer.
+         * @function decode
+         * @memberof AICommon.BotDocumentMessageMetadata
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {AICommon.BotDocumentMessageMetadata} BotDocumentMessageMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        BotDocumentMessageMetadata.decode = function decode(reader, length, error) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotDocumentMessageMetadata();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                if (tag === error)
+                    break;
+                switch (tag >>> 3) {
+                case 1: {
+                        message.pluginType = reader.int32();
+                        break;
+                    }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a BotDocumentMessageMetadata message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof AICommon.BotDocumentMessageMetadata
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {AICommon.BotDocumentMessageMetadata} BotDocumentMessageMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        BotDocumentMessageMetadata.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a BotDocumentMessageMetadata message.
+         * @function verify
+         * @memberof AICommon.BotDocumentMessageMetadata
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        BotDocumentMessageMetadata.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.pluginType != null && message.hasOwnProperty("pluginType"))
+                switch (message.pluginType) {
+                default:
+                    return "pluginType: enum value expected";
+                case 0:
+                case 1:
+                    break;
+                }
+            return null;
+        };
+
+        /**
+         * Creates a BotDocumentMessageMetadata message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof AICommon.BotDocumentMessageMetadata
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {AICommon.BotDocumentMessageMetadata} BotDocumentMessageMetadata
+         */
+        BotDocumentMessageMetadata.fromObject = function fromObject(object) {
+            if (object instanceof $root.AICommon.BotDocumentMessageMetadata)
+                return object;
+            var message = new $root.AICommon.BotDocumentMessageMetadata();
+            switch (object.pluginType) {
+            default:
+                if (typeof object.pluginType === "number") {
+                    message.pluginType = object.pluginType;
+                    break;
+                }
+                break;
+            case "TEXT_EXTRACTION":
+            case 0:
+                message.pluginType = 0;
+                break;
+            case "OCR_AND_IMAGES":
+            case 1:
+                message.pluginType = 1;
+                break;
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a BotDocumentMessageMetadata message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof AICommon.BotDocumentMessageMetadata
+         * @static
+         * @param {AICommon.BotDocumentMessageMetadata} message BotDocumentMessageMetadata
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        BotDocumentMessageMetadata.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.pluginType = options.enums === String ? "TEXT_EXTRACTION" : 0;
+            if (message.pluginType != null && message.hasOwnProperty("pluginType"))
+                object.pluginType = options.enums === String ? $root.AICommon.BotDocumentMessageMetadata.DocumentPluginType[message.pluginType] === undefined ? message.pluginType : $root.AICommon.BotDocumentMessageMetadata.DocumentPluginType[message.pluginType] : message.pluginType;
+            return object;
+        };
+
+        /**
+         * Converts this BotDocumentMessageMetadata to JSON.
+         * @function toJSON
+         * @memberof AICommon.BotDocumentMessageMetadata
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        BotDocumentMessageMetadata.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for BotDocumentMessageMetadata
+         * @function getTypeUrl
+         * @memberof AICommon.BotDocumentMessageMetadata
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        BotDocumentMessageMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/AICommon.BotDocumentMessageMetadata";
+        };
+
+        /**
+         * DocumentPluginType enum.
+         * @name AICommon.BotDocumentMessageMetadata.DocumentPluginType
+         * @enum {number}
+         * @property {number} TEXT_EXTRACTION=0 TEXT_EXTRACTION value
+         * @property {number} OCR_AND_IMAGES=1 OCR_AND_IMAGES value
+         */
+        BotDocumentMessageMetadata.DocumentPluginType = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "TEXT_EXTRACTION"] = 0;
+            values[valuesById[1] = "OCR_AND_IMAGES"] = 1;
+            return values;
+        })();
+
+        return BotDocumentMessageMetadata;
+    })();
+
+    AICommon.SessionTransparencyMetadata = (function() {
+
+        /**
+         * Properties of a SessionTransparencyMetadata.
+         * @memberof AICommon
+         * @interface ISessionTransparencyMetadata
+         * @property {string|null} [disclaimerText] SessionTransparencyMetadata disclaimerText
+         * @property {string|null} [hcaId] SessionTransparencyMetadata hcaId
+         * @property {AICommon.SessionTransparencyType|null} [sessionTransparencyType] SessionTransparencyMetadata sessionTransparencyType
+         */
+
+        /**
+         * Constructs a new SessionTransparencyMetadata.
+         * @memberof AICommon
+         * @classdesc Represents a SessionTransparencyMetadata.
+         * @implements ISessionTransparencyMetadata
+         * @constructor
+         * @param {AICommon.ISessionTransparencyMetadata=} [properties] Properties to set
+         */
+        function SessionTransparencyMetadata(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * SessionTransparencyMetadata disclaimerText.
+         * @member {string} disclaimerText
+         * @memberof AICommon.SessionTransparencyMetadata
+         * @instance
+         */
+        SessionTransparencyMetadata.prototype.disclaimerText = "";
+
+        /**
+         * SessionTransparencyMetadata hcaId.
+         * @member {string} hcaId
+         * @memberof AICommon.SessionTransparencyMetadata
+         * @instance
+         */
+        SessionTransparencyMetadata.prototype.hcaId = "";
+
+        /**
+         * SessionTransparencyMetadata sessionTransparencyType.
+         * @member {AICommon.SessionTransparencyType} sessionTransparencyType
+         * @memberof AICommon.SessionTransparencyMetadata
+         * @instance
+         */
+        SessionTransparencyMetadata.prototype.sessionTransparencyType = 0;
+
+        /**
+         * Creates a new SessionTransparencyMetadata instance using the specified properties.
+         * @function create
+         * @memberof AICommon.SessionTransparencyMetadata
+         * @static
+         * @param {AICommon.ISessionTransparencyMetadata=} [properties] Properties to set
+         * @returns {AICommon.SessionTransparencyMetadata} SessionTransparencyMetadata instance
+         */
+        SessionTransparencyMetadata.create = function create(properties) {
+            return new SessionTransparencyMetadata(properties);
+        };
+
+        /**
+         * Encodes the specified SessionTransparencyMetadata message. Does not implicitly {@link AICommon.SessionTransparencyMetadata.verify|verify} messages.
+         * @function encode
+         * @memberof AICommon.SessionTransparencyMetadata
+         * @static
+         * @param {AICommon.ISessionTransparencyMetadata} message SessionTransparencyMetadata message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SessionTransparencyMetadata.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.disclaimerText != null && Object.hasOwnProperty.call(message, "disclaimerText"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.disclaimerText);
+            if (message.hcaId != null && Object.hasOwnProperty.call(message, "hcaId"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.hcaId);
+            if (message.sessionTransparencyType != null && Object.hasOwnProperty.call(message, "sessionTransparencyType"))
+                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.sessionTransparencyType);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified SessionTransparencyMetadata message, length delimited. Does not implicitly {@link AICommon.SessionTransparencyMetadata.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof AICommon.SessionTransparencyMetadata
+         * @static
+         * @param {AICommon.ISessionTransparencyMetadata} message SessionTransparencyMetadata message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SessionTransparencyMetadata.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a SessionTransparencyMetadata message from the specified reader or buffer.
+         * @function decode
+         * @memberof AICommon.SessionTransparencyMetadata
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {AICommon.SessionTransparencyMetadata} SessionTransparencyMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SessionTransparencyMetadata.decode = function decode(reader, length, error) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.SessionTransparencyMetadata();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                if (tag === error)
+                    break;
+                switch (tag >>> 3) {
+                case 1: {
+                        message.disclaimerText = reader.string();
+                        break;
+                    }
+                case 2: {
+                        message.hcaId = reader.string();
+                        break;
+                    }
+                case 3: {
+                        message.sessionTransparencyType = reader.int32();
+                        break;
+                    }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a SessionTransparencyMetadata message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof AICommon.SessionTransparencyMetadata
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {AICommon.SessionTransparencyMetadata} SessionTransparencyMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SessionTransparencyMetadata.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a SessionTransparencyMetadata message.
+         * @function verify
+         * @memberof AICommon.SessionTransparencyMetadata
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        SessionTransparencyMetadata.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.disclaimerText != null && message.hasOwnProperty("disclaimerText"))
+                if (!$util.isString(message.disclaimerText))
+                    return "disclaimerText: string expected";
+            if (message.hcaId != null && message.hasOwnProperty("hcaId"))
+                if (!$util.isString(message.hcaId))
+                    return "hcaId: string expected";
+            if (message.sessionTransparencyType != null && message.hasOwnProperty("sessionTransparencyType"))
+                switch (message.sessionTransparencyType) {
+                default:
+                    return "sessionTransparencyType: enum value expected";
+                case 0:
+                case 1:
+                    break;
+                }
+            return null;
+        };
+
+        /**
+         * Creates a SessionTransparencyMetadata message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof AICommon.SessionTransparencyMetadata
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {AICommon.SessionTransparencyMetadata} SessionTransparencyMetadata
+         */
+        SessionTransparencyMetadata.fromObject = function fromObject(object) {
+            if (object instanceof $root.AICommon.SessionTransparencyMetadata)
+                return object;
+            var message = new $root.AICommon.SessionTransparencyMetadata();
+            if (object.disclaimerText != null)
+                message.disclaimerText = String(object.disclaimerText);
+            if (object.hcaId != null)
+                message.hcaId = String(object.hcaId);
+            switch (object.sessionTransparencyType) {
+            default:
+                if (typeof object.sessionTransparencyType === "number") {
+                    message.sessionTransparencyType = object.sessionTransparencyType;
+                    break;
+                }
+                break;
+            case "UNKNOWN_TYPE":
+            case 0:
+                message.sessionTransparencyType = 0;
+                break;
+            case "NY_AI_SAFETY_DISCLAIMER":
+            case 1:
+                message.sessionTransparencyType = 1;
+                break;
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a SessionTransparencyMetadata message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof AICommon.SessionTransparencyMetadata
+         * @static
+         * @param {AICommon.SessionTransparencyMetadata} message SessionTransparencyMetadata
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        SessionTransparencyMetadata.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.disclaimerText = "";
+                object.hcaId = "";
+                object.sessionTransparencyType = options.enums === String ? "UNKNOWN_TYPE" : 0;
+            }
+            if (message.disclaimerText != null && message.hasOwnProperty("disclaimerText"))
+                object.disclaimerText = message.disclaimerText;
+            if (message.hcaId != null && message.hasOwnProperty("hcaId"))
+                object.hcaId = message.hcaId;
+            if (message.sessionTransparencyType != null && message.hasOwnProperty("sessionTransparencyType"))
+                object.sessionTransparencyType = options.enums === String ? $root.AICommon.SessionTransparencyType[message.sessionTransparencyType] === undefined ? message.sessionTransparencyType : $root.AICommon.SessionTransparencyType[message.sessionTransparencyType] : message.sessionTransparencyType;
+            return object;
+        };
+
+        /**
+         * Converts this SessionTransparencyMetadata to JSON.
+         * @function toJSON
+         * @memberof AICommon.SessionTransparencyMetadata
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        SessionTransparencyMetadata.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for SessionTransparencyMetadata
+         * @function getTypeUrl
+         * @memberof AICommon.SessionTransparencyMetadata
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        SessionTransparencyMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/AICommon.SessionTransparencyMetadata";
+        };
+
+        return SessionTransparencyMetadata;
+    })();
+
+    AICommon.AIRegenerateMetadata = (function() {
+
+        /**
+         * Properties of a AIRegenerateMetadata.
+         * @memberof AICommon
+         * @interface IAIRegenerateMetadata
+         * @property {Protocol.IMessageKey|null} [messageKey] AIRegenerateMetadata messageKey
+         * @property {number|Long|null} [responseTimestampMs] AIRegenerateMetadata responseTimestampMs
+         */
+
+        /**
+         * Constructs a new AIRegenerateMetadata.
+         * @memberof AICommon
+         * @classdesc Represents a AIRegenerateMetadata.
+         * @implements IAIRegenerateMetadata
+         * @constructor
+         * @param {AICommon.IAIRegenerateMetadata=} [properties] Properties to set
+         */
+        function AIRegenerateMetadata(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * AIRegenerateMetadata messageKey.
+         * @member {Protocol.IMessageKey|null|undefined} messageKey
+         * @memberof AICommon.AIRegenerateMetadata
+         * @instance
+         */
+        AIRegenerateMetadata.prototype.messageKey = null;
+
+        /**
+         * AIRegenerateMetadata responseTimestampMs.
+         * @member {number|Long} responseTimestampMs
+         * @memberof AICommon.AIRegenerateMetadata
+         * @instance
+         */
+        AIRegenerateMetadata.prototype.responseTimestampMs = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+        /**
+         * Creates a new AIRegenerateMetadata instance using the specified properties.
+         * @function create
+         * @memberof AICommon.AIRegenerateMetadata
+         * @static
+         * @param {AICommon.IAIRegenerateMetadata=} [properties] Properties to set
+         * @returns {AICommon.AIRegenerateMetadata} AIRegenerateMetadata instance
+         */
+        AIRegenerateMetadata.create = function create(properties) {
+            return new AIRegenerateMetadata(properties);
+        };
+
+        /**
+         * Encodes the specified AIRegenerateMetadata message. Does not implicitly {@link AICommon.AIRegenerateMetadata.verify|verify} messages.
+         * @function encode
+         * @memberof AICommon.AIRegenerateMetadata
+         * @static
+         * @param {AICommon.IAIRegenerateMetadata} message AIRegenerateMetadata message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        AIRegenerateMetadata.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.messageKey != null && Object.hasOwnProperty.call(message, "messageKey"))
+                $root.Protocol.MessageKey.encode(message.messageKey, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.responseTimestampMs != null && Object.hasOwnProperty.call(message, "responseTimestampMs"))
+                writer.uint32(/* id 2, wireType 0 =*/16).int64(message.responseTimestampMs);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified AIRegenerateMetadata message, length delimited. Does not implicitly {@link AICommon.AIRegenerateMetadata.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof AICommon.AIRegenerateMetadata
+         * @static
+         * @param {AICommon.IAIRegenerateMetadata} message AIRegenerateMetadata message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        AIRegenerateMetadata.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a AIRegenerateMetadata message from the specified reader or buffer.
+         * @function decode
+         * @memberof AICommon.AIRegenerateMetadata
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {AICommon.AIRegenerateMetadata} AIRegenerateMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        AIRegenerateMetadata.decode = function decode(reader, length, error) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.AIRegenerateMetadata();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                if (tag === error)
+                    break;
+                switch (tag >>> 3) {
+                case 1: {
+                        message.messageKey = $root.Protocol.MessageKey.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 2: {
+                        message.responseTimestampMs = reader.int64();
+                        break;
+                    }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a AIRegenerateMetadata message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof AICommon.AIRegenerateMetadata
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {AICommon.AIRegenerateMetadata} AIRegenerateMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        AIRegenerateMetadata.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a AIRegenerateMetadata message.
+         * @function verify
+         * @memberof AICommon.AIRegenerateMetadata
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        AIRegenerateMetadata.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.messageKey != null && message.hasOwnProperty("messageKey")) {
+                var error = $root.Protocol.MessageKey.verify(message.messageKey);
+                if (error)
+                    return "messageKey." + error;
+            }
+            if (message.responseTimestampMs != null && message.hasOwnProperty("responseTimestampMs"))
+                if (!$util.isInteger(message.responseTimestampMs) && !(message.responseTimestampMs && $util.isInteger(message.responseTimestampMs.low) && $util.isInteger(message.responseTimestampMs.high)))
+                    return "responseTimestampMs: integer|Long expected";
+            return null;
+        };
+
+        /**
+         * Creates a AIRegenerateMetadata message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof AICommon.AIRegenerateMetadata
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {AICommon.AIRegenerateMetadata} AIRegenerateMetadata
+         */
+        AIRegenerateMetadata.fromObject = function fromObject(object) {
+            if (object instanceof $root.AICommon.AIRegenerateMetadata)
+                return object;
+            var message = new $root.AICommon.AIRegenerateMetadata();
+            if (object.messageKey != null) {
+                if (typeof object.messageKey !== "object")
+                    throw TypeError(".AICommon.AIRegenerateMetadata.messageKey: object expected");
+                message.messageKey = $root.Protocol.MessageKey.fromObject(object.messageKey);
+            }
+            if (object.responseTimestampMs != null)
+                if ($util.Long)
+                    (message.responseTimestampMs = $util.Long.fromValue(object.responseTimestampMs)).unsigned = false;
+                else if (typeof object.responseTimestampMs === "string")
+                    message.responseTimestampMs = parseInt(object.responseTimestampMs, 10);
+                else if (typeof object.responseTimestampMs === "number")
+                    message.responseTimestampMs = object.responseTimestampMs;
+                else if (typeof object.responseTimestampMs === "object")
+                    message.responseTimestampMs = new $util.LongBits(object.responseTimestampMs.low >>> 0, object.responseTimestampMs.high >>> 0).toNumber();
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a AIRegenerateMetadata message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof AICommon.AIRegenerateMetadata
+         * @static
+         * @param {AICommon.AIRegenerateMetadata} message AIRegenerateMetadata
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        AIRegenerateMetadata.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.messageKey = null;
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, false);
+                    object.responseTimestampMs = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else
+                    object.responseTimestampMs = options.longs === String ? "0" : 0;
+            }
+            if (message.messageKey != null && message.hasOwnProperty("messageKey"))
+                object.messageKey = $root.Protocol.MessageKey.toObject(message.messageKey, options);
+            if (message.responseTimestampMs != null && message.hasOwnProperty("responseTimestampMs"))
+                if (typeof message.responseTimestampMs === "number")
+                    object.responseTimestampMs = options.longs === String ? String(message.responseTimestampMs) : message.responseTimestampMs;
+                else
+                    object.responseTimestampMs = options.longs === String ? $util.Long.prototype.toString.call(message.responseTimestampMs) : options.longs === Number ? new $util.LongBits(message.responseTimestampMs.low >>> 0, message.responseTimestampMs.high >>> 0).toNumber() : message.responseTimestampMs;
+            return object;
+        };
+
+        /**
+         * Converts this AIRegenerateMetadata to JSON.
+         * @function toJSON
+         * @memberof AICommon.AIRegenerateMetadata
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        AIRegenerateMetadata.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for AIRegenerateMetadata
+         * @function getTypeUrl
+         * @memberof AICommon.AIRegenerateMetadata
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        AIRegenerateMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/AICommon.AIRegenerateMetadata";
+        };
+
+        return AIRegenerateMetadata;
+    })();
 
     AICommon.AIRichResponseSubMessage = (function() {
 
@@ -88618,6 +90460,8 @@ $root.AICommon = (function() {
                 case 34:
                 case 35:
                 case 36:
+                case 37:
+                case 38:
                     break;
                 }
             if (message.forwardScore != null && message.hasOwnProperty("forwardScore"))
@@ -88792,6 +90636,14 @@ $root.AICommon = (function() {
             case "ATTACHMENT_TRAY_GROUP_CHAT":
             case 36:
                 message.botEntryPointOrigin = 36;
+                break;
+            case "ASK_META_AI_MEDIA_VIEWER_1ON1":
+            case 37:
+                message.botEntryPointOrigin = 37;
+                break;
+            case "ASK_META_AI_MEDIA_VIEWER_GROUP":
+            case 38:
+                message.botEntryPointOrigin = 38;
                 break;
             }
             if (object.forwardScore != null)
@@ -89694,6 +91546,7 @@ $root.AICommon = (function() {
              * @property {boolean|null} [isSelectedResponsePrimary] SideBySideSurveyMetadata isSelectedResponsePrimary
              * @property {string|null} [messageIdToEdit] SideBySideSurveyMetadata messageIdToEdit
              * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.ISideBySideSurveyAnalyticsData|null} [analyticsData] SideBySideSurveyMetadata analyticsData
+             * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.ISidebySideSurveyMetaAiAnalyticsData|null} [metaAiAnalyticsData] SideBySideSurveyMetadata metaAiAnalyticsData
              */
 
             /**
@@ -89776,6 +91629,14 @@ $root.AICommon = (function() {
             SideBySideSurveyMetadata.prototype.analyticsData = null;
 
             /**
+             * SideBySideSurveyMetadata metaAiAnalyticsData.
+             * @member {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.ISidebySideSurveyMetaAiAnalyticsData|null|undefined} metaAiAnalyticsData
+             * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata
+             * @instance
+             */
+            SideBySideSurveyMetadata.prototype.metaAiAnalyticsData = null;
+
+            /**
              * Creates a new SideBySideSurveyMetadata instance using the specified properties.
              * @function create
              * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata
@@ -89815,6 +91676,8 @@ $root.AICommon = (function() {
                     writer.uint32(/* id 7, wireType 2 =*/58).string(message.messageIdToEdit);
                 if (message.analyticsData != null && Object.hasOwnProperty.call(message, "analyticsData"))
                     $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.encode(message.analyticsData, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
+                if (message.metaAiAnalyticsData != null && Object.hasOwnProperty.call(message, "metaAiAnalyticsData"))
+                    $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.encode(message.metaAiAnalyticsData, writer.uint32(/* id 9, wireType 2 =*/74).fork()).ldelim();
                 return writer;
             };
 
@@ -89883,6 +91746,10 @@ $root.AICommon = (function() {
                             message.analyticsData = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.decode(reader, reader.uint32());
                             break;
                         }
+                    case 9: {
+                            message.metaAiAnalyticsData = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.decode(reader, reader.uint32());
+                            break;
+                        }
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -89944,6 +91811,11 @@ $root.AICommon = (function() {
                     if (error)
                         return "analyticsData." + error;
                 }
+                if (message.metaAiAnalyticsData != null && message.hasOwnProperty("metaAiAnalyticsData")) {
+                    var error = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.verify(message.metaAiAnalyticsData);
+                    if (error)
+                        return "metaAiAnalyticsData." + error;
+                }
                 return null;
             };
 
@@ -89978,6 +91850,11 @@ $root.AICommon = (function() {
                         throw TypeError(".AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.analyticsData: object expected");
                     message.analyticsData = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.fromObject(object.analyticsData);
                 }
+                if (object.metaAiAnalyticsData != null) {
+                    if (typeof object.metaAiAnalyticsData !== "object")
+                        throw TypeError(".AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.metaAiAnalyticsData: object expected");
+                    message.metaAiAnalyticsData = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.fromObject(object.metaAiAnalyticsData);
+                }
                 return message;
             };
 
@@ -90003,6 +91880,7 @@ $root.AICommon = (function() {
                     object.isSelectedResponsePrimary = false;
                     object.messageIdToEdit = "";
                     object.analyticsData = null;
+                    object.metaAiAnalyticsData = null;
                 }
                 if (message.selectedRequestId != null && message.hasOwnProperty("selectedRequestId"))
                     object.selectedRequestId = message.selectedRequestId;
@@ -90020,6 +91898,8 @@ $root.AICommon = (function() {
                     object.messageIdToEdit = message.messageIdToEdit;
                 if (message.analyticsData != null && message.hasOwnProperty("analyticsData"))
                     object.analyticsData = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.toObject(message.analyticsData, options);
+                if (message.metaAiAnalyticsData != null && message.hasOwnProperty("metaAiAnalyticsData"))
+                    object.metaAiAnalyticsData = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.toObject(message.metaAiAnalyticsData, options);
                 return object;
             };
 
@@ -90057,6 +91937,7 @@ $root.AICommon = (function() {
                  * @interface ISideBySideSurveyAnalyticsData
                  * @property {string|null} [tessaEvent] SideBySideSurveyAnalyticsData tessaEvent
                  * @property {string|null} [tessaSessionFbid] SideBySideSurveyAnalyticsData tessaSessionFbid
+                 * @property {string|null} [simonSessionFbid] SideBySideSurveyAnalyticsData simonSessionFbid
                  */
 
                 /**
@@ -90091,6 +91972,14 @@ $root.AICommon = (function() {
                 SideBySideSurveyAnalyticsData.prototype.tessaSessionFbid = "";
 
                 /**
+                 * SideBySideSurveyAnalyticsData simonSessionFbid.
+                 * @member {string} simonSessionFbid
+                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData
+                 * @instance
+                 */
+                SideBySideSurveyAnalyticsData.prototype.simonSessionFbid = "";
+
+                /**
                  * Creates a new SideBySideSurveyAnalyticsData instance using the specified properties.
                  * @function create
                  * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData
@@ -90118,6 +92007,8 @@ $root.AICommon = (function() {
                         writer.uint32(/* id 1, wireType 2 =*/10).string(message.tessaEvent);
                     if (message.tessaSessionFbid != null && Object.hasOwnProperty.call(message, "tessaSessionFbid"))
                         writer.uint32(/* id 2, wireType 2 =*/18).string(message.tessaSessionFbid);
+                    if (message.simonSessionFbid != null && Object.hasOwnProperty.call(message, "simonSessionFbid"))
+                        writer.uint32(/* id 3, wireType 2 =*/26).string(message.simonSessionFbid);
                     return writer;
                 };
 
@@ -90162,6 +92053,10 @@ $root.AICommon = (function() {
                                 message.tessaSessionFbid = reader.string();
                                 break;
                             }
+                        case 3: {
+                                message.simonSessionFbid = reader.string();
+                                break;
+                            }
                         default:
                             reader.skipType(tag & 7);
                             break;
@@ -90203,6 +92098,9 @@ $root.AICommon = (function() {
                     if (message.tessaSessionFbid != null && message.hasOwnProperty("tessaSessionFbid"))
                         if (!$util.isString(message.tessaSessionFbid))
                             return "tessaSessionFbid: string expected";
+                    if (message.simonSessionFbid != null && message.hasOwnProperty("simonSessionFbid"))
+                        if (!$util.isString(message.simonSessionFbid))
+                            return "simonSessionFbid: string expected";
                     return null;
                 };
 
@@ -90222,6 +92120,8 @@ $root.AICommon = (function() {
                         message.tessaEvent = String(object.tessaEvent);
                     if (object.tessaSessionFbid != null)
                         message.tessaSessionFbid = String(object.tessaSessionFbid);
+                    if (object.simonSessionFbid != null)
+                        message.simonSessionFbid = String(object.simonSessionFbid);
                     return message;
                 };
 
@@ -90241,11 +92141,14 @@ $root.AICommon = (function() {
                     if (options.defaults) {
                         object.tessaEvent = "";
                         object.tessaSessionFbid = "";
+                        object.simonSessionFbid = "";
                     }
                     if (message.tessaEvent != null && message.hasOwnProperty("tessaEvent"))
                         object.tessaEvent = message.tessaEvent;
                     if (message.tessaSessionFbid != null && message.hasOwnProperty("tessaSessionFbid"))
                         object.tessaSessionFbid = message.tessaSessionFbid;
+                    if (message.simonSessionFbid != null && message.hasOwnProperty("simonSessionFbid"))
+                        object.simonSessionFbid = message.simonSessionFbid;
                     return object;
                 };
 
@@ -90278,10 +92181,1901 @@ $root.AICommon = (function() {
                 return SideBySideSurveyAnalyticsData;
             })();
 
+            SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData = (function() {
+
+                /**
+                 * Properties of a SidebySideSurveyMetaAiAnalyticsData.
+                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata
+                 * @interface ISidebySideSurveyMetaAiAnalyticsData
+                 * @property {number|null} [surveyId] SidebySideSurveyMetaAiAnalyticsData surveyId
+                 * @property {string|null} [primaryResponseId] SidebySideSurveyMetaAiAnalyticsData primaryResponseId
+                 * @property {string|null} [testArmName] SidebySideSurveyMetaAiAnalyticsData testArmName
+                 * @property {string|null} [timestampMsString] SidebySideSurveyMetaAiAnalyticsData timestampMsString
+                 * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCTAImpressionEventData|null} [ctaImpressionEvent] SidebySideSurveyMetaAiAnalyticsData ctaImpressionEvent
+                 * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCTAClickEventData|null} [ctaClickEvent] SidebySideSurveyMetaAiAnalyticsData ctaClickEvent
+                 * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCardImpressionEventData|null} [cardImpressionEvent] SidebySideSurveyMetaAiAnalyticsData cardImpressionEvent
+                 * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyResponseEventData|null} [responseEvent] SidebySideSurveyMetaAiAnalyticsData responseEvent
+                 * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyAbandonEventData|null} [abandonEvent] SidebySideSurveyMetaAiAnalyticsData abandonEvent
+                 */
+
+                /**
+                 * Constructs a new SidebySideSurveyMetaAiAnalyticsData.
+                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata
+                 * @classdesc Represents a SidebySideSurveyMetaAiAnalyticsData.
+                 * @implements ISidebySideSurveyMetaAiAnalyticsData
+                 * @constructor
+                 * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.ISidebySideSurveyMetaAiAnalyticsData=} [properties] Properties to set
+                 */
+                function SidebySideSurveyMetaAiAnalyticsData(properties) {
+                    if (properties)
+                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null)
+                                this[keys[i]] = properties[keys[i]];
+                }
+
+                /**
+                 * SidebySideSurveyMetaAiAnalyticsData surveyId.
+                 * @member {number} surveyId
+                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                 * @instance
+                 */
+                SidebySideSurveyMetaAiAnalyticsData.prototype.surveyId = 0;
+
+                /**
+                 * SidebySideSurveyMetaAiAnalyticsData primaryResponseId.
+                 * @member {string} primaryResponseId
+                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                 * @instance
+                 */
+                SidebySideSurveyMetaAiAnalyticsData.prototype.primaryResponseId = "";
+
+                /**
+                 * SidebySideSurveyMetaAiAnalyticsData testArmName.
+                 * @member {string} testArmName
+                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                 * @instance
+                 */
+                SidebySideSurveyMetaAiAnalyticsData.prototype.testArmName = "";
+
+                /**
+                 * SidebySideSurveyMetaAiAnalyticsData timestampMsString.
+                 * @member {string} timestampMsString
+                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                 * @instance
+                 */
+                SidebySideSurveyMetaAiAnalyticsData.prototype.timestampMsString = "";
+
+                /**
+                 * SidebySideSurveyMetaAiAnalyticsData ctaImpressionEvent.
+                 * @member {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCTAImpressionEventData|null|undefined} ctaImpressionEvent
+                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                 * @instance
+                 */
+                SidebySideSurveyMetaAiAnalyticsData.prototype.ctaImpressionEvent = null;
+
+                /**
+                 * SidebySideSurveyMetaAiAnalyticsData ctaClickEvent.
+                 * @member {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCTAClickEventData|null|undefined} ctaClickEvent
+                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                 * @instance
+                 */
+                SidebySideSurveyMetaAiAnalyticsData.prototype.ctaClickEvent = null;
+
+                /**
+                 * SidebySideSurveyMetaAiAnalyticsData cardImpressionEvent.
+                 * @member {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCardImpressionEventData|null|undefined} cardImpressionEvent
+                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                 * @instance
+                 */
+                SidebySideSurveyMetaAiAnalyticsData.prototype.cardImpressionEvent = null;
+
+                /**
+                 * SidebySideSurveyMetaAiAnalyticsData responseEvent.
+                 * @member {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyResponseEventData|null|undefined} responseEvent
+                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                 * @instance
+                 */
+                SidebySideSurveyMetaAiAnalyticsData.prototype.responseEvent = null;
+
+                /**
+                 * SidebySideSurveyMetaAiAnalyticsData abandonEvent.
+                 * @member {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyAbandonEventData|null|undefined} abandonEvent
+                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                 * @instance
+                 */
+                SidebySideSurveyMetaAiAnalyticsData.prototype.abandonEvent = null;
+
+                /**
+                 * Creates a new SidebySideSurveyMetaAiAnalyticsData instance using the specified properties.
+                 * @function create
+                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                 * @static
+                 * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.ISidebySideSurveyMetaAiAnalyticsData=} [properties] Properties to set
+                 * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData} SidebySideSurveyMetaAiAnalyticsData instance
+                 */
+                SidebySideSurveyMetaAiAnalyticsData.create = function create(properties) {
+                    return new SidebySideSurveyMetaAiAnalyticsData(properties);
+                };
+
+                /**
+                 * Encodes the specified SidebySideSurveyMetaAiAnalyticsData message. Does not implicitly {@link AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.verify|verify} messages.
+                 * @function encode
+                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                 * @static
+                 * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.ISidebySideSurveyMetaAiAnalyticsData} message SidebySideSurveyMetaAiAnalyticsData message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                SidebySideSurveyMetaAiAnalyticsData.encode = function encode(message, writer) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    if (message.surveyId != null && Object.hasOwnProperty.call(message, "surveyId"))
+                        writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.surveyId);
+                    if (message.primaryResponseId != null && Object.hasOwnProperty.call(message, "primaryResponseId"))
+                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.primaryResponseId);
+                    if (message.testArmName != null && Object.hasOwnProperty.call(message, "testArmName"))
+                        writer.uint32(/* id 3, wireType 2 =*/26).string(message.testArmName);
+                    if (message.timestampMsString != null && Object.hasOwnProperty.call(message, "timestampMsString"))
+                        writer.uint32(/* id 4, wireType 2 =*/34).string(message.timestampMsString);
+                    if (message.ctaImpressionEvent != null && Object.hasOwnProperty.call(message, "ctaImpressionEvent"))
+                        $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.encode(message.ctaImpressionEvent, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
+                    if (message.ctaClickEvent != null && Object.hasOwnProperty.call(message, "ctaClickEvent"))
+                        $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.encode(message.ctaClickEvent, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
+                    if (message.cardImpressionEvent != null && Object.hasOwnProperty.call(message, "cardImpressionEvent"))
+                        $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.encode(message.cardImpressionEvent, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
+                    if (message.responseEvent != null && Object.hasOwnProperty.call(message, "responseEvent"))
+                        $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.encode(message.responseEvent, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
+                    if (message.abandonEvent != null && Object.hasOwnProperty.call(message, "abandonEvent"))
+                        $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.encode(message.abandonEvent, writer.uint32(/* id 9, wireType 2 =*/74).fork()).ldelim();
+                    return writer;
+                };
+
+                /**
+                 * Encodes the specified SidebySideSurveyMetaAiAnalyticsData message, length delimited. Does not implicitly {@link AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                 * @static
+                 * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.ISidebySideSurveyMetaAiAnalyticsData} message SidebySideSurveyMetaAiAnalyticsData message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                SidebySideSurveyMetaAiAnalyticsData.encodeDelimited = function encodeDelimited(message, writer) {
+                    return this.encode(message, writer).ldelim();
+                };
+
+                /**
+                 * Decodes a SidebySideSurveyMetaAiAnalyticsData message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData} SidebySideSurveyMetaAiAnalyticsData
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                SidebySideSurveyMetaAiAnalyticsData.decode = function decode(reader, length, error) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData();
+                    while (reader.pos < end) {
+                        var tag = reader.uint32();
+                        if (tag === error)
+                            break;
+                        switch (tag >>> 3) {
+                        case 1: {
+                                message.surveyId = reader.uint32();
+                                break;
+                            }
+                        case 2: {
+                                message.primaryResponseId = reader.string();
+                                break;
+                            }
+                        case 3: {
+                                message.testArmName = reader.string();
+                                break;
+                            }
+                        case 4: {
+                                message.timestampMsString = reader.string();
+                                break;
+                            }
+                        case 5: {
+                                message.ctaImpressionEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.decode(reader, reader.uint32());
+                                break;
+                            }
+                        case 6: {
+                                message.ctaClickEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.decode(reader, reader.uint32());
+                                break;
+                            }
+                        case 7: {
+                                message.cardImpressionEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.decode(reader, reader.uint32());
+                                break;
+                            }
+                        case 8: {
+                                message.responseEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.decode(reader, reader.uint32());
+                                break;
+                            }
+                        case 9: {
+                                message.abandonEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.decode(reader, reader.uint32());
+                                break;
+                            }
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                        }
+                    }
+                    return message;
+                };
+
+                /**
+                 * Decodes a SidebySideSurveyMetaAiAnalyticsData message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData} SidebySideSurveyMetaAiAnalyticsData
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                SidebySideSurveyMetaAiAnalyticsData.decodeDelimited = function decodeDelimited(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+
+                /**
+                 * Verifies a SidebySideSurveyMetaAiAnalyticsData message.
+                 * @function verify
+                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                SidebySideSurveyMetaAiAnalyticsData.verify = function verify(message) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    if (message.surveyId != null && message.hasOwnProperty("surveyId"))
+                        if (!$util.isInteger(message.surveyId))
+                            return "surveyId: integer expected";
+                    if (message.primaryResponseId != null && message.hasOwnProperty("primaryResponseId"))
+                        if (!$util.isString(message.primaryResponseId))
+                            return "primaryResponseId: string expected";
+                    if (message.testArmName != null && message.hasOwnProperty("testArmName"))
+                        if (!$util.isString(message.testArmName))
+                            return "testArmName: string expected";
+                    if (message.timestampMsString != null && message.hasOwnProperty("timestampMsString"))
+                        if (!$util.isString(message.timestampMsString))
+                            return "timestampMsString: string expected";
+                    if (message.ctaImpressionEvent != null && message.hasOwnProperty("ctaImpressionEvent")) {
+                        var error = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.verify(message.ctaImpressionEvent);
+                        if (error)
+                            return "ctaImpressionEvent." + error;
+                    }
+                    if (message.ctaClickEvent != null && message.hasOwnProperty("ctaClickEvent")) {
+                        var error = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.verify(message.ctaClickEvent);
+                        if (error)
+                            return "ctaClickEvent." + error;
+                    }
+                    if (message.cardImpressionEvent != null && message.hasOwnProperty("cardImpressionEvent")) {
+                        var error = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.verify(message.cardImpressionEvent);
+                        if (error)
+                            return "cardImpressionEvent." + error;
+                    }
+                    if (message.responseEvent != null && message.hasOwnProperty("responseEvent")) {
+                        var error = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.verify(message.responseEvent);
+                        if (error)
+                            return "responseEvent." + error;
+                    }
+                    if (message.abandonEvent != null && message.hasOwnProperty("abandonEvent")) {
+                        var error = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.verify(message.abandonEvent);
+                        if (error)
+                            return "abandonEvent." + error;
+                    }
+                    return null;
+                };
+
+                /**
+                 * Creates a SidebySideSurveyMetaAiAnalyticsData message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData} SidebySideSurveyMetaAiAnalyticsData
+                 */
+                SidebySideSurveyMetaAiAnalyticsData.fromObject = function fromObject(object) {
+                    if (object instanceof $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData)
+                        return object;
+                    var message = new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData();
+                    if (object.surveyId != null)
+                        message.surveyId = object.surveyId >>> 0;
+                    if (object.primaryResponseId != null)
+                        message.primaryResponseId = String(object.primaryResponseId);
+                    if (object.testArmName != null)
+                        message.testArmName = String(object.testArmName);
+                    if (object.timestampMsString != null)
+                        message.timestampMsString = String(object.timestampMsString);
+                    if (object.ctaImpressionEvent != null) {
+                        if (typeof object.ctaImpressionEvent !== "object")
+                            throw TypeError(".AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ctaImpressionEvent: object expected");
+                        message.ctaImpressionEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.fromObject(object.ctaImpressionEvent);
+                    }
+                    if (object.ctaClickEvent != null) {
+                        if (typeof object.ctaClickEvent !== "object")
+                            throw TypeError(".AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ctaClickEvent: object expected");
+                        message.ctaClickEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.fromObject(object.ctaClickEvent);
+                    }
+                    if (object.cardImpressionEvent != null) {
+                        if (typeof object.cardImpressionEvent !== "object")
+                            throw TypeError(".AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.cardImpressionEvent: object expected");
+                        message.cardImpressionEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.fromObject(object.cardImpressionEvent);
+                    }
+                    if (object.responseEvent != null) {
+                        if (typeof object.responseEvent !== "object")
+                            throw TypeError(".AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.responseEvent: object expected");
+                        message.responseEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.fromObject(object.responseEvent);
+                    }
+                    if (object.abandonEvent != null) {
+                        if (typeof object.abandonEvent !== "object")
+                            throw TypeError(".AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.abandonEvent: object expected");
+                        message.abandonEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.fromObject(object.abandonEvent);
+                    }
+                    return message;
+                };
+
+                /**
+                 * Creates a plain object from a SidebySideSurveyMetaAiAnalyticsData message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                 * @static
+                 * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData} message SidebySideSurveyMetaAiAnalyticsData
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                SidebySideSurveyMetaAiAnalyticsData.toObject = function toObject(message, options) {
+                    if (!options)
+                        options = {};
+                    var object = {};
+                    if (options.defaults) {
+                        object.surveyId = 0;
+                        object.primaryResponseId = "";
+                        object.testArmName = "";
+                        object.timestampMsString = "";
+                        object.ctaImpressionEvent = null;
+                        object.ctaClickEvent = null;
+                        object.cardImpressionEvent = null;
+                        object.responseEvent = null;
+                        object.abandonEvent = null;
+                    }
+                    if (message.surveyId != null && message.hasOwnProperty("surveyId"))
+                        object.surveyId = message.surveyId;
+                    if (message.primaryResponseId != null && message.hasOwnProperty("primaryResponseId"))
+                        object.primaryResponseId = message.primaryResponseId;
+                    if (message.testArmName != null && message.hasOwnProperty("testArmName"))
+                        object.testArmName = message.testArmName;
+                    if (message.timestampMsString != null && message.hasOwnProperty("timestampMsString"))
+                        object.timestampMsString = message.timestampMsString;
+                    if (message.ctaImpressionEvent != null && message.hasOwnProperty("ctaImpressionEvent"))
+                        object.ctaImpressionEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.toObject(message.ctaImpressionEvent, options);
+                    if (message.ctaClickEvent != null && message.hasOwnProperty("ctaClickEvent"))
+                        object.ctaClickEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.toObject(message.ctaClickEvent, options);
+                    if (message.cardImpressionEvent != null && message.hasOwnProperty("cardImpressionEvent"))
+                        object.cardImpressionEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.toObject(message.cardImpressionEvent, options);
+                    if (message.responseEvent != null && message.hasOwnProperty("responseEvent"))
+                        object.responseEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.toObject(message.responseEvent, options);
+                    if (message.abandonEvent != null && message.hasOwnProperty("abandonEvent"))
+                        object.abandonEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.toObject(message.abandonEvent, options);
+                    return object;
+                };
+
+                /**
+                 * Converts this SidebySideSurveyMetaAiAnalyticsData to JSON.
+                 * @function toJSON
+                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                SidebySideSurveyMetaAiAnalyticsData.prototype.toJSON = function toJSON() {
+                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+
+                /**
+                 * Gets the default type url for SidebySideSurveyMetaAiAnalyticsData
+                 * @function getTypeUrl
+                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                 * @static
+                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns {string} The default type url
+                 */
+                SidebySideSurveyMetaAiAnalyticsData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                    if (typeUrlPrefix === undefined) {
+                        typeUrlPrefix = "type.googleapis.com";
+                    }
+                    return typeUrlPrefix + "/AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData";
+                };
+
+                SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData = (function() {
+
+                    /**
+                     * Properties of a SideBySideSurveyAbandonEventData.
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                     * @interface ISideBySideSurveyAbandonEventData
+                     * @property {string|null} [abandonDwellTimeMsString] SideBySideSurveyAbandonEventData abandonDwellTimeMsString
+                     */
+
+                    /**
+                     * Constructs a new SideBySideSurveyAbandonEventData.
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                     * @classdesc Represents a SideBySideSurveyAbandonEventData.
+                     * @implements ISideBySideSurveyAbandonEventData
+                     * @constructor
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyAbandonEventData=} [properties] Properties to set
+                     */
+                    function SideBySideSurveyAbandonEventData(properties) {
+                        if (properties)
+                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                if (properties[keys[i]] != null)
+                                    this[keys[i]] = properties[keys[i]];
+                    }
+
+                    /**
+                     * SideBySideSurveyAbandonEventData abandonDwellTimeMsString.
+                     * @member {string} abandonDwellTimeMsString
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData
+                     * @instance
+                     */
+                    SideBySideSurveyAbandonEventData.prototype.abandonDwellTimeMsString = "";
+
+                    /**
+                     * Creates a new SideBySideSurveyAbandonEventData instance using the specified properties.
+                     * @function create
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData
+                     * @static
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyAbandonEventData=} [properties] Properties to set
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData} SideBySideSurveyAbandonEventData instance
+                     */
+                    SideBySideSurveyAbandonEventData.create = function create(properties) {
+                        return new SideBySideSurveyAbandonEventData(properties);
+                    };
+
+                    /**
+                     * Encodes the specified SideBySideSurveyAbandonEventData message. Does not implicitly {@link AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.verify|verify} messages.
+                     * @function encode
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData
+                     * @static
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyAbandonEventData} message SideBySideSurveyAbandonEventData message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    SideBySideSurveyAbandonEventData.encode = function encode(message, writer) {
+                        if (!writer)
+                            writer = $Writer.create();
+                        if (message.abandonDwellTimeMsString != null && Object.hasOwnProperty.call(message, "abandonDwellTimeMsString"))
+                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.abandonDwellTimeMsString);
+                        return writer;
+                    };
+
+                    /**
+                     * Encodes the specified SideBySideSurveyAbandonEventData message, length delimited. Does not implicitly {@link AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.verify|verify} messages.
+                     * @function encodeDelimited
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData
+                     * @static
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyAbandonEventData} message SideBySideSurveyAbandonEventData message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    SideBySideSurveyAbandonEventData.encodeDelimited = function encodeDelimited(message, writer) {
+                        return this.encode(message, writer).ldelim();
+                    };
+
+                    /**
+                     * Decodes a SideBySideSurveyAbandonEventData message from the specified reader or buffer.
+                     * @function decode
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @param {number} [length] Message length if known beforehand
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData} SideBySideSurveyAbandonEventData
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    SideBySideSurveyAbandonEventData.decode = function decode(reader, length, error) {
+                        if (!(reader instanceof $Reader))
+                            reader = $Reader.create(reader);
+                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData();
+                        while (reader.pos < end) {
+                            var tag = reader.uint32();
+                            if (tag === error)
+                                break;
+                            switch (tag >>> 3) {
+                            case 1: {
+                                    message.abandonDwellTimeMsString = reader.string();
+                                    break;
+                                }
+                            default:
+                                reader.skipType(tag & 7);
+                                break;
+                            }
+                        }
+                        return message;
+                    };
+
+                    /**
+                     * Decodes a SideBySideSurveyAbandonEventData message from the specified reader or buffer, length delimited.
+                     * @function decodeDelimited
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData} SideBySideSurveyAbandonEventData
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    SideBySideSurveyAbandonEventData.decodeDelimited = function decodeDelimited(reader) {
+                        if (!(reader instanceof $Reader))
+                            reader = new $Reader(reader);
+                        return this.decode(reader, reader.uint32());
+                    };
+
+                    /**
+                     * Verifies a SideBySideSurveyAbandonEventData message.
+                     * @function verify
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData
+                     * @static
+                     * @param {Object.<string,*>} message Plain object to verify
+                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                     */
+                    SideBySideSurveyAbandonEventData.verify = function verify(message) {
+                        if (typeof message !== "object" || message === null)
+                            return "object expected";
+                        if (message.abandonDwellTimeMsString != null && message.hasOwnProperty("abandonDwellTimeMsString"))
+                            if (!$util.isString(message.abandonDwellTimeMsString))
+                                return "abandonDwellTimeMsString: string expected";
+                        return null;
+                    };
+
+                    /**
+                     * Creates a SideBySideSurveyAbandonEventData message from a plain object. Also converts values to their respective internal types.
+                     * @function fromObject
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData
+                     * @static
+                     * @param {Object.<string,*>} object Plain object
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData} SideBySideSurveyAbandonEventData
+                     */
+                    SideBySideSurveyAbandonEventData.fromObject = function fromObject(object) {
+                        if (object instanceof $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData)
+                            return object;
+                        var message = new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData();
+                        if (object.abandonDwellTimeMsString != null)
+                            message.abandonDwellTimeMsString = String(object.abandonDwellTimeMsString);
+                        return message;
+                    };
+
+                    /**
+                     * Creates a plain object from a SideBySideSurveyAbandonEventData message. Also converts values to other types if specified.
+                     * @function toObject
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData
+                     * @static
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData} message SideBySideSurveyAbandonEventData
+                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                     * @returns {Object.<string,*>} Plain object
+                     */
+                    SideBySideSurveyAbandonEventData.toObject = function toObject(message, options) {
+                        if (!options)
+                            options = {};
+                        var object = {};
+                        if (options.defaults)
+                            object.abandonDwellTimeMsString = "";
+                        if (message.abandonDwellTimeMsString != null && message.hasOwnProperty("abandonDwellTimeMsString"))
+                            object.abandonDwellTimeMsString = message.abandonDwellTimeMsString;
+                        return object;
+                    };
+
+                    /**
+                     * Converts this SideBySideSurveyAbandonEventData to JSON.
+                     * @function toJSON
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData
+                     * @instance
+                     * @returns {Object.<string,*>} JSON object
+                     */
+                    SideBySideSurveyAbandonEventData.prototype.toJSON = function toJSON() {
+                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                    };
+
+                    /**
+                     * Gets the default type url for SideBySideSurveyAbandonEventData
+                     * @function getTypeUrl
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData
+                     * @static
+                     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns {string} The default type url
+                     */
+                    SideBySideSurveyAbandonEventData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                        if (typeUrlPrefix === undefined) {
+                            typeUrlPrefix = "type.googleapis.com";
+                        }
+                        return typeUrlPrefix + "/AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData";
+                    };
+
+                    return SideBySideSurveyAbandonEventData;
+                })();
+
+                SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData = (function() {
+
+                    /**
+                     * Properties of a SideBySideSurveyCTAClickEventData.
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                     * @interface ISideBySideSurveyCTAClickEventData
+                     * @property {boolean|null} [isSurveyExpired] SideBySideSurveyCTAClickEventData isSurveyExpired
+                     * @property {string|null} [clickDwellTimeMsString] SideBySideSurveyCTAClickEventData clickDwellTimeMsString
+                     */
+
+                    /**
+                     * Constructs a new SideBySideSurveyCTAClickEventData.
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                     * @classdesc Represents a SideBySideSurveyCTAClickEventData.
+                     * @implements ISideBySideSurveyCTAClickEventData
+                     * @constructor
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCTAClickEventData=} [properties] Properties to set
+                     */
+                    function SideBySideSurveyCTAClickEventData(properties) {
+                        if (properties)
+                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                if (properties[keys[i]] != null)
+                                    this[keys[i]] = properties[keys[i]];
+                    }
+
+                    /**
+                     * SideBySideSurveyCTAClickEventData isSurveyExpired.
+                     * @member {boolean} isSurveyExpired
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData
+                     * @instance
+                     */
+                    SideBySideSurveyCTAClickEventData.prototype.isSurveyExpired = false;
+
+                    /**
+                     * SideBySideSurveyCTAClickEventData clickDwellTimeMsString.
+                     * @member {string} clickDwellTimeMsString
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData
+                     * @instance
+                     */
+                    SideBySideSurveyCTAClickEventData.prototype.clickDwellTimeMsString = "";
+
+                    /**
+                     * Creates a new SideBySideSurveyCTAClickEventData instance using the specified properties.
+                     * @function create
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData
+                     * @static
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCTAClickEventData=} [properties] Properties to set
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData} SideBySideSurveyCTAClickEventData instance
+                     */
+                    SideBySideSurveyCTAClickEventData.create = function create(properties) {
+                        return new SideBySideSurveyCTAClickEventData(properties);
+                    };
+
+                    /**
+                     * Encodes the specified SideBySideSurveyCTAClickEventData message. Does not implicitly {@link AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.verify|verify} messages.
+                     * @function encode
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData
+                     * @static
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCTAClickEventData} message SideBySideSurveyCTAClickEventData message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    SideBySideSurveyCTAClickEventData.encode = function encode(message, writer) {
+                        if (!writer)
+                            writer = $Writer.create();
+                        if (message.isSurveyExpired != null && Object.hasOwnProperty.call(message, "isSurveyExpired"))
+                            writer.uint32(/* id 1, wireType 0 =*/8).bool(message.isSurveyExpired);
+                        if (message.clickDwellTimeMsString != null && Object.hasOwnProperty.call(message, "clickDwellTimeMsString"))
+                            writer.uint32(/* id 2, wireType 2 =*/18).string(message.clickDwellTimeMsString);
+                        return writer;
+                    };
+
+                    /**
+                     * Encodes the specified SideBySideSurveyCTAClickEventData message, length delimited. Does not implicitly {@link AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.verify|verify} messages.
+                     * @function encodeDelimited
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData
+                     * @static
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCTAClickEventData} message SideBySideSurveyCTAClickEventData message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    SideBySideSurveyCTAClickEventData.encodeDelimited = function encodeDelimited(message, writer) {
+                        return this.encode(message, writer).ldelim();
+                    };
+
+                    /**
+                     * Decodes a SideBySideSurveyCTAClickEventData message from the specified reader or buffer.
+                     * @function decode
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @param {number} [length] Message length if known beforehand
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData} SideBySideSurveyCTAClickEventData
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    SideBySideSurveyCTAClickEventData.decode = function decode(reader, length, error) {
+                        if (!(reader instanceof $Reader))
+                            reader = $Reader.create(reader);
+                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData();
+                        while (reader.pos < end) {
+                            var tag = reader.uint32();
+                            if (tag === error)
+                                break;
+                            switch (tag >>> 3) {
+                            case 1: {
+                                    message.isSurveyExpired = reader.bool();
+                                    break;
+                                }
+                            case 2: {
+                                    message.clickDwellTimeMsString = reader.string();
+                                    break;
+                                }
+                            default:
+                                reader.skipType(tag & 7);
+                                break;
+                            }
+                        }
+                        return message;
+                    };
+
+                    /**
+                     * Decodes a SideBySideSurveyCTAClickEventData message from the specified reader or buffer, length delimited.
+                     * @function decodeDelimited
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData} SideBySideSurveyCTAClickEventData
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    SideBySideSurveyCTAClickEventData.decodeDelimited = function decodeDelimited(reader) {
+                        if (!(reader instanceof $Reader))
+                            reader = new $Reader(reader);
+                        return this.decode(reader, reader.uint32());
+                    };
+
+                    /**
+                     * Verifies a SideBySideSurveyCTAClickEventData message.
+                     * @function verify
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData
+                     * @static
+                     * @param {Object.<string,*>} message Plain object to verify
+                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                     */
+                    SideBySideSurveyCTAClickEventData.verify = function verify(message) {
+                        if (typeof message !== "object" || message === null)
+                            return "object expected";
+                        if (message.isSurveyExpired != null && message.hasOwnProperty("isSurveyExpired"))
+                            if (typeof message.isSurveyExpired !== "boolean")
+                                return "isSurveyExpired: boolean expected";
+                        if (message.clickDwellTimeMsString != null && message.hasOwnProperty("clickDwellTimeMsString"))
+                            if (!$util.isString(message.clickDwellTimeMsString))
+                                return "clickDwellTimeMsString: string expected";
+                        return null;
+                    };
+
+                    /**
+                     * Creates a SideBySideSurveyCTAClickEventData message from a plain object. Also converts values to their respective internal types.
+                     * @function fromObject
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData
+                     * @static
+                     * @param {Object.<string,*>} object Plain object
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData} SideBySideSurveyCTAClickEventData
+                     */
+                    SideBySideSurveyCTAClickEventData.fromObject = function fromObject(object) {
+                        if (object instanceof $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData)
+                            return object;
+                        var message = new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData();
+                        if (object.isSurveyExpired != null)
+                            message.isSurveyExpired = Boolean(object.isSurveyExpired);
+                        if (object.clickDwellTimeMsString != null)
+                            message.clickDwellTimeMsString = String(object.clickDwellTimeMsString);
+                        return message;
+                    };
+
+                    /**
+                     * Creates a plain object from a SideBySideSurveyCTAClickEventData message. Also converts values to other types if specified.
+                     * @function toObject
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData
+                     * @static
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData} message SideBySideSurveyCTAClickEventData
+                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                     * @returns {Object.<string,*>} Plain object
+                     */
+                    SideBySideSurveyCTAClickEventData.toObject = function toObject(message, options) {
+                        if (!options)
+                            options = {};
+                        var object = {};
+                        if (options.defaults) {
+                            object.isSurveyExpired = false;
+                            object.clickDwellTimeMsString = "";
+                        }
+                        if (message.isSurveyExpired != null && message.hasOwnProperty("isSurveyExpired"))
+                            object.isSurveyExpired = message.isSurveyExpired;
+                        if (message.clickDwellTimeMsString != null && message.hasOwnProperty("clickDwellTimeMsString"))
+                            object.clickDwellTimeMsString = message.clickDwellTimeMsString;
+                        return object;
+                    };
+
+                    /**
+                     * Converts this SideBySideSurveyCTAClickEventData to JSON.
+                     * @function toJSON
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData
+                     * @instance
+                     * @returns {Object.<string,*>} JSON object
+                     */
+                    SideBySideSurveyCTAClickEventData.prototype.toJSON = function toJSON() {
+                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                    };
+
+                    /**
+                     * Gets the default type url for SideBySideSurveyCTAClickEventData
+                     * @function getTypeUrl
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData
+                     * @static
+                     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns {string} The default type url
+                     */
+                    SideBySideSurveyCTAClickEventData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                        if (typeUrlPrefix === undefined) {
+                            typeUrlPrefix = "type.googleapis.com";
+                        }
+                        return typeUrlPrefix + "/AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData";
+                    };
+
+                    return SideBySideSurveyCTAClickEventData;
+                })();
+
+                SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData = (function() {
+
+                    /**
+                     * Properties of a SideBySideSurveyCTAImpressionEventData.
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                     * @interface ISideBySideSurveyCTAImpressionEventData
+                     * @property {boolean|null} [isSurveyExpired] SideBySideSurveyCTAImpressionEventData isSurveyExpired
+                     */
+
+                    /**
+                     * Constructs a new SideBySideSurveyCTAImpressionEventData.
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                     * @classdesc Represents a SideBySideSurveyCTAImpressionEventData.
+                     * @implements ISideBySideSurveyCTAImpressionEventData
+                     * @constructor
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCTAImpressionEventData=} [properties] Properties to set
+                     */
+                    function SideBySideSurveyCTAImpressionEventData(properties) {
+                        if (properties)
+                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                if (properties[keys[i]] != null)
+                                    this[keys[i]] = properties[keys[i]];
+                    }
+
+                    /**
+                     * SideBySideSurveyCTAImpressionEventData isSurveyExpired.
+                     * @member {boolean} isSurveyExpired
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData
+                     * @instance
+                     */
+                    SideBySideSurveyCTAImpressionEventData.prototype.isSurveyExpired = false;
+
+                    /**
+                     * Creates a new SideBySideSurveyCTAImpressionEventData instance using the specified properties.
+                     * @function create
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData
+                     * @static
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCTAImpressionEventData=} [properties] Properties to set
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData} SideBySideSurveyCTAImpressionEventData instance
+                     */
+                    SideBySideSurveyCTAImpressionEventData.create = function create(properties) {
+                        return new SideBySideSurveyCTAImpressionEventData(properties);
+                    };
+
+                    /**
+                     * Encodes the specified SideBySideSurveyCTAImpressionEventData message. Does not implicitly {@link AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.verify|verify} messages.
+                     * @function encode
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData
+                     * @static
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCTAImpressionEventData} message SideBySideSurveyCTAImpressionEventData message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    SideBySideSurveyCTAImpressionEventData.encode = function encode(message, writer) {
+                        if (!writer)
+                            writer = $Writer.create();
+                        if (message.isSurveyExpired != null && Object.hasOwnProperty.call(message, "isSurveyExpired"))
+                            writer.uint32(/* id 1, wireType 0 =*/8).bool(message.isSurveyExpired);
+                        return writer;
+                    };
+
+                    /**
+                     * Encodes the specified SideBySideSurveyCTAImpressionEventData message, length delimited. Does not implicitly {@link AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.verify|verify} messages.
+                     * @function encodeDelimited
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData
+                     * @static
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCTAImpressionEventData} message SideBySideSurveyCTAImpressionEventData message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    SideBySideSurveyCTAImpressionEventData.encodeDelimited = function encodeDelimited(message, writer) {
+                        return this.encode(message, writer).ldelim();
+                    };
+
+                    /**
+                     * Decodes a SideBySideSurveyCTAImpressionEventData message from the specified reader or buffer.
+                     * @function decode
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @param {number} [length] Message length if known beforehand
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData} SideBySideSurveyCTAImpressionEventData
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    SideBySideSurveyCTAImpressionEventData.decode = function decode(reader, length, error) {
+                        if (!(reader instanceof $Reader))
+                            reader = $Reader.create(reader);
+                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData();
+                        while (reader.pos < end) {
+                            var tag = reader.uint32();
+                            if (tag === error)
+                                break;
+                            switch (tag >>> 3) {
+                            case 1: {
+                                    message.isSurveyExpired = reader.bool();
+                                    break;
+                                }
+                            default:
+                                reader.skipType(tag & 7);
+                                break;
+                            }
+                        }
+                        return message;
+                    };
+
+                    /**
+                     * Decodes a SideBySideSurveyCTAImpressionEventData message from the specified reader or buffer, length delimited.
+                     * @function decodeDelimited
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData} SideBySideSurveyCTAImpressionEventData
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    SideBySideSurveyCTAImpressionEventData.decodeDelimited = function decodeDelimited(reader) {
+                        if (!(reader instanceof $Reader))
+                            reader = new $Reader(reader);
+                        return this.decode(reader, reader.uint32());
+                    };
+
+                    /**
+                     * Verifies a SideBySideSurveyCTAImpressionEventData message.
+                     * @function verify
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData
+                     * @static
+                     * @param {Object.<string,*>} message Plain object to verify
+                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                     */
+                    SideBySideSurveyCTAImpressionEventData.verify = function verify(message) {
+                        if (typeof message !== "object" || message === null)
+                            return "object expected";
+                        if (message.isSurveyExpired != null && message.hasOwnProperty("isSurveyExpired"))
+                            if (typeof message.isSurveyExpired !== "boolean")
+                                return "isSurveyExpired: boolean expected";
+                        return null;
+                    };
+
+                    /**
+                     * Creates a SideBySideSurveyCTAImpressionEventData message from a plain object. Also converts values to their respective internal types.
+                     * @function fromObject
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData
+                     * @static
+                     * @param {Object.<string,*>} object Plain object
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData} SideBySideSurveyCTAImpressionEventData
+                     */
+                    SideBySideSurveyCTAImpressionEventData.fromObject = function fromObject(object) {
+                        if (object instanceof $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData)
+                            return object;
+                        var message = new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData();
+                        if (object.isSurveyExpired != null)
+                            message.isSurveyExpired = Boolean(object.isSurveyExpired);
+                        return message;
+                    };
+
+                    /**
+                     * Creates a plain object from a SideBySideSurveyCTAImpressionEventData message. Also converts values to other types if specified.
+                     * @function toObject
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData
+                     * @static
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData} message SideBySideSurveyCTAImpressionEventData
+                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                     * @returns {Object.<string,*>} Plain object
+                     */
+                    SideBySideSurveyCTAImpressionEventData.toObject = function toObject(message, options) {
+                        if (!options)
+                            options = {};
+                        var object = {};
+                        if (options.defaults)
+                            object.isSurveyExpired = false;
+                        if (message.isSurveyExpired != null && message.hasOwnProperty("isSurveyExpired"))
+                            object.isSurveyExpired = message.isSurveyExpired;
+                        return object;
+                    };
+
+                    /**
+                     * Converts this SideBySideSurveyCTAImpressionEventData to JSON.
+                     * @function toJSON
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData
+                     * @instance
+                     * @returns {Object.<string,*>} JSON object
+                     */
+                    SideBySideSurveyCTAImpressionEventData.prototype.toJSON = function toJSON() {
+                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                    };
+
+                    /**
+                     * Gets the default type url for SideBySideSurveyCTAImpressionEventData
+                     * @function getTypeUrl
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData
+                     * @static
+                     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns {string} The default type url
+                     */
+                    SideBySideSurveyCTAImpressionEventData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                        if (typeUrlPrefix === undefined) {
+                            typeUrlPrefix = "type.googleapis.com";
+                        }
+                        return typeUrlPrefix + "/AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData";
+                    };
+
+                    return SideBySideSurveyCTAImpressionEventData;
+                })();
+
+                SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData = (function() {
+
+                    /**
+                     * Properties of a SideBySideSurveyCardImpressionEventData.
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                     * @interface ISideBySideSurveyCardImpressionEventData
+                     */
+
+                    /**
+                     * Constructs a new SideBySideSurveyCardImpressionEventData.
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                     * @classdesc Represents a SideBySideSurveyCardImpressionEventData.
+                     * @implements ISideBySideSurveyCardImpressionEventData
+                     * @constructor
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCardImpressionEventData=} [properties] Properties to set
+                     */
+                    function SideBySideSurveyCardImpressionEventData(properties) {
+                        if (properties)
+                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                if (properties[keys[i]] != null)
+                                    this[keys[i]] = properties[keys[i]];
+                    }
+
+                    /**
+                     * Creates a new SideBySideSurveyCardImpressionEventData instance using the specified properties.
+                     * @function create
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData
+                     * @static
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCardImpressionEventData=} [properties] Properties to set
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData} SideBySideSurveyCardImpressionEventData instance
+                     */
+                    SideBySideSurveyCardImpressionEventData.create = function create(properties) {
+                        return new SideBySideSurveyCardImpressionEventData(properties);
+                    };
+
+                    /**
+                     * Encodes the specified SideBySideSurveyCardImpressionEventData message. Does not implicitly {@link AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.verify|verify} messages.
+                     * @function encode
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData
+                     * @static
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCardImpressionEventData} message SideBySideSurveyCardImpressionEventData message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    SideBySideSurveyCardImpressionEventData.encode = function encode(message, writer) {
+                        if (!writer)
+                            writer = $Writer.create();
+                        return writer;
+                    };
+
+                    /**
+                     * Encodes the specified SideBySideSurveyCardImpressionEventData message, length delimited. Does not implicitly {@link AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.verify|verify} messages.
+                     * @function encodeDelimited
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData
+                     * @static
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCardImpressionEventData} message SideBySideSurveyCardImpressionEventData message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    SideBySideSurveyCardImpressionEventData.encodeDelimited = function encodeDelimited(message, writer) {
+                        return this.encode(message, writer).ldelim();
+                    };
+
+                    /**
+                     * Decodes a SideBySideSurveyCardImpressionEventData message from the specified reader or buffer.
+                     * @function decode
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @param {number} [length] Message length if known beforehand
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData} SideBySideSurveyCardImpressionEventData
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    SideBySideSurveyCardImpressionEventData.decode = function decode(reader, length, error) {
+                        if (!(reader instanceof $Reader))
+                            reader = $Reader.create(reader);
+                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData();
+                        while (reader.pos < end) {
+                            var tag = reader.uint32();
+                            if (tag === error)
+                                break;
+                            switch (tag >>> 3) {
+                            default:
+                                reader.skipType(tag & 7);
+                                break;
+                            }
+                        }
+                        return message;
+                    };
+
+                    /**
+                     * Decodes a SideBySideSurveyCardImpressionEventData message from the specified reader or buffer, length delimited.
+                     * @function decodeDelimited
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData} SideBySideSurveyCardImpressionEventData
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    SideBySideSurveyCardImpressionEventData.decodeDelimited = function decodeDelimited(reader) {
+                        if (!(reader instanceof $Reader))
+                            reader = new $Reader(reader);
+                        return this.decode(reader, reader.uint32());
+                    };
+
+                    /**
+                     * Verifies a SideBySideSurveyCardImpressionEventData message.
+                     * @function verify
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData
+                     * @static
+                     * @param {Object.<string,*>} message Plain object to verify
+                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                     */
+                    SideBySideSurveyCardImpressionEventData.verify = function verify(message) {
+                        if (typeof message !== "object" || message === null)
+                            return "object expected";
+                        return null;
+                    };
+
+                    /**
+                     * Creates a SideBySideSurveyCardImpressionEventData message from a plain object. Also converts values to their respective internal types.
+                     * @function fromObject
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData
+                     * @static
+                     * @param {Object.<string,*>} object Plain object
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData} SideBySideSurveyCardImpressionEventData
+                     */
+                    SideBySideSurveyCardImpressionEventData.fromObject = function fromObject(object) {
+                        if (object instanceof $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData)
+                            return object;
+                        return new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData();
+                    };
+
+                    /**
+                     * Creates a plain object from a SideBySideSurveyCardImpressionEventData message. Also converts values to other types if specified.
+                     * @function toObject
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData
+                     * @static
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData} message SideBySideSurveyCardImpressionEventData
+                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                     * @returns {Object.<string,*>} Plain object
+                     */
+                    SideBySideSurveyCardImpressionEventData.toObject = function toObject() {
+                        return {};
+                    };
+
+                    /**
+                     * Converts this SideBySideSurveyCardImpressionEventData to JSON.
+                     * @function toJSON
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData
+                     * @instance
+                     * @returns {Object.<string,*>} JSON object
+                     */
+                    SideBySideSurveyCardImpressionEventData.prototype.toJSON = function toJSON() {
+                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                    };
+
+                    /**
+                     * Gets the default type url for SideBySideSurveyCardImpressionEventData
+                     * @function getTypeUrl
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData
+                     * @static
+                     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns {string} The default type url
+                     */
+                    SideBySideSurveyCardImpressionEventData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                        if (typeUrlPrefix === undefined) {
+                            typeUrlPrefix = "type.googleapis.com";
+                        }
+                        return typeUrlPrefix + "/AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData";
+                    };
+
+                    return SideBySideSurveyCardImpressionEventData;
+                })();
+
+                SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData = (function() {
+
+                    /**
+                     * Properties of a SideBySideSurveyResponseEventData.
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                     * @interface ISideBySideSurveyResponseEventData
+                     * @property {string|null} [responseDwellTimeMsString] SideBySideSurveyResponseEventData responseDwellTimeMsString
+                     * @property {string|null} [selectedResponseId] SideBySideSurveyResponseEventData selectedResponseId
+                     */
+
+                    /**
+                     * Constructs a new SideBySideSurveyResponseEventData.
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                     * @classdesc Represents a SideBySideSurveyResponseEventData.
+                     * @implements ISideBySideSurveyResponseEventData
+                     * @constructor
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyResponseEventData=} [properties] Properties to set
+                     */
+                    function SideBySideSurveyResponseEventData(properties) {
+                        if (properties)
+                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                if (properties[keys[i]] != null)
+                                    this[keys[i]] = properties[keys[i]];
+                    }
+
+                    /**
+                     * SideBySideSurveyResponseEventData responseDwellTimeMsString.
+                     * @member {string} responseDwellTimeMsString
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData
+                     * @instance
+                     */
+                    SideBySideSurveyResponseEventData.prototype.responseDwellTimeMsString = "";
+
+                    /**
+                     * SideBySideSurveyResponseEventData selectedResponseId.
+                     * @member {string} selectedResponseId
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData
+                     * @instance
+                     */
+                    SideBySideSurveyResponseEventData.prototype.selectedResponseId = "";
+
+                    /**
+                     * Creates a new SideBySideSurveyResponseEventData instance using the specified properties.
+                     * @function create
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData
+                     * @static
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyResponseEventData=} [properties] Properties to set
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData} SideBySideSurveyResponseEventData instance
+                     */
+                    SideBySideSurveyResponseEventData.create = function create(properties) {
+                        return new SideBySideSurveyResponseEventData(properties);
+                    };
+
+                    /**
+                     * Encodes the specified SideBySideSurveyResponseEventData message. Does not implicitly {@link AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.verify|verify} messages.
+                     * @function encode
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData
+                     * @static
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyResponseEventData} message SideBySideSurveyResponseEventData message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    SideBySideSurveyResponseEventData.encode = function encode(message, writer) {
+                        if (!writer)
+                            writer = $Writer.create();
+                        if (message.responseDwellTimeMsString != null && Object.hasOwnProperty.call(message, "responseDwellTimeMsString"))
+                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.responseDwellTimeMsString);
+                        if (message.selectedResponseId != null && Object.hasOwnProperty.call(message, "selectedResponseId"))
+                            writer.uint32(/* id 2, wireType 2 =*/18).string(message.selectedResponseId);
+                        return writer;
+                    };
+
+                    /**
+                     * Encodes the specified SideBySideSurveyResponseEventData message, length delimited. Does not implicitly {@link AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.verify|verify} messages.
+                     * @function encodeDelimited
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData
+                     * @static
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyResponseEventData} message SideBySideSurveyResponseEventData message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    SideBySideSurveyResponseEventData.encodeDelimited = function encodeDelimited(message, writer) {
+                        return this.encode(message, writer).ldelim();
+                    };
+
+                    /**
+                     * Decodes a SideBySideSurveyResponseEventData message from the specified reader or buffer.
+                     * @function decode
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @param {number} [length] Message length if known beforehand
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData} SideBySideSurveyResponseEventData
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    SideBySideSurveyResponseEventData.decode = function decode(reader, length, error) {
+                        if (!(reader instanceof $Reader))
+                            reader = $Reader.create(reader);
+                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData();
+                        while (reader.pos < end) {
+                            var tag = reader.uint32();
+                            if (tag === error)
+                                break;
+                            switch (tag >>> 3) {
+                            case 1: {
+                                    message.responseDwellTimeMsString = reader.string();
+                                    break;
+                                }
+                            case 2: {
+                                    message.selectedResponseId = reader.string();
+                                    break;
+                                }
+                            default:
+                                reader.skipType(tag & 7);
+                                break;
+                            }
+                        }
+                        return message;
+                    };
+
+                    /**
+                     * Decodes a SideBySideSurveyResponseEventData message from the specified reader or buffer, length delimited.
+                     * @function decodeDelimited
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData} SideBySideSurveyResponseEventData
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    SideBySideSurveyResponseEventData.decodeDelimited = function decodeDelimited(reader) {
+                        if (!(reader instanceof $Reader))
+                            reader = new $Reader(reader);
+                        return this.decode(reader, reader.uint32());
+                    };
+
+                    /**
+                     * Verifies a SideBySideSurveyResponseEventData message.
+                     * @function verify
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData
+                     * @static
+                     * @param {Object.<string,*>} message Plain object to verify
+                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                     */
+                    SideBySideSurveyResponseEventData.verify = function verify(message) {
+                        if (typeof message !== "object" || message === null)
+                            return "object expected";
+                        if (message.responseDwellTimeMsString != null && message.hasOwnProperty("responseDwellTimeMsString"))
+                            if (!$util.isString(message.responseDwellTimeMsString))
+                                return "responseDwellTimeMsString: string expected";
+                        if (message.selectedResponseId != null && message.hasOwnProperty("selectedResponseId"))
+                            if (!$util.isString(message.selectedResponseId))
+                                return "selectedResponseId: string expected";
+                        return null;
+                    };
+
+                    /**
+                     * Creates a SideBySideSurveyResponseEventData message from a plain object. Also converts values to their respective internal types.
+                     * @function fromObject
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData
+                     * @static
+                     * @param {Object.<string,*>} object Plain object
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData} SideBySideSurveyResponseEventData
+                     */
+                    SideBySideSurveyResponseEventData.fromObject = function fromObject(object) {
+                        if (object instanceof $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData)
+                            return object;
+                        var message = new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData();
+                        if (object.responseDwellTimeMsString != null)
+                            message.responseDwellTimeMsString = String(object.responseDwellTimeMsString);
+                        if (object.selectedResponseId != null)
+                            message.selectedResponseId = String(object.selectedResponseId);
+                        return message;
+                    };
+
+                    /**
+                     * Creates a plain object from a SideBySideSurveyResponseEventData message. Also converts values to other types if specified.
+                     * @function toObject
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData
+                     * @static
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData} message SideBySideSurveyResponseEventData
+                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                     * @returns {Object.<string,*>} Plain object
+                     */
+                    SideBySideSurveyResponseEventData.toObject = function toObject(message, options) {
+                        if (!options)
+                            options = {};
+                        var object = {};
+                        if (options.defaults) {
+                            object.responseDwellTimeMsString = "";
+                            object.selectedResponseId = "";
+                        }
+                        if (message.responseDwellTimeMsString != null && message.hasOwnProperty("responseDwellTimeMsString"))
+                            object.responseDwellTimeMsString = message.responseDwellTimeMsString;
+                        if (message.selectedResponseId != null && message.hasOwnProperty("selectedResponseId"))
+                            object.selectedResponseId = message.selectedResponseId;
+                        return object;
+                    };
+
+                    /**
+                     * Converts this SideBySideSurveyResponseEventData to JSON.
+                     * @function toJSON
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData
+                     * @instance
+                     * @returns {Object.<string,*>} JSON object
+                     */
+                    SideBySideSurveyResponseEventData.prototype.toJSON = function toJSON() {
+                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                    };
+
+                    /**
+                     * Gets the default type url for SideBySideSurveyResponseEventData
+                     * @function getTypeUrl
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData
+                     * @static
+                     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns {string} The default type url
+                     */
+                    SideBySideSurveyResponseEventData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                        if (typeUrlPrefix === undefined) {
+                            typeUrlPrefix = "type.googleapis.com";
+                        }
+                        return typeUrlPrefix + "/AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData";
+                    };
+
+                    return SideBySideSurveyResponseEventData;
+                })();
+
+                return SidebySideSurveyMetaAiAnalyticsData;
+            })();
+
             return SideBySideSurveyMetadata;
         })();
 
         return BotFeedbackMessage;
+    })();
+
+    AICommon.BotGroupParticipantMetadata = (function() {
+
+        /**
+         * Properties of a BotGroupParticipantMetadata.
+         * @memberof AICommon
+         * @interface IBotGroupParticipantMetadata
+         * @property {string|null} [botFbid] BotGroupParticipantMetadata botFbid
+         */
+
+        /**
+         * Constructs a new BotGroupParticipantMetadata.
+         * @memberof AICommon
+         * @classdesc Represents a BotGroupParticipantMetadata.
+         * @implements IBotGroupParticipantMetadata
+         * @constructor
+         * @param {AICommon.IBotGroupParticipantMetadata=} [properties] Properties to set
+         */
+        function BotGroupParticipantMetadata(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * BotGroupParticipantMetadata botFbid.
+         * @member {string} botFbid
+         * @memberof AICommon.BotGroupParticipantMetadata
+         * @instance
+         */
+        BotGroupParticipantMetadata.prototype.botFbid = "";
+
+        /**
+         * Creates a new BotGroupParticipantMetadata instance using the specified properties.
+         * @function create
+         * @memberof AICommon.BotGroupParticipantMetadata
+         * @static
+         * @param {AICommon.IBotGroupParticipantMetadata=} [properties] Properties to set
+         * @returns {AICommon.BotGroupParticipantMetadata} BotGroupParticipantMetadata instance
+         */
+        BotGroupParticipantMetadata.create = function create(properties) {
+            return new BotGroupParticipantMetadata(properties);
+        };
+
+        /**
+         * Encodes the specified BotGroupParticipantMetadata message. Does not implicitly {@link AICommon.BotGroupParticipantMetadata.verify|verify} messages.
+         * @function encode
+         * @memberof AICommon.BotGroupParticipantMetadata
+         * @static
+         * @param {AICommon.IBotGroupParticipantMetadata} message BotGroupParticipantMetadata message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        BotGroupParticipantMetadata.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.botFbid != null && Object.hasOwnProperty.call(message, "botFbid"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.botFbid);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified BotGroupParticipantMetadata message, length delimited. Does not implicitly {@link AICommon.BotGroupParticipantMetadata.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof AICommon.BotGroupParticipantMetadata
+         * @static
+         * @param {AICommon.IBotGroupParticipantMetadata} message BotGroupParticipantMetadata message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        BotGroupParticipantMetadata.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a BotGroupParticipantMetadata message from the specified reader or buffer.
+         * @function decode
+         * @memberof AICommon.BotGroupParticipantMetadata
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {AICommon.BotGroupParticipantMetadata} BotGroupParticipantMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        BotGroupParticipantMetadata.decode = function decode(reader, length, error) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotGroupParticipantMetadata();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                if (tag === error)
+                    break;
+                switch (tag >>> 3) {
+                case 1: {
+                        message.botFbid = reader.string();
+                        break;
+                    }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a BotGroupParticipantMetadata message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof AICommon.BotGroupParticipantMetadata
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {AICommon.BotGroupParticipantMetadata} BotGroupParticipantMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        BotGroupParticipantMetadata.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a BotGroupParticipantMetadata message.
+         * @function verify
+         * @memberof AICommon.BotGroupParticipantMetadata
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        BotGroupParticipantMetadata.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.botFbid != null && message.hasOwnProperty("botFbid"))
+                if (!$util.isString(message.botFbid))
+                    return "botFbid: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a BotGroupParticipantMetadata message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof AICommon.BotGroupParticipantMetadata
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {AICommon.BotGroupParticipantMetadata} BotGroupParticipantMetadata
+         */
+        BotGroupParticipantMetadata.fromObject = function fromObject(object) {
+            if (object instanceof $root.AICommon.BotGroupParticipantMetadata)
+                return object;
+            var message = new $root.AICommon.BotGroupParticipantMetadata();
+            if (object.botFbid != null)
+                message.botFbid = String(object.botFbid);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a BotGroupParticipantMetadata message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof AICommon.BotGroupParticipantMetadata
+         * @static
+         * @param {AICommon.BotGroupParticipantMetadata} message BotGroupParticipantMetadata
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        BotGroupParticipantMetadata.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.botFbid = "";
+            if (message.botFbid != null && message.hasOwnProperty("botFbid"))
+                object.botFbid = message.botFbid;
+            return object;
+        };
+
+        /**
+         * Converts this BotGroupParticipantMetadata to JSON.
+         * @function toJSON
+         * @memberof AICommon.BotGroupParticipantMetadata
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        BotGroupParticipantMetadata.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for BotGroupParticipantMetadata
+         * @function getTypeUrl
+         * @memberof AICommon.BotGroupParticipantMetadata
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        BotGroupParticipantMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/AICommon.BotGroupParticipantMetadata";
+        };
+
+        return BotGroupParticipantMetadata;
+    })();
+
+    AICommon.BotGroupMetadata = (function() {
+
+        /**
+         * Properties of a BotGroupMetadata.
+         * @memberof AICommon
+         * @interface IBotGroupMetadata
+         * @property {Array.<AICommon.IBotGroupParticipantMetadata>|null} [participantsMetadata] BotGroupMetadata participantsMetadata
+         */
+
+        /**
+         * Constructs a new BotGroupMetadata.
+         * @memberof AICommon
+         * @classdesc Represents a BotGroupMetadata.
+         * @implements IBotGroupMetadata
+         * @constructor
+         * @param {AICommon.IBotGroupMetadata=} [properties] Properties to set
+         */
+        function BotGroupMetadata(properties) {
+            this.participantsMetadata = [];
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * BotGroupMetadata participantsMetadata.
+         * @member {Array.<AICommon.IBotGroupParticipantMetadata>} participantsMetadata
+         * @memberof AICommon.BotGroupMetadata
+         * @instance
+         */
+        BotGroupMetadata.prototype.participantsMetadata = $util.emptyArray;
+
+        /**
+         * Creates a new BotGroupMetadata instance using the specified properties.
+         * @function create
+         * @memberof AICommon.BotGroupMetadata
+         * @static
+         * @param {AICommon.IBotGroupMetadata=} [properties] Properties to set
+         * @returns {AICommon.BotGroupMetadata} BotGroupMetadata instance
+         */
+        BotGroupMetadata.create = function create(properties) {
+            return new BotGroupMetadata(properties);
+        };
+
+        /**
+         * Encodes the specified BotGroupMetadata message. Does not implicitly {@link AICommon.BotGroupMetadata.verify|verify} messages.
+         * @function encode
+         * @memberof AICommon.BotGroupMetadata
+         * @static
+         * @param {AICommon.IBotGroupMetadata} message BotGroupMetadata message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        BotGroupMetadata.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.participantsMetadata != null && message.participantsMetadata.length)
+                for (var i = 0; i < message.participantsMetadata.length; ++i)
+                    $root.AICommon.BotGroupParticipantMetadata.encode(message.participantsMetadata[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified BotGroupMetadata message, length delimited. Does not implicitly {@link AICommon.BotGroupMetadata.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof AICommon.BotGroupMetadata
+         * @static
+         * @param {AICommon.IBotGroupMetadata} message BotGroupMetadata message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        BotGroupMetadata.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a BotGroupMetadata message from the specified reader or buffer.
+         * @function decode
+         * @memberof AICommon.BotGroupMetadata
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {AICommon.BotGroupMetadata} BotGroupMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        BotGroupMetadata.decode = function decode(reader, length, error) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotGroupMetadata();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                if (tag === error)
+                    break;
+                switch (tag >>> 3) {
+                case 1: {
+                        if (!(message.participantsMetadata && message.participantsMetadata.length))
+                            message.participantsMetadata = [];
+                        message.participantsMetadata.push($root.AICommon.BotGroupParticipantMetadata.decode(reader, reader.uint32()));
+                        break;
+                    }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a BotGroupMetadata message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof AICommon.BotGroupMetadata
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {AICommon.BotGroupMetadata} BotGroupMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        BotGroupMetadata.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a BotGroupMetadata message.
+         * @function verify
+         * @memberof AICommon.BotGroupMetadata
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        BotGroupMetadata.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.participantsMetadata != null && message.hasOwnProperty("participantsMetadata")) {
+                if (!Array.isArray(message.participantsMetadata))
+                    return "participantsMetadata: array expected";
+                for (var i = 0; i < message.participantsMetadata.length; ++i) {
+                    var error = $root.AICommon.BotGroupParticipantMetadata.verify(message.participantsMetadata[i]);
+                    if (error)
+                        return "participantsMetadata." + error;
+                }
+            }
+            return null;
+        };
+
+        /**
+         * Creates a BotGroupMetadata message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof AICommon.BotGroupMetadata
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {AICommon.BotGroupMetadata} BotGroupMetadata
+         */
+        BotGroupMetadata.fromObject = function fromObject(object) {
+            if (object instanceof $root.AICommon.BotGroupMetadata)
+                return object;
+            var message = new $root.AICommon.BotGroupMetadata();
+            if (object.participantsMetadata) {
+                if (!Array.isArray(object.participantsMetadata))
+                    throw TypeError(".AICommon.BotGroupMetadata.participantsMetadata: array expected");
+                message.participantsMetadata = [];
+                for (var i = 0; i < object.participantsMetadata.length; ++i) {
+                    if (typeof object.participantsMetadata[i] !== "object")
+                        throw TypeError(".AICommon.BotGroupMetadata.participantsMetadata: object expected");
+                    message.participantsMetadata[i] = $root.AICommon.BotGroupParticipantMetadata.fromObject(object.participantsMetadata[i]);
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a BotGroupMetadata message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof AICommon.BotGroupMetadata
+         * @static
+         * @param {AICommon.BotGroupMetadata} message BotGroupMetadata
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        BotGroupMetadata.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.arrays || options.defaults)
+                object.participantsMetadata = [];
+            if (message.participantsMetadata && message.participantsMetadata.length) {
+                object.participantsMetadata = [];
+                for (var j = 0; j < message.participantsMetadata.length; ++j)
+                    object.participantsMetadata[j] = $root.AICommon.BotGroupParticipantMetadata.toObject(message.participantsMetadata[j], options);
+            }
+            return object;
+        };
+
+        /**
+         * Converts this BotGroupMetadata to JSON.
+         * @function toJSON
+         * @memberof AICommon.BotGroupMetadata
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        BotGroupMetadata.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for BotGroupMetadata
+         * @function getTypeUrl
+         * @memberof AICommon.BotGroupMetadata
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        BotGroupMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/AICommon.BotGroupMetadata";
+        };
+
+        return BotGroupMetadata;
     })();
 
     AICommon.BotMetadata = (function() {
@@ -90321,6 +94115,10 @@ $root.AICommon = (function() {
          * @property {AICommon.IBotMessageOriginMetadata|null} [botMessageOriginMetadata] BotMetadata botMessageOriginMetadata
          * @property {AICommon.IInThreadSurveyMetadata|null} [inThreadSurveyMetadata] BotMetadata inThreadSurveyMetadata
          * @property {AICommon.IAIThreadInfo|null} [botThreadInfo] BotMetadata botThreadInfo
+         * @property {AICommon.IAIRegenerateMetadata|null} [regenerateMetadata] BotMetadata regenerateMetadata
+         * @property {AICommon.ISessionTransparencyMetadata|null} [sessionTransparencyMetadata] BotMetadata sessionTransparencyMetadata
+         * @property {AICommon.IBotDocumentMessageMetadata|null} [botDocumentMessageMetadata] BotMetadata botDocumentMessageMetadata
+         * @property {AICommon.IBotGroupMetadata|null} [botGroupMetadata] BotMetadata botGroupMetadata
          * @property {Uint8Array|null} [internalMetadata] BotMetadata internalMetadata
          */
 
@@ -90588,6 +94386,38 @@ $root.AICommon = (function() {
         BotMetadata.prototype.botThreadInfo = null;
 
         /**
+         * BotMetadata regenerateMetadata.
+         * @member {AICommon.IAIRegenerateMetadata|null|undefined} regenerateMetadata
+         * @memberof AICommon.BotMetadata
+         * @instance
+         */
+        BotMetadata.prototype.regenerateMetadata = null;
+
+        /**
+         * BotMetadata sessionTransparencyMetadata.
+         * @member {AICommon.ISessionTransparencyMetadata|null|undefined} sessionTransparencyMetadata
+         * @memberof AICommon.BotMetadata
+         * @instance
+         */
+        BotMetadata.prototype.sessionTransparencyMetadata = null;
+
+        /**
+         * BotMetadata botDocumentMessageMetadata.
+         * @member {AICommon.IBotDocumentMessageMetadata|null|undefined} botDocumentMessageMetadata
+         * @memberof AICommon.BotMetadata
+         * @instance
+         */
+        BotMetadata.prototype.botDocumentMessageMetadata = null;
+
+        /**
+         * BotMetadata botGroupMetadata.
+         * @member {AICommon.IBotGroupMetadata|null|undefined} botGroupMetadata
+         * @memberof AICommon.BotMetadata
+         * @instance
+         */
+        BotMetadata.prototype.botGroupMetadata = null;
+
+        /**
          * BotMetadata internalMetadata.
          * @member {Uint8Array} internalMetadata
          * @memberof AICommon.BotMetadata
@@ -90681,6 +94511,14 @@ $root.AICommon = (function() {
                 $root.AICommon.InThreadSurveyMetadata.encode(message.inThreadSurveyMetadata, writer.uint32(/* id 30, wireType 2 =*/242).fork()).ldelim();
             if (message.botThreadInfo != null && Object.hasOwnProperty.call(message, "botThreadInfo"))
                 $root.AICommon.AIThreadInfo.encode(message.botThreadInfo, writer.uint32(/* id 31, wireType 2 =*/250).fork()).ldelim();
+            if (message.regenerateMetadata != null && Object.hasOwnProperty.call(message, "regenerateMetadata"))
+                $root.AICommon.AIRegenerateMetadata.encode(message.regenerateMetadata, writer.uint32(/* id 32, wireType 2 =*/258).fork()).ldelim();
+            if (message.sessionTransparencyMetadata != null && Object.hasOwnProperty.call(message, "sessionTransparencyMetadata"))
+                $root.AICommon.SessionTransparencyMetadata.encode(message.sessionTransparencyMetadata, writer.uint32(/* id 33, wireType 2 =*/266).fork()).ldelim();
+            if (message.botDocumentMessageMetadata != null && Object.hasOwnProperty.call(message, "botDocumentMessageMetadata"))
+                $root.AICommon.BotDocumentMessageMetadata.encode(message.botDocumentMessageMetadata, writer.uint32(/* id 34, wireType 2 =*/274).fork()).ldelim();
+            if (message.botGroupMetadata != null && Object.hasOwnProperty.call(message, "botGroupMetadata"))
+                $root.AICommon.BotGroupMetadata.encode(message.botGroupMetadata, writer.uint32(/* id 35, wireType 2 =*/282).fork()).ldelim();
             if (message.internalMetadata != null && Object.hasOwnProperty.call(message, "internalMetadata"))
                 writer.uint32(/* id 999, wireType 2 =*/7994).bytes(message.internalMetadata);
             return writer;
@@ -90841,6 +94679,22 @@ $root.AICommon = (function() {
                     }
                 case 31: {
                         message.botThreadInfo = $root.AICommon.AIThreadInfo.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 32: {
+                        message.regenerateMetadata = $root.AICommon.AIRegenerateMetadata.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 33: {
+                        message.sessionTransparencyMetadata = $root.AICommon.SessionTransparencyMetadata.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 34: {
+                        message.botDocumentMessageMetadata = $root.AICommon.BotDocumentMessageMetadata.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 35: {
+                        message.botGroupMetadata = $root.AICommon.BotGroupMetadata.decode(reader, reader.uint32());
                         break;
                     }
                 case 999: {
@@ -91023,6 +94877,26 @@ $root.AICommon = (function() {
                 if (error)
                     return "botThreadInfo." + error;
             }
+            if (message.regenerateMetadata != null && message.hasOwnProperty("regenerateMetadata")) {
+                var error = $root.AICommon.AIRegenerateMetadata.verify(message.regenerateMetadata);
+                if (error)
+                    return "regenerateMetadata." + error;
+            }
+            if (message.sessionTransparencyMetadata != null && message.hasOwnProperty("sessionTransparencyMetadata")) {
+                var error = $root.AICommon.SessionTransparencyMetadata.verify(message.sessionTransparencyMetadata);
+                if (error)
+                    return "sessionTransparencyMetadata." + error;
+            }
+            if (message.botDocumentMessageMetadata != null && message.hasOwnProperty("botDocumentMessageMetadata")) {
+                var error = $root.AICommon.BotDocumentMessageMetadata.verify(message.botDocumentMessageMetadata);
+                if (error)
+                    return "botDocumentMessageMetadata." + error;
+            }
+            if (message.botGroupMetadata != null && message.hasOwnProperty("botGroupMetadata")) {
+                var error = $root.AICommon.BotGroupMetadata.verify(message.botGroupMetadata);
+                if (error)
+                    return "botGroupMetadata." + error;
+            }
             if (message.internalMetadata != null && message.hasOwnProperty("internalMetadata"))
                 if (!(message.internalMetadata && typeof message.internalMetadata.length === "number" || $util.isString(message.internalMetadata)))
                     return "internalMetadata: buffer expected";
@@ -91178,6 +95052,26 @@ $root.AICommon = (function() {
                     throw TypeError(".AICommon.BotMetadata.botThreadInfo: object expected");
                 message.botThreadInfo = $root.AICommon.AIThreadInfo.fromObject(object.botThreadInfo);
             }
+            if (object.regenerateMetadata != null) {
+                if (typeof object.regenerateMetadata !== "object")
+                    throw TypeError(".AICommon.BotMetadata.regenerateMetadata: object expected");
+                message.regenerateMetadata = $root.AICommon.AIRegenerateMetadata.fromObject(object.regenerateMetadata);
+            }
+            if (object.sessionTransparencyMetadata != null) {
+                if (typeof object.sessionTransparencyMetadata !== "object")
+                    throw TypeError(".AICommon.BotMetadata.sessionTransparencyMetadata: object expected");
+                message.sessionTransparencyMetadata = $root.AICommon.SessionTransparencyMetadata.fromObject(object.sessionTransparencyMetadata);
+            }
+            if (object.botDocumentMessageMetadata != null) {
+                if (typeof object.botDocumentMessageMetadata !== "object")
+                    throw TypeError(".AICommon.BotMetadata.botDocumentMessageMetadata: object expected");
+                message.botDocumentMessageMetadata = $root.AICommon.BotDocumentMessageMetadata.fromObject(object.botDocumentMessageMetadata);
+            }
+            if (object.botGroupMetadata != null) {
+                if (typeof object.botGroupMetadata !== "object")
+                    throw TypeError(".AICommon.BotMetadata.botGroupMetadata: object expected");
+                message.botGroupMetadata = $root.AICommon.BotGroupMetadata.fromObject(object.botGroupMetadata);
+            }
             if (object.internalMetadata != null)
                 if (typeof object.internalMetadata === "string")
                     $util.base64.decode(object.internalMetadata, message.internalMetadata = $util.newBuffer($util.base64.length(object.internalMetadata)), 0);
@@ -91237,6 +95131,10 @@ $root.AICommon = (function() {
                 object.botMessageOriginMetadata = null;
                 object.inThreadSurveyMetadata = null;
                 object.botThreadInfo = null;
+                object.regenerateMetadata = null;
+                object.sessionTransparencyMetadata = null;
+                object.botDocumentMessageMetadata = null;
+                object.botGroupMetadata = null;
                 if (options.bytes === String)
                     object.internalMetadata = "";
                 else {
@@ -91307,6 +95205,14 @@ $root.AICommon = (function() {
                 object.inThreadSurveyMetadata = $root.AICommon.InThreadSurveyMetadata.toObject(message.inThreadSurveyMetadata, options);
             if (message.botThreadInfo != null && message.hasOwnProperty("botThreadInfo"))
                 object.botThreadInfo = $root.AICommon.AIThreadInfo.toObject(message.botThreadInfo, options);
+            if (message.regenerateMetadata != null && message.hasOwnProperty("regenerateMetadata"))
+                object.regenerateMetadata = $root.AICommon.AIRegenerateMetadata.toObject(message.regenerateMetadata, options);
+            if (message.sessionTransparencyMetadata != null && message.hasOwnProperty("sessionTransparencyMetadata"))
+                object.sessionTransparencyMetadata = $root.AICommon.SessionTransparencyMetadata.toObject(message.sessionTransparencyMetadata, options);
+            if (message.botDocumentMessageMetadata != null && message.hasOwnProperty("botDocumentMessageMetadata"))
+                object.botDocumentMessageMetadata = $root.AICommon.BotDocumentMessageMetadata.toObject(message.botDocumentMessageMetadata, options);
+            if (message.botGroupMetadata != null && message.hasOwnProperty("botGroupMetadata"))
+                object.botGroupMetadata = $root.AICommon.BotGroupMetadata.toObject(message.botGroupMetadata, options);
             if (message.internalMetadata != null && message.hasOwnProperty("internalMetadata"))
                 object.internalMetadata = options.bytes === String ? $util.base64.encode(message.internalMetadata, 0, message.internalMetadata.length) : options.bytes === Array ? Array.prototype.slice.call(message.internalMetadata) : message.internalMetadata;
             return object;
@@ -92551,6 +96457,7 @@ $root.AICommon = (function() {
              * @memberof AICommon.BotUnifiedResponseMutation
              * @interface ISideBySideMetadata
              * @property {string|null} [primaryResponseId] SideBySideMetadata primaryResponseId
+             * @property {boolean|null} [surveyCtaHasRendered] SideBySideMetadata surveyCtaHasRendered
              */
 
             /**
@@ -92575,6 +96482,14 @@ $root.AICommon = (function() {
              * @instance
              */
             SideBySideMetadata.prototype.primaryResponseId = "";
+
+            /**
+             * SideBySideMetadata surveyCtaHasRendered.
+             * @member {boolean} surveyCtaHasRendered
+             * @memberof AICommon.BotUnifiedResponseMutation.SideBySideMetadata
+             * @instance
+             */
+            SideBySideMetadata.prototype.surveyCtaHasRendered = false;
 
             /**
              * Creates a new SideBySideMetadata instance using the specified properties.
@@ -92602,6 +96517,8 @@ $root.AICommon = (function() {
                     writer = $Writer.create();
                 if (message.primaryResponseId != null && Object.hasOwnProperty.call(message, "primaryResponseId"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.primaryResponseId);
+                if (message.surveyCtaHasRendered != null && Object.hasOwnProperty.call(message, "surveyCtaHasRendered"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).bool(message.surveyCtaHasRendered);
                 return writer;
             };
 
@@ -92642,6 +96559,10 @@ $root.AICommon = (function() {
                             message.primaryResponseId = reader.string();
                             break;
                         }
+                    case 2: {
+                            message.surveyCtaHasRendered = reader.bool();
+                            break;
+                        }
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -92680,6 +96601,9 @@ $root.AICommon = (function() {
                 if (message.primaryResponseId != null && message.hasOwnProperty("primaryResponseId"))
                     if (!$util.isString(message.primaryResponseId))
                         return "primaryResponseId: string expected";
+                if (message.surveyCtaHasRendered != null && message.hasOwnProperty("surveyCtaHasRendered"))
+                    if (typeof message.surveyCtaHasRendered !== "boolean")
+                        return "surveyCtaHasRendered: boolean expected";
                 return null;
             };
 
@@ -92697,6 +96621,8 @@ $root.AICommon = (function() {
                 var message = new $root.AICommon.BotUnifiedResponseMutation.SideBySideMetadata();
                 if (object.primaryResponseId != null)
                     message.primaryResponseId = String(object.primaryResponseId);
+                if (object.surveyCtaHasRendered != null)
+                    message.surveyCtaHasRendered = Boolean(object.surveyCtaHasRendered);
                 return message;
             };
 
@@ -92713,10 +96639,14 @@ $root.AICommon = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults)
+                if (options.defaults) {
                     object.primaryResponseId = "";
+                    object.surveyCtaHasRendered = false;
+                }
                 if (message.primaryResponseId != null && message.hasOwnProperty("primaryResponseId"))
                     object.primaryResponseId = message.primaryResponseId;
+                if (message.surveyCtaHasRendered != null && message.hasOwnProperty("surveyCtaHasRendered"))
+                    object.surveyCtaHasRendered = message.surveyCtaHasRendered;
                 return object;
             };
 
@@ -93232,6 +97162,7 @@ $root.AICommon = (function() {
          * @property {string|null} [privacyStatementFull] InThreadSurveyMetadata privacyStatementFull
          * @property {Array.<AICommon.InThreadSurveyMetadata.IInThreadSurveyPrivacyStatementPart>|null} [privacyStatementParts] InThreadSurveyMetadata privacyStatementParts
          * @property {string|null} [feedbackToastText] InThreadSurveyMetadata feedbackToastText
+         * @property {number|null} [startQuestionIndex] InThreadSurveyMetadata startQuestionIndex
          */
 
         /**
@@ -93388,6 +97319,14 @@ $root.AICommon = (function() {
         InThreadSurveyMetadata.prototype.feedbackToastText = "";
 
         /**
+         * InThreadSurveyMetadata startQuestionIndex.
+         * @member {number} startQuestionIndex
+         * @memberof AICommon.InThreadSurveyMetadata
+         * @instance
+         */
+        InThreadSurveyMetadata.prototype.startQuestionIndex = 0;
+
+        /**
          * Creates a new InThreadSurveyMetadata instance using the specified properties.
          * @function create
          * @memberof AICommon.InThreadSurveyMetadata
@@ -93447,6 +97386,8 @@ $root.AICommon = (function() {
                     $root.AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.encode(message.privacyStatementParts[i], writer.uint32(/* id 16, wireType 2 =*/130).fork()).ldelim();
             if (message.feedbackToastText != null && Object.hasOwnProperty.call(message, "feedbackToastText"))
                 writer.uint32(/* id 17, wireType 2 =*/138).string(message.feedbackToastText);
+            if (message.startQuestionIndex != null && Object.hasOwnProperty.call(message, "startQuestionIndex"))
+                writer.uint32(/* id 18, wireType 0 =*/144).int32(message.startQuestionIndex);
             return writer;
         };
 
@@ -93555,6 +97496,10 @@ $root.AICommon = (function() {
                         message.feedbackToastText = reader.string();
                         break;
                     }
+                case 18: {
+                        message.startQuestionIndex = reader.int32();
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -93653,6 +97598,9 @@ $root.AICommon = (function() {
             if (message.feedbackToastText != null && message.hasOwnProperty("feedbackToastText"))
                 if (!$util.isString(message.feedbackToastText))
                     return "feedbackToastText: string expected";
+            if (message.startQuestionIndex != null && message.hasOwnProperty("startQuestionIndex"))
+                if (!$util.isInteger(message.startQuestionIndex))
+                    return "startQuestionIndex: integer expected";
             return null;
         };
 
@@ -93718,6 +97666,8 @@ $root.AICommon = (function() {
             }
             if (object.feedbackToastText != null)
                 message.feedbackToastText = String(object.feedbackToastText);
+            if (object.startQuestionIndex != null)
+                message.startQuestionIndex = object.startQuestionIndex | 0;
             return message;
         };
 
@@ -93754,6 +97704,7 @@ $root.AICommon = (function() {
                 object.surveySubmitButtonText = "";
                 object.privacyStatementFull = "";
                 object.feedbackToastText = "";
+                object.startQuestionIndex = 0;
             }
             if (message.tessaSessionId != null && message.hasOwnProperty("tessaSessionId"))
                 object.tessaSessionId = message.tessaSessionId;
@@ -93795,6 +97746,8 @@ $root.AICommon = (function() {
             }
             if (message.feedbackToastText != null && message.hasOwnProperty("feedbackToastText"))
                 object.feedbackToastText = message.feedbackToastText;
+            if (message.startQuestionIndex != null && message.hasOwnProperty("startQuestionIndex"))
+                object.startQuestionIndex = message.startQuestionIndex;
             return object;
         };
 
@@ -96332,9 +100285,12 @@ $root.AICommon = (function() {
         BotModeSelectionMetadata.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.mode != null && message.mode.length)
+            if (message.mode != null && message.mode.length) {
+                writer.uint32(/* id 1, wireType 2 =*/10).fork();
                 for (var i = 0; i < message.mode.length; ++i)
-                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.mode[i]);
+                    writer.int32(message.mode[i]);
+                writer.ldelim();
+            }
             return writer;
         };
 
@@ -96591,9 +100547,12 @@ $root.AICommon = (function() {
         BotCapabilityMetadata.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.capabilities != null && message.capabilities.length)
+            if (message.capabilities != null && message.capabilities.length) {
+                writer.uint32(/* id 1, wireType 2 =*/10).fork();
                 for (var i = 0; i < message.capabilities.length; ++i)
-                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.capabilities[i]);
+                    writer.int32(message.capabilities[i]);
+                writer.ldelim();
+            }
             return writer;
         };
 
@@ -96730,6 +100689,9 @@ $root.AICommon = (function() {
                     case 44:
                     case 45:
                     case 46:
+                    case 47:
+                    case 48:
+                    case 49:
                         break;
                     }
             }
@@ -96947,6 +100909,18 @@ $root.AICommon = (function() {
                     case 46:
                         message.capabilities[i] = 46;
                         break;
+                    case "AI_RESPONSE_MODEL_BRANDING":
+                    case 47:
+                        message.capabilities[i] = 47;
+                        break;
+                    case "SESSION_TRANSPARENCY_SYSTEM_MESSAGE":
+                    case 48:
+                        message.capabilities[i] = 48;
+                        break;
+                    case "RICH_RESPONSE_UR_REASONING":
+                    case 49:
+                        message.capabilities[i] = 49;
+                        break;
                     }
             }
             return message;
@@ -97052,6 +101026,9 @@ $root.AICommon = (function() {
          * @property {number} RICH_RESPONSE_UR_MEDIA_GRID_ENABLED=44 RICH_RESPONSE_UR_MEDIA_GRID_ENABLED value
          * @property {number} RICH_RESPONSE_UR_TIMESTAMP_PLACEHOLDER=45 RICH_RESPONSE_UR_TIMESTAMP_PLACEHOLDER value
          * @property {number} RICH_RESPONSE_IN_APP_SURVEY=46 RICH_RESPONSE_IN_APP_SURVEY value
+         * @property {number} AI_RESPONSE_MODEL_BRANDING=47 AI_RESPONSE_MODEL_BRANDING value
+         * @property {number} SESSION_TRANSPARENCY_SYSTEM_MESSAGE=48 SESSION_TRANSPARENCY_SYSTEM_MESSAGE value
+         * @property {number} RICH_RESPONSE_UR_REASONING=49 RICH_RESPONSE_UR_REASONING value
          */
         BotCapabilityMetadata.BotCapabilityType = (function() {
             var valuesById = {}, values = Object.create(valuesById);
@@ -97102,6 +101079,9 @@ $root.AICommon = (function() {
             values[valuesById[44] = "RICH_RESPONSE_UR_MEDIA_GRID_ENABLED"] = 44;
             values[valuesById[45] = "RICH_RESPONSE_UR_TIMESTAMP_PLACEHOLDER"] = 45;
             values[valuesById[46] = "RICH_RESPONSE_IN_APP_SURVEY"] = 46;
+            values[valuesById[47] = "AI_RESPONSE_MODEL_BRANDING"] = 47;
+            values[valuesById[48] = "SESSION_TRANSPARENCY_SYSTEM_MESSAGE"] = 48;
+            values[valuesById[49] = "RICH_RESPONSE_UR_REASONING"] = 49;
             return values;
         })();
 
@@ -98696,6 +102676,7 @@ $root.AICommon = (function() {
          * @interface IBotModelMetadata
          * @property {AICommon.BotModelMetadata.ModelType|null} [modelType] BotModelMetadata modelType
          * @property {AICommon.BotModelMetadata.PremiumModelStatus|null} [premiumModelStatus] BotModelMetadata premiumModelStatus
+         * @property {string|null} [modelNameOverride] BotModelMetadata modelNameOverride
          */
 
         /**
@@ -98730,6 +102711,14 @@ $root.AICommon = (function() {
         BotModelMetadata.prototype.premiumModelStatus = 0;
 
         /**
+         * BotModelMetadata modelNameOverride.
+         * @member {string} modelNameOverride
+         * @memberof AICommon.BotModelMetadata
+         * @instance
+         */
+        BotModelMetadata.prototype.modelNameOverride = "";
+
+        /**
          * Creates a new BotModelMetadata instance using the specified properties.
          * @function create
          * @memberof AICommon.BotModelMetadata
@@ -98757,6 +102746,8 @@ $root.AICommon = (function() {
                 writer.uint32(/* id 1, wireType 0 =*/8).int32(message.modelType);
             if (message.premiumModelStatus != null && Object.hasOwnProperty.call(message, "premiumModelStatus"))
                 writer.uint32(/* id 2, wireType 0 =*/16).int32(message.premiumModelStatus);
+            if (message.modelNameOverride != null && Object.hasOwnProperty.call(message, "modelNameOverride"))
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.modelNameOverride);
             return writer;
         };
 
@@ -98799,6 +102790,10 @@ $root.AICommon = (function() {
                     }
                 case 2: {
                         message.premiumModelStatus = reader.int32();
+                        break;
+                    }
+                case 3: {
+                        message.modelNameOverride = reader.string();
                         break;
                     }
                 default:
@@ -98854,6 +102849,9 @@ $root.AICommon = (function() {
                 case 2:
                     break;
                 }
+            if (message.modelNameOverride != null && message.hasOwnProperty("modelNameOverride"))
+                if (!$util.isString(message.modelNameOverride))
+                    return "modelNameOverride: string expected";
             return null;
         };
 
@@ -98909,6 +102907,8 @@ $root.AICommon = (function() {
                 message.premiumModelStatus = 2;
                 break;
             }
+            if (object.modelNameOverride != null)
+                message.modelNameOverride = String(object.modelNameOverride);
             return message;
         };
 
@@ -98928,11 +102928,14 @@ $root.AICommon = (function() {
             if (options.defaults) {
                 object.modelType = options.enums === String ? "UNKNOWN_TYPE" : 0;
                 object.premiumModelStatus = options.enums === String ? "UNKNOWN_STATUS" : 0;
+                object.modelNameOverride = "";
             }
             if (message.modelType != null && message.hasOwnProperty("modelType"))
                 object.modelType = options.enums === String ? $root.AICommon.BotModelMetadata.ModelType[message.modelType] === undefined ? message.modelType : $root.AICommon.BotModelMetadata.ModelType[message.modelType] : message.modelType;
             if (message.premiumModelStatus != null && message.hasOwnProperty("premiumModelStatus"))
                 object.premiumModelStatus = options.enums === String ? $root.AICommon.BotModelMetadata.PremiumModelStatus[message.premiumModelStatus] === undefined ? message.premiumModelStatus : $root.AICommon.BotModelMetadata.PremiumModelStatus[message.premiumModelStatus] : message.premiumModelStatus;
+            if (message.modelNameOverride != null && message.hasOwnProperty("modelNameOverride"))
+                object.modelNameOverride = message.modelNameOverride;
             return object;
         };
 
@@ -100519,6 +104522,8 @@ $root.AICommon = (function() {
                 case 34:
                 case 35:
                 case 36:
+                case 37:
+                case 38:
                     break;
                 }
             if (message.threadOrigin != null && message.hasOwnProperty("threadOrigin"))
@@ -100703,6 +104708,14 @@ $root.AICommon = (function() {
             case "ATTACHMENT_TRAY_GROUP_CHAT":
             case 36:
                 message.destinationEntryPoint = 36;
+                break;
+            case "ASK_META_AI_MEDIA_VIEWER_1ON1":
+            case 37:
+                message.destinationEntryPoint = 37;
+                break;
+            case "ASK_META_AI_MEDIA_VIEWER_GROUP":
+            case 38:
+                message.destinationEntryPoint = 38;
                 break;
             }
             switch (object.threadOrigin) {
@@ -104783,6 +108796,20 @@ $root.AICommon = (function() {
     })();
 
     /**
+     * SessionTransparencyType enum.
+     * @name AICommon.SessionTransparencyType
+     * @enum {number}
+     * @property {number} UNKNOWN_TYPE=0 UNKNOWN_TYPE value
+     * @property {number} NY_AI_SAFETY_DISCLAIMER=1 NY_AI_SAFETY_DISCLAIMER value
+     */
+    AICommon.SessionTransparencyType = (function() {
+        var valuesById = {}, values = Object.create(valuesById);
+        values[valuesById[0] = "UNKNOWN_TYPE"] = 0;
+        values[valuesById[1] = "NY_AI_SAFETY_DISCLAIMER"] = 1;
+        return values;
+    })();
+
+    /**
      * AIRichResponseSubMessageType enum.
      * @name AICommon.AIRichResponseSubMessageType
      * @enum {number}
@@ -104911,6 +108938,8 @@ $root.AICommon = (function() {
      * @property {number} MESSAGE_QUICK_ACTION_GROUP_CHAT=34 MESSAGE_QUICK_ACTION_GROUP_CHAT value
      * @property {number} ATTACHMENT_TRAY_1_ON_1_CHAT=35 ATTACHMENT_TRAY_1_ON_1_CHAT value
      * @property {number} ATTACHMENT_TRAY_GROUP_CHAT=36 ATTACHMENT_TRAY_GROUP_CHAT value
+     * @property {number} ASK_META_AI_MEDIA_VIEWER_1ON1=37 ASK_META_AI_MEDIA_VIEWER_1ON1 value
+     * @property {number} ASK_META_AI_MEDIA_VIEWER_GROUP=38 ASK_META_AI_MEDIA_VIEWER_GROUP value
      */
     AICommon.BotMetricsEntryPoint = (function() {
         var valuesById = {}, values = Object.create(valuesById);
@@ -104951,6 +108980,8 @@ $root.AICommon = (function() {
         values[valuesById[34] = "MESSAGE_QUICK_ACTION_GROUP_CHAT"] = 34;
         values[valuesById[35] = "ATTACHMENT_TRAY_1_ON_1_CHAT"] = 35;
         values[valuesById[36] = "ATTACHMENT_TRAY_GROUP_CHAT"] = 36;
+        values[valuesById[37] = "ASK_META_AI_MEDIA_VIEWER_1ON1"] = 37;
+        values[valuesById[38] = "ASK_META_AI_MEDIA_VIEWER_GROUP"] = 38;
         return values;
     })();
 
@@ -105902,6 +109933,7 @@ $root.StatusAttributions = (function() {
                     case 7:
                     case 8:
                     case 9:
+                    case 10:
                         break;
                     }
                 if (message.duration != null && message.hasOwnProperty("duration"))
@@ -105973,6 +110005,10 @@ $root.StatusAttributions = (function() {
                 case "SHARECHAT":
                 case 9:
                     message.source = 9;
+                    break;
+                case "GOOGLE_PHOTOS":
+                case 10:
+                    message.source = 10;
                     break;
                 }
                 if (object.duration != null)
@@ -106052,6 +110088,7 @@ $root.StatusAttributions = (function() {
              * @property {number} THREADS=7 THREADS value
              * @property {number} APPLE_MUSIC=8 APPLE_MUSIC value
              * @property {number} SHARECHAT=9 SHARECHAT value
+             * @property {number} GOOGLE_PHOTOS=10 GOOGLE_PHOTOS value
              */
             ExternalShare.Source = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
@@ -106065,6 +110102,7 @@ $root.StatusAttributions = (function() {
                 values[valuesById[7] = "THREADS"] = 7;
                 values[valuesById[8] = "APPLE_MUSIC"] = 8;
                 values[valuesById[9] = "SHARECHAT"] = 9;
+                values[valuesById[10] = "GOOGLE_PHOTOS"] = 10;
                 return values;
             })();
 
@@ -109075,6 +113113,7 @@ $root.CompanionReg = (function() {
          * @property {boolean|null} [isChatDbLidMigrated] ClientPairingProps isChatDbLidMigrated
          * @property {boolean|null} [isSyncdPureLidSession] ClientPairingProps isSyncdPureLidSession
          * @property {boolean|null} [isSyncdSnapshotRecoveryEnabled] ClientPairingProps isSyncdSnapshotRecoveryEnabled
+         * @property {boolean|null} [isHsThumbnailSyncEnabled] ClientPairingProps isHsThumbnailSyncEnabled
          */
 
         /**
@@ -109117,6 +113156,14 @@ $root.CompanionReg = (function() {
         ClientPairingProps.prototype.isSyncdSnapshotRecoveryEnabled = false;
 
         /**
+         * ClientPairingProps isHsThumbnailSyncEnabled.
+         * @member {boolean} isHsThumbnailSyncEnabled
+         * @memberof CompanionReg.ClientPairingProps
+         * @instance
+         */
+        ClientPairingProps.prototype.isHsThumbnailSyncEnabled = false;
+
+        /**
          * Creates a new ClientPairingProps instance using the specified properties.
          * @function create
          * @memberof CompanionReg.ClientPairingProps
@@ -109146,6 +113193,8 @@ $root.CompanionReg = (function() {
                 writer.uint32(/* id 2, wireType 0 =*/16).bool(message.isSyncdPureLidSession);
             if (message.isSyncdSnapshotRecoveryEnabled != null && Object.hasOwnProperty.call(message, "isSyncdSnapshotRecoveryEnabled"))
                 writer.uint32(/* id 3, wireType 0 =*/24).bool(message.isSyncdSnapshotRecoveryEnabled);
+            if (message.isHsThumbnailSyncEnabled != null && Object.hasOwnProperty.call(message, "isHsThumbnailSyncEnabled"))
+                writer.uint32(/* id 4, wireType 0 =*/32).bool(message.isHsThumbnailSyncEnabled);
             return writer;
         };
 
@@ -109194,6 +113243,10 @@ $root.CompanionReg = (function() {
                         message.isSyncdSnapshotRecoveryEnabled = reader.bool();
                         break;
                     }
+                case 4: {
+                        message.isHsThumbnailSyncEnabled = reader.bool();
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -109238,6 +113291,9 @@ $root.CompanionReg = (function() {
             if (message.isSyncdSnapshotRecoveryEnabled != null && message.hasOwnProperty("isSyncdSnapshotRecoveryEnabled"))
                 if (typeof message.isSyncdSnapshotRecoveryEnabled !== "boolean")
                     return "isSyncdSnapshotRecoveryEnabled: boolean expected";
+            if (message.isHsThumbnailSyncEnabled != null && message.hasOwnProperty("isHsThumbnailSyncEnabled"))
+                if (typeof message.isHsThumbnailSyncEnabled !== "boolean")
+                    return "isHsThumbnailSyncEnabled: boolean expected";
             return null;
         };
 
@@ -109259,6 +113315,8 @@ $root.CompanionReg = (function() {
                 message.isSyncdPureLidSession = Boolean(object.isSyncdPureLidSession);
             if (object.isSyncdSnapshotRecoveryEnabled != null)
                 message.isSyncdSnapshotRecoveryEnabled = Boolean(object.isSyncdSnapshotRecoveryEnabled);
+            if (object.isHsThumbnailSyncEnabled != null)
+                message.isHsThumbnailSyncEnabled = Boolean(object.isHsThumbnailSyncEnabled);
             return message;
         };
 
@@ -109279,6 +113337,7 @@ $root.CompanionReg = (function() {
                 object.isChatDbLidMigrated = false;
                 object.isSyncdPureLidSession = false;
                 object.isSyncdSnapshotRecoveryEnabled = false;
+                object.isHsThumbnailSyncEnabled = false;
             }
             if (message.isChatDbLidMigrated != null && message.hasOwnProperty("isChatDbLidMigrated"))
                 object.isChatDbLidMigrated = message.isChatDbLidMigrated;
@@ -109286,6 +113345,8 @@ $root.CompanionReg = (function() {
                 object.isSyncdPureLidSession = message.isSyncdPureLidSession;
             if (message.isSyncdSnapshotRecoveryEnabled != null && message.hasOwnProperty("isSyncdSnapshotRecoveryEnabled"))
                 object.isSyncdSnapshotRecoveryEnabled = message.isSyncdSnapshotRecoveryEnabled;
+            if (message.isHsThumbnailSyncEnabled != null && message.hasOwnProperty("isHsThumbnailSyncEnabled"))
+                object.isHsThumbnailSyncEnabled = message.isHsThumbnailSyncEnabled;
             return object;
         };
 
@@ -111703,6 +115764,8 @@ $root.CompanionReg = (function() {
              * @property {boolean|null} [supportGroupHistory] HistorySyncConfig supportGroupHistory
              * @property {boolean|null} [onDemandReady] HistorySyncConfig onDemandReady
              * @property {boolean|null} [supportGuestChat] HistorySyncConfig supportGuestChat
+             * @property {boolean|null} [completeOnDemandReady] HistorySyncConfig completeOnDemandReady
+             * @property {number|null} [thumbnailSyncDaysLimit] HistorySyncConfig thumbnailSyncDaysLimit
              */
 
             /**
@@ -111857,6 +115920,22 @@ $root.CompanionReg = (function() {
             HistorySyncConfig.prototype.supportGuestChat = false;
 
             /**
+             * HistorySyncConfig completeOnDemandReady.
+             * @member {boolean} completeOnDemandReady
+             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
+             * @instance
+             */
+            HistorySyncConfig.prototype.completeOnDemandReady = false;
+
+            /**
+             * HistorySyncConfig thumbnailSyncDaysLimit.
+             * @member {number} thumbnailSyncDaysLimit
+             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
+             * @instance
+             */
+            HistorySyncConfig.prototype.thumbnailSyncDaysLimit = 0;
+
+            /**
              * Creates a new HistorySyncConfig instance using the specified properties.
              * @function create
              * @memberof CompanionReg.DeviceProps.HistorySyncConfig
@@ -111914,6 +115993,10 @@ $root.CompanionReg = (function() {
                     writer.uint32(/* id 16, wireType 0 =*/128).bool(message.onDemandReady);
                 if (message.supportGuestChat != null && Object.hasOwnProperty.call(message, "supportGuestChat"))
                     writer.uint32(/* id 17, wireType 0 =*/136).bool(message.supportGuestChat);
+                if (message.completeOnDemandReady != null && Object.hasOwnProperty.call(message, "completeOnDemandReady"))
+                    writer.uint32(/* id 18, wireType 0 =*/144).bool(message.completeOnDemandReady);
+                if (message.thumbnailSyncDaysLimit != null && Object.hasOwnProperty.call(message, "thumbnailSyncDaysLimit"))
+                    writer.uint32(/* id 19, wireType 0 =*/152).uint32(message.thumbnailSyncDaysLimit);
                 return writer;
             };
 
@@ -112018,6 +116101,14 @@ $root.CompanionReg = (function() {
                             message.supportGuestChat = reader.bool();
                             break;
                         }
+                    case 18: {
+                            message.completeOnDemandReady = reader.bool();
+                            break;
+                        }
+                    case 19: {
+                            message.thumbnailSyncDaysLimit = reader.uint32();
+                            break;
+                        }
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -112104,6 +116195,12 @@ $root.CompanionReg = (function() {
                 if (message.supportGuestChat != null && message.hasOwnProperty("supportGuestChat"))
                     if (typeof message.supportGuestChat !== "boolean")
                         return "supportGuestChat: boolean expected";
+                if (message.completeOnDemandReady != null && message.hasOwnProperty("completeOnDemandReady"))
+                    if (typeof message.completeOnDemandReady !== "boolean")
+                        return "completeOnDemandReady: boolean expected";
+                if (message.thumbnailSyncDaysLimit != null && message.hasOwnProperty("thumbnailSyncDaysLimit"))
+                    if (!$util.isInteger(message.thumbnailSyncDaysLimit))
+                        return "thumbnailSyncDaysLimit: integer expected";
                 return null;
             };
 
@@ -112153,6 +116250,10 @@ $root.CompanionReg = (function() {
                     message.onDemandReady = Boolean(object.onDemandReady);
                 if (object.supportGuestChat != null)
                     message.supportGuestChat = Boolean(object.supportGuestChat);
+                if (object.completeOnDemandReady != null)
+                    message.completeOnDemandReady = Boolean(object.completeOnDemandReady);
+                if (object.thumbnailSyncDaysLimit != null)
+                    message.thumbnailSyncDaysLimit = object.thumbnailSyncDaysLimit >>> 0;
                 return message;
             };
 
@@ -112187,6 +116288,8 @@ $root.CompanionReg = (function() {
                     object.supportGroupHistory = false;
                     object.onDemandReady = false;
                     object.supportGuestChat = false;
+                    object.completeOnDemandReady = false;
+                    object.thumbnailSyncDaysLimit = 0;
                 }
                 if (message.fullSyncDaysLimit != null && message.hasOwnProperty("fullSyncDaysLimit"))
                     object.fullSyncDaysLimit = message.fullSyncDaysLimit;
@@ -112222,6 +116325,10 @@ $root.CompanionReg = (function() {
                     object.onDemandReady = message.onDemandReady;
                 if (message.supportGuestChat != null && message.hasOwnProperty("supportGuestChat"))
                     object.supportGuestChat = message.supportGuestChat;
+                if (message.completeOnDemandReady != null && message.hasOwnProperty("completeOnDemandReady"))
+                    object.completeOnDemandReady = message.completeOnDemandReady;
+                if (message.thumbnailSyncDaysLimit != null && message.hasOwnProperty("thumbnailSyncDaysLimit"))
+                    object.thumbnailSyncDaysLimit = message.thumbnailSyncDaysLimit;
                 return object;
             };
 

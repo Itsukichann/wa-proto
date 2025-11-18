@@ -288,8 +288,8 @@ $root.LidMigrationSyncPayload = (function() {
          * Properties of a LIDMigrationMapping.
          * @memberof LidMigrationSyncPayload
          * @interface ILIDMigrationMapping
-         * @property {number|Long} pn LIDMigrationMapping pn
-         * @property {number|Long} assignedLid LIDMigrationMapping assignedLid
+         * @property {number|Long|null} [pn] LIDMigrationMapping pn
+         * @property {number|Long|null} [assignedLid] LIDMigrationMapping assignedLid
          * @property {number|Long|null} [latestLid] LIDMigrationMapping latestLid
          */
 
@@ -356,8 +356,10 @@ $root.LidMigrationSyncPayload = (function() {
         LIDMigrationMapping.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            writer.uint32(/* id 1, wireType 0 =*/8).uint64(message.pn);
-            writer.uint32(/* id 2, wireType 0 =*/16).uint64(message.assignedLid);
+            if (message.pn != null && Object.hasOwnProperty.call(message, "pn"))
+                writer.uint32(/* id 1, wireType 0 =*/8).uint64(message.pn);
+            if (message.assignedLid != null && Object.hasOwnProperty.call(message, "assignedLid"))
+                writer.uint32(/* id 2, wireType 0 =*/16).uint64(message.assignedLid);
             if (message.latestLid != null && Object.hasOwnProperty.call(message, "latestLid"))
                 writer.uint32(/* id 3, wireType 0 =*/24).uint64(message.latestLid);
             return writer;
@@ -413,10 +415,6 @@ $root.LidMigrationSyncPayload = (function() {
                     break;
                 }
             }
-            if (!message.hasOwnProperty("pn"))
-                throw $util.ProtocolError("missing required 'pn'", { instance: message });
-            if (!message.hasOwnProperty("assignedLid"))
-                throw $util.ProtocolError("missing required 'assignedLid'", { instance: message });
             return message;
         };
 
@@ -447,10 +445,12 @@ $root.LidMigrationSyncPayload = (function() {
         LIDMigrationMapping.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (!$util.isInteger(message.pn) && !(message.pn && $util.isInteger(message.pn.low) && $util.isInteger(message.pn.high)))
-                return "pn: integer|Long expected";
-            if (!$util.isInteger(message.assignedLid) && !(message.assignedLid && $util.isInteger(message.assignedLid.low) && $util.isInteger(message.assignedLid.high)))
-                return "assignedLid: integer|Long expected";
+            if (message.pn != null && message.hasOwnProperty("pn"))
+                if (!$util.isInteger(message.pn) && !(message.pn && $util.isInteger(message.pn.low) && $util.isInteger(message.pn.high)))
+                    return "pn: integer|Long expected";
+            if (message.assignedLid != null && message.hasOwnProperty("assignedLid"))
+                if (!$util.isInteger(message.assignedLid) && !(message.assignedLid && $util.isInteger(message.assignedLid.low) && $util.isInteger(message.assignedLid.high)))
+                    return "assignedLid: integer|Long expected";
             if (message.latestLid != null && message.hasOwnProperty("latestLid"))
                 if (!$util.isInteger(message.latestLid) && !(message.latestLid && $util.isInteger(message.latestLid.low) && $util.isInteger(message.latestLid.high)))
                     return "latestLid: integer|Long expected";

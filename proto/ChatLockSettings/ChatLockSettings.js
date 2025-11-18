@@ -45,11 +45,11 @@ $root.ChatLockSettings = (function() {
 
         /**
          * ChatLockSettings hideLockedChats.
-         * @member {boolean|null|undefined} hideLockedChats
+         * @member {boolean} hideLockedChats
          * @memberof ChatLockSettings.ChatLockSettings
          * @instance
          */
-        ChatLockSettings.prototype.hideLockedChats = null;
+        ChatLockSettings.prototype.hideLockedChats = false;
 
         /**
          * ChatLockSettings secretCode.
@@ -58,31 +58,6 @@ $root.ChatLockSettings = (function() {
          * @instance
          */
         ChatLockSettings.prototype.secretCode = null;
-
-        // OneOf field names bound to virtual getters and setters
-        var $oneOfFields;
-
-        /**
-         * ChatLockSettings _hideLockedChats.
-         * @member {"hideLockedChats"|undefined} _hideLockedChats
-         * @memberof ChatLockSettings.ChatLockSettings
-         * @instance
-         */
-        Object.defineProperty(ChatLockSettings.prototype, "_hideLockedChats", {
-            get: $util.oneOfGetter($oneOfFields = ["hideLockedChats"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * ChatLockSettings _secretCode.
-         * @member {"secretCode"|undefined} _secretCode
-         * @memberof ChatLockSettings.ChatLockSettings
-         * @instance
-         */
-        Object.defineProperty(ChatLockSettings.prototype, "_secretCode", {
-            get: $util.oneOfGetter($oneOfFields = ["secretCode"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
 
         /**
          * Creates a new ChatLockSettings instance using the specified properties.
@@ -191,19 +166,13 @@ $root.ChatLockSettings = (function() {
         ChatLockSettings.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            var properties = {};
-            if (message.hideLockedChats != null && message.hasOwnProperty("hideLockedChats")) {
-                properties._hideLockedChats = 1;
+            if (message.hideLockedChats != null && message.hasOwnProperty("hideLockedChats"))
                 if (typeof message.hideLockedChats !== "boolean")
                     return "hideLockedChats: boolean expected";
-            }
             if (message.secretCode != null && message.hasOwnProperty("secretCode")) {
-                properties._secretCode = 1;
-                {
-                    var error = $root.UserPassword.UserPassword.verify(message.secretCode);
-                    if (error)
-                        return "secretCode." + error;
-                }
+                var error = $root.UserPassword.UserPassword.verify(message.secretCode);
+                if (error)
+                    return "secretCode." + error;
             }
             return null;
         };
@@ -243,16 +212,14 @@ $root.ChatLockSettings = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (message.hideLockedChats != null && message.hasOwnProperty("hideLockedChats")) {
+            if (options.defaults) {
+                object.hideLockedChats = false;
+                object.secretCode = null;
+            }
+            if (message.hideLockedChats != null && message.hasOwnProperty("hideLockedChats"))
                 object.hideLockedChats = message.hideLockedChats;
-                if (options.oneofs)
-                    object._hideLockedChats = "hideLockedChats";
-            }
-            if (message.secretCode != null && message.hasOwnProperty("secretCode")) {
+            if (message.secretCode != null && message.hasOwnProperty("secretCode"))
                 object.secretCode = $root.UserPassword.UserPassword.toObject(message.secretCode, options);
-                if (options.oneofs)
-                    object._secretCode = "secretCode";
-            }
             return object;
         };
 

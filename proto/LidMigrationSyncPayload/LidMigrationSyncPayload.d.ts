@@ -110,10 +110,10 @@ export namespace LidMigrationSyncPayload {
     interface ILIDMigrationMapping {
 
         /** LIDMigrationMapping pn */
-        pn: (number|Long);
+        pn?: (number|Long|null);
 
         /** LIDMigrationMapping assignedLid */
-        assignedLid: (number|Long);
+        assignedLid?: (number|Long|null);
 
         /** LIDMigrationMapping latestLid */
         latestLid?: (number|Long|null);

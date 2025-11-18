@@ -2,8 +2,8 @@ syntax = "proto3";
 package StatusAttributions;
 
 message StatusAttribution {
-    optional Type type = 1;
-    optional string actionUrl = 2;
+     Type type = 1;
+     string actionUrl = 2;
     oneof attributionData {
         StatusAttribution.StatusReshare statusReshare = 3;
         StatusAttribution.ExternalShare externalShare = 4;
@@ -13,17 +13,17 @@ message StatusAttribution {
         StatusAttribution.AiCreatedAttribution aiCreatedAttribution = 8;
     }
     message AiCreatedAttribution {
-        optional Source source = 1;
+         Source source = 1;
         enum Source {
             UNKNOWN = 0;
             STATUS_MIMICRY = 1;
         }
     }
     message ExternalShare {
-        optional string actionUrl = 1;
-        optional Source source = 2;
-        optional int32 duration = 3;
-        optional string actionFallbackUrl = 4;
+         string actionUrl = 1;
+         Source source = 2;
+         int32 duration = 3;
+         string actionFallbackUrl = 4;
         enum Source {
             UNKNOWN = 0;
             INSTAGRAM = 1;
@@ -39,18 +39,18 @@ message StatusAttribution {
         }
     }
     message GroupStatus {
-        optional string authorJid = 1;
+         string authorJid = 1;
     }
     message Music {
-        optional string authorName = 1;
-        optional string songId = 2;
-        optional string title = 3;
-        optional string author = 4;
-        optional string artistAttribution = 5;
-        optional bool isExplicit = 6;
+         string authorName = 1;
+         string songId = 2;
+         string title = 3;
+         string author = 4;
+         string artistAttribution = 5;
+         bool isExplicit = 6;
     }
     message RLAttribution {
-        optional Source source = 1;
+         Source source = 1;
         enum Source {
             UNKNOWN = 0;
             RAY_BAN_META_GLASSES = 1;
@@ -59,13 +59,13 @@ message StatusAttribution {
         }
     }
     message StatusReshare {
-        optional Source source = 1;
-        optional Metadata metadata = 2;
+         Source source = 1;
+         Metadata metadata = 2;
         message Metadata {
-            optional int32 duration = 1;
-            optional string channelJid = 2;
-            optional int32 channelMessageId = 3;
-            optional bool hasMultipleReshares = 4;
+             int32 duration = 1;
+             string channelJid = 2;
+             int32 channelMessageId = 3;
+             bool hasMultipleReshares = 4;
         }
         enum Source {
             UNKNOWN = 0;

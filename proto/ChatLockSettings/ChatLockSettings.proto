@@ -4,6 +4,6 @@ package ChatLockSettings;
 import "../UserPassword/UserPassword.proto";
 
 message ChatLockSettings {
-    optional bool hideLockedChats = 1;
-    optional UserPassword.UserPassword secretCode = 2;
+     bool hideLockedChats = 1;
+     UserPassword.UserPassword secretCode = 2;
 }

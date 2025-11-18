@@ -29,28 +29,16 @@ export namespace Protocol {
         constructor(properties?: Protocol.ILimitSharing);
 
         /** LimitSharing sharingLimited. */
-        public sharingLimited?: (boolean|null);
+        public sharingLimited: boolean;
 
         /** LimitSharing trigger. */
-        public trigger?: (Protocol.LimitSharing.TriggerType|null);
+        public trigger: Protocol.LimitSharing.TriggerType;
 
         /** LimitSharing limitSharingSettingTimestamp. */
-        public limitSharingSettingTimestamp?: (number|Long|null);
+        public limitSharingSettingTimestamp: (number|Long);
 
         /** LimitSharing initiatedByMe. */
-        public initiatedByMe?: (boolean|null);
-
-        /** LimitSharing _sharingLimited. */
-        public _sharingLimited?: "sharingLimited";
-
-        /** LimitSharing _trigger. */
-        public _trigger?: "trigger";
-
-        /** LimitSharing _limitSharingSettingTimestamp. */
-        public _limitSharingSettingTimestamp?: "limitSharingSettingTimestamp";
-
-        /** LimitSharing _initiatedByMe. */
-        public _initiatedByMe?: "initiatedByMe";
+        public initiatedByMe: boolean;
 
         /**
          * Creates a new LimitSharing instance using the specified properties.
@@ -167,28 +155,16 @@ export namespace Protocol {
         constructor(properties?: Protocol.IMessageKey);
 
         /** MessageKey remoteJid. */
-        public remoteJid?: (string|null);
+        public remoteJid: string;
 
         /** MessageKey fromMe. */
-        public fromMe?: (boolean|null);
+        public fromMe: boolean;
 
         /** MessageKey id. */
-        public id?: (string|null);
+        public id: string;
 
         /** MessageKey participant. */
-        public participant?: (string|null);
-
-        /** MessageKey _remoteJid. */
-        public _remoteJid?: "remoteJid";
-
-        /** MessageKey _fromMe. */
-        public _fromMe?: "fromMe";
-
-        /** MessageKey _id. */
-        public _id?: "id";
-
-        /** MessageKey _participant. */
-        public _participant?: "participant";
+        public participant: string;
 
         /**
          * Creates a new MessageKey instance using the specified properties.

@@ -23,16 +23,10 @@ export namespace ChatLockSettings {
         constructor(properties?: ChatLockSettings.IChatLockSettings);
 
         /** ChatLockSettings hideLockedChats. */
-        public hideLockedChats?: (boolean|null);
+        public hideLockedChats: boolean;
 
         /** ChatLockSettings secretCode. */
         public secretCode?: (UserPassword.IUserPassword|null);
-
-        /** ChatLockSettings _hideLockedChats. */
-        public _hideLockedChats?: "hideLockedChats";
-
-        /** ChatLockSettings _secretCode. */
-        public _secretCode?: "secretCode";
 
         /**
          * Creates a new ChatLockSettings instance using the specified properties.

@@ -2,76 +2,76 @@ syntax = "proto3";
 package CompanionReg;
 
 message ClientPairingProps {
-    optional bool isChatDbLidMigrated = 1;
-    optional bool isSyncdPureLidSession = 2;
-    optional bool isSyncdSnapshotRecoveryEnabled = 3;
-    optional bool isHsThumbnailSyncEnabled = 4;
+     bool isChatDbLidMigrated = 1;
+     bool isSyncdPureLidSession = 2;
+     bool isSyncdSnapshotRecoveryEnabled = 3;
+     bool isHsThumbnailSyncEnabled = 4;
 }
 
 message EncryptedPairingRequest {
-    optional bytes encryptedPayload = 1;
-    optional bytes iv = 2;
+     bytes encryptedPayload = 1;
+     bytes iv = 2;
 }
 
 message PairingRequest {
-    optional bytes companionPublicKey = 1;
-    optional bytes companionIdentityKey = 2;
-    optional bytes advSecret = 3;
+     bytes companionPublicKey = 1;
+     bytes companionIdentityKey = 2;
+     bytes advSecret = 3;
 }
 
 message PrimaryEphemeralIdentity {
-    optional bytes publicKey = 1;
-    optional bytes nonce = 2;
+     bytes publicKey = 1;
+     bytes nonce = 2;
 }
 
 message ProloguePayload {
-    optional bytes companionEphemeralIdentity = 1;
-    optional CompanionCommitment commitment = 2;
+     bytes companionEphemeralIdentity = 1;
+     CompanionCommitment commitment = 2;
 }
 
 message CompanionCommitment {
-    optional bytes hash = 1;
+     bytes hash = 1;
 }
 
 message CompanionEphemeralIdentity {
-    optional bytes publicKey = 1;
-    optional DeviceProps.PlatformType deviceType = 2;
-    optional string ref = 3;
+     bytes publicKey = 1;
+     DeviceProps.PlatformType deviceType = 2;
+     string ref = 3;
 }
 
 message DeviceProps {
-    optional string os = 1;
-    optional AppVersion version = 2;
-    optional PlatformType platformType = 3;
-    optional bool requireFullSync = 4;
-    optional HistorySyncConfig historySyncConfig = 5;
+     string os = 1;
+     AppVersion version = 2;
+     PlatformType platformType = 3;
+     bool requireFullSync = 4;
+     HistorySyncConfig historySyncConfig = 5;
     message AppVersion {
-        optional uint32 primary = 1;
-        optional uint32 secondary = 2;
-        optional uint32 tertiary = 3;
-        optional uint32 quaternary = 4;
-        optional uint32 quinary = 5;
+         uint32 primary = 1;
+         uint32 secondary = 2;
+         uint32 tertiary = 3;
+         uint32 quaternary = 4;
+         uint32 quinary = 5;
     }
     message HistorySyncConfig {
-        optional uint32 fullSyncDaysLimit = 1;
-        optional uint32 fullSyncSizeMbLimit = 2;
-        optional uint32 storageQuotaMb = 3;
-        optional bool inlineInitialPayloadInE2EeMsg = 4;
-        optional uint32 recentSyncDaysLimit = 5;
-        optional bool supportCallLogHistory = 6;
-        optional bool supportBotUserAgentChatHistory = 7;
-        optional bool supportCagReactionsAndPolls = 8;
-        optional bool supportBizHostedMsg = 9;
-        optional bool supportRecentSyncChunkMessageCountTuning = 10;
-        optional bool supportHostedGroupMsg = 11;
-        optional bool supportFbidBotChatHistory = 12;
-        optional bool supportAddOnHistorySyncMigration = 13;
-        optional bool supportMessageAssociation = 14;
-        optional bool supportGroupHistory = 15;
-        optional bool onDemandReady = 16;
-        optional bool supportGuestChat = 17;
-        optional bool completeOnDemandReady = 18;
-        optional uint32 thumbnailSyncDaysLimit = 19;
+         uint32 fullSyncDaysLimit = 1;
+         uint32 fullSyncSizeMbLimit = 2;
+         uint32 storageQuotaMb = 3;
+         bool inlineInitialPayloadInE2EeMsg = 4;
+         uint32 recentSyncDaysLimit = 5;
+         bool supportCallLogHistory = 6;
+         bool supportBotUserAgentChatHistory = 7;
+         bool supportCagReactionsAndPolls = 8;
+         bool supportBizHostedMsg = 9;
+         bool supportRecentSyncChunkMessageCountTuning = 10;
+         bool supportHostedGroupMsg = 11;
+         bool supportFbidBotChatHistory = 12;
+         bool supportAddOnHistorySyncMigration = 13;
+         bool supportMessageAssociation = 14;
+         bool supportGroupHistory = 15;
+         bool onDemandReady = 16;
+         bool supportGuestChat = 17;
+         bool completeOnDemandReady = 18;
+         uint32 thumbnailSyncDaysLimit = 19;
     }
     enum PlatformType {
         UNKNOWN = 0;
