@@ -26,6 +26,26 @@ protoFiles.forEach((file) => {
   const fileName = path.basename(file);
 
   try {
+    // --- PRE-PROCESSING: paksa semua proto menjadi proto3 ---
+    let content = fs.readFileSync(file, 'utf8');
+
+    // Tambahkan syntax = "proto3" kalau belum ada
+    if (!/syntax\s*=\s*"proto/i.test(content)) {
+      content = `syntax = "proto3";\n` + content;
+    } else {
+      // Kalau ada syntax lain (proto2), ubah jadi proto3
+      content = content.replace(/syntax\s*=\s*"[^"]+"/i, 'syntax = "proto3"');
+    }
+
+    // Hapus semua modifier proto2 (required/optional)
+    // karena proto3 tidak menerima itu
+    content = content
+      .replace(/\brequired\b/g, '')
+      .replace(/\boptional\b/g, '');
+
+    fs.writeFileSync(file, content, 'utf8');
+    // --- END PRE-PROCESSING ---
+
     const outputJS = file.replace(/\.proto$/, '.js');
     const outputTS = file.replace(/\.proto$/, '.d.ts');
 
@@ -37,25 +57,30 @@ protoFiles.forEach((file) => {
       `-r default`,
       file,
     ].join(' ');
+
     const pbtsCommand = [`npx pbts`, `-o ${outputTS}`, outputJS].join(' ');
 
     console.log(`Generating JS and TS for ${fileName}...`);
 
-try {
-  execSync(pbjsCommand, { stdio: 'pipe' });
-} catch (err) {
-  console.error("PBJS FAILED:", file, err.stdout?.toString(), err.stderr?.toString());
-  return; // hentikan untuk file ini, jangan lanjut pbts
-}
+    try {
+      execSync(pbjsCommand, { stdio: 'pipe' });
+    } catch (err) {
+      console.error("PBJS FAILED:", file, err.stdout?.toString(), err.stderr?.toString());
+      return;
+    }
+
+    // Generate .d.ts
+    try {
+      execSync(pbtsCommand, { stdio: 'pipe' });
+    } catch (err) {
+      console.error("PBTS FAILED:", file, err.stdout?.toString(), err.stderr?.toString());
+      return;
+    }
 
     const exportName = fileName.replace(/\.proto$/, '');
     exportsText += `exports.${exportName} = require('./${exportName}/${exportName}').${exportName};\n`;
+
   } catch (err) {
     console.error(`Error generating JS and TS for ${fileName}: ${err.message}`);
   }
 });
-
-// Write index.js file
-fs.writeFileSync(path.resolve(PROTO_DIR, 'index.js'), exportsText, 'utf8');
-
-console.log('Protobuf generation complete!');
