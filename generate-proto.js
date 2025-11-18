@@ -41,8 +41,12 @@ protoFiles.forEach((file) => {
 
     console.log(`Generating JS and TS for ${fileName}...`);
 
-    execSync(pbjsCommand, { stdio: 'inherit' });
-    execSync(pbtsCommand, { stdio: 'inherit' });
+try {
+  execSync(pbjsCommand, { stdio: 'pipe' });
+} catch (err) {
+  console.error("PBJS FAILED:", file, err.stdout?.toString(), err.stderr?.toString());
+  return; // hentikan untuk file ini, jangan lanjut pbts
+}
 
     const exportName = fileName.replace(/\.proto$/, '');
     exportsText += `exports.${exportName} = require('./${exportName}/${exportName}').${exportName};\n`;
