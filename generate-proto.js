@@ -37,11 +37,10 @@ protoFiles.forEach((file) => {
       content = content.replace(/syntax\s*=\s*"[^"]+"/i, 'syntax = "proto3"');
     }
 
-    // Hapus semua modifier proto2 (required/optional)
+    // Hapus semua modifier proto2 (required)
     // karena proto3 tidak menerima itu
     content = content
-      .replace(/\brequired\b/g, '')
-      .replace(/\boptional\b/g, '');
+      .replace(/\brequired\b/g, 'optional')
 
     fs.writeFileSync(file, content, 'utf8');
     // --- END PRE-PROCESSING ---
