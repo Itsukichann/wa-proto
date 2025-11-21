@@ -1,52 +1,44 @@
-const { execSync } = require('child_process');
-const path = require('path');
-const fs = require('fs');
+const { execSync } = require('child_process')
+const path = require('path')
+const fs = require('fs')
 
-const PROTO_DIR = path.resolve(__dirname, 'proto');
+const PROTO_DIR = path.resolve(__dirname, 'proto')
 
 function getProtoFiles(dir) {
-  const files = fs.readdirSync(dir, { withFileTypes: true });
+  const files = fs.readdirSync(dir, { withFileTypes: true })
   return files
     .flatMap((file) => {
-      const filePath = path.join(dir, file.name);
-      return file.isDirectory() ? getProtoFiles(filePath) : filePath;
+      const filePath = path.join(dir, file.name)
+      return file.isDirectory() ? getProtoFiles(filePath) : filePath
     })
-    .filter((file) => file.endsWith('.proto'));
+    .filter((file) => file.endsWith('.proto'))
 }
 
-const protoFiles = getProtoFiles(PROTO_DIR);
+const protoFiles = getProtoFiles(PROTO_DIR)
 if (protoFiles.length === 0) {
-  console.error('No .proto files found in the proto directory.');
-  process.exit(1);
+  console.error('No .proto files found in the proto directory.')
+  process.exit(1)
 }
 
-let exportsText = '';
+let exportsText = ''
 
 protoFiles.forEach((file) => {
-  const fileName = path.basename(file);
+  const fileName = path.basename(file)
 
   try {
-    // --- PRE-PROCESSING: paksa semua proto menjadi proto3 ---
-    let content = fs.readFileSync(file, 'utf8');
+    let content = fs.readFileSync(file, 'utf8')
 
-    // Tambahkan syntax = "proto3" kalau belum ada
     if (!/syntax\s*=\s*"proto/i.test(content)) {
-      content = `syntax = "proto3";\n` + content;
+      content = `syntax = "proto3"\n` + content
     } else {
-      // Kalau ada syntax lain (proto2), ubah jadi proto3
-      content = content.replace(/syntax\s*=\s*"[^"]+"/i, 'syntax = "proto3"');
+      content = content.replace(/syntax\s*=\s*"[^"]+"/i, 'syntax = "proto3"')
     }
 
-    // Hapus semua modifier proto2 (required)
-    // karena proto3 tidak menerima itu
-    content = content
-      .replace(/\brequired\b/g, 'optional')
+    content = content.replace(/\brequired\b/g, 'optional')
 
-    fs.writeFileSync(file, content, 'utf8');
-    // --- END PRE-PROCESSING ---
+    fs.writeFileSync(file, content, 'utf8')
 
-    const outputJS = file.replace(/\.proto$/, '.js');
-    const outputTS = file.replace(/\.proto$/, '.d.ts');
+    const outputJS = file.replace(/\.proto$/, '.js')
 
     const pbjsCommand = [
       `npx pbjs`,
@@ -55,31 +47,21 @@ protoFiles.forEach((file) => {
       `-o ${outputJS}`,
       `-r default`,
       file,
-    ].join(' ');
+    ].join(' ')
 
-    const pbtsCommand = [`npx pbts`, `-o ${outputTS}`, outputJS].join(' ');
-
-    console.log(`Generating JS and TS for ${fileName}...`);
+    console.log(`Generating JS for ${fileName}...`)
 
     try {
-      execSync(pbjsCommand, { stdio: 'pipe' });
+      execSync(pbjsCommand, { stdio: 'pipe' })
     } catch (err) {
-      console.error("PBJS FAILED:", file, err.stdout?.toString(), err.stderr?.toString());
-      return;
+      console.error("PBJS FAILED:", file, err.stdout?.toString(), err.stderr?.toString())
+      return
     }
 
-    // Generate .d.ts
-    try {
-      execSync(pbtsCommand, { stdio: 'pipe' });
-    } catch (err) {
-      console.error("PBTS FAILED:", file, err.stdout?.toString(), err.stderr?.toString());
-      return;
-    }
-
-    const exportName = fileName.replace(/\.proto$/, '');
-    exportsText += `exports.${exportName} = require('./${exportName}/${exportName}').${exportName};\n`;
+    const exportName = fileName.replace(/\.proto$/, '')
+    exportsText += `exports.${exportName} = require('./${exportName}/${exportName}').${exportName}\n`
 
   } catch (err) {
-    console.error(`Error generating JS and TS for ${fileName}: ${err.message}`);
+    console.error(`Error generating JS for ${fileName}: ${err.message}`)
   }
-});
+})
