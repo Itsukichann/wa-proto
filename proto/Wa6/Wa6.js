@@ -2051,6 +2051,8 @@ $root.Wa6 = (function() {
                     case 3:
                     case 4:
                     case 5:
+                    case 6:
+                    case 7:
                         break;
                     }
                 }
@@ -2104,6 +2106,14 @@ $root.Wa6 = (function() {
                 case "MNS":
                 case 5:
                     message.dnsMethod = 5;
+                    break;
+                case "MNS_SECONDARY":
+                case 6:
+                    message.dnsMethod = 6;
+                    break;
+                case "SOCKS_PROXY":
+                case 7:
+                    message.dnsMethod = 7;
                     break;
                 }
                 if (object.appCached != null)
@@ -2173,6 +2183,8 @@ $root.Wa6 = (function() {
              * @property {number} OVERRIDE=3 OVERRIDE value
              * @property {number} FALLBACK=4 FALLBACK value
              * @property {number} MNS=5 MNS value
+             * @property {number} MNS_SECONDARY=6 MNS_SECONDARY value
+             * @property {number} SOCKS_PROXY=7 SOCKS_PROXY value
              */
             DNSSource.DNSResolutionMethod = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
@@ -2182,6 +2194,8 @@ $root.Wa6 = (function() {
                 values[valuesById[3] = "OVERRIDE"] = 3;
                 values[valuesById[4] = "FALLBACK"] = 4;
                 values[valuesById[5] = "MNS"] = 5;
+                values[valuesById[6] = "MNS_SECONDARY"] = 6;
+                values[valuesById[7] = "SOCKS_PROXY"] = 7;
                 return values;
             })();
 
