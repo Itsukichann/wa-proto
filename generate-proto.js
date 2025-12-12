@@ -20,7 +20,7 @@ if (protoFiles.length === 0) {
   process.exit(1)
 }
 
-let exportsText = ''
+console.log(`Found ${protoFiles.length} proto files.`)
 
 protoFiles.forEach((file) => {
   const fileName = path.basename(file)
@@ -28,15 +28,51 @@ protoFiles.forEach((file) => {
   try {
     let content = fs.readFileSync(file, 'utf8')
 
-    if (!/syntax\s*=\s*"proto/i.test(content)) {
-      content = `syntax = "proto3"\n` + content
+    // --------------------------------------------------------
+    // 1. Ensure the file uses proto3 syntax
+    // --------------------------------------------------------
+    if (/syntax\s*=/.test(content)) {
+      content = content.replace(
+        /syntax\s*=\s*"[^"]+"/i,
+        'syntax = "proto3";'
+      )
     } else {
-      content = content.replace(/syntax\s*=\s*"[^"]+"/i, 'syntax = "proto3"')
+      content = `syntax = "proto3";\n${content}`
     }
 
-    content = content.replace(/\brequired\b/g, 'optional')
+    // --------------------------------------------------------
+    // 2. Replace all "required" tokens (proto3 does not allow it)
+    // --------------------------------------------------------
+    const requiredPatterns = [
+      /\brequired\s+(?=[a-zA-Z])/gi,
+      /\brequired\s*\n/gi,
+      /\brequired\t+/gi
+    ]
+
+    requiredPatterns.forEach((regex) => {
+      content = content.replace(regex, 'optional ')
+    })
+
+    // Fallback: remove any remaining "required"
+    if (content.includes('required')) {
+      console.warn(`[WARN] "required" still detected after cleaning: ${file}`)
+      content = content.replace(/required/g, 'optional')
+    }
 
     fs.writeFileSync(file, content, 'utf8')
+
+    // --------------------------------------------------------
+    // 3. Verify that "required" is fully removed
+    // --------------------------------------------------------
+    const verify = fs.readFileSync(file, 'utf8')
+    if (verify.includes('required')) {
+      console.error(`[ERROR] "required" still present after rewrite: ${file}`)
+    }
+
+    // --------------------------------------------------------
+    // 4. Generate JavaScript output using pbjs
+    // --------------------------------------------------------
+    console.log(`Generating JS for ${fileName}...`)
 
     const outputJS = file.replace(/\.proto$/, '.js')
 
@@ -44,24 +80,23 @@ protoFiles.forEach((file) => {
       `npx pbjs`,
       `-t static-module`,
       `-w commonjs`,
-      `-o ${outputJS}`,
+      `-o "${outputJS}"`,
       `-r default`,
-      file,
+      `"${file}"`
     ].join(' ')
-
-    console.log(`Generating JS for ${fileName}...`)
 
     try {
       execSync(pbjsCommand, { stdio: 'pipe' })
     } catch (err) {
-      console.error("PBJS FAILED:", file, err.stdout?.toString(), err.stderr?.toString())
+      console.error("PBJS FAILED:", file)
+      console.error("STDOUT:", err.stdout?.toString())
+      console.error("STDERR:", err.stderr?.toString())
       return
     }
-
-    const exportName = fileName.replace(/\.proto$/, '')
-    exportsText += `exports.${exportName} = require('./${exportName}/${exportName}').${exportName}\n`
 
   } catch (err) {
     console.error(`Error generating JS for ${fileName}: ${err.message}`)
   }
 })
+
+console.log("DONE.")
