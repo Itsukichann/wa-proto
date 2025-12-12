@@ -12442,6 +12442,7 @@ $root.Web = (function() {
          * @property {Web.IGroupHistoryBundleInfo|null} [groupHistoryBundleInfo] WebMessageInfo groupHistoryBundleInfo
          * @property {Web.IInteractiveMessageAdditionalMetadata|null} [interactiveMessageAdditionalMetadata] WebMessageInfo interactiveMessageAdditionalMetadata
          * @property {Web.IQuarantinedMessage|null} [quarantinedMessage] WebMessageInfo quarantinedMessage
+         * @property {number|null} [nonJidMentions] WebMessageInfo nonJidMentions
          */
 
         /**
@@ -12996,6 +12997,14 @@ $root.Web = (function() {
          * @instance
          */
         WebMessageInfo.prototype.quarantinedMessage = null;
+
+        /**
+         * WebMessageInfo nonJidMentions.
+         * @member {number|null|undefined} nonJidMentions
+         * @memberof Web.WebMessageInfo
+         * @instance
+         */
+        WebMessageInfo.prototype.nonJidMentions = null;
 
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
@@ -13617,6 +13626,17 @@ $root.Web = (function() {
         });
 
         /**
+         * WebMessageInfo _nonJidMentions.
+         * @member {"nonJidMentions"|undefined} _nonJidMentions
+         * @memberof Web.WebMessageInfo
+         * @instance
+         */
+        Object.defineProperty(WebMessageInfo.prototype, "_nonJidMentions", {
+            get: $util.oneOfGetter($oneOfFields = ["nonJidMentions"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
          * Creates a new WebMessageInfo instance using the specified properties.
          * @function create
          * @memberof Web.WebMessageInfo
@@ -13782,6 +13802,8 @@ $root.Web = (function() {
                 $root.Web.InteractiveMessageAdditionalMetadata.encode(message.interactiveMessageAdditionalMetadata, writer.uint32(/* id 76, wireType 2 =*/610).fork()).ldelim();
             if (message.quarantinedMessage != null && Object.hasOwnProperty.call(message, "quarantinedMessage"))
                 $root.Web.QuarantinedMessage.encode(message.quarantinedMessage, writer.uint32(/* id 77, wireType 2 =*/618).fork()).ldelim();
+            if (message.nonJidMentions != null && Object.hasOwnProperty.call(message, "nonJidMentions"))
+                writer.uint32(/* id 78, wireType 0 =*/624).uint32(message.nonJidMentions);
             return writer;
         };
 
@@ -14100,6 +14122,10 @@ $root.Web = (function() {
                     }
                 case 77: {
                         message.quarantinedMessage = $root.Web.QuarantinedMessage.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 78: {
+                        message.nonJidMentions = reader.uint32();
                         break;
                     }
                 default:
@@ -14808,6 +14834,11 @@ $root.Web = (function() {
                     if (error)
                         return "quarantinedMessage." + error;
                 }
+            }
+            if (message.nonJidMentions != null && message.hasOwnProperty("nonJidMentions")) {
+                properties._nonJidMentions = 1;
+                if (!$util.isInteger(message.nonJidMentions))
+                    return "nonJidMentions: integer expected";
             }
             return null;
         };
@@ -16088,6 +16119,8 @@ $root.Web = (function() {
                     throw TypeError(".Web.WebMessageInfo.quarantinedMessage: object expected");
                 message.quarantinedMessage = $root.Web.QuarantinedMessage.fromObject(object.quarantinedMessage);
             }
+            if (object.nonJidMentions != null)
+                message.nonJidMentions = object.nonJidMentions >>> 0;
             return message;
         };
 
@@ -16460,6 +16493,11 @@ $root.Web = (function() {
                 object.quarantinedMessage = $root.Web.QuarantinedMessage.toObject(message.quarantinedMessage, options);
                 if (options.oneofs)
                     object._quarantinedMessage = "quarantinedMessage";
+            }
+            if (message.nonJidMentions != null && message.hasOwnProperty("nonJidMentions")) {
+                object.nonJidMentions = message.nonJidMentions;
+                if (options.oneofs)
+                    object._nonJidMentions = "nonJidMentions";
             }
             return object;
         };
