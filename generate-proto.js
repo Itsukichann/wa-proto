@@ -31,7 +31,7 @@ protoFiles.forEach((file) => {
     let content = fs.readFileSync(file, 'utf8');
 
     // --------------------------------------------------------
-    // 1. Force proto3 syntax at the top
+    // 1. Ensure proto3 syntax
     // --------------------------------------------------------
     if (/syntax\s*=/.test(content)) {
       content = content.replace(/syntax\s*=\s*"[^"]+"/i, 'syntax = "proto3";');
@@ -40,7 +40,12 @@ protoFiles.forEach((file) => {
     }
 
     // --------------------------------------------------------
-    // 2. Replace every form of "required" (invalid in proto3)
+    // 2. Clean duplicated semicolons (;; -> ;)
+    // --------------------------------------------------------
+    content = content.replace(/;;+/g, ';');
+
+    // --------------------------------------------------------
+    // 3. Replace invalid "required"
     // --------------------------------------------------------
     const requiredPatterns = [
       /\brequired\s+(?=[a-zA-Z])/gi,
@@ -61,7 +66,7 @@ protoFiles.forEach((file) => {
     fs.writeFileSync(file, content, 'utf8');
 
     // --------------------------------------------------------
-    // 3. Verify cleanup
+    // 4. Verify cleanup
     // --------------------------------------------------------
     const verify = fs.readFileSync(file, 'utf8');
     if (verify.includes('required')) {
@@ -69,7 +74,7 @@ protoFiles.forEach((file) => {
     }
 
     // --------------------------------------------------------
-    // 4. Generate JS output via pbjs
+    // 5. Generate JS via pbjs
     // --------------------------------------------------------
     console.log(`Generating JS for ${fileName}...`);
 
