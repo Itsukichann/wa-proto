@@ -143,122 +143,67 @@ $root.SyncAction = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * PatchDebugData _currentLthash.
-         * @member {"currentLthash"|undefined} _currentLthash
-         * @memberof SyncAction.PatchDebugData
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PatchDebugData.prototype, "_currentLthash", {
             get: $util.oneOfGetter($oneOfFields = ["currentLthash"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PatchDebugData _newLthash.
-         * @member {"newLthash"|undefined} _newLthash
-         * @memberof SyncAction.PatchDebugData
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PatchDebugData.prototype, "_newLthash", {
             get: $util.oneOfGetter($oneOfFields = ["newLthash"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PatchDebugData _patchVersion.
-         * @member {"patchVersion"|undefined} _patchVersion
-         * @memberof SyncAction.PatchDebugData
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PatchDebugData.prototype, "_patchVersion", {
             get: $util.oneOfGetter($oneOfFields = ["patchVersion"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PatchDebugData _collectionName.
-         * @member {"collectionName"|undefined} _collectionName
-         * @memberof SyncAction.PatchDebugData
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PatchDebugData.prototype, "_collectionName", {
             get: $util.oneOfGetter($oneOfFields = ["collectionName"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PatchDebugData _firstFourBytesFromAHashOfSnapshotMacKey.
-         * @member {"firstFourBytesFromAHashOfSnapshotMacKey"|undefined} _firstFourBytesFromAHashOfSnapshotMacKey
-         * @memberof SyncAction.PatchDebugData
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PatchDebugData.prototype, "_firstFourBytesFromAHashOfSnapshotMacKey", {
             get: $util.oneOfGetter($oneOfFields = ["firstFourBytesFromAHashOfSnapshotMacKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PatchDebugData _newLthashSubtract.
-         * @member {"newLthashSubtract"|undefined} _newLthashSubtract
-         * @memberof SyncAction.PatchDebugData
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PatchDebugData.prototype, "_newLthashSubtract", {
             get: $util.oneOfGetter($oneOfFields = ["newLthashSubtract"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PatchDebugData _numberAdd.
-         * @member {"numberAdd"|undefined} _numberAdd
-         * @memberof SyncAction.PatchDebugData
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PatchDebugData.prototype, "_numberAdd", {
             get: $util.oneOfGetter($oneOfFields = ["numberAdd"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PatchDebugData _numberRemove.
-         * @member {"numberRemove"|undefined} _numberRemove
-         * @memberof SyncAction.PatchDebugData
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PatchDebugData.prototype, "_numberRemove", {
             get: $util.oneOfGetter($oneOfFields = ["numberRemove"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PatchDebugData _numberOverride.
-         * @member {"numberOverride"|undefined} _numberOverride
-         * @memberof SyncAction.PatchDebugData
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PatchDebugData.prototype, "_numberOverride", {
             get: $util.oneOfGetter($oneOfFields = ["numberOverride"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PatchDebugData _senderPlatform.
-         * @member {"senderPlatform"|undefined} _senderPlatform
-         * @memberof SyncAction.PatchDebugData
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PatchDebugData.prototype, "_senderPlatform", {
             get: $util.oneOfGetter($oneOfFields = ["senderPlatform"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PatchDebugData _isSenderPrimary.
-         * @member {"isSenderPrimary"|undefined} _isSenderPrimary
-         * @memberof SyncAction.PatchDebugData
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PatchDebugData.prototype, "_isSenderPrimary", {
             get: $util.oneOfGetter($oneOfFields = ["isSenderPrimary"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -804,45 +749,25 @@ $root.SyncAction = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * SyncActionData _index.
-         * @member {"index"|undefined} _index
-         * @memberof SyncAction.SyncActionData
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionData.prototype, "_index", {
             get: $util.oneOfGetter($oneOfFields = ["index"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionData _value.
-         * @member {"value"|undefined} _value
-         * @memberof SyncAction.SyncActionData
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionData.prototype, "_value", {
             get: $util.oneOfGetter($oneOfFields = ["value"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionData _padding.
-         * @member {"padding"|undefined} _padding
-         * @memberof SyncAction.SyncActionData
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionData.prototype, "_padding", {
             get: $util.oneOfGetter($oneOfFields = ["padding"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionData _version.
-         * @member {"version"|undefined} _version
-         * @memberof SyncAction.SyncActionData
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionData.prototype, "_version", {
             get: $util.oneOfGetter($oneOfFields = ["version"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -1738,760 +1663,415 @@ $root.SyncAction = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * SyncActionValue _timestamp.
-         * @member {"timestamp"|undefined} _timestamp
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_timestamp", {
             get: $util.oneOfGetter($oneOfFields = ["timestamp"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _starAction.
-         * @member {"starAction"|undefined} _starAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_starAction", {
             get: $util.oneOfGetter($oneOfFields = ["starAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _contactAction.
-         * @member {"contactAction"|undefined} _contactAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_contactAction", {
             get: $util.oneOfGetter($oneOfFields = ["contactAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _muteAction.
-         * @member {"muteAction"|undefined} _muteAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_muteAction", {
             get: $util.oneOfGetter($oneOfFields = ["muteAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _pinAction.
-         * @member {"pinAction"|undefined} _pinAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_pinAction", {
             get: $util.oneOfGetter($oneOfFields = ["pinAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _pushNameSetting.
-         * @member {"pushNameSetting"|undefined} _pushNameSetting
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_pushNameSetting", {
             get: $util.oneOfGetter($oneOfFields = ["pushNameSetting"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _quickReplyAction.
-         * @member {"quickReplyAction"|undefined} _quickReplyAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_quickReplyAction", {
             get: $util.oneOfGetter($oneOfFields = ["quickReplyAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _recentEmojiWeightsAction.
-         * @member {"recentEmojiWeightsAction"|undefined} _recentEmojiWeightsAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_recentEmojiWeightsAction", {
             get: $util.oneOfGetter($oneOfFields = ["recentEmojiWeightsAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _labelEditAction.
-         * @member {"labelEditAction"|undefined} _labelEditAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_labelEditAction", {
             get: $util.oneOfGetter($oneOfFields = ["labelEditAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _labelAssociationAction.
-         * @member {"labelAssociationAction"|undefined} _labelAssociationAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_labelAssociationAction", {
             get: $util.oneOfGetter($oneOfFields = ["labelAssociationAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _localeSetting.
-         * @member {"localeSetting"|undefined} _localeSetting
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_localeSetting", {
             get: $util.oneOfGetter($oneOfFields = ["localeSetting"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _archiveChatAction.
-         * @member {"archiveChatAction"|undefined} _archiveChatAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_archiveChatAction", {
             get: $util.oneOfGetter($oneOfFields = ["archiveChatAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _deleteMessageForMeAction.
-         * @member {"deleteMessageForMeAction"|undefined} _deleteMessageForMeAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_deleteMessageForMeAction", {
             get: $util.oneOfGetter($oneOfFields = ["deleteMessageForMeAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _keyExpiration.
-         * @member {"keyExpiration"|undefined} _keyExpiration
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_keyExpiration", {
             get: $util.oneOfGetter($oneOfFields = ["keyExpiration"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _markChatAsReadAction.
-         * @member {"markChatAsReadAction"|undefined} _markChatAsReadAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_markChatAsReadAction", {
             get: $util.oneOfGetter($oneOfFields = ["markChatAsReadAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _clearChatAction.
-         * @member {"clearChatAction"|undefined} _clearChatAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_clearChatAction", {
             get: $util.oneOfGetter($oneOfFields = ["clearChatAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _deleteChatAction.
-         * @member {"deleteChatAction"|undefined} _deleteChatAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_deleteChatAction", {
             get: $util.oneOfGetter($oneOfFields = ["deleteChatAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _unarchiveChatsSetting.
-         * @member {"unarchiveChatsSetting"|undefined} _unarchiveChatsSetting
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_unarchiveChatsSetting", {
             get: $util.oneOfGetter($oneOfFields = ["unarchiveChatsSetting"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _primaryFeature.
-         * @member {"primaryFeature"|undefined} _primaryFeature
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_primaryFeature", {
             get: $util.oneOfGetter($oneOfFields = ["primaryFeature"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _androidUnsupportedActions.
-         * @member {"androidUnsupportedActions"|undefined} _androidUnsupportedActions
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_androidUnsupportedActions", {
             get: $util.oneOfGetter($oneOfFields = ["androidUnsupportedActions"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _agentAction.
-         * @member {"agentAction"|undefined} _agentAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_agentAction", {
             get: $util.oneOfGetter($oneOfFields = ["agentAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _subscriptionAction.
-         * @member {"subscriptionAction"|undefined} _subscriptionAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_subscriptionAction", {
             get: $util.oneOfGetter($oneOfFields = ["subscriptionAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _userStatusMuteAction.
-         * @member {"userStatusMuteAction"|undefined} _userStatusMuteAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_userStatusMuteAction", {
             get: $util.oneOfGetter($oneOfFields = ["userStatusMuteAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _timeFormatAction.
-         * @member {"timeFormatAction"|undefined} _timeFormatAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_timeFormatAction", {
             get: $util.oneOfGetter($oneOfFields = ["timeFormatAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _nuxAction.
-         * @member {"nuxAction"|undefined} _nuxAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_nuxAction", {
             get: $util.oneOfGetter($oneOfFields = ["nuxAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _primaryVersionAction.
-         * @member {"primaryVersionAction"|undefined} _primaryVersionAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_primaryVersionAction", {
             get: $util.oneOfGetter($oneOfFields = ["primaryVersionAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _stickerAction.
-         * @member {"stickerAction"|undefined} _stickerAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_stickerAction", {
             get: $util.oneOfGetter($oneOfFields = ["stickerAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _removeRecentStickerAction.
-         * @member {"removeRecentStickerAction"|undefined} _removeRecentStickerAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_removeRecentStickerAction", {
             get: $util.oneOfGetter($oneOfFields = ["removeRecentStickerAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _chatAssignment.
-         * @member {"chatAssignment"|undefined} _chatAssignment
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_chatAssignment", {
             get: $util.oneOfGetter($oneOfFields = ["chatAssignment"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _chatAssignmentOpenedStatus.
-         * @member {"chatAssignmentOpenedStatus"|undefined} _chatAssignmentOpenedStatus
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_chatAssignmentOpenedStatus", {
             get: $util.oneOfGetter($oneOfFields = ["chatAssignmentOpenedStatus"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _pnForLidChatAction.
-         * @member {"pnForLidChatAction"|undefined} _pnForLidChatAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_pnForLidChatAction", {
             get: $util.oneOfGetter($oneOfFields = ["pnForLidChatAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _marketingMessageAction.
-         * @member {"marketingMessageAction"|undefined} _marketingMessageAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_marketingMessageAction", {
             get: $util.oneOfGetter($oneOfFields = ["marketingMessageAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _marketingMessageBroadcastAction.
-         * @member {"marketingMessageBroadcastAction"|undefined} _marketingMessageBroadcastAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_marketingMessageBroadcastAction", {
             get: $util.oneOfGetter($oneOfFields = ["marketingMessageBroadcastAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _externalWebBetaAction.
-         * @member {"externalWebBetaAction"|undefined} _externalWebBetaAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_externalWebBetaAction", {
             get: $util.oneOfGetter($oneOfFields = ["externalWebBetaAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _privacySettingRelayAllCalls.
-         * @member {"privacySettingRelayAllCalls"|undefined} _privacySettingRelayAllCalls
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_privacySettingRelayAllCalls", {
             get: $util.oneOfGetter($oneOfFields = ["privacySettingRelayAllCalls"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _callLogAction.
-         * @member {"callLogAction"|undefined} _callLogAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_callLogAction", {
             get: $util.oneOfGetter($oneOfFields = ["callLogAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _ugcBot.
-         * @member {"ugcBot"|undefined} _ugcBot
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_ugcBot", {
             get: $util.oneOfGetter($oneOfFields = ["ugcBot"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _statusPrivacy.
-         * @member {"statusPrivacy"|undefined} _statusPrivacy
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_statusPrivacy", {
             get: $util.oneOfGetter($oneOfFields = ["statusPrivacy"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _botWelcomeRequestAction.
-         * @member {"botWelcomeRequestAction"|undefined} _botWelcomeRequestAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_botWelcomeRequestAction", {
             get: $util.oneOfGetter($oneOfFields = ["botWelcomeRequestAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _deleteIndividualCallLog.
-         * @member {"deleteIndividualCallLog"|undefined} _deleteIndividualCallLog
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_deleteIndividualCallLog", {
             get: $util.oneOfGetter($oneOfFields = ["deleteIndividualCallLog"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _labelReorderingAction.
-         * @member {"labelReorderingAction"|undefined} _labelReorderingAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_labelReorderingAction", {
             get: $util.oneOfGetter($oneOfFields = ["labelReorderingAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _paymentInfoAction.
-         * @member {"paymentInfoAction"|undefined} _paymentInfoAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_paymentInfoAction", {
             get: $util.oneOfGetter($oneOfFields = ["paymentInfoAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _customPaymentMethodsAction.
-         * @member {"customPaymentMethodsAction"|undefined} _customPaymentMethodsAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_customPaymentMethodsAction", {
             get: $util.oneOfGetter($oneOfFields = ["customPaymentMethodsAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _lockChatAction.
-         * @member {"lockChatAction"|undefined} _lockChatAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_lockChatAction", {
             get: $util.oneOfGetter($oneOfFields = ["lockChatAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _chatLockSettings.
-         * @member {"chatLockSettings"|undefined} _chatLockSettings
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_chatLockSettings", {
             get: $util.oneOfGetter($oneOfFields = ["chatLockSettings"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _wamoUserIdentifierAction.
-         * @member {"wamoUserIdentifierAction"|undefined} _wamoUserIdentifierAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_wamoUserIdentifierAction", {
             get: $util.oneOfGetter($oneOfFields = ["wamoUserIdentifierAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _privacySettingDisableLinkPreviewsAction.
-         * @member {"privacySettingDisableLinkPreviewsAction"|undefined} _privacySettingDisableLinkPreviewsAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_privacySettingDisableLinkPreviewsAction", {
             get: $util.oneOfGetter($oneOfFields = ["privacySettingDisableLinkPreviewsAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _deviceCapabilities.
-         * @member {"deviceCapabilities"|undefined} _deviceCapabilities
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_deviceCapabilities", {
             get: $util.oneOfGetter($oneOfFields = ["deviceCapabilities"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _noteEditAction.
-         * @member {"noteEditAction"|undefined} _noteEditAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_noteEditAction", {
             get: $util.oneOfGetter($oneOfFields = ["noteEditAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _favoritesAction.
-         * @member {"favoritesAction"|undefined} _favoritesAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_favoritesAction", {
             get: $util.oneOfGetter($oneOfFields = ["favoritesAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _merchantPaymentPartnerAction.
-         * @member {"merchantPaymentPartnerAction"|undefined} _merchantPaymentPartnerAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_merchantPaymentPartnerAction", {
             get: $util.oneOfGetter($oneOfFields = ["merchantPaymentPartnerAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _waffleAccountLinkStateAction.
-         * @member {"waffleAccountLinkStateAction"|undefined} _waffleAccountLinkStateAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_waffleAccountLinkStateAction", {
             get: $util.oneOfGetter($oneOfFields = ["waffleAccountLinkStateAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _usernameChatStartMode.
-         * @member {"usernameChatStartMode"|undefined} _usernameChatStartMode
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_usernameChatStartMode", {
             get: $util.oneOfGetter($oneOfFields = ["usernameChatStartMode"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _notificationActivitySettingAction.
-         * @member {"notificationActivitySettingAction"|undefined} _notificationActivitySettingAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_notificationActivitySettingAction", {
             get: $util.oneOfGetter($oneOfFields = ["notificationActivitySettingAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _lidContactAction.
-         * @member {"lidContactAction"|undefined} _lidContactAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_lidContactAction", {
             get: $util.oneOfGetter($oneOfFields = ["lidContactAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _ctwaPerCustomerDataSharingAction.
-         * @member {"ctwaPerCustomerDataSharingAction"|undefined} _ctwaPerCustomerDataSharingAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_ctwaPerCustomerDataSharingAction", {
             get: $util.oneOfGetter($oneOfFields = ["ctwaPerCustomerDataSharingAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _paymentTosAction.
-         * @member {"paymentTosAction"|undefined} _paymentTosAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_paymentTosAction", {
             get: $util.oneOfGetter($oneOfFields = ["paymentTosAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _privacySettingChannelsPersonalisedRecommendationAction.
-         * @member {"privacySettingChannelsPersonalisedRecommendationAction"|undefined} _privacySettingChannelsPersonalisedRecommendationAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_privacySettingChannelsPersonalisedRecommendationAction", {
             get: $util.oneOfGetter($oneOfFields = ["privacySettingChannelsPersonalisedRecommendationAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _detectedOutcomesStatusAction.
-         * @member {"detectedOutcomesStatusAction"|undefined} _detectedOutcomesStatusAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_detectedOutcomesStatusAction", {
             get: $util.oneOfGetter($oneOfFields = ["detectedOutcomesStatusAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _maibaAiFeaturesControlAction.
-         * @member {"maibaAiFeaturesControlAction"|undefined} _maibaAiFeaturesControlAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_maibaAiFeaturesControlAction", {
             get: $util.oneOfGetter($oneOfFields = ["maibaAiFeaturesControlAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _businessBroadcastListAction.
-         * @member {"businessBroadcastListAction"|undefined} _businessBroadcastListAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_businessBroadcastListAction", {
             get: $util.oneOfGetter($oneOfFields = ["businessBroadcastListAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _musicUserIdAction.
-         * @member {"musicUserIdAction"|undefined} _musicUserIdAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_musicUserIdAction", {
             get: $util.oneOfGetter($oneOfFields = ["musicUserIdAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _statusPostOptInNotificationPreferencesAction.
-         * @member {"statusPostOptInNotificationPreferencesAction"|undefined} _statusPostOptInNotificationPreferencesAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_statusPostOptInNotificationPreferencesAction", {
             get: $util.oneOfGetter($oneOfFields = ["statusPostOptInNotificationPreferencesAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _avatarUpdatedAction.
-         * @member {"avatarUpdatedAction"|undefined} _avatarUpdatedAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_avatarUpdatedAction", {
             get: $util.oneOfGetter($oneOfFields = ["avatarUpdatedAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _privateProcessingSettingAction.
-         * @member {"privateProcessingSettingAction"|undefined} _privateProcessingSettingAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_privateProcessingSettingAction", {
             get: $util.oneOfGetter($oneOfFields = ["privateProcessingSettingAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _newsletterSavedInterestsAction.
-         * @member {"newsletterSavedInterestsAction"|undefined} _newsletterSavedInterestsAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_newsletterSavedInterestsAction", {
             get: $util.oneOfGetter($oneOfFields = ["newsletterSavedInterestsAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _aiThreadRenameAction.
-         * @member {"aiThreadRenameAction"|undefined} _aiThreadRenameAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_aiThreadRenameAction", {
             get: $util.oneOfGetter($oneOfFields = ["aiThreadRenameAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _interactiveMessageAction.
-         * @member {"interactiveMessageAction"|undefined} _interactiveMessageAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_interactiveMessageAction", {
             get: $util.oneOfGetter($oneOfFields = ["interactiveMessageAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SyncActionValue _settingsSyncAction.
-         * @member {"settingsSyncAction"|undefined} _settingsSyncAction
-         * @memberof SyncAction.SyncActionValue
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SyncActionValue.prototype, "_settingsSyncAction", {
             get: $util.oneOfGetter($oneOfFields = ["settingsSyncAction"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -4366,34 +3946,19 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * AgentAction _name.
-             * @member {"name"|undefined} _name
-             * @memberof SyncAction.SyncActionValue.AgentAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AgentAction.prototype, "_name", {
                 get: $util.oneOfGetter($oneOfFields = ["name"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AgentAction _deviceID.
-             * @member {"deviceID"|undefined} _deviceID
-             * @memberof SyncAction.SyncActionValue.AgentAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AgentAction.prototype, "_deviceID", {
                 get: $util.oneOfGetter($oneOfFields = ["deviceID"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AgentAction _isDeleted.
-             * @member {"isDeleted"|undefined} _isDeleted
-             * @memberof SyncAction.SyncActionValue.AgentAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AgentAction.prototype, "_isDeleted", {
                 get: $util.oneOfGetter($oneOfFields = ["isDeleted"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -4647,12 +4212,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * AiThreadRenameAction _newTitle.
-             * @member {"newTitle"|undefined} _newTitle
-             * @memberof SyncAction.SyncActionValue.AiThreadRenameAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AiThreadRenameAction.prototype, "_newTitle", {
                 get: $util.oneOfGetter($oneOfFields = ["newTitle"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -4870,12 +4430,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * AndroidUnsupportedActions _allowed.
-             * @member {"allowed"|undefined} _allowed
-             * @memberof SyncAction.SyncActionValue.AndroidUnsupportedActions
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AndroidUnsupportedActions.prototype, "_allowed", {
                 get: $util.oneOfGetter($oneOfFields = ["allowed"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -5102,23 +4657,13 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * ArchiveChatAction _archived.
-             * @member {"archived"|undefined} _archived
-             * @memberof SyncAction.SyncActionValue.ArchiveChatAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ArchiveChatAction.prototype, "_archived", {
                 get: $util.oneOfGetter($oneOfFields = ["archived"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ArchiveChatAction _messageRange.
-             * @member {"messageRange"|undefined} _messageRange
-             * @memberof SyncAction.SyncActionValue.ArchiveChatAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ArchiveChatAction.prototype, "_messageRange", {
                 get: $util.oneOfGetter($oneOfFields = ["messageRange"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -5370,12 +4915,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * AvatarUpdatedAction _eventType.
-             * @member {"eventType"|undefined} _eventType
-             * @memberof SyncAction.SyncActionValue.AvatarUpdatedAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AvatarUpdatedAction.prototype, "_eventType", {
                 get: $util.oneOfGetter($oneOfFields = ["eventType"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -5668,12 +5208,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * BotWelcomeRequestAction _isSent.
-             * @member {"isSent"|undefined} _isSent
-             * @memberof SyncAction.SyncActionValue.BotWelcomeRequestAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(BotWelcomeRequestAction.prototype, "_isSent", {
                 get: $util.oneOfGetter($oneOfFields = ["isSent"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -5900,23 +5435,13 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * BroadcastListParticipant _lidJid.
-             * @member {"lidJid"|undefined} _lidJid
-             * @memberof SyncAction.SyncActionValue.BroadcastListParticipant
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(BroadcastListParticipant.prototype, "_lidJid", {
                 get: $util.oneOfGetter($oneOfFields = ["lidJid"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * BroadcastListParticipant _pnJid.
-             * @member {"pnJid"|undefined} _pnJid
-             * @memberof SyncAction.SyncActionValue.BroadcastListParticipant
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(BroadcastListParticipant.prototype, "_pnJid", {
                 get: $util.oneOfGetter($oneOfFields = ["pnJid"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -6152,12 +5677,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * BusinessBroadcastAssociationAction _deleted.
-             * @member {"deleted"|undefined} _deleted
-             * @memberof SyncAction.SyncActionValue.BusinessBroadcastAssociationAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(BusinessBroadcastAssociationAction.prototype, "_deleted", {
                 get: $util.oneOfGetter($oneOfFields = ["deleted"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -6394,23 +5914,13 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * BusinessBroadcastListAction _deleted.
-             * @member {"deleted"|undefined} _deleted
-             * @memberof SyncAction.SyncActionValue.BusinessBroadcastListAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(BusinessBroadcastListAction.prototype, "_deleted", {
                 get: $util.oneOfGetter($oneOfFields = ["deleted"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * BusinessBroadcastListAction _listName.
-             * @member {"listName"|undefined} _listName
-             * @memberof SyncAction.SyncActionValue.BusinessBroadcastListAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(BusinessBroadcastListAction.prototype, "_listName", {
                 get: $util.oneOfGetter($oneOfFields = ["listName"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -6681,12 +6191,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * CallLogAction _callLogRecord.
-             * @member {"callLogRecord"|undefined} _callLogRecord
-             * @memberof SyncAction.SyncActionValue.CallLogAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(CallLogAction.prototype, "_callLogRecord", {
                 get: $util.oneOfGetter($oneOfFields = ["callLogRecord"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -6910,12 +6415,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * ChatAssignmentAction _deviceAgentID.
-             * @member {"deviceAgentID"|undefined} _deviceAgentID
-             * @memberof SyncAction.SyncActionValue.ChatAssignmentAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ChatAssignmentAction.prototype, "_deviceAgentID", {
                 get: $util.oneOfGetter($oneOfFields = ["deviceAgentID"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -7133,12 +6633,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * ChatAssignmentOpenedStatusAction _chatOpened.
-             * @member {"chatOpened"|undefined} _chatOpened
-             * @memberof SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ChatAssignmentOpenedStatusAction.prototype, "_chatOpened", {
                 get: $util.oneOfGetter($oneOfFields = ["chatOpened"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -7356,12 +6851,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * ClearChatAction _messageRange.
-             * @member {"messageRange"|undefined} _messageRange
-             * @memberof SyncAction.SyncActionValue.ClearChatAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ClearChatAction.prototype, "_messageRange", {
                 get: $util.oneOfGetter($oneOfFields = ["messageRange"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -7630,67 +7120,37 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * ContactAction _fullName.
-             * @member {"fullName"|undefined} _fullName
-             * @memberof SyncAction.SyncActionValue.ContactAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ContactAction.prototype, "_fullName", {
                 get: $util.oneOfGetter($oneOfFields = ["fullName"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ContactAction _firstName.
-             * @member {"firstName"|undefined} _firstName
-             * @memberof SyncAction.SyncActionValue.ContactAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ContactAction.prototype, "_firstName", {
                 get: $util.oneOfGetter($oneOfFields = ["firstName"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ContactAction _lidJid.
-             * @member {"lidJid"|undefined} _lidJid
-             * @memberof SyncAction.SyncActionValue.ContactAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ContactAction.prototype, "_lidJid", {
                 get: $util.oneOfGetter($oneOfFields = ["lidJid"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ContactAction _saveOnPrimaryAddressbook.
-             * @member {"saveOnPrimaryAddressbook"|undefined} _saveOnPrimaryAddressbook
-             * @memberof SyncAction.SyncActionValue.ContactAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ContactAction.prototype, "_saveOnPrimaryAddressbook", {
                 get: $util.oneOfGetter($oneOfFields = ["saveOnPrimaryAddressbook"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ContactAction _pnJid.
-             * @member {"pnJid"|undefined} _pnJid
-             * @memberof SyncAction.SyncActionValue.ContactAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ContactAction.prototype, "_pnJid", {
                 get: $util.oneOfGetter($oneOfFields = ["pnJid"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ContactAction _username.
-             * @member {"username"|undefined} _username
-             * @memberof SyncAction.SyncActionValue.ContactAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ContactAction.prototype, "_username", {
                 get: $util.oneOfGetter($oneOfFields = ["username"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -7998,12 +7458,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * CtwaPerCustomerDataSharingAction _isCtwaPerCustomerDataSharingEnabled.
-             * @member {"isCtwaPerCustomerDataSharingEnabled"|undefined} _isCtwaPerCustomerDataSharingEnabled
-             * @memberof SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(CtwaPerCustomerDataSharingAction.prototype, "_isCtwaPerCustomerDataSharingEnabled", {
                 get: $util.oneOfGetter($oneOfFields = ["isCtwaPerCustomerDataSharingEnabled"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -8249,34 +7704,19 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * CustomPaymentMethod _credentialId.
-             * @member {"credentialId"|undefined} _credentialId
-             * @memberof SyncAction.SyncActionValue.CustomPaymentMethod
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(CustomPaymentMethod.prototype, "_credentialId", {
                 get: $util.oneOfGetter($oneOfFields = ["credentialId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * CustomPaymentMethod _country.
-             * @member {"country"|undefined} _country
-             * @memberof SyncAction.SyncActionValue.CustomPaymentMethod
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(CustomPaymentMethod.prototype, "_country", {
                 get: $util.oneOfGetter($oneOfFields = ["country"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * CustomPaymentMethod _type.
-             * @member {"type"|undefined} _type
-             * @memberof SyncAction.SyncActionValue.CustomPaymentMethod
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(CustomPaymentMethod.prototype, "_type", {
                 get: $util.oneOfGetter($oneOfFields = ["type"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -8574,23 +8014,13 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * CustomPaymentMethodMetadata _key.
-             * @member {"key"|undefined} _key
-             * @memberof SyncAction.SyncActionValue.CustomPaymentMethodMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(CustomPaymentMethodMetadata.prototype, "_key", {
                 get: $util.oneOfGetter($oneOfFields = ["key"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * CustomPaymentMethodMetadata _value.
-             * @member {"value"|undefined} _value
-             * @memberof SyncAction.SyncActionValue.CustomPaymentMethodMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(CustomPaymentMethodMetadata.prototype, "_value", {
                 get: $util.oneOfGetter($oneOfFields = ["value"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -9052,12 +8482,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * DeleteChatAction _messageRange.
-             * @member {"messageRange"|undefined} _messageRange
-             * @memberof SyncAction.SyncActionValue.DeleteChatAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DeleteChatAction.prototype, "_messageRange", {
                 get: $util.oneOfGetter($oneOfFields = ["messageRange"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -9290,23 +8715,13 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * DeleteIndividualCallLogAction _peerJid.
-             * @member {"peerJid"|undefined} _peerJid
-             * @memberof SyncAction.SyncActionValue.DeleteIndividualCallLogAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DeleteIndividualCallLogAction.prototype, "_peerJid", {
                 get: $util.oneOfGetter($oneOfFields = ["peerJid"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * DeleteIndividualCallLogAction _isIncoming.
-             * @member {"isIncoming"|undefined} _isIncoming
-             * @memberof SyncAction.SyncActionValue.DeleteIndividualCallLogAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DeleteIndividualCallLogAction.prototype, "_isIncoming", {
                 get: $util.oneOfGetter($oneOfFields = ["isIncoming"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -9551,23 +8966,13 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * DeleteMessageForMeAction _deleteMedia.
-             * @member {"deleteMedia"|undefined} _deleteMedia
-             * @memberof SyncAction.SyncActionValue.DeleteMessageForMeAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DeleteMessageForMeAction.prototype, "_deleteMedia", {
                 get: $util.oneOfGetter($oneOfFields = ["deleteMedia"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * DeleteMessageForMeAction _messageTimestamp.
-             * @member {"messageTimestamp"|undefined} _messageTimestamp
-             * @memberof SyncAction.SyncActionValue.DeleteMessageForMeAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DeleteMessageForMeAction.prototype, "_messageTimestamp", {
                 get: $util.oneOfGetter($oneOfFields = ["messageTimestamp"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -9813,12 +9218,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * DetectedOutcomesStatusAction _isEnabled.
-             * @member {"isEnabled"|undefined} _isEnabled
-             * @memberof SyncAction.SyncActionValue.DetectedOutcomesStatusAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DetectedOutcomesStatusAction.prototype, "_isEnabled", {
                 get: $util.oneOfGetter($oneOfFields = ["isEnabled"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -10036,12 +9436,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * ExternalWebBetaAction _isOptIn.
-             * @member {"isOptIn"|undefined} _isOptIn
-             * @memberof SyncAction.SyncActionValue.ExternalWebBetaAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalWebBetaAction.prototype, "_isOptIn", {
                 get: $util.oneOfGetter($oneOfFields = ["isOptIn"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -10482,12 +9877,7 @@ $root.SyncAction = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * Favorite _id.
-                 * @member {"id"|undefined} _id
-                 * @memberof SyncAction.SyncActionValue.FavoritesAction.Favorite
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Favorite.prototype, "_id", {
                     get: $util.oneOfGetter($oneOfFields = ["id"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -10708,12 +10098,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * InteractiveMessageAction _type.
-             * @member {"type"|undefined} _type
-             * @memberof SyncAction.SyncActionValue.InteractiveMessageAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(InteractiveMessageAction.prototype, "_type", {
                 get: $util.oneOfGetter($oneOfFields = ["type"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -10957,12 +10342,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * KeyExpiration _expiredKeyEpoch.
-             * @member {"expiredKeyEpoch"|undefined} _expiredKeyEpoch
-             * @memberof SyncAction.SyncActionValue.KeyExpiration
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(KeyExpiration.prototype, "_expiredKeyEpoch", {
                 get: $util.oneOfGetter($oneOfFields = ["expiredKeyEpoch"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -11180,12 +10560,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * LabelAssociationAction _labeled.
-             * @member {"labeled"|undefined} _labeled
-             * @memberof SyncAction.SyncActionValue.LabelAssociationAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LabelAssociationAction.prototype, "_labeled", {
                 get: $util.oneOfGetter($oneOfFields = ["labeled"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -11475,100 +10850,55 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * LabelEditAction _name.
-             * @member {"name"|undefined} _name
-             * @memberof SyncAction.SyncActionValue.LabelEditAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LabelEditAction.prototype, "_name", {
                 get: $util.oneOfGetter($oneOfFields = ["name"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LabelEditAction _color.
-             * @member {"color"|undefined} _color
-             * @memberof SyncAction.SyncActionValue.LabelEditAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LabelEditAction.prototype, "_color", {
                 get: $util.oneOfGetter($oneOfFields = ["color"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LabelEditAction _predefinedId.
-             * @member {"predefinedId"|undefined} _predefinedId
-             * @memberof SyncAction.SyncActionValue.LabelEditAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LabelEditAction.prototype, "_predefinedId", {
                 get: $util.oneOfGetter($oneOfFields = ["predefinedId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LabelEditAction _deleted.
-             * @member {"deleted"|undefined} _deleted
-             * @memberof SyncAction.SyncActionValue.LabelEditAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LabelEditAction.prototype, "_deleted", {
                 get: $util.oneOfGetter($oneOfFields = ["deleted"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LabelEditAction _orderIndex.
-             * @member {"orderIndex"|undefined} _orderIndex
-             * @memberof SyncAction.SyncActionValue.LabelEditAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LabelEditAction.prototype, "_orderIndex", {
                 get: $util.oneOfGetter($oneOfFields = ["orderIndex"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LabelEditAction _isActive.
-             * @member {"isActive"|undefined} _isActive
-             * @memberof SyncAction.SyncActionValue.LabelEditAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LabelEditAction.prototype, "_isActive", {
                 get: $util.oneOfGetter($oneOfFields = ["isActive"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LabelEditAction _type.
-             * @member {"type"|undefined} _type
-             * @memberof SyncAction.SyncActionValue.LabelEditAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LabelEditAction.prototype, "_type", {
                 get: $util.oneOfGetter($oneOfFields = ["type"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LabelEditAction _isImmutable.
-             * @member {"isImmutable"|undefined} _isImmutable
-             * @memberof SyncAction.SyncActionValue.LabelEditAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LabelEditAction.prototype, "_isImmutable", {
                 get: $util.oneOfGetter($oneOfFields = ["isImmutable"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LabelEditAction _muteEndTimeMs.
-             * @member {"muteEndTimeMs"|undefined} _muteEndTimeMs
-             * @memberof SyncAction.SyncActionValue.LabelEditAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LabelEditAction.prototype, "_muteEndTimeMs", {
                 get: $util.oneOfGetter($oneOfFields = ["muteEndTimeMs"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -12276,34 +11606,19 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * LidContactAction _fullName.
-             * @member {"fullName"|undefined} _fullName
-             * @memberof SyncAction.SyncActionValue.LidContactAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LidContactAction.prototype, "_fullName", {
                 get: $util.oneOfGetter($oneOfFields = ["fullName"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LidContactAction _firstName.
-             * @member {"firstName"|undefined} _firstName
-             * @memberof SyncAction.SyncActionValue.LidContactAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LidContactAction.prototype, "_firstName", {
                 get: $util.oneOfGetter($oneOfFields = ["firstName"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LidContactAction _username.
-             * @member {"username"|undefined} _username
-             * @memberof SyncAction.SyncActionValue.LidContactAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LidContactAction.prototype, "_username", {
                 get: $util.oneOfGetter($oneOfFields = ["username"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -12557,12 +11872,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * LocaleSetting _locale.
-             * @member {"locale"|undefined} _locale
-             * @memberof SyncAction.SyncActionValue.LocaleSetting
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LocaleSetting.prototype, "_locale", {
                 get: $util.oneOfGetter($oneOfFields = ["locale"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -12780,12 +12090,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * LockChatAction _locked.
-             * @member {"locked"|undefined} _locked
-             * @memberof SyncAction.SyncActionValue.LockChatAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LockChatAction.prototype, "_locked", {
                 get: $util.oneOfGetter($oneOfFields = ["locked"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -13003,12 +12308,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * MaibaAIFeaturesControlAction _aiFeatureStatus.
-             * @member {"aiFeatureStatus"|undefined} _aiFeatureStatus
-             * @memberof SyncAction.SyncActionValue.MaibaAIFeaturesControlAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MaibaAIFeaturesControlAction.prototype, "_aiFeatureStatus", {
                 get: $util.oneOfGetter($oneOfFields = ["aiFeatureStatus"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -13275,23 +12575,13 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * MarkChatAsReadAction _read.
-             * @member {"read"|undefined} _read
-             * @memberof SyncAction.SyncActionValue.MarkChatAsReadAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MarkChatAsReadAction.prototype, "_read", {
                 get: $util.oneOfGetter($oneOfFields = ["read"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MarkChatAsReadAction _messageRange.
-             * @member {"messageRange"|undefined} _messageRange
-             * @memberof SyncAction.SyncActionValue.MarkChatAsReadAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MarkChatAsReadAction.prototype, "_messageRange", {
                 get: $util.oneOfGetter($oneOfFields = ["messageRange"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -13587,78 +12877,43 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * MarketingMessageAction _name.
-             * @member {"name"|undefined} _name
-             * @memberof SyncAction.SyncActionValue.MarketingMessageAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MarketingMessageAction.prototype, "_name", {
                 get: $util.oneOfGetter($oneOfFields = ["name"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MarketingMessageAction _message.
-             * @member {"message"|undefined} _message
-             * @memberof SyncAction.SyncActionValue.MarketingMessageAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MarketingMessageAction.prototype, "_message", {
                 get: $util.oneOfGetter($oneOfFields = ["message"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MarketingMessageAction _type.
-             * @member {"type"|undefined} _type
-             * @memberof SyncAction.SyncActionValue.MarketingMessageAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MarketingMessageAction.prototype, "_type", {
                 get: $util.oneOfGetter($oneOfFields = ["type"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MarketingMessageAction _createdAt.
-             * @member {"createdAt"|undefined} _createdAt
-             * @memberof SyncAction.SyncActionValue.MarketingMessageAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MarketingMessageAction.prototype, "_createdAt", {
                 get: $util.oneOfGetter($oneOfFields = ["createdAt"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MarketingMessageAction _lastSentAt.
-             * @member {"lastSentAt"|undefined} _lastSentAt
-             * @memberof SyncAction.SyncActionValue.MarketingMessageAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MarketingMessageAction.prototype, "_lastSentAt", {
                 get: $util.oneOfGetter($oneOfFields = ["lastSentAt"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MarketingMessageAction _isDeleted.
-             * @member {"isDeleted"|undefined} _isDeleted
-             * @memberof SyncAction.SyncActionValue.MarketingMessageAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MarketingMessageAction.prototype, "_isDeleted", {
                 get: $util.oneOfGetter($oneOfFields = ["isDeleted"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MarketingMessageAction _mediaId.
-             * @member {"mediaId"|undefined} _mediaId
-             * @memberof SyncAction.SyncActionValue.MarketingMessageAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MarketingMessageAction.prototype, "_mediaId", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaId"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -14030,12 +13285,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * MarketingMessageBroadcastAction _repliedCount.
-             * @member {"repliedCount"|undefined} _repliedCount
-             * @memberof SyncAction.SyncActionValue.MarketingMessageBroadcastAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MarketingMessageBroadcastAction.prototype, "_repliedCount", {
                 get: $util.oneOfGetter($oneOfFields = ["repliedCount"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -14280,45 +13530,25 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * MerchantPaymentPartnerAction _status.
-             * @member {"status"|undefined} _status
-             * @memberof SyncAction.SyncActionValue.MerchantPaymentPartnerAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MerchantPaymentPartnerAction.prototype, "_status", {
                 get: $util.oneOfGetter($oneOfFields = ["status"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MerchantPaymentPartnerAction _country.
-             * @member {"country"|undefined} _country
-             * @memberof SyncAction.SyncActionValue.MerchantPaymentPartnerAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MerchantPaymentPartnerAction.prototype, "_country", {
                 get: $util.oneOfGetter($oneOfFields = ["country"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MerchantPaymentPartnerAction _gatewayName.
-             * @member {"gatewayName"|undefined} _gatewayName
-             * @memberof SyncAction.SyncActionValue.MerchantPaymentPartnerAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MerchantPaymentPartnerAction.prototype, "_gatewayName", {
                 get: $util.oneOfGetter($oneOfFields = ["gatewayName"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MerchantPaymentPartnerAction _credentialId.
-             * @member {"credentialId"|undefined} _credentialId
-             * @memberof SyncAction.SyncActionValue.MerchantPaymentPartnerAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MerchantPaymentPartnerAction.prototype, "_credentialId", {
                 get: $util.oneOfGetter($oneOfFields = ["credentialId"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -14633,12 +13863,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * MusicUserIdAction _musicUserId.
-             * @member {"musicUserId"|undefined} _musicUserId
-             * @memberof SyncAction.SyncActionValue.MusicUserIdAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MusicUserIdAction.prototype, "_musicUserId", {
                 get: $util.oneOfGetter($oneOfFields = ["musicUserId"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -14923,34 +14148,19 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * MuteAction _muted.
-             * @member {"muted"|undefined} _muted
-             * @memberof SyncAction.SyncActionValue.MuteAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MuteAction.prototype, "_muted", {
                 get: $util.oneOfGetter($oneOfFields = ["muted"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MuteAction _muteEndTimestamp.
-             * @member {"muteEndTimestamp"|undefined} _muteEndTimestamp
-             * @memberof SyncAction.SyncActionValue.MuteAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MuteAction.prototype, "_muteEndTimestamp", {
                 get: $util.oneOfGetter($oneOfFields = ["muteEndTimestamp"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MuteAction _autoMuted.
-             * @member {"autoMuted"|undefined} _autoMuted
-             * @memberof SyncAction.SyncActionValue.MuteAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MuteAction.prototype, "_autoMuted", {
                 get: $util.oneOfGetter($oneOfFields = ["autoMuted"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -15214,12 +14424,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * NewsletterSavedInterestsAction _newsletterSavedInterests.
-             * @member {"newsletterSavedInterests"|undefined} _newsletterSavedInterests
-             * @memberof SyncAction.SyncActionValue.NewsletterSavedInterestsAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(NewsletterSavedInterestsAction.prototype, "_newsletterSavedInterests", {
                 get: $util.oneOfGetter($oneOfFields = ["newsletterSavedInterests"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -15473,56 +14678,31 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * NoteEditAction _type.
-             * @member {"type"|undefined} _type
-             * @memberof SyncAction.SyncActionValue.NoteEditAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(NoteEditAction.prototype, "_type", {
                 get: $util.oneOfGetter($oneOfFields = ["type"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * NoteEditAction _chatJid.
-             * @member {"chatJid"|undefined} _chatJid
-             * @memberof SyncAction.SyncActionValue.NoteEditAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(NoteEditAction.prototype, "_chatJid", {
                 get: $util.oneOfGetter($oneOfFields = ["chatJid"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * NoteEditAction _createdAt.
-             * @member {"createdAt"|undefined} _createdAt
-             * @memberof SyncAction.SyncActionValue.NoteEditAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(NoteEditAction.prototype, "_createdAt", {
                 get: $util.oneOfGetter($oneOfFields = ["createdAt"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * NoteEditAction _deleted.
-             * @member {"deleted"|undefined} _deleted
-             * @memberof SyncAction.SyncActionValue.NoteEditAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(NoteEditAction.prototype, "_deleted", {
                 get: $util.oneOfGetter($oneOfFields = ["deleted"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * NoteEditAction _unstructuredContent.
-             * @member {"unstructuredContent"|undefined} _unstructuredContent
-             * @memberof SyncAction.SyncActionValue.NoteEditAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(NoteEditAction.prototype, "_unstructuredContent", {
                 get: $util.oneOfGetter($oneOfFields = ["unstructuredContent"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -15855,12 +15035,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * NotificationActivitySettingAction _notificationActivitySetting.
-             * @member {"notificationActivitySetting"|undefined} _notificationActivitySetting
-             * @memberof SyncAction.SyncActionValue.NotificationActivitySettingAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(NotificationActivitySettingAction.prototype, "_notificationActivitySetting", {
                 get: $util.oneOfGetter($oneOfFields = ["notificationActivitySetting"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -16125,12 +15300,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * NuxAction _acknowledged.
-             * @member {"acknowledged"|undefined} _acknowledged
-             * @memberof SyncAction.SyncActionValue.NuxAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(NuxAction.prototype, "_acknowledged", {
                 get: $util.oneOfGetter($oneOfFields = ["acknowledged"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -16348,12 +15518,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * PaymentInfoAction _cpi.
-             * @member {"cpi"|undefined} _cpi
-             * @memberof SyncAction.SyncActionValue.PaymentInfoAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PaymentInfoAction.prototype, "_cpi", {
                 get: $util.oneOfGetter($oneOfFields = ["cpi"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -16580,23 +15745,13 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * PaymentTosAction _paymentNotice.
-             * @member {"paymentNotice"|undefined} _paymentNotice
-             * @memberof SyncAction.SyncActionValue.PaymentTosAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PaymentTosAction.prototype, "_paymentNotice", {
                 get: $util.oneOfGetter($oneOfFields = ["paymentNotice"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * PaymentTosAction _accepted.
-             * @member {"accepted"|undefined} _accepted
-             * @memberof SyncAction.SyncActionValue.PaymentTosAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PaymentTosAction.prototype, "_accepted", {
                 get: $util.oneOfGetter($oneOfFields = ["accepted"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -16858,12 +16013,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * PinAction _pinned.
-             * @member {"pinned"|undefined} _pinned
-             * @memberof SyncAction.SyncActionValue.PinAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PinAction.prototype, "_pinned", {
                 get: $util.oneOfGetter($oneOfFields = ["pinned"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -17081,12 +16231,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * PnForLidChatAction _pnJid.
-             * @member {"pnJid"|undefined} _pnJid
-             * @memberof SyncAction.SyncActionValue.PnForLidChatAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PnForLidChatAction.prototype, "_pnJid", {
                 get: $util.oneOfGetter($oneOfFields = ["pnJid"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -17525,12 +16670,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * PrimaryVersionAction _version.
-             * @member {"version"|undefined} _version
-             * @memberof SyncAction.SyncActionValue.PrimaryVersionAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PrimaryVersionAction.prototype, "_version", {
                 get: $util.oneOfGetter($oneOfFields = ["version"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -17748,12 +16888,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * PrivacySettingChannelsPersonalisedRecommendationAction _isUserOptedOut.
-             * @member {"isUserOptedOut"|undefined} _isUserOptedOut
-             * @memberof SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PrivacySettingChannelsPersonalisedRecommendationAction.prototype, "_isUserOptedOut", {
                 get: $util.oneOfGetter($oneOfFields = ["isUserOptedOut"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -17971,12 +17106,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * PrivacySettingDisableLinkPreviewsAction _isPreviewsDisabled.
-             * @member {"isPreviewsDisabled"|undefined} _isPreviewsDisabled
-             * @memberof SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PrivacySettingDisableLinkPreviewsAction.prototype, "_isPreviewsDisabled", {
                 get: $util.oneOfGetter($oneOfFields = ["isPreviewsDisabled"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -18194,12 +17324,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * PrivacySettingRelayAllCalls _isEnabled.
-             * @member {"isEnabled"|undefined} _isEnabled
-             * @memberof SyncAction.SyncActionValue.PrivacySettingRelayAllCalls
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PrivacySettingRelayAllCalls.prototype, "_isEnabled", {
                 get: $util.oneOfGetter($oneOfFields = ["isEnabled"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -18417,12 +17542,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * PrivateProcessingSettingAction _privateProcessingStatus.
-             * @member {"privateProcessingStatus"|undefined} _privateProcessingStatus
-             * @memberof SyncAction.SyncActionValue.PrivateProcessingSettingAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PrivateProcessingSettingAction.prototype, "_privateProcessingStatus", {
                 get: $util.oneOfGetter($oneOfFields = ["privateProcessingStatus"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -18680,12 +17800,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * PushNameSetting _name.
-             * @member {"name"|undefined} _name
-             * @memberof SyncAction.SyncActionValue.PushNameSetting
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PushNameSetting.prototype, "_name", {
                 get: $util.oneOfGetter($oneOfFields = ["name"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -18940,45 +18055,25 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * QuickReplyAction _shortcut.
-             * @member {"shortcut"|undefined} _shortcut
-             * @memberof SyncAction.SyncActionValue.QuickReplyAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(QuickReplyAction.prototype, "_shortcut", {
                 get: $util.oneOfGetter($oneOfFields = ["shortcut"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * QuickReplyAction _message.
-             * @member {"message"|undefined} _message
-             * @memberof SyncAction.SyncActionValue.QuickReplyAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(QuickReplyAction.prototype, "_message", {
                 get: $util.oneOfGetter($oneOfFields = ["message"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * QuickReplyAction _count.
-             * @member {"count"|undefined} _count
-             * @memberof SyncAction.SyncActionValue.QuickReplyAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(QuickReplyAction.prototype, "_count", {
                 get: $util.oneOfGetter($oneOfFields = ["count"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * QuickReplyAction _deleted.
-             * @member {"deleted"|undefined} _deleted
-             * @memberof SyncAction.SyncActionValue.QuickReplyAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(QuickReplyAction.prototype, "_deleted", {
                 get: $util.oneOfGetter($oneOfFields = ["deleted"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -19506,12 +18601,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * RemoveRecentStickerAction _lastStickerSentTs.
-             * @member {"lastStickerSentTs"|undefined} _lastStickerSentTs
-             * @memberof SyncAction.SyncActionValue.RemoveRecentStickerAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(RemoveRecentStickerAction.prototype, "_lastStickerSentTs", {
                 get: $util.oneOfGetter($oneOfFields = ["lastStickerSentTs"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -19937,254 +19027,139 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * SettingsSyncAction _startAtLogin.
-             * @member {"startAtLogin"|undefined} _startAtLogin
-             * @memberof SyncAction.SyncActionValue.SettingsSyncAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SettingsSyncAction.prototype, "_startAtLogin", {
                 get: $util.oneOfGetter($oneOfFields = ["startAtLogin"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SettingsSyncAction _minimizeToTray.
-             * @member {"minimizeToTray"|undefined} _minimizeToTray
-             * @memberof SyncAction.SyncActionValue.SettingsSyncAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SettingsSyncAction.prototype, "_minimizeToTray", {
                 get: $util.oneOfGetter($oneOfFields = ["minimizeToTray"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SettingsSyncAction _language.
-             * @member {"language"|undefined} _language
-             * @memberof SyncAction.SyncActionValue.SettingsSyncAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SettingsSyncAction.prototype, "_language", {
                 get: $util.oneOfGetter($oneOfFields = ["language"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SettingsSyncAction _replaceTextWithEmoji.
-             * @member {"replaceTextWithEmoji"|undefined} _replaceTextWithEmoji
-             * @memberof SyncAction.SyncActionValue.SettingsSyncAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SettingsSyncAction.prototype, "_replaceTextWithEmoji", {
                 get: $util.oneOfGetter($oneOfFields = ["replaceTextWithEmoji"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SettingsSyncAction _bannerNotificationDisplayMode.
-             * @member {"bannerNotificationDisplayMode"|undefined} _bannerNotificationDisplayMode
-             * @memberof SyncAction.SyncActionValue.SettingsSyncAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SettingsSyncAction.prototype, "_bannerNotificationDisplayMode", {
                 get: $util.oneOfGetter($oneOfFields = ["bannerNotificationDisplayMode"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SettingsSyncAction _unreadCounterBadgeDisplayMode.
-             * @member {"unreadCounterBadgeDisplayMode"|undefined} _unreadCounterBadgeDisplayMode
-             * @memberof SyncAction.SyncActionValue.SettingsSyncAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SettingsSyncAction.prototype, "_unreadCounterBadgeDisplayMode", {
                 get: $util.oneOfGetter($oneOfFields = ["unreadCounterBadgeDisplayMode"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SettingsSyncAction _isMessagesNotificationEnabled.
-             * @member {"isMessagesNotificationEnabled"|undefined} _isMessagesNotificationEnabled
-             * @memberof SyncAction.SyncActionValue.SettingsSyncAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SettingsSyncAction.prototype, "_isMessagesNotificationEnabled", {
                 get: $util.oneOfGetter($oneOfFields = ["isMessagesNotificationEnabled"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SettingsSyncAction _isCallsNotificationEnabled.
-             * @member {"isCallsNotificationEnabled"|undefined} _isCallsNotificationEnabled
-             * @memberof SyncAction.SyncActionValue.SettingsSyncAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SettingsSyncAction.prototype, "_isCallsNotificationEnabled", {
                 get: $util.oneOfGetter($oneOfFields = ["isCallsNotificationEnabled"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SettingsSyncAction _isReactionsNotificationEnabled.
-             * @member {"isReactionsNotificationEnabled"|undefined} _isReactionsNotificationEnabled
-             * @memberof SyncAction.SyncActionValue.SettingsSyncAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SettingsSyncAction.prototype, "_isReactionsNotificationEnabled", {
                 get: $util.oneOfGetter($oneOfFields = ["isReactionsNotificationEnabled"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SettingsSyncAction _isStatusReactionsNotificationEnabled.
-             * @member {"isStatusReactionsNotificationEnabled"|undefined} _isStatusReactionsNotificationEnabled
-             * @memberof SyncAction.SyncActionValue.SettingsSyncAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SettingsSyncAction.prototype, "_isStatusReactionsNotificationEnabled", {
                 get: $util.oneOfGetter($oneOfFields = ["isStatusReactionsNotificationEnabled"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SettingsSyncAction _isTextPreviewForNotificationEnabled.
-             * @member {"isTextPreviewForNotificationEnabled"|undefined} _isTextPreviewForNotificationEnabled
-             * @memberof SyncAction.SyncActionValue.SettingsSyncAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SettingsSyncAction.prototype, "_isTextPreviewForNotificationEnabled", {
                 get: $util.oneOfGetter($oneOfFields = ["isTextPreviewForNotificationEnabled"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SettingsSyncAction _defaultNotificationToneId.
-             * @member {"defaultNotificationToneId"|undefined} _defaultNotificationToneId
-             * @memberof SyncAction.SyncActionValue.SettingsSyncAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SettingsSyncAction.prototype, "_defaultNotificationToneId", {
                 get: $util.oneOfGetter($oneOfFields = ["defaultNotificationToneId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SettingsSyncAction _groupDefaultNotificationToneId.
-             * @member {"groupDefaultNotificationToneId"|undefined} _groupDefaultNotificationToneId
-             * @memberof SyncAction.SyncActionValue.SettingsSyncAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SettingsSyncAction.prototype, "_groupDefaultNotificationToneId", {
                 get: $util.oneOfGetter($oneOfFields = ["groupDefaultNotificationToneId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SettingsSyncAction _appTheme.
-             * @member {"appTheme"|undefined} _appTheme
-             * @memberof SyncAction.SyncActionValue.SettingsSyncAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SettingsSyncAction.prototype, "_appTheme", {
                 get: $util.oneOfGetter($oneOfFields = ["appTheme"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SettingsSyncAction _wallpaperId.
-             * @member {"wallpaperId"|undefined} _wallpaperId
-             * @memberof SyncAction.SyncActionValue.SettingsSyncAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SettingsSyncAction.prototype, "_wallpaperId", {
                 get: $util.oneOfGetter($oneOfFields = ["wallpaperId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SettingsSyncAction _isDoodleWallpaperEnabled.
-             * @member {"isDoodleWallpaperEnabled"|undefined} _isDoodleWallpaperEnabled
-             * @memberof SyncAction.SyncActionValue.SettingsSyncAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SettingsSyncAction.prototype, "_isDoodleWallpaperEnabled", {
                 get: $util.oneOfGetter($oneOfFields = ["isDoodleWallpaperEnabled"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SettingsSyncAction _fontSize.
-             * @member {"fontSize"|undefined} _fontSize
-             * @memberof SyncAction.SyncActionValue.SettingsSyncAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SettingsSyncAction.prototype, "_fontSize", {
                 get: $util.oneOfGetter($oneOfFields = ["fontSize"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SettingsSyncAction _isPhotosAutodownloadEnabled.
-             * @member {"isPhotosAutodownloadEnabled"|undefined} _isPhotosAutodownloadEnabled
-             * @memberof SyncAction.SyncActionValue.SettingsSyncAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SettingsSyncAction.prototype, "_isPhotosAutodownloadEnabled", {
                 get: $util.oneOfGetter($oneOfFields = ["isPhotosAutodownloadEnabled"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SettingsSyncAction _isAudiosAutodownloadEnabled.
-             * @member {"isAudiosAutodownloadEnabled"|undefined} _isAudiosAutodownloadEnabled
-             * @memberof SyncAction.SyncActionValue.SettingsSyncAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SettingsSyncAction.prototype, "_isAudiosAutodownloadEnabled", {
                 get: $util.oneOfGetter($oneOfFields = ["isAudiosAutodownloadEnabled"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SettingsSyncAction _isVideosAutodownloadEnabled.
-             * @member {"isVideosAutodownloadEnabled"|undefined} _isVideosAutodownloadEnabled
-             * @memberof SyncAction.SyncActionValue.SettingsSyncAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SettingsSyncAction.prototype, "_isVideosAutodownloadEnabled", {
                 get: $util.oneOfGetter($oneOfFields = ["isVideosAutodownloadEnabled"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SettingsSyncAction _isDocumentsAutodownloadEnabled.
-             * @member {"isDocumentsAutodownloadEnabled"|undefined} _isDocumentsAutodownloadEnabled
-             * @memberof SyncAction.SyncActionValue.SettingsSyncAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SettingsSyncAction.prototype, "_isDocumentsAutodownloadEnabled", {
                 get: $util.oneOfGetter($oneOfFields = ["isDocumentsAutodownloadEnabled"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SettingsSyncAction _disableLinkPreviews.
-             * @member {"disableLinkPreviews"|undefined} _disableLinkPreviews
-             * @memberof SyncAction.SyncActionValue.SettingsSyncAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SettingsSyncAction.prototype, "_disableLinkPreviews", {
                 get: $util.oneOfGetter($oneOfFields = ["disableLinkPreviews"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SettingsSyncAction _notificationToneId.
-             * @member {"notificationToneId"|undefined} _notificationToneId
-             * @memberof SyncAction.SyncActionValue.SettingsSyncAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SettingsSyncAction.prototype, "_notificationToneId", {
                 get: $util.oneOfGetter($oneOfFields = ["notificationToneId"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -20952,12 +19927,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * StarAction _starred.
-             * @member {"starred"|undefined} _starred
-             * @memberof SyncAction.SyncActionValue.StarAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StarAction.prototype, "_starred", {
                 get: $util.oneOfGetter($oneOfFields = ["starred"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -21175,12 +20145,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * StatusPostOptInNotificationPreferencesAction _enabled.
-             * @member {"enabled"|undefined} _enabled
-             * @memberof SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StatusPostOptInNotificationPreferencesAction.prototype, "_enabled", {
                 get: $util.oneOfGetter($oneOfFields = ["enabled"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -21408,12 +20373,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * StatusPrivacyAction _mode.
-             * @member {"mode"|undefined} _mode
-             * @memberof SyncAction.SyncActionValue.StatusPrivacyAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StatusPrivacyAction.prototype, "_mode", {
                 get: $util.oneOfGetter($oneOfFields = ["mode"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -21816,144 +20776,79 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * StickerAction _url.
-             * @member {"url"|undefined} _url
-             * @memberof SyncAction.SyncActionValue.StickerAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerAction.prototype, "_url", {
                 get: $util.oneOfGetter($oneOfFields = ["url"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerAction _fileEncSha256.
-             * @member {"fileEncSha256"|undefined} _fileEncSha256
-             * @memberof SyncAction.SyncActionValue.StickerAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerAction.prototype, "_fileEncSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["fileEncSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerAction _mediaKey.
-             * @member {"mediaKey"|undefined} _mediaKey
-             * @memberof SyncAction.SyncActionValue.StickerAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerAction.prototype, "_mediaKey", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerAction _mimetype.
-             * @member {"mimetype"|undefined} _mimetype
-             * @memberof SyncAction.SyncActionValue.StickerAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerAction.prototype, "_mimetype", {
                 get: $util.oneOfGetter($oneOfFields = ["mimetype"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerAction _height.
-             * @member {"height"|undefined} _height
-             * @memberof SyncAction.SyncActionValue.StickerAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerAction.prototype, "_height", {
                 get: $util.oneOfGetter($oneOfFields = ["height"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerAction _width.
-             * @member {"width"|undefined} _width
-             * @memberof SyncAction.SyncActionValue.StickerAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerAction.prototype, "_width", {
                 get: $util.oneOfGetter($oneOfFields = ["width"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerAction _directPath.
-             * @member {"directPath"|undefined} _directPath
-             * @memberof SyncAction.SyncActionValue.StickerAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerAction.prototype, "_directPath", {
                 get: $util.oneOfGetter($oneOfFields = ["directPath"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerAction _fileLength.
-             * @member {"fileLength"|undefined} _fileLength
-             * @memberof SyncAction.SyncActionValue.StickerAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerAction.prototype, "_fileLength", {
                 get: $util.oneOfGetter($oneOfFields = ["fileLength"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerAction _isFavorite.
-             * @member {"isFavorite"|undefined} _isFavorite
-             * @memberof SyncAction.SyncActionValue.StickerAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerAction.prototype, "_isFavorite", {
                 get: $util.oneOfGetter($oneOfFields = ["isFavorite"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerAction _deviceIdHint.
-             * @member {"deviceIdHint"|undefined} _deviceIdHint
-             * @memberof SyncAction.SyncActionValue.StickerAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerAction.prototype, "_deviceIdHint", {
                 get: $util.oneOfGetter($oneOfFields = ["deviceIdHint"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerAction _isLottie.
-             * @member {"isLottie"|undefined} _isLottie
-             * @memberof SyncAction.SyncActionValue.StickerAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerAction.prototype, "_isLottie", {
                 get: $util.oneOfGetter($oneOfFields = ["isLottie"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerAction _imageHash.
-             * @member {"imageHash"|undefined} _imageHash
-             * @memberof SyncAction.SyncActionValue.StickerAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerAction.prototype, "_imageHash", {
                 get: $util.oneOfGetter($oneOfFields = ["imageHash"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerAction _isAvatarSticker.
-             * @member {"isAvatarSticker"|undefined} _isAvatarSticker
-             * @memberof SyncAction.SyncActionValue.StickerAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerAction.prototype, "_isAvatarSticker", {
                 get: $util.oneOfGetter($oneOfFields = ["isAvatarSticker"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -22421,34 +21316,19 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * SubscriptionAction _isDeactivated.
-             * @member {"isDeactivated"|undefined} _isDeactivated
-             * @memberof SyncAction.SyncActionValue.SubscriptionAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SubscriptionAction.prototype, "_isDeactivated", {
                 get: $util.oneOfGetter($oneOfFields = ["isDeactivated"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SubscriptionAction _isAutoRenewing.
-             * @member {"isAutoRenewing"|undefined} _isAutoRenewing
-             * @memberof SyncAction.SyncActionValue.SubscriptionAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SubscriptionAction.prototype, "_isAutoRenewing", {
                 get: $util.oneOfGetter($oneOfFields = ["isAutoRenewing"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SubscriptionAction _expirationDate.
-             * @member {"expirationDate"|undefined} _expirationDate
-             * @memberof SyncAction.SyncActionValue.SubscriptionAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SubscriptionAction.prototype, "_expirationDate", {
                 get: $util.oneOfGetter($oneOfFields = ["expirationDate"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -22721,23 +21601,13 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * SyncActionMessage _key.
-             * @member {"key"|undefined} _key
-             * @memberof SyncAction.SyncActionValue.SyncActionMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SyncActionMessage.prototype, "_key", {
                 get: $util.oneOfGetter($oneOfFields = ["key"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SyncActionMessage _timestamp.
-             * @member {"timestamp"|undefined} _timestamp
-             * @memberof SyncAction.SyncActionValue.SyncActionMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SyncActionMessage.prototype, "_timestamp", {
                 get: $util.oneOfGetter($oneOfFields = ["timestamp"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -23008,23 +21878,13 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * SyncActionMessageRange _lastMessageTimestamp.
-             * @member {"lastMessageTimestamp"|undefined} _lastMessageTimestamp
-             * @memberof SyncAction.SyncActionValue.SyncActionMessageRange
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SyncActionMessageRange.prototype, "_lastMessageTimestamp", {
                 get: $util.oneOfGetter($oneOfFields = ["lastMessageTimestamp"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SyncActionMessageRange _lastSystemMessageTimestamp.
-             * @member {"lastSystemMessageTimestamp"|undefined} _lastSystemMessageTimestamp
-             * @memberof SyncAction.SyncActionValue.SyncActionMessageRange
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SyncActionMessageRange.prototype, "_lastSystemMessageTimestamp", {
                 get: $util.oneOfGetter($oneOfFields = ["lastSystemMessageTimestamp"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -23315,12 +22175,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * TimeFormatAction _isTwentyFourHourFormatEnabled.
-             * @member {"isTwentyFourHourFormatEnabled"|undefined} _isTwentyFourHourFormatEnabled
-             * @memberof SyncAction.SyncActionValue.TimeFormatAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(TimeFormatAction.prototype, "_isTwentyFourHourFormatEnabled", {
                 get: $util.oneOfGetter($oneOfFields = ["isTwentyFourHourFormatEnabled"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -23538,12 +22393,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * UGCBot _definition.
-             * @member {"definition"|undefined} _definition
-             * @memberof SyncAction.SyncActionValue.UGCBot
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(UGCBot.prototype, "_definition", {
                 get: $util.oneOfGetter($oneOfFields = ["definition"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -23764,12 +22614,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * UnarchiveChatsSetting _unarchiveChats.
-             * @member {"unarchiveChats"|undefined} _unarchiveChats
-             * @memberof SyncAction.SyncActionValue.UnarchiveChatsSetting
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(UnarchiveChatsSetting.prototype, "_unarchiveChats", {
                 get: $util.oneOfGetter($oneOfFields = ["unarchiveChats"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -23987,12 +22832,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * UserStatusMuteAction _muted.
-             * @member {"muted"|undefined} _muted
-             * @memberof SyncAction.SyncActionValue.UserStatusMuteAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(UserStatusMuteAction.prototype, "_muted", {
                 get: $util.oneOfGetter($oneOfFields = ["muted"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -24210,12 +23050,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * UsernameChatStartModeAction _chatStartMode.
-             * @member {"chatStartMode"|undefined} _chatStartMode
-             * @memberof SyncAction.SyncActionValue.UsernameChatStartModeAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(UsernameChatStartModeAction.prototype, "_chatStartMode", {
                 get: $util.oneOfGetter($oneOfFields = ["chatStartMode"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -24466,12 +23301,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * WaffleAccountLinkStateAction _linkState.
-             * @member {"linkState"|undefined} _linkState
-             * @memberof SyncAction.SyncActionValue.WaffleAccountLinkStateAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(WaffleAccountLinkStateAction.prototype, "_linkState", {
                 get: $util.oneOfGetter($oneOfFields = ["linkState"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -24729,12 +23559,7 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * WamoUserIdentifierAction _identifier.
-             * @member {"identifier"|undefined} _identifier
-             * @memberof SyncAction.SyncActionValue.WamoUserIdentifierAction
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(WamoUserIdentifierAction.prototype, "_identifier", {
                 get: $util.oneOfGetter($oneOfFields = ["identifier"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -25082,155 +23907,85 @@ $root.SyncAction = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * CallLogRecord _callResult.
-         * @member {"callResult"|undefined} _callResult
-         * @memberof SyncAction.CallLogRecord
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(CallLogRecord.prototype, "_callResult", {
             get: $util.oneOfGetter($oneOfFields = ["callResult"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * CallLogRecord _isDndMode.
-         * @member {"isDndMode"|undefined} _isDndMode
-         * @memberof SyncAction.CallLogRecord
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(CallLogRecord.prototype, "_isDndMode", {
             get: $util.oneOfGetter($oneOfFields = ["isDndMode"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * CallLogRecord _silenceReason.
-         * @member {"silenceReason"|undefined} _silenceReason
-         * @memberof SyncAction.CallLogRecord
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(CallLogRecord.prototype, "_silenceReason", {
             get: $util.oneOfGetter($oneOfFields = ["silenceReason"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * CallLogRecord _duration.
-         * @member {"duration"|undefined} _duration
-         * @memberof SyncAction.CallLogRecord
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(CallLogRecord.prototype, "_duration", {
             get: $util.oneOfGetter($oneOfFields = ["duration"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * CallLogRecord _startTime.
-         * @member {"startTime"|undefined} _startTime
-         * @memberof SyncAction.CallLogRecord
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(CallLogRecord.prototype, "_startTime", {
             get: $util.oneOfGetter($oneOfFields = ["startTime"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * CallLogRecord _isIncoming.
-         * @member {"isIncoming"|undefined} _isIncoming
-         * @memberof SyncAction.CallLogRecord
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(CallLogRecord.prototype, "_isIncoming", {
             get: $util.oneOfGetter($oneOfFields = ["isIncoming"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * CallLogRecord _isVideo.
-         * @member {"isVideo"|undefined} _isVideo
-         * @memberof SyncAction.CallLogRecord
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(CallLogRecord.prototype, "_isVideo", {
             get: $util.oneOfGetter($oneOfFields = ["isVideo"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * CallLogRecord _isCallLink.
-         * @member {"isCallLink"|undefined} _isCallLink
-         * @memberof SyncAction.CallLogRecord
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(CallLogRecord.prototype, "_isCallLink", {
             get: $util.oneOfGetter($oneOfFields = ["isCallLink"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * CallLogRecord _callLinkToken.
-         * @member {"callLinkToken"|undefined} _callLinkToken
-         * @memberof SyncAction.CallLogRecord
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(CallLogRecord.prototype, "_callLinkToken", {
             get: $util.oneOfGetter($oneOfFields = ["callLinkToken"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * CallLogRecord _scheduledCallId.
-         * @member {"scheduledCallId"|undefined} _scheduledCallId
-         * @memberof SyncAction.CallLogRecord
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(CallLogRecord.prototype, "_scheduledCallId", {
             get: $util.oneOfGetter($oneOfFields = ["scheduledCallId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * CallLogRecord _callId.
-         * @member {"callId"|undefined} _callId
-         * @memberof SyncAction.CallLogRecord
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(CallLogRecord.prototype, "_callId", {
             get: $util.oneOfGetter($oneOfFields = ["callId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * CallLogRecord _callCreatorJid.
-         * @member {"callCreatorJid"|undefined} _callCreatorJid
-         * @memberof SyncAction.CallLogRecord
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(CallLogRecord.prototype, "_callCreatorJid", {
             get: $util.oneOfGetter($oneOfFields = ["callCreatorJid"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * CallLogRecord _groupJid.
-         * @member {"groupJid"|undefined} _groupJid
-         * @memberof SyncAction.CallLogRecord
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(CallLogRecord.prototype, "_groupJid", {
             get: $util.oneOfGetter($oneOfFields = ["groupJid"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * CallLogRecord _callType.
-         * @member {"callType"|undefined} _callType
-         * @memberof SyncAction.CallLogRecord
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(CallLogRecord.prototype, "_callType", {
             get: $util.oneOfGetter($oneOfFields = ["callType"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -25908,23 +24663,13 @@ $root.SyncAction = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * ParticipantInfo _userJid.
-             * @member {"userJid"|undefined} _userJid
-             * @memberof SyncAction.CallLogRecord.ParticipantInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ParticipantInfo.prototype, "_userJid", {
                 get: $util.oneOfGetter($oneOfFields = ["userJid"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ParticipantInfo _callResult.
-             * @member {"callResult"|undefined} _callResult
-             * @memberof SyncAction.CallLogRecord.ParticipantInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ParticipantInfo.prototype, "_callResult", {
                 get: $util.oneOfGetter($oneOfFields = ["callResult"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -26254,23 +24999,13 @@ $root.SyncAction = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * RecentEmojiWeight _emoji.
-         * @member {"emoji"|undefined} _emoji
-         * @memberof SyncAction.RecentEmojiWeight
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(RecentEmojiWeight.prototype, "_emoji", {
             get: $util.oneOfGetter($oneOfFields = ["emoji"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * RecentEmojiWeight _weight.
-         * @member {"weight"|undefined} _weight
-         * @memberof SyncAction.RecentEmojiWeight
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(RecentEmojiWeight.prototype, "_weight", {
             get: $util.oneOfGetter($oneOfFields = ["weight"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -26709,23 +25444,13 @@ $root.ChatLockSettings = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * ChatLockSettings _hideLockedChats.
-         * @member {"hideLockedChats"|undefined} _hideLockedChats
-         * @memberof ChatLockSettings.ChatLockSettings
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ChatLockSettings.prototype, "_hideLockedChats", {
             get: $util.oneOfGetter($oneOfFields = ["hideLockedChats"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ChatLockSettings _secretCode.
-         * @member {"secretCode"|undefined} _secretCode
-         * @memberof ChatLockSettings.ChatLockSettings
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ChatLockSettings.prototype, "_secretCode", {
             get: $util.oneOfGetter($oneOfFields = ["secretCode"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -27007,34 +25732,19 @@ $root.UserPassword = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * UserPassword _encoding.
-         * @member {"encoding"|undefined} _encoding
-         * @memberof UserPassword.UserPassword
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(UserPassword.prototype, "_encoding", {
             get: $util.oneOfGetter($oneOfFields = ["encoding"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * UserPassword _transformer.
-         * @member {"transformer"|undefined} _transformer
-         * @memberof UserPassword.UserPassword
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(UserPassword.prototype, "_transformer", {
             get: $util.oneOfGetter($oneOfFields = ["transformer"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * UserPassword _transformedData.
-         * @member {"transformedData"|undefined} _transformedData
-         * @memberof UserPassword.UserPassword
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(UserPassword.prototype, "_transformedData", {
             get: $util.oneOfGetter($oneOfFields = ["transformedData"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -27405,23 +26115,13 @@ $root.UserPassword = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * TransformerArg _key.
-             * @member {"key"|undefined} _key
-             * @memberof UserPassword.UserPassword.TransformerArg
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(TransformerArg.prototype, "_key", {
                 get: $util.oneOfGetter($oneOfFields = ["key"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * TransformerArg _value.
-             * @member {"value"|undefined} _value
-             * @memberof UserPassword.UserPassword.TransformerArg
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(TransformerArg.prototype, "_value", {
                 get: $util.oneOfGetter($oneOfFields = ["value"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -27978,67 +26678,37 @@ $root.DeviceCapabilities = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * DeviceCapabilities _chatLockSupportLevel.
-         * @member {"chatLockSupportLevel"|undefined} _chatLockSupportLevel
-         * @memberof DeviceCapabilities.DeviceCapabilities
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DeviceCapabilities.prototype, "_chatLockSupportLevel", {
             get: $util.oneOfGetter($oneOfFields = ["chatLockSupportLevel"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * DeviceCapabilities _lidMigration.
-         * @member {"lidMigration"|undefined} _lidMigration
-         * @memberof DeviceCapabilities.DeviceCapabilities
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DeviceCapabilities.prototype, "_lidMigration", {
             get: $util.oneOfGetter($oneOfFields = ["lidMigration"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * DeviceCapabilities _businessBroadcast.
-         * @member {"businessBroadcast"|undefined} _businessBroadcast
-         * @memberof DeviceCapabilities.DeviceCapabilities
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DeviceCapabilities.prototype, "_businessBroadcast", {
             get: $util.oneOfGetter($oneOfFields = ["businessBroadcast"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * DeviceCapabilities _userHasAvatar.
-         * @member {"userHasAvatar"|undefined} _userHasAvatar
-         * @memberof DeviceCapabilities.DeviceCapabilities
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DeviceCapabilities.prototype, "_userHasAvatar", {
             get: $util.oneOfGetter($oneOfFields = ["userHasAvatar"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * DeviceCapabilities _memberNameTagPrimarySupport.
-         * @member {"memberNameTagPrimarySupport"|undefined} _memberNameTagPrimarySupport
-         * @memberof DeviceCapabilities.DeviceCapabilities
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DeviceCapabilities.prototype, "_memberNameTagPrimarySupport", {
             get: $util.oneOfGetter($oneOfFields = ["memberNameTagPrimarySupport"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * DeviceCapabilities _aiThread.
-         * @member {"aiThread"|undefined} _aiThread
-         * @memberof DeviceCapabilities.DeviceCapabilities
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DeviceCapabilities.prototype, "_aiThread", {
             get: $util.oneOfGetter($oneOfFields = ["aiThread"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -28415,12 +27085,7 @@ $root.DeviceCapabilities = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * AiThread _supportLevel.
-             * @member {"supportLevel"|undefined} _supportLevel
-             * @memberof DeviceCapabilities.DeviceCapabilities.AiThread
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AiThread.prototype, "_supportLevel", {
                 get: $util.oneOfGetter($oneOfFields = ["supportLevel"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -28678,12 +27343,7 @@ $root.DeviceCapabilities = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * BusinessBroadcast _importListEnabled.
-             * @member {"importListEnabled"|undefined} _importListEnabled
-             * @memberof DeviceCapabilities.DeviceCapabilities.BusinessBroadcast
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(BusinessBroadcast.prototype, "_importListEnabled", {
                 get: $util.oneOfGetter($oneOfFields = ["importListEnabled"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -28917,12 +27577,7 @@ $root.DeviceCapabilities = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * LIDMigration _chatDbMigrationTimestamp.
-             * @member {"chatDbMigrationTimestamp"|undefined} _chatDbMigrationTimestamp
-             * @memberof DeviceCapabilities.DeviceCapabilities.LIDMigration
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LIDMigration.prototype, "_chatDbMigrationTimestamp", {
                 get: $util.oneOfGetter($oneOfFields = ["chatDbMigrationTimestamp"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -29166,12 +27821,7 @@ $root.DeviceCapabilities = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * UserHasAvatar _userHasAvatar.
-             * @member {"userHasAvatar"|undefined} _userHasAvatar
-             * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(UserHasAvatar.prototype, "_userHasAvatar", {
                 get: $util.oneOfGetter($oneOfFields = ["userHasAvatar"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -29431,45 +28081,25 @@ $root.Protocol = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * LimitSharing _sharingLimited.
-         * @member {"sharingLimited"|undefined} _sharingLimited
-         * @memberof Protocol.LimitSharing
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(LimitSharing.prototype, "_sharingLimited", {
             get: $util.oneOfGetter($oneOfFields = ["sharingLimited"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * LimitSharing _trigger.
-         * @member {"trigger"|undefined} _trigger
-         * @memberof Protocol.LimitSharing
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(LimitSharing.prototype, "_trigger", {
             get: $util.oneOfGetter($oneOfFields = ["trigger"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * LimitSharing _limitSharingSettingTimestamp.
-         * @member {"limitSharingSettingTimestamp"|undefined} _limitSharingSettingTimestamp
-         * @memberof Protocol.LimitSharing
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(LimitSharing.prototype, "_limitSharingSettingTimestamp", {
             get: $util.oneOfGetter($oneOfFields = ["limitSharingSettingTimestamp"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * LimitSharing _initiatedByMe.
-         * @member {"initiatedByMe"|undefined} _initiatedByMe
-         * @memberof Protocol.LimitSharing
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(LimitSharing.prototype, "_initiatedByMe", {
             get: $util.oneOfGetter($oneOfFields = ["initiatedByMe"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -29825,45 +28455,25 @@ $root.Protocol = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * MessageKey _remoteJid.
-         * @member {"remoteJid"|undefined} _remoteJid
-         * @memberof Protocol.MessageKey
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageKey.prototype, "_remoteJid", {
             get: $util.oneOfGetter($oneOfFields = ["remoteJid"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageKey _fromMe.
-         * @member {"fromMe"|undefined} _fromMe
-         * @memberof Protocol.MessageKey
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageKey.prototype, "_fromMe", {
             get: $util.oneOfGetter($oneOfFields = ["fromMe"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageKey _id.
-         * @member {"id"|undefined} _id
-         * @memberof Protocol.MessageKey
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageKey.prototype, "_id", {
             get: $util.oneOfGetter($oneOfFields = ["id"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageKey _participant.
-         * @member {"participant"|undefined} _participant
-         * @memberof Protocol.MessageKey
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageKey.prototype, "_participant", {
             get: $util.oneOfGetter($oneOfFields = ["participant"]),
             set: $util.oneOfSetter($oneOfFields)

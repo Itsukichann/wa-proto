@@ -80,45 +80,25 @@ $root.CompanionReg = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * ClientPairingProps _isChatDbLidMigrated.
-         * @member {"isChatDbLidMigrated"|undefined} _isChatDbLidMigrated
-         * @memberof CompanionReg.ClientPairingProps
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ClientPairingProps.prototype, "_isChatDbLidMigrated", {
             get: $util.oneOfGetter($oneOfFields = ["isChatDbLidMigrated"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ClientPairingProps _isSyncdPureLidSession.
-         * @member {"isSyncdPureLidSession"|undefined} _isSyncdPureLidSession
-         * @memberof CompanionReg.ClientPairingProps
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ClientPairingProps.prototype, "_isSyncdPureLidSession", {
             get: $util.oneOfGetter($oneOfFields = ["isSyncdPureLidSession"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ClientPairingProps _isSyncdSnapshotRecoveryEnabled.
-         * @member {"isSyncdSnapshotRecoveryEnabled"|undefined} _isSyncdSnapshotRecoveryEnabled
-         * @memberof CompanionReg.ClientPairingProps
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ClientPairingProps.prototype, "_isSyncdSnapshotRecoveryEnabled", {
             get: $util.oneOfGetter($oneOfFields = ["isSyncdSnapshotRecoveryEnabled"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ClientPairingProps _isHsThumbnailSyncEnabled.
-         * @member {"isHsThumbnailSyncEnabled"|undefined} _isHsThumbnailSyncEnabled
-         * @memberof CompanionReg.ClientPairingProps
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ClientPairingProps.prototype, "_isHsThumbnailSyncEnabled", {
             get: $util.oneOfGetter($oneOfFields = ["isHsThumbnailSyncEnabled"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -399,23 +379,13 @@ $root.CompanionReg = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * EncryptedPairingRequest _encryptedPayload.
-         * @member {"encryptedPayload"|undefined} _encryptedPayload
-         * @memberof CompanionReg.EncryptedPairingRequest
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(EncryptedPairingRequest.prototype, "_encryptedPayload", {
             get: $util.oneOfGetter($oneOfFields = ["encryptedPayload"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * EncryptedPairingRequest _iv.
-         * @member {"iv"|undefined} _iv
-         * @memberof CompanionReg.EncryptedPairingRequest
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(EncryptedPairingRequest.prototype, "_iv", {
             get: $util.oneOfGetter($oneOfFields = ["iv"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -675,34 +645,19 @@ $root.CompanionReg = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * PairingRequest _companionPublicKey.
-         * @member {"companionPublicKey"|undefined} _companionPublicKey
-         * @memberof CompanionReg.PairingRequest
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PairingRequest.prototype, "_companionPublicKey", {
             get: $util.oneOfGetter($oneOfFields = ["companionPublicKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PairingRequest _companionIdentityKey.
-         * @member {"companionIdentityKey"|undefined} _companionIdentityKey
-         * @memberof CompanionReg.PairingRequest
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PairingRequest.prototype, "_companionIdentityKey", {
             get: $util.oneOfGetter($oneOfFields = ["companionIdentityKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PairingRequest _advSecret.
-         * @member {"advSecret"|undefined} _advSecret
-         * @memberof CompanionReg.PairingRequest
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PairingRequest.prototype, "_advSecret", {
             get: $util.oneOfGetter($oneOfFields = ["advSecret"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -974,23 +929,13 @@ $root.CompanionReg = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * PrimaryEphemeralIdentity _publicKey.
-         * @member {"publicKey"|undefined} _publicKey
-         * @memberof CompanionReg.PrimaryEphemeralIdentity
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PrimaryEphemeralIdentity.prototype, "_publicKey", {
             get: $util.oneOfGetter($oneOfFields = ["publicKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PrimaryEphemeralIdentity _nonce.
-         * @member {"nonce"|undefined} _nonce
-         * @memberof CompanionReg.PrimaryEphemeralIdentity
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PrimaryEphemeralIdentity.prototype, "_nonce", {
             get: $util.oneOfGetter($oneOfFields = ["nonce"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -1241,23 +1186,13 @@ $root.CompanionReg = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * ProloguePayload _companionEphemeralIdentity.
-         * @member {"companionEphemeralIdentity"|undefined} _companionEphemeralIdentity
-         * @memberof CompanionReg.ProloguePayload
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ProloguePayload.prototype, "_companionEphemeralIdentity", {
             get: $util.oneOfGetter($oneOfFields = ["companionEphemeralIdentity"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ProloguePayload _commitment.
-         * @member {"commitment"|undefined} _commitment
-         * @memberof CompanionReg.ProloguePayload
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ProloguePayload.prototype, "_commitment", {
             get: $util.oneOfGetter($oneOfFields = ["commitment"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -1502,12 +1437,7 @@ $root.CompanionReg = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * CompanionCommitment _hash.
-         * @member {"hash"|undefined} _hash
-         * @memberof CompanionReg.CompanionCommitment
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(CompanionCommitment.prototype, "_hash", {
             get: $util.oneOfGetter($oneOfFields = ["hash"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -1746,34 +1676,19 @@ $root.CompanionReg = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * CompanionEphemeralIdentity _publicKey.
-         * @member {"publicKey"|undefined} _publicKey
-         * @memberof CompanionReg.CompanionEphemeralIdentity
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(CompanionEphemeralIdentity.prototype, "_publicKey", {
             get: $util.oneOfGetter($oneOfFields = ["publicKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * CompanionEphemeralIdentity _deviceType.
-         * @member {"deviceType"|undefined} _deviceType
-         * @memberof CompanionReg.CompanionEphemeralIdentity
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(CompanionEphemeralIdentity.prototype, "_deviceType", {
             get: $util.oneOfGetter($oneOfFields = ["deviceType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * CompanionEphemeralIdentity _ref.
-         * @member {"ref"|undefined} _ref
-         * @memberof CompanionReg.CompanionEphemeralIdentity
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(CompanionEphemeralIdentity.prototype, "_ref", {
             get: $util.oneOfGetter($oneOfFields = ["ref"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -2200,56 +2115,31 @@ $root.CompanionReg = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * DeviceProps _os.
-         * @member {"os"|undefined} _os
-         * @memberof CompanionReg.DeviceProps
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DeviceProps.prototype, "_os", {
             get: $util.oneOfGetter($oneOfFields = ["os"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * DeviceProps _version.
-         * @member {"version"|undefined} _version
-         * @memberof CompanionReg.DeviceProps
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DeviceProps.prototype, "_version", {
             get: $util.oneOfGetter($oneOfFields = ["version"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * DeviceProps _platformType.
-         * @member {"platformType"|undefined} _platformType
-         * @memberof CompanionReg.DeviceProps
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DeviceProps.prototype, "_platformType", {
             get: $util.oneOfGetter($oneOfFields = ["platformType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * DeviceProps _requireFullSync.
-         * @member {"requireFullSync"|undefined} _requireFullSync
-         * @memberof CompanionReg.DeviceProps
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DeviceProps.prototype, "_requireFullSync", {
             get: $util.oneOfGetter($oneOfFields = ["requireFullSync"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * DeviceProps _historySyncConfig.
-         * @member {"historySyncConfig"|undefined} _historySyncConfig
-         * @memberof CompanionReg.DeviceProps
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DeviceProps.prototype, "_historySyncConfig", {
             get: $util.oneOfGetter($oneOfFields = ["historySyncConfig"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -2718,56 +2608,31 @@ $root.CompanionReg = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * AppVersion _primary.
-             * @member {"primary"|undefined} _primary
-             * @memberof CompanionReg.DeviceProps.AppVersion
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AppVersion.prototype, "_primary", {
                 get: $util.oneOfGetter($oneOfFields = ["primary"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AppVersion _secondary.
-             * @member {"secondary"|undefined} _secondary
-             * @memberof CompanionReg.DeviceProps.AppVersion
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AppVersion.prototype, "_secondary", {
                 get: $util.oneOfGetter($oneOfFields = ["secondary"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AppVersion _tertiary.
-             * @member {"tertiary"|undefined} _tertiary
-             * @memberof CompanionReg.DeviceProps.AppVersion
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AppVersion.prototype, "_tertiary", {
                 get: $util.oneOfGetter($oneOfFields = ["tertiary"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AppVersion _quaternary.
-             * @member {"quaternary"|undefined} _quaternary
-             * @memberof CompanionReg.DeviceProps.AppVersion
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AppVersion.prototype, "_quaternary", {
                 get: $util.oneOfGetter($oneOfFields = ["quaternary"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AppVersion _quinary.
-             * @member {"quinary"|undefined} _quinary
-             * @memberof CompanionReg.DeviceProps.AppVersion
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AppVersion.prototype, "_quinary", {
                 get: $util.oneOfGetter($oneOfFields = ["quinary"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -3219,210 +3084,115 @@ $root.CompanionReg = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * HistorySyncConfig _fullSyncDaysLimit.
-             * @member {"fullSyncDaysLimit"|undefined} _fullSyncDaysLimit
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_fullSyncDaysLimit", {
                 get: $util.oneOfGetter($oneOfFields = ["fullSyncDaysLimit"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _fullSyncSizeMbLimit.
-             * @member {"fullSyncSizeMbLimit"|undefined} _fullSyncSizeMbLimit
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_fullSyncSizeMbLimit", {
                 get: $util.oneOfGetter($oneOfFields = ["fullSyncSizeMbLimit"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _storageQuotaMb.
-             * @member {"storageQuotaMb"|undefined} _storageQuotaMb
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_storageQuotaMb", {
                 get: $util.oneOfGetter($oneOfFields = ["storageQuotaMb"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _inlineInitialPayloadInE2EeMsg.
-             * @member {"inlineInitialPayloadInE2EeMsg"|undefined} _inlineInitialPayloadInE2EeMsg
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_inlineInitialPayloadInE2EeMsg", {
                 get: $util.oneOfGetter($oneOfFields = ["inlineInitialPayloadInE2EeMsg"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _recentSyncDaysLimit.
-             * @member {"recentSyncDaysLimit"|undefined} _recentSyncDaysLimit
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_recentSyncDaysLimit", {
                 get: $util.oneOfGetter($oneOfFields = ["recentSyncDaysLimit"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _supportCallLogHistory.
-             * @member {"supportCallLogHistory"|undefined} _supportCallLogHistory
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_supportCallLogHistory", {
                 get: $util.oneOfGetter($oneOfFields = ["supportCallLogHistory"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _supportBotUserAgentChatHistory.
-             * @member {"supportBotUserAgentChatHistory"|undefined} _supportBotUserAgentChatHistory
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_supportBotUserAgentChatHistory", {
                 get: $util.oneOfGetter($oneOfFields = ["supportBotUserAgentChatHistory"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _supportCagReactionsAndPolls.
-             * @member {"supportCagReactionsAndPolls"|undefined} _supportCagReactionsAndPolls
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_supportCagReactionsAndPolls", {
                 get: $util.oneOfGetter($oneOfFields = ["supportCagReactionsAndPolls"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _supportBizHostedMsg.
-             * @member {"supportBizHostedMsg"|undefined} _supportBizHostedMsg
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_supportBizHostedMsg", {
                 get: $util.oneOfGetter($oneOfFields = ["supportBizHostedMsg"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _supportRecentSyncChunkMessageCountTuning.
-             * @member {"supportRecentSyncChunkMessageCountTuning"|undefined} _supportRecentSyncChunkMessageCountTuning
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_supportRecentSyncChunkMessageCountTuning", {
                 get: $util.oneOfGetter($oneOfFields = ["supportRecentSyncChunkMessageCountTuning"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _supportHostedGroupMsg.
-             * @member {"supportHostedGroupMsg"|undefined} _supportHostedGroupMsg
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_supportHostedGroupMsg", {
                 get: $util.oneOfGetter($oneOfFields = ["supportHostedGroupMsg"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _supportFbidBotChatHistory.
-             * @member {"supportFbidBotChatHistory"|undefined} _supportFbidBotChatHistory
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_supportFbidBotChatHistory", {
                 get: $util.oneOfGetter($oneOfFields = ["supportFbidBotChatHistory"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _supportAddOnHistorySyncMigration.
-             * @member {"supportAddOnHistorySyncMigration"|undefined} _supportAddOnHistorySyncMigration
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_supportAddOnHistorySyncMigration", {
                 get: $util.oneOfGetter($oneOfFields = ["supportAddOnHistorySyncMigration"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _supportMessageAssociation.
-             * @member {"supportMessageAssociation"|undefined} _supportMessageAssociation
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_supportMessageAssociation", {
                 get: $util.oneOfGetter($oneOfFields = ["supportMessageAssociation"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _supportGroupHistory.
-             * @member {"supportGroupHistory"|undefined} _supportGroupHistory
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_supportGroupHistory", {
                 get: $util.oneOfGetter($oneOfFields = ["supportGroupHistory"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _onDemandReady.
-             * @member {"onDemandReady"|undefined} _onDemandReady
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_onDemandReady", {
                 get: $util.oneOfGetter($oneOfFields = ["onDemandReady"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _supportGuestChat.
-             * @member {"supportGuestChat"|undefined} _supportGuestChat
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_supportGuestChat", {
                 get: $util.oneOfGetter($oneOfFields = ["supportGuestChat"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _completeOnDemandReady.
-             * @member {"completeOnDemandReady"|undefined} _completeOnDemandReady
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_completeOnDemandReady", {
                 get: $util.oneOfGetter($oneOfFields = ["completeOnDemandReady"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _thumbnailSyncDaysLimit.
-             * @member {"thumbnailSyncDaysLimit"|undefined} _thumbnailSyncDaysLimit
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_thumbnailSyncDaysLimit", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailSyncDaysLimit"]),
                 set: $util.oneOfSetter($oneOfFields)

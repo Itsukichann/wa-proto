@@ -62,23 +62,13 @@ $root.Web = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * QuarantinedMessage _originalData.
-         * @member {"originalData"|undefined} _originalData
-         * @memberof Web.QuarantinedMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(QuarantinedMessage.prototype, "_originalData", {
             get: $util.oneOfGetter($oneOfFields = ["originalData"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * QuarantinedMessage _extractedText.
-         * @member {"extractedText"|undefined} _extractedText
-         * @memberof Web.QuarantinedMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(QuarantinedMessage.prototype, "_extractedText", {
             get: $util.oneOfGetter($oneOfFields = ["extractedText"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -326,23 +316,13 @@ $root.Web = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * GroupHistoryBundleInfo _deprecatedMessageHistoryBundle.
-         * @member {"deprecatedMessageHistoryBundle"|undefined} _deprecatedMessageHistoryBundle
-         * @memberof Web.GroupHistoryBundleInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(GroupHistoryBundleInfo.prototype, "_deprecatedMessageHistoryBundle", {
             get: $util.oneOfGetter($oneOfFields = ["deprecatedMessageHistoryBundle"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * GroupHistoryBundleInfo _processState.
-         * @member {"processState"|undefined} _processState
-         * @memberof Web.GroupHistoryBundleInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(GroupHistoryBundleInfo.prototype, "_processState", {
             get: $util.oneOfGetter($oneOfFields = ["processState"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -647,23 +627,13 @@ $root.Web = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * GroupHistoryIndividualMessageInfo _bundleMessageKey.
-         * @member {"bundleMessageKey"|undefined} _bundleMessageKey
-         * @memberof Web.GroupHistoryIndividualMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(GroupHistoryIndividualMessageInfo.prototype, "_bundleMessageKey", {
             get: $util.oneOfGetter($oneOfFields = ["bundleMessageKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * GroupHistoryIndividualMessageInfo _editedAfterReceivedAsHistory.
-         * @member {"editedAfterReceivedAsHistory"|undefined} _editedAfterReceivedAsHistory
-         * @memberof Web.GroupHistoryIndividualMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(GroupHistoryIndividualMessageInfo.prototype, "_editedAfterReceivedAsHistory", {
             get: $util.oneOfGetter($oneOfFields = ["editedAfterReceivedAsHistory"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -932,45 +902,25 @@ $root.Web = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * Citation _title.
-         * @member {"title"|undefined} _title
-         * @memberof Web.Citation
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Citation.prototype, "_title", {
             get: $util.oneOfGetter($oneOfFields = ["title"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Citation _subtitle.
-         * @member {"subtitle"|undefined} _subtitle
-         * @memberof Web.Citation
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Citation.prototype, "_subtitle", {
             get: $util.oneOfGetter($oneOfFields = ["subtitle"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Citation _cmsId.
-         * @member {"cmsId"|undefined} _cmsId
-         * @memberof Web.Citation
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Citation.prototype, "_cmsId", {
             get: $util.oneOfGetter($oneOfFields = ["cmsId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Citation _imageUrl.
-         * @member {"imageUrl"|undefined} _imageUrl
-         * @memberof Web.Citation
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Citation.prototype, "_imageUrl", {
             get: $util.oneOfGetter($oneOfFields = ["imageUrl"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -1242,12 +1192,7 @@ $root.Web = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * StatusMentionMessage _quotedStatus.
-         * @member {"quotedStatus"|undefined} _quotedStatus
-         * @memberof Web.StatusMentionMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(StatusMentionMessage.prototype, "_quotedStatus", {
             get: $util.oneOfGetter($oneOfFields = ["quotedStatus"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -1534,89 +1479,49 @@ $root.Web = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * MessageAddOn _messageAddOnType.
-         * @member {"messageAddOnType"|undefined} _messageAddOnType
-         * @memberof Web.MessageAddOn
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageAddOn.prototype, "_messageAddOnType", {
             get: $util.oneOfGetter($oneOfFields = ["messageAddOnType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageAddOn _messageAddOn.
-         * @member {"messageAddOn"|undefined} _messageAddOn
-         * @memberof Web.MessageAddOn
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageAddOn.prototype, "_messageAddOn", {
             get: $util.oneOfGetter($oneOfFields = ["messageAddOn"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageAddOn _senderTimestampMs.
-         * @member {"senderTimestampMs"|undefined} _senderTimestampMs
-         * @memberof Web.MessageAddOn
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageAddOn.prototype, "_senderTimestampMs", {
             get: $util.oneOfGetter($oneOfFields = ["senderTimestampMs"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageAddOn _serverTimestampMs.
-         * @member {"serverTimestampMs"|undefined} _serverTimestampMs
-         * @memberof Web.MessageAddOn
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageAddOn.prototype, "_serverTimestampMs", {
             get: $util.oneOfGetter($oneOfFields = ["serverTimestampMs"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageAddOn _status.
-         * @member {"status"|undefined} _status
-         * @memberof Web.MessageAddOn
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageAddOn.prototype, "_status", {
             get: $util.oneOfGetter($oneOfFields = ["status"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageAddOn _addOnContextInfo.
-         * @member {"addOnContextInfo"|undefined} _addOnContextInfo
-         * @memberof Web.MessageAddOn
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageAddOn.prototype, "_addOnContextInfo", {
             get: $util.oneOfGetter($oneOfFields = ["addOnContextInfo"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageAddOn _messageAddOnKey.
-         * @member {"messageAddOnKey"|undefined} _messageAddOnKey
-         * @memberof Web.MessageAddOn
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageAddOn.prototype, "_messageAddOnKey", {
             get: $util.oneOfGetter($oneOfFields = ["messageAddOnKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageAddOn _legacyMessage.
-         * @member {"legacyMessage"|undefined} _legacyMessage
-         * @memberof Web.MessageAddOn
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageAddOn.prototype, "_legacyMessage", {
             get: $util.oneOfGetter($oneOfFields = ["legacyMessage"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -2106,23 +2011,13 @@ $root.Web = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * LegacyMessage _eventResponseMessage.
-         * @member {"eventResponseMessage"|undefined} _eventResponseMessage
-         * @memberof Web.LegacyMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(LegacyMessage.prototype, "_eventResponseMessage", {
             get: $util.oneOfGetter($oneOfFields = ["eventResponseMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * LegacyMessage _pollVote.
-         * @member {"pollVote"|undefined} _pollVote
-         * @memberof Web.LegacyMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(LegacyMessage.prototype, "_pollVote", {
             get: $util.oneOfGetter($oneOfFields = ["pollVote"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -2397,45 +2292,25 @@ $root.Web = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * EventResponse _eventResponseMessageKey.
-         * @member {"eventResponseMessageKey"|undefined} _eventResponseMessageKey
-         * @memberof Web.EventResponse
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(EventResponse.prototype, "_eventResponseMessageKey", {
             get: $util.oneOfGetter($oneOfFields = ["eventResponseMessageKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * EventResponse _timestampMs.
-         * @member {"timestampMs"|undefined} _timestampMs
-         * @memberof Web.EventResponse
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(EventResponse.prototype, "_timestampMs", {
             get: $util.oneOfGetter($oneOfFields = ["timestampMs"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * EventResponse _eventResponseMessage.
-         * @member {"eventResponseMessage"|undefined} _eventResponseMessage
-         * @memberof Web.EventResponse
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(EventResponse.prototype, "_eventResponseMessage", {
             get: $util.oneOfGetter($oneOfFields = ["eventResponseMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * EventResponse _unread.
-         * @member {"unread"|undefined} _unread
-         * @memberof Web.EventResponse
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(EventResponse.prototype, "_unread", {
             get: $util.oneOfGetter($oneOfFields = ["unread"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -2729,12 +2604,7 @@ $root.Web = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * PremiumMessageInfo _serverCampaignId.
-         * @member {"serverCampaignId"|undefined} _serverCampaignId
-         * @memberof Web.PremiumMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PremiumMessageInfo.prototype, "_serverCampaignId", {
             get: $util.oneOfGetter($oneOfFields = ["serverCampaignId"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -2961,23 +2831,13 @@ $root.Web = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * MessageAddOnContextInfo _messageAddOnDurationInSecs.
-         * @member {"messageAddOnDurationInSecs"|undefined} _messageAddOnDurationInSecs
-         * @memberof Web.MessageAddOnContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageAddOnContextInfo.prototype, "_messageAddOnDurationInSecs", {
             get: $util.oneOfGetter($oneOfFields = ["messageAddOnDurationInSecs"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageAddOnContextInfo _messageAddOnExpiryType.
-         * @member {"messageAddOnExpiryType"|undefined} _messageAddOnExpiryType
-         * @memberof Web.MessageAddOnContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageAddOnContextInfo.prototype, "_messageAddOnExpiryType", {
             get: $util.oneOfGetter($oneOfFields = ["messageAddOnExpiryType"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -3268,56 +3128,31 @@ $root.Web = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * PinInChat _type.
-         * @member {"type"|undefined} _type
-         * @memberof Web.PinInChat
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PinInChat.prototype, "_type", {
             get: $util.oneOfGetter($oneOfFields = ["type"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PinInChat _key.
-         * @member {"key"|undefined} _key
-         * @memberof Web.PinInChat
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PinInChat.prototype, "_key", {
             get: $util.oneOfGetter($oneOfFields = ["key"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PinInChat _senderTimestampMs.
-         * @member {"senderTimestampMs"|undefined} _senderTimestampMs
-         * @memberof Web.PinInChat
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PinInChat.prototype, "_senderTimestampMs", {
             get: $util.oneOfGetter($oneOfFields = ["senderTimestampMs"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PinInChat _serverTimestampMs.
-         * @member {"serverTimestampMs"|undefined} _serverTimestampMs
-         * @memberof Web.PinInChat
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PinInChat.prototype, "_serverTimestampMs", {
             get: $util.oneOfGetter($oneOfFields = ["serverTimestampMs"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PinInChat _messageAddOnContextInfo.
-         * @member {"messageAddOnContextInfo"|undefined} _messageAddOnContextInfo
-         * @memberof Web.PinInChat
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PinInChat.prototype, "_messageAddOnContextInfo", {
             get: $util.oneOfGetter($oneOfFields = ["messageAddOnContextInfo"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -3724,67 +3559,37 @@ $root.Web = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * KeepInChat _keepType.
-         * @member {"keepType"|undefined} _keepType
-         * @memberof Web.KeepInChat
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(KeepInChat.prototype, "_keepType", {
             get: $util.oneOfGetter($oneOfFields = ["keepType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * KeepInChat _serverTimestamp.
-         * @member {"serverTimestamp"|undefined} _serverTimestamp
-         * @memberof Web.KeepInChat
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(KeepInChat.prototype, "_serverTimestamp", {
             get: $util.oneOfGetter($oneOfFields = ["serverTimestamp"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * KeepInChat _key.
-         * @member {"key"|undefined} _key
-         * @memberof Web.KeepInChat
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(KeepInChat.prototype, "_key", {
             get: $util.oneOfGetter($oneOfFields = ["key"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * KeepInChat _deviceJid.
-         * @member {"deviceJid"|undefined} _deviceJid
-         * @memberof Web.KeepInChat
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(KeepInChat.prototype, "_deviceJid", {
             get: $util.oneOfGetter($oneOfFields = ["deviceJid"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * KeepInChat _clientTimestampMs.
-         * @member {"clientTimestampMs"|undefined} _clientTimestampMs
-         * @memberof Web.KeepInChat
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(KeepInChat.prototype, "_clientTimestampMs", {
             get: $util.oneOfGetter($oneOfFields = ["clientTimestampMs"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * KeepInChat _serverTimestampMs.
-         * @member {"serverTimestampMs"|undefined} _serverTimestampMs
-         * @memberof Web.KeepInChat
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(KeepInChat.prototype, "_serverTimestampMs", {
             get: $util.oneOfGetter($oneOfFields = ["serverTimestampMs"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -4152,12 +3957,7 @@ $root.Web = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * EventAdditionalMetadata _isStale.
-         * @member {"isStale"|undefined} _isStale
-         * @memberof Web.EventAdditionalMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(EventAdditionalMetadata.prototype, "_isStale", {
             get: $util.oneOfGetter($oneOfFields = ["isStale"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -4375,12 +4175,7 @@ $root.Web = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * InteractiveMessageAdditionalMetadata _isGalaxyFlowCompleted.
-         * @member {"isGalaxyFlowCompleted"|undefined} _isGalaxyFlowCompleted
-         * @memberof Web.InteractiveMessageAdditionalMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(InteractiveMessageAdditionalMetadata.prototype, "_isGalaxyFlowCompleted", {
             get: $util.oneOfGetter($oneOfFields = ["isGalaxyFlowCompleted"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -4598,12 +4393,7 @@ $root.Web = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * PollAdditionalMetadata _pollInvalidated.
-         * @member {"pollInvalidated"|undefined} _pollInvalidated
-         * @memberof Web.PollAdditionalMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PollAdditionalMetadata.prototype, "_pollInvalidated", {
             get: $util.oneOfGetter($oneOfFields = ["pollInvalidated"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -4857,56 +4647,31 @@ $root.Web = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * PollUpdate _pollUpdateMessageKey.
-         * @member {"pollUpdateMessageKey"|undefined} _pollUpdateMessageKey
-         * @memberof Web.PollUpdate
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PollUpdate.prototype, "_pollUpdateMessageKey", {
             get: $util.oneOfGetter($oneOfFields = ["pollUpdateMessageKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PollUpdate _vote.
-         * @member {"vote"|undefined} _vote
-         * @memberof Web.PollUpdate
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PollUpdate.prototype, "_vote", {
             get: $util.oneOfGetter($oneOfFields = ["vote"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PollUpdate _senderTimestampMs.
-         * @member {"senderTimestampMs"|undefined} _senderTimestampMs
-         * @memberof Web.PollUpdate
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PollUpdate.prototype, "_senderTimestampMs", {
             get: $util.oneOfGetter($oneOfFields = ["senderTimestampMs"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PollUpdate _serverTimestampMs.
-         * @member {"serverTimestampMs"|undefined} _serverTimestampMs
-         * @memberof Web.PollUpdate
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PollUpdate.prototype, "_serverTimestampMs", {
             get: $util.oneOfGetter($oneOfFields = ["serverTimestampMs"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PollUpdate _unread.
-         * @member {"unread"|undefined} _unread
-         * @memberof Web.PollUpdate
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PollUpdate.prototype, "_unread", {
             get: $util.oneOfGetter($oneOfFields = ["unread"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -5264,56 +5029,31 @@ $root.Web = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * Reaction _key.
-         * @member {"key"|undefined} _key
-         * @memberof Web.Reaction
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Reaction.prototype, "_key", {
             get: $util.oneOfGetter($oneOfFields = ["key"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Reaction _text.
-         * @member {"text"|undefined} _text
-         * @memberof Web.Reaction
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Reaction.prototype, "_text", {
             get: $util.oneOfGetter($oneOfFields = ["text"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Reaction _groupingKey.
-         * @member {"groupingKey"|undefined} _groupingKey
-         * @memberof Web.Reaction
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Reaction.prototype, "_groupingKey", {
             get: $util.oneOfGetter($oneOfFields = ["groupingKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Reaction _senderTimestampMs.
-         * @member {"senderTimestampMs"|undefined} _senderTimestampMs
-         * @memberof Web.Reaction
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Reaction.prototype, "_senderTimestampMs", {
             get: $util.oneOfGetter($oneOfFields = ["senderTimestampMs"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Reaction _unread.
-         * @member {"unread"|undefined} _unread
-         * @memberof Web.Reaction
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Reaction.prototype, "_unread", {
             get: $util.oneOfGetter($oneOfFields = ["unread"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -5666,45 +5406,25 @@ $root.Web = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * UserReceipt _userJid.
-         * @member {"userJid"|undefined} _userJid
-         * @memberof Web.UserReceipt
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(UserReceipt.prototype, "_userJid", {
             get: $util.oneOfGetter($oneOfFields = ["userJid"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * UserReceipt _receiptTimestamp.
-         * @member {"receiptTimestamp"|undefined} _receiptTimestamp
-         * @memberof Web.UserReceipt
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(UserReceipt.prototype, "_receiptTimestamp", {
             get: $util.oneOfGetter($oneOfFields = ["receiptTimestamp"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * UserReceipt _readTimestamp.
-         * @member {"readTimestamp"|undefined} _readTimestamp
-         * @memberof Web.UserReceipt
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(UserReceipt.prototype, "_readTimestamp", {
             get: $util.oneOfGetter($oneOfFields = ["readTimestamp"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * UserReceipt _playedTimestamp.
-         * @member {"playedTimestamp"|undefined} _playedTimestamp
-         * @memberof Web.UserReceipt
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(UserReceipt.prototype, "_playedTimestamp", {
             get: $util.oneOfGetter($oneOfFields = ["playedTimestamp"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -6075,23 +5795,13 @@ $root.Web = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * StatusPSA _campaignId.
-         * @member {"campaignId"|undefined} _campaignId
-         * @memberof Web.StatusPSA
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(StatusPSA.prototype, "_campaignId", {
             get: $util.oneOfGetter($oneOfFields = ["campaignId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * StatusPSA _campaignExpirationTimestamp.
-         * @member {"campaignExpirationTimestamp"|undefined} _campaignExpirationTimestamp
-         * @memberof Web.StatusPSA
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(StatusPSA.prototype, "_campaignExpirationTimestamp", {
             get: $util.oneOfGetter($oneOfFields = ["campaignExpirationTimestamp"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -6365,34 +6075,19 @@ $root.Web = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * PhotoChange _oldPhoto.
-         * @member {"oldPhoto"|undefined} _oldPhoto
-         * @memberof Web.PhotoChange
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PhotoChange.prototype, "_oldPhoto", {
             get: $util.oneOfGetter($oneOfFields = ["oldPhoto"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PhotoChange _newPhoto.
-         * @member {"newPhoto"|undefined} _newPhoto
-         * @memberof Web.PhotoChange
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PhotoChange.prototype, "_newPhoto", {
             get: $util.oneOfGetter($oneOfFields = ["newPhoto"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PhotoChange _newPhotoId.
-         * @member {"newPhotoId"|undefined} _newPhotoId
-         * @memberof Web.PhotoChange
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PhotoChange.prototype, "_newPhotoId", {
             get: $util.oneOfGetter($oneOfFields = ["newPhotoId"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -6652,12 +6347,7 @@ $root.Web = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * MediaData _localPath.
-         * @member {"localPath"|undefined} _localPath
-         * @memberof Web.MediaData
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MediaData.prototype, "_localPath", {
             get: $util.oneOfGetter($oneOfFields = ["localPath"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -6875,12 +6565,7 @@ $root.Web = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * ReportingTokenInfo _reportingTag.
-         * @member {"reportingTag"|undefined} _reportingTag
-         * @memberof Web.ReportingTokenInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ReportingTokenInfo.prototype, "_reportingTag", {
             get: $util.oneOfGetter($oneOfFields = ["reportingTag"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -7497,496 +7182,271 @@ $root.Web = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * WebFeatures _labelsDisplay.
-         * @member {"labelsDisplay"|undefined} _labelsDisplay
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_labelsDisplay", {
             get: $util.oneOfGetter($oneOfFields = ["labelsDisplay"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _voipIndividualOutgoing.
-         * @member {"voipIndividualOutgoing"|undefined} _voipIndividualOutgoing
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_voipIndividualOutgoing", {
             get: $util.oneOfGetter($oneOfFields = ["voipIndividualOutgoing"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _groupsV3.
-         * @member {"groupsV3"|undefined} _groupsV3
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_groupsV3", {
             get: $util.oneOfGetter($oneOfFields = ["groupsV3"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _groupsV3Create.
-         * @member {"groupsV3Create"|undefined} _groupsV3Create
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_groupsV3Create", {
             get: $util.oneOfGetter($oneOfFields = ["groupsV3Create"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _changeNumberV2.
-         * @member {"changeNumberV2"|undefined} _changeNumberV2
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_changeNumberV2", {
             get: $util.oneOfGetter($oneOfFields = ["changeNumberV2"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _queryStatusV3Thumbnail.
-         * @member {"queryStatusV3Thumbnail"|undefined} _queryStatusV3Thumbnail
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_queryStatusV3Thumbnail", {
             get: $util.oneOfGetter($oneOfFields = ["queryStatusV3Thumbnail"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _liveLocations.
-         * @member {"liveLocations"|undefined} _liveLocations
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_liveLocations", {
             get: $util.oneOfGetter($oneOfFields = ["liveLocations"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _queryVname.
-         * @member {"queryVname"|undefined} _queryVname
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_queryVname", {
             get: $util.oneOfGetter($oneOfFields = ["queryVname"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _voipIndividualIncoming.
-         * @member {"voipIndividualIncoming"|undefined} _voipIndividualIncoming
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_voipIndividualIncoming", {
             get: $util.oneOfGetter($oneOfFields = ["voipIndividualIncoming"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _quickRepliesQuery.
-         * @member {"quickRepliesQuery"|undefined} _quickRepliesQuery
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_quickRepliesQuery", {
             get: $util.oneOfGetter($oneOfFields = ["quickRepliesQuery"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _payments.
-         * @member {"payments"|undefined} _payments
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_payments", {
             get: $util.oneOfGetter($oneOfFields = ["payments"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _stickerPackQuery.
-         * @member {"stickerPackQuery"|undefined} _stickerPackQuery
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_stickerPackQuery", {
             get: $util.oneOfGetter($oneOfFields = ["stickerPackQuery"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _liveLocationsFinal.
-         * @member {"liveLocationsFinal"|undefined} _liveLocationsFinal
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_liveLocationsFinal", {
             get: $util.oneOfGetter($oneOfFields = ["liveLocationsFinal"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _labelsEdit.
-         * @member {"labelsEdit"|undefined} _labelsEdit
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_labelsEdit", {
             get: $util.oneOfGetter($oneOfFields = ["labelsEdit"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _mediaUpload.
-         * @member {"mediaUpload"|undefined} _mediaUpload
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_mediaUpload", {
             get: $util.oneOfGetter($oneOfFields = ["mediaUpload"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _mediaUploadRichQuickReplies.
-         * @member {"mediaUploadRichQuickReplies"|undefined} _mediaUploadRichQuickReplies
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_mediaUploadRichQuickReplies", {
             get: $util.oneOfGetter($oneOfFields = ["mediaUploadRichQuickReplies"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _vnameV2.
-         * @member {"vnameV2"|undefined} _vnameV2
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_vnameV2", {
             get: $util.oneOfGetter($oneOfFields = ["vnameV2"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _videoPlaybackUrl.
-         * @member {"videoPlaybackUrl"|undefined} _videoPlaybackUrl
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_videoPlaybackUrl", {
             get: $util.oneOfGetter($oneOfFields = ["videoPlaybackUrl"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _statusRanking.
-         * @member {"statusRanking"|undefined} _statusRanking
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_statusRanking", {
             get: $util.oneOfGetter($oneOfFields = ["statusRanking"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _voipIndividualVideo.
-         * @member {"voipIndividualVideo"|undefined} _voipIndividualVideo
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_voipIndividualVideo", {
             get: $util.oneOfGetter($oneOfFields = ["voipIndividualVideo"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _thirdPartyStickers.
-         * @member {"thirdPartyStickers"|undefined} _thirdPartyStickers
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_thirdPartyStickers", {
             get: $util.oneOfGetter($oneOfFields = ["thirdPartyStickers"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _frequentlyForwardedSetting.
-         * @member {"frequentlyForwardedSetting"|undefined} _frequentlyForwardedSetting
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_frequentlyForwardedSetting", {
             get: $util.oneOfGetter($oneOfFields = ["frequentlyForwardedSetting"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _groupsV4JoinPermission.
-         * @member {"groupsV4JoinPermission"|undefined} _groupsV4JoinPermission
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_groupsV4JoinPermission", {
             get: $util.oneOfGetter($oneOfFields = ["groupsV4JoinPermission"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _recentStickers.
-         * @member {"recentStickers"|undefined} _recentStickers
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_recentStickers", {
             get: $util.oneOfGetter($oneOfFields = ["recentStickers"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _catalog.
-         * @member {"catalog"|undefined} _catalog
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_catalog", {
             get: $util.oneOfGetter($oneOfFields = ["catalog"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _starredStickers.
-         * @member {"starredStickers"|undefined} _starredStickers
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_starredStickers", {
             get: $util.oneOfGetter($oneOfFields = ["starredStickers"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _voipGroupCall.
-         * @member {"voipGroupCall"|undefined} _voipGroupCall
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_voipGroupCall", {
             get: $util.oneOfGetter($oneOfFields = ["voipGroupCall"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _templateMessage.
-         * @member {"templateMessage"|undefined} _templateMessage
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_templateMessage", {
             get: $util.oneOfGetter($oneOfFields = ["templateMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _templateMessageInteractivity.
-         * @member {"templateMessageInteractivity"|undefined} _templateMessageInteractivity
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_templateMessageInteractivity", {
             get: $util.oneOfGetter($oneOfFields = ["templateMessageInteractivity"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _ephemeralMessages.
-         * @member {"ephemeralMessages"|undefined} _ephemeralMessages
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_ephemeralMessages", {
             get: $util.oneOfGetter($oneOfFields = ["ephemeralMessages"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _e2ENotificationSync.
-         * @member {"e2ENotificationSync"|undefined} _e2ENotificationSync
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_e2ENotificationSync", {
             get: $util.oneOfGetter($oneOfFields = ["e2ENotificationSync"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _recentStickersV2.
-         * @member {"recentStickersV2"|undefined} _recentStickersV2
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_recentStickersV2", {
             get: $util.oneOfGetter($oneOfFields = ["recentStickersV2"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _recentStickersV3.
-         * @member {"recentStickersV3"|undefined} _recentStickersV3
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_recentStickersV3", {
             get: $util.oneOfGetter($oneOfFields = ["recentStickersV3"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _userNotice.
-         * @member {"userNotice"|undefined} _userNotice
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_userNotice", {
             get: $util.oneOfGetter($oneOfFields = ["userNotice"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _support.
-         * @member {"support"|undefined} _support
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_support", {
             get: $util.oneOfGetter($oneOfFields = ["support"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _groupUiiCleanup.
-         * @member {"groupUiiCleanup"|undefined} _groupUiiCleanup
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_groupUiiCleanup", {
             get: $util.oneOfGetter($oneOfFields = ["groupUiiCleanup"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _groupDogfoodingInternalOnly.
-         * @member {"groupDogfoodingInternalOnly"|undefined} _groupDogfoodingInternalOnly
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_groupDogfoodingInternalOnly", {
             get: $util.oneOfGetter($oneOfFields = ["groupDogfoodingInternalOnly"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _settingsSync.
-         * @member {"settingsSync"|undefined} _settingsSync
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_settingsSync", {
             get: $util.oneOfGetter($oneOfFields = ["settingsSync"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _archiveV2.
-         * @member {"archiveV2"|undefined} _archiveV2
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_archiveV2", {
             get: $util.oneOfGetter($oneOfFields = ["archiveV2"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _ephemeralAllowGroupMembers.
-         * @member {"ephemeralAllowGroupMembers"|undefined} _ephemeralAllowGroupMembers
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_ephemeralAllowGroupMembers", {
             get: $util.oneOfGetter($oneOfFields = ["ephemeralAllowGroupMembers"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _ephemeral24HDuration.
-         * @member {"ephemeral24HDuration"|undefined} _ephemeral24HDuration
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_ephemeral24HDuration", {
             get: $util.oneOfGetter($oneOfFields = ["ephemeral24HDuration"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _mdForceUpgrade.
-         * @member {"mdForceUpgrade"|undefined} _mdForceUpgrade
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_mdForceUpgrade", {
             get: $util.oneOfGetter($oneOfFields = ["mdForceUpgrade"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _disappearingMode.
-         * @member {"disappearingMode"|undefined} _disappearingMode
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_disappearingMode", {
             get: $util.oneOfGetter($oneOfFields = ["disappearingMode"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _externalMdOptInAvailable.
-         * @member {"externalMdOptInAvailable"|undefined} _externalMdOptInAvailable
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_externalMdOptInAvailable", {
             get: $util.oneOfGetter($oneOfFields = ["externalMdOptInAvailable"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebFeatures _noDeleteMessageTimeLimit.
-         * @member {"noDeleteMessageTimeLimit"|undefined} _noDeleteMessageTimeLimit
-         * @memberof Web.WebFeatures
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebFeatures.prototype, "_noDeleteMessageTimeLimit", {
             get: $util.oneOfGetter($oneOfFields = ["noDeleteMessageTimeLimit"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -10346,45 +9806,25 @@ $root.Web = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * NotificationMessageInfo _key.
-         * @member {"key"|undefined} _key
-         * @memberof Web.NotificationMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(NotificationMessageInfo.prototype, "_key", {
             get: $util.oneOfGetter($oneOfFields = ["key"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * NotificationMessageInfo _message.
-         * @member {"message"|undefined} _message
-         * @memberof Web.NotificationMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(NotificationMessageInfo.prototype, "_message", {
             get: $util.oneOfGetter($oneOfFields = ["message"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * NotificationMessageInfo _messageTimestamp.
-         * @member {"messageTimestamp"|undefined} _messageTimestamp
-         * @memberof Web.NotificationMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(NotificationMessageInfo.prototype, "_messageTimestamp", {
             get: $util.oneOfGetter($oneOfFields = ["messageTimestamp"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * NotificationMessageInfo _participant.
-         * @member {"participant"|undefined} _participant
-         * @memberof Web.NotificationMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(NotificationMessageInfo.prototype, "_participant", {
             get: $util.oneOfGetter($oneOfFields = ["participant"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -10706,34 +10146,19 @@ $root.Web = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * WebNotificationsInfo _timestamp.
-         * @member {"timestamp"|undefined} _timestamp
-         * @memberof Web.WebNotificationsInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebNotificationsInfo.prototype, "_timestamp", {
             get: $util.oneOfGetter($oneOfFields = ["timestamp"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebNotificationsInfo _unreadChats.
-         * @member {"unreadChats"|undefined} _unreadChats
-         * @memberof Web.WebNotificationsInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebNotificationsInfo.prototype, "_unreadChats", {
             get: $util.oneOfGetter($oneOfFields = ["unreadChats"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebNotificationsInfo _notifyMessageCount.
-         * @member {"notifyMessageCount"|undefined} _notifyMessageCount
-         * @memberof Web.WebNotificationsInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebNotificationsInfo.prototype, "_notifyMessageCount", {
             get: $util.oneOfGetter($oneOfFields = ["notifyMessageCount"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -11140,144 +10565,79 @@ $root.Web = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * PaymentInfo _currencyDeprecated.
-         * @member {"currencyDeprecated"|undefined} _currencyDeprecated
-         * @memberof Web.PaymentInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PaymentInfo.prototype, "_currencyDeprecated", {
             get: $util.oneOfGetter($oneOfFields = ["currencyDeprecated"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PaymentInfo _amount1000.
-         * @member {"amount1000"|undefined} _amount1000
-         * @memberof Web.PaymentInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PaymentInfo.prototype, "_amount1000", {
             get: $util.oneOfGetter($oneOfFields = ["amount1000"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PaymentInfo _receiverJid.
-         * @member {"receiverJid"|undefined} _receiverJid
-         * @memberof Web.PaymentInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PaymentInfo.prototype, "_receiverJid", {
             get: $util.oneOfGetter($oneOfFields = ["receiverJid"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PaymentInfo _status.
-         * @member {"status"|undefined} _status
-         * @memberof Web.PaymentInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PaymentInfo.prototype, "_status", {
             get: $util.oneOfGetter($oneOfFields = ["status"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PaymentInfo _transactionTimestamp.
-         * @member {"transactionTimestamp"|undefined} _transactionTimestamp
-         * @memberof Web.PaymentInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PaymentInfo.prototype, "_transactionTimestamp", {
             get: $util.oneOfGetter($oneOfFields = ["transactionTimestamp"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PaymentInfo _requestMessageKey.
-         * @member {"requestMessageKey"|undefined} _requestMessageKey
-         * @memberof Web.PaymentInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PaymentInfo.prototype, "_requestMessageKey", {
             get: $util.oneOfGetter($oneOfFields = ["requestMessageKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PaymentInfo _expiryTimestamp.
-         * @member {"expiryTimestamp"|undefined} _expiryTimestamp
-         * @memberof Web.PaymentInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PaymentInfo.prototype, "_expiryTimestamp", {
             get: $util.oneOfGetter($oneOfFields = ["expiryTimestamp"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PaymentInfo _futureproofed.
-         * @member {"futureproofed"|undefined} _futureproofed
-         * @memberof Web.PaymentInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PaymentInfo.prototype, "_futureproofed", {
             get: $util.oneOfGetter($oneOfFields = ["futureproofed"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PaymentInfo _currency.
-         * @member {"currency"|undefined} _currency
-         * @memberof Web.PaymentInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PaymentInfo.prototype, "_currency", {
             get: $util.oneOfGetter($oneOfFields = ["currency"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PaymentInfo _txnStatus.
-         * @member {"txnStatus"|undefined} _txnStatus
-         * @memberof Web.PaymentInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PaymentInfo.prototype, "_txnStatus", {
             get: $util.oneOfGetter($oneOfFields = ["txnStatus"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PaymentInfo _useNoviFiatFormat.
-         * @member {"useNoviFiatFormat"|undefined} _useNoviFiatFormat
-         * @memberof Web.PaymentInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PaymentInfo.prototype, "_useNoviFiatFormat", {
             get: $util.oneOfGetter($oneOfFields = ["useNoviFiatFormat"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PaymentInfo _primaryAmount.
-         * @member {"primaryAmount"|undefined} _primaryAmount
-         * @memberof Web.PaymentInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PaymentInfo.prototype, "_primaryAmount", {
             get: $util.oneOfGetter($oneOfFields = ["primaryAmount"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PaymentInfo _exchangeAmount.
-         * @member {"exchangeAmount"|undefined} _exchangeAmount
-         * @memberof Web.PaymentInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PaymentInfo.prototype, "_exchangeAmount", {
             get: $util.oneOfGetter($oneOfFields = ["exchangeAmount"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -12147,23 +11507,13 @@ $root.Web = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * CommentMetadata _commentParentKey.
-         * @member {"commentParentKey"|undefined} _commentParentKey
-         * @memberof Web.CommentMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(CommentMetadata.prototype, "_commentParentKey", {
             get: $util.oneOfGetter($oneOfFields = ["commentParentKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * CommentMetadata _replyCount.
-         * @member {"replyCount"|undefined} _replyCount
-         * @memberof Web.CommentMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(CommentMetadata.prototype, "_replyCount", {
             get: $util.oneOfGetter($oneOfFields = ["replyCount"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -13009,628 +12359,343 @@ $root.Web = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * WebMessageInfo _key.
-         * @member {"key"|undefined} _key
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_key", {
             get: $util.oneOfGetter($oneOfFields = ["key"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _message.
-         * @member {"message"|undefined} _message
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_message", {
             get: $util.oneOfGetter($oneOfFields = ["message"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _messageTimestamp.
-         * @member {"messageTimestamp"|undefined} _messageTimestamp
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_messageTimestamp", {
             get: $util.oneOfGetter($oneOfFields = ["messageTimestamp"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _status.
-         * @member {"status"|undefined} _status
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_status", {
             get: $util.oneOfGetter($oneOfFields = ["status"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _participant.
-         * @member {"participant"|undefined} _participant
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_participant", {
             get: $util.oneOfGetter($oneOfFields = ["participant"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _messageC2STimestamp.
-         * @member {"messageC2STimestamp"|undefined} _messageC2STimestamp
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_messageC2STimestamp", {
             get: $util.oneOfGetter($oneOfFields = ["messageC2STimestamp"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _ignore.
-         * @member {"ignore"|undefined} _ignore
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_ignore", {
             get: $util.oneOfGetter($oneOfFields = ["ignore"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _starred.
-         * @member {"starred"|undefined} _starred
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_starred", {
             get: $util.oneOfGetter($oneOfFields = ["starred"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _broadcast.
-         * @member {"broadcast"|undefined} _broadcast
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_broadcast", {
             get: $util.oneOfGetter($oneOfFields = ["broadcast"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _pushName.
-         * @member {"pushName"|undefined} _pushName
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_pushName", {
             get: $util.oneOfGetter($oneOfFields = ["pushName"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _mediaCiphertextSha256.
-         * @member {"mediaCiphertextSha256"|undefined} _mediaCiphertextSha256
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_mediaCiphertextSha256", {
             get: $util.oneOfGetter($oneOfFields = ["mediaCiphertextSha256"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _multicast.
-         * @member {"multicast"|undefined} _multicast
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_multicast", {
             get: $util.oneOfGetter($oneOfFields = ["multicast"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _urlText.
-         * @member {"urlText"|undefined} _urlText
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_urlText", {
             get: $util.oneOfGetter($oneOfFields = ["urlText"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _urlNumber.
-         * @member {"urlNumber"|undefined} _urlNumber
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_urlNumber", {
             get: $util.oneOfGetter($oneOfFields = ["urlNumber"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _messageStubType.
-         * @member {"messageStubType"|undefined} _messageStubType
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_messageStubType", {
             get: $util.oneOfGetter($oneOfFields = ["messageStubType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _clearMedia.
-         * @member {"clearMedia"|undefined} _clearMedia
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_clearMedia", {
             get: $util.oneOfGetter($oneOfFields = ["clearMedia"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _duration.
-         * @member {"duration"|undefined} _duration
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_duration", {
             get: $util.oneOfGetter($oneOfFields = ["duration"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _paymentInfo.
-         * @member {"paymentInfo"|undefined} _paymentInfo
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_paymentInfo", {
             get: $util.oneOfGetter($oneOfFields = ["paymentInfo"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _finalLiveLocation.
-         * @member {"finalLiveLocation"|undefined} _finalLiveLocation
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_finalLiveLocation", {
             get: $util.oneOfGetter($oneOfFields = ["finalLiveLocation"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _quotedPaymentInfo.
-         * @member {"quotedPaymentInfo"|undefined} _quotedPaymentInfo
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_quotedPaymentInfo", {
             get: $util.oneOfGetter($oneOfFields = ["quotedPaymentInfo"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _ephemeralStartTimestamp.
-         * @member {"ephemeralStartTimestamp"|undefined} _ephemeralStartTimestamp
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_ephemeralStartTimestamp", {
             get: $util.oneOfGetter($oneOfFields = ["ephemeralStartTimestamp"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _ephemeralDuration.
-         * @member {"ephemeralDuration"|undefined} _ephemeralDuration
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_ephemeralDuration", {
             get: $util.oneOfGetter($oneOfFields = ["ephemeralDuration"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _ephemeralOffToOn.
-         * @member {"ephemeralOffToOn"|undefined} _ephemeralOffToOn
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_ephemeralOffToOn", {
             get: $util.oneOfGetter($oneOfFields = ["ephemeralOffToOn"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _ephemeralOutOfSync.
-         * @member {"ephemeralOutOfSync"|undefined} _ephemeralOutOfSync
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_ephemeralOutOfSync", {
             get: $util.oneOfGetter($oneOfFields = ["ephemeralOutOfSync"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _bizPrivacyStatus.
-         * @member {"bizPrivacyStatus"|undefined} _bizPrivacyStatus
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_bizPrivacyStatus", {
             get: $util.oneOfGetter($oneOfFields = ["bizPrivacyStatus"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _verifiedBizName.
-         * @member {"verifiedBizName"|undefined} _verifiedBizName
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_verifiedBizName", {
             get: $util.oneOfGetter($oneOfFields = ["verifiedBizName"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _mediaData.
-         * @member {"mediaData"|undefined} _mediaData
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_mediaData", {
             get: $util.oneOfGetter($oneOfFields = ["mediaData"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _photoChange.
-         * @member {"photoChange"|undefined} _photoChange
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_photoChange", {
             get: $util.oneOfGetter($oneOfFields = ["photoChange"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _quotedStickerData.
-         * @member {"quotedStickerData"|undefined} _quotedStickerData
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_quotedStickerData", {
             get: $util.oneOfGetter($oneOfFields = ["quotedStickerData"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _futureproofData.
-         * @member {"futureproofData"|undefined} _futureproofData
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_futureproofData", {
             get: $util.oneOfGetter($oneOfFields = ["futureproofData"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _statusPsa.
-         * @member {"statusPsa"|undefined} _statusPsa
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_statusPsa", {
             get: $util.oneOfGetter($oneOfFields = ["statusPsa"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _pollAdditionalMetadata.
-         * @member {"pollAdditionalMetadata"|undefined} _pollAdditionalMetadata
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_pollAdditionalMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["pollAdditionalMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _agentId.
-         * @member {"agentId"|undefined} _agentId
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_agentId", {
             get: $util.oneOfGetter($oneOfFields = ["agentId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _statusAlreadyViewed.
-         * @member {"statusAlreadyViewed"|undefined} _statusAlreadyViewed
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_statusAlreadyViewed", {
             get: $util.oneOfGetter($oneOfFields = ["statusAlreadyViewed"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _messageSecret.
-         * @member {"messageSecret"|undefined} _messageSecret
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_messageSecret", {
             get: $util.oneOfGetter($oneOfFields = ["messageSecret"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _keepInChat.
-         * @member {"keepInChat"|undefined} _keepInChat
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_keepInChat", {
             get: $util.oneOfGetter($oneOfFields = ["keepInChat"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _originalSelfAuthorUserJidString.
-         * @member {"originalSelfAuthorUserJidString"|undefined} _originalSelfAuthorUserJidString
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_originalSelfAuthorUserJidString", {
             get: $util.oneOfGetter($oneOfFields = ["originalSelfAuthorUserJidString"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _revokeMessageTimestamp.
-         * @member {"revokeMessageTimestamp"|undefined} _revokeMessageTimestamp
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_revokeMessageTimestamp", {
             get: $util.oneOfGetter($oneOfFields = ["revokeMessageTimestamp"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _pinInChat.
-         * @member {"pinInChat"|undefined} _pinInChat
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_pinInChat", {
             get: $util.oneOfGetter($oneOfFields = ["pinInChat"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _premiumMessageInfo.
-         * @member {"premiumMessageInfo"|undefined} _premiumMessageInfo
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_premiumMessageInfo", {
             get: $util.oneOfGetter($oneOfFields = ["premiumMessageInfo"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _is1PBizBotMessage.
-         * @member {"is1PBizBotMessage"|undefined} _is1PBizBotMessage
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_is1PBizBotMessage", {
             get: $util.oneOfGetter($oneOfFields = ["is1PBizBotMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _isGroupHistoryMessage.
-         * @member {"isGroupHistoryMessage"|undefined} _isGroupHistoryMessage
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_isGroupHistoryMessage", {
             get: $util.oneOfGetter($oneOfFields = ["isGroupHistoryMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _botMessageInvokerJid.
-         * @member {"botMessageInvokerJid"|undefined} _botMessageInvokerJid
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_botMessageInvokerJid", {
             get: $util.oneOfGetter($oneOfFields = ["botMessageInvokerJid"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _commentMetadata.
-         * @member {"commentMetadata"|undefined} _commentMetadata
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_commentMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["commentMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _reportingTokenInfo.
-         * @member {"reportingTokenInfo"|undefined} _reportingTokenInfo
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_reportingTokenInfo", {
             get: $util.oneOfGetter($oneOfFields = ["reportingTokenInfo"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _newsletterServerId.
-         * @member {"newsletterServerId"|undefined} _newsletterServerId
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_newsletterServerId", {
             get: $util.oneOfGetter($oneOfFields = ["newsletterServerId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _eventAdditionalMetadata.
-         * @member {"eventAdditionalMetadata"|undefined} _eventAdditionalMetadata
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_eventAdditionalMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["eventAdditionalMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _isMentionedInStatus.
-         * @member {"isMentionedInStatus"|undefined} _isMentionedInStatus
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_isMentionedInStatus", {
             get: $util.oneOfGetter($oneOfFields = ["isMentionedInStatus"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _targetMessageId.
-         * @member {"targetMessageId"|undefined} _targetMessageId
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_targetMessageId", {
             get: $util.oneOfGetter($oneOfFields = ["targetMessageId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _statusMentionMessageInfo.
-         * @member {"statusMentionMessageInfo"|undefined} _statusMentionMessageInfo
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_statusMentionMessageInfo", {
             get: $util.oneOfGetter($oneOfFields = ["statusMentionMessageInfo"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _isSupportAiMessage.
-         * @member {"isSupportAiMessage"|undefined} _isSupportAiMessage
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_isSupportAiMessage", {
             get: $util.oneOfGetter($oneOfFields = ["isSupportAiMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _botTargetId.
-         * @member {"botTargetId"|undefined} _botTargetId
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_botTargetId", {
             get: $util.oneOfGetter($oneOfFields = ["botTargetId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _groupHistoryIndividualMessageInfo.
-         * @member {"groupHistoryIndividualMessageInfo"|undefined} _groupHistoryIndividualMessageInfo
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_groupHistoryIndividualMessageInfo", {
             get: $util.oneOfGetter($oneOfFields = ["groupHistoryIndividualMessageInfo"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _groupHistoryBundleInfo.
-         * @member {"groupHistoryBundleInfo"|undefined} _groupHistoryBundleInfo
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_groupHistoryBundleInfo", {
             get: $util.oneOfGetter($oneOfFields = ["groupHistoryBundleInfo"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _interactiveMessageAdditionalMetadata.
-         * @member {"interactiveMessageAdditionalMetadata"|undefined} _interactiveMessageAdditionalMetadata
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_interactiveMessageAdditionalMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["interactiveMessageAdditionalMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _quarantinedMessage.
-         * @member {"quarantinedMessage"|undefined} _quarantinedMessage
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_quarantinedMessage", {
             get: $util.oneOfGetter($oneOfFields = ["quarantinedMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * WebMessageInfo _nonJidMentions.
-         * @member {"nonJidMentions"|undefined} _nonJidMentions
-         * @memberof Web.WebMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(WebMessageInfo.prototype, "_nonJidMentions", {
             get: $util.oneOfGetter($oneOfFields = ["nonJidMentions"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -17094,34 +16159,19 @@ $root.E2E = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * AIQueryFanout _messageKey.
-         * @member {"messageKey"|undefined} _messageKey
-         * @memberof E2E.AIQueryFanout
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIQueryFanout.prototype, "_messageKey", {
             get: $util.oneOfGetter($oneOfFields = ["messageKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * AIQueryFanout _message.
-         * @member {"message"|undefined} _message
-         * @memberof E2E.AIQueryFanout
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIQueryFanout.prototype, "_message", {
             get: $util.oneOfGetter($oneOfFields = ["message"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * AIQueryFanout _timestamp.
-         * @member {"timestamp"|undefined} _timestamp
-         * @memberof E2E.AIQueryFanout
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIQueryFanout.prototype, "_timestamp", {
             get: $util.oneOfGetter($oneOfFields = ["timestamp"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -17425,34 +16475,19 @@ $root.E2E = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * AIRichResponseMessage _messageType.
-         * @member {"messageType"|undefined} _messageType
-         * @memberof E2E.AIRichResponseMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseMessage.prototype, "_messageType", {
             get: $util.oneOfGetter($oneOfFields = ["messageType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * AIRichResponseMessage _unifiedResponse.
-         * @member {"unifiedResponse"|undefined} _unifiedResponse
-         * @memberof E2E.AIRichResponseMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseMessage.prototype, "_unifiedResponse", {
             get: $util.oneOfGetter($oneOfFields = ["unifiedResponse"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * AIRichResponseMessage _contextInfo.
-         * @member {"contextInfo"|undefined} _contextInfo
-         * @memberof E2E.AIRichResponseMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseMessage.prototype, "_contextInfo", {
             get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -17781,23 +16816,13 @@ $root.E2E = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * MemberLabel _label.
-         * @member {"label"|undefined} _label
-         * @memberof E2E.MemberLabel
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MemberLabel.prototype, "_label", {
             get: $util.oneOfGetter($oneOfFields = ["label"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MemberLabel _labelTimestamp.
-         * @member {"labelTimestamp"|undefined} _labelTimestamp
-         * @memberof E2E.MemberLabel
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MemberLabel.prototype, "_labelTimestamp", {
             get: $util.oneOfGetter($oneOfFields = ["labelTimestamp"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -18293,45 +17318,25 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * UrlTrackingMapElement _originalUrl.
-             * @member {"originalUrl"|undefined} _originalUrl
-             * @memberof E2E.UrlTrackingMap.UrlTrackingMapElement
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(UrlTrackingMapElement.prototype, "_originalUrl", {
                 get: $util.oneOfGetter($oneOfFields = ["originalUrl"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * UrlTrackingMapElement _unconsentedUsersUrl.
-             * @member {"unconsentedUsersUrl"|undefined} _unconsentedUsersUrl
-             * @memberof E2E.UrlTrackingMap.UrlTrackingMapElement
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(UrlTrackingMapElement.prototype, "_unconsentedUsersUrl", {
                 get: $util.oneOfGetter($oneOfFields = ["unconsentedUsersUrl"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * UrlTrackingMapElement _consentedUsersUrl.
-             * @member {"consentedUsersUrl"|undefined} _consentedUsersUrl
-             * @memberof E2E.UrlTrackingMap.UrlTrackingMapElement
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(UrlTrackingMapElement.prototype, "_consentedUsersUrl", {
                 get: $util.oneOfGetter($oneOfFields = ["consentedUsersUrl"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * UrlTrackingMapElement _cardIndex.
-             * @member {"cardIndex"|undefined} _cardIndex
-             * @memberof E2E.UrlTrackingMap.UrlTrackingMapElement
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(UrlTrackingMapElement.prototype, "_cardIndex", {
                 get: $util.oneOfGetter($oneOfFields = ["cardIndex"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -18670,78 +17675,43 @@ $root.E2E = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * ProcessedVideo _directPath.
-         * @member {"directPath"|undefined} _directPath
-         * @memberof E2E.ProcessedVideo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ProcessedVideo.prototype, "_directPath", {
             get: $util.oneOfGetter($oneOfFields = ["directPath"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ProcessedVideo _fileSha256.
-         * @member {"fileSha256"|undefined} _fileSha256
-         * @memberof E2E.ProcessedVideo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ProcessedVideo.prototype, "_fileSha256", {
             get: $util.oneOfGetter($oneOfFields = ["fileSha256"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ProcessedVideo _height.
-         * @member {"height"|undefined} _height
-         * @memberof E2E.ProcessedVideo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ProcessedVideo.prototype, "_height", {
             get: $util.oneOfGetter($oneOfFields = ["height"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ProcessedVideo _width.
-         * @member {"width"|undefined} _width
-         * @memberof E2E.ProcessedVideo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ProcessedVideo.prototype, "_width", {
             get: $util.oneOfGetter($oneOfFields = ["width"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ProcessedVideo _fileLength.
-         * @member {"fileLength"|undefined} _fileLength
-         * @memberof E2E.ProcessedVideo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ProcessedVideo.prototype, "_fileLength", {
             get: $util.oneOfGetter($oneOfFields = ["fileLength"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ProcessedVideo _bitrate.
-         * @member {"bitrate"|undefined} _bitrate
-         * @memberof E2E.ProcessedVideo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ProcessedVideo.prototype, "_bitrate", {
             get: $util.oneOfGetter($oneOfFields = ["bitrate"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ProcessedVideo _quality.
-         * @member {"quality"|undefined} _quality
-         * @memberof E2E.ProcessedVideo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ProcessedVideo.prototype, "_quality", {
             get: $util.oneOfGetter($oneOfFields = ["quality"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -19157,12 +18127,7 @@ $root.E2E = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * LIDMigrationMappingSyncMessage _encodedMappingPayload.
-         * @member {"encodedMappingPayload"|undefined} _encodedMappingPayload
-         * @memberof E2E.LIDMigrationMappingSyncMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(LIDMigrationMappingSyncMessage.prototype, "_encodedMappingPayload", {
             get: $util.oneOfGetter($oneOfFields = ["encodedMappingPayload"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -19401,34 +18366,19 @@ $root.E2E = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * MediaNotifyMessage _expressPathUrl.
-         * @member {"expressPathUrl"|undefined} _expressPathUrl
-         * @memberof E2E.MediaNotifyMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MediaNotifyMessage.prototype, "_expressPathUrl", {
             get: $util.oneOfGetter($oneOfFields = ["expressPathUrl"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MediaNotifyMessage _fileEncSha256.
-         * @member {"fileEncSha256"|undefined} _fileEncSha256
-         * @memberof E2E.MediaNotifyMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MediaNotifyMessage.prototype, "_fileEncSha256", {
             get: $util.oneOfGetter($oneOfFields = ["fileEncSha256"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MediaNotifyMessage _fileLength.
-         * @member {"fileLength"|undefined} _fileLength
-         * @memberof E2E.MediaNotifyMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MediaNotifyMessage.prototype, "_fileLength", {
             get: $util.oneOfGetter($oneOfFields = ["fileLength"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -19713,34 +18663,19 @@ $root.E2E = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * MessageSecretMessage _version.
-         * @member {"version"|undefined} _version
-         * @memberof E2E.MessageSecretMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageSecretMessage.prototype, "_version", {
             get: $util.oneOfGetter($oneOfFields = ["version"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageSecretMessage _encIv.
-         * @member {"encIv"|undefined} _encIv
-         * @memberof E2E.MessageSecretMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageSecretMessage.prototype, "_encIv", {
             get: $util.oneOfGetter($oneOfFields = ["encIv"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageSecretMessage _encPayload.
-         * @member {"encPayload"|undefined} _encPayload
-         * @memberof E2E.MessageSecretMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageSecretMessage.prototype, "_encPayload", {
             get: $util.oneOfGetter($oneOfFields = ["encPayload"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -20009,23 +18944,13 @@ $root.E2E = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * GroupMention _groupJid.
-         * @member {"groupJid"|undefined} _groupJid
-         * @memberof E2E.GroupMention
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(GroupMention.prototype, "_groupJid", {
             get: $util.oneOfGetter($oneOfFields = ["groupJid"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * GroupMention _groupSubject.
-         * @member {"groupSubject"|undefined} _groupSubject
-         * @memberof E2E.GroupMention
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(GroupMention.prototype, "_groupSubject", {
             get: $util.oneOfGetter($oneOfFields = ["groupSubject"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -20270,23 +19195,13 @@ $root.E2E = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * ActionLink _url.
-         * @member {"url"|undefined} _url
-         * @memberof E2E.ActionLink
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ActionLink.prototype, "_url", {
             get: $util.oneOfGetter($oneOfFields = ["url"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ActionLink _buttonTitle.
-         * @member {"buttonTitle"|undefined} _buttonTitle
-         * @memberof E2E.ActionLink
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ActionLink.prototype, "_buttonTitle", {
             get: $util.oneOfGetter($oneOfFields = ["buttonTitle"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -20549,45 +19464,25 @@ $root.E2E = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * DisappearingMode _initiator.
-         * @member {"initiator"|undefined} _initiator
-         * @memberof E2E.DisappearingMode
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DisappearingMode.prototype, "_initiator", {
             get: $util.oneOfGetter($oneOfFields = ["initiator"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * DisappearingMode _trigger.
-         * @member {"trigger"|undefined} _trigger
-         * @memberof E2E.DisappearingMode
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DisappearingMode.prototype, "_trigger", {
             get: $util.oneOfGetter($oneOfFields = ["trigger"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * DisappearingMode _initiatorDeviceJid.
-         * @member {"initiatorDeviceJid"|undefined} _initiatorDeviceJid
-         * @memberof E2E.DisappearingMode
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DisappearingMode.prototype, "_initiatorDeviceJid", {
             get: $util.oneOfGetter($oneOfFields = ["initiatorDeviceJid"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * DisappearingMode _initiatedByMe.
-         * @member {"initiatedByMe"|undefined} _initiatedByMe
-         * @memberof E2E.DisappearingMode
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DisappearingMode.prototype, "_initiatedByMe", {
             get: $util.oneOfGetter($oneOfFields = ["initiatedByMe"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -21048,111 +19943,61 @@ $root.E2E = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * PaymentBackground _id.
-         * @member {"id"|undefined} _id
-         * @memberof E2E.PaymentBackground
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PaymentBackground.prototype, "_id", {
             get: $util.oneOfGetter($oneOfFields = ["id"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PaymentBackground _fileLength.
-         * @member {"fileLength"|undefined} _fileLength
-         * @memberof E2E.PaymentBackground
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PaymentBackground.prototype, "_fileLength", {
             get: $util.oneOfGetter($oneOfFields = ["fileLength"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PaymentBackground _width.
-         * @member {"width"|undefined} _width
-         * @memberof E2E.PaymentBackground
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PaymentBackground.prototype, "_width", {
             get: $util.oneOfGetter($oneOfFields = ["width"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PaymentBackground _height.
-         * @member {"height"|undefined} _height
-         * @memberof E2E.PaymentBackground
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PaymentBackground.prototype, "_height", {
             get: $util.oneOfGetter($oneOfFields = ["height"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PaymentBackground _mimetype.
-         * @member {"mimetype"|undefined} _mimetype
-         * @memberof E2E.PaymentBackground
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PaymentBackground.prototype, "_mimetype", {
             get: $util.oneOfGetter($oneOfFields = ["mimetype"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PaymentBackground _placeholderArgb.
-         * @member {"placeholderArgb"|undefined} _placeholderArgb
-         * @memberof E2E.PaymentBackground
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PaymentBackground.prototype, "_placeholderArgb", {
             get: $util.oneOfGetter($oneOfFields = ["placeholderArgb"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PaymentBackground _textArgb.
-         * @member {"textArgb"|undefined} _textArgb
-         * @memberof E2E.PaymentBackground
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PaymentBackground.prototype, "_textArgb", {
             get: $util.oneOfGetter($oneOfFields = ["textArgb"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PaymentBackground _subtextArgb.
-         * @member {"subtextArgb"|undefined} _subtextArgb
-         * @memberof E2E.PaymentBackground
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PaymentBackground.prototype, "_subtextArgb", {
             get: $util.oneOfGetter($oneOfFields = ["subtextArgb"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PaymentBackground _mediaData.
-         * @member {"mediaData"|undefined} _mediaData
-         * @memberof E2E.PaymentBackground
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PaymentBackground.prototype, "_mediaData", {
             get: $util.oneOfGetter($oneOfFields = ["mediaData"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PaymentBackground _type.
-         * @member {"type"|undefined} _type
-         * @memberof E2E.PaymentBackground
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PaymentBackground.prototype, "_type", {
             get: $util.oneOfGetter($oneOfFields = ["type"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -21600,56 +20445,31 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * MediaData _mediaKey.
-             * @member {"mediaKey"|undefined} _mediaKey
-             * @memberof E2E.PaymentBackground.MediaData
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MediaData.prototype, "_mediaKey", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MediaData _mediaKeyTimestamp.
-             * @member {"mediaKeyTimestamp"|undefined} _mediaKeyTimestamp
-             * @memberof E2E.PaymentBackground.MediaData
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MediaData.prototype, "_mediaKeyTimestamp", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaKeyTimestamp"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MediaData _fileSha256.
-             * @member {"fileSha256"|undefined} _fileSha256
-             * @memberof E2E.PaymentBackground.MediaData
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MediaData.prototype, "_fileSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["fileSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MediaData _fileEncSha256.
-             * @member {"fileEncSha256"|undefined} _fileEncSha256
-             * @memberof E2E.PaymentBackground.MediaData
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MediaData.prototype, "_fileEncSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["fileEncSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MediaData _directPath.
-             * @member {"directPath"|undefined} _directPath
-             * @memberof E2E.PaymentBackground.MediaData
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MediaData.prototype, "_directPath", {
                 get: $util.oneOfGetter($oneOfFields = ["directPath"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -21993,34 +20813,19 @@ $root.E2E = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * Money _value.
-         * @member {"value"|undefined} _value
-         * @memberof E2E.Money
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Money.prototype, "_value", {
             get: $util.oneOfGetter($oneOfFields = ["value"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Money _offset.
-         * @member {"offset"|undefined} _offset
-         * @memberof E2E.Money
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Money.prototype, "_offset", {
             get: $util.oneOfGetter($oneOfFields = ["offset"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Money _currencyCode.
-         * @member {"currencyCode"|undefined} _currencyCode
-         * @memberof E2E.Money
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Money.prototype, "_currencyCode", {
             get: $util.oneOfGetter($oneOfFields = ["currencyCode"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -22311,12 +21116,7 @@ $root.E2E = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * HydratedTemplateButton _index.
-         * @member {"index"|undefined} _index
-         * @memberof E2E.HydratedTemplateButton
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(HydratedTemplateButton.prototype, "_index", {
             get: $util.oneOfGetter($oneOfFields = ["index"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -22627,23 +21427,13 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * HydratedCallButton _displayText.
-             * @member {"displayText"|undefined} _displayText
-             * @memberof E2E.HydratedTemplateButton.HydratedCallButton
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HydratedCallButton.prototype, "_displayText", {
                 get: $util.oneOfGetter($oneOfFields = ["displayText"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HydratedCallButton _phoneNumber.
-             * @member {"phoneNumber"|undefined} _phoneNumber
-             * @memberof E2E.HydratedTemplateButton.HydratedCallButton
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HydratedCallButton.prototype, "_phoneNumber", {
                 get: $util.oneOfGetter($oneOfFields = ["phoneNumber"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -22888,23 +21678,13 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * HydratedQuickReplyButton _displayText.
-             * @member {"displayText"|undefined} _displayText
-             * @memberof E2E.HydratedTemplateButton.HydratedQuickReplyButton
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HydratedQuickReplyButton.prototype, "_displayText", {
                 get: $util.oneOfGetter($oneOfFields = ["displayText"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HydratedQuickReplyButton _id.
-             * @member {"id"|undefined} _id
-             * @memberof E2E.HydratedTemplateButton.HydratedQuickReplyButton
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HydratedQuickReplyButton.prototype, "_id", {
                 get: $util.oneOfGetter($oneOfFields = ["id"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -23167,45 +21947,25 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * HydratedURLButton _displayText.
-             * @member {"displayText"|undefined} _displayText
-             * @memberof E2E.HydratedTemplateButton.HydratedURLButton
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HydratedURLButton.prototype, "_displayText", {
                 get: $util.oneOfGetter($oneOfFields = ["displayText"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HydratedURLButton _url.
-             * @member {"url"|undefined} _url
-             * @memberof E2E.HydratedTemplateButton.HydratedURLButton
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HydratedURLButton.prototype, "_url", {
                 get: $util.oneOfGetter($oneOfFields = ["url"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HydratedURLButton _consentedUsersUrl.
-             * @member {"consentedUsersUrl"|undefined} _consentedUsersUrl
-             * @memberof E2E.HydratedTemplateButton.HydratedURLButton
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HydratedURLButton.prototype, "_consentedUsersUrl", {
                 get: $util.oneOfGetter($oneOfFields = ["consentedUsersUrl"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HydratedURLButton _webviewPresentation.
-             * @member {"webviewPresentation"|undefined} _webviewPresentation
-             * @memberof E2E.HydratedTemplateButton.HydratedURLButton
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HydratedURLButton.prototype, "_webviewPresentation", {
                 get: $util.oneOfGetter($oneOfFields = ["webviewPresentation"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -23547,12 +22307,7 @@ $root.E2E = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * TemplateButton _index.
-         * @member {"index"|undefined} _index
-         * @memberof E2E.TemplateButton
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(TemplateButton.prototype, "_index", {
             get: $util.oneOfGetter($oneOfFields = ["index"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -23863,23 +22618,13 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * CallButton _displayText.
-             * @member {"displayText"|undefined} _displayText
-             * @memberof E2E.TemplateButton.CallButton
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(CallButton.prototype, "_displayText", {
                 get: $util.oneOfGetter($oneOfFields = ["displayText"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * CallButton _phoneNumber.
-             * @member {"phoneNumber"|undefined} _phoneNumber
-             * @memberof E2E.TemplateButton.CallButton
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(CallButton.prototype, "_phoneNumber", {
                 get: $util.oneOfGetter($oneOfFields = ["phoneNumber"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -24136,23 +22881,13 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * QuickReplyButton _displayText.
-             * @member {"displayText"|undefined} _displayText
-             * @memberof E2E.TemplateButton.QuickReplyButton
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(QuickReplyButton.prototype, "_displayText", {
                 get: $util.oneOfGetter($oneOfFields = ["displayText"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * QuickReplyButton _id.
-             * @member {"id"|undefined} _id
-             * @memberof E2E.TemplateButton.QuickReplyButton
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(QuickReplyButton.prototype, "_id", {
                 get: $util.oneOfGetter($oneOfFields = ["id"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -24403,23 +23138,13 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * URLButton _displayText.
-             * @member {"displayText"|undefined} _displayText
-             * @memberof E2E.TemplateButton.URLButton
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(URLButton.prototype, "_displayText", {
                 get: $util.oneOfGetter($oneOfFields = ["displayText"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * URLButton _url.
-             * @member {"url"|undefined} _url
-             * @memberof E2E.TemplateButton.URLButton
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(URLButton.prototype, "_url", {
                 get: $util.oneOfGetter($oneOfFields = ["url"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -24688,34 +23413,19 @@ $root.E2E = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * Location _degreesLatitude.
-         * @member {"degreesLatitude"|undefined} _degreesLatitude
-         * @memberof E2E.Location
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Location.prototype, "_degreesLatitude", {
             get: $util.oneOfGetter($oneOfFields = ["degreesLatitude"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Location _degreesLongitude.
-         * @member {"degreesLongitude"|undefined} _degreesLongitude
-         * @memberof E2E.Location
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Location.prototype, "_degreesLongitude", {
             get: $util.oneOfGetter($oneOfFields = ["degreesLongitude"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Location _name.
-         * @member {"name"|undefined} _name
-         * @memberof E2E.Location
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Location.prototype, "_name", {
             get: $util.oneOfGetter($oneOfFields = ["name"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -24996,45 +23706,25 @@ $root.E2E = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * Point _xDeprecated.
-         * @member {"xDeprecated"|undefined} _xDeprecated
-         * @memberof E2E.Point
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Point.prototype, "_xDeprecated", {
             get: $util.oneOfGetter($oneOfFields = ["xDeprecated"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Point _yDeprecated.
-         * @member {"yDeprecated"|undefined} _yDeprecated
-         * @memberof E2E.Point
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Point.prototype, "_yDeprecated", {
             get: $util.oneOfGetter($oneOfFields = ["yDeprecated"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Point _x.
-         * @member {"x"|undefined} _x
-         * @memberof E2E.Point
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Point.prototype, "_x", {
             get: $util.oneOfGetter($oneOfFields = ["x"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Point _y.
-         * @member {"y"|undefined} _y
-         * @memberof E2E.Point
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Point.prototype, "_y", {
             get: $util.oneOfGetter($oneOfFields = ["y"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -25370,34 +24060,19 @@ $root.E2E = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * InteractiveAnnotation _shouldSkipConfirmation.
-         * @member {"shouldSkipConfirmation"|undefined} _shouldSkipConfirmation
-         * @memberof E2E.InteractiveAnnotation
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(InteractiveAnnotation.prototype, "_shouldSkipConfirmation", {
             get: $util.oneOfGetter($oneOfFields = ["shouldSkipConfirmation"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * InteractiveAnnotation _embeddedContent.
-         * @member {"embeddedContent"|undefined} _embeddedContent
-         * @memberof E2E.InteractiveAnnotation
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(InteractiveAnnotation.prototype, "_embeddedContent", {
             get: $util.oneOfGetter($oneOfFields = ["embeddedContent"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * InteractiveAnnotation _statusLinkType.
-         * @member {"statusLinkType"|undefined} _statusLinkType
-         * @memberof E2E.InteractiveAnnotation
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(InteractiveAnnotation.prototype, "_statusLinkType", {
             get: $util.oneOfGetter($oneOfFields = ["statusLinkType"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -25848,23 +24523,13 @@ $root.E2E = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * TapLinkAction _title.
-         * @member {"title"|undefined} _title
-         * @memberof E2E.TapLinkAction
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(TapLinkAction.prototype, "_title", {
             get: $util.oneOfGetter($oneOfFields = ["title"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * TapLinkAction _tapUrl.
-         * @member {"tapUrl"|undefined} _tapUrl
-         * @memberof E2E.TapLinkAction
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(TapLinkAction.prototype, "_tapUrl", {
             get: $util.oneOfGetter($oneOfFields = ["tapUrl"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -26481,155 +25146,85 @@ $root.E2E = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * EmbeddedMusic _musicContentMediaId.
-         * @member {"musicContentMediaId"|undefined} _musicContentMediaId
-         * @memberof E2E.EmbeddedMusic
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(EmbeddedMusic.prototype, "_musicContentMediaId", {
             get: $util.oneOfGetter($oneOfFields = ["musicContentMediaId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * EmbeddedMusic _songId.
-         * @member {"songId"|undefined} _songId
-         * @memberof E2E.EmbeddedMusic
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(EmbeddedMusic.prototype, "_songId", {
             get: $util.oneOfGetter($oneOfFields = ["songId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * EmbeddedMusic _author.
-         * @member {"author"|undefined} _author
-         * @memberof E2E.EmbeddedMusic
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(EmbeddedMusic.prototype, "_author", {
             get: $util.oneOfGetter($oneOfFields = ["author"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * EmbeddedMusic _title.
-         * @member {"title"|undefined} _title
-         * @memberof E2E.EmbeddedMusic
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(EmbeddedMusic.prototype, "_title", {
             get: $util.oneOfGetter($oneOfFields = ["title"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * EmbeddedMusic _artworkDirectPath.
-         * @member {"artworkDirectPath"|undefined} _artworkDirectPath
-         * @memberof E2E.EmbeddedMusic
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(EmbeddedMusic.prototype, "_artworkDirectPath", {
             get: $util.oneOfGetter($oneOfFields = ["artworkDirectPath"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * EmbeddedMusic _artworkSha256.
-         * @member {"artworkSha256"|undefined} _artworkSha256
-         * @memberof E2E.EmbeddedMusic
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(EmbeddedMusic.prototype, "_artworkSha256", {
             get: $util.oneOfGetter($oneOfFields = ["artworkSha256"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * EmbeddedMusic _artworkEncSha256.
-         * @member {"artworkEncSha256"|undefined} _artworkEncSha256
-         * @memberof E2E.EmbeddedMusic
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(EmbeddedMusic.prototype, "_artworkEncSha256", {
             get: $util.oneOfGetter($oneOfFields = ["artworkEncSha256"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * EmbeddedMusic _artistAttribution.
-         * @member {"artistAttribution"|undefined} _artistAttribution
-         * @memberof E2E.EmbeddedMusic
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(EmbeddedMusic.prototype, "_artistAttribution", {
             get: $util.oneOfGetter($oneOfFields = ["artistAttribution"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * EmbeddedMusic _countryBlocklist.
-         * @member {"countryBlocklist"|undefined} _countryBlocklist
-         * @memberof E2E.EmbeddedMusic
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(EmbeddedMusic.prototype, "_countryBlocklist", {
             get: $util.oneOfGetter($oneOfFields = ["countryBlocklist"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * EmbeddedMusic _isExplicit.
-         * @member {"isExplicit"|undefined} _isExplicit
-         * @memberof E2E.EmbeddedMusic
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(EmbeddedMusic.prototype, "_isExplicit", {
             get: $util.oneOfGetter($oneOfFields = ["isExplicit"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * EmbeddedMusic _artworkMediaKey.
-         * @member {"artworkMediaKey"|undefined} _artworkMediaKey
-         * @memberof E2E.EmbeddedMusic
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(EmbeddedMusic.prototype, "_artworkMediaKey", {
             get: $util.oneOfGetter($oneOfFields = ["artworkMediaKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * EmbeddedMusic _musicSongStartTimeInMs.
-         * @member {"musicSongStartTimeInMs"|undefined} _musicSongStartTimeInMs
-         * @memberof E2E.EmbeddedMusic
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(EmbeddedMusic.prototype, "_musicSongStartTimeInMs", {
             get: $util.oneOfGetter($oneOfFields = ["musicSongStartTimeInMs"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * EmbeddedMusic _derivedContentStartTimeInMs.
-         * @member {"derivedContentStartTimeInMs"|undefined} _derivedContentStartTimeInMs
-         * @memberof E2E.EmbeddedMusic
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(EmbeddedMusic.prototype, "_derivedContentStartTimeInMs", {
             get: $util.oneOfGetter($oneOfFields = ["derivedContentStartTimeInMs"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * EmbeddedMusic _overlapDurationInMs.
-         * @member {"overlapDurationInMs"|undefined} _overlapDurationInMs
-         * @memberof E2E.EmbeddedMusic
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(EmbeddedMusic.prototype, "_overlapDurationInMs", {
             get: $util.oneOfGetter($oneOfFields = ["overlapDurationInMs"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -27132,23 +25727,13 @@ $root.E2E = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * EmbeddedMessage _stanzaId.
-         * @member {"stanzaId"|undefined} _stanzaId
-         * @memberof E2E.EmbeddedMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(EmbeddedMessage.prototype, "_stanzaId", {
             get: $util.oneOfGetter($oneOfFields = ["stanzaId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * EmbeddedMessage _message.
-         * @member {"message"|undefined} _message
-         * @memberof E2E.EmbeddedMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(EmbeddedMessage.prototype, "_message", {
             get: $util.oneOfGetter($oneOfFields = ["message"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -27455,67 +26040,37 @@ $root.E2E = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * DeviceListMetadata _senderKeyHash.
-         * @member {"senderKeyHash"|undefined} _senderKeyHash
-         * @memberof E2E.DeviceListMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DeviceListMetadata.prototype, "_senderKeyHash", {
             get: $util.oneOfGetter($oneOfFields = ["senderKeyHash"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * DeviceListMetadata _senderTimestamp.
-         * @member {"senderTimestamp"|undefined} _senderTimestamp
-         * @memberof E2E.DeviceListMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DeviceListMetadata.prototype, "_senderTimestamp", {
             get: $util.oneOfGetter($oneOfFields = ["senderTimestamp"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * DeviceListMetadata _senderAccountType.
-         * @member {"senderAccountType"|undefined} _senderAccountType
-         * @memberof E2E.DeviceListMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DeviceListMetadata.prototype, "_senderAccountType", {
             get: $util.oneOfGetter($oneOfFields = ["senderAccountType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * DeviceListMetadata _receiverAccountType.
-         * @member {"receiverAccountType"|undefined} _receiverAccountType
-         * @memberof E2E.DeviceListMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DeviceListMetadata.prototype, "_receiverAccountType", {
             get: $util.oneOfGetter($oneOfFields = ["receiverAccountType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * DeviceListMetadata _recipientKeyHash.
-         * @member {"recipientKeyHash"|undefined} _recipientKeyHash
-         * @memberof E2E.DeviceListMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DeviceListMetadata.prototype, "_recipientKeyHash", {
             get: $util.oneOfGetter($oneOfFields = ["recipientKeyHash"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * DeviceListMetadata _recipientTimestamp.
-         * @member {"recipientTimestamp"|undefined} _recipientTimestamp
-         * @memberof E2E.DeviceListMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DeviceListMetadata.prototype, "_recipientTimestamp", {
             get: $util.oneOfGetter($oneOfFields = ["recipientTimestamp"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -28099,166 +26654,91 @@ $root.E2E = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * MessageContextInfo _deviceListMetadata.
-         * @member {"deviceListMetadata"|undefined} _deviceListMetadata
-         * @memberof E2E.MessageContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageContextInfo.prototype, "_deviceListMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["deviceListMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageContextInfo _deviceListMetadataVersion.
-         * @member {"deviceListMetadataVersion"|undefined} _deviceListMetadataVersion
-         * @memberof E2E.MessageContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageContextInfo.prototype, "_deviceListMetadataVersion", {
             get: $util.oneOfGetter($oneOfFields = ["deviceListMetadataVersion"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageContextInfo _messageSecret.
-         * @member {"messageSecret"|undefined} _messageSecret
-         * @memberof E2E.MessageContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageContextInfo.prototype, "_messageSecret", {
             get: $util.oneOfGetter($oneOfFields = ["messageSecret"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageContextInfo _paddingBytes.
-         * @member {"paddingBytes"|undefined} _paddingBytes
-         * @memberof E2E.MessageContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageContextInfo.prototype, "_paddingBytes", {
             get: $util.oneOfGetter($oneOfFields = ["paddingBytes"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageContextInfo _messageAddOnDurationInSecs.
-         * @member {"messageAddOnDurationInSecs"|undefined} _messageAddOnDurationInSecs
-         * @memberof E2E.MessageContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageContextInfo.prototype, "_messageAddOnDurationInSecs", {
             get: $util.oneOfGetter($oneOfFields = ["messageAddOnDurationInSecs"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageContextInfo _botMessageSecret.
-         * @member {"botMessageSecret"|undefined} _botMessageSecret
-         * @memberof E2E.MessageContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageContextInfo.prototype, "_botMessageSecret", {
             get: $util.oneOfGetter($oneOfFields = ["botMessageSecret"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageContextInfo _botMetadata.
-         * @member {"botMetadata"|undefined} _botMetadata
-         * @memberof E2E.MessageContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageContextInfo.prototype, "_botMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["botMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageContextInfo _reportingTokenVersion.
-         * @member {"reportingTokenVersion"|undefined} _reportingTokenVersion
-         * @memberof E2E.MessageContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageContextInfo.prototype, "_reportingTokenVersion", {
             get: $util.oneOfGetter($oneOfFields = ["reportingTokenVersion"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageContextInfo _messageAddOnExpiryType.
-         * @member {"messageAddOnExpiryType"|undefined} _messageAddOnExpiryType
-         * @memberof E2E.MessageContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageContextInfo.prototype, "_messageAddOnExpiryType", {
             get: $util.oneOfGetter($oneOfFields = ["messageAddOnExpiryType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageContextInfo _messageAssociation.
-         * @member {"messageAssociation"|undefined} _messageAssociation
-         * @memberof E2E.MessageContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageContextInfo.prototype, "_messageAssociation", {
             get: $util.oneOfGetter($oneOfFields = ["messageAssociation"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageContextInfo _capiCreatedGroup.
-         * @member {"capiCreatedGroup"|undefined} _capiCreatedGroup
-         * @memberof E2E.MessageContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageContextInfo.prototype, "_capiCreatedGroup", {
             get: $util.oneOfGetter($oneOfFields = ["capiCreatedGroup"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageContextInfo _supportPayload.
-         * @member {"supportPayload"|undefined} _supportPayload
-         * @memberof E2E.MessageContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageContextInfo.prototype, "_supportPayload", {
             get: $util.oneOfGetter($oneOfFields = ["supportPayload"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageContextInfo _limitSharing.
-         * @member {"limitSharing"|undefined} _limitSharing
-         * @memberof E2E.MessageContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageContextInfo.prototype, "_limitSharing", {
             get: $util.oneOfGetter($oneOfFields = ["limitSharing"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageContextInfo _limitSharingV2.
-         * @member {"limitSharingV2"|undefined} _limitSharingV2
-         * @memberof E2E.MessageContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageContextInfo.prototype, "_limitSharingV2", {
             get: $util.oneOfGetter($oneOfFields = ["limitSharingV2"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageContextInfo _weblinkRenderConfig.
-         * @member {"weblinkRenderConfig"|undefined} _weblinkRenderConfig
-         * @memberof E2E.MessageContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageContextInfo.prototype, "_weblinkRenderConfig", {
             get: $util.oneOfGetter($oneOfFields = ["weblinkRenderConfig"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -28863,23 +27343,13 @@ $root.E2E = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * ThreadID _threadType.
-         * @member {"threadType"|undefined} _threadType
-         * @memberof E2E.ThreadID
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ThreadID.prototype, "_threadType", {
             get: $util.oneOfGetter($oneOfFields = ["threadType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ThreadID _threadKey.
-         * @member {"threadKey"|undefined} _threadKey
-         * @memberof E2E.ThreadID
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ThreadID.prototype, "_threadKey", {
             get: $util.oneOfGetter($oneOfFields = ["threadKey"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -29179,34 +27649,19 @@ $root.E2E = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * MessageAssociation _associationType.
-         * @member {"associationType"|undefined} _associationType
-         * @memberof E2E.MessageAssociation
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageAssociation.prototype, "_associationType", {
             get: $util.oneOfGetter($oneOfFields = ["associationType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageAssociation _parentMessageKey.
-         * @member {"parentMessageKey"|undefined} _parentMessageKey
-         * @memberof E2E.MessageAssociation
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageAssociation.prototype, "_parentMessageKey", {
             get: $util.oneOfGetter($oneOfFields = ["parentMessageKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageAssociation _messageIndex.
-         * @member {"messageIndex"|undefined} _messageIndex
-         * @memberof E2E.MessageAssociation
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageAssociation.prototype, "_messageIndex", {
             get: $util.oneOfGetter($oneOfFields = ["messageIndex"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -30114,573 +28569,313 @@ $root.E2E = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * ContextInfo _stanzaId.
-         * @member {"stanzaId"|undefined} _stanzaId
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_stanzaId", {
             get: $util.oneOfGetter($oneOfFields = ["stanzaId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _participant.
-         * @member {"participant"|undefined} _participant
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_participant", {
             get: $util.oneOfGetter($oneOfFields = ["participant"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _quotedMessage.
-         * @member {"quotedMessage"|undefined} _quotedMessage
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_quotedMessage", {
             get: $util.oneOfGetter($oneOfFields = ["quotedMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _remoteJid.
-         * @member {"remoteJid"|undefined} _remoteJid
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_remoteJid", {
             get: $util.oneOfGetter($oneOfFields = ["remoteJid"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _conversionSource.
-         * @member {"conversionSource"|undefined} _conversionSource
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_conversionSource", {
             get: $util.oneOfGetter($oneOfFields = ["conversionSource"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _conversionData.
-         * @member {"conversionData"|undefined} _conversionData
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_conversionData", {
             get: $util.oneOfGetter($oneOfFields = ["conversionData"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _conversionDelaySeconds.
-         * @member {"conversionDelaySeconds"|undefined} _conversionDelaySeconds
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_conversionDelaySeconds", {
             get: $util.oneOfGetter($oneOfFields = ["conversionDelaySeconds"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _forwardingScore.
-         * @member {"forwardingScore"|undefined} _forwardingScore
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_forwardingScore", {
             get: $util.oneOfGetter($oneOfFields = ["forwardingScore"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _isForwarded.
-         * @member {"isForwarded"|undefined} _isForwarded
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_isForwarded", {
             get: $util.oneOfGetter($oneOfFields = ["isForwarded"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _quotedAd.
-         * @member {"quotedAd"|undefined} _quotedAd
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_quotedAd", {
             get: $util.oneOfGetter($oneOfFields = ["quotedAd"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _placeholderKey.
-         * @member {"placeholderKey"|undefined} _placeholderKey
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_placeholderKey", {
             get: $util.oneOfGetter($oneOfFields = ["placeholderKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _expiration.
-         * @member {"expiration"|undefined} _expiration
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_expiration", {
             get: $util.oneOfGetter($oneOfFields = ["expiration"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _ephemeralSettingTimestamp.
-         * @member {"ephemeralSettingTimestamp"|undefined} _ephemeralSettingTimestamp
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_ephemeralSettingTimestamp", {
             get: $util.oneOfGetter($oneOfFields = ["ephemeralSettingTimestamp"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _ephemeralSharedSecret.
-         * @member {"ephemeralSharedSecret"|undefined} _ephemeralSharedSecret
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_ephemeralSharedSecret", {
             get: $util.oneOfGetter($oneOfFields = ["ephemeralSharedSecret"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _externalAdReply.
-         * @member {"externalAdReply"|undefined} _externalAdReply
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_externalAdReply", {
             get: $util.oneOfGetter($oneOfFields = ["externalAdReply"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _entryPointConversionSource.
-         * @member {"entryPointConversionSource"|undefined} _entryPointConversionSource
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_entryPointConversionSource", {
             get: $util.oneOfGetter($oneOfFields = ["entryPointConversionSource"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _entryPointConversionApp.
-         * @member {"entryPointConversionApp"|undefined} _entryPointConversionApp
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_entryPointConversionApp", {
             get: $util.oneOfGetter($oneOfFields = ["entryPointConversionApp"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _entryPointConversionDelaySeconds.
-         * @member {"entryPointConversionDelaySeconds"|undefined} _entryPointConversionDelaySeconds
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_entryPointConversionDelaySeconds", {
             get: $util.oneOfGetter($oneOfFields = ["entryPointConversionDelaySeconds"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _disappearingMode.
-         * @member {"disappearingMode"|undefined} _disappearingMode
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_disappearingMode", {
             get: $util.oneOfGetter($oneOfFields = ["disappearingMode"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _actionLink.
-         * @member {"actionLink"|undefined} _actionLink
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_actionLink", {
             get: $util.oneOfGetter($oneOfFields = ["actionLink"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _groupSubject.
-         * @member {"groupSubject"|undefined} _groupSubject
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_groupSubject", {
             get: $util.oneOfGetter($oneOfFields = ["groupSubject"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _parentGroupJid.
-         * @member {"parentGroupJid"|undefined} _parentGroupJid
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_parentGroupJid", {
             get: $util.oneOfGetter($oneOfFields = ["parentGroupJid"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _trustBannerType.
-         * @member {"trustBannerType"|undefined} _trustBannerType
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_trustBannerType", {
             get: $util.oneOfGetter($oneOfFields = ["trustBannerType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _trustBannerAction.
-         * @member {"trustBannerAction"|undefined} _trustBannerAction
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_trustBannerAction", {
             get: $util.oneOfGetter($oneOfFields = ["trustBannerAction"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _isSampled.
-         * @member {"isSampled"|undefined} _isSampled
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_isSampled", {
             get: $util.oneOfGetter($oneOfFields = ["isSampled"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _utm.
-         * @member {"utm"|undefined} _utm
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_utm", {
             get: $util.oneOfGetter($oneOfFields = ["utm"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _forwardedNewsletterMessageInfo.
-         * @member {"forwardedNewsletterMessageInfo"|undefined} _forwardedNewsletterMessageInfo
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_forwardedNewsletterMessageInfo", {
             get: $util.oneOfGetter($oneOfFields = ["forwardedNewsletterMessageInfo"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _businessMessageForwardInfo.
-         * @member {"businessMessageForwardInfo"|undefined} _businessMessageForwardInfo
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_businessMessageForwardInfo", {
             get: $util.oneOfGetter($oneOfFields = ["businessMessageForwardInfo"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _smbClientCampaignId.
-         * @member {"smbClientCampaignId"|undefined} _smbClientCampaignId
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_smbClientCampaignId", {
             get: $util.oneOfGetter($oneOfFields = ["smbClientCampaignId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _smbServerCampaignId.
-         * @member {"smbServerCampaignId"|undefined} _smbServerCampaignId
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_smbServerCampaignId", {
             get: $util.oneOfGetter($oneOfFields = ["smbServerCampaignId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _dataSharingContext.
-         * @member {"dataSharingContext"|undefined} _dataSharingContext
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_dataSharingContext", {
             get: $util.oneOfGetter($oneOfFields = ["dataSharingContext"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _alwaysShowAdAttribution.
-         * @member {"alwaysShowAdAttribution"|undefined} _alwaysShowAdAttribution
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_alwaysShowAdAttribution", {
             get: $util.oneOfGetter($oneOfFields = ["alwaysShowAdAttribution"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _featureEligibilities.
-         * @member {"featureEligibilities"|undefined} _featureEligibilities
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_featureEligibilities", {
             get: $util.oneOfGetter($oneOfFields = ["featureEligibilities"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _entryPointConversionExternalSource.
-         * @member {"entryPointConversionExternalSource"|undefined} _entryPointConversionExternalSource
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_entryPointConversionExternalSource", {
             get: $util.oneOfGetter($oneOfFields = ["entryPointConversionExternalSource"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _entryPointConversionExternalMedium.
-         * @member {"entryPointConversionExternalMedium"|undefined} _entryPointConversionExternalMedium
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_entryPointConversionExternalMedium", {
             get: $util.oneOfGetter($oneOfFields = ["entryPointConversionExternalMedium"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _ctwaSignals.
-         * @member {"ctwaSignals"|undefined} _ctwaSignals
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_ctwaSignals", {
             get: $util.oneOfGetter($oneOfFields = ["ctwaSignals"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _ctwaPayload.
-         * @member {"ctwaPayload"|undefined} _ctwaPayload
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_ctwaPayload", {
             get: $util.oneOfGetter($oneOfFields = ["ctwaPayload"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _forwardedAiBotMessageInfo.
-         * @member {"forwardedAiBotMessageInfo"|undefined} _forwardedAiBotMessageInfo
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_forwardedAiBotMessageInfo", {
             get: $util.oneOfGetter($oneOfFields = ["forwardedAiBotMessageInfo"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _statusAttributionType.
-         * @member {"statusAttributionType"|undefined} _statusAttributionType
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_statusAttributionType", {
             get: $util.oneOfGetter($oneOfFields = ["statusAttributionType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _urlTrackingMap.
-         * @member {"urlTrackingMap"|undefined} _urlTrackingMap
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_urlTrackingMap", {
             get: $util.oneOfGetter($oneOfFields = ["urlTrackingMap"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _pairedMediaType.
-         * @member {"pairedMediaType"|undefined} _pairedMediaType
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_pairedMediaType", {
             get: $util.oneOfGetter($oneOfFields = ["pairedMediaType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _rankingVersion.
-         * @member {"rankingVersion"|undefined} _rankingVersion
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_rankingVersion", {
             get: $util.oneOfGetter($oneOfFields = ["rankingVersion"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _memberLabel.
-         * @member {"memberLabel"|undefined} _memberLabel
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_memberLabel", {
             get: $util.oneOfGetter($oneOfFields = ["memberLabel"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _isQuestion.
-         * @member {"isQuestion"|undefined} _isQuestion
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_isQuestion", {
             get: $util.oneOfGetter($oneOfFields = ["isQuestion"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _statusSourceType.
-         * @member {"statusSourceType"|undefined} _statusSourceType
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_statusSourceType", {
             get: $util.oneOfGetter($oneOfFields = ["statusSourceType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _isGroupStatus.
-         * @member {"isGroupStatus"|undefined} _isGroupStatus
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_isGroupStatus", {
             get: $util.oneOfGetter($oneOfFields = ["isGroupStatus"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _forwardOrigin.
-         * @member {"forwardOrigin"|undefined} _forwardOrigin
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_forwardOrigin", {
             get: $util.oneOfGetter($oneOfFields = ["forwardOrigin"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _questionReplyQuotedMessage.
-         * @member {"questionReplyQuotedMessage"|undefined} _questionReplyQuotedMessage
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_questionReplyQuotedMessage", {
             get: $util.oneOfGetter($oneOfFields = ["questionReplyQuotedMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _statusAudienceMetadata.
-         * @member {"statusAudienceMetadata"|undefined} _statusAudienceMetadata
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_statusAudienceMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["statusAudienceMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _nonJidMentions.
-         * @member {"nonJidMentions"|undefined} _nonJidMentions
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_nonJidMentions", {
             get: $util.oneOfGetter($oneOfFields = ["nonJidMentions"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _quotedType.
-         * @member {"quotedType"|undefined} _quotedType
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_quotedType", {
             get: $util.oneOfGetter($oneOfFields = ["quotedType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ContextInfo _botMessageSharingInfo.
-         * @member {"botMessageSharingInfo"|undefined} _botMessageSharingInfo
-         * @memberof E2E.ContextInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ContextInfo.prototype, "_botMessageSharingInfo", {
             get: $util.oneOfGetter($oneOfFields = ["botMessageSharingInfo"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -32245,45 +30440,25 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * AdReplyInfo _advertiserName.
-             * @member {"advertiserName"|undefined} _advertiserName
-             * @memberof E2E.ContextInfo.AdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AdReplyInfo.prototype, "_advertiserName", {
                 get: $util.oneOfGetter($oneOfFields = ["advertiserName"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AdReplyInfo _mediaType.
-             * @member {"mediaType"|undefined} _mediaType
-             * @memberof E2E.ContextInfo.AdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AdReplyInfo.prototype, "_mediaType", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaType"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AdReplyInfo _jpegThumbnail.
-             * @member {"jpegThumbnail"|undefined} _jpegThumbnail
-             * @memberof E2E.ContextInfo.AdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AdReplyInfo.prototype, "_jpegThumbnail", {
                 get: $util.oneOfGetter($oneOfFields = ["jpegThumbnail"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AdReplyInfo _caption.
-             * @member {"caption"|undefined} _caption
-             * @memberof E2E.ContextInfo.AdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AdReplyInfo.prototype, "_caption", {
                 get: $util.oneOfGetter($oneOfFields = ["caption"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -32598,12 +30773,7 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * BusinessMessageForwardInfo _businessOwnerJid.
-             * @member {"businessOwnerJid"|undefined} _businessOwnerJid
-             * @memberof E2E.ContextInfo.BusinessMessageForwardInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(BusinessMessageForwardInfo.prototype, "_businessOwnerJid", {
                 get: $util.oneOfGetter($oneOfFields = ["businessOwnerJid"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -32849,34 +31019,19 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * DataSharingContext _showMmDisclosure.
-             * @member {"showMmDisclosure"|undefined} _showMmDisclosure
-             * @memberof E2E.ContextInfo.DataSharingContext
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DataSharingContext.prototype, "_showMmDisclosure", {
                 get: $util.oneOfGetter($oneOfFields = ["showMmDisclosure"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * DataSharingContext _encryptedSignalTokenConsented.
-             * @member {"encryptedSignalTokenConsented"|undefined} _encryptedSignalTokenConsented
-             * @memberof E2E.ContextInfo.DataSharingContext
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DataSharingContext.prototype, "_encryptedSignalTokenConsented", {
                 get: $util.oneOfGetter($oneOfFields = ["encryptedSignalTokenConsented"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * DataSharingContext _dataSharingFlags.
-             * @member {"dataSharingFlags"|undefined} _dataSharingFlags
-             * @memberof E2E.ContextInfo.DataSharingContext
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DataSharingContext.prototype, "_dataSharingFlags", {
                 get: $util.oneOfGetter($oneOfFields = ["dataSharingFlags"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -33212,56 +31367,31 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * Parameters _key.
-                 * @member {"key"|undefined} _key
-                 * @memberof E2E.ContextInfo.DataSharingContext.Parameters
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Parameters.prototype, "_key", {
                     get: $util.oneOfGetter($oneOfFields = ["key"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * Parameters _stringData.
-                 * @member {"stringData"|undefined} _stringData
-                 * @memberof E2E.ContextInfo.DataSharingContext.Parameters
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Parameters.prototype, "_stringData", {
                     get: $util.oneOfGetter($oneOfFields = ["stringData"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * Parameters _intData.
-                 * @member {"intData"|undefined} _intData
-                 * @memberof E2E.ContextInfo.DataSharingContext.Parameters
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Parameters.prototype, "_intData", {
                     get: $util.oneOfGetter($oneOfFields = ["intData"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * Parameters _floatData.
-                 * @member {"floatData"|undefined} _floatData
-                 * @memberof E2E.ContextInfo.DataSharingContext.Parameters
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Parameters.prototype, "_floatData", {
                     get: $util.oneOfGetter($oneOfFields = ["floatData"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * Parameters _contents.
-                 * @member {"contents"|undefined} _contents
-                 * @memberof E2E.ContextInfo.DataSharingContext.Parameters
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Parameters.prototype, "_contents", {
                     get: $util.oneOfGetter($oneOfFields = ["contents"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -33804,298 +31934,163 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * ExternalAdReplyInfo _title.
-             * @member {"title"|undefined} _title
-             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalAdReplyInfo.prototype, "_title", {
                 get: $util.oneOfGetter($oneOfFields = ["title"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExternalAdReplyInfo _body.
-             * @member {"body"|undefined} _body
-             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalAdReplyInfo.prototype, "_body", {
                 get: $util.oneOfGetter($oneOfFields = ["body"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExternalAdReplyInfo _mediaType.
-             * @member {"mediaType"|undefined} _mediaType
-             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalAdReplyInfo.prototype, "_mediaType", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaType"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExternalAdReplyInfo _thumbnailUrl.
-             * @member {"thumbnailUrl"|undefined} _thumbnailUrl
-             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalAdReplyInfo.prototype, "_thumbnailUrl", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailUrl"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExternalAdReplyInfo _mediaUrl.
-             * @member {"mediaUrl"|undefined} _mediaUrl
-             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalAdReplyInfo.prototype, "_mediaUrl", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaUrl"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExternalAdReplyInfo _thumbnail.
-             * @member {"thumbnail"|undefined} _thumbnail
-             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalAdReplyInfo.prototype, "_thumbnail", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnail"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExternalAdReplyInfo _sourceType.
-             * @member {"sourceType"|undefined} _sourceType
-             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalAdReplyInfo.prototype, "_sourceType", {
                 get: $util.oneOfGetter($oneOfFields = ["sourceType"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExternalAdReplyInfo _sourceId.
-             * @member {"sourceId"|undefined} _sourceId
-             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalAdReplyInfo.prototype, "_sourceId", {
                 get: $util.oneOfGetter($oneOfFields = ["sourceId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExternalAdReplyInfo _sourceUrl.
-             * @member {"sourceUrl"|undefined} _sourceUrl
-             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalAdReplyInfo.prototype, "_sourceUrl", {
                 get: $util.oneOfGetter($oneOfFields = ["sourceUrl"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExternalAdReplyInfo _containsAutoReply.
-             * @member {"containsAutoReply"|undefined} _containsAutoReply
-             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalAdReplyInfo.prototype, "_containsAutoReply", {
                 get: $util.oneOfGetter($oneOfFields = ["containsAutoReply"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExternalAdReplyInfo _renderLargerThumbnail.
-             * @member {"renderLargerThumbnail"|undefined} _renderLargerThumbnail
-             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalAdReplyInfo.prototype, "_renderLargerThumbnail", {
                 get: $util.oneOfGetter($oneOfFields = ["renderLargerThumbnail"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExternalAdReplyInfo _showAdAttribution.
-             * @member {"showAdAttribution"|undefined} _showAdAttribution
-             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalAdReplyInfo.prototype, "_showAdAttribution", {
                 get: $util.oneOfGetter($oneOfFields = ["showAdAttribution"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExternalAdReplyInfo _ctwaClid.
-             * @member {"ctwaClid"|undefined} _ctwaClid
-             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalAdReplyInfo.prototype, "_ctwaClid", {
                 get: $util.oneOfGetter($oneOfFields = ["ctwaClid"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExternalAdReplyInfo _ref.
-             * @member {"ref"|undefined} _ref
-             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalAdReplyInfo.prototype, "_ref", {
                 get: $util.oneOfGetter($oneOfFields = ["ref"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExternalAdReplyInfo _clickToWhatsappCall.
-             * @member {"clickToWhatsappCall"|undefined} _clickToWhatsappCall
-             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalAdReplyInfo.prototype, "_clickToWhatsappCall", {
                 get: $util.oneOfGetter($oneOfFields = ["clickToWhatsappCall"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExternalAdReplyInfo _adContextPreviewDismissed.
-             * @member {"adContextPreviewDismissed"|undefined} _adContextPreviewDismissed
-             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalAdReplyInfo.prototype, "_adContextPreviewDismissed", {
                 get: $util.oneOfGetter($oneOfFields = ["adContextPreviewDismissed"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExternalAdReplyInfo _sourceApp.
-             * @member {"sourceApp"|undefined} _sourceApp
-             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalAdReplyInfo.prototype, "_sourceApp", {
                 get: $util.oneOfGetter($oneOfFields = ["sourceApp"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExternalAdReplyInfo _automatedGreetingMessageShown.
-             * @member {"automatedGreetingMessageShown"|undefined} _automatedGreetingMessageShown
-             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalAdReplyInfo.prototype, "_automatedGreetingMessageShown", {
                 get: $util.oneOfGetter($oneOfFields = ["automatedGreetingMessageShown"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExternalAdReplyInfo _greetingMessageBody.
-             * @member {"greetingMessageBody"|undefined} _greetingMessageBody
-             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalAdReplyInfo.prototype, "_greetingMessageBody", {
                 get: $util.oneOfGetter($oneOfFields = ["greetingMessageBody"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExternalAdReplyInfo _ctaPayload.
-             * @member {"ctaPayload"|undefined} _ctaPayload
-             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalAdReplyInfo.prototype, "_ctaPayload", {
                 get: $util.oneOfGetter($oneOfFields = ["ctaPayload"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExternalAdReplyInfo _disableNudge.
-             * @member {"disableNudge"|undefined} _disableNudge
-             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalAdReplyInfo.prototype, "_disableNudge", {
                 get: $util.oneOfGetter($oneOfFields = ["disableNudge"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExternalAdReplyInfo _originalImageUrl.
-             * @member {"originalImageUrl"|undefined} _originalImageUrl
-             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalAdReplyInfo.prototype, "_originalImageUrl", {
                 get: $util.oneOfGetter($oneOfFields = ["originalImageUrl"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExternalAdReplyInfo _automatedGreetingMessageCtaType.
-             * @member {"automatedGreetingMessageCtaType"|undefined} _automatedGreetingMessageCtaType
-             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalAdReplyInfo.prototype, "_automatedGreetingMessageCtaType", {
                 get: $util.oneOfGetter($oneOfFields = ["automatedGreetingMessageCtaType"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExternalAdReplyInfo _wtwaAdFormat.
-             * @member {"wtwaAdFormat"|undefined} _wtwaAdFormat
-             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalAdReplyInfo.prototype, "_wtwaAdFormat", {
                 get: $util.oneOfGetter($oneOfFields = ["wtwaAdFormat"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExternalAdReplyInfo _adType.
-             * @member {"adType"|undefined} _adType
-             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalAdReplyInfo.prototype, "_adType", {
                 get: $util.oneOfGetter($oneOfFields = ["adType"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExternalAdReplyInfo _wtwaWebsiteUrl.
-             * @member {"wtwaWebsiteUrl"|undefined} _wtwaWebsiteUrl
-             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalAdReplyInfo.prototype, "_wtwaWebsiteUrl", {
                 get: $util.oneOfGetter($oneOfFields = ["wtwaWebsiteUrl"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExternalAdReplyInfo _adPreviewUrl.
-             * @member {"adPreviewUrl"|undefined} _adPreviewUrl
-             * @memberof E2E.ContextInfo.ExternalAdReplyInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalAdReplyInfo.prototype, "_adPreviewUrl", {
                 get: $util.oneOfGetter($oneOfFields = ["adPreviewUrl"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -34893,56 +32888,31 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * FeatureEligibilities _cannotBeReactedTo.
-             * @member {"cannotBeReactedTo"|undefined} _cannotBeReactedTo
-             * @memberof E2E.ContextInfo.FeatureEligibilities
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(FeatureEligibilities.prototype, "_cannotBeReactedTo", {
                 get: $util.oneOfGetter($oneOfFields = ["cannotBeReactedTo"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * FeatureEligibilities _cannotBeRanked.
-             * @member {"cannotBeRanked"|undefined} _cannotBeRanked
-             * @memberof E2E.ContextInfo.FeatureEligibilities
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(FeatureEligibilities.prototype, "_cannotBeRanked", {
                 get: $util.oneOfGetter($oneOfFields = ["cannotBeRanked"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * FeatureEligibilities _canRequestFeedback.
-             * @member {"canRequestFeedback"|undefined} _canRequestFeedback
-             * @memberof E2E.ContextInfo.FeatureEligibilities
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(FeatureEligibilities.prototype, "_canRequestFeedback", {
                 get: $util.oneOfGetter($oneOfFields = ["canRequestFeedback"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * FeatureEligibilities _canBeReshared.
-             * @member {"canBeReshared"|undefined} _canBeReshared
-             * @memberof E2E.ContextInfo.FeatureEligibilities
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(FeatureEligibilities.prototype, "_canBeReshared", {
                 get: $util.oneOfGetter($oneOfFields = ["canBeReshared"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * FeatureEligibilities _canReceiveMultiReact.
-             * @member {"canReceiveMultiReact"|undefined} _canReceiveMultiReact
-             * @memberof E2E.ContextInfo.FeatureEligibilities
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(FeatureEligibilities.prototype, "_canReceiveMultiReact", {
                 get: $util.oneOfGetter($oneOfFields = ["canReceiveMultiReact"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -35299,67 +33269,37 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * ForwardedNewsletterMessageInfo _newsletterJid.
-             * @member {"newsletterJid"|undefined} _newsletterJid
-             * @memberof E2E.ContextInfo.ForwardedNewsletterMessageInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ForwardedNewsletterMessageInfo.prototype, "_newsletterJid", {
                 get: $util.oneOfGetter($oneOfFields = ["newsletterJid"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ForwardedNewsletterMessageInfo _serverMessageId.
-             * @member {"serverMessageId"|undefined} _serverMessageId
-             * @memberof E2E.ContextInfo.ForwardedNewsletterMessageInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ForwardedNewsletterMessageInfo.prototype, "_serverMessageId", {
                 get: $util.oneOfGetter($oneOfFields = ["serverMessageId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ForwardedNewsletterMessageInfo _newsletterName.
-             * @member {"newsletterName"|undefined} _newsletterName
-             * @memberof E2E.ContextInfo.ForwardedNewsletterMessageInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ForwardedNewsletterMessageInfo.prototype, "_newsletterName", {
                 get: $util.oneOfGetter($oneOfFields = ["newsletterName"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ForwardedNewsletterMessageInfo _contentType.
-             * @member {"contentType"|undefined} _contentType
-             * @memberof E2E.ContextInfo.ForwardedNewsletterMessageInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ForwardedNewsletterMessageInfo.prototype, "_contentType", {
                 get: $util.oneOfGetter($oneOfFields = ["contentType"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ForwardedNewsletterMessageInfo _accessibilityText.
-             * @member {"accessibilityText"|undefined} _accessibilityText
-             * @memberof E2E.ContextInfo.ForwardedNewsletterMessageInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ForwardedNewsletterMessageInfo.prototype, "_accessibilityText", {
                 get: $util.oneOfGetter($oneOfFields = ["accessibilityText"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ForwardedNewsletterMessageInfo _profileName.
-             * @member {"profileName"|undefined} _profileName
-             * @memberof E2E.ContextInfo.ForwardedNewsletterMessageInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ForwardedNewsletterMessageInfo.prototype, "_profileName", {
                 get: $util.oneOfGetter($oneOfFields = ["profileName"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -35753,34 +33693,19 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * QuestionReplyQuotedMessage _serverQuestionId.
-             * @member {"serverQuestionId"|undefined} _serverQuestionId
-             * @memberof E2E.ContextInfo.QuestionReplyQuotedMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(QuestionReplyQuotedMessage.prototype, "_serverQuestionId", {
                 get: $util.oneOfGetter($oneOfFields = ["serverQuestionId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * QuestionReplyQuotedMessage _quotedQuestion.
-             * @member {"quotedQuestion"|undefined} _quotedQuestion
-             * @memberof E2E.ContextInfo.QuestionReplyQuotedMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(QuestionReplyQuotedMessage.prototype, "_quotedQuestion", {
                 get: $util.oneOfGetter($oneOfFields = ["quotedQuestion"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * QuestionReplyQuotedMessage _quotedResponse.
-             * @member {"quotedResponse"|undefined} _quotedResponse
-             * @memberof E2E.ContextInfo.QuestionReplyQuotedMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(QuestionReplyQuotedMessage.prototype, "_quotedResponse", {
                 get: $util.oneOfGetter($oneOfFields = ["quotedResponse"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -36080,12 +34005,7 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * StatusAudienceMetadata _audienceType.
-             * @member {"audienceType"|undefined} _audienceType
-             * @memberof E2E.ContextInfo.StatusAudienceMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StatusAudienceMetadata.prototype, "_audienceType", {
                 get: $util.oneOfGetter($oneOfFields = ["audienceType"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -36367,23 +34287,13 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * UTMInfo _utmSource.
-             * @member {"utmSource"|undefined} _utmSource
-             * @memberof E2E.ContextInfo.UTMInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(UTMInfo.prototype, "_utmSource", {
                 get: $util.oneOfGetter($oneOfFields = ["utmSource"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * UTMInfo _utmCampaign.
-             * @member {"utmCampaign"|undefined} _utmCampaign
-             * @memberof E2E.ContextInfo.UTMInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(UTMInfo.prototype, "_utmCampaign", {
                 get: $util.oneOfGetter($oneOfFields = ["utmCampaign"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -37477,1057 +35387,577 @@ $root.E2E = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * Message _conversation.
-         * @member {"conversation"|undefined} _conversation
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_conversation", {
             get: $util.oneOfGetter($oneOfFields = ["conversation"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _senderKeyDistributionMessage.
-         * @member {"senderKeyDistributionMessage"|undefined} _senderKeyDistributionMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_senderKeyDistributionMessage", {
             get: $util.oneOfGetter($oneOfFields = ["senderKeyDistributionMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _imageMessage.
-         * @member {"imageMessage"|undefined} _imageMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_imageMessage", {
             get: $util.oneOfGetter($oneOfFields = ["imageMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _contactMessage.
-         * @member {"contactMessage"|undefined} _contactMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_contactMessage", {
             get: $util.oneOfGetter($oneOfFields = ["contactMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _locationMessage.
-         * @member {"locationMessage"|undefined} _locationMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_locationMessage", {
             get: $util.oneOfGetter($oneOfFields = ["locationMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _extendedTextMessage.
-         * @member {"extendedTextMessage"|undefined} _extendedTextMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_extendedTextMessage", {
             get: $util.oneOfGetter($oneOfFields = ["extendedTextMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _documentMessage.
-         * @member {"documentMessage"|undefined} _documentMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_documentMessage", {
             get: $util.oneOfGetter($oneOfFields = ["documentMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _audioMessage.
-         * @member {"audioMessage"|undefined} _audioMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_audioMessage", {
             get: $util.oneOfGetter($oneOfFields = ["audioMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _videoMessage.
-         * @member {"videoMessage"|undefined} _videoMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_videoMessage", {
             get: $util.oneOfGetter($oneOfFields = ["videoMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _call.
-         * @member {"call"|undefined} _call
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_call", {
             get: $util.oneOfGetter($oneOfFields = ["call"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _chat.
-         * @member {"chat"|undefined} _chat
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_chat", {
             get: $util.oneOfGetter($oneOfFields = ["chat"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _protocolMessage.
-         * @member {"protocolMessage"|undefined} _protocolMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_protocolMessage", {
             get: $util.oneOfGetter($oneOfFields = ["protocolMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _contactsArrayMessage.
-         * @member {"contactsArrayMessage"|undefined} _contactsArrayMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_contactsArrayMessage", {
             get: $util.oneOfGetter($oneOfFields = ["contactsArrayMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _highlyStructuredMessage.
-         * @member {"highlyStructuredMessage"|undefined} _highlyStructuredMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_highlyStructuredMessage", {
             get: $util.oneOfGetter($oneOfFields = ["highlyStructuredMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _fastRatchetKeySenderKeyDistributionMessage.
-         * @member {"fastRatchetKeySenderKeyDistributionMessage"|undefined} _fastRatchetKeySenderKeyDistributionMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_fastRatchetKeySenderKeyDistributionMessage", {
             get: $util.oneOfGetter($oneOfFields = ["fastRatchetKeySenderKeyDistributionMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _sendPaymentMessage.
-         * @member {"sendPaymentMessage"|undefined} _sendPaymentMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_sendPaymentMessage", {
             get: $util.oneOfGetter($oneOfFields = ["sendPaymentMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _liveLocationMessage.
-         * @member {"liveLocationMessage"|undefined} _liveLocationMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_liveLocationMessage", {
             get: $util.oneOfGetter($oneOfFields = ["liveLocationMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _requestPaymentMessage.
-         * @member {"requestPaymentMessage"|undefined} _requestPaymentMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_requestPaymentMessage", {
             get: $util.oneOfGetter($oneOfFields = ["requestPaymentMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _declinePaymentRequestMessage.
-         * @member {"declinePaymentRequestMessage"|undefined} _declinePaymentRequestMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_declinePaymentRequestMessage", {
             get: $util.oneOfGetter($oneOfFields = ["declinePaymentRequestMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _cancelPaymentRequestMessage.
-         * @member {"cancelPaymentRequestMessage"|undefined} _cancelPaymentRequestMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_cancelPaymentRequestMessage", {
             get: $util.oneOfGetter($oneOfFields = ["cancelPaymentRequestMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _templateMessage.
-         * @member {"templateMessage"|undefined} _templateMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_templateMessage", {
             get: $util.oneOfGetter($oneOfFields = ["templateMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _stickerMessage.
-         * @member {"stickerMessage"|undefined} _stickerMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_stickerMessage", {
             get: $util.oneOfGetter($oneOfFields = ["stickerMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _groupInviteMessage.
-         * @member {"groupInviteMessage"|undefined} _groupInviteMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_groupInviteMessage", {
             get: $util.oneOfGetter($oneOfFields = ["groupInviteMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _templateButtonReplyMessage.
-         * @member {"templateButtonReplyMessage"|undefined} _templateButtonReplyMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_templateButtonReplyMessage", {
             get: $util.oneOfGetter($oneOfFields = ["templateButtonReplyMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _productMessage.
-         * @member {"productMessage"|undefined} _productMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_productMessage", {
             get: $util.oneOfGetter($oneOfFields = ["productMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _deviceSentMessage.
-         * @member {"deviceSentMessage"|undefined} _deviceSentMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_deviceSentMessage", {
             get: $util.oneOfGetter($oneOfFields = ["deviceSentMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _messageContextInfo.
-         * @member {"messageContextInfo"|undefined} _messageContextInfo
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_messageContextInfo", {
             get: $util.oneOfGetter($oneOfFields = ["messageContextInfo"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _listMessage.
-         * @member {"listMessage"|undefined} _listMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_listMessage", {
             get: $util.oneOfGetter($oneOfFields = ["listMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _viewOnceMessage.
-         * @member {"viewOnceMessage"|undefined} _viewOnceMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_viewOnceMessage", {
             get: $util.oneOfGetter($oneOfFields = ["viewOnceMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _orderMessage.
-         * @member {"orderMessage"|undefined} _orderMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_orderMessage", {
             get: $util.oneOfGetter($oneOfFields = ["orderMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _listResponseMessage.
-         * @member {"listResponseMessage"|undefined} _listResponseMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_listResponseMessage", {
             get: $util.oneOfGetter($oneOfFields = ["listResponseMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _ephemeralMessage.
-         * @member {"ephemeralMessage"|undefined} _ephemeralMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_ephemeralMessage", {
             get: $util.oneOfGetter($oneOfFields = ["ephemeralMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _invoiceMessage.
-         * @member {"invoiceMessage"|undefined} _invoiceMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_invoiceMessage", {
             get: $util.oneOfGetter($oneOfFields = ["invoiceMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _buttonsMessage.
-         * @member {"buttonsMessage"|undefined} _buttonsMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_buttonsMessage", {
             get: $util.oneOfGetter($oneOfFields = ["buttonsMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _buttonsResponseMessage.
-         * @member {"buttonsResponseMessage"|undefined} _buttonsResponseMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_buttonsResponseMessage", {
             get: $util.oneOfGetter($oneOfFields = ["buttonsResponseMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _paymentInviteMessage.
-         * @member {"paymentInviteMessage"|undefined} _paymentInviteMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_paymentInviteMessage", {
             get: $util.oneOfGetter($oneOfFields = ["paymentInviteMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _interactiveMessage.
-         * @member {"interactiveMessage"|undefined} _interactiveMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_interactiveMessage", {
             get: $util.oneOfGetter($oneOfFields = ["interactiveMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _reactionMessage.
-         * @member {"reactionMessage"|undefined} _reactionMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_reactionMessage", {
             get: $util.oneOfGetter($oneOfFields = ["reactionMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _stickerSyncRmrMessage.
-         * @member {"stickerSyncRmrMessage"|undefined} _stickerSyncRmrMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_stickerSyncRmrMessage", {
             get: $util.oneOfGetter($oneOfFields = ["stickerSyncRmrMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _interactiveResponseMessage.
-         * @member {"interactiveResponseMessage"|undefined} _interactiveResponseMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_interactiveResponseMessage", {
             get: $util.oneOfGetter($oneOfFields = ["interactiveResponseMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _pollCreationMessage.
-         * @member {"pollCreationMessage"|undefined} _pollCreationMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_pollCreationMessage", {
             get: $util.oneOfGetter($oneOfFields = ["pollCreationMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _pollUpdateMessage.
-         * @member {"pollUpdateMessage"|undefined} _pollUpdateMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_pollUpdateMessage", {
             get: $util.oneOfGetter($oneOfFields = ["pollUpdateMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _keepInChatMessage.
-         * @member {"keepInChatMessage"|undefined} _keepInChatMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_keepInChatMessage", {
             get: $util.oneOfGetter($oneOfFields = ["keepInChatMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _documentWithCaptionMessage.
-         * @member {"documentWithCaptionMessage"|undefined} _documentWithCaptionMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_documentWithCaptionMessage", {
             get: $util.oneOfGetter($oneOfFields = ["documentWithCaptionMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _requestPhoneNumberMessage.
-         * @member {"requestPhoneNumberMessage"|undefined} _requestPhoneNumberMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_requestPhoneNumberMessage", {
             get: $util.oneOfGetter($oneOfFields = ["requestPhoneNumberMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _viewOnceMessageV2.
-         * @member {"viewOnceMessageV2"|undefined} _viewOnceMessageV2
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_viewOnceMessageV2", {
             get: $util.oneOfGetter($oneOfFields = ["viewOnceMessageV2"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _encReactionMessage.
-         * @member {"encReactionMessage"|undefined} _encReactionMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_encReactionMessage", {
             get: $util.oneOfGetter($oneOfFields = ["encReactionMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _editedMessage.
-         * @member {"editedMessage"|undefined} _editedMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_editedMessage", {
             get: $util.oneOfGetter($oneOfFields = ["editedMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _viewOnceMessageV2Extension.
-         * @member {"viewOnceMessageV2Extension"|undefined} _viewOnceMessageV2Extension
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_viewOnceMessageV2Extension", {
             get: $util.oneOfGetter($oneOfFields = ["viewOnceMessageV2Extension"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _pollCreationMessageV2.
-         * @member {"pollCreationMessageV2"|undefined} _pollCreationMessageV2
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_pollCreationMessageV2", {
             get: $util.oneOfGetter($oneOfFields = ["pollCreationMessageV2"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _scheduledCallCreationMessage.
-         * @member {"scheduledCallCreationMessage"|undefined} _scheduledCallCreationMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_scheduledCallCreationMessage", {
             get: $util.oneOfGetter($oneOfFields = ["scheduledCallCreationMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _groupMentionedMessage.
-         * @member {"groupMentionedMessage"|undefined} _groupMentionedMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_groupMentionedMessage", {
             get: $util.oneOfGetter($oneOfFields = ["groupMentionedMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _pinInChatMessage.
-         * @member {"pinInChatMessage"|undefined} _pinInChatMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_pinInChatMessage", {
             get: $util.oneOfGetter($oneOfFields = ["pinInChatMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _pollCreationMessageV3.
-         * @member {"pollCreationMessageV3"|undefined} _pollCreationMessageV3
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_pollCreationMessageV3", {
             get: $util.oneOfGetter($oneOfFields = ["pollCreationMessageV3"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _scheduledCallEditMessage.
-         * @member {"scheduledCallEditMessage"|undefined} _scheduledCallEditMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_scheduledCallEditMessage", {
             get: $util.oneOfGetter($oneOfFields = ["scheduledCallEditMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _ptvMessage.
-         * @member {"ptvMessage"|undefined} _ptvMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_ptvMessage", {
             get: $util.oneOfGetter($oneOfFields = ["ptvMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _botInvokeMessage.
-         * @member {"botInvokeMessage"|undefined} _botInvokeMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_botInvokeMessage", {
             get: $util.oneOfGetter($oneOfFields = ["botInvokeMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _callLogMesssage.
-         * @member {"callLogMesssage"|undefined} _callLogMesssage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_callLogMesssage", {
             get: $util.oneOfGetter($oneOfFields = ["callLogMesssage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _messageHistoryBundle.
-         * @member {"messageHistoryBundle"|undefined} _messageHistoryBundle
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_messageHistoryBundle", {
             get: $util.oneOfGetter($oneOfFields = ["messageHistoryBundle"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _encCommentMessage.
-         * @member {"encCommentMessage"|undefined} _encCommentMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_encCommentMessage", {
             get: $util.oneOfGetter($oneOfFields = ["encCommentMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _bcallMessage.
-         * @member {"bcallMessage"|undefined} _bcallMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_bcallMessage", {
             get: $util.oneOfGetter($oneOfFields = ["bcallMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _lottieStickerMessage.
-         * @member {"lottieStickerMessage"|undefined} _lottieStickerMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_lottieStickerMessage", {
             get: $util.oneOfGetter($oneOfFields = ["lottieStickerMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _eventMessage.
-         * @member {"eventMessage"|undefined} _eventMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_eventMessage", {
             get: $util.oneOfGetter($oneOfFields = ["eventMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _encEventResponseMessage.
-         * @member {"encEventResponseMessage"|undefined} _encEventResponseMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_encEventResponseMessage", {
             get: $util.oneOfGetter($oneOfFields = ["encEventResponseMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _commentMessage.
-         * @member {"commentMessage"|undefined} _commentMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_commentMessage", {
             get: $util.oneOfGetter($oneOfFields = ["commentMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _newsletterAdminInviteMessage.
-         * @member {"newsletterAdminInviteMessage"|undefined} _newsletterAdminInviteMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_newsletterAdminInviteMessage", {
             get: $util.oneOfGetter($oneOfFields = ["newsletterAdminInviteMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _placeholderMessage.
-         * @member {"placeholderMessage"|undefined} _placeholderMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_placeholderMessage", {
             get: $util.oneOfGetter($oneOfFields = ["placeholderMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _secretEncryptedMessage.
-         * @member {"secretEncryptedMessage"|undefined} _secretEncryptedMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_secretEncryptedMessage", {
             get: $util.oneOfGetter($oneOfFields = ["secretEncryptedMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _albumMessage.
-         * @member {"albumMessage"|undefined} _albumMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_albumMessage", {
             get: $util.oneOfGetter($oneOfFields = ["albumMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _eventCoverImage.
-         * @member {"eventCoverImage"|undefined} _eventCoverImage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_eventCoverImage", {
             get: $util.oneOfGetter($oneOfFields = ["eventCoverImage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _stickerPackMessage.
-         * @member {"stickerPackMessage"|undefined} _stickerPackMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_stickerPackMessage", {
             get: $util.oneOfGetter($oneOfFields = ["stickerPackMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _statusMentionMessage.
-         * @member {"statusMentionMessage"|undefined} _statusMentionMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_statusMentionMessage", {
             get: $util.oneOfGetter($oneOfFields = ["statusMentionMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _pollResultSnapshotMessage.
-         * @member {"pollResultSnapshotMessage"|undefined} _pollResultSnapshotMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_pollResultSnapshotMessage", {
             get: $util.oneOfGetter($oneOfFields = ["pollResultSnapshotMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _pollCreationOptionImageMessage.
-         * @member {"pollCreationOptionImageMessage"|undefined} _pollCreationOptionImageMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_pollCreationOptionImageMessage", {
             get: $util.oneOfGetter($oneOfFields = ["pollCreationOptionImageMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _associatedChildMessage.
-         * @member {"associatedChildMessage"|undefined} _associatedChildMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_associatedChildMessage", {
             get: $util.oneOfGetter($oneOfFields = ["associatedChildMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _groupStatusMentionMessage.
-         * @member {"groupStatusMentionMessage"|undefined} _groupStatusMentionMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_groupStatusMentionMessage", {
             get: $util.oneOfGetter($oneOfFields = ["groupStatusMentionMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _pollCreationMessageV4.
-         * @member {"pollCreationMessageV4"|undefined} _pollCreationMessageV4
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_pollCreationMessageV4", {
             get: $util.oneOfGetter($oneOfFields = ["pollCreationMessageV4"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _statusAddYours.
-         * @member {"statusAddYours"|undefined} _statusAddYours
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_statusAddYours", {
             get: $util.oneOfGetter($oneOfFields = ["statusAddYours"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _groupStatusMessage.
-         * @member {"groupStatusMessage"|undefined} _groupStatusMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_groupStatusMessage", {
             get: $util.oneOfGetter($oneOfFields = ["groupStatusMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _richResponseMessage.
-         * @member {"richResponseMessage"|undefined} _richResponseMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_richResponseMessage", {
             get: $util.oneOfGetter($oneOfFields = ["richResponseMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _statusNotificationMessage.
-         * @member {"statusNotificationMessage"|undefined} _statusNotificationMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_statusNotificationMessage", {
             get: $util.oneOfGetter($oneOfFields = ["statusNotificationMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _limitSharingMessage.
-         * @member {"limitSharingMessage"|undefined} _limitSharingMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_limitSharingMessage", {
             get: $util.oneOfGetter($oneOfFields = ["limitSharingMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _botTaskMessage.
-         * @member {"botTaskMessage"|undefined} _botTaskMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_botTaskMessage", {
             get: $util.oneOfGetter($oneOfFields = ["botTaskMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _questionMessage.
-         * @member {"questionMessage"|undefined} _questionMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_questionMessage", {
             get: $util.oneOfGetter($oneOfFields = ["questionMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _messageHistoryNotice.
-         * @member {"messageHistoryNotice"|undefined} _messageHistoryNotice
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_messageHistoryNotice", {
             get: $util.oneOfGetter($oneOfFields = ["messageHistoryNotice"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _groupStatusMessageV2.
-         * @member {"groupStatusMessageV2"|undefined} _groupStatusMessageV2
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_groupStatusMessageV2", {
             get: $util.oneOfGetter($oneOfFields = ["groupStatusMessageV2"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _botForwardedMessage.
-         * @member {"botForwardedMessage"|undefined} _botForwardedMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_botForwardedMessage", {
             get: $util.oneOfGetter($oneOfFields = ["botForwardedMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _statusQuestionAnswerMessage.
-         * @member {"statusQuestionAnswerMessage"|undefined} _statusQuestionAnswerMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_statusQuestionAnswerMessage", {
             get: $util.oneOfGetter($oneOfFields = ["statusQuestionAnswerMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _questionReplyMessage.
-         * @member {"questionReplyMessage"|undefined} _questionReplyMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_questionReplyMessage", {
             get: $util.oneOfGetter($oneOfFields = ["questionReplyMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _questionResponseMessage.
-         * @member {"questionResponseMessage"|undefined} _questionResponseMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_questionResponseMessage", {
             get: $util.oneOfGetter($oneOfFields = ["questionResponseMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _statusQuotedMessage.
-         * @member {"statusQuotedMessage"|undefined} _statusQuotedMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_statusQuotedMessage", {
             get: $util.oneOfGetter($oneOfFields = ["statusQuotedMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _statusStickerInteractionMessage.
-         * @member {"statusStickerInteractionMessage"|undefined} _statusStickerInteractionMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_statusStickerInteractionMessage", {
             get: $util.oneOfGetter($oneOfFields = ["statusStickerInteractionMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _pollCreationMessageV5.
-         * @member {"pollCreationMessageV5"|undefined} _pollCreationMessageV5
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_pollCreationMessageV5", {
             get: $util.oneOfGetter($oneOfFields = ["pollCreationMessageV5"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _newsletterFollowerInviteMessageV2.
-         * @member {"newsletterFollowerInviteMessageV2"|undefined} _newsletterFollowerInviteMessageV2
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_newsletterFollowerInviteMessageV2", {
             get: $util.oneOfGetter($oneOfFields = ["newsletterFollowerInviteMessageV2"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _pollResultSnapshotMessageV3.
-         * @member {"pollResultSnapshotMessageV3"|undefined} _pollResultSnapshotMessageV3
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_pollResultSnapshotMessageV3", {
             get: $util.oneOfGetter($oneOfFields = ["pollResultSnapshotMessageV3"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * Message _newsletterAdminProfileMessage.
-         * @member {"newsletterAdminProfileMessage"|undefined} _newsletterAdminProfileMessage
-         * @memberof E2E.Message
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_newsletterAdminProfileMessage", {
             get: $util.oneOfGetter($oneOfFields = ["newsletterAdminProfileMessage"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -41040,34 +38470,19 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * AlbumMessage _expectedImageCount.
-             * @member {"expectedImageCount"|undefined} _expectedImageCount
-             * @memberof E2E.Message.AlbumMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AlbumMessage.prototype, "_expectedImageCount", {
                 get: $util.oneOfGetter($oneOfFields = ["expectedImageCount"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AlbumMessage _expectedVideoCount.
-             * @member {"expectedVideoCount"|undefined} _expectedVideoCount
-             * @memberof E2E.Message.AlbumMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AlbumMessage.prototype, "_expectedVideoCount", {
                 get: $util.oneOfGetter($oneOfFields = ["expectedVideoCount"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AlbumMessage _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.AlbumMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AlbumMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -41337,12 +38752,7 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * AppStateFatalExceptionNotification _timestamp.
-             * @member {"timestamp"|undefined} _timestamp
-             * @memberof E2E.Message.AppStateFatalExceptionNotification
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AppStateFatalExceptionNotification.prototype, "_timestamp", {
                 get: $util.oneOfGetter($oneOfFields = ["timestamp"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -41609,23 +39019,13 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * AppStateSyncKey _keyId.
-             * @member {"keyId"|undefined} _keyId
-             * @memberof E2E.Message.AppStateSyncKey
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AppStateSyncKey.prototype, "_keyId", {
                 get: $util.oneOfGetter($oneOfFields = ["keyId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AppStateSyncKey _keyData.
-             * @member {"keyData"|undefined} _keyData
-             * @memberof E2E.Message.AppStateSyncKey
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AppStateSyncKey.prototype, "_keyData", {
                 get: $util.oneOfGetter($oneOfFields = ["keyData"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -41891,34 +39291,19 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * AppStateSyncKeyData _keyData.
-             * @member {"keyData"|undefined} _keyData
-             * @memberof E2E.Message.AppStateSyncKeyData
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AppStateSyncKeyData.prototype, "_keyData", {
                 get: $util.oneOfGetter($oneOfFields = ["keyData"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AppStateSyncKeyData _fingerprint.
-             * @member {"fingerprint"|undefined} _fingerprint
-             * @memberof E2E.Message.AppStateSyncKeyData
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AppStateSyncKeyData.prototype, "_fingerprint", {
                 get: $util.oneOfGetter($oneOfFields = ["fingerprint"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AppStateSyncKeyData _timestamp.
-             * @member {"timestamp"|undefined} _timestamp
-             * @memberof E2E.Message.AppStateSyncKeyData
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AppStateSyncKeyData.prototype, "_timestamp", {
                 get: $util.oneOfGetter($oneOfFields = ["timestamp"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -42210,23 +39595,13 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * AppStateSyncKeyFingerprint _rawId.
-             * @member {"rawId"|undefined} _rawId
-             * @memberof E2E.Message.AppStateSyncKeyFingerprint
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AppStateSyncKeyFingerprint.prototype, "_rawId", {
                 get: $util.oneOfGetter($oneOfFields = ["rawId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AppStateSyncKeyFingerprint _currentIndex.
-             * @member {"currentIndex"|undefined} _currentIndex
-             * @memberof E2E.Message.AppStateSyncKeyFingerprint
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AppStateSyncKeyFingerprint.prototype, "_currentIndex", {
                 get: $util.oneOfGetter($oneOfFields = ["currentIndex"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -42500,12 +39875,7 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * AppStateSyncKeyId _keyId.
-             * @member {"keyId"|undefined} _keyId
-             * @memberof E2E.Message.AppStateSyncKeyId
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AppStateSyncKeyId.prototype, "_keyId", {
                 get: $util.oneOfGetter($oneOfFields = ["keyId"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -43322,188 +40692,103 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * AudioMessage _url.
-             * @member {"url"|undefined} _url
-             * @memberof E2E.Message.AudioMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AudioMessage.prototype, "_url", {
                 get: $util.oneOfGetter($oneOfFields = ["url"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AudioMessage _mimetype.
-             * @member {"mimetype"|undefined} _mimetype
-             * @memberof E2E.Message.AudioMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AudioMessage.prototype, "_mimetype", {
                 get: $util.oneOfGetter($oneOfFields = ["mimetype"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AudioMessage _fileSha256.
-             * @member {"fileSha256"|undefined} _fileSha256
-             * @memberof E2E.Message.AudioMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AudioMessage.prototype, "_fileSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["fileSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AudioMessage _fileLength.
-             * @member {"fileLength"|undefined} _fileLength
-             * @memberof E2E.Message.AudioMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AudioMessage.prototype, "_fileLength", {
                 get: $util.oneOfGetter($oneOfFields = ["fileLength"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AudioMessage _seconds.
-             * @member {"seconds"|undefined} _seconds
-             * @memberof E2E.Message.AudioMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AudioMessage.prototype, "_seconds", {
                 get: $util.oneOfGetter($oneOfFields = ["seconds"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AudioMessage _ptt.
-             * @member {"ptt"|undefined} _ptt
-             * @memberof E2E.Message.AudioMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AudioMessage.prototype, "_ptt", {
                 get: $util.oneOfGetter($oneOfFields = ["ptt"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AudioMessage _mediaKey.
-             * @member {"mediaKey"|undefined} _mediaKey
-             * @memberof E2E.Message.AudioMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AudioMessage.prototype, "_mediaKey", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AudioMessage _fileEncSha256.
-             * @member {"fileEncSha256"|undefined} _fileEncSha256
-             * @memberof E2E.Message.AudioMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AudioMessage.prototype, "_fileEncSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["fileEncSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AudioMessage _directPath.
-             * @member {"directPath"|undefined} _directPath
-             * @memberof E2E.Message.AudioMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AudioMessage.prototype, "_directPath", {
                 get: $util.oneOfGetter($oneOfFields = ["directPath"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AudioMessage _mediaKeyTimestamp.
-             * @member {"mediaKeyTimestamp"|undefined} _mediaKeyTimestamp
-             * @memberof E2E.Message.AudioMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AudioMessage.prototype, "_mediaKeyTimestamp", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaKeyTimestamp"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AudioMessage _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.AudioMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AudioMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AudioMessage _streamingSidecar.
-             * @member {"streamingSidecar"|undefined} _streamingSidecar
-             * @memberof E2E.Message.AudioMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AudioMessage.prototype, "_streamingSidecar", {
                 get: $util.oneOfGetter($oneOfFields = ["streamingSidecar"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AudioMessage _waveform.
-             * @member {"waveform"|undefined} _waveform
-             * @memberof E2E.Message.AudioMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AudioMessage.prototype, "_waveform", {
                 get: $util.oneOfGetter($oneOfFields = ["waveform"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AudioMessage _backgroundArgb.
-             * @member {"backgroundArgb"|undefined} _backgroundArgb
-             * @memberof E2E.Message.AudioMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AudioMessage.prototype, "_backgroundArgb", {
                 get: $util.oneOfGetter($oneOfFields = ["backgroundArgb"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AudioMessage _viewOnce.
-             * @member {"viewOnce"|undefined} _viewOnce
-             * @memberof E2E.Message.AudioMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AudioMessage.prototype, "_viewOnce", {
                 get: $util.oneOfGetter($oneOfFields = ["viewOnce"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AudioMessage _accessibilityLabel.
-             * @member {"accessibilityLabel"|undefined} _accessibilityLabel
-             * @memberof E2E.Message.AudioMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AudioMessage.prototype, "_accessibilityLabel", {
                 get: $util.oneOfGetter($oneOfFields = ["accessibilityLabel"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AudioMessage _mediaKeyDomain.
-             * @member {"mediaKeyDomain"|undefined} _mediaKeyDomain
-             * @memberof E2E.Message.AudioMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AudioMessage.prototype, "_mediaKeyDomain", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaKeyDomain"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -44111,45 +41396,25 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * BCallMessage _sessionId.
-             * @member {"sessionId"|undefined} _sessionId
-             * @memberof E2E.Message.BCallMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(BCallMessage.prototype, "_sessionId", {
                 get: $util.oneOfGetter($oneOfFields = ["sessionId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * BCallMessage _mediaType.
-             * @member {"mediaType"|undefined} _mediaType
-             * @memberof E2E.Message.BCallMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(BCallMessage.prototype, "_mediaType", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaType"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * BCallMessage _masterKey.
-             * @member {"masterKey"|undefined} _masterKey
-             * @memberof E2E.Message.BCallMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(BCallMessage.prototype, "_masterKey", {
                 get: $util.oneOfGetter($oneOfFields = ["masterKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * BCallMessage _caption.
-             * @member {"caption"|undefined} _caption
-             * @memberof E2E.Message.BCallMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(BCallMessage.prototype, "_caption", {
                 get: $util.oneOfGetter($oneOfFields = ["caption"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -44546,45 +41811,25 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * ButtonsMessage _contentText.
-             * @member {"contentText"|undefined} _contentText
-             * @memberof E2E.Message.ButtonsMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ButtonsMessage.prototype, "_contentText", {
                 get: $util.oneOfGetter($oneOfFields = ["contentText"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ButtonsMessage _footerText.
-             * @member {"footerText"|undefined} _footerText
-             * @memberof E2E.Message.ButtonsMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ButtonsMessage.prototype, "_footerText", {
                 get: $util.oneOfGetter($oneOfFields = ["footerText"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ButtonsMessage _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.ButtonsMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ButtonsMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ButtonsMessage _headerType.
-             * @member {"headerType"|undefined} _headerType
-             * @memberof E2E.Message.ButtonsMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ButtonsMessage.prototype, "_headerType", {
                 get: $util.oneOfGetter($oneOfFields = ["headerType"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -45098,45 +42343,25 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * Button _buttonId.
-                 * @member {"buttonId"|undefined} _buttonId
-                 * @memberof E2E.Message.ButtonsMessage.Button
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Button.prototype, "_buttonId", {
                     get: $util.oneOfGetter($oneOfFields = ["buttonId"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * Button _buttonText.
-                 * @member {"buttonText"|undefined} _buttonText
-                 * @memberof E2E.Message.ButtonsMessage.Button
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Button.prototype, "_buttonText", {
                     get: $util.oneOfGetter($oneOfFields = ["buttonText"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * Button _type.
-                 * @member {"type"|undefined} _type
-                 * @memberof E2E.Message.ButtonsMessage.Button
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Button.prototype, "_type", {
                     get: $util.oneOfGetter($oneOfFields = ["type"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * Button _nativeFlowInfo.
-                 * @member {"nativeFlowInfo"|undefined} _nativeFlowInfo
-                 * @memberof E2E.Message.ButtonsMessage.Button
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Button.prototype, "_nativeFlowInfo", {
                     get: $util.oneOfGetter($oneOfFields = ["nativeFlowInfo"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -45441,12 +42666,7 @@ $root.E2E = (function() {
                     // OneOf field names bound to virtual getters and setters
                     var $oneOfFields;
 
-                    /**
-                     * ButtonText _displayText.
-                     * @member {"displayText"|undefined} _displayText
-                     * @memberof E2E.Message.ButtonsMessage.Button.ButtonText
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(ButtonText.prototype, "_displayText", {
                         get: $util.oneOfGetter($oneOfFields = ["displayText"]),
                         set: $util.oneOfSetter($oneOfFields)
@@ -45673,23 +42893,13 @@ $root.E2E = (function() {
                     // OneOf field names bound to virtual getters and setters
                     var $oneOfFields;
 
-                    /**
-                     * NativeFlowInfo _name.
-                     * @member {"name"|undefined} _name
-                     * @memberof E2E.Message.ButtonsMessage.Button.NativeFlowInfo
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(NativeFlowInfo.prototype, "_name", {
                         get: $util.oneOfGetter($oneOfFields = ["name"]),
                         set: $util.oneOfSetter($oneOfFields)
                     });
 
-                    /**
-                     * NativeFlowInfo _paramsJson.
-                     * @member {"paramsJson"|undefined} _paramsJson
-                     * @memberof E2E.Message.ButtonsMessage.Button.NativeFlowInfo
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(NativeFlowInfo.prototype, "_paramsJson", {
                         get: $util.oneOfGetter($oneOfFields = ["paramsJson"]),
                         set: $util.oneOfSetter($oneOfFields)
@@ -45998,34 +43208,19 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * ButtonsResponseMessage _selectedButtonId.
-             * @member {"selectedButtonId"|undefined} _selectedButtonId
-             * @memberof E2E.Message.ButtonsResponseMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ButtonsResponseMessage.prototype, "_selectedButtonId", {
                 get: $util.oneOfGetter($oneOfFields = ["selectedButtonId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ButtonsResponseMessage _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.ButtonsResponseMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ButtonsResponseMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ButtonsResponseMessage _type.
-             * @member {"type"|undefined} _type
-             * @memberof E2E.Message.ButtonsResponseMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ButtonsResponseMessage.prototype, "_type", {
                 get: $util.oneOfGetter($oneOfFields = ["type"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -46428,111 +43623,61 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * Call _callKey.
-             * @member {"callKey"|undefined} _callKey
-             * @memberof E2E.Message.Call
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(Call.prototype, "_callKey", {
                 get: $util.oneOfGetter($oneOfFields = ["callKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * Call _conversionSource.
-             * @member {"conversionSource"|undefined} _conversionSource
-             * @memberof E2E.Message.Call
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(Call.prototype, "_conversionSource", {
                 get: $util.oneOfGetter($oneOfFields = ["conversionSource"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * Call _conversionData.
-             * @member {"conversionData"|undefined} _conversionData
-             * @memberof E2E.Message.Call
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(Call.prototype, "_conversionData", {
                 get: $util.oneOfGetter($oneOfFields = ["conversionData"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * Call _conversionDelaySeconds.
-             * @member {"conversionDelaySeconds"|undefined} _conversionDelaySeconds
-             * @memberof E2E.Message.Call
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(Call.prototype, "_conversionDelaySeconds", {
                 get: $util.oneOfGetter($oneOfFields = ["conversionDelaySeconds"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * Call _ctwaSignals.
-             * @member {"ctwaSignals"|undefined} _ctwaSignals
-             * @memberof E2E.Message.Call
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(Call.prototype, "_ctwaSignals", {
                 get: $util.oneOfGetter($oneOfFields = ["ctwaSignals"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * Call _ctwaPayload.
-             * @member {"ctwaPayload"|undefined} _ctwaPayload
-             * @memberof E2E.Message.Call
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(Call.prototype, "_ctwaPayload", {
                 get: $util.oneOfGetter($oneOfFields = ["ctwaPayload"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * Call _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.Call
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(Call.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * Call _nativeFlowCallButtonPayload.
-             * @member {"nativeFlowCallButtonPayload"|undefined} _nativeFlowCallButtonPayload
-             * @memberof E2E.Message.Call
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(Call.prototype, "_nativeFlowCallButtonPayload", {
                 get: $util.oneOfGetter($oneOfFields = ["nativeFlowCallButtonPayload"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * Call _deeplinkPayload.
-             * @member {"deeplinkPayload"|undefined} _deeplinkPayload
-             * @memberof E2E.Message.Call
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(Call.prototype, "_deeplinkPayload", {
                 get: $util.oneOfGetter($oneOfFields = ["deeplinkPayload"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * Call _messageContextInfo.
-             * @member {"messageContextInfo"|undefined} _messageContextInfo
-             * @memberof E2E.Message.Call
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(Call.prototype, "_messageContextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["messageContextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -46970,45 +44115,25 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * CallLogMessage _isVideo.
-             * @member {"isVideo"|undefined} _isVideo
-             * @memberof E2E.Message.CallLogMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(CallLogMessage.prototype, "_isVideo", {
                 get: $util.oneOfGetter($oneOfFields = ["isVideo"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * CallLogMessage _callOutcome.
-             * @member {"callOutcome"|undefined} _callOutcome
-             * @memberof E2E.Message.CallLogMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(CallLogMessage.prototype, "_callOutcome", {
                 get: $util.oneOfGetter($oneOfFields = ["callOutcome"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * CallLogMessage _durationSecs.
-             * @member {"durationSecs"|undefined} _durationSecs
-             * @memberof E2E.Message.CallLogMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(CallLogMessage.prototype, "_durationSecs", {
                 get: $util.oneOfGetter($oneOfFields = ["durationSecs"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * CallLogMessage _callType.
-             * @member {"callType"|undefined} _callType
-             * @memberof E2E.Message.CallLogMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(CallLogMessage.prototype, "_callType", {
                 get: $util.oneOfGetter($oneOfFields = ["callType"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -47430,23 +44555,13 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * CallParticipant _jid.
-                 * @member {"jid"|undefined} _jid
-                 * @memberof E2E.Message.CallLogMessage.CallParticipant
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(CallParticipant.prototype, "_jid", {
                     get: $util.oneOfGetter($oneOfFields = ["jid"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * CallParticipant _callOutcome.
-                 * @member {"callOutcome"|undefined} _callOutcome
-                 * @memberof E2E.Message.CallLogMessage.CallParticipant
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(CallParticipant.prototype, "_callOutcome", {
                     get: $util.oneOfGetter($oneOfFields = ["callOutcome"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -47750,12 +44865,7 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * CancelPaymentRequestMessage _key.
-             * @member {"key"|undefined} _key
-             * @memberof E2E.Message.CancelPaymentRequestMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(CancelPaymentRequestMessage.prototype, "_key", {
                 get: $util.oneOfGetter($oneOfFields = ["key"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -47988,23 +45098,13 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * Chat _displayName.
-             * @member {"displayName"|undefined} _displayName
-             * @memberof E2E.Message.Chat
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(Chat.prototype, "_displayName", {
                 get: $util.oneOfGetter($oneOfFields = ["displayName"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * Chat _id.
-             * @member {"id"|undefined} _id
-             * @memberof E2E.Message.Chat
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(Chat.prototype, "_id", {
                 get: $util.oneOfGetter($oneOfFields = ["id"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -48285,67 +45385,37 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * CloudAPIThreadControlNotification _status.
-             * @member {"status"|undefined} _status
-             * @memberof E2E.Message.CloudAPIThreadControlNotification
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(CloudAPIThreadControlNotification.prototype, "_status", {
                 get: $util.oneOfGetter($oneOfFields = ["status"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * CloudAPIThreadControlNotification _senderNotificationTimestampMs.
-             * @member {"senderNotificationTimestampMs"|undefined} _senderNotificationTimestampMs
-             * @memberof E2E.Message.CloudAPIThreadControlNotification
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(CloudAPIThreadControlNotification.prototype, "_senderNotificationTimestampMs", {
                 get: $util.oneOfGetter($oneOfFields = ["senderNotificationTimestampMs"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * CloudAPIThreadControlNotification _consumerLid.
-             * @member {"consumerLid"|undefined} _consumerLid
-             * @memberof E2E.Message.CloudAPIThreadControlNotification
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(CloudAPIThreadControlNotification.prototype, "_consumerLid", {
                 get: $util.oneOfGetter($oneOfFields = ["consumerLid"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * CloudAPIThreadControlNotification _consumerPhoneNumber.
-             * @member {"consumerPhoneNumber"|undefined} _consumerPhoneNumber
-             * @memberof E2E.Message.CloudAPIThreadControlNotification
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(CloudAPIThreadControlNotification.prototype, "_consumerPhoneNumber", {
                 get: $util.oneOfGetter($oneOfFields = ["consumerPhoneNumber"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * CloudAPIThreadControlNotification _notificationContent.
-             * @member {"notificationContent"|undefined} _notificationContent
-             * @memberof E2E.Message.CloudAPIThreadControlNotification
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(CloudAPIThreadControlNotification.prototype, "_notificationContent", {
                 get: $util.oneOfGetter($oneOfFields = ["notificationContent"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * CloudAPIThreadControlNotification _shouldSuppressNotification.
-             * @member {"shouldSuppressNotification"|undefined} _shouldSuppressNotification
-             * @memberof E2E.Message.CloudAPIThreadControlNotification
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(CloudAPIThreadControlNotification.prototype, "_shouldSuppressNotification", {
                 get: $util.oneOfGetter($oneOfFields = ["shouldSuppressNotification"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -48715,23 +45785,13 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * CloudAPIThreadControlNotificationContent _handoffNotificationText.
-                 * @member {"handoffNotificationText"|undefined} _handoffNotificationText
-                 * @memberof E2E.Message.CloudAPIThreadControlNotification.CloudAPIThreadControlNotificationContent
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(CloudAPIThreadControlNotificationContent.prototype, "_handoffNotificationText", {
                     get: $util.oneOfGetter($oneOfFields = ["handoffNotificationText"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * CloudAPIThreadControlNotificationContent _extraJson.
-                 * @member {"extraJson"|undefined} _extraJson
-                 * @memberof E2E.Message.CloudAPIThreadControlNotification.CloudAPIThreadControlNotificationContent
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(CloudAPIThreadControlNotificationContent.prototype, "_extraJson", {
                     get: $util.oneOfGetter($oneOfFields = ["extraJson"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -48979,23 +46039,13 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * CommentMessage _message.
-             * @member {"message"|undefined} _message
-             * @memberof E2E.Message.CommentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(CommentMessage.prototype, "_message", {
                 get: $util.oneOfGetter($oneOfFields = ["message"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * CommentMessage _targetMessageKey.
-             * @member {"targetMessageKey"|undefined} _targetMessageKey
-             * @memberof E2E.Message.CommentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(CommentMessage.prototype, "_targetMessageKey", {
                 get: $util.oneOfGetter($oneOfFields = ["targetMessageKey"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -49261,34 +46311,19 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * ContactMessage _displayName.
-             * @member {"displayName"|undefined} _displayName
-             * @memberof E2E.Message.ContactMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ContactMessage.prototype, "_displayName", {
                 get: $util.oneOfGetter($oneOfFields = ["displayName"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ContactMessage _vcard.
-             * @member {"vcard"|undefined} _vcard
-             * @memberof E2E.Message.ContactMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ContactMessage.prototype, "_vcard", {
                 get: $util.oneOfGetter($oneOfFields = ["vcard"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ContactMessage _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.ContactMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ContactMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -49567,23 +46602,13 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * ContactsArrayMessage _displayName.
-             * @member {"displayName"|undefined} _displayName
-             * @memberof E2E.Message.ContactsArrayMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ContactsArrayMessage.prototype, "_displayName", {
                 get: $util.oneOfGetter($oneOfFields = ["displayName"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ContactsArrayMessage _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.ContactsArrayMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ContactsArrayMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -49860,12 +46885,7 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * DeclinePaymentRequestMessage _key.
-             * @member {"key"|undefined} _key
-             * @memberof E2E.Message.DeclinePaymentRequestMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DeclinePaymentRequestMessage.prototype, "_key", {
                 get: $util.oneOfGetter($oneOfFields = ["key"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -50107,34 +47127,19 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * DeviceSentMessage _destinationJid.
-             * @member {"destinationJid"|undefined} _destinationJid
-             * @memberof E2E.Message.DeviceSentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DeviceSentMessage.prototype, "_destinationJid", {
                 get: $util.oneOfGetter($oneOfFields = ["destinationJid"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * DeviceSentMessage _message.
-             * @member {"message"|undefined} _message
-             * @memberof E2E.Message.DeviceSentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DeviceSentMessage.prototype, "_message", {
                 get: $util.oneOfGetter($oneOfFields = ["message"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * DeviceSentMessage _phash.
-             * @member {"phash"|undefined} _phash
-             * @memberof E2E.Message.DeviceSentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DeviceSentMessage.prototype, "_phash", {
                 get: $util.oneOfGetter($oneOfFields = ["phash"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -50583,243 +47588,133 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * DocumentMessage _url.
-             * @member {"url"|undefined} _url
-             * @memberof E2E.Message.DocumentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DocumentMessage.prototype, "_url", {
                 get: $util.oneOfGetter($oneOfFields = ["url"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * DocumentMessage _mimetype.
-             * @member {"mimetype"|undefined} _mimetype
-             * @memberof E2E.Message.DocumentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DocumentMessage.prototype, "_mimetype", {
                 get: $util.oneOfGetter($oneOfFields = ["mimetype"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * DocumentMessage _title.
-             * @member {"title"|undefined} _title
-             * @memberof E2E.Message.DocumentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DocumentMessage.prototype, "_title", {
                 get: $util.oneOfGetter($oneOfFields = ["title"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * DocumentMessage _fileSha256.
-             * @member {"fileSha256"|undefined} _fileSha256
-             * @memberof E2E.Message.DocumentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DocumentMessage.prototype, "_fileSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["fileSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * DocumentMessage _fileLength.
-             * @member {"fileLength"|undefined} _fileLength
-             * @memberof E2E.Message.DocumentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DocumentMessage.prototype, "_fileLength", {
                 get: $util.oneOfGetter($oneOfFields = ["fileLength"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * DocumentMessage _pageCount.
-             * @member {"pageCount"|undefined} _pageCount
-             * @memberof E2E.Message.DocumentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DocumentMessage.prototype, "_pageCount", {
                 get: $util.oneOfGetter($oneOfFields = ["pageCount"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * DocumentMessage _mediaKey.
-             * @member {"mediaKey"|undefined} _mediaKey
-             * @memberof E2E.Message.DocumentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DocumentMessage.prototype, "_mediaKey", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * DocumentMessage _fileName.
-             * @member {"fileName"|undefined} _fileName
-             * @memberof E2E.Message.DocumentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DocumentMessage.prototype, "_fileName", {
                 get: $util.oneOfGetter($oneOfFields = ["fileName"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * DocumentMessage _fileEncSha256.
-             * @member {"fileEncSha256"|undefined} _fileEncSha256
-             * @memberof E2E.Message.DocumentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DocumentMessage.prototype, "_fileEncSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["fileEncSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * DocumentMessage _directPath.
-             * @member {"directPath"|undefined} _directPath
-             * @memberof E2E.Message.DocumentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DocumentMessage.prototype, "_directPath", {
                 get: $util.oneOfGetter($oneOfFields = ["directPath"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * DocumentMessage _mediaKeyTimestamp.
-             * @member {"mediaKeyTimestamp"|undefined} _mediaKeyTimestamp
-             * @memberof E2E.Message.DocumentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DocumentMessage.prototype, "_mediaKeyTimestamp", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaKeyTimestamp"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * DocumentMessage _contactVcard.
-             * @member {"contactVcard"|undefined} _contactVcard
-             * @memberof E2E.Message.DocumentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DocumentMessage.prototype, "_contactVcard", {
                 get: $util.oneOfGetter($oneOfFields = ["contactVcard"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * DocumentMessage _thumbnailDirectPath.
-             * @member {"thumbnailDirectPath"|undefined} _thumbnailDirectPath
-             * @memberof E2E.Message.DocumentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DocumentMessage.prototype, "_thumbnailDirectPath", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailDirectPath"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * DocumentMessage _thumbnailSha256.
-             * @member {"thumbnailSha256"|undefined} _thumbnailSha256
-             * @memberof E2E.Message.DocumentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DocumentMessage.prototype, "_thumbnailSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * DocumentMessage _thumbnailEncSha256.
-             * @member {"thumbnailEncSha256"|undefined} _thumbnailEncSha256
-             * @memberof E2E.Message.DocumentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DocumentMessage.prototype, "_thumbnailEncSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailEncSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * DocumentMessage _jpegThumbnail.
-             * @member {"jpegThumbnail"|undefined} _jpegThumbnail
-             * @memberof E2E.Message.DocumentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DocumentMessage.prototype, "_jpegThumbnail", {
                 get: $util.oneOfGetter($oneOfFields = ["jpegThumbnail"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * DocumentMessage _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.DocumentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DocumentMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * DocumentMessage _thumbnailHeight.
-             * @member {"thumbnailHeight"|undefined} _thumbnailHeight
-             * @memberof E2E.Message.DocumentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DocumentMessage.prototype, "_thumbnailHeight", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailHeight"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * DocumentMessage _thumbnailWidth.
-             * @member {"thumbnailWidth"|undefined} _thumbnailWidth
-             * @memberof E2E.Message.DocumentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DocumentMessage.prototype, "_thumbnailWidth", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailWidth"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * DocumentMessage _caption.
-             * @member {"caption"|undefined} _caption
-             * @memberof E2E.Message.DocumentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DocumentMessage.prototype, "_caption", {
                 get: $util.oneOfGetter($oneOfFields = ["caption"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * DocumentMessage _accessibilityLabel.
-             * @member {"accessibilityLabel"|undefined} _accessibilityLabel
-             * @memberof E2E.Message.DocumentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DocumentMessage.prototype, "_accessibilityLabel", {
                 get: $util.oneOfGetter($oneOfFields = ["accessibilityLabel"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * DocumentMessage _mediaKeyDomain.
-             * @member {"mediaKeyDomain"|undefined} _mediaKeyDomain
-             * @memberof E2E.Message.DocumentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(DocumentMessage.prototype, "_mediaKeyDomain", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaKeyDomain"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -51511,34 +48406,19 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * EncCommentMessage _targetMessageKey.
-             * @member {"targetMessageKey"|undefined} _targetMessageKey
-             * @memberof E2E.Message.EncCommentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(EncCommentMessage.prototype, "_targetMessageKey", {
                 get: $util.oneOfGetter($oneOfFields = ["targetMessageKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * EncCommentMessage _encPayload.
-             * @member {"encPayload"|undefined} _encPayload
-             * @memberof E2E.Message.EncCommentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(EncCommentMessage.prototype, "_encPayload", {
                 get: $util.oneOfGetter($oneOfFields = ["encPayload"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * EncCommentMessage _encIv.
-             * @member {"encIv"|undefined} _encIv
-             * @memberof E2E.Message.EncCommentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(EncCommentMessage.prototype, "_encIv", {
                 get: $util.oneOfGetter($oneOfFields = ["encIv"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -51822,34 +48702,19 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * EncEventResponseMessage _eventCreationMessageKey.
-             * @member {"eventCreationMessageKey"|undefined} _eventCreationMessageKey
-             * @memberof E2E.Message.EncEventResponseMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(EncEventResponseMessage.prototype, "_eventCreationMessageKey", {
                 get: $util.oneOfGetter($oneOfFields = ["eventCreationMessageKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * EncEventResponseMessage _encPayload.
-             * @member {"encPayload"|undefined} _encPayload
-             * @memberof E2E.Message.EncEventResponseMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(EncEventResponseMessage.prototype, "_encPayload", {
                 get: $util.oneOfGetter($oneOfFields = ["encPayload"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * EncEventResponseMessage _encIv.
-             * @member {"encIv"|undefined} _encIv
-             * @memberof E2E.Message.EncEventResponseMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(EncEventResponseMessage.prototype, "_encIv", {
                 get: $util.oneOfGetter($oneOfFields = ["encIv"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -52133,34 +48998,19 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * EncReactionMessage _targetMessageKey.
-             * @member {"targetMessageKey"|undefined} _targetMessageKey
-             * @memberof E2E.Message.EncReactionMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(EncReactionMessage.prototype, "_targetMessageKey", {
                 get: $util.oneOfGetter($oneOfFields = ["targetMessageKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * EncReactionMessage _encPayload.
-             * @member {"encPayload"|undefined} _encPayload
-             * @memberof E2E.Message.EncReactionMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(EncReactionMessage.prototype, "_encPayload", {
                 get: $util.oneOfGetter($oneOfFields = ["encPayload"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * EncReactionMessage _encIv.
-             * @member {"encIv"|undefined} _encIv
-             * @memberof E2E.Message.EncReactionMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(EncReactionMessage.prototype, "_encIv", {
                 get: $util.oneOfGetter($oneOfFields = ["encIv"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -52525,133 +49375,73 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * EventMessage _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.EventMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(EventMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * EventMessage _isCanceled.
-             * @member {"isCanceled"|undefined} _isCanceled
-             * @memberof E2E.Message.EventMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(EventMessage.prototype, "_isCanceled", {
                 get: $util.oneOfGetter($oneOfFields = ["isCanceled"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * EventMessage _name.
-             * @member {"name"|undefined} _name
-             * @memberof E2E.Message.EventMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(EventMessage.prototype, "_name", {
                 get: $util.oneOfGetter($oneOfFields = ["name"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * EventMessage _description.
-             * @member {"description"|undefined} _description
-             * @memberof E2E.Message.EventMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(EventMessage.prototype, "_description", {
                 get: $util.oneOfGetter($oneOfFields = ["description"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * EventMessage _location.
-             * @member {"location"|undefined} _location
-             * @memberof E2E.Message.EventMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(EventMessage.prototype, "_location", {
                 get: $util.oneOfGetter($oneOfFields = ["location"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * EventMessage _joinLink.
-             * @member {"joinLink"|undefined} _joinLink
-             * @memberof E2E.Message.EventMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(EventMessage.prototype, "_joinLink", {
                 get: $util.oneOfGetter($oneOfFields = ["joinLink"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * EventMessage _startTime.
-             * @member {"startTime"|undefined} _startTime
-             * @memberof E2E.Message.EventMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(EventMessage.prototype, "_startTime", {
                 get: $util.oneOfGetter($oneOfFields = ["startTime"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * EventMessage _endTime.
-             * @member {"endTime"|undefined} _endTime
-             * @memberof E2E.Message.EventMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(EventMessage.prototype, "_endTime", {
                 get: $util.oneOfGetter($oneOfFields = ["endTime"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * EventMessage _extraGuestsAllowed.
-             * @member {"extraGuestsAllowed"|undefined} _extraGuestsAllowed
-             * @memberof E2E.Message.EventMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(EventMessage.prototype, "_extraGuestsAllowed", {
                 get: $util.oneOfGetter($oneOfFields = ["extraGuestsAllowed"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * EventMessage _isScheduleCall.
-             * @member {"isScheduleCall"|undefined} _isScheduleCall
-             * @memberof E2E.Message.EventMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(EventMessage.prototype, "_isScheduleCall", {
                 get: $util.oneOfGetter($oneOfFields = ["isScheduleCall"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * EventMessage _hasReminder.
-             * @member {"hasReminder"|undefined} _hasReminder
-             * @memberof E2E.Message.EventMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(EventMessage.prototype, "_hasReminder", {
                 get: $util.oneOfGetter($oneOfFields = ["hasReminder"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * EventMessage _reminderOffsetSec.
-             * @member {"reminderOffsetSec"|undefined} _reminderOffsetSec
-             * @memberof E2E.Message.EventMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(EventMessage.prototype, "_reminderOffsetSec", {
                 get: $util.oneOfGetter($oneOfFields = ["reminderOffsetSec"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -53127,34 +49917,19 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * EventResponseMessage _response.
-             * @member {"response"|undefined} _response
-             * @memberof E2E.Message.EventResponseMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(EventResponseMessage.prototype, "_response", {
                 get: $util.oneOfGetter($oneOfFields = ["response"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * EventResponseMessage _timestampMs.
-             * @member {"timestampMs"|undefined} _timestampMs
-             * @memberof E2E.Message.EventResponseMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(EventResponseMessage.prototype, "_timestampMs", {
                 get: $util.oneOfGetter($oneOfFields = ["timestampMs"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * EventResponseMessage _extraGuestCount.
-             * @member {"extraGuestCount"|undefined} _extraGuestCount
-             * @memberof E2E.Message.EventResponseMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(EventResponseMessage.prototype, "_extraGuestCount", {
                 get: $util.oneOfGetter($oneOfFields = ["extraGuestCount"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -53745,342 +50520,187 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * ExtendedTextMessage _text.
-             * @member {"text"|undefined} _text
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_text", {
                 get: $util.oneOfGetter($oneOfFields = ["text"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _matchedText.
-             * @member {"matchedText"|undefined} _matchedText
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_matchedText", {
                 get: $util.oneOfGetter($oneOfFields = ["matchedText"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _description.
-             * @member {"description"|undefined} _description
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_description", {
                 get: $util.oneOfGetter($oneOfFields = ["description"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _title.
-             * @member {"title"|undefined} _title
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_title", {
                 get: $util.oneOfGetter($oneOfFields = ["title"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _textArgb.
-             * @member {"textArgb"|undefined} _textArgb
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_textArgb", {
                 get: $util.oneOfGetter($oneOfFields = ["textArgb"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _backgroundArgb.
-             * @member {"backgroundArgb"|undefined} _backgroundArgb
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_backgroundArgb", {
                 get: $util.oneOfGetter($oneOfFields = ["backgroundArgb"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _font.
-             * @member {"font"|undefined} _font
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_font", {
                 get: $util.oneOfGetter($oneOfFields = ["font"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _previewType.
-             * @member {"previewType"|undefined} _previewType
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_previewType", {
                 get: $util.oneOfGetter($oneOfFields = ["previewType"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _jpegThumbnail.
-             * @member {"jpegThumbnail"|undefined} _jpegThumbnail
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_jpegThumbnail", {
                 get: $util.oneOfGetter($oneOfFields = ["jpegThumbnail"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _doNotPlayInline.
-             * @member {"doNotPlayInline"|undefined} _doNotPlayInline
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_doNotPlayInline", {
                 get: $util.oneOfGetter($oneOfFields = ["doNotPlayInline"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _thumbnailDirectPath.
-             * @member {"thumbnailDirectPath"|undefined} _thumbnailDirectPath
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_thumbnailDirectPath", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailDirectPath"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _thumbnailSha256.
-             * @member {"thumbnailSha256"|undefined} _thumbnailSha256
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_thumbnailSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _thumbnailEncSha256.
-             * @member {"thumbnailEncSha256"|undefined} _thumbnailEncSha256
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_thumbnailEncSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailEncSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _mediaKey.
-             * @member {"mediaKey"|undefined} _mediaKey
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_mediaKey", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _mediaKeyTimestamp.
-             * @member {"mediaKeyTimestamp"|undefined} _mediaKeyTimestamp
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_mediaKeyTimestamp", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaKeyTimestamp"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _thumbnailHeight.
-             * @member {"thumbnailHeight"|undefined} _thumbnailHeight
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_thumbnailHeight", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailHeight"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _thumbnailWidth.
-             * @member {"thumbnailWidth"|undefined} _thumbnailWidth
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_thumbnailWidth", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailWidth"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _inviteLinkGroupType.
-             * @member {"inviteLinkGroupType"|undefined} _inviteLinkGroupType
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_inviteLinkGroupType", {
                 get: $util.oneOfGetter($oneOfFields = ["inviteLinkGroupType"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _inviteLinkParentGroupSubjectV2.
-             * @member {"inviteLinkParentGroupSubjectV2"|undefined} _inviteLinkParentGroupSubjectV2
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_inviteLinkParentGroupSubjectV2", {
                 get: $util.oneOfGetter($oneOfFields = ["inviteLinkParentGroupSubjectV2"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _inviteLinkParentGroupThumbnailV2.
-             * @member {"inviteLinkParentGroupThumbnailV2"|undefined} _inviteLinkParentGroupThumbnailV2
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_inviteLinkParentGroupThumbnailV2", {
                 get: $util.oneOfGetter($oneOfFields = ["inviteLinkParentGroupThumbnailV2"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _inviteLinkGroupTypeV2.
-             * @member {"inviteLinkGroupTypeV2"|undefined} _inviteLinkGroupTypeV2
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_inviteLinkGroupTypeV2", {
                 get: $util.oneOfGetter($oneOfFields = ["inviteLinkGroupTypeV2"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _viewOnce.
-             * @member {"viewOnce"|undefined} _viewOnce
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_viewOnce", {
                 get: $util.oneOfGetter($oneOfFields = ["viewOnce"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _videoHeight.
-             * @member {"videoHeight"|undefined} _videoHeight
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_videoHeight", {
                 get: $util.oneOfGetter($oneOfFields = ["videoHeight"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _videoWidth.
-             * @member {"videoWidth"|undefined} _videoWidth
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_videoWidth", {
                 get: $util.oneOfGetter($oneOfFields = ["videoWidth"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _faviconMMSMetadata.
-             * @member {"faviconMMSMetadata"|undefined} _faviconMMSMetadata
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_faviconMMSMetadata", {
                 get: $util.oneOfGetter($oneOfFields = ["faviconMMSMetadata"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _linkPreviewMetadata.
-             * @member {"linkPreviewMetadata"|undefined} _linkPreviewMetadata
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_linkPreviewMetadata", {
                 get: $util.oneOfGetter($oneOfFields = ["linkPreviewMetadata"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _paymentLinkMetadata.
-             * @member {"paymentLinkMetadata"|undefined} _paymentLinkMetadata
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_paymentLinkMetadata", {
                 get: $util.oneOfGetter($oneOfFields = ["paymentLinkMetadata"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _videoContentUrl.
-             * @member {"videoContentUrl"|undefined} _videoContentUrl
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_videoContentUrl", {
                 get: $util.oneOfGetter($oneOfFields = ["videoContentUrl"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _musicMetadata.
-             * @member {"musicMetadata"|undefined} _musicMetadata
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_musicMetadata", {
                 get: $util.oneOfGetter($oneOfFields = ["musicMetadata"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExtendedTextMessage _paymentExtendedMetadata.
-             * @member {"paymentExtendedMetadata"|undefined} _paymentExtendedMetadata
-             * @memberof E2E.Message.ExtendedTextMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExtendedTextMessage.prototype, "_paymentExtendedMetadata", {
                 get: $util.oneOfGetter($oneOfFields = ["paymentExtendedMetadata"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -55146,12 +51766,7 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * FullHistorySyncOnDemandRequestMetadata _requestId.
-             * @member {"requestId"|undefined} _requestId
-             * @memberof E2E.Message.FullHistorySyncOnDemandRequestMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(FullHistorySyncOnDemandRequestMetadata.prototype, "_requestId", {
                 get: $util.oneOfGetter($oneOfFields = ["requestId"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -55369,12 +51984,7 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * FutureProofMessage _message.
-             * @member {"message"|undefined} _message
-             * @memberof E2E.Message.FutureProofMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(FutureProofMessage.prototype, "_message", {
                 get: $util.oneOfGetter($oneOfFields = ["message"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -55661,89 +52271,49 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * GroupInviteMessage _groupJid.
-             * @member {"groupJid"|undefined} _groupJid
-             * @memberof E2E.Message.GroupInviteMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(GroupInviteMessage.prototype, "_groupJid", {
                 get: $util.oneOfGetter($oneOfFields = ["groupJid"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * GroupInviteMessage _inviteCode.
-             * @member {"inviteCode"|undefined} _inviteCode
-             * @memberof E2E.Message.GroupInviteMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(GroupInviteMessage.prototype, "_inviteCode", {
                 get: $util.oneOfGetter($oneOfFields = ["inviteCode"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * GroupInviteMessage _inviteExpiration.
-             * @member {"inviteExpiration"|undefined} _inviteExpiration
-             * @memberof E2E.Message.GroupInviteMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(GroupInviteMessage.prototype, "_inviteExpiration", {
                 get: $util.oneOfGetter($oneOfFields = ["inviteExpiration"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * GroupInviteMessage _groupName.
-             * @member {"groupName"|undefined} _groupName
-             * @memberof E2E.Message.GroupInviteMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(GroupInviteMessage.prototype, "_groupName", {
                 get: $util.oneOfGetter($oneOfFields = ["groupName"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * GroupInviteMessage _jpegThumbnail.
-             * @member {"jpegThumbnail"|undefined} _jpegThumbnail
-             * @memberof E2E.Message.GroupInviteMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(GroupInviteMessage.prototype, "_jpegThumbnail", {
                 get: $util.oneOfGetter($oneOfFields = ["jpegThumbnail"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * GroupInviteMessage _caption.
-             * @member {"caption"|undefined} _caption
-             * @memberof E2E.Message.GroupInviteMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(GroupInviteMessage.prototype, "_caption", {
                 get: $util.oneOfGetter($oneOfFields = ["caption"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * GroupInviteMessage _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.GroupInviteMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(GroupInviteMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * GroupInviteMessage _groupType.
-             * @member {"groupType"|undefined} _groupType
-             * @memberof E2E.Message.GroupInviteMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(GroupInviteMessage.prototype, "_groupType", {
                 get: $util.oneOfGetter($oneOfFields = ["groupType"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -56213,78 +52783,43 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * HighlyStructuredMessage _namespace.
-             * @member {"namespace"|undefined} _namespace
-             * @memberof E2E.Message.HighlyStructuredMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HighlyStructuredMessage.prototype, "_namespace", {
                 get: $util.oneOfGetter($oneOfFields = ["namespace"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HighlyStructuredMessage _elementName.
-             * @member {"elementName"|undefined} _elementName
-             * @memberof E2E.Message.HighlyStructuredMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HighlyStructuredMessage.prototype, "_elementName", {
                 get: $util.oneOfGetter($oneOfFields = ["elementName"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HighlyStructuredMessage _fallbackLg.
-             * @member {"fallbackLg"|undefined} _fallbackLg
-             * @memberof E2E.Message.HighlyStructuredMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HighlyStructuredMessage.prototype, "_fallbackLg", {
                 get: $util.oneOfGetter($oneOfFields = ["fallbackLg"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HighlyStructuredMessage _fallbackLc.
-             * @member {"fallbackLc"|undefined} _fallbackLc
-             * @memberof E2E.Message.HighlyStructuredMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HighlyStructuredMessage.prototype, "_fallbackLc", {
                 get: $util.oneOfGetter($oneOfFields = ["fallbackLc"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HighlyStructuredMessage _deterministicLg.
-             * @member {"deterministicLg"|undefined} _deterministicLg
-             * @memberof E2E.Message.HighlyStructuredMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HighlyStructuredMessage.prototype, "_deterministicLg", {
                 get: $util.oneOfGetter($oneOfFields = ["deterministicLg"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HighlyStructuredMessage _deterministicLc.
-             * @member {"deterministicLc"|undefined} _deterministicLc
-             * @memberof E2E.Message.HighlyStructuredMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HighlyStructuredMessage.prototype, "_deterministicLc", {
                 get: $util.oneOfGetter($oneOfFields = ["deterministicLc"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HighlyStructuredMessage _hydratedHsm.
-             * @member {"hydratedHsm"|undefined} _hydratedHsm
-             * @memberof E2E.Message.HighlyStructuredMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HighlyStructuredMessage.prototype, "_hydratedHsm", {
                 get: $util.oneOfGetter($oneOfFields = ["hydratedHsm"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -56696,12 +53231,7 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * HSMLocalizableParameter _default.
-                 * @member {"default"|undefined} _default
-                 * @memberof E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(HSMLocalizableParameter.prototype, "_default", {
                     get: $util.oneOfGetter($oneOfFields = ["default"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -56986,23 +53516,13 @@ $root.E2E = (function() {
                     // OneOf field names bound to virtual getters and setters
                     var $oneOfFields;
 
-                    /**
-                     * HSMCurrency _currencyCode.
-                     * @member {"currencyCode"|undefined} _currencyCode
-                     * @memberof E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMCurrency
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(HSMCurrency.prototype, "_currencyCode", {
                         get: $util.oneOfGetter($oneOfFields = ["currencyCode"]),
                         set: $util.oneOfSetter($oneOfFields)
                     });
 
-                    /**
-                     * HSMCurrency _amount1000.
-                     * @member {"amount1000"|undefined} _amount1000
-                     * @memberof E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMCurrency
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(HSMCurrency.prototype, "_amount1000", {
                         get: $util.oneOfGetter($oneOfFields = ["amount1000"]),
                         set: $util.oneOfSetter($oneOfFields)
@@ -57563,78 +54083,43 @@ $root.E2E = (function() {
                         // OneOf field names bound to virtual getters and setters
                         var $oneOfFields;
 
-                        /**
-                         * HSMDateTimeComponent _dayOfWeek.
-                         * @member {"dayOfWeek"|undefined} _dayOfWeek
-                         * @memberof E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent
-                         * @instance
-                         */
+                        // Virtual OneOf for proto3 optional field
                         Object.defineProperty(HSMDateTimeComponent.prototype, "_dayOfWeek", {
                             get: $util.oneOfGetter($oneOfFields = ["dayOfWeek"]),
                             set: $util.oneOfSetter($oneOfFields)
                         });
 
-                        /**
-                         * HSMDateTimeComponent _year.
-                         * @member {"year"|undefined} _year
-                         * @memberof E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent
-                         * @instance
-                         */
+                        // Virtual OneOf for proto3 optional field
                         Object.defineProperty(HSMDateTimeComponent.prototype, "_year", {
                             get: $util.oneOfGetter($oneOfFields = ["year"]),
                             set: $util.oneOfSetter($oneOfFields)
                         });
 
-                        /**
-                         * HSMDateTimeComponent _month.
-                         * @member {"month"|undefined} _month
-                         * @memberof E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent
-                         * @instance
-                         */
+                        // Virtual OneOf for proto3 optional field
                         Object.defineProperty(HSMDateTimeComponent.prototype, "_month", {
                             get: $util.oneOfGetter($oneOfFields = ["month"]),
                             set: $util.oneOfSetter($oneOfFields)
                         });
 
-                        /**
-                         * HSMDateTimeComponent _dayOfMonth.
-                         * @member {"dayOfMonth"|undefined} _dayOfMonth
-                         * @memberof E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent
-                         * @instance
-                         */
+                        // Virtual OneOf for proto3 optional field
                         Object.defineProperty(HSMDateTimeComponent.prototype, "_dayOfMonth", {
                             get: $util.oneOfGetter($oneOfFields = ["dayOfMonth"]),
                             set: $util.oneOfSetter($oneOfFields)
                         });
 
-                        /**
-                         * HSMDateTimeComponent _hour.
-                         * @member {"hour"|undefined} _hour
-                         * @memberof E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent
-                         * @instance
-                         */
+                        // Virtual OneOf for proto3 optional field
                         Object.defineProperty(HSMDateTimeComponent.prototype, "_hour", {
                             get: $util.oneOfGetter($oneOfFields = ["hour"]),
                             set: $util.oneOfSetter($oneOfFields)
                         });
 
-                        /**
-                         * HSMDateTimeComponent _minute.
-                         * @member {"minute"|undefined} _minute
-                         * @memberof E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent
-                         * @instance
-                         */
+                        // Virtual OneOf for proto3 optional field
                         Object.defineProperty(HSMDateTimeComponent.prototype, "_minute", {
                             get: $util.oneOfGetter($oneOfFields = ["minute"]),
                             set: $util.oneOfSetter($oneOfFields)
                         });
 
-                        /**
-                         * HSMDateTimeComponent _calendar.
-                         * @member {"calendar"|undefined} _calendar
-                         * @memberof E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent
-                         * @instance
-                         */
+                        // Virtual OneOf for proto3 optional field
                         Object.defineProperty(HSMDateTimeComponent.prototype, "_calendar", {
                             get: $util.oneOfGetter($oneOfFields = ["calendar"]),
                             set: $util.oneOfSetter($oneOfFields)
@@ -58061,12 +54546,7 @@ $root.E2E = (function() {
                         // OneOf field names bound to virtual getters and setters
                         var $oneOfFields;
 
-                        /**
-                         * HSMDateTimeUnixEpoch _timestamp.
-                         * @member {"timestamp"|undefined} _timestamp
-                         * @memberof E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeUnixEpoch
-                         * @instance
-                         */
+                        // Virtual OneOf for proto3 optional field
                         Object.defineProperty(HSMDateTimeUnixEpoch.prototype, "_timestamp", {
                             get: $util.oneOfGetter($oneOfFields = ["timestamp"]),
                             set: $util.oneOfSetter($oneOfFields)
@@ -58303,12 +54783,7 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * HistorySyncMessageAccessStatus _completeAccessGranted.
-             * @member {"completeAccessGranted"|undefined} _completeAccessGranted
-             * @memberof E2E.Message.HistorySyncMessageAccessStatus
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncMessageAccessStatus.prototype, "_completeAccessGranted", {
                 get: $util.oneOfGetter($oneOfFields = ["completeAccessGranted"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -58652,166 +55127,91 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * HistorySyncNotification _fileSha256.
-             * @member {"fileSha256"|undefined} _fileSha256
-             * @memberof E2E.Message.HistorySyncNotification
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncNotification.prototype, "_fileSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["fileSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncNotification _fileLength.
-             * @member {"fileLength"|undefined} _fileLength
-             * @memberof E2E.Message.HistorySyncNotification
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncNotification.prototype, "_fileLength", {
                 get: $util.oneOfGetter($oneOfFields = ["fileLength"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncNotification _mediaKey.
-             * @member {"mediaKey"|undefined} _mediaKey
-             * @memberof E2E.Message.HistorySyncNotification
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncNotification.prototype, "_mediaKey", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncNotification _fileEncSha256.
-             * @member {"fileEncSha256"|undefined} _fileEncSha256
-             * @memberof E2E.Message.HistorySyncNotification
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncNotification.prototype, "_fileEncSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["fileEncSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncNotification _directPath.
-             * @member {"directPath"|undefined} _directPath
-             * @memberof E2E.Message.HistorySyncNotification
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncNotification.prototype, "_directPath", {
                 get: $util.oneOfGetter($oneOfFields = ["directPath"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncNotification _syncType.
-             * @member {"syncType"|undefined} _syncType
-             * @memberof E2E.Message.HistorySyncNotification
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncNotification.prototype, "_syncType", {
                 get: $util.oneOfGetter($oneOfFields = ["syncType"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncNotification _chunkOrder.
-             * @member {"chunkOrder"|undefined} _chunkOrder
-             * @memberof E2E.Message.HistorySyncNotification
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncNotification.prototype, "_chunkOrder", {
                 get: $util.oneOfGetter($oneOfFields = ["chunkOrder"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncNotification _originalMessageId.
-             * @member {"originalMessageId"|undefined} _originalMessageId
-             * @memberof E2E.Message.HistorySyncNotification
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncNotification.prototype, "_originalMessageId", {
                 get: $util.oneOfGetter($oneOfFields = ["originalMessageId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncNotification _progress.
-             * @member {"progress"|undefined} _progress
-             * @memberof E2E.Message.HistorySyncNotification
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncNotification.prototype, "_progress", {
                 get: $util.oneOfGetter($oneOfFields = ["progress"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncNotification _oldestMsgInChunkTimestampSec.
-             * @member {"oldestMsgInChunkTimestampSec"|undefined} _oldestMsgInChunkTimestampSec
-             * @memberof E2E.Message.HistorySyncNotification
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncNotification.prototype, "_oldestMsgInChunkTimestampSec", {
                 get: $util.oneOfGetter($oneOfFields = ["oldestMsgInChunkTimestampSec"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncNotification _initialHistBootstrapInlinePayload.
-             * @member {"initialHistBootstrapInlinePayload"|undefined} _initialHistBootstrapInlinePayload
-             * @memberof E2E.Message.HistorySyncNotification
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncNotification.prototype, "_initialHistBootstrapInlinePayload", {
                 get: $util.oneOfGetter($oneOfFields = ["initialHistBootstrapInlinePayload"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncNotification _peerDataRequestSessionId.
-             * @member {"peerDataRequestSessionId"|undefined} _peerDataRequestSessionId
-             * @memberof E2E.Message.HistorySyncNotification
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncNotification.prototype, "_peerDataRequestSessionId", {
                 get: $util.oneOfGetter($oneOfFields = ["peerDataRequestSessionId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncNotification _fullHistorySyncOnDemandRequestMetadata.
-             * @member {"fullHistorySyncOnDemandRequestMetadata"|undefined} _fullHistorySyncOnDemandRequestMetadata
-             * @memberof E2E.Message.HistorySyncNotification
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncNotification.prototype, "_fullHistorySyncOnDemandRequestMetadata", {
                 get: $util.oneOfGetter($oneOfFields = ["fullHistorySyncOnDemandRequestMetadata"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncNotification _encHandle.
-             * @member {"encHandle"|undefined} _encHandle
-             * @memberof E2E.Message.HistorySyncNotification
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncNotification.prototype, "_encHandle", {
                 get: $util.oneOfGetter($oneOfFields = ["encHandle"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncNotification _messageAccessStatus.
-             * @member {"messageAccessStatus"|undefined} _messageAccessStatus
-             * @memberof E2E.Message.HistorySyncNotification
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncNotification.prototype, "_messageAccessStatus", {
                 get: $util.oneOfGetter($oneOfFields = ["messageAccessStatus"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -59680,309 +56080,169 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * ImageMessage _url.
-             * @member {"url"|undefined} _url
-             * @memberof E2E.Message.ImageMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ImageMessage.prototype, "_url", {
                 get: $util.oneOfGetter($oneOfFields = ["url"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ImageMessage _mimetype.
-             * @member {"mimetype"|undefined} _mimetype
-             * @memberof E2E.Message.ImageMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ImageMessage.prototype, "_mimetype", {
                 get: $util.oneOfGetter($oneOfFields = ["mimetype"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ImageMessage _caption.
-             * @member {"caption"|undefined} _caption
-             * @memberof E2E.Message.ImageMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ImageMessage.prototype, "_caption", {
                 get: $util.oneOfGetter($oneOfFields = ["caption"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ImageMessage _fileSha256.
-             * @member {"fileSha256"|undefined} _fileSha256
-             * @memberof E2E.Message.ImageMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ImageMessage.prototype, "_fileSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["fileSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ImageMessage _fileLength.
-             * @member {"fileLength"|undefined} _fileLength
-             * @memberof E2E.Message.ImageMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ImageMessage.prototype, "_fileLength", {
                 get: $util.oneOfGetter($oneOfFields = ["fileLength"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ImageMessage _height.
-             * @member {"height"|undefined} _height
-             * @memberof E2E.Message.ImageMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ImageMessage.prototype, "_height", {
                 get: $util.oneOfGetter($oneOfFields = ["height"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ImageMessage _width.
-             * @member {"width"|undefined} _width
-             * @memberof E2E.Message.ImageMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ImageMessage.prototype, "_width", {
                 get: $util.oneOfGetter($oneOfFields = ["width"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ImageMessage _mediaKey.
-             * @member {"mediaKey"|undefined} _mediaKey
-             * @memberof E2E.Message.ImageMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ImageMessage.prototype, "_mediaKey", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ImageMessage _fileEncSha256.
-             * @member {"fileEncSha256"|undefined} _fileEncSha256
-             * @memberof E2E.Message.ImageMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ImageMessage.prototype, "_fileEncSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["fileEncSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ImageMessage _directPath.
-             * @member {"directPath"|undefined} _directPath
-             * @memberof E2E.Message.ImageMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ImageMessage.prototype, "_directPath", {
                 get: $util.oneOfGetter($oneOfFields = ["directPath"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ImageMessage _mediaKeyTimestamp.
-             * @member {"mediaKeyTimestamp"|undefined} _mediaKeyTimestamp
-             * @memberof E2E.Message.ImageMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ImageMessage.prototype, "_mediaKeyTimestamp", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaKeyTimestamp"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ImageMessage _jpegThumbnail.
-             * @member {"jpegThumbnail"|undefined} _jpegThumbnail
-             * @memberof E2E.Message.ImageMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ImageMessage.prototype, "_jpegThumbnail", {
                 get: $util.oneOfGetter($oneOfFields = ["jpegThumbnail"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ImageMessage _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.ImageMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ImageMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ImageMessage _firstScanSidecar.
-             * @member {"firstScanSidecar"|undefined} _firstScanSidecar
-             * @memberof E2E.Message.ImageMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ImageMessage.prototype, "_firstScanSidecar", {
                 get: $util.oneOfGetter($oneOfFields = ["firstScanSidecar"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ImageMessage _firstScanLength.
-             * @member {"firstScanLength"|undefined} _firstScanLength
-             * @memberof E2E.Message.ImageMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ImageMessage.prototype, "_firstScanLength", {
                 get: $util.oneOfGetter($oneOfFields = ["firstScanLength"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ImageMessage _experimentGroupId.
-             * @member {"experimentGroupId"|undefined} _experimentGroupId
-             * @memberof E2E.Message.ImageMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ImageMessage.prototype, "_experimentGroupId", {
                 get: $util.oneOfGetter($oneOfFields = ["experimentGroupId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ImageMessage _scansSidecar.
-             * @member {"scansSidecar"|undefined} _scansSidecar
-             * @memberof E2E.Message.ImageMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ImageMessage.prototype, "_scansSidecar", {
                 get: $util.oneOfGetter($oneOfFields = ["scansSidecar"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ImageMessage _midQualityFileSha256.
-             * @member {"midQualityFileSha256"|undefined} _midQualityFileSha256
-             * @memberof E2E.Message.ImageMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ImageMessage.prototype, "_midQualityFileSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["midQualityFileSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ImageMessage _midQualityFileEncSha256.
-             * @member {"midQualityFileEncSha256"|undefined} _midQualityFileEncSha256
-             * @memberof E2E.Message.ImageMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ImageMessage.prototype, "_midQualityFileEncSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["midQualityFileEncSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ImageMessage _viewOnce.
-             * @member {"viewOnce"|undefined} _viewOnce
-             * @memberof E2E.Message.ImageMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ImageMessage.prototype, "_viewOnce", {
                 get: $util.oneOfGetter($oneOfFields = ["viewOnce"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ImageMessage _thumbnailDirectPath.
-             * @member {"thumbnailDirectPath"|undefined} _thumbnailDirectPath
-             * @memberof E2E.Message.ImageMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ImageMessage.prototype, "_thumbnailDirectPath", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailDirectPath"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ImageMessage _thumbnailSha256.
-             * @member {"thumbnailSha256"|undefined} _thumbnailSha256
-             * @memberof E2E.Message.ImageMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ImageMessage.prototype, "_thumbnailSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ImageMessage _thumbnailEncSha256.
-             * @member {"thumbnailEncSha256"|undefined} _thumbnailEncSha256
-             * @memberof E2E.Message.ImageMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ImageMessage.prototype, "_thumbnailEncSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailEncSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ImageMessage _staticUrl.
-             * @member {"staticUrl"|undefined} _staticUrl
-             * @memberof E2E.Message.ImageMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ImageMessage.prototype, "_staticUrl", {
                 get: $util.oneOfGetter($oneOfFields = ["staticUrl"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ImageMessage _imageSourceType.
-             * @member {"imageSourceType"|undefined} _imageSourceType
-             * @memberof E2E.Message.ImageMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ImageMessage.prototype, "_imageSourceType", {
                 get: $util.oneOfGetter($oneOfFields = ["imageSourceType"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ImageMessage _accessibilityLabel.
-             * @member {"accessibilityLabel"|undefined} _accessibilityLabel
-             * @memberof E2E.Message.ImageMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ImageMessage.prototype, "_accessibilityLabel", {
                 get: $util.oneOfGetter($oneOfFields = ["accessibilityLabel"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ImageMessage _mediaKeyDomain.
-             * @member {"mediaKeyDomain"|undefined} _mediaKeyDomain
-             * @memberof E2E.Message.ImageMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ImageMessage.prototype, "_mediaKeyDomain", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaKeyDomain"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ImageMessage _qrUrl.
-             * @member {"qrUrl"|undefined} _qrUrl
-             * @memberof E2E.Message.ImageMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ImageMessage.prototype, "_qrUrl", {
                 get: $util.oneOfGetter($oneOfFields = ["qrUrl"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -60930,12 +57190,7 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * InitialSecurityNotificationSettingSync _securityNotificationEnabled.
-             * @member {"securityNotificationEnabled"|undefined} _securityNotificationEnabled
-             * @memberof E2E.Message.InitialSecurityNotificationSettingSync
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(InitialSecurityNotificationSettingSync.prototype, "_securityNotificationEnabled", {
                 get: $util.oneOfGetter($oneOfFields = ["securityNotificationEnabled"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -61225,56 +57480,31 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * InteractiveMessage _header.
-             * @member {"header"|undefined} _header
-             * @memberof E2E.Message.InteractiveMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(InteractiveMessage.prototype, "_header", {
                 get: $util.oneOfGetter($oneOfFields = ["header"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * InteractiveMessage _body.
-             * @member {"body"|undefined} _body
-             * @memberof E2E.Message.InteractiveMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(InteractiveMessage.prototype, "_body", {
                 get: $util.oneOfGetter($oneOfFields = ["body"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * InteractiveMessage _footer.
-             * @member {"footer"|undefined} _footer
-             * @memberof E2E.Message.InteractiveMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(InteractiveMessage.prototype, "_footer", {
                 get: $util.oneOfGetter($oneOfFields = ["footer"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * InteractiveMessage _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.InteractiveMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(InteractiveMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * InteractiveMessage _urlTrackingMap.
-             * @member {"urlTrackingMap"|undefined} _urlTrackingMap
-             * @memberof E2E.Message.InteractiveMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(InteractiveMessage.prototype, "_urlTrackingMap", {
                 get: $util.oneOfGetter($oneOfFields = ["urlTrackingMap"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -61704,12 +57934,7 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * Body _text.
-                 * @member {"text"|undefined} _text
-                 * @memberof E2E.Message.InteractiveMessage.Body
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Body.prototype, "_text", {
                     get: $util.oneOfGetter($oneOfFields = ["text"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -61946,23 +58171,13 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * CarouselMessage _messageVersion.
-                 * @member {"messageVersion"|undefined} _messageVersion
-                 * @memberof E2E.Message.InteractiveMessage.CarouselMessage
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(CarouselMessage.prototype, "_messageVersion", {
                     get: $util.oneOfGetter($oneOfFields = ["messageVersion"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * CarouselMessage _carouselCardType.
-                 * @member {"carouselCardType"|undefined} _carouselCardType
-                 * @memberof E2E.Message.InteractiveMessage.CarouselMessage
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(CarouselMessage.prototype, "_carouselCardType", {
                     get: $util.oneOfGetter($oneOfFields = ["carouselCardType"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -62291,34 +58506,19 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * CollectionMessage _bizJid.
-                 * @member {"bizJid"|undefined} _bizJid
-                 * @memberof E2E.Message.InteractiveMessage.CollectionMessage
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(CollectionMessage.prototype, "_bizJid", {
                     get: $util.oneOfGetter($oneOfFields = ["bizJid"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * CollectionMessage _id.
-                 * @member {"id"|undefined} _id
-                 * @memberof E2E.Message.InteractiveMessage.CollectionMessage
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(CollectionMessage.prototype, "_id", {
                     get: $util.oneOfGetter($oneOfFields = ["id"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * CollectionMessage _messageVersion.
-                 * @member {"messageVersion"|undefined} _messageVersion
-                 * @memberof E2E.Message.InteractiveMessage.CollectionMessage
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(CollectionMessage.prototype, "_messageVersion", {
                     get: $util.oneOfGetter($oneOfFields = ["messageVersion"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -62590,23 +58790,13 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * Footer _text.
-                 * @member {"text"|undefined} _text
-                 * @memberof E2E.Message.InteractiveMessage.Footer
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Footer.prototype, "_text", {
                     get: $util.oneOfGetter($oneOfFields = ["text"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * Footer _hasMediaAttachment.
-                 * @member {"hasMediaAttachment"|undefined} _hasMediaAttachment
-                 * @memberof E2E.Message.InteractiveMessage.Footer
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Footer.prototype, "_hasMediaAttachment", {
                     get: $util.oneOfGetter($oneOfFields = ["hasMediaAttachment"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -62949,34 +59139,19 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * Header _title.
-                 * @member {"title"|undefined} _title
-                 * @memberof E2E.Message.InteractiveMessage.Header
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Header.prototype, "_title", {
                     get: $util.oneOfGetter($oneOfFields = ["title"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * Header _subtitle.
-                 * @member {"subtitle"|undefined} _subtitle
-                 * @memberof E2E.Message.InteractiveMessage.Header
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Header.prototype, "_subtitle", {
                     get: $util.oneOfGetter($oneOfFields = ["subtitle"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * Header _hasMediaAttachment.
-                 * @member {"hasMediaAttachment"|undefined} _hasMediaAttachment
-                 * @memberof E2E.Message.InteractiveMessage.Header
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Header.prototype, "_hasMediaAttachment", {
                     get: $util.oneOfGetter($oneOfFields = ["hasMediaAttachment"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -63411,23 +59586,13 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * NativeFlowMessage _messageParamsJson.
-                 * @member {"messageParamsJson"|undefined} _messageParamsJson
-                 * @memberof E2E.Message.InteractiveMessage.NativeFlowMessage
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(NativeFlowMessage.prototype, "_messageParamsJson", {
                     get: $util.oneOfGetter($oneOfFields = ["messageParamsJson"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * NativeFlowMessage _messageVersion.
-                 * @member {"messageVersion"|undefined} _messageVersion
-                 * @memberof E2E.Message.InteractiveMessage.NativeFlowMessage
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(NativeFlowMessage.prototype, "_messageVersion", {
                     get: $util.oneOfGetter($oneOfFields = ["messageVersion"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -63704,23 +59869,13 @@ $root.E2E = (function() {
                     // OneOf field names bound to virtual getters and setters
                     var $oneOfFields;
 
-                    /**
-                     * NativeFlowButton _name.
-                     * @member {"name"|undefined} _name
-                     * @memberof E2E.Message.InteractiveMessage.NativeFlowMessage.NativeFlowButton
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(NativeFlowButton.prototype, "_name", {
                         get: $util.oneOfGetter($oneOfFields = ["name"]),
                         set: $util.oneOfSetter($oneOfFields)
                     });
 
-                    /**
-                     * NativeFlowButton _buttonParamsJson.
-                     * @member {"buttonParamsJson"|undefined} _buttonParamsJson
-                     * @memberof E2E.Message.InteractiveMessage.NativeFlowMessage.NativeFlowButton
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(NativeFlowButton.prototype, "_buttonParamsJson", {
                         get: $util.oneOfGetter($oneOfFields = ["buttonParamsJson"]),
                         set: $util.oneOfSetter($oneOfFields)
@@ -63977,34 +60132,19 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * ShopMessage _id.
-                 * @member {"id"|undefined} _id
-                 * @memberof E2E.Message.InteractiveMessage.ShopMessage
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(ShopMessage.prototype, "_id", {
                     get: $util.oneOfGetter($oneOfFields = ["id"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * ShopMessage _surface.
-                 * @member {"surface"|undefined} _surface
-                 * @memberof E2E.Message.InteractiveMessage.ShopMessage
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(ShopMessage.prototype, "_surface", {
                     get: $util.oneOfGetter($oneOfFields = ["surface"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * ShopMessage _messageVersion.
-                 * @member {"messageVersion"|undefined} _messageVersion
-                 * @memberof E2E.Message.InteractiveMessage.ShopMessage
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(ShopMessage.prototype, "_messageVersion", {
                     get: $util.oneOfGetter($oneOfFields = ["messageVersion"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -64326,23 +60466,13 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * InteractiveResponseMessage _body.
-             * @member {"body"|undefined} _body
-             * @memberof E2E.Message.InteractiveResponseMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(InteractiveResponseMessage.prototype, "_body", {
                 get: $util.oneOfGetter($oneOfFields = ["body"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * InteractiveResponseMessage _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.InteractiveResponseMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(InteractiveResponseMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -64631,23 +60761,13 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * Body _text.
-                 * @member {"text"|undefined} _text
-                 * @memberof E2E.Message.InteractiveResponseMessage.Body
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Body.prototype, "_text", {
                     get: $util.oneOfGetter($oneOfFields = ["text"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * Body _format.
-                 * @member {"format"|undefined} _format
-                 * @memberof E2E.Message.InteractiveResponseMessage.Body
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Body.prototype, "_format", {
                     get: $util.oneOfGetter($oneOfFields = ["format"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -64934,34 +61054,19 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * NativeFlowResponseMessage _name.
-                 * @member {"name"|undefined} _name
-                 * @memberof E2E.Message.InteractiveResponseMessage.NativeFlowResponseMessage
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(NativeFlowResponseMessage.prototype, "_name", {
                     get: $util.oneOfGetter($oneOfFields = ["name"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * NativeFlowResponseMessage _paramsJson.
-                 * @member {"paramsJson"|undefined} _paramsJson
-                 * @memberof E2E.Message.InteractiveResponseMessage.NativeFlowResponseMessage
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(NativeFlowResponseMessage.prototype, "_paramsJson", {
                     get: $util.oneOfGetter($oneOfFields = ["paramsJson"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * NativeFlowResponseMessage _version.
-                 * @member {"version"|undefined} _version
-                 * @memberof E2E.Message.InteractiveResponseMessage.NativeFlowResponseMessage
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(NativeFlowResponseMessage.prototype, "_version", {
                     get: $util.oneOfGetter($oneOfFields = ["version"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -65299,111 +61404,61 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * InvoiceMessage _note.
-             * @member {"note"|undefined} _note
-             * @memberof E2E.Message.InvoiceMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(InvoiceMessage.prototype, "_note", {
                 get: $util.oneOfGetter($oneOfFields = ["note"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * InvoiceMessage _token.
-             * @member {"token"|undefined} _token
-             * @memberof E2E.Message.InvoiceMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(InvoiceMessage.prototype, "_token", {
                 get: $util.oneOfGetter($oneOfFields = ["token"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * InvoiceMessage _attachmentType.
-             * @member {"attachmentType"|undefined} _attachmentType
-             * @memberof E2E.Message.InvoiceMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(InvoiceMessage.prototype, "_attachmentType", {
                 get: $util.oneOfGetter($oneOfFields = ["attachmentType"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * InvoiceMessage _attachmentMimetype.
-             * @member {"attachmentMimetype"|undefined} _attachmentMimetype
-             * @memberof E2E.Message.InvoiceMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(InvoiceMessage.prototype, "_attachmentMimetype", {
                 get: $util.oneOfGetter($oneOfFields = ["attachmentMimetype"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * InvoiceMessage _attachmentMediaKey.
-             * @member {"attachmentMediaKey"|undefined} _attachmentMediaKey
-             * @memberof E2E.Message.InvoiceMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(InvoiceMessage.prototype, "_attachmentMediaKey", {
                 get: $util.oneOfGetter($oneOfFields = ["attachmentMediaKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * InvoiceMessage _attachmentMediaKeyTimestamp.
-             * @member {"attachmentMediaKeyTimestamp"|undefined} _attachmentMediaKeyTimestamp
-             * @memberof E2E.Message.InvoiceMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(InvoiceMessage.prototype, "_attachmentMediaKeyTimestamp", {
                 get: $util.oneOfGetter($oneOfFields = ["attachmentMediaKeyTimestamp"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * InvoiceMessage _attachmentFileSha256.
-             * @member {"attachmentFileSha256"|undefined} _attachmentFileSha256
-             * @memberof E2E.Message.InvoiceMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(InvoiceMessage.prototype, "_attachmentFileSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["attachmentFileSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * InvoiceMessage _attachmentFileEncSha256.
-             * @member {"attachmentFileEncSha256"|undefined} _attachmentFileEncSha256
-             * @memberof E2E.Message.InvoiceMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(InvoiceMessage.prototype, "_attachmentFileEncSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["attachmentFileEncSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * InvoiceMessage _attachmentDirectPath.
-             * @member {"attachmentDirectPath"|undefined} _attachmentDirectPath
-             * @memberof E2E.Message.InvoiceMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(InvoiceMessage.prototype, "_attachmentDirectPath", {
                 get: $util.oneOfGetter($oneOfFields = ["attachmentDirectPath"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * InvoiceMessage _attachmentJpegThumbnail.
-             * @member {"attachmentJpegThumbnail"|undefined} _attachmentJpegThumbnail
-             * @memberof E2E.Message.InvoiceMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(InvoiceMessage.prototype, "_attachmentJpegThumbnail", {
                 get: $util.oneOfGetter($oneOfFields = ["attachmentJpegThumbnail"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -65856,34 +61911,19 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * KeepInChatMessage _key.
-             * @member {"key"|undefined} _key
-             * @memberof E2E.Message.KeepInChatMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(KeepInChatMessage.prototype, "_key", {
                 get: $util.oneOfGetter($oneOfFields = ["key"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * KeepInChatMessage _keepType.
-             * @member {"keepType"|undefined} _keepType
-             * @memberof E2E.Message.KeepInChatMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(KeepInChatMessage.prototype, "_keepType", {
                 get: $util.oneOfGetter($oneOfFields = ["keepType"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * KeepInChatMessage _timestampMs.
-             * @member {"timestampMs"|undefined} _timestampMs
-             * @memberof E2E.Message.KeepInChatMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(KeepInChatMessage.prototype, "_timestampMs", {
                 get: $util.oneOfGetter($oneOfFields = ["timestampMs"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -66249,100 +62289,55 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * LinkPreviewMetadata _paymentLinkMetadata.
-             * @member {"paymentLinkMetadata"|undefined} _paymentLinkMetadata
-             * @memberof E2E.Message.LinkPreviewMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LinkPreviewMetadata.prototype, "_paymentLinkMetadata", {
                 get: $util.oneOfGetter($oneOfFields = ["paymentLinkMetadata"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LinkPreviewMetadata _urlMetadata.
-             * @member {"urlMetadata"|undefined} _urlMetadata
-             * @memberof E2E.Message.LinkPreviewMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LinkPreviewMetadata.prototype, "_urlMetadata", {
                 get: $util.oneOfGetter($oneOfFields = ["urlMetadata"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LinkPreviewMetadata _fbExperimentId.
-             * @member {"fbExperimentId"|undefined} _fbExperimentId
-             * @memberof E2E.Message.LinkPreviewMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LinkPreviewMetadata.prototype, "_fbExperimentId", {
                 get: $util.oneOfGetter($oneOfFields = ["fbExperimentId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LinkPreviewMetadata _linkMediaDuration.
-             * @member {"linkMediaDuration"|undefined} _linkMediaDuration
-             * @memberof E2E.Message.LinkPreviewMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LinkPreviewMetadata.prototype, "_linkMediaDuration", {
                 get: $util.oneOfGetter($oneOfFields = ["linkMediaDuration"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LinkPreviewMetadata _socialMediaPostType.
-             * @member {"socialMediaPostType"|undefined} _socialMediaPostType
-             * @memberof E2E.Message.LinkPreviewMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LinkPreviewMetadata.prototype, "_socialMediaPostType", {
                 get: $util.oneOfGetter($oneOfFields = ["socialMediaPostType"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LinkPreviewMetadata _linkInlineVideoMuted.
-             * @member {"linkInlineVideoMuted"|undefined} _linkInlineVideoMuted
-             * @memberof E2E.Message.LinkPreviewMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LinkPreviewMetadata.prototype, "_linkInlineVideoMuted", {
                 get: $util.oneOfGetter($oneOfFields = ["linkInlineVideoMuted"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LinkPreviewMetadata _videoContentUrl.
-             * @member {"videoContentUrl"|undefined} _videoContentUrl
-             * @memberof E2E.Message.LinkPreviewMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LinkPreviewMetadata.prototype, "_videoContentUrl", {
                 get: $util.oneOfGetter($oneOfFields = ["videoContentUrl"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LinkPreviewMetadata _musicMetadata.
-             * @member {"musicMetadata"|undefined} _musicMetadata
-             * @memberof E2E.Message.LinkPreviewMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LinkPreviewMetadata.prototype, "_musicMetadata", {
                 get: $util.oneOfGetter($oneOfFields = ["musicMetadata"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LinkPreviewMetadata _videoContentCaption.
-             * @member {"videoContentCaption"|undefined} _videoContentCaption
-             * @memberof E2E.Message.LinkPreviewMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LinkPreviewMetadata.prototype, "_videoContentCaption", {
                 get: $util.oneOfGetter($oneOfFields = ["videoContentCaption"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -66847,78 +62842,43 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * ListMessage _title.
-             * @member {"title"|undefined} _title
-             * @memberof E2E.Message.ListMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ListMessage.prototype, "_title", {
                 get: $util.oneOfGetter($oneOfFields = ["title"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ListMessage _description.
-             * @member {"description"|undefined} _description
-             * @memberof E2E.Message.ListMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ListMessage.prototype, "_description", {
                 get: $util.oneOfGetter($oneOfFields = ["description"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ListMessage _buttonText.
-             * @member {"buttonText"|undefined} _buttonText
-             * @memberof E2E.Message.ListMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ListMessage.prototype, "_buttonText", {
                 get: $util.oneOfGetter($oneOfFields = ["buttonText"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ListMessage _listType.
-             * @member {"listType"|undefined} _listType
-             * @memberof E2E.Message.ListMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ListMessage.prototype, "_listType", {
                 get: $util.oneOfGetter($oneOfFields = ["listType"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ListMessage _productListInfo.
-             * @member {"productListInfo"|undefined} _productListInfo
-             * @memberof E2E.Message.ListMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ListMessage.prototype, "_productListInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["productListInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ListMessage _footerText.
-             * @member {"footerText"|undefined} _footerText
-             * @memberof E2E.Message.ListMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ListMessage.prototype, "_footerText", {
                 get: $util.oneOfGetter($oneOfFields = ["footerText"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ListMessage _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.ListMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ListMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -67328,12 +63288,7 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * Product _productId.
-                 * @member {"productId"|undefined} _productId
-                 * @memberof E2E.Message.ListMessage.Product
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Product.prototype, "_productId", {
                     get: $util.oneOfGetter($oneOfFields = ["productId"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -67560,23 +63515,13 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * ProductListHeaderImage _productId.
-                 * @member {"productId"|undefined} _productId
-                 * @memberof E2E.Message.ListMessage.ProductListHeaderImage
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(ProductListHeaderImage.prototype, "_productId", {
                     get: $util.oneOfGetter($oneOfFields = ["productId"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * ProductListHeaderImage _jpegThumbnail.
-                 * @member {"jpegThumbnail"|undefined} _jpegThumbnail
-                 * @memberof E2E.Message.ListMessage.ProductListHeaderImage
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(ProductListHeaderImage.prototype, "_jpegThumbnail", {
                     get: $util.oneOfGetter($oneOfFields = ["jpegThumbnail"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -67834,23 +63779,13 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * ProductListInfo _headerImage.
-                 * @member {"headerImage"|undefined} _headerImage
-                 * @memberof E2E.Message.ListMessage.ProductListInfo
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(ProductListInfo.prototype, "_headerImage", {
                     get: $util.oneOfGetter($oneOfFields = ["headerImage"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * ProductListInfo _businessOwnerJid.
-                 * @member {"businessOwnerJid"|undefined} _businessOwnerJid
-                 * @memberof E2E.Message.ListMessage.ProductListInfo
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(ProductListInfo.prototype, "_businessOwnerJid", {
                     get: $util.oneOfGetter($oneOfFields = ["businessOwnerJid"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -68137,12 +64072,7 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * ProductSection _title.
-                 * @member {"title"|undefined} _title
-                 * @memberof E2E.Message.ListMessage.ProductSection
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(ProductSection.prototype, "_title", {
                     get: $util.oneOfGetter($oneOfFields = ["title"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -68413,34 +64343,19 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * Row _title.
-                 * @member {"title"|undefined} _title
-                 * @memberof E2E.Message.ListMessage.Row
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Row.prototype, "_title", {
                     get: $util.oneOfGetter($oneOfFields = ["title"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * Row _description.
-                 * @member {"description"|undefined} _description
-                 * @memberof E2E.Message.ListMessage.Row
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Row.prototype, "_description", {
                     get: $util.oneOfGetter($oneOfFields = ["description"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * Row _rowId.
-                 * @member {"rowId"|undefined} _rowId
-                 * @memberof E2E.Message.ListMessage.Row
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Row.prototype, "_rowId", {
                     get: $util.oneOfGetter($oneOfFields = ["rowId"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -68704,12 +64619,7 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * Section _title.
-                 * @member {"title"|undefined} _title
-                 * @memberof E2E.Message.ListMessage.Section
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Section.prototype, "_title", {
                     get: $util.oneOfGetter($oneOfFields = ["title"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -69001,56 +64911,31 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * ListResponseMessage _title.
-             * @member {"title"|undefined} _title
-             * @memberof E2E.Message.ListResponseMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ListResponseMessage.prototype, "_title", {
                 get: $util.oneOfGetter($oneOfFields = ["title"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ListResponseMessage _listType.
-             * @member {"listType"|undefined} _listType
-             * @memberof E2E.Message.ListResponseMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ListResponseMessage.prototype, "_listType", {
                 get: $util.oneOfGetter($oneOfFields = ["listType"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ListResponseMessage _singleSelectReply.
-             * @member {"singleSelectReply"|undefined} _singleSelectReply
-             * @memberof E2E.Message.ListResponseMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ListResponseMessage.prototype, "_singleSelectReply", {
                 get: $util.oneOfGetter($oneOfFields = ["singleSelectReply"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ListResponseMessage _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.ListResponseMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ListResponseMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ListResponseMessage _description.
-             * @member {"description"|undefined} _description
-             * @memberof E2E.Message.ListResponseMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ListResponseMessage.prototype, "_description", {
                 get: $util.oneOfGetter($oneOfFields = ["description"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -69382,12 +65267,7 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * SingleSelectReply _selectedRowId.
-                 * @member {"selectedRowId"|undefined} _selectedRowId
-                 * @memberof E2E.Message.ListResponseMessage.SingleSelectReply
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(SingleSelectReply.prototype, "_selectedRowId", {
                     get: $util.oneOfGetter($oneOfFields = ["selectedRowId"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -69689,111 +65569,61 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * LiveLocationMessage _degreesLatitude.
-             * @member {"degreesLatitude"|undefined} _degreesLatitude
-             * @memberof E2E.Message.LiveLocationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LiveLocationMessage.prototype, "_degreesLatitude", {
                 get: $util.oneOfGetter($oneOfFields = ["degreesLatitude"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LiveLocationMessage _degreesLongitude.
-             * @member {"degreesLongitude"|undefined} _degreesLongitude
-             * @memberof E2E.Message.LiveLocationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LiveLocationMessage.prototype, "_degreesLongitude", {
                 get: $util.oneOfGetter($oneOfFields = ["degreesLongitude"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LiveLocationMessage _accuracyInMeters.
-             * @member {"accuracyInMeters"|undefined} _accuracyInMeters
-             * @memberof E2E.Message.LiveLocationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LiveLocationMessage.prototype, "_accuracyInMeters", {
                 get: $util.oneOfGetter($oneOfFields = ["accuracyInMeters"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LiveLocationMessage _speedInMps.
-             * @member {"speedInMps"|undefined} _speedInMps
-             * @memberof E2E.Message.LiveLocationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LiveLocationMessage.prototype, "_speedInMps", {
                 get: $util.oneOfGetter($oneOfFields = ["speedInMps"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LiveLocationMessage _degreesClockwiseFromMagneticNorth.
-             * @member {"degreesClockwiseFromMagneticNorth"|undefined} _degreesClockwiseFromMagneticNorth
-             * @memberof E2E.Message.LiveLocationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LiveLocationMessage.prototype, "_degreesClockwiseFromMagneticNorth", {
                 get: $util.oneOfGetter($oneOfFields = ["degreesClockwiseFromMagneticNorth"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LiveLocationMessage _caption.
-             * @member {"caption"|undefined} _caption
-             * @memberof E2E.Message.LiveLocationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LiveLocationMessage.prototype, "_caption", {
                 get: $util.oneOfGetter($oneOfFields = ["caption"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LiveLocationMessage _sequenceNumber.
-             * @member {"sequenceNumber"|undefined} _sequenceNumber
-             * @memberof E2E.Message.LiveLocationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LiveLocationMessage.prototype, "_sequenceNumber", {
                 get: $util.oneOfGetter($oneOfFields = ["sequenceNumber"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LiveLocationMessage _timeOffset.
-             * @member {"timeOffset"|undefined} _timeOffset
-             * @memberof E2E.Message.LiveLocationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LiveLocationMessage.prototype, "_timeOffset", {
                 get: $util.oneOfGetter($oneOfFields = ["timeOffset"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LiveLocationMessage _jpegThumbnail.
-             * @member {"jpegThumbnail"|undefined} _jpegThumbnail
-             * @memberof E2E.Message.LiveLocationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LiveLocationMessage.prototype, "_jpegThumbnail", {
                 get: $util.oneOfGetter($oneOfFields = ["jpegThumbnail"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LiveLocationMessage _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.LiveLocationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LiveLocationMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -70291,133 +66121,73 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * LocationMessage _degreesLatitude.
-             * @member {"degreesLatitude"|undefined} _degreesLatitude
-             * @memberof E2E.Message.LocationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LocationMessage.prototype, "_degreesLatitude", {
                 get: $util.oneOfGetter($oneOfFields = ["degreesLatitude"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LocationMessage _degreesLongitude.
-             * @member {"degreesLongitude"|undefined} _degreesLongitude
-             * @memberof E2E.Message.LocationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LocationMessage.prototype, "_degreesLongitude", {
                 get: $util.oneOfGetter($oneOfFields = ["degreesLongitude"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LocationMessage _name.
-             * @member {"name"|undefined} _name
-             * @memberof E2E.Message.LocationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LocationMessage.prototype, "_name", {
                 get: $util.oneOfGetter($oneOfFields = ["name"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LocationMessage _address.
-             * @member {"address"|undefined} _address
-             * @memberof E2E.Message.LocationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LocationMessage.prototype, "_address", {
                 get: $util.oneOfGetter($oneOfFields = ["address"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LocationMessage _url.
-             * @member {"url"|undefined} _url
-             * @memberof E2E.Message.LocationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LocationMessage.prototype, "_url", {
                 get: $util.oneOfGetter($oneOfFields = ["url"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LocationMessage _isLive.
-             * @member {"isLive"|undefined} _isLive
-             * @memberof E2E.Message.LocationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LocationMessage.prototype, "_isLive", {
                 get: $util.oneOfGetter($oneOfFields = ["isLive"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LocationMessage _accuracyInMeters.
-             * @member {"accuracyInMeters"|undefined} _accuracyInMeters
-             * @memberof E2E.Message.LocationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LocationMessage.prototype, "_accuracyInMeters", {
                 get: $util.oneOfGetter($oneOfFields = ["accuracyInMeters"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LocationMessage _speedInMps.
-             * @member {"speedInMps"|undefined} _speedInMps
-             * @memberof E2E.Message.LocationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LocationMessage.prototype, "_speedInMps", {
                 get: $util.oneOfGetter($oneOfFields = ["speedInMps"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LocationMessage _degreesClockwiseFromMagneticNorth.
-             * @member {"degreesClockwiseFromMagneticNorth"|undefined} _degreesClockwiseFromMagneticNorth
-             * @memberof E2E.Message.LocationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LocationMessage.prototype, "_degreesClockwiseFromMagneticNorth", {
                 get: $util.oneOfGetter($oneOfFields = ["degreesClockwiseFromMagneticNorth"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LocationMessage _comment.
-             * @member {"comment"|undefined} _comment
-             * @memberof E2E.Message.LocationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LocationMessage.prototype, "_comment", {
                 get: $util.oneOfGetter($oneOfFields = ["comment"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LocationMessage _jpegThumbnail.
-             * @member {"jpegThumbnail"|undefined} _jpegThumbnail
-             * @memberof E2E.Message.LocationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LocationMessage.prototype, "_jpegThumbnail", {
                 get: $util.oneOfGetter($oneOfFields = ["jpegThumbnail"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * LocationMessage _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.LocationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LocationMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -70905,89 +66675,49 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * MMSThumbnailMetadata _thumbnailDirectPath.
-             * @member {"thumbnailDirectPath"|undefined} _thumbnailDirectPath
-             * @memberof E2E.Message.MMSThumbnailMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MMSThumbnailMetadata.prototype, "_thumbnailDirectPath", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailDirectPath"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MMSThumbnailMetadata _thumbnailSha256.
-             * @member {"thumbnailSha256"|undefined} _thumbnailSha256
-             * @memberof E2E.Message.MMSThumbnailMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MMSThumbnailMetadata.prototype, "_thumbnailSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MMSThumbnailMetadata _thumbnailEncSha256.
-             * @member {"thumbnailEncSha256"|undefined} _thumbnailEncSha256
-             * @memberof E2E.Message.MMSThumbnailMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MMSThumbnailMetadata.prototype, "_thumbnailEncSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailEncSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MMSThumbnailMetadata _mediaKey.
-             * @member {"mediaKey"|undefined} _mediaKey
-             * @memberof E2E.Message.MMSThumbnailMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MMSThumbnailMetadata.prototype, "_mediaKey", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MMSThumbnailMetadata _mediaKeyTimestamp.
-             * @member {"mediaKeyTimestamp"|undefined} _mediaKeyTimestamp
-             * @memberof E2E.Message.MMSThumbnailMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MMSThumbnailMetadata.prototype, "_mediaKeyTimestamp", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaKeyTimestamp"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MMSThumbnailMetadata _thumbnailHeight.
-             * @member {"thumbnailHeight"|undefined} _thumbnailHeight
-             * @memberof E2E.Message.MMSThumbnailMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MMSThumbnailMetadata.prototype, "_thumbnailHeight", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailHeight"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MMSThumbnailMetadata _thumbnailWidth.
-             * @member {"thumbnailWidth"|undefined} _thumbnailWidth
-             * @memberof E2E.Message.MMSThumbnailMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MMSThumbnailMetadata.prototype, "_thumbnailWidth", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailWidth"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MMSThumbnailMetadata _mediaKeyDomain.
-             * @member {"mediaKeyDomain"|undefined} _mediaKeyDomain
-             * @memberof E2E.Message.MMSThumbnailMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MMSThumbnailMetadata.prototype, "_mediaKeyDomain", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaKeyDomain"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -71467,89 +67197,49 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * MessageHistoryBundle _mimetype.
-             * @member {"mimetype"|undefined} _mimetype
-             * @memberof E2E.Message.MessageHistoryBundle
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MessageHistoryBundle.prototype, "_mimetype", {
                 get: $util.oneOfGetter($oneOfFields = ["mimetype"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MessageHistoryBundle _fileSha256.
-             * @member {"fileSha256"|undefined} _fileSha256
-             * @memberof E2E.Message.MessageHistoryBundle
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MessageHistoryBundle.prototype, "_fileSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["fileSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MessageHistoryBundle _mediaKey.
-             * @member {"mediaKey"|undefined} _mediaKey
-             * @memberof E2E.Message.MessageHistoryBundle
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MessageHistoryBundle.prototype, "_mediaKey", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MessageHistoryBundle _fileEncSha256.
-             * @member {"fileEncSha256"|undefined} _fileEncSha256
-             * @memberof E2E.Message.MessageHistoryBundle
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MessageHistoryBundle.prototype, "_fileEncSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["fileEncSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MessageHistoryBundle _directPath.
-             * @member {"directPath"|undefined} _directPath
-             * @memberof E2E.Message.MessageHistoryBundle
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MessageHistoryBundle.prototype, "_directPath", {
                 get: $util.oneOfGetter($oneOfFields = ["directPath"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MessageHistoryBundle _mediaKeyTimestamp.
-             * @member {"mediaKeyTimestamp"|undefined} _mediaKeyTimestamp
-             * @memberof E2E.Message.MessageHistoryBundle
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MessageHistoryBundle.prototype, "_mediaKeyTimestamp", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaKeyTimestamp"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MessageHistoryBundle _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.MessageHistoryBundle
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MessageHistoryBundle.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MessageHistoryBundle _messageHistoryMetadata.
-             * @member {"messageHistoryMetadata"|undefined} _messageHistoryMetadata
-             * @memberof E2E.Message.MessageHistoryBundle
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MessageHistoryBundle.prototype, "_messageHistoryMetadata", {
                 get: $util.oneOfGetter($oneOfFields = ["messageHistoryMetadata"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -71943,23 +67633,13 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * MessageHistoryMetadata _oldestMessageTimestamp.
-             * @member {"oldestMessageTimestamp"|undefined} _oldestMessageTimestamp
-             * @memberof E2E.Message.MessageHistoryMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MessageHistoryMetadata.prototype, "_oldestMessageTimestamp", {
                 get: $util.oneOfGetter($oneOfFields = ["oldestMessageTimestamp"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MessageHistoryMetadata _messageCount.
-             * @member {"messageCount"|undefined} _messageCount
-             * @memberof E2E.Message.MessageHistoryMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MessageHistoryMetadata.prototype, "_messageCount", {
                 get: $util.oneOfGetter($oneOfFields = ["messageCount"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -72254,23 +67934,13 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * MessageHistoryNotice _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.MessageHistoryNotice
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MessageHistoryNotice.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MessageHistoryNotice _messageHistoryMetadata.
-             * @member {"messageHistoryMetadata"|undefined} _messageHistoryMetadata
-             * @memberof E2E.Message.MessageHistoryNotice
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MessageHistoryNotice.prototype, "_messageHistoryMetadata", {
                 get: $util.oneOfGetter($oneOfFields = ["messageHistoryMetadata"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -72563,67 +68233,37 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * NewsletterAdminInviteMessage _newsletterJid.
-             * @member {"newsletterJid"|undefined} _newsletterJid
-             * @memberof E2E.Message.NewsletterAdminInviteMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(NewsletterAdminInviteMessage.prototype, "_newsletterJid", {
                 get: $util.oneOfGetter($oneOfFields = ["newsletterJid"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * NewsletterAdminInviteMessage _newsletterName.
-             * @member {"newsletterName"|undefined} _newsletterName
-             * @memberof E2E.Message.NewsletterAdminInviteMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(NewsletterAdminInviteMessage.prototype, "_newsletterName", {
                 get: $util.oneOfGetter($oneOfFields = ["newsletterName"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * NewsletterAdminInviteMessage _jpegThumbnail.
-             * @member {"jpegThumbnail"|undefined} _jpegThumbnail
-             * @memberof E2E.Message.NewsletterAdminInviteMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(NewsletterAdminInviteMessage.prototype, "_jpegThumbnail", {
                 get: $util.oneOfGetter($oneOfFields = ["jpegThumbnail"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * NewsletterAdminInviteMessage _caption.
-             * @member {"caption"|undefined} _caption
-             * @memberof E2E.Message.NewsletterAdminInviteMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(NewsletterAdminInviteMessage.prototype, "_caption", {
                 get: $util.oneOfGetter($oneOfFields = ["caption"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * NewsletterAdminInviteMessage _inviteExpiration.
-             * @member {"inviteExpiration"|undefined} _inviteExpiration
-             * @memberof E2E.Message.NewsletterAdminInviteMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(NewsletterAdminInviteMessage.prototype, "_inviteExpiration", {
                 get: $util.oneOfGetter($oneOfFields = ["inviteExpiration"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * NewsletterAdminInviteMessage _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.NewsletterAdminInviteMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(NewsletterAdminInviteMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -72986,56 +68626,31 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * NewsletterFollowerInviteMessage _newsletterJid.
-             * @member {"newsletterJid"|undefined} _newsletterJid
-             * @memberof E2E.Message.NewsletterFollowerInviteMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(NewsletterFollowerInviteMessage.prototype, "_newsletterJid", {
                 get: $util.oneOfGetter($oneOfFields = ["newsletterJid"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * NewsletterFollowerInviteMessage _newsletterName.
-             * @member {"newsletterName"|undefined} _newsletterName
-             * @memberof E2E.Message.NewsletterFollowerInviteMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(NewsletterFollowerInviteMessage.prototype, "_newsletterName", {
                 get: $util.oneOfGetter($oneOfFields = ["newsletterName"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * NewsletterFollowerInviteMessage _jpegThumbnail.
-             * @member {"jpegThumbnail"|undefined} _jpegThumbnail
-             * @memberof E2E.Message.NewsletterFollowerInviteMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(NewsletterFollowerInviteMessage.prototype, "_jpegThumbnail", {
                 get: $util.oneOfGetter($oneOfFields = ["jpegThumbnail"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * NewsletterFollowerInviteMessage _caption.
-             * @member {"caption"|undefined} _caption
-             * @memberof E2E.Message.NewsletterFollowerInviteMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(NewsletterFollowerInviteMessage.prototype, "_caption", {
                 get: $util.oneOfGetter($oneOfFields = ["caption"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * NewsletterFollowerInviteMessage _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.NewsletterFollowerInviteMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(NewsletterFollowerInviteMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -73460,166 +69075,91 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * OrderMessage _orderId.
-             * @member {"orderId"|undefined} _orderId
-             * @memberof E2E.Message.OrderMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(OrderMessage.prototype, "_orderId", {
                 get: $util.oneOfGetter($oneOfFields = ["orderId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * OrderMessage _thumbnail.
-             * @member {"thumbnail"|undefined} _thumbnail
-             * @memberof E2E.Message.OrderMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(OrderMessage.prototype, "_thumbnail", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnail"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * OrderMessage _itemCount.
-             * @member {"itemCount"|undefined} _itemCount
-             * @memberof E2E.Message.OrderMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(OrderMessage.prototype, "_itemCount", {
                 get: $util.oneOfGetter($oneOfFields = ["itemCount"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * OrderMessage _status.
-             * @member {"status"|undefined} _status
-             * @memberof E2E.Message.OrderMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(OrderMessage.prototype, "_status", {
                 get: $util.oneOfGetter($oneOfFields = ["status"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * OrderMessage _surface.
-             * @member {"surface"|undefined} _surface
-             * @memberof E2E.Message.OrderMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(OrderMessage.prototype, "_surface", {
                 get: $util.oneOfGetter($oneOfFields = ["surface"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * OrderMessage _message.
-             * @member {"message"|undefined} _message
-             * @memberof E2E.Message.OrderMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(OrderMessage.prototype, "_message", {
                 get: $util.oneOfGetter($oneOfFields = ["message"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * OrderMessage _orderTitle.
-             * @member {"orderTitle"|undefined} _orderTitle
-             * @memberof E2E.Message.OrderMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(OrderMessage.prototype, "_orderTitle", {
                 get: $util.oneOfGetter($oneOfFields = ["orderTitle"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * OrderMessage _sellerJid.
-             * @member {"sellerJid"|undefined} _sellerJid
-             * @memberof E2E.Message.OrderMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(OrderMessage.prototype, "_sellerJid", {
                 get: $util.oneOfGetter($oneOfFields = ["sellerJid"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * OrderMessage _token.
-             * @member {"token"|undefined} _token
-             * @memberof E2E.Message.OrderMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(OrderMessage.prototype, "_token", {
                 get: $util.oneOfGetter($oneOfFields = ["token"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * OrderMessage _totalAmount1000.
-             * @member {"totalAmount1000"|undefined} _totalAmount1000
-             * @memberof E2E.Message.OrderMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(OrderMessage.prototype, "_totalAmount1000", {
                 get: $util.oneOfGetter($oneOfFields = ["totalAmount1000"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * OrderMessage _totalCurrencyCode.
-             * @member {"totalCurrencyCode"|undefined} _totalCurrencyCode
-             * @memberof E2E.Message.OrderMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(OrderMessage.prototype, "_totalCurrencyCode", {
                 get: $util.oneOfGetter($oneOfFields = ["totalCurrencyCode"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * OrderMessage _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.OrderMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(OrderMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * OrderMessage _messageVersion.
-             * @member {"messageVersion"|undefined} _messageVersion
-             * @memberof E2E.Message.OrderMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(OrderMessage.prototype, "_messageVersion", {
                 get: $util.oneOfGetter($oneOfFields = ["messageVersion"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * OrderMessage _orderRequestMessageId.
-             * @member {"orderRequestMessageId"|undefined} _orderRequestMessageId
-             * @memberof E2E.Message.OrderMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(OrderMessage.prototype, "_orderRequestMessageId", {
                 get: $util.oneOfGetter($oneOfFields = ["orderRequestMessageId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * OrderMessage _catalogType.
-             * @member {"catalogType"|undefined} _catalogType
-             * @memberof E2E.Message.OrderMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(OrderMessage.prototype, "_catalogType", {
                 get: $util.oneOfGetter($oneOfFields = ["catalogType"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -74189,23 +69729,13 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * PaymentExtendedMetadata _type.
-             * @member {"type"|undefined} _type
-             * @memberof E2E.Message.PaymentExtendedMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PaymentExtendedMetadata.prototype, "_type", {
                 get: $util.oneOfGetter($oneOfFields = ["type"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * PaymentExtendedMetadata _platform.
-             * @member {"platform"|undefined} _platform
-             * @memberof E2E.Message.PaymentExtendedMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PaymentExtendedMetadata.prototype, "_platform", {
                 get: $util.oneOfGetter($oneOfFields = ["platform"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -74450,23 +69980,13 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * PaymentInviteMessage _serviceType.
-             * @member {"serviceType"|undefined} _serviceType
-             * @memberof E2E.Message.PaymentInviteMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PaymentInviteMessage.prototype, "_serviceType", {
                 get: $util.oneOfGetter($oneOfFields = ["serviceType"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * PaymentInviteMessage _expiryTimestamp.
-             * @member {"expiryTimestamp"|undefined} _expiryTimestamp
-             * @memberof E2E.Message.PaymentInviteMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PaymentInviteMessage.prototype, "_expiryTimestamp", {
                 get: $util.oneOfGetter($oneOfFields = ["expiryTimestamp"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -74777,34 +70297,19 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * PaymentLinkMetadata _button.
-             * @member {"button"|undefined} _button
-             * @memberof E2E.Message.PaymentLinkMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PaymentLinkMetadata.prototype, "_button", {
                 get: $util.oneOfGetter($oneOfFields = ["button"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * PaymentLinkMetadata _header.
-             * @member {"header"|undefined} _header
-             * @memberof E2E.Message.PaymentLinkMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PaymentLinkMetadata.prototype, "_header", {
                 get: $util.oneOfGetter($oneOfFields = ["header"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * PaymentLinkMetadata _provider.
-             * @member {"provider"|undefined} _provider
-             * @memberof E2E.Message.PaymentLinkMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PaymentLinkMetadata.prototype, "_provider", {
                 get: $util.oneOfGetter($oneOfFields = ["provider"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -75073,12 +70578,7 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * PaymentLinkButton _displayText.
-                 * @member {"displayText"|undefined} _displayText
-                 * @memberof E2E.Message.PaymentLinkMetadata.PaymentLinkButton
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(PaymentLinkButton.prototype, "_displayText", {
                     get: $util.oneOfGetter($oneOfFields = ["displayText"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -75296,12 +70796,7 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * PaymentLinkHeader _headerType.
-                 * @member {"headerType"|undefined} _headerType
-                 * @memberof E2E.Message.PaymentLinkMetadata.PaymentLinkHeader
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(PaymentLinkHeader.prototype, "_headerType", {
                     get: $util.oneOfGetter($oneOfFields = ["headerType"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -75552,12 +71047,7 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * PaymentLinkProvider _paramsJson.
-                 * @member {"paramsJson"|undefined} _paramsJson
-                 * @memberof E2E.Message.PaymentLinkMetadata.PaymentLinkProvider
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(PaymentLinkProvider.prototype, "_paramsJson", {
                     get: $util.oneOfGetter($oneOfFields = ["paramsJson"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -75853,67 +71343,37 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * PeerDataOperationRequestMessage _peerDataOperationRequestType.
-             * @member {"peerDataOperationRequestType"|undefined} _peerDataOperationRequestType
-             * @memberof E2E.Message.PeerDataOperationRequestMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PeerDataOperationRequestMessage.prototype, "_peerDataOperationRequestType", {
                 get: $util.oneOfGetter($oneOfFields = ["peerDataOperationRequestType"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * PeerDataOperationRequestMessage _historySyncOnDemandRequest.
-             * @member {"historySyncOnDemandRequest"|undefined} _historySyncOnDemandRequest
-             * @memberof E2E.Message.PeerDataOperationRequestMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PeerDataOperationRequestMessage.prototype, "_historySyncOnDemandRequest", {
                 get: $util.oneOfGetter($oneOfFields = ["historySyncOnDemandRequest"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * PeerDataOperationRequestMessage _fullHistorySyncOnDemandRequest.
-             * @member {"fullHistorySyncOnDemandRequest"|undefined} _fullHistorySyncOnDemandRequest
-             * @memberof E2E.Message.PeerDataOperationRequestMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PeerDataOperationRequestMessage.prototype, "_fullHistorySyncOnDemandRequest", {
                 get: $util.oneOfGetter($oneOfFields = ["fullHistorySyncOnDemandRequest"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * PeerDataOperationRequestMessage _syncdCollectionFatalRecoveryRequest.
-             * @member {"syncdCollectionFatalRecoveryRequest"|undefined} _syncdCollectionFatalRecoveryRequest
-             * @memberof E2E.Message.PeerDataOperationRequestMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PeerDataOperationRequestMessage.prototype, "_syncdCollectionFatalRecoveryRequest", {
                 get: $util.oneOfGetter($oneOfFields = ["syncdCollectionFatalRecoveryRequest"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * PeerDataOperationRequestMessage _historySyncChunkRetryRequest.
-             * @member {"historySyncChunkRetryRequest"|undefined} _historySyncChunkRetryRequest
-             * @memberof E2E.Message.PeerDataOperationRequestMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PeerDataOperationRequestMessage.prototype, "_historySyncChunkRetryRequest", {
                 get: $util.oneOfGetter($oneOfFields = ["historySyncChunkRetryRequest"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * PeerDataOperationRequestMessage _galaxyFlowAction.
-             * @member {"galaxyFlowAction"|undefined} _galaxyFlowAction
-             * @memberof E2E.Message.PeerDataOperationRequestMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PeerDataOperationRequestMessage.prototype, "_galaxyFlowAction", {
                 get: $util.oneOfGetter($oneOfFields = ["galaxyFlowAction"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -76430,23 +71890,13 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * FullHistorySyncOnDemandRequest _requestMetadata.
-                 * @member {"requestMetadata"|undefined} _requestMetadata
-                 * @memberof E2E.Message.PeerDataOperationRequestMessage.FullHistorySyncOnDemandRequest
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(FullHistorySyncOnDemandRequest.prototype, "_requestMetadata", {
                     get: $util.oneOfGetter($oneOfFields = ["requestMetadata"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * FullHistorySyncOnDemandRequest _historySyncConfig.
-                 * @member {"historySyncConfig"|undefined} _historySyncConfig
-                 * @memberof E2E.Message.PeerDataOperationRequestMessage.FullHistorySyncOnDemandRequest
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(FullHistorySyncOnDemandRequest.prototype, "_historySyncConfig", {
                     get: $util.oneOfGetter($oneOfFields = ["historySyncConfig"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -76712,34 +72162,19 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * GalaxyFlowAction _type.
-                 * @member {"type"|undefined} _type
-                 * @memberof E2E.Message.PeerDataOperationRequestMessage.GalaxyFlowAction
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(GalaxyFlowAction.prototype, "_type", {
                     get: $util.oneOfGetter($oneOfFields = ["type"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * GalaxyFlowAction _flowId.
-                 * @member {"flowId"|undefined} _flowId
-                 * @memberof E2E.Message.PeerDataOperationRequestMessage.GalaxyFlowAction
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(GalaxyFlowAction.prototype, "_flowId", {
                     get: $util.oneOfGetter($oneOfFields = ["flowId"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * GalaxyFlowAction _stanzaId.
-                 * @member {"stanzaId"|undefined} _stanzaId
-                 * @memberof E2E.Message.PeerDataOperationRequestMessage.GalaxyFlowAction
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(GalaxyFlowAction.prototype, "_stanzaId", {
                     get: $util.oneOfGetter($oneOfFields = ["stanzaId"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -77046,45 +72481,25 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * HistorySyncChunkRetryRequest _syncType.
-                 * @member {"syncType"|undefined} _syncType
-                 * @memberof E2E.Message.PeerDataOperationRequestMessage.HistorySyncChunkRetryRequest
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(HistorySyncChunkRetryRequest.prototype, "_syncType", {
                     get: $util.oneOfGetter($oneOfFields = ["syncType"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * HistorySyncChunkRetryRequest _chunkOrder.
-                 * @member {"chunkOrder"|undefined} _chunkOrder
-                 * @memberof E2E.Message.PeerDataOperationRequestMessage.HistorySyncChunkRetryRequest
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(HistorySyncChunkRetryRequest.prototype, "_chunkOrder", {
                     get: $util.oneOfGetter($oneOfFields = ["chunkOrder"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * HistorySyncChunkRetryRequest _chunkNotificationId.
-                 * @member {"chunkNotificationId"|undefined} _chunkNotificationId
-                 * @memberof E2E.Message.PeerDataOperationRequestMessage.HistorySyncChunkRetryRequest
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(HistorySyncChunkRetryRequest.prototype, "_chunkNotificationId", {
                     get: $util.oneOfGetter($oneOfFields = ["chunkNotificationId"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * HistorySyncChunkRetryRequest _regenerateChunk.
-                 * @member {"regenerateChunk"|undefined} _regenerateChunk
-                 * @memberof E2E.Message.PeerDataOperationRequestMessage.HistorySyncChunkRetryRequest
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(HistorySyncChunkRetryRequest.prototype, "_regenerateChunk", {
                     get: $util.oneOfGetter($oneOfFields = ["regenerateChunk"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -77455,67 +72870,37 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * HistorySyncOnDemandRequest _chatJid.
-                 * @member {"chatJid"|undefined} _chatJid
-                 * @memberof E2E.Message.PeerDataOperationRequestMessage.HistorySyncOnDemandRequest
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(HistorySyncOnDemandRequest.prototype, "_chatJid", {
                     get: $util.oneOfGetter($oneOfFields = ["chatJid"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * HistorySyncOnDemandRequest _oldestMsgId.
-                 * @member {"oldestMsgId"|undefined} _oldestMsgId
-                 * @memberof E2E.Message.PeerDataOperationRequestMessage.HistorySyncOnDemandRequest
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(HistorySyncOnDemandRequest.prototype, "_oldestMsgId", {
                     get: $util.oneOfGetter($oneOfFields = ["oldestMsgId"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * HistorySyncOnDemandRequest _oldestMsgFromMe.
-                 * @member {"oldestMsgFromMe"|undefined} _oldestMsgFromMe
-                 * @memberof E2E.Message.PeerDataOperationRequestMessage.HistorySyncOnDemandRequest
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(HistorySyncOnDemandRequest.prototype, "_oldestMsgFromMe", {
                     get: $util.oneOfGetter($oneOfFields = ["oldestMsgFromMe"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * HistorySyncOnDemandRequest _onDemandMsgCount.
-                 * @member {"onDemandMsgCount"|undefined} _onDemandMsgCount
-                 * @memberof E2E.Message.PeerDataOperationRequestMessage.HistorySyncOnDemandRequest
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(HistorySyncOnDemandRequest.prototype, "_onDemandMsgCount", {
                     get: $util.oneOfGetter($oneOfFields = ["onDemandMsgCount"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * HistorySyncOnDemandRequest _oldestMsgTimestampMs.
-                 * @member {"oldestMsgTimestampMs"|undefined} _oldestMsgTimestampMs
-                 * @memberof E2E.Message.PeerDataOperationRequestMessage.HistorySyncOnDemandRequest
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(HistorySyncOnDemandRequest.prototype, "_oldestMsgTimestampMs", {
                     get: $util.oneOfGetter($oneOfFields = ["oldestMsgTimestampMs"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * HistorySyncOnDemandRequest _accountLid.
-                 * @member {"accountLid"|undefined} _accountLid
-                 * @memberof E2E.Message.PeerDataOperationRequestMessage.HistorySyncOnDemandRequest
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(HistorySyncOnDemandRequest.prototype, "_accountLid", {
                     get: $util.oneOfGetter($oneOfFields = ["accountLid"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -77833,12 +73218,7 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * PlaceholderMessageResendRequest _messageKey.
-                 * @member {"messageKey"|undefined} _messageKey
-                 * @memberof E2E.Message.PeerDataOperationRequestMessage.PlaceholderMessageResendRequest
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(PlaceholderMessageResendRequest.prototype, "_messageKey", {
                     get: $util.oneOfGetter($oneOfFields = ["messageKey"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -78062,12 +73442,7 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * RequestStickerReupload _fileSha256.
-                 * @member {"fileSha256"|undefined} _fileSha256
-                 * @memberof E2E.Message.PeerDataOperationRequestMessage.RequestStickerReupload
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(RequestStickerReupload.prototype, "_fileSha256", {
                     get: $util.oneOfGetter($oneOfFields = ["fileSha256"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -78294,23 +73669,13 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * RequestUrlPreview _url.
-                 * @member {"url"|undefined} _url
-                 * @memberof E2E.Message.PeerDataOperationRequestMessage.RequestUrlPreview
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(RequestUrlPreview.prototype, "_url", {
                     get: $util.oneOfGetter($oneOfFields = ["url"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * RequestUrlPreview _includeHqThumbnail.
-                 * @member {"includeHqThumbnail"|undefined} _includeHqThumbnail
-                 * @memberof E2E.Message.PeerDataOperationRequestMessage.RequestUrlPreview
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(RequestUrlPreview.prototype, "_includeHqThumbnail", {
                     get: $util.oneOfGetter($oneOfFields = ["includeHqThumbnail"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -78555,23 +73920,13 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * SyncDCollectionFatalRecoveryRequest _collectionName.
-                 * @member {"collectionName"|undefined} _collectionName
-                 * @memberof E2E.Message.PeerDataOperationRequestMessage.SyncDCollectionFatalRecoveryRequest
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(SyncDCollectionFatalRecoveryRequest.prototype, "_collectionName", {
                     get: $util.oneOfGetter($oneOfFields = ["collectionName"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * SyncDCollectionFatalRecoveryRequest _timestamp.
-                 * @member {"timestamp"|undefined} _timestamp
-                 * @memberof E2E.Message.PeerDataOperationRequestMessage.SyncDCollectionFatalRecoveryRequest
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(SyncDCollectionFatalRecoveryRequest.prototype, "_timestamp", {
                     get: $util.oneOfGetter($oneOfFields = ["timestamp"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -78839,23 +74194,13 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * PeerDataOperationRequestResponseMessage _peerDataOperationRequestType.
-             * @member {"peerDataOperationRequestType"|undefined} _peerDataOperationRequestType
-             * @memberof E2E.Message.PeerDataOperationRequestResponseMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PeerDataOperationRequestResponseMessage.prototype, "_peerDataOperationRequestType", {
                 get: $util.oneOfGetter($oneOfFields = ["peerDataOperationRequestType"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * PeerDataOperationRequestResponseMessage _stanzaId.
-             * @member {"stanzaId"|undefined} _stanzaId
-             * @memberof E2E.Message.PeerDataOperationRequestResponseMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PeerDataOperationRequestResponseMessage.prototype, "_stanzaId", {
                 get: $util.oneOfGetter($oneOfFields = ["stanzaId"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -79273,111 +74618,61 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * PeerDataOperationResult _mediaUploadResult.
-                 * @member {"mediaUploadResult"|undefined} _mediaUploadResult
-                 * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(PeerDataOperationResult.prototype, "_mediaUploadResult", {
                     get: $util.oneOfGetter($oneOfFields = ["mediaUploadResult"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * PeerDataOperationResult _stickerMessage.
-                 * @member {"stickerMessage"|undefined} _stickerMessage
-                 * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(PeerDataOperationResult.prototype, "_stickerMessage", {
                     get: $util.oneOfGetter($oneOfFields = ["stickerMessage"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * PeerDataOperationResult _linkPreviewResponse.
-                 * @member {"linkPreviewResponse"|undefined} _linkPreviewResponse
-                 * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(PeerDataOperationResult.prototype, "_linkPreviewResponse", {
                     get: $util.oneOfGetter($oneOfFields = ["linkPreviewResponse"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * PeerDataOperationResult _placeholderMessageResendResponse.
-                 * @member {"placeholderMessageResendResponse"|undefined} _placeholderMessageResendResponse
-                 * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(PeerDataOperationResult.prototype, "_placeholderMessageResendResponse", {
                     get: $util.oneOfGetter($oneOfFields = ["placeholderMessageResendResponse"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * PeerDataOperationResult _waffleNonceFetchRequestResponse.
-                 * @member {"waffleNonceFetchRequestResponse"|undefined} _waffleNonceFetchRequestResponse
-                 * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(PeerDataOperationResult.prototype, "_waffleNonceFetchRequestResponse", {
                     get: $util.oneOfGetter($oneOfFields = ["waffleNonceFetchRequestResponse"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * PeerDataOperationResult _fullHistorySyncOnDemandRequestResponse.
-                 * @member {"fullHistorySyncOnDemandRequestResponse"|undefined} _fullHistorySyncOnDemandRequestResponse
-                 * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(PeerDataOperationResult.prototype, "_fullHistorySyncOnDemandRequestResponse", {
                     get: $util.oneOfGetter($oneOfFields = ["fullHistorySyncOnDemandRequestResponse"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * PeerDataOperationResult _companionMetaNonceFetchRequestResponse.
-                 * @member {"companionMetaNonceFetchRequestResponse"|undefined} _companionMetaNonceFetchRequestResponse
-                 * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(PeerDataOperationResult.prototype, "_companionMetaNonceFetchRequestResponse", {
                     get: $util.oneOfGetter($oneOfFields = ["companionMetaNonceFetchRequestResponse"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * PeerDataOperationResult _syncdSnapshotFatalRecoveryResponse.
-                 * @member {"syncdSnapshotFatalRecoveryResponse"|undefined} _syncdSnapshotFatalRecoveryResponse
-                 * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(PeerDataOperationResult.prototype, "_syncdSnapshotFatalRecoveryResponse", {
                     get: $util.oneOfGetter($oneOfFields = ["syncdSnapshotFatalRecoveryResponse"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * PeerDataOperationResult _companionCanonicalUserNonceFetchRequestResponse.
-                 * @member {"companionCanonicalUserNonceFetchRequestResponse"|undefined} _companionCanonicalUserNonceFetchRequestResponse
-                 * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(PeerDataOperationResult.prototype, "_companionCanonicalUserNonceFetchRequestResponse", {
                     get: $util.oneOfGetter($oneOfFields = ["companionCanonicalUserNonceFetchRequestResponse"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * PeerDataOperationResult _historySyncChunkRetryResponse.
-                 * @member {"historySyncChunkRetryResponse"|undefined} _historySyncChunkRetryResponse
-                 * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(PeerDataOperationResult.prototype, "_historySyncChunkRetryResponse", {
                     get: $util.oneOfGetter($oneOfFields = ["historySyncChunkRetryResponse"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -79855,34 +75150,19 @@ $root.E2E = (function() {
                     // OneOf field names bound to virtual getters and setters
                     var $oneOfFields;
 
-                    /**
-                     * CompanionCanonicalUserNonceFetchResponse _nonce.
-                     * @member {"nonce"|undefined} _nonce
-                     * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.CompanionCanonicalUserNonceFetchResponse
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(CompanionCanonicalUserNonceFetchResponse.prototype, "_nonce", {
                         get: $util.oneOfGetter($oneOfFields = ["nonce"]),
                         set: $util.oneOfSetter($oneOfFields)
                     });
 
-                    /**
-                     * CompanionCanonicalUserNonceFetchResponse _waFbid.
-                     * @member {"waFbid"|undefined} _waFbid
-                     * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.CompanionCanonicalUserNonceFetchResponse
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(CompanionCanonicalUserNonceFetchResponse.prototype, "_waFbid", {
                         get: $util.oneOfGetter($oneOfFields = ["waFbid"]),
                         set: $util.oneOfSetter($oneOfFields)
                     });
 
-                    /**
-                     * CompanionCanonicalUserNonceFetchResponse _forceRefresh.
-                     * @member {"forceRefresh"|undefined} _forceRefresh
-                     * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.CompanionCanonicalUserNonceFetchResponse
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(CompanionCanonicalUserNonceFetchResponse.prototype, "_forceRefresh", {
                         get: $util.oneOfGetter($oneOfFields = ["forceRefresh"]),
                         set: $util.oneOfSetter($oneOfFields)
@@ -80136,12 +75416,7 @@ $root.E2E = (function() {
                     // OneOf field names bound to virtual getters and setters
                     var $oneOfFields;
 
-                    /**
-                     * CompanionMetaNonceFetchResponse _nonce.
-                     * @member {"nonce"|undefined} _nonce
-                     * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.CompanionMetaNonceFetchResponse
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(CompanionMetaNonceFetchResponse.prototype, "_nonce", {
                         get: $util.oneOfGetter($oneOfFields = ["nonce"]),
                         set: $util.oneOfSetter($oneOfFields)
@@ -80368,23 +75643,13 @@ $root.E2E = (function() {
                     // OneOf field names bound to virtual getters and setters
                     var $oneOfFields;
 
-                    /**
-                     * FullHistorySyncOnDemandRequestResponse _requestMetadata.
-                     * @member {"requestMetadata"|undefined} _requestMetadata
-                     * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.FullHistorySyncOnDemandRequestResponse
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(FullHistorySyncOnDemandRequestResponse.prototype, "_requestMetadata", {
                         get: $util.oneOfGetter($oneOfFields = ["requestMetadata"]),
                         set: $util.oneOfSetter($oneOfFields)
                     });
 
-                    /**
-                     * FullHistorySyncOnDemandRequestResponse _responseCode.
-                     * @member {"responseCode"|undefined} _responseCode
-                     * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.FullHistorySyncOnDemandRequestResponse
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(FullHistorySyncOnDemandRequestResponse.prototype, "_responseCode", {
                         get: $util.oneOfGetter($oneOfFields = ["responseCode"]),
                         set: $util.oneOfSetter($oneOfFields)
@@ -80730,56 +75995,31 @@ $root.E2E = (function() {
                     // OneOf field names bound to virtual getters and setters
                     var $oneOfFields;
 
-                    /**
-                     * HistorySyncChunkRetryResponse _syncType.
-                     * @member {"syncType"|undefined} _syncType
-                     * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.HistorySyncChunkRetryResponse
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(HistorySyncChunkRetryResponse.prototype, "_syncType", {
                         get: $util.oneOfGetter($oneOfFields = ["syncType"]),
                         set: $util.oneOfSetter($oneOfFields)
                     });
 
-                    /**
-                     * HistorySyncChunkRetryResponse _chunkOrder.
-                     * @member {"chunkOrder"|undefined} _chunkOrder
-                     * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.HistorySyncChunkRetryResponse
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(HistorySyncChunkRetryResponse.prototype, "_chunkOrder", {
                         get: $util.oneOfGetter($oneOfFields = ["chunkOrder"]),
                         set: $util.oneOfSetter($oneOfFields)
                     });
 
-                    /**
-                     * HistorySyncChunkRetryResponse _requestId.
-                     * @member {"requestId"|undefined} _requestId
-                     * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.HistorySyncChunkRetryResponse
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(HistorySyncChunkRetryResponse.prototype, "_requestId", {
                         get: $util.oneOfGetter($oneOfFields = ["requestId"]),
                         set: $util.oneOfSetter($oneOfFields)
                     });
 
-                    /**
-                     * HistorySyncChunkRetryResponse _responseCode.
-                     * @member {"responseCode"|undefined} _responseCode
-                     * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.HistorySyncChunkRetryResponse
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(HistorySyncChunkRetryResponse.prototype, "_responseCode", {
                         get: $util.oneOfGetter($oneOfFields = ["responseCode"]),
                         set: $util.oneOfSetter($oneOfFields)
                     });
 
-                    /**
-                     * HistorySyncChunkRetryResponse _canRecover.
-                     * @member {"canRecover"|undefined} _canRecover
-                     * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.HistorySyncChunkRetryResponse
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(HistorySyncChunkRetryResponse.prototype, "_canRecover", {
                         get: $util.oneOfGetter($oneOfFields = ["canRecover"]),
                         set: $util.oneOfSetter($oneOfFields)
@@ -81247,89 +76487,49 @@ $root.E2E = (function() {
                     // OneOf field names bound to virtual getters and setters
                     var $oneOfFields;
 
-                    /**
-                     * LinkPreviewResponse _url.
-                     * @member {"url"|undefined} _url
-                     * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(LinkPreviewResponse.prototype, "_url", {
                         get: $util.oneOfGetter($oneOfFields = ["url"]),
                         set: $util.oneOfSetter($oneOfFields)
                     });
 
-                    /**
-                     * LinkPreviewResponse _title.
-                     * @member {"title"|undefined} _title
-                     * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(LinkPreviewResponse.prototype, "_title", {
                         get: $util.oneOfGetter($oneOfFields = ["title"]),
                         set: $util.oneOfSetter($oneOfFields)
                     });
 
-                    /**
-                     * LinkPreviewResponse _description.
-                     * @member {"description"|undefined} _description
-                     * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(LinkPreviewResponse.prototype, "_description", {
                         get: $util.oneOfGetter($oneOfFields = ["description"]),
                         set: $util.oneOfSetter($oneOfFields)
                     });
 
-                    /**
-                     * LinkPreviewResponse _thumbData.
-                     * @member {"thumbData"|undefined} _thumbData
-                     * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(LinkPreviewResponse.prototype, "_thumbData", {
                         get: $util.oneOfGetter($oneOfFields = ["thumbData"]),
                         set: $util.oneOfSetter($oneOfFields)
                     });
 
-                    /**
-                     * LinkPreviewResponse _matchText.
-                     * @member {"matchText"|undefined} _matchText
-                     * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(LinkPreviewResponse.prototype, "_matchText", {
                         get: $util.oneOfGetter($oneOfFields = ["matchText"]),
                         set: $util.oneOfSetter($oneOfFields)
                     });
 
-                    /**
-                     * LinkPreviewResponse _previewType.
-                     * @member {"previewType"|undefined} _previewType
-                     * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(LinkPreviewResponse.prototype, "_previewType", {
                         get: $util.oneOfGetter($oneOfFields = ["previewType"]),
                         set: $util.oneOfSetter($oneOfFields)
                     });
 
-                    /**
-                     * LinkPreviewResponse _hqThumbnail.
-                     * @member {"hqThumbnail"|undefined} _hqThumbnail
-                     * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(LinkPreviewResponse.prototype, "_hqThumbnail", {
                         get: $util.oneOfGetter($oneOfFields = ["hqThumbnail"]),
                         set: $util.oneOfSetter($oneOfFields)
                     });
 
-                    /**
-                     * LinkPreviewResponse _previewMetadata.
-                     * @member {"previewMetadata"|undefined} _previewMetadata
-                     * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(LinkPreviewResponse.prototype, "_previewMetadata", {
                         get: $util.oneOfGetter($oneOfFields = ["previewMetadata"]),
                         set: $util.oneOfSetter($oneOfFields)
@@ -81739,78 +76939,43 @@ $root.E2E = (function() {
                         // OneOf field names bound to virtual getters and setters
                         var $oneOfFields;
 
-                        /**
-                         * LinkPreviewHighQualityThumbnail _directPath.
-                         * @member {"directPath"|undefined} _directPath
-                         * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.LinkPreviewHighQualityThumbnail
-                         * @instance
-                         */
+                        // Virtual OneOf for proto3 optional field
                         Object.defineProperty(LinkPreviewHighQualityThumbnail.prototype, "_directPath", {
                             get: $util.oneOfGetter($oneOfFields = ["directPath"]),
                             set: $util.oneOfSetter($oneOfFields)
                         });
 
-                        /**
-                         * LinkPreviewHighQualityThumbnail _thumbHash.
-                         * @member {"thumbHash"|undefined} _thumbHash
-                         * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.LinkPreviewHighQualityThumbnail
-                         * @instance
-                         */
+                        // Virtual OneOf for proto3 optional field
                         Object.defineProperty(LinkPreviewHighQualityThumbnail.prototype, "_thumbHash", {
                             get: $util.oneOfGetter($oneOfFields = ["thumbHash"]),
                             set: $util.oneOfSetter($oneOfFields)
                         });
 
-                        /**
-                         * LinkPreviewHighQualityThumbnail _encThumbHash.
-                         * @member {"encThumbHash"|undefined} _encThumbHash
-                         * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.LinkPreviewHighQualityThumbnail
-                         * @instance
-                         */
+                        // Virtual OneOf for proto3 optional field
                         Object.defineProperty(LinkPreviewHighQualityThumbnail.prototype, "_encThumbHash", {
                             get: $util.oneOfGetter($oneOfFields = ["encThumbHash"]),
                             set: $util.oneOfSetter($oneOfFields)
                         });
 
-                        /**
-                         * LinkPreviewHighQualityThumbnail _mediaKey.
-                         * @member {"mediaKey"|undefined} _mediaKey
-                         * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.LinkPreviewHighQualityThumbnail
-                         * @instance
-                         */
+                        // Virtual OneOf for proto3 optional field
                         Object.defineProperty(LinkPreviewHighQualityThumbnail.prototype, "_mediaKey", {
                             get: $util.oneOfGetter($oneOfFields = ["mediaKey"]),
                             set: $util.oneOfSetter($oneOfFields)
                         });
 
-                        /**
-                         * LinkPreviewHighQualityThumbnail _mediaKeyTimestampMs.
-                         * @member {"mediaKeyTimestampMs"|undefined} _mediaKeyTimestampMs
-                         * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.LinkPreviewHighQualityThumbnail
-                         * @instance
-                         */
+                        // Virtual OneOf for proto3 optional field
                         Object.defineProperty(LinkPreviewHighQualityThumbnail.prototype, "_mediaKeyTimestampMs", {
                             get: $util.oneOfGetter($oneOfFields = ["mediaKeyTimestampMs"]),
                             set: $util.oneOfSetter($oneOfFields)
                         });
 
-                        /**
-                         * LinkPreviewHighQualityThumbnail _thumbWidth.
-                         * @member {"thumbWidth"|undefined} _thumbWidth
-                         * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.LinkPreviewHighQualityThumbnail
-                         * @instance
-                         */
+                        // Virtual OneOf for proto3 optional field
                         Object.defineProperty(LinkPreviewHighQualityThumbnail.prototype, "_thumbWidth", {
                             get: $util.oneOfGetter($oneOfFields = ["thumbWidth"]),
                             set: $util.oneOfSetter($oneOfFields)
                         });
 
-                        /**
-                         * LinkPreviewHighQualityThumbnail _thumbHeight.
-                         * @member {"thumbHeight"|undefined} _thumbHeight
-                         * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.LinkPreviewHighQualityThumbnail
-                         * @instance
-                         */
+                        // Virtual OneOf for proto3 optional field
                         Object.defineProperty(LinkPreviewHighQualityThumbnail.prototype, "_thumbHeight", {
                             get: $util.oneOfGetter($oneOfFields = ["thumbHeight"]),
                             set: $util.oneOfSetter($oneOfFields)
@@ -82158,23 +77323,13 @@ $root.E2E = (function() {
                         // OneOf field names bound to virtual getters and setters
                         var $oneOfFields;
 
-                        /**
-                         * PaymentLinkPreviewMetadata _isBusinessVerified.
-                         * @member {"isBusinessVerified"|undefined} _isBusinessVerified
-                         * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.PaymentLinkPreviewMetadata
-                         * @instance
-                         */
+                        // Virtual OneOf for proto3 optional field
                         Object.defineProperty(PaymentLinkPreviewMetadata.prototype, "_isBusinessVerified", {
                             get: $util.oneOfGetter($oneOfFields = ["isBusinessVerified"]),
                             set: $util.oneOfSetter($oneOfFields)
                         });
 
-                        /**
-                         * PaymentLinkPreviewMetadata _providerName.
-                         * @member {"providerName"|undefined} _providerName
-                         * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.PaymentLinkPreviewMetadata
-                         * @instance
-                         */
+                        // Virtual OneOf for proto3 optional field
                         Object.defineProperty(PaymentLinkPreviewMetadata.prototype, "_providerName", {
                             get: $util.oneOfGetter($oneOfFields = ["providerName"]),
                             set: $util.oneOfSetter($oneOfFields)
@@ -82413,12 +77568,7 @@ $root.E2E = (function() {
                     // OneOf field names bound to virtual getters and setters
                     var $oneOfFields;
 
-                    /**
-                     * PlaceholderMessageResendResponse _webMessageInfoBytes.
-                     * @member {"webMessageInfoBytes"|undefined} _webMessageInfoBytes
-                     * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.PlaceholderMessageResendResponse
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(PlaceholderMessageResendResponse.prototype, "_webMessageInfoBytes", {
                         get: $util.oneOfGetter($oneOfFields = ["webMessageInfoBytes"]),
                         set: $util.oneOfSetter($oneOfFields)
@@ -82648,23 +77798,13 @@ $root.E2E = (function() {
                     // OneOf field names bound to virtual getters and setters
                     var $oneOfFields;
 
-                    /**
-                     * SyncDSnapshotFatalRecoveryResponse _collectionSnapshot.
-                     * @member {"collectionSnapshot"|undefined} _collectionSnapshot
-                     * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.SyncDSnapshotFatalRecoveryResponse
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(SyncDSnapshotFatalRecoveryResponse.prototype, "_collectionSnapshot", {
                         get: $util.oneOfGetter($oneOfFields = ["collectionSnapshot"]),
                         set: $util.oneOfSetter($oneOfFields)
                     });
 
-                    /**
-                     * SyncDSnapshotFatalRecoveryResponse _isCompressed.
-                     * @member {"isCompressed"|undefined} _isCompressed
-                     * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.SyncDSnapshotFatalRecoveryResponse
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(SyncDSnapshotFatalRecoveryResponse.prototype, "_isCompressed", {
                         get: $util.oneOfGetter($oneOfFields = ["isCompressed"]),
                         set: $util.oneOfSetter($oneOfFields)
@@ -82912,23 +78052,13 @@ $root.E2E = (function() {
                     // OneOf field names bound to virtual getters and setters
                     var $oneOfFields;
 
-                    /**
-                     * WaffleNonceFetchResponse _nonce.
-                     * @member {"nonce"|undefined} _nonce
-                     * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.WaffleNonceFetchResponse
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(WaffleNonceFetchResponse.prototype, "_nonce", {
                         get: $util.oneOfGetter($oneOfFields = ["nonce"]),
                         set: $util.oneOfSetter($oneOfFields)
                     });
 
-                    /**
-                     * WaffleNonceFetchResponse _waEntFbid.
-                     * @member {"waEntFbid"|undefined} _waEntFbid
-                     * @memberof E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.WaffleNonceFetchResponse
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(WaffleNonceFetchResponse.prototype, "_waEntFbid", {
                         get: $util.oneOfGetter($oneOfFields = ["waEntFbid"]),
                         set: $util.oneOfSetter($oneOfFields)
@@ -83222,34 +78352,19 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * PinInChatMessage _key.
-             * @member {"key"|undefined} _key
-             * @memberof E2E.Message.PinInChatMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PinInChatMessage.prototype, "_key", {
                 get: $util.oneOfGetter($oneOfFields = ["key"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * PinInChatMessage _type.
-             * @member {"type"|undefined} _type
-             * @memberof E2E.Message.PinInChatMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PinInChatMessage.prototype, "_type", {
                 get: $util.oneOfGetter($oneOfFields = ["type"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * PinInChatMessage _senderTimestampMs.
-             * @member {"senderTimestampMs"|undefined} _senderTimestampMs
-             * @memberof E2E.Message.PinInChatMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PinInChatMessage.prototype, "_senderTimestampMs", {
                 get: $util.oneOfGetter($oneOfFields = ["senderTimestampMs"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -83559,12 +78674,7 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * PlaceholderMessage _type.
-             * @member {"type"|undefined} _type
-             * @memberof E2E.Message.PlaceholderMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PlaceholderMessage.prototype, "_type", {
                 get: $util.oneOfGetter($oneOfFields = ["type"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -83888,78 +78998,43 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * PollCreationMessage _encKey.
-             * @member {"encKey"|undefined} _encKey
-             * @memberof E2E.Message.PollCreationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PollCreationMessage.prototype, "_encKey", {
                 get: $util.oneOfGetter($oneOfFields = ["encKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * PollCreationMessage _name.
-             * @member {"name"|undefined} _name
-             * @memberof E2E.Message.PollCreationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PollCreationMessage.prototype, "_name", {
                 get: $util.oneOfGetter($oneOfFields = ["name"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * PollCreationMessage _selectableOptionsCount.
-             * @member {"selectableOptionsCount"|undefined} _selectableOptionsCount
-             * @memberof E2E.Message.PollCreationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PollCreationMessage.prototype, "_selectableOptionsCount", {
                 get: $util.oneOfGetter($oneOfFields = ["selectableOptionsCount"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * PollCreationMessage _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.PollCreationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PollCreationMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * PollCreationMessage _pollContentType.
-             * @member {"pollContentType"|undefined} _pollContentType
-             * @memberof E2E.Message.PollCreationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PollCreationMessage.prototype, "_pollContentType", {
                 get: $util.oneOfGetter($oneOfFields = ["pollContentType"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * PollCreationMessage _pollType.
-             * @member {"pollType"|undefined} _pollType
-             * @memberof E2E.Message.PollCreationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PollCreationMessage.prototype, "_pollType", {
                 get: $util.oneOfGetter($oneOfFields = ["pollType"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * PollCreationMessage _correctAnswer.
-             * @member {"correctAnswer"|undefined} _correctAnswer
-             * @memberof E2E.Message.PollCreationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PollCreationMessage.prototype, "_correctAnswer", {
                 get: $util.oneOfGetter($oneOfFields = ["correctAnswer"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -84384,23 +79459,13 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * Option _optionName.
-                 * @member {"optionName"|undefined} _optionName
-                 * @memberof E2E.Message.PollCreationMessage.Option
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Option.prototype, "_optionName", {
                     get: $util.oneOfGetter($oneOfFields = ["optionName"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * Option _optionHash.
-                 * @member {"optionHash"|undefined} _optionHash
-                 * @memberof E2E.Message.PollCreationMessage.Option
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Option.prototype, "_optionHash", {
                     get: $util.oneOfGetter($oneOfFields = ["optionHash"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -84648,23 +79713,13 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * PollEncValue _encPayload.
-             * @member {"encPayload"|undefined} _encPayload
-             * @memberof E2E.Message.PollEncValue
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PollEncValue.prototype, "_encPayload", {
                 get: $util.oneOfGetter($oneOfFields = ["encPayload"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * PollEncValue _encIv.
-             * @member {"encIv"|undefined} _encIv
-             * @memberof E2E.Message.PollEncValue
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PollEncValue.prototype, "_encIv", {
                 get: $util.oneOfGetter($oneOfFields = ["encIv"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -84934,34 +79989,19 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * PollResultSnapshotMessage _name.
-             * @member {"name"|undefined} _name
-             * @memberof E2E.Message.PollResultSnapshotMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PollResultSnapshotMessage.prototype, "_name", {
                 get: $util.oneOfGetter($oneOfFields = ["name"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * PollResultSnapshotMessage _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.PollResultSnapshotMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PollResultSnapshotMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * PollResultSnapshotMessage _pollType.
-             * @member {"pollType"|undefined} _pollType
-             * @memberof E2E.Message.PollResultSnapshotMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PollResultSnapshotMessage.prototype, "_pollType", {
                 get: $util.oneOfGetter($oneOfFields = ["pollType"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -85281,23 +80321,13 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * PollVote _optionName.
-                 * @member {"optionName"|undefined} _optionName
-                 * @memberof E2E.Message.PollResultSnapshotMessage.PollVote
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(PollVote.prototype, "_optionName", {
                     get: $util.oneOfGetter($oneOfFields = ["optionName"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * PollVote _optionVoteCount.
-                 * @member {"optionVoteCount"|undefined} _optionVoteCount
-                 * @memberof E2E.Message.PollResultSnapshotMessage.PollVote
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(PollVote.prototype, "_optionVoteCount", {
                     get: $util.oneOfGetter($oneOfFields = ["optionVoteCount"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -85587,45 +80617,25 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * PollUpdateMessage _pollCreationMessageKey.
-             * @member {"pollCreationMessageKey"|undefined} _pollCreationMessageKey
-             * @memberof E2E.Message.PollUpdateMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PollUpdateMessage.prototype, "_pollCreationMessageKey", {
                 get: $util.oneOfGetter($oneOfFields = ["pollCreationMessageKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * PollUpdateMessage _vote.
-             * @member {"vote"|undefined} _vote
-             * @memberof E2E.Message.PollUpdateMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PollUpdateMessage.prototype, "_vote", {
                 get: $util.oneOfGetter($oneOfFields = ["vote"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * PollUpdateMessage _metadata.
-             * @member {"metadata"|undefined} _metadata
-             * @memberof E2E.Message.PollUpdateMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PollUpdateMessage.prototype, "_metadata", {
                 get: $util.oneOfGetter($oneOfFields = ["metadata"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * PollUpdateMessage _senderTimestampMs.
-             * @member {"senderTimestampMs"|undefined} _senderTimestampMs
-             * @memberof E2E.Message.PollUpdateMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(PollUpdateMessage.prototype, "_senderTimestampMs", {
                 get: $util.oneOfGetter($oneOfFields = ["senderTimestampMs"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -86371,67 +81381,37 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * ProductMessage _product.
-             * @member {"product"|undefined} _product
-             * @memberof E2E.Message.ProductMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProductMessage.prototype, "_product", {
                 get: $util.oneOfGetter($oneOfFields = ["product"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ProductMessage _businessOwnerJid.
-             * @member {"businessOwnerJid"|undefined} _businessOwnerJid
-             * @memberof E2E.Message.ProductMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProductMessage.prototype, "_businessOwnerJid", {
                 get: $util.oneOfGetter($oneOfFields = ["businessOwnerJid"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ProductMessage _catalog.
-             * @member {"catalog"|undefined} _catalog
-             * @memberof E2E.Message.ProductMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProductMessage.prototype, "_catalog", {
                 get: $util.oneOfGetter($oneOfFields = ["catalog"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ProductMessage _body.
-             * @member {"body"|undefined} _body
-             * @memberof E2E.Message.ProductMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProductMessage.prototype, "_body", {
                 get: $util.oneOfGetter($oneOfFields = ["body"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ProductMessage _footer.
-             * @member {"footer"|undefined} _footer
-             * @memberof E2E.Message.ProductMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProductMessage.prototype, "_footer", {
                 get: $util.oneOfGetter($oneOfFields = ["footer"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ProductMessage _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.ProductMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProductMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -86772,34 +81752,19 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * CatalogSnapshot _catalogImage.
-                 * @member {"catalogImage"|undefined} _catalogImage
-                 * @memberof E2E.Message.ProductMessage.CatalogSnapshot
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(CatalogSnapshot.prototype, "_catalogImage", {
                     get: $util.oneOfGetter($oneOfFields = ["catalogImage"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * CatalogSnapshot _title.
-                 * @member {"title"|undefined} _title
-                 * @memberof E2E.Message.ProductMessage.CatalogSnapshot
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(CatalogSnapshot.prototype, "_title", {
                     get: $util.oneOfGetter($oneOfFields = ["title"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * CatalogSnapshot _description.
-                 * @member {"description"|undefined} _description
-                 * @memberof E2E.Message.ProductMessage.CatalogSnapshot
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(CatalogSnapshot.prototype, "_description", {
                     get: $util.oneOfGetter($oneOfFields = ["description"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -87158,133 +82123,73 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * ProductSnapshot _productImage.
-                 * @member {"productImage"|undefined} _productImage
-                 * @memberof E2E.Message.ProductMessage.ProductSnapshot
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(ProductSnapshot.prototype, "_productImage", {
                     get: $util.oneOfGetter($oneOfFields = ["productImage"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * ProductSnapshot _productId.
-                 * @member {"productId"|undefined} _productId
-                 * @memberof E2E.Message.ProductMessage.ProductSnapshot
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(ProductSnapshot.prototype, "_productId", {
                     get: $util.oneOfGetter($oneOfFields = ["productId"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * ProductSnapshot _title.
-                 * @member {"title"|undefined} _title
-                 * @memberof E2E.Message.ProductMessage.ProductSnapshot
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(ProductSnapshot.prototype, "_title", {
                     get: $util.oneOfGetter($oneOfFields = ["title"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * ProductSnapshot _description.
-                 * @member {"description"|undefined} _description
-                 * @memberof E2E.Message.ProductMessage.ProductSnapshot
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(ProductSnapshot.prototype, "_description", {
                     get: $util.oneOfGetter($oneOfFields = ["description"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * ProductSnapshot _currencyCode.
-                 * @member {"currencyCode"|undefined} _currencyCode
-                 * @memberof E2E.Message.ProductMessage.ProductSnapshot
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(ProductSnapshot.prototype, "_currencyCode", {
                     get: $util.oneOfGetter($oneOfFields = ["currencyCode"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * ProductSnapshot _priceAmount1000.
-                 * @member {"priceAmount1000"|undefined} _priceAmount1000
-                 * @memberof E2E.Message.ProductMessage.ProductSnapshot
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(ProductSnapshot.prototype, "_priceAmount1000", {
                     get: $util.oneOfGetter($oneOfFields = ["priceAmount1000"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * ProductSnapshot _retailerId.
-                 * @member {"retailerId"|undefined} _retailerId
-                 * @memberof E2E.Message.ProductMessage.ProductSnapshot
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(ProductSnapshot.prototype, "_retailerId", {
                     get: $util.oneOfGetter($oneOfFields = ["retailerId"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * ProductSnapshot _url.
-                 * @member {"url"|undefined} _url
-                 * @memberof E2E.Message.ProductMessage.ProductSnapshot
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(ProductSnapshot.prototype, "_url", {
                     get: $util.oneOfGetter($oneOfFields = ["url"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * ProductSnapshot _productImageCount.
-                 * @member {"productImageCount"|undefined} _productImageCount
-                 * @memberof E2E.Message.ProductMessage.ProductSnapshot
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(ProductSnapshot.prototype, "_productImageCount", {
                     get: $util.oneOfGetter($oneOfFields = ["productImageCount"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * ProductSnapshot _firstImageId.
-                 * @member {"firstImageId"|undefined} _firstImageId
-                 * @memberof E2E.Message.ProductMessage.ProductSnapshot
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(ProductSnapshot.prototype, "_firstImageId", {
                     get: $util.oneOfGetter($oneOfFields = ["firstImageId"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * ProductSnapshot _salePriceAmount1000.
-                 * @member {"salePriceAmount1000"|undefined} _salePriceAmount1000
-                 * @memberof E2E.Message.ProductMessage.ProductSnapshot
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(ProductSnapshot.prototype, "_salePriceAmount1000", {
                     get: $util.oneOfGetter($oneOfFields = ["salePriceAmount1000"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * ProductSnapshot _signedUrl.
-                 * @member {"signedUrl"|undefined} _signedUrl
-                 * @memberof E2E.Message.ProductMessage.ProductSnapshot
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(ProductSnapshot.prototype, "_signedUrl", {
                     get: $util.oneOfGetter($oneOfFields = ["signedUrl"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -87936,265 +82841,145 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * ProtocolMessage _key.
-             * @member {"key"|undefined} _key
-             * @memberof E2E.Message.ProtocolMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProtocolMessage.prototype, "_key", {
                 get: $util.oneOfGetter($oneOfFields = ["key"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ProtocolMessage _type.
-             * @member {"type"|undefined} _type
-             * @memberof E2E.Message.ProtocolMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProtocolMessage.prototype, "_type", {
                 get: $util.oneOfGetter($oneOfFields = ["type"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ProtocolMessage _ephemeralExpiration.
-             * @member {"ephemeralExpiration"|undefined} _ephemeralExpiration
-             * @memberof E2E.Message.ProtocolMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProtocolMessage.prototype, "_ephemeralExpiration", {
                 get: $util.oneOfGetter($oneOfFields = ["ephemeralExpiration"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ProtocolMessage _ephemeralSettingTimestamp.
-             * @member {"ephemeralSettingTimestamp"|undefined} _ephemeralSettingTimestamp
-             * @memberof E2E.Message.ProtocolMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProtocolMessage.prototype, "_ephemeralSettingTimestamp", {
                 get: $util.oneOfGetter($oneOfFields = ["ephemeralSettingTimestamp"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ProtocolMessage _historySyncNotification.
-             * @member {"historySyncNotification"|undefined} _historySyncNotification
-             * @memberof E2E.Message.ProtocolMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProtocolMessage.prototype, "_historySyncNotification", {
                 get: $util.oneOfGetter($oneOfFields = ["historySyncNotification"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ProtocolMessage _appStateSyncKeyShare.
-             * @member {"appStateSyncKeyShare"|undefined} _appStateSyncKeyShare
-             * @memberof E2E.Message.ProtocolMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProtocolMessage.prototype, "_appStateSyncKeyShare", {
                 get: $util.oneOfGetter($oneOfFields = ["appStateSyncKeyShare"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ProtocolMessage _appStateSyncKeyRequest.
-             * @member {"appStateSyncKeyRequest"|undefined} _appStateSyncKeyRequest
-             * @memberof E2E.Message.ProtocolMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProtocolMessage.prototype, "_appStateSyncKeyRequest", {
                 get: $util.oneOfGetter($oneOfFields = ["appStateSyncKeyRequest"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ProtocolMessage _initialSecurityNotificationSettingSync.
-             * @member {"initialSecurityNotificationSettingSync"|undefined} _initialSecurityNotificationSettingSync
-             * @memberof E2E.Message.ProtocolMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProtocolMessage.prototype, "_initialSecurityNotificationSettingSync", {
                 get: $util.oneOfGetter($oneOfFields = ["initialSecurityNotificationSettingSync"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ProtocolMessage _appStateFatalExceptionNotification.
-             * @member {"appStateFatalExceptionNotification"|undefined} _appStateFatalExceptionNotification
-             * @memberof E2E.Message.ProtocolMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProtocolMessage.prototype, "_appStateFatalExceptionNotification", {
                 get: $util.oneOfGetter($oneOfFields = ["appStateFatalExceptionNotification"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ProtocolMessage _disappearingMode.
-             * @member {"disappearingMode"|undefined} _disappearingMode
-             * @memberof E2E.Message.ProtocolMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProtocolMessage.prototype, "_disappearingMode", {
                 get: $util.oneOfGetter($oneOfFields = ["disappearingMode"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ProtocolMessage _editedMessage.
-             * @member {"editedMessage"|undefined} _editedMessage
-             * @memberof E2E.Message.ProtocolMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProtocolMessage.prototype, "_editedMessage", {
                 get: $util.oneOfGetter($oneOfFields = ["editedMessage"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ProtocolMessage _timestampMs.
-             * @member {"timestampMs"|undefined} _timestampMs
-             * @memberof E2E.Message.ProtocolMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProtocolMessage.prototype, "_timestampMs", {
                 get: $util.oneOfGetter($oneOfFields = ["timestampMs"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ProtocolMessage _peerDataOperationRequestMessage.
-             * @member {"peerDataOperationRequestMessage"|undefined} _peerDataOperationRequestMessage
-             * @memberof E2E.Message.ProtocolMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProtocolMessage.prototype, "_peerDataOperationRequestMessage", {
                 get: $util.oneOfGetter($oneOfFields = ["peerDataOperationRequestMessage"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ProtocolMessage _peerDataOperationRequestResponseMessage.
-             * @member {"peerDataOperationRequestResponseMessage"|undefined} _peerDataOperationRequestResponseMessage
-             * @memberof E2E.Message.ProtocolMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProtocolMessage.prototype, "_peerDataOperationRequestResponseMessage", {
                 get: $util.oneOfGetter($oneOfFields = ["peerDataOperationRequestResponseMessage"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ProtocolMessage _botFeedbackMessage.
-             * @member {"botFeedbackMessage"|undefined} _botFeedbackMessage
-             * @memberof E2E.Message.ProtocolMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProtocolMessage.prototype, "_botFeedbackMessage", {
                 get: $util.oneOfGetter($oneOfFields = ["botFeedbackMessage"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ProtocolMessage _invokerJid.
-             * @member {"invokerJid"|undefined} _invokerJid
-             * @memberof E2E.Message.ProtocolMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProtocolMessage.prototype, "_invokerJid", {
                 get: $util.oneOfGetter($oneOfFields = ["invokerJid"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ProtocolMessage _requestWelcomeMessageMetadata.
-             * @member {"requestWelcomeMessageMetadata"|undefined} _requestWelcomeMessageMetadata
-             * @memberof E2E.Message.ProtocolMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProtocolMessage.prototype, "_requestWelcomeMessageMetadata", {
                 get: $util.oneOfGetter($oneOfFields = ["requestWelcomeMessageMetadata"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ProtocolMessage _mediaNotifyMessage.
-             * @member {"mediaNotifyMessage"|undefined} _mediaNotifyMessage
-             * @memberof E2E.Message.ProtocolMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProtocolMessage.prototype, "_mediaNotifyMessage", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaNotifyMessage"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ProtocolMessage _cloudApiThreadControlNotification.
-             * @member {"cloudApiThreadControlNotification"|undefined} _cloudApiThreadControlNotification
-             * @memberof E2E.Message.ProtocolMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProtocolMessage.prototype, "_cloudApiThreadControlNotification", {
                 get: $util.oneOfGetter($oneOfFields = ["cloudApiThreadControlNotification"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ProtocolMessage _lidMigrationMappingSyncMessage.
-             * @member {"lidMigrationMappingSyncMessage"|undefined} _lidMigrationMappingSyncMessage
-             * @memberof E2E.Message.ProtocolMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProtocolMessage.prototype, "_lidMigrationMappingSyncMessage", {
                 get: $util.oneOfGetter($oneOfFields = ["lidMigrationMappingSyncMessage"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ProtocolMessage _limitSharing.
-             * @member {"limitSharing"|undefined} _limitSharing
-             * @memberof E2E.Message.ProtocolMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProtocolMessage.prototype, "_limitSharing", {
                 get: $util.oneOfGetter($oneOfFields = ["limitSharing"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ProtocolMessage _aiPsiMetadata.
-             * @member {"aiPsiMetadata"|undefined} _aiPsiMetadata
-             * @memberof E2E.Message.ProtocolMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProtocolMessage.prototype, "_aiPsiMetadata", {
                 get: $util.oneOfGetter($oneOfFields = ["aiPsiMetadata"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ProtocolMessage _aiQueryFanout.
-             * @member {"aiQueryFanout"|undefined} _aiQueryFanout
-             * @memberof E2E.Message.ProtocolMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProtocolMessage.prototype, "_aiQueryFanout", {
                 get: $util.oneOfGetter($oneOfFields = ["aiQueryFanout"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ProtocolMessage _memberLabel.
-             * @member {"memberLabel"|undefined} _memberLabel
-             * @memberof E2E.Message.ProtocolMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ProtocolMessage.prototype, "_memberLabel", {
                 get: $util.oneOfGetter($oneOfFields = ["memberLabel"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -89167,23 +83952,13 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * QuestionResponseMessage _key.
-             * @member {"key"|undefined} _key
-             * @memberof E2E.Message.QuestionResponseMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(QuestionResponseMessage.prototype, "_key", {
                 get: $util.oneOfGetter($oneOfFields = ["key"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * QuestionResponseMessage _text.
-             * @member {"text"|undefined} _text
-             * @memberof E2E.Message.QuestionResponseMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(QuestionResponseMessage.prototype, "_text", {
                 get: $util.oneOfGetter($oneOfFields = ["text"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -89452,45 +84227,25 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * ReactionMessage _key.
-             * @member {"key"|undefined} _key
-             * @memberof E2E.Message.ReactionMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ReactionMessage.prototype, "_key", {
                 get: $util.oneOfGetter($oneOfFields = ["key"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ReactionMessage _text.
-             * @member {"text"|undefined} _text
-             * @memberof E2E.Message.ReactionMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ReactionMessage.prototype, "_text", {
                 get: $util.oneOfGetter($oneOfFields = ["text"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ReactionMessage _groupingKey.
-             * @member {"groupingKey"|undefined} _groupingKey
-             * @memberof E2E.Message.ReactionMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ReactionMessage.prototype, "_groupingKey", {
                 get: $util.oneOfGetter($oneOfFields = ["groupingKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ReactionMessage _senderTimestampMs.
-             * @member {"senderTimestampMs"|undefined} _senderTimestampMs
-             * @memberof E2E.Message.ReactionMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ReactionMessage.prototype, "_senderTimestampMs", {
                 get: $util.oneOfGetter($oneOfFields = ["senderTimestampMs"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -89832,78 +84587,43 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * RequestPaymentMessage _noteMessage.
-             * @member {"noteMessage"|undefined} _noteMessage
-             * @memberof E2E.Message.RequestPaymentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(RequestPaymentMessage.prototype, "_noteMessage", {
                 get: $util.oneOfGetter($oneOfFields = ["noteMessage"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * RequestPaymentMessage _currencyCodeIso4217.
-             * @member {"currencyCodeIso4217"|undefined} _currencyCodeIso4217
-             * @memberof E2E.Message.RequestPaymentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(RequestPaymentMessage.prototype, "_currencyCodeIso4217", {
                 get: $util.oneOfGetter($oneOfFields = ["currencyCodeIso4217"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * RequestPaymentMessage _amount1000.
-             * @member {"amount1000"|undefined} _amount1000
-             * @memberof E2E.Message.RequestPaymentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(RequestPaymentMessage.prototype, "_amount1000", {
                 get: $util.oneOfGetter($oneOfFields = ["amount1000"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * RequestPaymentMessage _requestFrom.
-             * @member {"requestFrom"|undefined} _requestFrom
-             * @memberof E2E.Message.RequestPaymentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(RequestPaymentMessage.prototype, "_requestFrom", {
                 get: $util.oneOfGetter($oneOfFields = ["requestFrom"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * RequestPaymentMessage _expiryTimestamp.
-             * @member {"expiryTimestamp"|undefined} _expiryTimestamp
-             * @memberof E2E.Message.RequestPaymentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(RequestPaymentMessage.prototype, "_expiryTimestamp", {
                 get: $util.oneOfGetter($oneOfFields = ["expiryTimestamp"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * RequestPaymentMessage _amount.
-             * @member {"amount"|undefined} _amount
-             * @memberof E2E.Message.RequestPaymentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(RequestPaymentMessage.prototype, "_amount", {
                 get: $util.oneOfGetter($oneOfFields = ["amount"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * RequestPaymentMessage _background.
-             * @member {"background"|undefined} _background
-             * @memberof E2E.Message.RequestPaymentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(RequestPaymentMessage.prototype, "_background", {
                 get: $util.oneOfGetter($oneOfFields = ["background"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -90267,12 +84987,7 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * RequestPhoneNumberMessage _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.RequestPhoneNumberMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(RequestPhoneNumberMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -90496,12 +85211,7 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * RequestWelcomeMessageMetadata _localChatState.
-             * @member {"localChatState"|undefined} _localChatState
-             * @memberof E2E.Message.RequestWelcomeMessageMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(RequestWelcomeMessageMetadata.prototype, "_localChatState", {
                 get: $util.oneOfGetter($oneOfFields = ["localChatState"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -90770,34 +85480,19 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * ScheduledCallCreationMessage _scheduledTimestampMs.
-             * @member {"scheduledTimestampMs"|undefined} _scheduledTimestampMs
-             * @memberof E2E.Message.ScheduledCallCreationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ScheduledCallCreationMessage.prototype, "_scheduledTimestampMs", {
                 get: $util.oneOfGetter($oneOfFields = ["scheduledTimestampMs"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ScheduledCallCreationMessage _callType.
-             * @member {"callType"|undefined} _callType
-             * @memberof E2E.Message.ScheduledCallCreationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ScheduledCallCreationMessage.prototype, "_callType", {
                 get: $util.oneOfGetter($oneOfFields = ["callType"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ScheduledCallCreationMessage _title.
-             * @member {"title"|undefined} _title
-             * @memberof E2E.Message.ScheduledCallCreationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ScheduledCallCreationMessage.prototype, "_title", {
                 get: $util.oneOfGetter($oneOfFields = ["title"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -91110,23 +85805,13 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * ScheduledCallEditMessage _key.
-             * @member {"key"|undefined} _key
-             * @memberof E2E.Message.ScheduledCallEditMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ScheduledCallEditMessage.prototype, "_key", {
                 get: $util.oneOfGetter($oneOfFields = ["key"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ScheduledCallEditMessage _editType.
-             * @member {"editType"|undefined} _editType
-             * @memberof E2E.Message.ScheduledCallEditMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ScheduledCallEditMessage.prototype, "_editType", {
                 get: $util.oneOfGetter($oneOfFields = ["editType"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -91428,45 +86113,25 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * SecretEncryptedMessage _targetMessageKey.
-             * @member {"targetMessageKey"|undefined} _targetMessageKey
-             * @memberof E2E.Message.SecretEncryptedMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SecretEncryptedMessage.prototype, "_targetMessageKey", {
                 get: $util.oneOfGetter($oneOfFields = ["targetMessageKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SecretEncryptedMessage _encPayload.
-             * @member {"encPayload"|undefined} _encPayload
-             * @memberof E2E.Message.SecretEncryptedMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SecretEncryptedMessage.prototype, "_encPayload", {
                 get: $util.oneOfGetter($oneOfFields = ["encPayload"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SecretEncryptedMessage _encIv.
-             * @member {"encIv"|undefined} _encIv
-             * @memberof E2E.Message.SecretEncryptedMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SecretEncryptedMessage.prototype, "_encIv", {
                 get: $util.oneOfGetter($oneOfFields = ["encIv"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SecretEncryptedMessage _secretEncType.
-             * @member {"secretEncType"|undefined} _secretEncType
-             * @memberof E2E.Message.SecretEncryptedMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SecretEncryptedMessage.prototype, "_secretEncType", {
                 get: $util.oneOfGetter($oneOfFields = ["secretEncType"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -91817,45 +86482,25 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * SendPaymentMessage _noteMessage.
-             * @member {"noteMessage"|undefined} _noteMessage
-             * @memberof E2E.Message.SendPaymentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SendPaymentMessage.prototype, "_noteMessage", {
                 get: $util.oneOfGetter($oneOfFields = ["noteMessage"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SendPaymentMessage _requestMessageKey.
-             * @member {"requestMessageKey"|undefined} _requestMessageKey
-             * @memberof E2E.Message.SendPaymentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SendPaymentMessage.prototype, "_requestMessageKey", {
                 get: $util.oneOfGetter($oneOfFields = ["requestMessageKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SendPaymentMessage _background.
-             * @member {"background"|undefined} _background
-             * @memberof E2E.Message.SendPaymentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SendPaymentMessage.prototype, "_background", {
                 get: $util.oneOfGetter($oneOfFields = ["background"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SendPaymentMessage _transactionData.
-             * @member {"transactionData"|undefined} _transactionData
-             * @memberof E2E.Message.SendPaymentMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SendPaymentMessage.prototype, "_transactionData", {
                 get: $util.oneOfGetter($oneOfFields = ["transactionData"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -92154,23 +86799,13 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * SenderKeyDistributionMessage _groupId.
-             * @member {"groupId"|undefined} _groupId
-             * @memberof E2E.Message.SenderKeyDistributionMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SenderKeyDistributionMessage.prototype, "_groupId", {
                 get: $util.oneOfGetter($oneOfFields = ["groupId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SenderKeyDistributionMessage _axolotlSenderKeyDistributionMessage.
-             * @member {"axolotlSenderKeyDistributionMessage"|undefined} _axolotlSenderKeyDistributionMessage
-             * @memberof E2E.Message.SenderKeyDistributionMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SenderKeyDistributionMessage.prototype, "_axolotlSenderKeyDistributionMessage", {
                 get: $util.oneOfGetter($oneOfFields = ["axolotlSenderKeyDistributionMessage"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -92427,34 +87062,19 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * StatusNotificationMessage _responseMessageKey.
-             * @member {"responseMessageKey"|undefined} _responseMessageKey
-             * @memberof E2E.Message.StatusNotificationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StatusNotificationMessage.prototype, "_responseMessageKey", {
                 get: $util.oneOfGetter($oneOfFields = ["responseMessageKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StatusNotificationMessage _originalMessageKey.
-             * @member {"originalMessageKey"|undefined} _originalMessageKey
-             * @memberof E2E.Message.StatusNotificationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StatusNotificationMessage.prototype, "_originalMessageKey", {
                 get: $util.oneOfGetter($oneOfFields = ["originalMessageKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StatusNotificationMessage _type.
-             * @member {"type"|undefined} _type
-             * @memberof E2E.Message.StatusNotificationMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StatusNotificationMessage.prototype, "_type", {
                 get: $util.oneOfGetter($oneOfFields = ["type"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -92776,23 +87396,13 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * StatusQuestionAnswerMessage _key.
-             * @member {"key"|undefined} _key
-             * @memberof E2E.Message.StatusQuestionAnswerMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StatusQuestionAnswerMessage.prototype, "_key", {
                 get: $util.oneOfGetter($oneOfFields = ["key"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StatusQuestionAnswerMessage _text.
-             * @member {"text"|undefined} _text
-             * @memberof E2E.Message.StatusQuestionAnswerMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StatusQuestionAnswerMessage.prototype, "_text", {
                 get: $util.oneOfGetter($oneOfFields = ["text"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -93061,45 +87671,25 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * StatusQuotedMessage _type.
-             * @member {"type"|undefined} _type
-             * @memberof E2E.Message.StatusQuotedMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StatusQuotedMessage.prototype, "_type", {
                 get: $util.oneOfGetter($oneOfFields = ["type"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StatusQuotedMessage _text.
-             * @member {"text"|undefined} _text
-             * @memberof E2E.Message.StatusQuotedMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StatusQuotedMessage.prototype, "_text", {
                 get: $util.oneOfGetter($oneOfFields = ["text"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StatusQuotedMessage _thumbnail.
-             * @member {"thumbnail"|undefined} _thumbnail
-             * @memberof E2E.Message.StatusQuotedMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StatusQuotedMessage.prototype, "_thumbnail", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnail"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StatusQuotedMessage _originalStatusId.
-             * @member {"originalStatusId"|undefined} _originalStatusId
-             * @memberof E2E.Message.StatusQuotedMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StatusQuotedMessage.prototype, "_originalStatusId", {
                 get: $util.oneOfGetter($oneOfFields = ["originalStatusId"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -93424,34 +88014,19 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * StatusStickerInteractionMessage _key.
-             * @member {"key"|undefined} _key
-             * @memberof E2E.Message.StatusStickerInteractionMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StatusStickerInteractionMessage.prototype, "_key", {
                 get: $util.oneOfGetter($oneOfFields = ["key"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StatusStickerInteractionMessage _stickerKey.
-             * @member {"stickerKey"|undefined} _stickerKey
-             * @memberof E2E.Message.StatusStickerInteractionMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StatusStickerInteractionMessage.prototype, "_stickerKey", {
                 get: $util.oneOfGetter($oneOfFields = ["stickerKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StatusStickerInteractionMessage _type.
-             * @member {"type"|undefined} _type
-             * @memberof E2E.Message.StatusStickerInteractionMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StatusStickerInteractionMessage.prototype, "_type", {
                 get: $util.oneOfGetter($oneOfFields = ["type"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -93924,232 +88499,127 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * StickerMessage _url.
-             * @member {"url"|undefined} _url
-             * @memberof E2E.Message.StickerMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerMessage.prototype, "_url", {
                 get: $util.oneOfGetter($oneOfFields = ["url"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerMessage _fileSha256.
-             * @member {"fileSha256"|undefined} _fileSha256
-             * @memberof E2E.Message.StickerMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerMessage.prototype, "_fileSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["fileSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerMessage _fileEncSha256.
-             * @member {"fileEncSha256"|undefined} _fileEncSha256
-             * @memberof E2E.Message.StickerMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerMessage.prototype, "_fileEncSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["fileEncSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerMessage _mediaKey.
-             * @member {"mediaKey"|undefined} _mediaKey
-             * @memberof E2E.Message.StickerMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerMessage.prototype, "_mediaKey", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerMessage _mimetype.
-             * @member {"mimetype"|undefined} _mimetype
-             * @memberof E2E.Message.StickerMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerMessage.prototype, "_mimetype", {
                 get: $util.oneOfGetter($oneOfFields = ["mimetype"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerMessage _height.
-             * @member {"height"|undefined} _height
-             * @memberof E2E.Message.StickerMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerMessage.prototype, "_height", {
                 get: $util.oneOfGetter($oneOfFields = ["height"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerMessage _width.
-             * @member {"width"|undefined} _width
-             * @memberof E2E.Message.StickerMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerMessage.prototype, "_width", {
                 get: $util.oneOfGetter($oneOfFields = ["width"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerMessage _directPath.
-             * @member {"directPath"|undefined} _directPath
-             * @memberof E2E.Message.StickerMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerMessage.prototype, "_directPath", {
                 get: $util.oneOfGetter($oneOfFields = ["directPath"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerMessage _fileLength.
-             * @member {"fileLength"|undefined} _fileLength
-             * @memberof E2E.Message.StickerMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerMessage.prototype, "_fileLength", {
                 get: $util.oneOfGetter($oneOfFields = ["fileLength"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerMessage _mediaKeyTimestamp.
-             * @member {"mediaKeyTimestamp"|undefined} _mediaKeyTimestamp
-             * @memberof E2E.Message.StickerMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerMessage.prototype, "_mediaKeyTimestamp", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaKeyTimestamp"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerMessage _firstFrameLength.
-             * @member {"firstFrameLength"|undefined} _firstFrameLength
-             * @memberof E2E.Message.StickerMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerMessage.prototype, "_firstFrameLength", {
                 get: $util.oneOfGetter($oneOfFields = ["firstFrameLength"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerMessage _firstFrameSidecar.
-             * @member {"firstFrameSidecar"|undefined} _firstFrameSidecar
-             * @memberof E2E.Message.StickerMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerMessage.prototype, "_firstFrameSidecar", {
                 get: $util.oneOfGetter($oneOfFields = ["firstFrameSidecar"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerMessage _isAnimated.
-             * @member {"isAnimated"|undefined} _isAnimated
-             * @memberof E2E.Message.StickerMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerMessage.prototype, "_isAnimated", {
                 get: $util.oneOfGetter($oneOfFields = ["isAnimated"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerMessage _pngThumbnail.
-             * @member {"pngThumbnail"|undefined} _pngThumbnail
-             * @memberof E2E.Message.StickerMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerMessage.prototype, "_pngThumbnail", {
                 get: $util.oneOfGetter($oneOfFields = ["pngThumbnail"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerMessage _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.StickerMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerMessage _stickerSentTs.
-             * @member {"stickerSentTs"|undefined} _stickerSentTs
-             * @memberof E2E.Message.StickerMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerMessage.prototype, "_stickerSentTs", {
                 get: $util.oneOfGetter($oneOfFields = ["stickerSentTs"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerMessage _isAvatar.
-             * @member {"isAvatar"|undefined} _isAvatar
-             * @memberof E2E.Message.StickerMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerMessage.prototype, "_isAvatar", {
                 get: $util.oneOfGetter($oneOfFields = ["isAvatar"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerMessage _isAiSticker.
-             * @member {"isAiSticker"|undefined} _isAiSticker
-             * @memberof E2E.Message.StickerMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerMessage.prototype, "_isAiSticker", {
                 get: $util.oneOfGetter($oneOfFields = ["isAiSticker"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerMessage _isLottie.
-             * @member {"isLottie"|undefined} _isLottie
-             * @memberof E2E.Message.StickerMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerMessage.prototype, "_isLottie", {
                 get: $util.oneOfGetter($oneOfFields = ["isLottie"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerMessage _accessibilityLabel.
-             * @member {"accessibilityLabel"|undefined} _accessibilityLabel
-             * @memberof E2E.Message.StickerMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerMessage.prototype, "_accessibilityLabel", {
                 get: $util.oneOfGetter($oneOfFields = ["accessibilityLabel"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerMessage _mediaKeyDomain.
-             * @member {"mediaKeyDomain"|undefined} _mediaKeyDomain
-             * @memberof E2E.Message.StickerMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerMessage.prototype, "_mediaKeyDomain", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaKeyDomain"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -95002,232 +89472,127 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * StickerPackMessage _stickerPackId.
-             * @member {"stickerPackId"|undefined} _stickerPackId
-             * @memberof E2E.Message.StickerPackMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerPackMessage.prototype, "_stickerPackId", {
                 get: $util.oneOfGetter($oneOfFields = ["stickerPackId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerPackMessage _name.
-             * @member {"name"|undefined} _name
-             * @memberof E2E.Message.StickerPackMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerPackMessage.prototype, "_name", {
                 get: $util.oneOfGetter($oneOfFields = ["name"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerPackMessage _publisher.
-             * @member {"publisher"|undefined} _publisher
-             * @memberof E2E.Message.StickerPackMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerPackMessage.prototype, "_publisher", {
                 get: $util.oneOfGetter($oneOfFields = ["publisher"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerPackMessage _fileLength.
-             * @member {"fileLength"|undefined} _fileLength
-             * @memberof E2E.Message.StickerPackMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerPackMessage.prototype, "_fileLength", {
                 get: $util.oneOfGetter($oneOfFields = ["fileLength"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerPackMessage _fileSha256.
-             * @member {"fileSha256"|undefined} _fileSha256
-             * @memberof E2E.Message.StickerPackMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerPackMessage.prototype, "_fileSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["fileSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerPackMessage _fileEncSha256.
-             * @member {"fileEncSha256"|undefined} _fileEncSha256
-             * @memberof E2E.Message.StickerPackMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerPackMessage.prototype, "_fileEncSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["fileEncSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerPackMessage _mediaKey.
-             * @member {"mediaKey"|undefined} _mediaKey
-             * @memberof E2E.Message.StickerPackMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerPackMessage.prototype, "_mediaKey", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerPackMessage _directPath.
-             * @member {"directPath"|undefined} _directPath
-             * @memberof E2E.Message.StickerPackMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerPackMessage.prototype, "_directPath", {
                 get: $util.oneOfGetter($oneOfFields = ["directPath"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerPackMessage _caption.
-             * @member {"caption"|undefined} _caption
-             * @memberof E2E.Message.StickerPackMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerPackMessage.prototype, "_caption", {
                 get: $util.oneOfGetter($oneOfFields = ["caption"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerPackMessage _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.StickerPackMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerPackMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerPackMessage _packDescription.
-             * @member {"packDescription"|undefined} _packDescription
-             * @memberof E2E.Message.StickerPackMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerPackMessage.prototype, "_packDescription", {
                 get: $util.oneOfGetter($oneOfFields = ["packDescription"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerPackMessage _mediaKeyTimestamp.
-             * @member {"mediaKeyTimestamp"|undefined} _mediaKeyTimestamp
-             * @memberof E2E.Message.StickerPackMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerPackMessage.prototype, "_mediaKeyTimestamp", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaKeyTimestamp"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerPackMessage _trayIconFileName.
-             * @member {"trayIconFileName"|undefined} _trayIconFileName
-             * @memberof E2E.Message.StickerPackMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerPackMessage.prototype, "_trayIconFileName", {
                 get: $util.oneOfGetter($oneOfFields = ["trayIconFileName"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerPackMessage _thumbnailDirectPath.
-             * @member {"thumbnailDirectPath"|undefined} _thumbnailDirectPath
-             * @memberof E2E.Message.StickerPackMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerPackMessage.prototype, "_thumbnailDirectPath", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailDirectPath"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerPackMessage _thumbnailSha256.
-             * @member {"thumbnailSha256"|undefined} _thumbnailSha256
-             * @memberof E2E.Message.StickerPackMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerPackMessage.prototype, "_thumbnailSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerPackMessage _thumbnailEncSha256.
-             * @member {"thumbnailEncSha256"|undefined} _thumbnailEncSha256
-             * @memberof E2E.Message.StickerPackMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerPackMessage.prototype, "_thumbnailEncSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailEncSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerPackMessage _thumbnailHeight.
-             * @member {"thumbnailHeight"|undefined} _thumbnailHeight
-             * @memberof E2E.Message.StickerPackMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerPackMessage.prototype, "_thumbnailHeight", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailHeight"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerPackMessage _thumbnailWidth.
-             * @member {"thumbnailWidth"|undefined} _thumbnailWidth
-             * @memberof E2E.Message.StickerPackMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerPackMessage.prototype, "_thumbnailWidth", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailWidth"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerPackMessage _imageDataHash.
-             * @member {"imageDataHash"|undefined} _imageDataHash
-             * @memberof E2E.Message.StickerPackMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerPackMessage.prototype, "_imageDataHash", {
                 get: $util.oneOfGetter($oneOfFields = ["imageDataHash"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerPackMessage _stickerPackSize.
-             * @member {"stickerPackSize"|undefined} _stickerPackSize
-             * @memberof E2E.Message.StickerPackMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerPackMessage.prototype, "_stickerPackSize", {
                 get: $util.oneOfGetter($oneOfFields = ["stickerPackSize"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerPackMessage _stickerPackOrigin.
-             * @member {"stickerPackOrigin"|undefined} _stickerPackOrigin
-             * @memberof E2E.Message.StickerPackMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerPackMessage.prototype, "_stickerPackOrigin", {
                 get: $util.oneOfGetter($oneOfFields = ["stickerPackOrigin"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -95958,56 +90323,31 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * Sticker _fileName.
-                 * @member {"fileName"|undefined} _fileName
-                 * @memberof E2E.Message.StickerPackMessage.Sticker
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Sticker.prototype, "_fileName", {
                     get: $util.oneOfGetter($oneOfFields = ["fileName"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * Sticker _isAnimated.
-                 * @member {"isAnimated"|undefined} _isAnimated
-                 * @memberof E2E.Message.StickerPackMessage.Sticker
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Sticker.prototype, "_isAnimated", {
                     get: $util.oneOfGetter($oneOfFields = ["isAnimated"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * Sticker _accessibilityLabel.
-                 * @member {"accessibilityLabel"|undefined} _accessibilityLabel
-                 * @memberof E2E.Message.StickerPackMessage.Sticker
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Sticker.prototype, "_accessibilityLabel", {
                     get: $util.oneOfGetter($oneOfFields = ["accessibilityLabel"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * Sticker _isLottie.
-                 * @member {"isLottie"|undefined} _isLottie
-                 * @memberof E2E.Message.StickerPackMessage.Sticker
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Sticker.prototype, "_isLottie", {
                     get: $util.oneOfGetter($oneOfFields = ["isLottie"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * Sticker _mimetype.
-                 * @member {"mimetype"|undefined} _mimetype
-                 * @memberof E2E.Message.StickerPackMessage.Sticker
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Sticker.prototype, "_mimetype", {
                     get: $util.oneOfGetter($oneOfFields = ["mimetype"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -96365,23 +90705,13 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * StickerSyncRMRMessage _rmrSource.
-             * @member {"rmrSource"|undefined} _rmrSource
-             * @memberof E2E.Message.StickerSyncRMRMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerSyncRMRMessage.prototype, "_rmrSource", {
                 get: $util.oneOfGetter($oneOfFields = ["rmrSource"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StickerSyncRMRMessage _requestTimestamp.
-             * @member {"requestTimestamp"|undefined} _requestTimestamp
-             * @memberof E2E.Message.StickerSyncRMRMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StickerSyncRMRMessage.prototype, "_requestTimestamp", {
                 get: $util.oneOfGetter($oneOfFields = ["requestTimestamp"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -96693,56 +91023,31 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * TemplateButtonReplyMessage _selectedId.
-             * @member {"selectedId"|undefined} _selectedId
-             * @memberof E2E.Message.TemplateButtonReplyMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(TemplateButtonReplyMessage.prototype, "_selectedId", {
                 get: $util.oneOfGetter($oneOfFields = ["selectedId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * TemplateButtonReplyMessage _selectedDisplayText.
-             * @member {"selectedDisplayText"|undefined} _selectedDisplayText
-             * @memberof E2E.Message.TemplateButtonReplyMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(TemplateButtonReplyMessage.prototype, "_selectedDisplayText", {
                 get: $util.oneOfGetter($oneOfFields = ["selectedDisplayText"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * TemplateButtonReplyMessage _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.TemplateButtonReplyMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(TemplateButtonReplyMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * TemplateButtonReplyMessage _selectedIndex.
-             * @member {"selectedIndex"|undefined} _selectedIndex
-             * @memberof E2E.Message.TemplateButtonReplyMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(TemplateButtonReplyMessage.prototype, "_selectedIndex", {
                 get: $util.oneOfGetter($oneOfFields = ["selectedIndex"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * TemplateButtonReplyMessage _selectedCarouselCardIndex.
-             * @member {"selectedCarouselCardIndex"|undefined} _selectedCarouselCardIndex
-             * @memberof E2E.Message.TemplateButtonReplyMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(TemplateButtonReplyMessage.prototype, "_selectedCarouselCardIndex", {
                 get: $util.oneOfGetter($oneOfFields = ["selectedCarouselCardIndex"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -97083,34 +91388,19 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * TemplateMessage _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.TemplateMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(TemplateMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * TemplateMessage _hydratedTemplate.
-             * @member {"hydratedTemplate"|undefined} _hydratedTemplate
-             * @memberof E2E.Message.TemplateMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(TemplateMessage.prototype, "_hydratedTemplate", {
                 get: $util.oneOfGetter($oneOfFields = ["hydratedTemplate"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * TemplateMessage _templateId.
-             * @member {"templateId"|undefined} _templateId
-             * @memberof E2E.Message.TemplateMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(TemplateMessage.prototype, "_templateId", {
                 get: $util.oneOfGetter($oneOfFields = ["templateId"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -97524,23 +91814,13 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * FourRowTemplate _content.
-                 * @member {"content"|undefined} _content
-                 * @memberof E2E.Message.TemplateMessage.FourRowTemplate
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(FourRowTemplate.prototype, "_content", {
                     get: $util.oneOfGetter($oneOfFields = ["content"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * FourRowTemplate _footer.
-                 * @member {"footer"|undefined} _footer
-                 * @memberof E2E.Message.TemplateMessage.FourRowTemplate
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(FourRowTemplate.prototype, "_footer", {
                     get: $util.oneOfGetter($oneOfFields = ["footer"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -98044,45 +92324,25 @@ $root.E2E = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * HydratedFourRowTemplate _hydratedContentText.
-                 * @member {"hydratedContentText"|undefined} _hydratedContentText
-                 * @memberof E2E.Message.TemplateMessage.HydratedFourRowTemplate
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(HydratedFourRowTemplate.prototype, "_hydratedContentText", {
                     get: $util.oneOfGetter($oneOfFields = ["hydratedContentText"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * HydratedFourRowTemplate _hydratedFooterText.
-                 * @member {"hydratedFooterText"|undefined} _hydratedFooterText
-                 * @memberof E2E.Message.TemplateMessage.HydratedFourRowTemplate
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(HydratedFourRowTemplate.prototype, "_hydratedFooterText", {
                     get: $util.oneOfGetter($oneOfFields = ["hydratedFooterText"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * HydratedFourRowTemplate _templateId.
-                 * @member {"templateId"|undefined} _templateId
-                 * @memberof E2E.Message.TemplateMessage.HydratedFourRowTemplate
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(HydratedFourRowTemplate.prototype, "_templateId", {
                     get: $util.oneOfGetter($oneOfFields = ["templateId"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * HydratedFourRowTemplate _maskLinkedDevices.
-                 * @member {"maskLinkedDevices"|undefined} _maskLinkedDevices
-                 * @memberof E2E.Message.TemplateMessage.HydratedFourRowTemplate
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(HydratedFourRowTemplate.prototype, "_maskLinkedDevices", {
                     get: $util.oneOfGetter($oneOfFields = ["maskLinkedDevices"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -98525,12 +92785,7 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * URLMetadata _fbExperimentId.
-             * @member {"fbExperimentId"|undefined} _fbExperimentId
-             * @memberof E2E.Message.URLMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(URLMetadata.prototype, "_fbExperimentId", {
                 get: $util.oneOfGetter($oneOfFields = ["fbExperimentId"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -98775,45 +93030,25 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * VideoEndCard _username.
-             * @member {"username"|undefined} _username
-             * @memberof E2E.Message.VideoEndCard
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoEndCard.prototype, "_username", {
                 get: $util.oneOfGetter($oneOfFields = ["username"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoEndCard _caption.
-             * @member {"caption"|undefined} _caption
-             * @memberof E2E.Message.VideoEndCard
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoEndCard.prototype, "_caption", {
                 get: $util.oneOfGetter($oneOfFields = ["caption"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoEndCard _thumbnailImageUrl.
-             * @member {"thumbnailImageUrl"|undefined} _thumbnailImageUrl
-             * @memberof E2E.Message.VideoEndCard
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoEndCard.prototype, "_thumbnailImageUrl", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailImageUrl"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoEndCard _profilePictureUrl.
-             * @member {"profilePictureUrl"|undefined} _profilePictureUrl
-             * @memberof E2E.Message.VideoEndCard
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoEndCard.prototype, "_profilePictureUrl", {
                 get: $util.oneOfGetter($oneOfFields = ["profilePictureUrl"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -99358,309 +93593,169 @@ $root.E2E = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * VideoMessage _url.
-             * @member {"url"|undefined} _url
-             * @memberof E2E.Message.VideoMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoMessage.prototype, "_url", {
                 get: $util.oneOfGetter($oneOfFields = ["url"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoMessage _mimetype.
-             * @member {"mimetype"|undefined} _mimetype
-             * @memberof E2E.Message.VideoMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoMessage.prototype, "_mimetype", {
                 get: $util.oneOfGetter($oneOfFields = ["mimetype"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoMessage _fileSha256.
-             * @member {"fileSha256"|undefined} _fileSha256
-             * @memberof E2E.Message.VideoMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoMessage.prototype, "_fileSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["fileSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoMessage _fileLength.
-             * @member {"fileLength"|undefined} _fileLength
-             * @memberof E2E.Message.VideoMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoMessage.prototype, "_fileLength", {
                 get: $util.oneOfGetter($oneOfFields = ["fileLength"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoMessage _seconds.
-             * @member {"seconds"|undefined} _seconds
-             * @memberof E2E.Message.VideoMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoMessage.prototype, "_seconds", {
                 get: $util.oneOfGetter($oneOfFields = ["seconds"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoMessage _mediaKey.
-             * @member {"mediaKey"|undefined} _mediaKey
-             * @memberof E2E.Message.VideoMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoMessage.prototype, "_mediaKey", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaKey"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoMessage _caption.
-             * @member {"caption"|undefined} _caption
-             * @memberof E2E.Message.VideoMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoMessage.prototype, "_caption", {
                 get: $util.oneOfGetter($oneOfFields = ["caption"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoMessage _gifPlayback.
-             * @member {"gifPlayback"|undefined} _gifPlayback
-             * @memberof E2E.Message.VideoMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoMessage.prototype, "_gifPlayback", {
                 get: $util.oneOfGetter($oneOfFields = ["gifPlayback"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoMessage _height.
-             * @member {"height"|undefined} _height
-             * @memberof E2E.Message.VideoMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoMessage.prototype, "_height", {
                 get: $util.oneOfGetter($oneOfFields = ["height"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoMessage _width.
-             * @member {"width"|undefined} _width
-             * @memberof E2E.Message.VideoMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoMessage.prototype, "_width", {
                 get: $util.oneOfGetter($oneOfFields = ["width"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoMessage _fileEncSha256.
-             * @member {"fileEncSha256"|undefined} _fileEncSha256
-             * @memberof E2E.Message.VideoMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoMessage.prototype, "_fileEncSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["fileEncSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoMessage _directPath.
-             * @member {"directPath"|undefined} _directPath
-             * @memberof E2E.Message.VideoMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoMessage.prototype, "_directPath", {
                 get: $util.oneOfGetter($oneOfFields = ["directPath"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoMessage _mediaKeyTimestamp.
-             * @member {"mediaKeyTimestamp"|undefined} _mediaKeyTimestamp
-             * @memberof E2E.Message.VideoMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoMessage.prototype, "_mediaKeyTimestamp", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaKeyTimestamp"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoMessage _jpegThumbnail.
-             * @member {"jpegThumbnail"|undefined} _jpegThumbnail
-             * @memberof E2E.Message.VideoMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoMessage.prototype, "_jpegThumbnail", {
                 get: $util.oneOfGetter($oneOfFields = ["jpegThumbnail"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoMessage _contextInfo.
-             * @member {"contextInfo"|undefined} _contextInfo
-             * @memberof E2E.Message.VideoMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoMessage _streamingSidecar.
-             * @member {"streamingSidecar"|undefined} _streamingSidecar
-             * @memberof E2E.Message.VideoMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoMessage.prototype, "_streamingSidecar", {
                 get: $util.oneOfGetter($oneOfFields = ["streamingSidecar"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoMessage _gifAttribution.
-             * @member {"gifAttribution"|undefined} _gifAttribution
-             * @memberof E2E.Message.VideoMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoMessage.prototype, "_gifAttribution", {
                 get: $util.oneOfGetter($oneOfFields = ["gifAttribution"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoMessage _viewOnce.
-             * @member {"viewOnce"|undefined} _viewOnce
-             * @memberof E2E.Message.VideoMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoMessage.prototype, "_viewOnce", {
                 get: $util.oneOfGetter($oneOfFields = ["viewOnce"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoMessage _thumbnailDirectPath.
-             * @member {"thumbnailDirectPath"|undefined} _thumbnailDirectPath
-             * @memberof E2E.Message.VideoMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoMessage.prototype, "_thumbnailDirectPath", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailDirectPath"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoMessage _thumbnailSha256.
-             * @member {"thumbnailSha256"|undefined} _thumbnailSha256
-             * @memberof E2E.Message.VideoMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoMessage.prototype, "_thumbnailSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoMessage _thumbnailEncSha256.
-             * @member {"thumbnailEncSha256"|undefined} _thumbnailEncSha256
-             * @memberof E2E.Message.VideoMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoMessage.prototype, "_thumbnailEncSha256", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailEncSha256"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoMessage _staticUrl.
-             * @member {"staticUrl"|undefined} _staticUrl
-             * @memberof E2E.Message.VideoMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoMessage.prototype, "_staticUrl", {
                 get: $util.oneOfGetter($oneOfFields = ["staticUrl"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoMessage _accessibilityLabel.
-             * @member {"accessibilityLabel"|undefined} _accessibilityLabel
-             * @memberof E2E.Message.VideoMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoMessage.prototype, "_accessibilityLabel", {
                 get: $util.oneOfGetter($oneOfFields = ["accessibilityLabel"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoMessage _externalShareFullVideoDurationInSeconds.
-             * @member {"externalShareFullVideoDurationInSeconds"|undefined} _externalShareFullVideoDurationInSeconds
-             * @memberof E2E.Message.VideoMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoMessage.prototype, "_externalShareFullVideoDurationInSeconds", {
                 get: $util.oneOfGetter($oneOfFields = ["externalShareFullVideoDurationInSeconds"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoMessage _motionPhotoPresentationOffsetMs.
-             * @member {"motionPhotoPresentationOffsetMs"|undefined} _motionPhotoPresentationOffsetMs
-             * @memberof E2E.Message.VideoMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoMessage.prototype, "_motionPhotoPresentationOffsetMs", {
                 get: $util.oneOfGetter($oneOfFields = ["motionPhotoPresentationOffsetMs"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoMessage _metadataUrl.
-             * @member {"metadataUrl"|undefined} _metadataUrl
-             * @memberof E2E.Message.VideoMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoMessage.prototype, "_metadataUrl", {
                 get: $util.oneOfGetter($oneOfFields = ["metadataUrl"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoMessage _videoSourceType.
-             * @member {"videoSourceType"|undefined} _videoSourceType
-             * @memberof E2E.Message.VideoMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoMessage.prototype, "_videoSourceType", {
                 get: $util.oneOfGetter($oneOfFields = ["videoSourceType"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * VideoMessage _mediaKeyDomain.
-             * @member {"mediaKeyDomain"|undefined} _mediaKeyDomain
-             * @memberof E2E.Message.VideoMessage
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(VideoMessage.prototype, "_mediaKeyDomain", {
                 get: $util.oneOfGetter($oneOfFields = ["mediaKeyDomain"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -100711,45 +94806,25 @@ $root.Protocol = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * LimitSharing _sharingLimited.
-         * @member {"sharingLimited"|undefined} _sharingLimited
-         * @memberof Protocol.LimitSharing
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(LimitSharing.prototype, "_sharingLimited", {
             get: $util.oneOfGetter($oneOfFields = ["sharingLimited"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * LimitSharing _trigger.
-         * @member {"trigger"|undefined} _trigger
-         * @memberof Protocol.LimitSharing
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(LimitSharing.prototype, "_trigger", {
             get: $util.oneOfGetter($oneOfFields = ["trigger"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * LimitSharing _limitSharingSettingTimestamp.
-         * @member {"limitSharingSettingTimestamp"|undefined} _limitSharingSettingTimestamp
-         * @memberof Protocol.LimitSharing
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(LimitSharing.prototype, "_limitSharingSettingTimestamp", {
             get: $util.oneOfGetter($oneOfFields = ["limitSharingSettingTimestamp"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * LimitSharing _initiatedByMe.
-         * @member {"initiatedByMe"|undefined} _initiatedByMe
-         * @memberof Protocol.LimitSharing
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(LimitSharing.prototype, "_initiatedByMe", {
             get: $util.oneOfGetter($oneOfFields = ["initiatedByMe"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -101105,45 +95180,25 @@ $root.Protocol = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * MessageKey _remoteJid.
-         * @member {"remoteJid"|undefined} _remoteJid
-         * @memberof Protocol.MessageKey
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageKey.prototype, "_remoteJid", {
             get: $util.oneOfGetter($oneOfFields = ["remoteJid"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageKey _fromMe.
-         * @member {"fromMe"|undefined} _fromMe
-         * @memberof Protocol.MessageKey
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageKey.prototype, "_fromMe", {
             get: $util.oneOfGetter($oneOfFields = ["fromMe"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageKey _id.
-         * @member {"id"|undefined} _id
-         * @memberof Protocol.MessageKey
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageKey.prototype, "_id", {
             get: $util.oneOfGetter($oneOfFields = ["id"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MessageKey _participant.
-         * @member {"participant"|undefined} _participant
-         * @memberof Protocol.MessageKey
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MessageKey.prototype, "_participant", {
             get: $util.oneOfGetter($oneOfFields = ["participant"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -101447,12 +95502,7 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * AIHomeState _lastFetchTime.
-         * @member {"lastFetchTime"|undefined} _lastFetchTime
-         * @memberof AICommon.AIHomeState
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIHomeState.prototype, "_lastFetchTime", {
             get: $util.oneOfGetter($oneOfFields = ["lastFetchTime"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -101801,78 +95851,43 @@ $root.AICommon = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * AIHomeOption _type.
-             * @member {"type"|undefined} _type
-             * @memberof AICommon.AIHomeState.AIHomeOption
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIHomeOption.prototype, "_type", {
                 get: $util.oneOfGetter($oneOfFields = ["type"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AIHomeOption _title.
-             * @member {"title"|undefined} _title
-             * @memberof AICommon.AIHomeState.AIHomeOption
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIHomeOption.prototype, "_title", {
                 get: $util.oneOfGetter($oneOfFields = ["title"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AIHomeOption _promptText.
-             * @member {"promptText"|undefined} _promptText
-             * @memberof AICommon.AIHomeState.AIHomeOption
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIHomeOption.prototype, "_promptText", {
                 get: $util.oneOfGetter($oneOfFields = ["promptText"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AIHomeOption _sessionId.
-             * @member {"sessionId"|undefined} _sessionId
-             * @memberof AICommon.AIHomeState.AIHomeOption
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIHomeOption.prototype, "_sessionId", {
                 get: $util.oneOfGetter($oneOfFields = ["sessionId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AIHomeOption _imageWdsIdentifier.
-             * @member {"imageWdsIdentifier"|undefined} _imageWdsIdentifier
-             * @memberof AICommon.AIHomeState.AIHomeOption
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIHomeOption.prototype, "_imageWdsIdentifier", {
                 get: $util.oneOfGetter($oneOfFields = ["imageWdsIdentifier"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AIHomeOption _imageTintColor.
-             * @member {"imageTintColor"|undefined} _imageTintColor
-             * @memberof AICommon.AIHomeState.AIHomeOption
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIHomeOption.prototype, "_imageTintColor", {
                 get: $util.oneOfGetter($oneOfFields = ["imageTintColor"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AIHomeOption _imageBackgroundColor.
-             * @member {"imageBackgroundColor"|undefined} _imageBackgroundColor
-             * @memberof AICommon.AIHomeState.AIHomeOption
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIHomeOption.prototype, "_imageBackgroundColor", {
                 get: $util.oneOfGetter($oneOfFields = ["imageBackgroundColor"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -102248,12 +96263,7 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * BotDocumentMessageMetadata _pluginType.
-         * @member {"pluginType"|undefined} _pluginType
-         * @memberof AICommon.BotDocumentMessageMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotDocumentMessageMetadata.prototype, "_pluginType", {
             get: $util.oneOfGetter($oneOfFields = ["pluginType"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -102522,34 +96532,19 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * SessionTransparencyMetadata _disclaimerText.
-         * @member {"disclaimerText"|undefined} _disclaimerText
-         * @memberof AICommon.SessionTransparencyMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SessionTransparencyMetadata.prototype, "_disclaimerText", {
             get: $util.oneOfGetter($oneOfFields = ["disclaimerText"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SessionTransparencyMetadata _hcaId.
-         * @member {"hcaId"|undefined} _hcaId
-         * @memberof AICommon.SessionTransparencyMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SessionTransparencyMetadata.prototype, "_hcaId", {
             get: $util.oneOfGetter($oneOfFields = ["hcaId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * SessionTransparencyMetadata _sessionTransparencyType.
-         * @member {"sessionTransparencyType"|undefined} _sessionTransparencyType
-         * @memberof AICommon.SessionTransparencyMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(SessionTransparencyMetadata.prototype, "_sessionTransparencyType", {
             get: $util.oneOfGetter($oneOfFields = ["sessionTransparencyType"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -102831,23 +96826,13 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * AIRegenerateMetadata _messageKey.
-         * @member {"messageKey"|undefined} _messageKey
-         * @memberof AICommon.AIRegenerateMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRegenerateMetadata.prototype, "_messageKey", {
             get: $util.oneOfGetter($oneOfFields = ["messageKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * AIRegenerateMetadata _responseTimestampMs.
-         * @member {"responseTimestampMs"|undefined} _responseTimestampMs
-         * @memberof AICommon.AIRegenerateMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRegenerateMetadata.prototype, "_responseTimestampMs", {
             get: $util.oneOfGetter($oneOfFields = ["responseTimestampMs"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -103180,111 +97165,61 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * AIRichResponseSubMessage _messageType.
-         * @member {"messageType"|undefined} _messageType
-         * @memberof AICommon.AIRichResponseSubMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseSubMessage.prototype, "_messageType", {
             get: $util.oneOfGetter($oneOfFields = ["messageType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * AIRichResponseSubMessage _gridImageMetadata.
-         * @member {"gridImageMetadata"|undefined} _gridImageMetadata
-         * @memberof AICommon.AIRichResponseSubMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseSubMessage.prototype, "_gridImageMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["gridImageMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * AIRichResponseSubMessage _messageText.
-         * @member {"messageText"|undefined} _messageText
-         * @memberof AICommon.AIRichResponseSubMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseSubMessage.prototype, "_messageText", {
             get: $util.oneOfGetter($oneOfFields = ["messageText"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * AIRichResponseSubMessage _imageMetadata.
-         * @member {"imageMetadata"|undefined} _imageMetadata
-         * @memberof AICommon.AIRichResponseSubMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseSubMessage.prototype, "_imageMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["imageMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * AIRichResponseSubMessage _codeMetadata.
-         * @member {"codeMetadata"|undefined} _codeMetadata
-         * @memberof AICommon.AIRichResponseSubMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseSubMessage.prototype, "_codeMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["codeMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * AIRichResponseSubMessage _tableMetadata.
-         * @member {"tableMetadata"|undefined} _tableMetadata
-         * @memberof AICommon.AIRichResponseSubMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseSubMessage.prototype, "_tableMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["tableMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * AIRichResponseSubMessage _dynamicMetadata.
-         * @member {"dynamicMetadata"|undefined} _dynamicMetadata
-         * @memberof AICommon.AIRichResponseSubMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseSubMessage.prototype, "_dynamicMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["dynamicMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * AIRichResponseSubMessage _latexMetadata.
-         * @member {"latexMetadata"|undefined} _latexMetadata
-         * @memberof AICommon.AIRichResponseSubMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseSubMessage.prototype, "_latexMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["latexMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * AIRichResponseSubMessage _mapMetadata.
-         * @member {"mapMetadata"|undefined} _mapMetadata
-         * @memberof AICommon.AIRichResponseSubMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseSubMessage.prototype, "_mapMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["mapMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * AIRichResponseSubMessage _contentItemsMetadata.
-         * @member {"contentItemsMetadata"|undefined} _contentItemsMetadata
-         * @memberof AICommon.AIRichResponseSubMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseSubMessage.prototype, "_contentItemsMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["contentItemsMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -103781,12 +97716,7 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * AIRichResponseContentItemsMetadata _contentType.
-         * @member {"contentType"|undefined} _contentType
-         * @memberof AICommon.AIRichResponseContentItemsMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseContentItemsMetadata.prototype, "_contentType", {
             get: $util.oneOfGetter($oneOfFields = ["contentType"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -104311,45 +98241,25 @@ $root.AICommon = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * AIRichResponseReelItem _title.
-             * @member {"title"|undefined} _title
-             * @memberof AICommon.AIRichResponseContentItemsMetadata.AIRichResponseReelItem
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIRichResponseReelItem.prototype, "_title", {
                 get: $util.oneOfGetter($oneOfFields = ["title"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AIRichResponseReelItem _profileIconUrl.
-             * @member {"profileIconUrl"|undefined} _profileIconUrl
-             * @memberof AICommon.AIRichResponseContentItemsMetadata.AIRichResponseReelItem
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIRichResponseReelItem.prototype, "_profileIconUrl", {
                 get: $util.oneOfGetter($oneOfFields = ["profileIconUrl"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AIRichResponseReelItem _thumbnailUrl.
-             * @member {"thumbnailUrl"|undefined} _thumbnailUrl
-             * @memberof AICommon.AIRichResponseContentItemsMetadata.AIRichResponseReelItem
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIRichResponseReelItem.prototype, "_thumbnailUrl", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailUrl"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AIRichResponseReelItem _videoUrl.
-             * @member {"videoUrl"|undefined} _videoUrl
-             * @memberof AICommon.AIRichResponseContentItemsMetadata.AIRichResponseReelItem
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIRichResponseReelItem.prototype, "_videoUrl", {
                 get: $util.oneOfGetter($oneOfFields = ["videoUrl"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -104684,56 +98594,31 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * AIRichResponseMapMetadata _centerLatitude.
-         * @member {"centerLatitude"|undefined} _centerLatitude
-         * @memberof AICommon.AIRichResponseMapMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseMapMetadata.prototype, "_centerLatitude", {
             get: $util.oneOfGetter($oneOfFields = ["centerLatitude"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * AIRichResponseMapMetadata _centerLongitude.
-         * @member {"centerLongitude"|undefined} _centerLongitude
-         * @memberof AICommon.AIRichResponseMapMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseMapMetadata.prototype, "_centerLongitude", {
             get: $util.oneOfGetter($oneOfFields = ["centerLongitude"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * AIRichResponseMapMetadata _latitudeDelta.
-         * @member {"latitudeDelta"|undefined} _latitudeDelta
-         * @memberof AICommon.AIRichResponseMapMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseMapMetadata.prototype, "_latitudeDelta", {
             get: $util.oneOfGetter($oneOfFields = ["latitudeDelta"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * AIRichResponseMapMetadata _longitudeDelta.
-         * @member {"longitudeDelta"|undefined} _longitudeDelta
-         * @memberof AICommon.AIRichResponseMapMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseMapMetadata.prototype, "_longitudeDelta", {
             get: $util.oneOfGetter($oneOfFields = ["longitudeDelta"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * AIRichResponseMapMetadata _showInfoList.
-         * @member {"showInfoList"|undefined} _showInfoList
-         * @memberof AICommon.AIRichResponseMapMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseMapMetadata.prototype, "_showInfoList", {
             get: $util.oneOfGetter($oneOfFields = ["showInfoList"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -105091,56 +98976,31 @@ $root.AICommon = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * AIRichResponseMapAnnotation _annotationNumber.
-             * @member {"annotationNumber"|undefined} _annotationNumber
-             * @memberof AICommon.AIRichResponseMapMetadata.AIRichResponseMapAnnotation
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIRichResponseMapAnnotation.prototype, "_annotationNumber", {
                 get: $util.oneOfGetter($oneOfFields = ["annotationNumber"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AIRichResponseMapAnnotation _latitude.
-             * @member {"latitude"|undefined} _latitude
-             * @memberof AICommon.AIRichResponseMapMetadata.AIRichResponseMapAnnotation
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIRichResponseMapAnnotation.prototype, "_latitude", {
                 get: $util.oneOfGetter($oneOfFields = ["latitude"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AIRichResponseMapAnnotation _longitude.
-             * @member {"longitude"|undefined} _longitude
-             * @memberof AICommon.AIRichResponseMapMetadata.AIRichResponseMapAnnotation
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIRichResponseMapAnnotation.prototype, "_longitude", {
                 get: $util.oneOfGetter($oneOfFields = ["longitude"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AIRichResponseMapAnnotation _title.
-             * @member {"title"|undefined} _title
-             * @memberof AICommon.AIRichResponseMapMetadata.AIRichResponseMapAnnotation
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIRichResponseMapAnnotation.prototype, "_title", {
                 get: $util.oneOfGetter($oneOfFields = ["title"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AIRichResponseMapAnnotation _body.
-             * @member {"body"|undefined} _body
-             * @memberof AICommon.AIRichResponseMapMetadata.AIRichResponseMapAnnotation
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIRichResponseMapAnnotation.prototype, "_body", {
                 get: $util.oneOfGetter($oneOfFields = ["body"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -105443,12 +99303,7 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * AIRichResponseLatexMetadata _text.
-         * @member {"text"|undefined} _text
-         * @memberof AICommon.AIRichResponseLatexMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseLatexMetadata.prototype, "_text", {
             get: $util.oneOfGetter($oneOfFields = ["text"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -105770,100 +99625,55 @@ $root.AICommon = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * AIRichResponseLatexExpression _latexExpression.
-             * @member {"latexExpression"|undefined} _latexExpression
-             * @memberof AICommon.AIRichResponseLatexMetadata.AIRichResponseLatexExpression
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIRichResponseLatexExpression.prototype, "_latexExpression", {
                 get: $util.oneOfGetter($oneOfFields = ["latexExpression"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AIRichResponseLatexExpression _url.
-             * @member {"url"|undefined} _url
-             * @memberof AICommon.AIRichResponseLatexMetadata.AIRichResponseLatexExpression
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIRichResponseLatexExpression.prototype, "_url", {
                 get: $util.oneOfGetter($oneOfFields = ["url"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AIRichResponseLatexExpression _width.
-             * @member {"width"|undefined} _width
-             * @memberof AICommon.AIRichResponseLatexMetadata.AIRichResponseLatexExpression
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIRichResponseLatexExpression.prototype, "_width", {
                 get: $util.oneOfGetter($oneOfFields = ["width"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AIRichResponseLatexExpression _height.
-             * @member {"height"|undefined} _height
-             * @memberof AICommon.AIRichResponseLatexMetadata.AIRichResponseLatexExpression
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIRichResponseLatexExpression.prototype, "_height", {
                 get: $util.oneOfGetter($oneOfFields = ["height"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AIRichResponseLatexExpression _fontHeight.
-             * @member {"fontHeight"|undefined} _fontHeight
-             * @memberof AICommon.AIRichResponseLatexMetadata.AIRichResponseLatexExpression
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIRichResponseLatexExpression.prototype, "_fontHeight", {
                 get: $util.oneOfGetter($oneOfFields = ["fontHeight"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AIRichResponseLatexExpression _imageTopPadding.
-             * @member {"imageTopPadding"|undefined} _imageTopPadding
-             * @memberof AICommon.AIRichResponseLatexMetadata.AIRichResponseLatexExpression
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIRichResponseLatexExpression.prototype, "_imageTopPadding", {
                 get: $util.oneOfGetter($oneOfFields = ["imageTopPadding"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AIRichResponseLatexExpression _imageLeadingPadding.
-             * @member {"imageLeadingPadding"|undefined} _imageLeadingPadding
-             * @memberof AICommon.AIRichResponseLatexMetadata.AIRichResponseLatexExpression
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIRichResponseLatexExpression.prototype, "_imageLeadingPadding", {
                 get: $util.oneOfGetter($oneOfFields = ["imageLeadingPadding"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AIRichResponseLatexExpression _imageBottomPadding.
-             * @member {"imageBottomPadding"|undefined} _imageBottomPadding
-             * @memberof AICommon.AIRichResponseLatexMetadata.AIRichResponseLatexExpression
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIRichResponseLatexExpression.prototype, "_imageBottomPadding", {
                 get: $util.oneOfGetter($oneOfFields = ["imageBottomPadding"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AIRichResponseLatexExpression _imageTrailingPadding.
-             * @member {"imageTrailingPadding"|undefined} _imageTrailingPadding
-             * @memberof AICommon.AIRichResponseLatexMetadata.AIRichResponseLatexExpression
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIRichResponseLatexExpression.prototype, "_imageTrailingPadding", {
                 get: $util.oneOfGetter($oneOfFields = ["imageTrailingPadding"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -106228,12 +100038,7 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * AIRichResponseUnifiedResponse _data.
-         * @member {"data"|undefined} _data
-         * @memberof AICommon.AIRichResponseUnifiedResponse
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseUnifiedResponse.prototype, "_data", {
             get: $util.oneOfGetter($oneOfFields = ["data"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -106481,45 +100286,25 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * AIRichResponseDynamicMetadata _type.
-         * @member {"type"|undefined} _type
-         * @memberof AICommon.AIRichResponseDynamicMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseDynamicMetadata.prototype, "_type", {
             get: $util.oneOfGetter($oneOfFields = ["type"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * AIRichResponseDynamicMetadata _version.
-         * @member {"version"|undefined} _version
-         * @memberof AICommon.AIRichResponseDynamicMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseDynamicMetadata.prototype, "_version", {
             get: $util.oneOfGetter($oneOfFields = ["version"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * AIRichResponseDynamicMetadata _url.
-         * @member {"url"|undefined} _url
-         * @memberof AICommon.AIRichResponseDynamicMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseDynamicMetadata.prototype, "_url", {
             get: $util.oneOfGetter($oneOfFields = ["url"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * AIRichResponseDynamicMetadata _loopCount.
-         * @member {"loopCount"|undefined} _loopCount
-         * @memberof AICommon.AIRichResponseDynamicMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseDynamicMetadata.prototype, "_loopCount", {
             get: $util.oneOfGetter($oneOfFields = ["loopCount"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -106851,12 +100636,7 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * AIRichResponseTableMetadata _title.
-         * @member {"title"|undefined} _title
-         * @memberof AICommon.AIRichResponseTableMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseTableMetadata.prototype, "_title", {
             get: $util.oneOfGetter($oneOfFields = ["title"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -107116,12 +100896,7 @@ $root.AICommon = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * AIRichResponseTableRow _isHeading.
-             * @member {"isHeading"|undefined} _isHeading
-             * @memberof AICommon.AIRichResponseTableMetadata.AIRichResponseTableRow
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIRichResponseTableRow.prototype, "_isHeading", {
                 get: $util.oneOfGetter($oneOfFields = ["isHeading"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -107382,12 +101157,7 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * AIRichResponseCodeMetadata _codeLanguage.
-         * @member {"codeLanguage"|undefined} _codeLanguage
-         * @memberof AICommon.AIRichResponseCodeMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseCodeMetadata.prototype, "_codeLanguage", {
             get: $util.oneOfGetter($oneOfFields = ["codeLanguage"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -107646,23 +101416,13 @@ $root.AICommon = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * AIRichResponseCodeBlock _highlightType.
-             * @member {"highlightType"|undefined} _highlightType
-             * @memberof AICommon.AIRichResponseCodeMetadata.AIRichResponseCodeBlock
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIRichResponseCodeBlock.prototype, "_highlightType", {
                 get: $util.oneOfGetter($oneOfFields = ["highlightType"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AIRichResponseCodeBlock _codeContent.
-             * @member {"codeContent"|undefined} _codeContent
-             * @memberof AICommon.AIRichResponseCodeMetadata.AIRichResponseCodeBlock
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIRichResponseCodeBlock.prototype, "_codeContent", {
                 get: $util.oneOfGetter($oneOfFields = ["codeContent"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -107989,45 +101749,25 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * AIRichResponseInlineImageMetadata _imageUrl.
-         * @member {"imageUrl"|undefined} _imageUrl
-         * @memberof AICommon.AIRichResponseInlineImageMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseInlineImageMetadata.prototype, "_imageUrl", {
             get: $util.oneOfGetter($oneOfFields = ["imageUrl"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * AIRichResponseInlineImageMetadata _imageText.
-         * @member {"imageText"|undefined} _imageText
-         * @memberof AICommon.AIRichResponseInlineImageMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseInlineImageMetadata.prototype, "_imageText", {
             get: $util.oneOfGetter($oneOfFields = ["imageText"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * AIRichResponseInlineImageMetadata _alignment.
-         * @member {"alignment"|undefined} _alignment
-         * @memberof AICommon.AIRichResponseInlineImageMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseInlineImageMetadata.prototype, "_alignment", {
             get: $util.oneOfGetter($oneOfFields = ["alignment"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * AIRichResponseInlineImageMetadata _tapLinkUrl.
-         * @member {"tapLinkUrl"|undefined} _tapLinkUrl
-         * @memberof AICommon.AIRichResponseInlineImageMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseInlineImageMetadata.prototype, "_tapLinkUrl", {
             get: $util.oneOfGetter($oneOfFields = ["tapLinkUrl"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -108355,12 +102095,7 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * AIRichResponseGridImageMetadata _gridImageUrl.
-         * @member {"gridImageUrl"|undefined} _gridImageUrl
-         * @memberof AICommon.AIRichResponseGridImageMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseGridImageMetadata.prototype, "_gridImageUrl", {
             get: $util.oneOfGetter($oneOfFields = ["gridImageUrl"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -108637,34 +102372,19 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * AIRichResponseImageURL _imagePreviewUrl.
-         * @member {"imagePreviewUrl"|undefined} _imagePreviewUrl
-         * @memberof AICommon.AIRichResponseImageURL
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseImageURL.prototype, "_imagePreviewUrl", {
             get: $util.oneOfGetter($oneOfFields = ["imagePreviewUrl"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * AIRichResponseImageURL _imageHighResUrl.
-         * @member {"imageHighResUrl"|undefined} _imageHighResUrl
-         * @memberof AICommon.AIRichResponseImageURL
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseImageURL.prototype, "_imageHighResUrl", {
             get: $util.oneOfGetter($oneOfFields = ["imageHighResUrl"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * AIRichResponseImageURL _sourceUrl.
-         * @member {"sourceUrl"|undefined} _sourceUrl
-         * @memberof AICommon.AIRichResponseImageURL
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIRichResponseImageURL.prototype, "_sourceUrl", {
             get: $util.oneOfGetter($oneOfFields = ["sourceUrl"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -108927,23 +102647,13 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * BotMessageSharingInfo _botEntryPointOrigin.
-         * @member {"botEntryPointOrigin"|undefined} _botEntryPointOrigin
-         * @memberof AICommon.BotMessageSharingInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMessageSharingInfo.prototype, "_botEntryPointOrigin", {
             get: $util.oneOfGetter($oneOfFields = ["botEntryPointOrigin"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMessageSharingInfo _forwardScore.
-         * @member {"forwardScore"|undefined} _forwardScore
-         * @memberof AICommon.BotMessageSharingInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMessageSharingInfo.prototype, "_forwardScore", {
             get: $util.oneOfGetter($oneOfFields = ["forwardScore"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -109421,34 +103131,19 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * ForwardedAIBotMessageInfo _botName.
-         * @member {"botName"|undefined} _botName
-         * @memberof AICommon.ForwardedAIBotMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ForwardedAIBotMessageInfo.prototype, "_botName", {
             get: $util.oneOfGetter($oneOfFields = ["botName"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ForwardedAIBotMessageInfo _botJid.
-         * @member {"botJid"|undefined} _botJid
-         * @memberof AICommon.ForwardedAIBotMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ForwardedAIBotMessageInfo.prototype, "_botJid", {
             get: $util.oneOfGetter($oneOfFields = ["botJid"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ForwardedAIBotMessageInfo _creatorName.
-         * @member {"creatorName"|undefined} _creatorName
-         * @memberof AICommon.ForwardedAIBotMessageInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ForwardedAIBotMessageInfo.prototype, "_creatorName", {
             get: $util.oneOfGetter($oneOfFields = ["creatorName"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -109756,78 +103451,43 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * BotFeedbackMessage _messageKey.
-         * @member {"messageKey"|undefined} _messageKey
-         * @memberof AICommon.BotFeedbackMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotFeedbackMessage.prototype, "_messageKey", {
             get: $util.oneOfGetter($oneOfFields = ["messageKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotFeedbackMessage _kind.
-         * @member {"kind"|undefined} _kind
-         * @memberof AICommon.BotFeedbackMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotFeedbackMessage.prototype, "_kind", {
             get: $util.oneOfGetter($oneOfFields = ["kind"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotFeedbackMessage _text.
-         * @member {"text"|undefined} _text
-         * @memberof AICommon.BotFeedbackMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotFeedbackMessage.prototype, "_text", {
             get: $util.oneOfGetter($oneOfFields = ["text"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotFeedbackMessage _kindNegative.
-         * @member {"kindNegative"|undefined} _kindNegative
-         * @memberof AICommon.BotFeedbackMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotFeedbackMessage.prototype, "_kindNegative", {
             get: $util.oneOfGetter($oneOfFields = ["kindNegative"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotFeedbackMessage _kindPositive.
-         * @member {"kindPositive"|undefined} _kindPositive
-         * @memberof AICommon.BotFeedbackMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotFeedbackMessage.prototype, "_kindPositive", {
             get: $util.oneOfGetter($oneOfFields = ["kindPositive"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotFeedbackMessage _kindReport.
-         * @member {"kindReport"|undefined} _kindReport
-         * @memberof AICommon.BotFeedbackMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotFeedbackMessage.prototype, "_kindReport", {
             get: $util.oneOfGetter($oneOfFields = ["kindReport"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotFeedbackMessage _sideBySideSurveyMetadata.
-         * @member {"sideBySideSurveyMetadata"|undefined} _sideBySideSurveyMetadata
-         * @memberof AICommon.BotFeedbackMessage
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotFeedbackMessage.prototype, "_sideBySideSurveyMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["sideBySideSurveyMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -110451,100 +104111,55 @@ $root.AICommon = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * SideBySideSurveyMetadata _selectedRequestId.
-             * @member {"selectedRequestId"|undefined} _selectedRequestId
-             * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SideBySideSurveyMetadata.prototype, "_selectedRequestId", {
                 get: $util.oneOfGetter($oneOfFields = ["selectedRequestId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SideBySideSurveyMetadata _surveyId.
-             * @member {"surveyId"|undefined} _surveyId
-             * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SideBySideSurveyMetadata.prototype, "_surveyId", {
                 get: $util.oneOfGetter($oneOfFields = ["surveyId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SideBySideSurveyMetadata _simonSessionFbid.
-             * @member {"simonSessionFbid"|undefined} _simonSessionFbid
-             * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SideBySideSurveyMetadata.prototype, "_simonSessionFbid", {
                 get: $util.oneOfGetter($oneOfFields = ["simonSessionFbid"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SideBySideSurveyMetadata _responseOtid.
-             * @member {"responseOtid"|undefined} _responseOtid
-             * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SideBySideSurveyMetadata.prototype, "_responseOtid", {
                 get: $util.oneOfGetter($oneOfFields = ["responseOtid"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SideBySideSurveyMetadata _responseTimestampMsString.
-             * @member {"responseTimestampMsString"|undefined} _responseTimestampMsString
-             * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SideBySideSurveyMetadata.prototype, "_responseTimestampMsString", {
                 get: $util.oneOfGetter($oneOfFields = ["responseTimestampMsString"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SideBySideSurveyMetadata _isSelectedResponsePrimary.
-             * @member {"isSelectedResponsePrimary"|undefined} _isSelectedResponsePrimary
-             * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SideBySideSurveyMetadata.prototype, "_isSelectedResponsePrimary", {
                 get: $util.oneOfGetter($oneOfFields = ["isSelectedResponsePrimary"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SideBySideSurveyMetadata _messageIdToEdit.
-             * @member {"messageIdToEdit"|undefined} _messageIdToEdit
-             * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SideBySideSurveyMetadata.prototype, "_messageIdToEdit", {
                 get: $util.oneOfGetter($oneOfFields = ["messageIdToEdit"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SideBySideSurveyMetadata _analyticsData.
-             * @member {"analyticsData"|undefined} _analyticsData
-             * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SideBySideSurveyMetadata.prototype, "_analyticsData", {
                 get: $util.oneOfGetter($oneOfFields = ["analyticsData"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SideBySideSurveyMetadata _metaAiAnalyticsData.
-             * @member {"metaAiAnalyticsData"|undefined} _metaAiAnalyticsData
-             * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SideBySideSurveyMetadata.prototype, "_metaAiAnalyticsData", {
                 get: $util.oneOfGetter($oneOfFields = ["metaAiAnalyticsData"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -110933,34 +104548,19 @@ $root.AICommon = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * SideBySideSurveyAnalyticsData _tessaEvent.
-                 * @member {"tessaEvent"|undefined} _tessaEvent
-                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(SideBySideSurveyAnalyticsData.prototype, "_tessaEvent", {
                     get: $util.oneOfGetter($oneOfFields = ["tessaEvent"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * SideBySideSurveyAnalyticsData _tessaSessionFbid.
-                 * @member {"tessaSessionFbid"|undefined} _tessaSessionFbid
-                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(SideBySideSurveyAnalyticsData.prototype, "_tessaSessionFbid", {
                     get: $util.oneOfGetter($oneOfFields = ["tessaSessionFbid"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * SideBySideSurveyAnalyticsData _simonSessionFbid.
-                 * @member {"simonSessionFbid"|undefined} _simonSessionFbid
-                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(SideBySideSurveyAnalyticsData.prototype, "_simonSessionFbid", {
                     get: $util.oneOfGetter($oneOfFields = ["simonSessionFbid"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -111286,100 +104886,55 @@ $root.AICommon = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * SidebySideSurveyMetaAiAnalyticsData _surveyId.
-                 * @member {"surveyId"|undefined} _surveyId
-                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(SidebySideSurveyMetaAiAnalyticsData.prototype, "_surveyId", {
                     get: $util.oneOfGetter($oneOfFields = ["surveyId"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * SidebySideSurveyMetaAiAnalyticsData _primaryResponseId.
-                 * @member {"primaryResponseId"|undefined} _primaryResponseId
-                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(SidebySideSurveyMetaAiAnalyticsData.prototype, "_primaryResponseId", {
                     get: $util.oneOfGetter($oneOfFields = ["primaryResponseId"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * SidebySideSurveyMetaAiAnalyticsData _testArmName.
-                 * @member {"testArmName"|undefined} _testArmName
-                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(SidebySideSurveyMetaAiAnalyticsData.prototype, "_testArmName", {
                     get: $util.oneOfGetter($oneOfFields = ["testArmName"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * SidebySideSurveyMetaAiAnalyticsData _timestampMsString.
-                 * @member {"timestampMsString"|undefined} _timestampMsString
-                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(SidebySideSurveyMetaAiAnalyticsData.prototype, "_timestampMsString", {
                     get: $util.oneOfGetter($oneOfFields = ["timestampMsString"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * SidebySideSurveyMetaAiAnalyticsData _ctaImpressionEvent.
-                 * @member {"ctaImpressionEvent"|undefined} _ctaImpressionEvent
-                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(SidebySideSurveyMetaAiAnalyticsData.prototype, "_ctaImpressionEvent", {
                     get: $util.oneOfGetter($oneOfFields = ["ctaImpressionEvent"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * SidebySideSurveyMetaAiAnalyticsData _ctaClickEvent.
-                 * @member {"ctaClickEvent"|undefined} _ctaClickEvent
-                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(SidebySideSurveyMetaAiAnalyticsData.prototype, "_ctaClickEvent", {
                     get: $util.oneOfGetter($oneOfFields = ["ctaClickEvent"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * SidebySideSurveyMetaAiAnalyticsData _cardImpressionEvent.
-                 * @member {"cardImpressionEvent"|undefined} _cardImpressionEvent
-                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(SidebySideSurveyMetaAiAnalyticsData.prototype, "_cardImpressionEvent", {
                     get: $util.oneOfGetter($oneOfFields = ["cardImpressionEvent"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * SidebySideSurveyMetaAiAnalyticsData _responseEvent.
-                 * @member {"responseEvent"|undefined} _responseEvent
-                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(SidebySideSurveyMetaAiAnalyticsData.prototype, "_responseEvent", {
                     get: $util.oneOfGetter($oneOfFields = ["responseEvent"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * SidebySideSurveyMetaAiAnalyticsData _abandonEvent.
-                 * @member {"abandonEvent"|undefined} _abandonEvent
-                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(SidebySideSurveyMetaAiAnalyticsData.prototype, "_abandonEvent", {
                     get: $util.oneOfGetter($oneOfFields = ["abandonEvent"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -111768,12 +105323,7 @@ $root.AICommon = (function() {
                     // OneOf field names bound to virtual getters and setters
                     var $oneOfFields;
 
-                    /**
-                     * SideBySideSurveyAbandonEventData _abandonDwellTimeMsString.
-                     * @member {"abandonDwellTimeMsString"|undefined} _abandonDwellTimeMsString
-                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(SideBySideSurveyAbandonEventData.prototype, "_abandonDwellTimeMsString", {
                         get: $util.oneOfGetter($oneOfFields = ["abandonDwellTimeMsString"]),
                         set: $util.oneOfSetter($oneOfFields)
@@ -112000,23 +105550,13 @@ $root.AICommon = (function() {
                     // OneOf field names bound to virtual getters and setters
                     var $oneOfFields;
 
-                    /**
-                     * SideBySideSurveyCTAClickEventData _isSurveyExpired.
-                     * @member {"isSurveyExpired"|undefined} _isSurveyExpired
-                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(SideBySideSurveyCTAClickEventData.prototype, "_isSurveyExpired", {
                         get: $util.oneOfGetter($oneOfFields = ["isSurveyExpired"]),
                         set: $util.oneOfSetter($oneOfFields)
                     });
 
-                    /**
-                     * SideBySideSurveyCTAClickEventData _clickDwellTimeMsString.
-                     * @member {"clickDwellTimeMsString"|undefined} _clickDwellTimeMsString
-                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(SideBySideSurveyCTAClickEventData.prototype, "_clickDwellTimeMsString", {
                         get: $util.oneOfGetter($oneOfFields = ["clickDwellTimeMsString"]),
                         set: $util.oneOfSetter($oneOfFields)
@@ -112252,12 +105792,7 @@ $root.AICommon = (function() {
                     // OneOf field names bound to virtual getters and setters
                     var $oneOfFields;
 
-                    /**
-                     * SideBySideSurveyCTAImpressionEventData _isSurveyExpired.
-                     * @member {"isSurveyExpired"|undefined} _isSurveyExpired
-                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(SideBySideSurveyCTAImpressionEventData.prototype, "_isSurveyExpired", {
                         get: $util.oneOfGetter($oneOfFields = ["isSurveyExpired"]),
                         set: $util.oneOfSetter($oneOfFields)
@@ -112661,23 +106196,13 @@ $root.AICommon = (function() {
                     // OneOf field names bound to virtual getters and setters
                     var $oneOfFields;
 
-                    /**
-                     * SideBySideSurveyResponseEventData _responseDwellTimeMsString.
-                     * @member {"responseDwellTimeMsString"|undefined} _responseDwellTimeMsString
-                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(SideBySideSurveyResponseEventData.prototype, "_responseDwellTimeMsString", {
                         get: $util.oneOfGetter($oneOfFields = ["responseDwellTimeMsString"]),
                         set: $util.oneOfSetter($oneOfFields)
                     });
 
-                    /**
-                     * SideBySideSurveyResponseEventData _selectedResponseId.
-                     * @member {"selectedResponseId"|undefined} _selectedResponseId
-                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData
-                     * @instance
-                     */
+                    // Virtual OneOf for proto3 optional field
                     Object.defineProperty(SideBySideSurveyResponseEventData.prototype, "_selectedResponseId", {
                         get: $util.oneOfGetter($oneOfFields = ["selectedResponseId"]),
                         set: $util.oneOfSetter($oneOfFields)
@@ -112922,12 +106447,7 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * BotGroupParticipantMetadata _botFbid.
-         * @member {"botFbid"|undefined} _botFbid
-         * @memberof AICommon.BotGroupParticipantMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotGroupParticipantMetadata.prototype, "_botFbid", {
             get: $util.oneOfGetter($oneOfFields = ["botFbid"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -113686,397 +107206,217 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * BotMetadata _avatarMetadata.
-         * @member {"avatarMetadata"|undefined} _avatarMetadata
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_avatarMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["avatarMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _personaId.
-         * @member {"personaId"|undefined} _personaId
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_personaId", {
             get: $util.oneOfGetter($oneOfFields = ["personaId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _pluginMetadata.
-         * @member {"pluginMetadata"|undefined} _pluginMetadata
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_pluginMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["pluginMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _suggestedPromptMetadata.
-         * @member {"suggestedPromptMetadata"|undefined} _suggestedPromptMetadata
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_suggestedPromptMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["suggestedPromptMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _invokerJid.
-         * @member {"invokerJid"|undefined} _invokerJid
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_invokerJid", {
             get: $util.oneOfGetter($oneOfFields = ["invokerJid"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _sessionMetadata.
-         * @member {"sessionMetadata"|undefined} _sessionMetadata
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_sessionMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["sessionMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _memuMetadata.
-         * @member {"memuMetadata"|undefined} _memuMetadata
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_memuMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["memuMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _timezone.
-         * @member {"timezone"|undefined} _timezone
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_timezone", {
             get: $util.oneOfGetter($oneOfFields = ["timezone"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _reminderMetadata.
-         * @member {"reminderMetadata"|undefined} _reminderMetadata
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_reminderMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["reminderMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _modelMetadata.
-         * @member {"modelMetadata"|undefined} _modelMetadata
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_modelMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["modelMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _messageDisclaimerText.
-         * @member {"messageDisclaimerText"|undefined} _messageDisclaimerText
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_messageDisclaimerText", {
             get: $util.oneOfGetter($oneOfFields = ["messageDisclaimerText"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _progressIndicatorMetadata.
-         * @member {"progressIndicatorMetadata"|undefined} _progressIndicatorMetadata
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_progressIndicatorMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["progressIndicatorMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _capabilityMetadata.
-         * @member {"capabilityMetadata"|undefined} _capabilityMetadata
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_capabilityMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["capabilityMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _imagineMetadata.
-         * @member {"imagineMetadata"|undefined} _imagineMetadata
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_imagineMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["imagineMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _memoryMetadata.
-         * @member {"memoryMetadata"|undefined} _memoryMetadata
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_memoryMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["memoryMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _renderingMetadata.
-         * @member {"renderingMetadata"|undefined} _renderingMetadata
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_renderingMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["renderingMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _botMetricsMetadata.
-         * @member {"botMetricsMetadata"|undefined} _botMetricsMetadata
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_botMetricsMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["botMetricsMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _botLinkedAccountsMetadata.
-         * @member {"botLinkedAccountsMetadata"|undefined} _botLinkedAccountsMetadata
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_botLinkedAccountsMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["botLinkedAccountsMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _richResponseSourcesMetadata.
-         * @member {"richResponseSourcesMetadata"|undefined} _richResponseSourcesMetadata
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_richResponseSourcesMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["richResponseSourcesMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _aiConversationContext.
-         * @member {"aiConversationContext"|undefined} _aiConversationContext
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_aiConversationContext", {
             get: $util.oneOfGetter($oneOfFields = ["aiConversationContext"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _botPromotionMessageMetadata.
-         * @member {"botPromotionMessageMetadata"|undefined} _botPromotionMessageMetadata
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_botPromotionMessageMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["botPromotionMessageMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _botModeSelectionMetadata.
-         * @member {"botModeSelectionMetadata"|undefined} _botModeSelectionMetadata
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_botModeSelectionMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["botModeSelectionMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _botQuotaMetadata.
-         * @member {"botQuotaMetadata"|undefined} _botQuotaMetadata
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_botQuotaMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["botQuotaMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _botAgeCollectionMetadata.
-         * @member {"botAgeCollectionMetadata"|undefined} _botAgeCollectionMetadata
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_botAgeCollectionMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["botAgeCollectionMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _conversationStarterPromptId.
-         * @member {"conversationStarterPromptId"|undefined} _conversationStarterPromptId
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_conversationStarterPromptId", {
             get: $util.oneOfGetter($oneOfFields = ["conversationStarterPromptId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _botResponseId.
-         * @member {"botResponseId"|undefined} _botResponseId
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_botResponseId", {
             get: $util.oneOfGetter($oneOfFields = ["botResponseId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _verificationMetadata.
-         * @member {"verificationMetadata"|undefined} _verificationMetadata
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_verificationMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["verificationMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _unifiedResponseMutation.
-         * @member {"unifiedResponseMutation"|undefined} _unifiedResponseMutation
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_unifiedResponseMutation", {
             get: $util.oneOfGetter($oneOfFields = ["unifiedResponseMutation"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _botMessageOriginMetadata.
-         * @member {"botMessageOriginMetadata"|undefined} _botMessageOriginMetadata
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_botMessageOriginMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["botMessageOriginMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _inThreadSurveyMetadata.
-         * @member {"inThreadSurveyMetadata"|undefined} _inThreadSurveyMetadata
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_inThreadSurveyMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["inThreadSurveyMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _botThreadInfo.
-         * @member {"botThreadInfo"|undefined} _botThreadInfo
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_botThreadInfo", {
             get: $util.oneOfGetter($oneOfFields = ["botThreadInfo"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _regenerateMetadata.
-         * @member {"regenerateMetadata"|undefined} _regenerateMetadata
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_regenerateMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["regenerateMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _sessionTransparencyMetadata.
-         * @member {"sessionTransparencyMetadata"|undefined} _sessionTransparencyMetadata
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_sessionTransparencyMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["sessionTransparencyMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _botDocumentMessageMetadata.
-         * @member {"botDocumentMessageMetadata"|undefined} _botDocumentMessageMetadata
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_botDocumentMessageMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["botDocumentMessageMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _botGroupMetadata.
-         * @member {"botGroupMetadata"|undefined} _botGroupMetadata
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_botGroupMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["botGroupMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetadata _internalMetadata.
-         * @member {"internalMetadata"|undefined} _internalMetadata
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_internalMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["internalMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -115107,23 +108447,13 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * AIThreadInfo _serverInfo.
-         * @member {"serverInfo"|undefined} _serverInfo
-         * @memberof AICommon.AIThreadInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIThreadInfo.prototype, "_serverInfo", {
             get: $util.oneOfGetter($oneOfFields = ["serverInfo"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * AIThreadInfo _clientInfo.
-         * @member {"clientInfo"|undefined} _clientInfo
-         * @memberof AICommon.AIThreadInfo
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(AIThreadInfo.prototype, "_clientInfo", {
             get: $util.oneOfGetter($oneOfFields = ["clientInfo"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -115368,12 +108698,7 @@ $root.AICommon = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * AIThreadClientInfo _type.
-             * @member {"type"|undefined} _type
-             * @memberof AICommon.AIThreadInfo.AIThreadClientInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIThreadClientInfo.prototype, "_type", {
                 get: $util.oneOfGetter($oneOfFields = ["type"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -115631,12 +108956,7 @@ $root.AICommon = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * AIThreadServerInfo _title.
-             * @member {"title"|undefined} _title
-             * @memberof AICommon.AIThreadInfo.AIThreadServerInfo
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AIThreadServerInfo.prototype, "_title", {
                 get: $util.oneOfGetter($oneOfFields = ["title"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -115867,12 +109187,7 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * BotUnifiedResponseMutation _sbsMetadata.
-         * @member {"sbsMetadata"|undefined} _sbsMetadata
-         * @memberof AICommon.BotUnifiedResponseMutation
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotUnifiedResponseMutation.prototype, "_sbsMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["sbsMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -116146,34 +109461,19 @@ $root.AICommon = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * MediaDetailsMetadata _id.
-             * @member {"id"|undefined} _id
-             * @memberof AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MediaDetailsMetadata.prototype, "_id", {
                 get: $util.oneOfGetter($oneOfFields = ["id"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MediaDetailsMetadata _highResMedia.
-             * @member {"highResMedia"|undefined} _highResMedia
-             * @memberof AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MediaDetailsMetadata.prototype, "_highResMedia", {
                 get: $util.oneOfGetter($oneOfFields = ["highResMedia"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * MediaDetailsMetadata _previewMedia.
-             * @member {"previewMedia"|undefined} _previewMedia
-             * @memberof AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(MediaDetailsMetadata.prototype, "_previewMedia", {
                 get: $util.oneOfGetter($oneOfFields = ["previewMedia"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -116448,23 +109748,13 @@ $root.AICommon = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * SideBySideMetadata _primaryResponseId.
-             * @member {"primaryResponseId"|undefined} _primaryResponseId
-             * @memberof AICommon.BotUnifiedResponseMutation.SideBySideMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SideBySideMetadata.prototype, "_primaryResponseId", {
                 get: $util.oneOfGetter($oneOfFields = ["primaryResponseId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SideBySideMetadata _surveyCtaHasRendered.
-             * @member {"surveyCtaHasRendered"|undefined} _surveyCtaHasRendered
-             * @memberof AICommon.BotUnifiedResponseMutation.SideBySideMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SideBySideMetadata.prototype, "_surveyCtaHasRendered", {
                 get: $util.oneOfGetter($oneOfFields = ["surveyCtaHasRendered"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -116703,12 +109993,7 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * BotMessageOrigin _type.
-         * @member {"type"|undefined} _type
-         * @memberof AICommon.BotMessageOrigin
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMessageOrigin.prototype, "_type", {
             get: $util.oneOfGetter($oneOfFields = ["type"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -117333,177 +110618,97 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * InThreadSurveyMetadata _tessaSessionId.
-         * @member {"tessaSessionId"|undefined} _tessaSessionId
-         * @memberof AICommon.InThreadSurveyMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(InThreadSurveyMetadata.prototype, "_tessaSessionId", {
             get: $util.oneOfGetter($oneOfFields = ["tessaSessionId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * InThreadSurveyMetadata _simonSessionId.
-         * @member {"simonSessionId"|undefined} _simonSessionId
-         * @memberof AICommon.InThreadSurveyMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(InThreadSurveyMetadata.prototype, "_simonSessionId", {
             get: $util.oneOfGetter($oneOfFields = ["simonSessionId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * InThreadSurveyMetadata _simonSurveyId.
-         * @member {"simonSurveyId"|undefined} _simonSurveyId
-         * @memberof AICommon.InThreadSurveyMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(InThreadSurveyMetadata.prototype, "_simonSurveyId", {
             get: $util.oneOfGetter($oneOfFields = ["simonSurveyId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * InThreadSurveyMetadata _tessaRootId.
-         * @member {"tessaRootId"|undefined} _tessaRootId
-         * @memberof AICommon.InThreadSurveyMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(InThreadSurveyMetadata.prototype, "_tessaRootId", {
             get: $util.oneOfGetter($oneOfFields = ["tessaRootId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * InThreadSurveyMetadata _requestId.
-         * @member {"requestId"|undefined} _requestId
-         * @memberof AICommon.InThreadSurveyMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(InThreadSurveyMetadata.prototype, "_requestId", {
             get: $util.oneOfGetter($oneOfFields = ["requestId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * InThreadSurveyMetadata _tessaEvent.
-         * @member {"tessaEvent"|undefined} _tessaEvent
-         * @memberof AICommon.InThreadSurveyMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(InThreadSurveyMetadata.prototype, "_tessaEvent", {
             get: $util.oneOfGetter($oneOfFields = ["tessaEvent"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * InThreadSurveyMetadata _invitationHeaderText.
-         * @member {"invitationHeaderText"|undefined} _invitationHeaderText
-         * @memberof AICommon.InThreadSurveyMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(InThreadSurveyMetadata.prototype, "_invitationHeaderText", {
             get: $util.oneOfGetter($oneOfFields = ["invitationHeaderText"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * InThreadSurveyMetadata _invitationBodyText.
-         * @member {"invitationBodyText"|undefined} _invitationBodyText
-         * @memberof AICommon.InThreadSurveyMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(InThreadSurveyMetadata.prototype, "_invitationBodyText", {
             get: $util.oneOfGetter($oneOfFields = ["invitationBodyText"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * InThreadSurveyMetadata _invitationCtaText.
-         * @member {"invitationCtaText"|undefined} _invitationCtaText
-         * @memberof AICommon.InThreadSurveyMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(InThreadSurveyMetadata.prototype, "_invitationCtaText", {
             get: $util.oneOfGetter($oneOfFields = ["invitationCtaText"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * InThreadSurveyMetadata _invitationCtaUrl.
-         * @member {"invitationCtaUrl"|undefined} _invitationCtaUrl
-         * @memberof AICommon.InThreadSurveyMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(InThreadSurveyMetadata.prototype, "_invitationCtaUrl", {
             get: $util.oneOfGetter($oneOfFields = ["invitationCtaUrl"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * InThreadSurveyMetadata _surveyTitle.
-         * @member {"surveyTitle"|undefined} _surveyTitle
-         * @memberof AICommon.InThreadSurveyMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(InThreadSurveyMetadata.prototype, "_surveyTitle", {
             get: $util.oneOfGetter($oneOfFields = ["surveyTitle"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * InThreadSurveyMetadata _surveyContinueButtonText.
-         * @member {"surveyContinueButtonText"|undefined} _surveyContinueButtonText
-         * @memberof AICommon.InThreadSurveyMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(InThreadSurveyMetadata.prototype, "_surveyContinueButtonText", {
             get: $util.oneOfGetter($oneOfFields = ["surveyContinueButtonText"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * InThreadSurveyMetadata _surveySubmitButtonText.
-         * @member {"surveySubmitButtonText"|undefined} _surveySubmitButtonText
-         * @memberof AICommon.InThreadSurveyMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(InThreadSurveyMetadata.prototype, "_surveySubmitButtonText", {
             get: $util.oneOfGetter($oneOfFields = ["surveySubmitButtonText"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * InThreadSurveyMetadata _privacyStatementFull.
-         * @member {"privacyStatementFull"|undefined} _privacyStatementFull
-         * @memberof AICommon.InThreadSurveyMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(InThreadSurveyMetadata.prototype, "_privacyStatementFull", {
             get: $util.oneOfGetter($oneOfFields = ["privacyStatementFull"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * InThreadSurveyMetadata _feedbackToastText.
-         * @member {"feedbackToastText"|undefined} _feedbackToastText
-         * @memberof AICommon.InThreadSurveyMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(InThreadSurveyMetadata.prototype, "_feedbackToastText", {
             get: $util.oneOfGetter($oneOfFields = ["feedbackToastText"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * InThreadSurveyMetadata _startQuestionIndex.
-         * @member {"startQuestionIndex"|undefined} _startQuestionIndex
-         * @memberof AICommon.InThreadSurveyMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(InThreadSurveyMetadata.prototype, "_startQuestionIndex", {
             get: $util.oneOfGetter($oneOfFields = ["startQuestionIndex"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -118076,34 +111281,19 @@ $root.AICommon = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * InThreadSurveyOption _stringValue.
-             * @member {"stringValue"|undefined} _stringValue
-             * @memberof AICommon.InThreadSurveyMetadata.InThreadSurveyOption
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(InThreadSurveyOption.prototype, "_stringValue", {
                 get: $util.oneOfGetter($oneOfFields = ["stringValue"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * InThreadSurveyOption _numericValue.
-             * @member {"numericValue"|undefined} _numericValue
-             * @memberof AICommon.InThreadSurveyMetadata.InThreadSurveyOption
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(InThreadSurveyOption.prototype, "_numericValue", {
                 get: $util.oneOfGetter($oneOfFields = ["numericValue"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * InThreadSurveyOption _textTranslated.
-             * @member {"textTranslated"|undefined} _textTranslated
-             * @memberof AICommon.InThreadSurveyMetadata.InThreadSurveyOption
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(InThreadSurveyOption.prototype, "_textTranslated", {
                 get: $util.oneOfGetter($oneOfFields = ["textTranslated"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -118366,23 +111556,13 @@ $root.AICommon = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * InThreadSurveyPrivacyStatementPart _text.
-             * @member {"text"|undefined} _text
-             * @memberof AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(InThreadSurveyPrivacyStatementPart.prototype, "_text", {
                 get: $util.oneOfGetter($oneOfFields = ["text"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * InThreadSurveyPrivacyStatementPart _url.
-             * @member {"url"|undefined} _url
-             * @memberof AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(InThreadSurveyPrivacyStatementPart.prototype, "_url", {
                 get: $util.oneOfGetter($oneOfFields = ["url"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -118637,23 +111817,13 @@ $root.AICommon = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * InThreadSurveyQuestion _questionText.
-             * @member {"questionText"|undefined} _questionText
-             * @memberof AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(InThreadSurveyQuestion.prototype, "_questionText", {
                 get: $util.oneOfGetter($oneOfFields = ["questionText"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * InThreadSurveyQuestion _questionId.
-             * @member {"questionId"|undefined} _questionId
-             * @memberof AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(InThreadSurveyQuestion.prototype, "_questionId", {
                 get: $util.oneOfGetter($oneOfFields = ["questionId"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -119204,78 +112374,43 @@ $root.AICommon = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * BotSourceItem _provider.
-             * @member {"provider"|undefined} _provider
-             * @memberof AICommon.BotSourcesMetadata.BotSourceItem
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(BotSourceItem.prototype, "_provider", {
                 get: $util.oneOfGetter($oneOfFields = ["provider"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * BotSourceItem _thumbnailCdnUrl.
-             * @member {"thumbnailCdnUrl"|undefined} _thumbnailCdnUrl
-             * @memberof AICommon.BotSourcesMetadata.BotSourceItem
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(BotSourceItem.prototype, "_thumbnailCdnUrl", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailCdnUrl"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * BotSourceItem _sourceProviderUrl.
-             * @member {"sourceProviderUrl"|undefined} _sourceProviderUrl
-             * @memberof AICommon.BotSourcesMetadata.BotSourceItem
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(BotSourceItem.prototype, "_sourceProviderUrl", {
                 get: $util.oneOfGetter($oneOfFields = ["sourceProviderUrl"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * BotSourceItem _sourceQuery.
-             * @member {"sourceQuery"|undefined} _sourceQuery
-             * @memberof AICommon.BotSourcesMetadata.BotSourceItem
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(BotSourceItem.prototype, "_sourceQuery", {
                 get: $util.oneOfGetter($oneOfFields = ["sourceQuery"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * BotSourceItem _faviconCdnUrl.
-             * @member {"faviconCdnUrl"|undefined} _faviconCdnUrl
-             * @memberof AICommon.BotSourcesMetadata.BotSourceItem
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(BotSourceItem.prototype, "_faviconCdnUrl", {
                 get: $util.oneOfGetter($oneOfFields = ["faviconCdnUrl"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * BotSourceItem _citationNumber.
-             * @member {"citationNumber"|undefined} _citationNumber
-             * @memberof AICommon.BotSourcesMetadata.BotSourceItem
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(BotSourceItem.prototype, "_citationNumber", {
                 get: $util.oneOfGetter($oneOfFields = ["citationNumber"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * BotSourceItem _sourceTitle.
-             * @member {"sourceTitle"|undefined} _sourceTitle
-             * @memberof AICommon.BotSourcesMetadata.BotSourceItem
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(BotSourceItem.prototype, "_sourceTitle", {
                 get: $util.oneOfGetter($oneOfFields = ["sourceTitle"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -119676,34 +112811,19 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * BotAgeCollectionMetadata _ageCollectionEligible.
-         * @member {"ageCollectionEligible"|undefined} _ageCollectionEligible
-         * @memberof AICommon.BotAgeCollectionMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotAgeCollectionMetadata.prototype, "_ageCollectionEligible", {
             get: $util.oneOfGetter($oneOfFields = ["ageCollectionEligible"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotAgeCollectionMetadata _shouldTriggerAgeCollectionOnClient.
-         * @member {"shouldTriggerAgeCollectionOnClient"|undefined} _shouldTriggerAgeCollectionOnClient
-         * @memberof AICommon.BotAgeCollectionMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotAgeCollectionMetadata.prototype, "_shouldTriggerAgeCollectionOnClient", {
             get: $util.oneOfGetter($oneOfFields = ["shouldTriggerAgeCollectionOnClient"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotAgeCollectionMetadata _ageCollectionType.
-         * @member {"ageCollectionType"|undefined} _ageCollectionType
-         * @memberof AICommon.BotAgeCollectionMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotAgeCollectionMetadata.prototype, "_ageCollectionType", {
             get: $util.oneOfGetter($oneOfFields = ["ageCollectionType"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -119990,12 +113110,7 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * BotImagineMetadata _imagineType.
-         * @member {"imagineType"|undefined} _imagineType
-         * @memberof AICommon.BotImagineMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotImagineMetadata.prototype, "_imagineType", {
             get: $util.oneOfGetter($oneOfFields = ["imagineType"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -120508,34 +113623,19 @@ $root.AICommon = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * BotFeatureQuotaMetadata _featureType.
-             * @member {"featureType"|undefined} _featureType
-             * @memberof AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(BotFeatureQuotaMetadata.prototype, "_featureType", {
                 get: $util.oneOfGetter($oneOfFields = ["featureType"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * BotFeatureQuotaMetadata _remainingQuota.
-             * @member {"remainingQuota"|undefined} _remainingQuota
-             * @memberof AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(BotFeatureQuotaMetadata.prototype, "_remainingQuota", {
                 get: $util.oneOfGetter($oneOfFields = ["remainingQuota"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * BotFeatureQuotaMetadata _expirationTimestamp.
-             * @member {"expirationTimestamp"|undefined} _expirationTimestamp
-             * @memberof AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(BotFeatureQuotaMetadata.prototype, "_expirationTimestamp", {
                 get: $util.oneOfGetter($oneOfFields = ["expirationTimestamp"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -121749,23 +114849,13 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * BotProgressIndicatorMetadata _progressDescription.
-         * @member {"progressDescription"|undefined} _progressDescription
-         * @memberof AICommon.BotProgressIndicatorMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotProgressIndicatorMetadata.prototype, "_progressDescription", {
             get: $util.oneOfGetter($oneOfFields = ["progressDescription"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotProgressIndicatorMetadata _estimatedCompletionTime.
-         * @member {"estimatedCompletionTime"|undefined} _estimatedCompletionTime
-         * @memberof AICommon.BotProgressIndicatorMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotProgressIndicatorMetadata.prototype, "_estimatedCompletionTime", {
             get: $util.oneOfGetter($oneOfFields = ["estimatedCompletionTime"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -122099,56 +115189,31 @@ $root.AICommon = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * BotPlanningStepMetadata _statusTitle.
-             * @member {"statusTitle"|undefined} _statusTitle
-             * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(BotPlanningStepMetadata.prototype, "_statusTitle", {
                 get: $util.oneOfGetter($oneOfFields = ["statusTitle"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * BotPlanningStepMetadata _statusBody.
-             * @member {"statusBody"|undefined} _statusBody
-             * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(BotPlanningStepMetadata.prototype, "_statusBody", {
                 get: $util.oneOfGetter($oneOfFields = ["statusBody"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * BotPlanningStepMetadata _status.
-             * @member {"status"|undefined} _status
-             * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(BotPlanningStepMetadata.prototype, "_status", {
                 get: $util.oneOfGetter($oneOfFields = ["status"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * BotPlanningStepMetadata _isReasoning.
-             * @member {"isReasoning"|undefined} _isReasoning
-             * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(BotPlanningStepMetadata.prototype, "_isReasoning", {
                 get: $util.oneOfGetter($oneOfFields = ["isReasoning"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * BotPlanningStepMetadata _isEnhancedSearch.
-             * @member {"isEnhancedSearch"|undefined} _isEnhancedSearch
-             * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(BotPlanningStepMetadata.prototype, "_isEnhancedSearch", {
                 get: $util.oneOfGetter($oneOfFields = ["isEnhancedSearch"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -122561,45 +115626,25 @@ $root.AICommon = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * BotPlanningSearchSourceMetadata _title.
-                 * @member {"title"|undefined} _title
-                 * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(BotPlanningSearchSourceMetadata.prototype, "_title", {
                     get: $util.oneOfGetter($oneOfFields = ["title"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * BotPlanningSearchSourceMetadata _provider.
-                 * @member {"provider"|undefined} _provider
-                 * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(BotPlanningSearchSourceMetadata.prototype, "_provider", {
                     get: $util.oneOfGetter($oneOfFields = ["provider"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * BotPlanningSearchSourceMetadata _sourceUrl.
-                 * @member {"sourceUrl"|undefined} _sourceUrl
-                 * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(BotPlanningSearchSourceMetadata.prototype, "_sourceUrl", {
                     get: $util.oneOfGetter($oneOfFields = ["sourceUrl"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * BotPlanningSearchSourceMetadata _favIconUrl.
-                 * @member {"favIconUrl"|undefined} _favIconUrl
-                 * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(BotPlanningSearchSourceMetadata.prototype, "_favIconUrl", {
                     get: $util.oneOfGetter($oneOfFields = ["favIconUrl"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -122918,34 +115963,19 @@ $root.AICommon = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * BotPlanningSearchSourcesMetadata _sourceTitle.
-                 * @member {"sourceTitle"|undefined} _sourceTitle
-                 * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(BotPlanningSearchSourcesMetadata.prototype, "_sourceTitle", {
                     get: $util.oneOfGetter($oneOfFields = ["sourceTitle"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * BotPlanningSearchSourcesMetadata _provider.
-                 * @member {"provider"|undefined} _provider
-                 * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(BotPlanningSearchSourcesMetadata.prototype, "_provider", {
                     get: $util.oneOfGetter($oneOfFields = ["provider"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * BotPlanningSearchSourcesMetadata _sourceUrl.
-                 * @member {"sourceUrl"|undefined} _sourceUrl
-                 * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(BotPlanningSearchSourcesMetadata.prototype, "_sourceUrl", {
                     get: $util.oneOfGetter($oneOfFields = ["sourceUrl"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -123265,23 +116295,13 @@ $root.AICommon = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * BotPlanningStepSectionMetadata _sectionTitle.
-                 * @member {"sectionTitle"|undefined} _sectionTitle
-                 * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(BotPlanningStepSectionMetadata.prototype, "_sectionTitle", {
                     get: $util.oneOfGetter($oneOfFields = ["sectionTitle"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * BotPlanningStepSectionMetadata _sectionBody.
-                 * @member {"sectionBody"|undefined} _sectionBody
-                 * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(BotPlanningStepSectionMetadata.prototype, "_sectionBody", {
                     get: $util.oneOfGetter($oneOfFields = ["sectionBody"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -123612,34 +116632,19 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * BotModelMetadata _modelType.
-         * @member {"modelType"|undefined} _modelType
-         * @memberof AICommon.BotModelMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotModelMetadata.prototype, "_modelType", {
             get: $util.oneOfGetter($oneOfFields = ["modelType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotModelMetadata _premiumModelStatus.
-         * @member {"premiumModelStatus"|undefined} _premiumModelStatus
-         * @memberof AICommon.BotModelMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotModelMetadata.prototype, "_premiumModelStatus", {
             get: $util.oneOfGetter($oneOfFields = ["premiumModelStatus"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotModelMetadata _modelNameOverride.
-         * @member {"modelNameOverride"|undefined} _modelNameOverride
-         * @memberof AICommon.BotModelMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotModelMetadata.prototype, "_modelNameOverride", {
             get: $util.oneOfGetter($oneOfFields = ["modelNameOverride"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -124009,56 +117014,31 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * BotReminderMetadata _requestMessageKey.
-         * @member {"requestMessageKey"|undefined} _requestMessageKey
-         * @memberof AICommon.BotReminderMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotReminderMetadata.prototype, "_requestMessageKey", {
             get: $util.oneOfGetter($oneOfFields = ["requestMessageKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotReminderMetadata _action.
-         * @member {"action"|undefined} _action
-         * @memberof AICommon.BotReminderMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotReminderMetadata.prototype, "_action", {
             get: $util.oneOfGetter($oneOfFields = ["action"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotReminderMetadata _name.
-         * @member {"name"|undefined} _name
-         * @memberof AICommon.BotReminderMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotReminderMetadata.prototype, "_name", {
             get: $util.oneOfGetter($oneOfFields = ["name"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotReminderMetadata _nextTriggerTimestamp.
-         * @member {"nextTriggerTimestamp"|undefined} _nextTriggerTimestamp
-         * @memberof AICommon.BotReminderMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotReminderMetadata.prototype, "_nextTriggerTimestamp", {
             get: $util.oneOfGetter($oneOfFields = ["nextTriggerTimestamp"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotReminderMetadata _frequency.
-         * @member {"frequency"|undefined} _frequency
-         * @memberof AICommon.BotReminderMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotReminderMetadata.prototype, "_frequency", {
             get: $util.oneOfGetter($oneOfFields = ["frequency"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -124745,78 +117725,43 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * BotMediaMetadata _fileSha256.
-         * @member {"fileSha256"|undefined} _fileSha256
-         * @memberof AICommon.BotMediaMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMediaMetadata.prototype, "_fileSha256", {
             get: $util.oneOfGetter($oneOfFields = ["fileSha256"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMediaMetadata _mediaKey.
-         * @member {"mediaKey"|undefined} _mediaKey
-         * @memberof AICommon.BotMediaMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMediaMetadata.prototype, "_mediaKey", {
             get: $util.oneOfGetter($oneOfFields = ["mediaKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMediaMetadata _fileEncSha256.
-         * @member {"fileEncSha256"|undefined} _fileEncSha256
-         * @memberof AICommon.BotMediaMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMediaMetadata.prototype, "_fileEncSha256", {
             get: $util.oneOfGetter($oneOfFields = ["fileEncSha256"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMediaMetadata _directPath.
-         * @member {"directPath"|undefined} _directPath
-         * @memberof AICommon.BotMediaMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMediaMetadata.prototype, "_directPath", {
             get: $util.oneOfGetter($oneOfFields = ["directPath"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMediaMetadata _mediaKeyTimestamp.
-         * @member {"mediaKeyTimestamp"|undefined} _mediaKeyTimestamp
-         * @memberof AICommon.BotMediaMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMediaMetadata.prototype, "_mediaKeyTimestamp", {
             get: $util.oneOfGetter($oneOfFields = ["mediaKeyTimestamp"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMediaMetadata _mimetype.
-         * @member {"mimetype"|undefined} _mimetype
-         * @memberof AICommon.BotMediaMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMediaMetadata.prototype, "_mimetype", {
             get: $util.oneOfGetter($oneOfFields = ["mimetype"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMediaMetadata _orientationType.
-         * @member {"orientationType"|undefined} _orientationType
-         * @memberof AICommon.BotMediaMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMediaMetadata.prototype, "_orientationType", {
             get: $util.oneOfGetter($oneOfFields = ["orientationType"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -125201,23 +118146,13 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * BotSessionMetadata _sessionId.
-         * @member {"sessionId"|undefined} _sessionId
-         * @memberof AICommon.BotSessionMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotSessionMetadata.prototype, "_sessionId", {
             get: $util.oneOfGetter($oneOfFields = ["sessionId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotSessionMetadata _sessionSource.
-         * @member {"sessionSource"|undefined} _sessionSource
-         * @memberof AICommon.BotSessionMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotSessionMetadata.prototype, "_sessionSource", {
             get: $util.oneOfGetter($oneOfFields = ["sessionSource"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -125520,34 +118455,19 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * BotMetricsMetadata _destinationId.
-         * @member {"destinationId"|undefined} _destinationId
-         * @memberof AICommon.BotMetricsMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetricsMetadata.prototype, "_destinationId", {
             get: $util.oneOfGetter($oneOfFields = ["destinationId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetricsMetadata _destinationEntryPoint.
-         * @member {"destinationEntryPoint"|undefined} _destinationEntryPoint
-         * @memberof AICommon.BotMetricsMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetricsMetadata.prototype, "_destinationEntryPoint", {
             get: $util.oneOfGetter($oneOfFields = ["destinationEntryPoint"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMetricsMetadata _threadOrigin.
-         * @member {"threadOrigin"|undefined} _threadOrigin
-         * @memberof AICommon.BotMetricsMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetricsMetadata.prototype, "_threadOrigin", {
             get: $util.oneOfGetter($oneOfFields = ["threadOrigin"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -126292,12 +119212,7 @@ $root.AICommon = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * Keyword _value.
-             * @member {"value"|undefined} _value
-             * @memberof AICommon.BotRenderingMetadata.Keyword
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(Keyword.prototype, "_value", {
                 get: $util.oneOfGetter($oneOfFields = ["value"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -126557,23 +119472,13 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * BotPromotionMessageMetadata _promotionType.
-         * @member {"promotionType"|undefined} _promotionType
-         * @memberof AICommon.BotPromotionMessageMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotPromotionMessageMetadata.prototype, "_promotionType", {
             get: $util.oneOfGetter($oneOfFields = ["promotionType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotPromotionMessageMetadata _buttonTitle.
-         * @member {"buttonTitle"|undefined} _buttonTitle
-         * @memberof AICommon.BotPromotionMessageMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotPromotionMessageMetadata.prototype, "_buttonTitle", {
             get: $util.oneOfGetter($oneOfFields = ["buttonTitle"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -126877,34 +119782,19 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * BotSignatureVerificationUseCaseProof _version.
-         * @member {"version"|undefined} _version
-         * @memberof AICommon.BotSignatureVerificationUseCaseProof
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotSignatureVerificationUseCaseProof.prototype, "_version", {
             get: $util.oneOfGetter($oneOfFields = ["version"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotSignatureVerificationUseCaseProof _useCase.
-         * @member {"useCase"|undefined} _useCase
-         * @memberof AICommon.BotSignatureVerificationUseCaseProof
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotSignatureVerificationUseCaseProof.prototype, "_useCase", {
             get: $util.oneOfGetter($oneOfFields = ["useCase"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotSignatureVerificationUseCaseProof _signature.
-         * @member {"signature"|undefined} _signature
-         * @memberof AICommon.BotSignatureVerificationUseCaseProof
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotSignatureVerificationUseCaseProof.prototype, "_signature", {
             get: $util.oneOfGetter($oneOfFields = ["signature"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -127462,23 +120352,13 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * BotMemoryFact _fact.
-         * @member {"fact"|undefined} _fact
-         * @memberof AICommon.BotMemoryFact
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMemoryFact.prototype, "_fact", {
             get: $util.oneOfGetter($oneOfFields = ["fact"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotMemoryFact _factId.
-         * @member {"factId"|undefined} _factId
-         * @memberof AICommon.BotMemoryFact
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMemoryFact.prototype, "_factId", {
             get: $util.oneOfGetter($oneOfFields = ["factId"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -127734,12 +120614,7 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * BotMemoryMetadata _disclaimer.
-         * @member {"disclaimer"|undefined} _disclaimer
-         * @memberof AICommon.BotMemoryMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMemoryMetadata.prototype, "_disclaimer", {
             get: $util.oneOfGetter($oneOfFields = ["disclaimer"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -128027,12 +120902,7 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * BotLinkedAccount _type.
-         * @member {"type"|undefined} _type
-         * @memberof AICommon.BotLinkedAccount
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotLinkedAccount.prototype, "_type", {
             get: $util.oneOfGetter($oneOfFields = ["type"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -128295,23 +121165,13 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * BotLinkedAccountsMetadata _acAuthTokens.
-         * @member {"acAuthTokens"|undefined} _acAuthTokens
-         * @memberof AICommon.BotLinkedAccountsMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotLinkedAccountsMetadata.prototype, "_acAuthTokens", {
             get: $util.oneOfGetter($oneOfFields = ["acAuthTokens"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotLinkedAccountsMetadata _acErrorCode.
-         * @member {"acErrorCode"|undefined} _acErrorCode
-         * @memberof AICommon.BotLinkedAccountsMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotLinkedAccountsMetadata.prototype, "_acErrorCode", {
             get: $util.oneOfGetter($oneOfFields = ["acErrorCode"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -128594,23 +121454,13 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * BotPromptSuggestion _prompt.
-         * @member {"prompt"|undefined} _prompt
-         * @memberof AICommon.BotPromptSuggestion
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotPromptSuggestion.prototype, "_prompt", {
             get: $util.oneOfGetter($oneOfFields = ["prompt"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotPromptSuggestion _promptId.
-         * @member {"promptId"|undefined} _promptId
-         * @memberof AICommon.BotPromptSuggestion
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotPromptSuggestion.prototype, "_promptId", {
             get: $util.oneOfGetter($oneOfFields = ["promptId"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -129100,34 +121950,19 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * BotSuggestedPromptMetadata _selectedPromptIndex.
-         * @member {"selectedPromptIndex"|undefined} _selectedPromptIndex
-         * @memberof AICommon.BotSuggestedPromptMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotSuggestedPromptMetadata.prototype, "_selectedPromptIndex", {
             get: $util.oneOfGetter($oneOfFields = ["selectedPromptIndex"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotSuggestedPromptMetadata _promptSuggestions.
-         * @member {"promptSuggestions"|undefined} _promptSuggestions
-         * @memberof AICommon.BotSuggestedPromptMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotSuggestedPromptMetadata.prototype, "_promptSuggestions", {
             get: $util.oneOfGetter($oneOfFields = ["promptSuggestions"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotSuggestedPromptMetadata _selectedPromptId.
-         * @member {"selectedPromptId"|undefined} _selectedPromptId
-         * @memberof AICommon.BotSuggestedPromptMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotSuggestedPromptMetadata.prototype, "_selectedPromptId", {
             get: $util.oneOfGetter($oneOfFields = ["selectedPromptId"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -129516,133 +122351,73 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * BotPluginMetadata _provider.
-         * @member {"provider"|undefined} _provider
-         * @memberof AICommon.BotPluginMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotPluginMetadata.prototype, "_provider", {
             get: $util.oneOfGetter($oneOfFields = ["provider"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotPluginMetadata _pluginType.
-         * @member {"pluginType"|undefined} _pluginType
-         * @memberof AICommon.BotPluginMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotPluginMetadata.prototype, "_pluginType", {
             get: $util.oneOfGetter($oneOfFields = ["pluginType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotPluginMetadata _thumbnailCdnUrl.
-         * @member {"thumbnailCdnUrl"|undefined} _thumbnailCdnUrl
-         * @memberof AICommon.BotPluginMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotPluginMetadata.prototype, "_thumbnailCdnUrl", {
             get: $util.oneOfGetter($oneOfFields = ["thumbnailCdnUrl"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotPluginMetadata _profilePhotoCdnUrl.
-         * @member {"profilePhotoCdnUrl"|undefined} _profilePhotoCdnUrl
-         * @memberof AICommon.BotPluginMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotPluginMetadata.prototype, "_profilePhotoCdnUrl", {
             get: $util.oneOfGetter($oneOfFields = ["profilePhotoCdnUrl"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotPluginMetadata _searchProviderUrl.
-         * @member {"searchProviderUrl"|undefined} _searchProviderUrl
-         * @memberof AICommon.BotPluginMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotPluginMetadata.prototype, "_searchProviderUrl", {
             get: $util.oneOfGetter($oneOfFields = ["searchProviderUrl"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotPluginMetadata _referenceIndex.
-         * @member {"referenceIndex"|undefined} _referenceIndex
-         * @memberof AICommon.BotPluginMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotPluginMetadata.prototype, "_referenceIndex", {
             get: $util.oneOfGetter($oneOfFields = ["referenceIndex"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotPluginMetadata _expectedLinksCount.
-         * @member {"expectedLinksCount"|undefined} _expectedLinksCount
-         * @memberof AICommon.BotPluginMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotPluginMetadata.prototype, "_expectedLinksCount", {
             get: $util.oneOfGetter($oneOfFields = ["expectedLinksCount"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotPluginMetadata _searchQuery.
-         * @member {"searchQuery"|undefined} _searchQuery
-         * @memberof AICommon.BotPluginMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotPluginMetadata.prototype, "_searchQuery", {
             get: $util.oneOfGetter($oneOfFields = ["searchQuery"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotPluginMetadata _parentPluginMessageKey.
-         * @member {"parentPluginMessageKey"|undefined} _parentPluginMessageKey
-         * @memberof AICommon.BotPluginMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotPluginMetadata.prototype, "_parentPluginMessageKey", {
             get: $util.oneOfGetter($oneOfFields = ["parentPluginMessageKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotPluginMetadata _deprecatedField.
-         * @member {"deprecatedField"|undefined} _deprecatedField
-         * @memberof AICommon.BotPluginMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotPluginMetadata.prototype, "_deprecatedField", {
             get: $util.oneOfGetter($oneOfFields = ["deprecatedField"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotPluginMetadata _parentPluginType.
-         * @member {"parentPluginType"|undefined} _parentPluginType
-         * @memberof AICommon.BotPluginMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotPluginMetadata.prototype, "_parentPluginType", {
             get: $util.oneOfGetter($oneOfFields = ["parentPluginType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotPluginMetadata _faviconCdnUrl.
-         * @member {"faviconCdnUrl"|undefined} _faviconCdnUrl
-         * @memberof AICommon.BotPluginMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotPluginMetadata.prototype, "_faviconCdnUrl", {
             get: $util.oneOfGetter($oneOfFields = ["faviconCdnUrl"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -130235,56 +123010,31 @@ $root.AICommon = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * BotAvatarMetadata _sentiment.
-         * @member {"sentiment"|undefined} _sentiment
-         * @memberof AICommon.BotAvatarMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotAvatarMetadata.prototype, "_sentiment", {
             get: $util.oneOfGetter($oneOfFields = ["sentiment"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotAvatarMetadata _behaviorGraph.
-         * @member {"behaviorGraph"|undefined} _behaviorGraph
-         * @memberof AICommon.BotAvatarMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotAvatarMetadata.prototype, "_behaviorGraph", {
             get: $util.oneOfGetter($oneOfFields = ["behaviorGraph"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotAvatarMetadata _action.
-         * @member {"action"|undefined} _action
-         * @memberof AICommon.BotAvatarMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotAvatarMetadata.prototype, "_action", {
             get: $util.oneOfGetter($oneOfFields = ["action"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotAvatarMetadata _intensity.
-         * @member {"intensity"|undefined} _intensity
-         * @memberof AICommon.BotAvatarMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotAvatarMetadata.prototype, "_intensity", {
             get: $util.oneOfGetter($oneOfFields = ["intensity"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * BotAvatarMetadata _wordCount.
-         * @member {"wordCount"|undefined} _wordCount
-         * @memberof AICommon.BotAvatarMetadata
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotAvatarMetadata.prototype, "_wordCount", {
             get: $util.oneOfGetter($oneOfFields = ["wordCount"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -130849,23 +123599,13 @@ $root.StatusAttributions = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * StatusAttribution _type.
-         * @member {"type"|undefined} _type
-         * @memberof StatusAttributions.StatusAttribution
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(StatusAttribution.prototype, "_type", {
             get: $util.oneOfGetter($oneOfFields = ["type"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * StatusAttribution _actionUrl.
-         * @member {"actionUrl"|undefined} _actionUrl
-         * @memberof StatusAttributions.StatusAttribution
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(StatusAttribution.prototype, "_actionUrl", {
             get: $util.oneOfGetter($oneOfFields = ["actionUrl"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -131317,12 +124057,7 @@ $root.StatusAttributions = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * AiCreatedAttribution _source.
-             * @member {"source"|undefined} _source
-             * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AiCreatedAttribution.prototype, "_source", {
                 get: $util.oneOfGetter($oneOfFields = ["source"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -131600,45 +124335,25 @@ $root.StatusAttributions = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * ExternalShare _actionUrl.
-             * @member {"actionUrl"|undefined} _actionUrl
-             * @memberof StatusAttributions.StatusAttribution.ExternalShare
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalShare.prototype, "_actionUrl", {
                 get: $util.oneOfGetter($oneOfFields = ["actionUrl"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExternalShare _source.
-             * @member {"source"|undefined} _source
-             * @memberof StatusAttributions.StatusAttribution.ExternalShare
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalShare.prototype, "_source", {
                 get: $util.oneOfGetter($oneOfFields = ["source"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExternalShare _duration.
-             * @member {"duration"|undefined} _duration
-             * @memberof StatusAttributions.StatusAttribution.ExternalShare
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalShare.prototype, "_duration", {
                 get: $util.oneOfGetter($oneOfFields = ["duration"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * ExternalShare _actionFallbackUrl.
-             * @member {"actionFallbackUrl"|undefined} _actionFallbackUrl
-             * @memberof StatusAttributions.StatusAttribution.ExternalShare
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(ExternalShare.prototype, "_actionFallbackUrl", {
                 get: $util.oneOfGetter($oneOfFields = ["actionFallbackUrl"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -132006,12 +124721,7 @@ $root.StatusAttributions = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * GroupStatus _authorJid.
-             * @member {"authorJid"|undefined} _authorJid
-             * @memberof StatusAttributions.StatusAttribution.GroupStatus
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(GroupStatus.prototype, "_authorJid", {
                 get: $util.oneOfGetter($oneOfFields = ["authorJid"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -132274,67 +124984,37 @@ $root.StatusAttributions = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * Music _authorName.
-             * @member {"authorName"|undefined} _authorName
-             * @memberof StatusAttributions.StatusAttribution.Music
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(Music.prototype, "_authorName", {
                 get: $util.oneOfGetter($oneOfFields = ["authorName"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * Music _songId.
-             * @member {"songId"|undefined} _songId
-             * @memberof StatusAttributions.StatusAttribution.Music
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(Music.prototype, "_songId", {
                 get: $util.oneOfGetter($oneOfFields = ["songId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * Music _title.
-             * @member {"title"|undefined} _title
-             * @memberof StatusAttributions.StatusAttribution.Music
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(Music.prototype, "_title", {
                 get: $util.oneOfGetter($oneOfFields = ["title"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * Music _author.
-             * @member {"author"|undefined} _author
-             * @memberof StatusAttributions.StatusAttribution.Music
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(Music.prototype, "_author", {
                 get: $util.oneOfGetter($oneOfFields = ["author"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * Music _artistAttribution.
-             * @member {"artistAttribution"|undefined} _artistAttribution
-             * @memberof StatusAttributions.StatusAttribution.Music
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(Music.prototype, "_artistAttribution", {
                 get: $util.oneOfGetter($oneOfFields = ["artistAttribution"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * Music _isExplicit.
-             * @member {"isExplicit"|undefined} _isExplicit
-             * @memberof StatusAttributions.StatusAttribution.Music
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(Music.prototype, "_isExplicit", {
                 get: $util.oneOfGetter($oneOfFields = ["isExplicit"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -132642,12 +125322,7 @@ $root.StatusAttributions = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * RLAttribution _source.
-             * @member {"source"|undefined} _source
-             * @memberof StatusAttributions.StatusAttribution.RLAttribution
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(RLAttribution.prototype, "_source", {
                 get: $util.oneOfGetter($oneOfFields = ["source"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -132921,23 +125596,13 @@ $root.StatusAttributions = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * StatusReshare _source.
-             * @member {"source"|undefined} _source
-             * @memberof StatusAttributions.StatusAttribution.StatusReshare
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StatusReshare.prototype, "_source", {
                 get: $util.oneOfGetter($oneOfFields = ["source"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * StatusReshare _metadata.
-             * @member {"metadata"|undefined} _metadata
-             * @memberof StatusAttributions.StatusAttribution.StatusReshare
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(StatusReshare.prototype, "_metadata", {
                 get: $util.oneOfGetter($oneOfFields = ["metadata"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -133237,45 +125902,25 @@ $root.StatusAttributions = (function() {
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
-                /**
-                 * Metadata _duration.
-                 * @member {"duration"|undefined} _duration
-                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Metadata.prototype, "_duration", {
                     get: $util.oneOfGetter($oneOfFields = ["duration"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * Metadata _channelJid.
-                 * @member {"channelJid"|undefined} _channelJid
-                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Metadata.prototype, "_channelJid", {
                     get: $util.oneOfGetter($oneOfFields = ["channelJid"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * Metadata _channelMessageId.
-                 * @member {"channelMessageId"|undefined} _channelMessageId
-                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Metadata.prototype, "_channelMessageId", {
                     get: $util.oneOfGetter($oneOfFields = ["channelMessageId"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
-                /**
-                 * Metadata _hasMultipleReshares.
-                 * @member {"hasMultipleReshares"|undefined} _hasMultipleReshares
-                 * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
-                 * @instance
-                 */
+                // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Metadata.prototype, "_hasMultipleReshares", {
                     get: $util.oneOfGetter($oneOfFields = ["hasMultipleReshares"]),
                     set: $util.oneOfSetter($oneOfFields)
@@ -133631,34 +126276,19 @@ $root.Adv = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * ADVSignedDeviceIdentityHMAC _details.
-         * @member {"details"|undefined} _details
-         * @memberof Adv.ADVSignedDeviceIdentityHMAC
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ADVSignedDeviceIdentityHMAC.prototype, "_details", {
             get: $util.oneOfGetter($oneOfFields = ["details"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ADVSignedDeviceIdentityHMAC _hmac.
-         * @member {"hmac"|undefined} _hmac
-         * @memberof Adv.ADVSignedDeviceIdentityHMAC
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ADVSignedDeviceIdentityHMAC.prototype, "_hmac", {
             get: $util.oneOfGetter($oneOfFields = ["hmac"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ADVSignedDeviceIdentityHMAC _accountType.
-         * @member {"accountType"|undefined} _accountType
-         * @memberof Adv.ADVSignedDeviceIdentityHMAC
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ADVSignedDeviceIdentityHMAC.prototype, "_accountType", {
             get: $util.oneOfGetter($oneOfFields = ["accountType"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -133964,45 +126594,25 @@ $root.Adv = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * ADVSignedDeviceIdentity _details.
-         * @member {"details"|undefined} _details
-         * @memberof Adv.ADVSignedDeviceIdentity
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ADVSignedDeviceIdentity.prototype, "_details", {
             get: $util.oneOfGetter($oneOfFields = ["details"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ADVSignedDeviceIdentity _accountSignatureKey.
-         * @member {"accountSignatureKey"|undefined} _accountSignatureKey
-         * @memberof Adv.ADVSignedDeviceIdentity
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ADVSignedDeviceIdentity.prototype, "_accountSignatureKey", {
             get: $util.oneOfGetter($oneOfFields = ["accountSignatureKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ADVSignedDeviceIdentity _accountSignature.
-         * @member {"accountSignature"|undefined} _accountSignature
-         * @memberof Adv.ADVSignedDeviceIdentity
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ADVSignedDeviceIdentity.prototype, "_accountSignature", {
             get: $util.oneOfGetter($oneOfFields = ["accountSignature"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ADVSignedDeviceIdentity _deviceSignature.
-         * @member {"deviceSignature"|undefined} _deviceSignature
-         * @memberof Adv.ADVSignedDeviceIdentity
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ADVSignedDeviceIdentity.prototype, "_deviceSignature", {
             get: $util.oneOfGetter($oneOfFields = ["deviceSignature"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -134322,56 +126932,31 @@ $root.Adv = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * ADVDeviceIdentity _rawId.
-         * @member {"rawId"|undefined} _rawId
-         * @memberof Adv.ADVDeviceIdentity
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ADVDeviceIdentity.prototype, "_rawId", {
             get: $util.oneOfGetter($oneOfFields = ["rawId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ADVDeviceIdentity _timestamp.
-         * @member {"timestamp"|undefined} _timestamp
-         * @memberof Adv.ADVDeviceIdentity
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ADVDeviceIdentity.prototype, "_timestamp", {
             get: $util.oneOfGetter($oneOfFields = ["timestamp"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ADVDeviceIdentity _keyIndex.
-         * @member {"keyIndex"|undefined} _keyIndex
-         * @memberof Adv.ADVDeviceIdentity
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ADVDeviceIdentity.prototype, "_keyIndex", {
             get: $util.oneOfGetter($oneOfFields = ["keyIndex"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ADVDeviceIdentity _accountType.
-         * @member {"accountType"|undefined} _accountType
-         * @memberof Adv.ADVDeviceIdentity
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ADVDeviceIdentity.prototype, "_accountType", {
             get: $util.oneOfGetter($oneOfFields = ["accountType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ADVDeviceIdentity _deviceType.
-         * @member {"deviceType"|undefined} _deviceType
-         * @memberof Adv.ADVDeviceIdentity
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ADVDeviceIdentity.prototype, "_deviceType", {
             get: $util.oneOfGetter($oneOfFields = ["deviceType"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -134727,34 +127312,19 @@ $root.Adv = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * ADVSignedKeyIndexList _details.
-         * @member {"details"|undefined} _details
-         * @memberof Adv.ADVSignedKeyIndexList
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ADVSignedKeyIndexList.prototype, "_details", {
             get: $util.oneOfGetter($oneOfFields = ["details"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ADVSignedKeyIndexList _accountSignature.
-         * @member {"accountSignature"|undefined} _accountSignature
-         * @memberof Adv.ADVSignedKeyIndexList
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ADVSignedKeyIndexList.prototype, "_accountSignature", {
             get: $util.oneOfGetter($oneOfFields = ["accountSignature"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ADVSignedKeyIndexList _accountSignatureKey.
-         * @member {"accountSignatureKey"|undefined} _accountSignatureKey
-         * @memberof Adv.ADVSignedKeyIndexList
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ADVSignedKeyIndexList.prototype, "_accountSignatureKey", {
             get: $util.oneOfGetter($oneOfFields = ["accountSignatureKey"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -135054,45 +127624,25 @@ $root.Adv = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * ADVKeyIndexList _rawId.
-         * @member {"rawId"|undefined} _rawId
-         * @memberof Adv.ADVKeyIndexList
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ADVKeyIndexList.prototype, "_rawId", {
             get: $util.oneOfGetter($oneOfFields = ["rawId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ADVKeyIndexList _timestamp.
-         * @member {"timestamp"|undefined} _timestamp
-         * @memberof Adv.ADVKeyIndexList
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ADVKeyIndexList.prototype, "_timestamp", {
             get: $util.oneOfGetter($oneOfFields = ["timestamp"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ADVKeyIndexList _currentIndex.
-         * @member {"currentIndex"|undefined} _currentIndex
-         * @memberof Adv.ADVKeyIndexList
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ADVKeyIndexList.prototype, "_currentIndex", {
             get: $util.oneOfGetter($oneOfFields = ["currentIndex"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ADVKeyIndexList _accountType.
-         * @member {"accountType"|undefined} _accountType
-         * @memberof Adv.ADVKeyIndexList
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ADVKeyIndexList.prototype, "_accountType", {
             get: $util.oneOfGetter($oneOfFields = ["accountType"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -135484,45 +128034,25 @@ $root.CompanionReg = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * ClientPairingProps _isChatDbLidMigrated.
-         * @member {"isChatDbLidMigrated"|undefined} _isChatDbLidMigrated
-         * @memberof CompanionReg.ClientPairingProps
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ClientPairingProps.prototype, "_isChatDbLidMigrated", {
             get: $util.oneOfGetter($oneOfFields = ["isChatDbLidMigrated"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ClientPairingProps _isSyncdPureLidSession.
-         * @member {"isSyncdPureLidSession"|undefined} _isSyncdPureLidSession
-         * @memberof CompanionReg.ClientPairingProps
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ClientPairingProps.prototype, "_isSyncdPureLidSession", {
             get: $util.oneOfGetter($oneOfFields = ["isSyncdPureLidSession"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ClientPairingProps _isSyncdSnapshotRecoveryEnabled.
-         * @member {"isSyncdSnapshotRecoveryEnabled"|undefined} _isSyncdSnapshotRecoveryEnabled
-         * @memberof CompanionReg.ClientPairingProps
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ClientPairingProps.prototype, "_isSyncdSnapshotRecoveryEnabled", {
             get: $util.oneOfGetter($oneOfFields = ["isSyncdSnapshotRecoveryEnabled"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ClientPairingProps _isHsThumbnailSyncEnabled.
-         * @member {"isHsThumbnailSyncEnabled"|undefined} _isHsThumbnailSyncEnabled
-         * @memberof CompanionReg.ClientPairingProps
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ClientPairingProps.prototype, "_isHsThumbnailSyncEnabled", {
             get: $util.oneOfGetter($oneOfFields = ["isHsThumbnailSyncEnabled"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -135803,23 +128333,13 @@ $root.CompanionReg = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * EncryptedPairingRequest _encryptedPayload.
-         * @member {"encryptedPayload"|undefined} _encryptedPayload
-         * @memberof CompanionReg.EncryptedPairingRequest
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(EncryptedPairingRequest.prototype, "_encryptedPayload", {
             get: $util.oneOfGetter($oneOfFields = ["encryptedPayload"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * EncryptedPairingRequest _iv.
-         * @member {"iv"|undefined} _iv
-         * @memberof CompanionReg.EncryptedPairingRequest
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(EncryptedPairingRequest.prototype, "_iv", {
             get: $util.oneOfGetter($oneOfFields = ["iv"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -136079,34 +128599,19 @@ $root.CompanionReg = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * PairingRequest _companionPublicKey.
-         * @member {"companionPublicKey"|undefined} _companionPublicKey
-         * @memberof CompanionReg.PairingRequest
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PairingRequest.prototype, "_companionPublicKey", {
             get: $util.oneOfGetter($oneOfFields = ["companionPublicKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PairingRequest _companionIdentityKey.
-         * @member {"companionIdentityKey"|undefined} _companionIdentityKey
-         * @memberof CompanionReg.PairingRequest
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PairingRequest.prototype, "_companionIdentityKey", {
             get: $util.oneOfGetter($oneOfFields = ["companionIdentityKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PairingRequest _advSecret.
-         * @member {"advSecret"|undefined} _advSecret
-         * @memberof CompanionReg.PairingRequest
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PairingRequest.prototype, "_advSecret", {
             get: $util.oneOfGetter($oneOfFields = ["advSecret"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -136378,23 +128883,13 @@ $root.CompanionReg = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * PrimaryEphemeralIdentity _publicKey.
-         * @member {"publicKey"|undefined} _publicKey
-         * @memberof CompanionReg.PrimaryEphemeralIdentity
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PrimaryEphemeralIdentity.prototype, "_publicKey", {
             get: $util.oneOfGetter($oneOfFields = ["publicKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * PrimaryEphemeralIdentity _nonce.
-         * @member {"nonce"|undefined} _nonce
-         * @memberof CompanionReg.PrimaryEphemeralIdentity
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(PrimaryEphemeralIdentity.prototype, "_nonce", {
             get: $util.oneOfGetter($oneOfFields = ["nonce"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -136645,23 +129140,13 @@ $root.CompanionReg = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * ProloguePayload _companionEphemeralIdentity.
-         * @member {"companionEphemeralIdentity"|undefined} _companionEphemeralIdentity
-         * @memberof CompanionReg.ProloguePayload
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ProloguePayload.prototype, "_companionEphemeralIdentity", {
             get: $util.oneOfGetter($oneOfFields = ["companionEphemeralIdentity"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * ProloguePayload _commitment.
-         * @member {"commitment"|undefined} _commitment
-         * @memberof CompanionReg.ProloguePayload
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ProloguePayload.prototype, "_commitment", {
             get: $util.oneOfGetter($oneOfFields = ["commitment"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -136906,12 +129391,7 @@ $root.CompanionReg = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * CompanionCommitment _hash.
-         * @member {"hash"|undefined} _hash
-         * @memberof CompanionReg.CompanionCommitment
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(CompanionCommitment.prototype, "_hash", {
             get: $util.oneOfGetter($oneOfFields = ["hash"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -137150,34 +129630,19 @@ $root.CompanionReg = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * CompanionEphemeralIdentity _publicKey.
-         * @member {"publicKey"|undefined} _publicKey
-         * @memberof CompanionReg.CompanionEphemeralIdentity
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(CompanionEphemeralIdentity.prototype, "_publicKey", {
             get: $util.oneOfGetter($oneOfFields = ["publicKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * CompanionEphemeralIdentity _deviceType.
-         * @member {"deviceType"|undefined} _deviceType
-         * @memberof CompanionReg.CompanionEphemeralIdentity
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(CompanionEphemeralIdentity.prototype, "_deviceType", {
             get: $util.oneOfGetter($oneOfFields = ["deviceType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * CompanionEphemeralIdentity _ref.
-         * @member {"ref"|undefined} _ref
-         * @memberof CompanionReg.CompanionEphemeralIdentity
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(CompanionEphemeralIdentity.prototype, "_ref", {
             get: $util.oneOfGetter($oneOfFields = ["ref"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -137604,56 +130069,31 @@ $root.CompanionReg = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * DeviceProps _os.
-         * @member {"os"|undefined} _os
-         * @memberof CompanionReg.DeviceProps
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DeviceProps.prototype, "_os", {
             get: $util.oneOfGetter($oneOfFields = ["os"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * DeviceProps _version.
-         * @member {"version"|undefined} _version
-         * @memberof CompanionReg.DeviceProps
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DeviceProps.prototype, "_version", {
             get: $util.oneOfGetter($oneOfFields = ["version"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * DeviceProps _platformType.
-         * @member {"platformType"|undefined} _platformType
-         * @memberof CompanionReg.DeviceProps
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DeviceProps.prototype, "_platformType", {
             get: $util.oneOfGetter($oneOfFields = ["platformType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * DeviceProps _requireFullSync.
-         * @member {"requireFullSync"|undefined} _requireFullSync
-         * @memberof CompanionReg.DeviceProps
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DeviceProps.prototype, "_requireFullSync", {
             get: $util.oneOfGetter($oneOfFields = ["requireFullSync"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * DeviceProps _historySyncConfig.
-         * @member {"historySyncConfig"|undefined} _historySyncConfig
-         * @memberof CompanionReg.DeviceProps
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DeviceProps.prototype, "_historySyncConfig", {
             get: $util.oneOfGetter($oneOfFields = ["historySyncConfig"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -138122,56 +130562,31 @@ $root.CompanionReg = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * AppVersion _primary.
-             * @member {"primary"|undefined} _primary
-             * @memberof CompanionReg.DeviceProps.AppVersion
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AppVersion.prototype, "_primary", {
                 get: $util.oneOfGetter($oneOfFields = ["primary"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AppVersion _secondary.
-             * @member {"secondary"|undefined} _secondary
-             * @memberof CompanionReg.DeviceProps.AppVersion
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AppVersion.prototype, "_secondary", {
                 get: $util.oneOfGetter($oneOfFields = ["secondary"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AppVersion _tertiary.
-             * @member {"tertiary"|undefined} _tertiary
-             * @memberof CompanionReg.DeviceProps.AppVersion
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AppVersion.prototype, "_tertiary", {
                 get: $util.oneOfGetter($oneOfFields = ["tertiary"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AppVersion _quaternary.
-             * @member {"quaternary"|undefined} _quaternary
-             * @memberof CompanionReg.DeviceProps.AppVersion
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AppVersion.prototype, "_quaternary", {
                 get: $util.oneOfGetter($oneOfFields = ["quaternary"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * AppVersion _quinary.
-             * @member {"quinary"|undefined} _quinary
-             * @memberof CompanionReg.DeviceProps.AppVersion
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AppVersion.prototype, "_quinary", {
                 get: $util.oneOfGetter($oneOfFields = ["quinary"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -138623,210 +131038,115 @@ $root.CompanionReg = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * HistorySyncConfig _fullSyncDaysLimit.
-             * @member {"fullSyncDaysLimit"|undefined} _fullSyncDaysLimit
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_fullSyncDaysLimit", {
                 get: $util.oneOfGetter($oneOfFields = ["fullSyncDaysLimit"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _fullSyncSizeMbLimit.
-             * @member {"fullSyncSizeMbLimit"|undefined} _fullSyncSizeMbLimit
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_fullSyncSizeMbLimit", {
                 get: $util.oneOfGetter($oneOfFields = ["fullSyncSizeMbLimit"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _storageQuotaMb.
-             * @member {"storageQuotaMb"|undefined} _storageQuotaMb
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_storageQuotaMb", {
                 get: $util.oneOfGetter($oneOfFields = ["storageQuotaMb"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _inlineInitialPayloadInE2EeMsg.
-             * @member {"inlineInitialPayloadInE2EeMsg"|undefined} _inlineInitialPayloadInE2EeMsg
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_inlineInitialPayloadInE2EeMsg", {
                 get: $util.oneOfGetter($oneOfFields = ["inlineInitialPayloadInE2EeMsg"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _recentSyncDaysLimit.
-             * @member {"recentSyncDaysLimit"|undefined} _recentSyncDaysLimit
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_recentSyncDaysLimit", {
                 get: $util.oneOfGetter($oneOfFields = ["recentSyncDaysLimit"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _supportCallLogHistory.
-             * @member {"supportCallLogHistory"|undefined} _supportCallLogHistory
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_supportCallLogHistory", {
                 get: $util.oneOfGetter($oneOfFields = ["supportCallLogHistory"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _supportBotUserAgentChatHistory.
-             * @member {"supportBotUserAgentChatHistory"|undefined} _supportBotUserAgentChatHistory
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_supportBotUserAgentChatHistory", {
                 get: $util.oneOfGetter($oneOfFields = ["supportBotUserAgentChatHistory"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _supportCagReactionsAndPolls.
-             * @member {"supportCagReactionsAndPolls"|undefined} _supportCagReactionsAndPolls
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_supportCagReactionsAndPolls", {
                 get: $util.oneOfGetter($oneOfFields = ["supportCagReactionsAndPolls"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _supportBizHostedMsg.
-             * @member {"supportBizHostedMsg"|undefined} _supportBizHostedMsg
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_supportBizHostedMsg", {
                 get: $util.oneOfGetter($oneOfFields = ["supportBizHostedMsg"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _supportRecentSyncChunkMessageCountTuning.
-             * @member {"supportRecentSyncChunkMessageCountTuning"|undefined} _supportRecentSyncChunkMessageCountTuning
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_supportRecentSyncChunkMessageCountTuning", {
                 get: $util.oneOfGetter($oneOfFields = ["supportRecentSyncChunkMessageCountTuning"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _supportHostedGroupMsg.
-             * @member {"supportHostedGroupMsg"|undefined} _supportHostedGroupMsg
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_supportHostedGroupMsg", {
                 get: $util.oneOfGetter($oneOfFields = ["supportHostedGroupMsg"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _supportFbidBotChatHistory.
-             * @member {"supportFbidBotChatHistory"|undefined} _supportFbidBotChatHistory
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_supportFbidBotChatHistory", {
                 get: $util.oneOfGetter($oneOfFields = ["supportFbidBotChatHistory"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _supportAddOnHistorySyncMigration.
-             * @member {"supportAddOnHistorySyncMigration"|undefined} _supportAddOnHistorySyncMigration
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_supportAddOnHistorySyncMigration", {
                 get: $util.oneOfGetter($oneOfFields = ["supportAddOnHistorySyncMigration"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _supportMessageAssociation.
-             * @member {"supportMessageAssociation"|undefined} _supportMessageAssociation
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_supportMessageAssociation", {
                 get: $util.oneOfGetter($oneOfFields = ["supportMessageAssociation"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _supportGroupHistory.
-             * @member {"supportGroupHistory"|undefined} _supportGroupHistory
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_supportGroupHistory", {
                 get: $util.oneOfGetter($oneOfFields = ["supportGroupHistory"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _onDemandReady.
-             * @member {"onDemandReady"|undefined} _onDemandReady
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_onDemandReady", {
                 get: $util.oneOfGetter($oneOfFields = ["onDemandReady"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _supportGuestChat.
-             * @member {"supportGuestChat"|undefined} _supportGuestChat
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_supportGuestChat", {
                 get: $util.oneOfGetter($oneOfFields = ["supportGuestChat"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _completeOnDemandReady.
-             * @member {"completeOnDemandReady"|undefined} _completeOnDemandReady
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_completeOnDemandReady", {
                 get: $util.oneOfGetter($oneOfFields = ["completeOnDemandReady"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * HistorySyncConfig _thumbnailSyncDaysLimit.
-             * @member {"thumbnailSyncDaysLimit"|undefined} _thumbnailSyncDaysLimit
-             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(HistorySyncConfig.prototype, "_thumbnailSyncDaysLimit", {
                 get: $util.oneOfGetter($oneOfFields = ["thumbnailSyncDaysLimit"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -139443,12 +131763,7 @@ $root.MmsRetry = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * ServerErrorReceipt _stanzaId.
-         * @member {"stanzaId"|undefined} _stanzaId
-         * @memberof MmsRetry.ServerErrorReceipt
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(ServerErrorReceipt.prototype, "_stanzaId", {
             get: $util.oneOfGetter($oneOfFields = ["stanzaId"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -139693,45 +132008,25 @@ $root.MmsRetry = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * MediaRetryNotification _stanzaId.
-         * @member {"stanzaId"|undefined} _stanzaId
-         * @memberof MmsRetry.MediaRetryNotification
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MediaRetryNotification.prototype, "_stanzaId", {
             get: $util.oneOfGetter($oneOfFields = ["stanzaId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MediaRetryNotification _directPath.
-         * @member {"directPath"|undefined} _directPath
-         * @memberof MmsRetry.MediaRetryNotification
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MediaRetryNotification.prototype, "_directPath", {
             get: $util.oneOfGetter($oneOfFields = ["directPath"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MediaRetryNotification _result.
-         * @member {"result"|undefined} _result
-         * @memberof MmsRetry.MediaRetryNotification
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MediaRetryNotification.prototype, "_result", {
             get: $util.oneOfGetter($oneOfFields = ["result"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * MediaRetryNotification _messageSecret.
-         * @member {"messageSecret"|undefined} _messageSecret
-         * @memberof MmsRetry.MediaRetryNotification
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(MediaRetryNotification.prototype, "_messageSecret", {
             get: $util.oneOfGetter($oneOfFields = ["messageSecret"]),
             set: $util.oneOfSetter($oneOfFields)

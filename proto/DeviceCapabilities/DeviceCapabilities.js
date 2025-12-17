@@ -98,67 +98,37 @@ $root.DeviceCapabilities = (function() {
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
-        /**
-         * DeviceCapabilities _chatLockSupportLevel.
-         * @member {"chatLockSupportLevel"|undefined} _chatLockSupportLevel
-         * @memberof DeviceCapabilities.DeviceCapabilities
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DeviceCapabilities.prototype, "_chatLockSupportLevel", {
             get: $util.oneOfGetter($oneOfFields = ["chatLockSupportLevel"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * DeviceCapabilities _lidMigration.
-         * @member {"lidMigration"|undefined} _lidMigration
-         * @memberof DeviceCapabilities.DeviceCapabilities
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DeviceCapabilities.prototype, "_lidMigration", {
             get: $util.oneOfGetter($oneOfFields = ["lidMigration"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * DeviceCapabilities _businessBroadcast.
-         * @member {"businessBroadcast"|undefined} _businessBroadcast
-         * @memberof DeviceCapabilities.DeviceCapabilities
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DeviceCapabilities.prototype, "_businessBroadcast", {
             get: $util.oneOfGetter($oneOfFields = ["businessBroadcast"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * DeviceCapabilities _userHasAvatar.
-         * @member {"userHasAvatar"|undefined} _userHasAvatar
-         * @memberof DeviceCapabilities.DeviceCapabilities
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DeviceCapabilities.prototype, "_userHasAvatar", {
             get: $util.oneOfGetter($oneOfFields = ["userHasAvatar"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * DeviceCapabilities _memberNameTagPrimarySupport.
-         * @member {"memberNameTagPrimarySupport"|undefined} _memberNameTagPrimarySupport
-         * @memberof DeviceCapabilities.DeviceCapabilities
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DeviceCapabilities.prototype, "_memberNameTagPrimarySupport", {
             get: $util.oneOfGetter($oneOfFields = ["memberNameTagPrimarySupport"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
-        /**
-         * DeviceCapabilities _aiThread.
-         * @member {"aiThread"|undefined} _aiThread
-         * @memberof DeviceCapabilities.DeviceCapabilities
-         * @instance
-         */
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(DeviceCapabilities.prototype, "_aiThread", {
             get: $util.oneOfGetter($oneOfFields = ["aiThread"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -535,12 +505,7 @@ $root.DeviceCapabilities = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * AiThread _supportLevel.
-             * @member {"supportLevel"|undefined} _supportLevel
-             * @memberof DeviceCapabilities.DeviceCapabilities.AiThread
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(AiThread.prototype, "_supportLevel", {
                 get: $util.oneOfGetter($oneOfFields = ["supportLevel"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -798,12 +763,7 @@ $root.DeviceCapabilities = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * BusinessBroadcast _importListEnabled.
-             * @member {"importListEnabled"|undefined} _importListEnabled
-             * @memberof DeviceCapabilities.DeviceCapabilities.BusinessBroadcast
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(BusinessBroadcast.prototype, "_importListEnabled", {
                 get: $util.oneOfGetter($oneOfFields = ["importListEnabled"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -1037,12 +997,7 @@ $root.DeviceCapabilities = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * LIDMigration _chatDbMigrationTimestamp.
-             * @member {"chatDbMigrationTimestamp"|undefined} _chatDbMigrationTimestamp
-             * @memberof DeviceCapabilities.DeviceCapabilities.LIDMigration
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(LIDMigration.prototype, "_chatDbMigrationTimestamp", {
                 get: $util.oneOfGetter($oneOfFields = ["chatDbMigrationTimestamp"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -1286,12 +1241,7 @@ $root.DeviceCapabilities = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * UserHasAvatar _userHasAvatar.
-             * @member {"userHasAvatar"|undefined} _userHasAvatar
-             * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(UserHasAvatar.prototype, "_userHasAvatar", {
                 get: $util.oneOfGetter($oneOfFields = ["userHasAvatar"]),
                 set: $util.oneOfSetter($oneOfFields)
