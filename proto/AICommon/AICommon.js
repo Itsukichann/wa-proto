@@ -18944,11 +18944,11 @@ $root.AICommon = (function() {
                             message.mode[i] = object.mode[i];
                             break;
                         }
-                    case "UNKNOWN_MODE":
+                    case "DEFAULT_MODE":
                     case 0:
                         message.mode[i] = 0;
                         break;
-                    case "REASONING_MODE":
+                    case "THINK_HARD_MODE":
                     case 1:
                         message.mode[i] = 1;
                         break;
@@ -19010,13 +19010,13 @@ $root.AICommon = (function() {
          * BotUserSelectionMode enum.
          * @name AICommon.BotModeSelectionMetadata.BotUserSelectionMode
          * @enum {number}
-         * @property {number} UNKNOWN_MODE=0 UNKNOWN_MODE value
-         * @property {number} REASONING_MODE=1 REASONING_MODE value
+         * @property {number} DEFAULT_MODE=0 DEFAULT_MODE value
+         * @property {number} THINK_HARD_MODE=1 THINK_HARD_MODE value
          */
         BotModeSelectionMetadata.BotUserSelectionMode = (function() {
             var valuesById = {}, values = Object.create(valuesById);
-            values[valuesById[0] = "UNKNOWN_MODE"] = 0;
-            values[valuesById[1] = "REASONING_MODE"] = 1;
+            values[valuesById[0] = "DEFAULT_MODE"] = 0;
+            values[valuesById[1] = "THINK_HARD_MODE"] = 1;
             return values;
         })();
 
@@ -19230,6 +19230,8 @@ $root.AICommon = (function() {
                     case 52:
                     case 53:
                     case 54:
+                    case 55:
+                    case 56:
                         break;
                     }
             }
@@ -19479,6 +19481,14 @@ $root.AICommon = (function() {
                     case 54:
                         message.capabilities[i] = 54;
                         break;
+                    case "RICH_RESPONSE_UR_BLOKS_ENABLED":
+                    case 55:
+                        message.capabilities[i] = 55;
+                        break;
+                    case "RICH_RESPONSE_INLINE_LINKS_ENABLED":
+                    case 56:
+                        message.capabilities[i] = 56;
+                        break;
                     }
             }
             return message;
@@ -19592,6 +19602,8 @@ $root.AICommon = (function() {
          * @property {number} AI_IMAGINE_LOADING_INDICATOR=52 AI_IMAGINE_LOADING_INDICATOR value
          * @property {number} RICH_RESPONSE_UR_IMAGINE=53 RICH_RESPONSE_UR_IMAGINE value
          * @property {number} AI_IMAGINE_UR_TO_NATIVE_LOADING_INDICATOR=54 AI_IMAGINE_UR_TO_NATIVE_LOADING_INDICATOR value
+         * @property {number} RICH_RESPONSE_UR_BLOKS_ENABLED=55 RICH_RESPONSE_UR_BLOKS_ENABLED value
+         * @property {number} RICH_RESPONSE_INLINE_LINKS_ENABLED=56 RICH_RESPONSE_INLINE_LINKS_ENABLED value
          */
         BotCapabilityMetadata.BotCapabilityType = (function() {
             var valuesById = {}, values = Object.create(valuesById);
@@ -19650,6 +19662,8 @@ $root.AICommon = (function() {
             values[valuesById[52] = "AI_IMAGINE_LOADING_INDICATOR"] = 52;
             values[valuesById[53] = "RICH_RESPONSE_UR_IMAGINE"] = 53;
             values[valuesById[54] = "AI_IMAGINE_UR_TO_NATIVE_LOADING_INDICATOR"] = 54;
+            values[valuesById[55] = "RICH_RESPONSE_UR_BLOKS_ENABLED"] = 55;
+            values[valuesById[56] = "RICH_RESPONSE_INLINE_LINKS_ENABLED"] = 56;
             return values;
         })();
 
