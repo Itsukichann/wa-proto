@@ -346,6 +346,7 @@ $root.AICommon = (function() {
              * @property {string|null} [imageWdsIdentifier] AIHomeOption imageWdsIdentifier
              * @property {string|null} [imageTintColor] AIHomeOption imageTintColor
              * @property {string|null} [imageBackgroundColor] AIHomeOption imageBackgroundColor
+             * @property {string|null} [cardTypeId] AIHomeOption cardTypeId
              */
 
             /**
@@ -419,6 +420,14 @@ $root.AICommon = (function() {
              */
             AIHomeOption.prototype.imageBackgroundColor = null;
 
+            /**
+             * AIHomeOption cardTypeId.
+             * @member {string|null|undefined} cardTypeId
+             * @memberof AICommon.AIHomeState.AIHomeOption
+             * @instance
+             */
+            AIHomeOption.prototype.cardTypeId = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -464,6 +473,12 @@ $root.AICommon = (function() {
                 set: $util.oneOfSetter($oneOfFields)
             });
 
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(AIHomeOption.prototype, "_cardTypeId", {
+                get: $util.oneOfGetter($oneOfFields = ["cardTypeId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
             /**
              * Creates a new AIHomeOption instance using the specified properties.
              * @function create
@@ -502,6 +517,8 @@ $root.AICommon = (function() {
                     writer.uint32(/* id 6, wireType 2 =*/50).string(message.imageTintColor);
                 if (message.imageBackgroundColor != null && Object.hasOwnProperty.call(message, "imageBackgroundColor"))
                     writer.uint32(/* id 7, wireType 2 =*/58).string(message.imageBackgroundColor);
+                if (message.cardTypeId != null && Object.hasOwnProperty.call(message, "cardTypeId"))
+                    writer.uint32(/* id 8, wireType 2 =*/66).string(message.cardTypeId);
                 return writer;
             };
 
@@ -564,6 +581,10 @@ $root.AICommon = (function() {
                         }
                     case 7: {
                             message.imageBackgroundColor = reader.string();
+                            break;
+                        }
+                    case 8: {
+                            message.cardTypeId = reader.string();
                             break;
                         }
                     default:
@@ -644,6 +665,11 @@ $root.AICommon = (function() {
                     if (!$util.isString(message.imageBackgroundColor))
                         return "imageBackgroundColor: string expected";
                 }
+                if (message.cardTypeId != null && message.hasOwnProperty("cardTypeId")) {
+                    properties._cardTypeId = 1;
+                    if (!$util.isString(message.cardTypeId))
+                        return "cardTypeId: string expected";
+                }
                 return null;
             };
 
@@ -695,6 +721,8 @@ $root.AICommon = (function() {
                     message.imageTintColor = String(object.imageTintColor);
                 if (object.imageBackgroundColor != null)
                     message.imageBackgroundColor = String(object.imageBackgroundColor);
+                if (object.cardTypeId != null)
+                    message.cardTypeId = String(object.cardTypeId);
                 return message;
             };
 
@@ -745,6 +773,11 @@ $root.AICommon = (function() {
                     object.imageBackgroundColor = message.imageBackgroundColor;
                     if (options.oneofs)
                         object._imageBackgroundColor = "imageBackgroundColor";
+                }
+                if (message.cardTypeId != null && message.hasOwnProperty("cardTypeId")) {
+                    object.cardTypeId = message.cardTypeId;
+                    if (options.oneofs)
+                        object._cardTypeId = "cardTypeId";
                 }
                 return object;
             };
