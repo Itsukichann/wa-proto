@@ -33977,6 +33977,8 @@ $root.E2E = (function() {
              * @memberof E2E.ContextInfo
              * @interface IStatusAudienceMetadata
              * @property {E2E.ContextInfo.StatusAudienceMetadata.AudienceType|null} [audienceType] StatusAudienceMetadata audienceType
+             * @property {string|null} [listName] StatusAudienceMetadata listName
+             * @property {string|null} [listEmoji] StatusAudienceMetadata listEmoji
              */
 
             /**
@@ -34002,12 +34004,40 @@ $root.E2E = (function() {
              */
             StatusAudienceMetadata.prototype.audienceType = null;
 
+            /**
+             * StatusAudienceMetadata listName.
+             * @member {string|null|undefined} listName
+             * @memberof E2E.ContextInfo.StatusAudienceMetadata
+             * @instance
+             */
+            StatusAudienceMetadata.prototype.listName = null;
+
+            /**
+             * StatusAudienceMetadata listEmoji.
+             * @member {string|null|undefined} listEmoji
+             * @memberof E2E.ContextInfo.StatusAudienceMetadata
+             * @instance
+             */
+            StatusAudienceMetadata.prototype.listEmoji = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
             // Virtual OneOf for proto3 optional field
             Object.defineProperty(StatusAudienceMetadata.prototype, "_audienceType", {
                 get: $util.oneOfGetter($oneOfFields = ["audienceType"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(StatusAudienceMetadata.prototype, "_listName", {
+                get: $util.oneOfGetter($oneOfFields = ["listName"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(StatusAudienceMetadata.prototype, "_listEmoji", {
+                get: $util.oneOfGetter($oneOfFields = ["listEmoji"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -34037,6 +34067,10 @@ $root.E2E = (function() {
                     writer = $Writer.create();
                 if (message.audienceType != null && Object.hasOwnProperty.call(message, "audienceType"))
                     writer.uint32(/* id 1, wireType 0 =*/8).int32(message.audienceType);
+                if (message.listName != null && Object.hasOwnProperty.call(message, "listName"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.listName);
+                if (message.listEmoji != null && Object.hasOwnProperty.call(message, "listEmoji"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.listEmoji);
                 return writer;
             };
 
@@ -34075,6 +34109,14 @@ $root.E2E = (function() {
                     switch (tag >>> 3) {
                     case 1: {
                             message.audienceType = reader.int32();
+                            break;
+                        }
+                    case 2: {
+                            message.listName = reader.string();
+                            break;
+                        }
+                    case 3: {
+                            message.listEmoji = reader.string();
                             break;
                         }
                     default:
@@ -34123,6 +34165,16 @@ $root.E2E = (function() {
                         break;
                     }
                 }
+                if (message.listName != null && message.hasOwnProperty("listName")) {
+                    properties._listName = 1;
+                    if (!$util.isString(message.listName))
+                        return "listName: string expected";
+                }
+                if (message.listEmoji != null && message.hasOwnProperty("listEmoji")) {
+                    properties._listEmoji = 1;
+                    if (!$util.isString(message.listEmoji))
+                        return "listEmoji: string expected";
+                }
                 return null;
             };
 
@@ -34154,6 +34206,10 @@ $root.E2E = (function() {
                     message.audienceType = 1;
                     break;
                 }
+                if (object.listName != null)
+                    message.listName = String(object.listName);
+                if (object.listEmoji != null)
+                    message.listEmoji = String(object.listEmoji);
                 return message;
             };
 
@@ -34174,6 +34230,16 @@ $root.E2E = (function() {
                     object.audienceType = options.enums === String ? $root.E2E.ContextInfo.StatusAudienceMetadata.AudienceType[message.audienceType] === undefined ? message.audienceType : $root.E2E.ContextInfo.StatusAudienceMetadata.AudienceType[message.audienceType] : message.audienceType;
                     if (options.oneofs)
                         object._audienceType = "audienceType";
+                }
+                if (message.listName != null && message.hasOwnProperty("listName")) {
+                    object.listName = message.listName;
+                    if (options.oneofs)
+                        object._listName = "listName";
+                }
+                if (message.listEmoji != null && message.hasOwnProperty("listEmoji")) {
+                    object.listEmoji = message.listEmoji;
+                    if (options.oneofs)
+                        object._listEmoji = "listEmoji";
                 }
                 return object;
             };
@@ -95552,6 +95618,257 @@ $root.AICommon = (function() {
      */
     var AICommon = {};
 
+    AICommon.BotInfrastructureDiagnostics = (function() {
+
+        /**
+         * Properties of a BotInfrastructureDiagnostics.
+         * @memberof AICommon
+         * @interface IBotInfrastructureDiagnostics
+         * @property {AICommon.BotInfrastructureDiagnostics.BotBackend|null} [botBackend] BotInfrastructureDiagnostics botBackend
+         */
+
+        /**
+         * Constructs a new BotInfrastructureDiagnostics.
+         * @memberof AICommon
+         * @classdesc Represents a BotInfrastructureDiagnostics.
+         * @implements IBotInfrastructureDiagnostics
+         * @constructor
+         * @param {AICommon.IBotInfrastructureDiagnostics=} [properties] Properties to set
+         */
+        function BotInfrastructureDiagnostics(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * BotInfrastructureDiagnostics botBackend.
+         * @member {AICommon.BotInfrastructureDiagnostics.BotBackend|null|undefined} botBackend
+         * @memberof AICommon.BotInfrastructureDiagnostics
+         * @instance
+         */
+        BotInfrastructureDiagnostics.prototype.botBackend = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(BotInfrastructureDiagnostics.prototype, "_botBackend", {
+            get: $util.oneOfGetter($oneOfFields = ["botBackend"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Creates a new BotInfrastructureDiagnostics instance using the specified properties.
+         * @function create
+         * @memberof AICommon.BotInfrastructureDiagnostics
+         * @static
+         * @param {AICommon.IBotInfrastructureDiagnostics=} [properties] Properties to set
+         * @returns {AICommon.BotInfrastructureDiagnostics} BotInfrastructureDiagnostics instance
+         */
+        BotInfrastructureDiagnostics.create = function create(properties) {
+            return new BotInfrastructureDiagnostics(properties);
+        };
+
+        /**
+         * Encodes the specified BotInfrastructureDiagnostics message. Does not implicitly {@link AICommon.BotInfrastructureDiagnostics.verify|verify} messages.
+         * @function encode
+         * @memberof AICommon.BotInfrastructureDiagnostics
+         * @static
+         * @param {AICommon.IBotInfrastructureDiagnostics} message BotInfrastructureDiagnostics message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        BotInfrastructureDiagnostics.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.botBackend != null && Object.hasOwnProperty.call(message, "botBackend"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.botBackend);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified BotInfrastructureDiagnostics message, length delimited. Does not implicitly {@link AICommon.BotInfrastructureDiagnostics.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof AICommon.BotInfrastructureDiagnostics
+         * @static
+         * @param {AICommon.IBotInfrastructureDiagnostics} message BotInfrastructureDiagnostics message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        BotInfrastructureDiagnostics.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a BotInfrastructureDiagnostics message from the specified reader or buffer.
+         * @function decode
+         * @memberof AICommon.BotInfrastructureDiagnostics
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {AICommon.BotInfrastructureDiagnostics} BotInfrastructureDiagnostics
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        BotInfrastructureDiagnostics.decode = function decode(reader, length, error) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotInfrastructureDiagnostics();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                if (tag === error)
+                    break;
+                switch (tag >>> 3) {
+                case 1: {
+                        message.botBackend = reader.int32();
+                        break;
+                    }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a BotInfrastructureDiagnostics message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof AICommon.BotInfrastructureDiagnostics
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {AICommon.BotInfrastructureDiagnostics} BotInfrastructureDiagnostics
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        BotInfrastructureDiagnostics.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a BotInfrastructureDiagnostics message.
+         * @function verify
+         * @memberof AICommon.BotInfrastructureDiagnostics
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        BotInfrastructureDiagnostics.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            var properties = {};
+            if (message.botBackend != null && message.hasOwnProperty("botBackend")) {
+                properties._botBackend = 1;
+                switch (message.botBackend) {
+                default:
+                    return "botBackend: enum value expected";
+                case 0:
+                case 1:
+                    break;
+                }
+            }
+            return null;
+        };
+
+        /**
+         * Creates a BotInfrastructureDiagnostics message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof AICommon.BotInfrastructureDiagnostics
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {AICommon.BotInfrastructureDiagnostics} BotInfrastructureDiagnostics
+         */
+        BotInfrastructureDiagnostics.fromObject = function fromObject(object) {
+            if (object instanceof $root.AICommon.BotInfrastructureDiagnostics)
+                return object;
+            var message = new $root.AICommon.BotInfrastructureDiagnostics();
+            switch (object.botBackend) {
+            default:
+                if (typeof object.botBackend === "number") {
+                    message.botBackend = object.botBackend;
+                    break;
+                }
+                break;
+            case "AAPI":
+            case 0:
+                message.botBackend = 0;
+                break;
+            case "CLIPPY":
+            case 1:
+                message.botBackend = 1;
+                break;
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a BotInfrastructureDiagnostics message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof AICommon.BotInfrastructureDiagnostics
+         * @static
+         * @param {AICommon.BotInfrastructureDiagnostics} message BotInfrastructureDiagnostics
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        BotInfrastructureDiagnostics.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (message.botBackend != null && message.hasOwnProperty("botBackend")) {
+                object.botBackend = options.enums === String ? $root.AICommon.BotInfrastructureDiagnostics.BotBackend[message.botBackend] === undefined ? message.botBackend : $root.AICommon.BotInfrastructureDiagnostics.BotBackend[message.botBackend] : message.botBackend;
+                if (options.oneofs)
+                    object._botBackend = "botBackend";
+            }
+            return object;
+        };
+
+        /**
+         * Converts this BotInfrastructureDiagnostics to JSON.
+         * @function toJSON
+         * @memberof AICommon.BotInfrastructureDiagnostics
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        BotInfrastructureDiagnostics.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for BotInfrastructureDiagnostics
+         * @function getTypeUrl
+         * @memberof AICommon.BotInfrastructureDiagnostics
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        BotInfrastructureDiagnostics.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/AICommon.BotInfrastructureDiagnostics";
+        };
+
+        /**
+         * BotBackend enum.
+         * @name AICommon.BotInfrastructureDiagnostics.BotBackend
+         * @enum {number}
+         * @property {number} AAPI=0 AAPI value
+         * @property {number} CLIPPY=1 CLIPPY value
+         */
+        BotInfrastructureDiagnostics.BotBackend = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "AAPI"] = 0;
+            values[valuesById[1] = "CLIPPY"] = 1;
+            return values;
+        })();
+
+        return BotInfrastructureDiagnostics;
+    })();
+
     AICommon.AIHomeState = (function() {
 
         /**
@@ -107287,6 +107604,7 @@ $root.AICommon = (function() {
          * @property {AICommon.IBotDocumentMessageMetadata|null} [botDocumentMessageMetadata] BotMetadata botDocumentMessageMetadata
          * @property {AICommon.IBotGroupMetadata|null} [botGroupMetadata] BotMetadata botGroupMetadata
          * @property {AICommon.IBotRenderingConfigMetadata|null} [botRenderingConfigMetadata] BotMetadata botRenderingConfigMetadata
+         * @property {AICommon.IBotInfrastructureDiagnostics|null} [botInfrastructureDiagnostics] BotMetadata botInfrastructureDiagnostics
          * @property {Uint8Array|null} [internalMetadata] BotMetadata internalMetadata
          */
 
@@ -107594,6 +107912,14 @@ $root.AICommon = (function() {
         BotMetadata.prototype.botRenderingConfigMetadata = null;
 
         /**
+         * BotMetadata botInfrastructureDiagnostics.
+         * @member {AICommon.IBotInfrastructureDiagnostics|null|undefined} botInfrastructureDiagnostics
+         * @memberof AICommon.BotMetadata
+         * @instance
+         */
+        BotMetadata.prototype.botInfrastructureDiagnostics = null;
+
+        /**
          * BotMetadata internalMetadata.
          * @member {Uint8Array|null|undefined} internalMetadata
          * @memberof AICommon.BotMetadata
@@ -107821,6 +108147,12 @@ $root.AICommon = (function() {
         });
 
         // Virtual OneOf for proto3 optional field
+        Object.defineProperty(BotMetadata.prototype, "_botInfrastructureDiagnostics", {
+            get: $util.oneOfGetter($oneOfFields = ["botInfrastructureDiagnostics"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_internalMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["internalMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -107922,6 +108254,8 @@ $root.AICommon = (function() {
                 $root.AICommon.BotGroupMetadata.encode(message.botGroupMetadata, writer.uint32(/* id 35, wireType 2 =*/282).fork()).ldelim();
             if (message.botRenderingConfigMetadata != null && Object.hasOwnProperty.call(message, "botRenderingConfigMetadata"))
                 $root.AICommon.BotRenderingConfigMetadata.encode(message.botRenderingConfigMetadata, writer.uint32(/* id 36, wireType 2 =*/290).fork()).ldelim();
+            if (message.botInfrastructureDiagnostics != null && Object.hasOwnProperty.call(message, "botInfrastructureDiagnostics"))
+                $root.AICommon.BotInfrastructureDiagnostics.encode(message.botInfrastructureDiagnostics, writer.uint32(/* id 37, wireType 2 =*/298).fork()).ldelim();
             if (message.internalMetadata != null && Object.hasOwnProperty.call(message, "internalMetadata"))
                 writer.uint32(/* id 999, wireType 2 =*/7994).bytes(message.internalMetadata);
             return writer;
@@ -108102,6 +108436,10 @@ $root.AICommon = (function() {
                     }
                 case 36: {
                         message.botRenderingConfigMetadata = $root.AICommon.BotRenderingConfigMetadata.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 37: {
+                        message.botInfrastructureDiagnostics = $root.AICommon.BotInfrastructureDiagnostics.decode(reader, reader.uint32());
                         break;
                     }
                 case 999: {
@@ -108411,6 +108749,14 @@ $root.AICommon = (function() {
                         return "botRenderingConfigMetadata." + error;
                 }
             }
+            if (message.botInfrastructureDiagnostics != null && message.hasOwnProperty("botInfrastructureDiagnostics")) {
+                properties._botInfrastructureDiagnostics = 1;
+                {
+                    var error = $root.AICommon.BotInfrastructureDiagnostics.verify(message.botInfrastructureDiagnostics);
+                    if (error)
+                        return "botInfrastructureDiagnostics." + error;
+                }
+            }
             if (message.internalMetadata != null && message.hasOwnProperty("internalMetadata")) {
                 properties._internalMetadata = 1;
                 if (!(message.internalMetadata && typeof message.internalMetadata.length === "number" || $util.isString(message.internalMetadata)))
@@ -108592,6 +108938,11 @@ $root.AICommon = (function() {
                 if (typeof object.botRenderingConfigMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.botRenderingConfigMetadata: object expected");
                 message.botRenderingConfigMetadata = $root.AICommon.BotRenderingConfigMetadata.fromObject(object.botRenderingConfigMetadata);
+            }
+            if (object.botInfrastructureDiagnostics != null) {
+                if (typeof object.botInfrastructureDiagnostics !== "object")
+                    throw TypeError(".AICommon.BotMetadata.botInfrastructureDiagnostics: object expected");
+                message.botInfrastructureDiagnostics = $root.AICommon.BotInfrastructureDiagnostics.fromObject(object.botInfrastructureDiagnostics);
             }
             if (object.internalMetadata != null)
                 if (typeof object.internalMetadata === "string")
@@ -108793,6 +109144,11 @@ $root.AICommon = (function() {
                 object.botRenderingConfigMetadata = $root.AICommon.BotRenderingConfigMetadata.toObject(message.botRenderingConfigMetadata, options);
                 if (options.oneofs)
                     object._botRenderingConfigMetadata = "botRenderingConfigMetadata";
+            }
+            if (message.botInfrastructureDiagnostics != null && message.hasOwnProperty("botInfrastructureDiagnostics")) {
+                object.botInfrastructureDiagnostics = $root.AICommon.BotInfrastructureDiagnostics.toObject(message.botInfrastructureDiagnostics, options);
+                if (options.oneofs)
+                    object._botInfrastructureDiagnostics = "botInfrastructureDiagnostics";
             }
             if (message.internalMetadata != null && message.hasOwnProperty("internalMetadata")) {
                 object.internalMetadata = options.bytes === String ? $util.base64.encode(message.internalMetadata, 0, message.internalMetadata.length) : options.bytes === Array ? Array.prototype.slice.call(message.internalMetadata) : message.internalMetadata;
@@ -124255,6 +124611,7 @@ $root.StatusAttributions = (function() {
                 case 6:
                 case 7:
                 case 8:
+                case 9:
                     break;
                 }
             }
@@ -124378,6 +124735,10 @@ $root.StatusAttributions = (function() {
             case "LAYOUTS":
             case 8:
                 message.type = 8;
+                break;
+            case "STATUS_CLOSE_SHARING":
+            case 9:
+                message.type = 9;
                 break;
             }
             if (object.actionUrl != null)
@@ -126668,6 +127029,7 @@ $root.StatusAttributions = (function() {
          * @property {number} RL_ATTRIBUTION=6 RL_ATTRIBUTION value
          * @property {number} AI_CREATED=7 AI_CREATED value
          * @property {number} LAYOUTS=8 LAYOUTS value
+         * @property {number} STATUS_CLOSE_SHARING=9 STATUS_CLOSE_SHARING value
          */
         StatusAttribution.Type = (function() {
             var valuesById = {}, values = Object.create(valuesById);
@@ -126680,6 +127042,7 @@ $root.StatusAttributions = (function() {
             values[valuesById[6] = "RL_ATTRIBUTION"] = 6;
             values[valuesById[7] = "AI_CREATED"] = 7;
             values[valuesById[8] = "LAYOUTS"] = 8;
+            values[valuesById[9] = "STATUS_CLOSE_SHARING"] = 9;
             return values;
         })();
 
