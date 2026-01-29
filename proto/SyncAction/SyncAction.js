@@ -14144,6 +14144,7 @@ $root.SyncAction = (function() {
              * @property {boolean|null} [muted] MuteAction muted
              * @property {number|Long|null} [muteEndTimestamp] MuteAction muteEndTimestamp
              * @property {boolean|null} [autoMuted] MuteAction autoMuted
+             * @property {number|Long|null} [muteEveryoneMentionEndTimestamp] MuteAction muteEveryoneMentionEndTimestamp
              */
 
             /**
@@ -14185,6 +14186,14 @@ $root.SyncAction = (function() {
              */
             MuteAction.prototype.autoMuted = null;
 
+            /**
+             * MuteAction muteEveryoneMentionEndTimestamp.
+             * @member {number|Long|null|undefined} muteEveryoneMentionEndTimestamp
+             * @memberof SyncAction.SyncActionValue.MuteAction
+             * @instance
+             */
+            MuteAction.prototype.muteEveryoneMentionEndTimestamp = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -14203,6 +14212,12 @@ $root.SyncAction = (function() {
             // Virtual OneOf for proto3 optional field
             Object.defineProperty(MuteAction.prototype, "_autoMuted", {
                 get: $util.oneOfGetter($oneOfFields = ["autoMuted"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(MuteAction.prototype, "_muteEveryoneMentionEndTimestamp", {
+                get: $util.oneOfGetter($oneOfFields = ["muteEveryoneMentionEndTimestamp"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -14236,6 +14251,8 @@ $root.SyncAction = (function() {
                     writer.uint32(/* id 2, wireType 0 =*/16).int64(message.muteEndTimestamp);
                 if (message.autoMuted != null && Object.hasOwnProperty.call(message, "autoMuted"))
                     writer.uint32(/* id 3, wireType 0 =*/24).bool(message.autoMuted);
+                if (message.muteEveryoneMentionEndTimestamp != null && Object.hasOwnProperty.call(message, "muteEveryoneMentionEndTimestamp"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).int64(message.muteEveryoneMentionEndTimestamp);
                 return writer;
             };
 
@@ -14282,6 +14299,10 @@ $root.SyncAction = (function() {
                         }
                     case 3: {
                             message.autoMuted = reader.bool();
+                            break;
+                        }
+                    case 4: {
+                            message.muteEveryoneMentionEndTimestamp = reader.int64();
                             break;
                         }
                     default:
@@ -14335,6 +14356,11 @@ $root.SyncAction = (function() {
                     if (typeof message.autoMuted !== "boolean")
                         return "autoMuted: boolean expected";
                 }
+                if (message.muteEveryoneMentionEndTimestamp != null && message.hasOwnProperty("muteEveryoneMentionEndTimestamp")) {
+                    properties._muteEveryoneMentionEndTimestamp = 1;
+                    if (!$util.isInteger(message.muteEveryoneMentionEndTimestamp) && !(message.muteEveryoneMentionEndTimestamp && $util.isInteger(message.muteEveryoneMentionEndTimestamp.low) && $util.isInteger(message.muteEveryoneMentionEndTimestamp.high)))
+                        return "muteEveryoneMentionEndTimestamp: integer|Long expected";
+                }
                 return null;
             };
 
@@ -14363,6 +14389,15 @@ $root.SyncAction = (function() {
                         message.muteEndTimestamp = new $util.LongBits(object.muteEndTimestamp.low >>> 0, object.muteEndTimestamp.high >>> 0).toNumber();
                 if (object.autoMuted != null)
                     message.autoMuted = Boolean(object.autoMuted);
+                if (object.muteEveryoneMentionEndTimestamp != null)
+                    if ($util.Long)
+                        (message.muteEveryoneMentionEndTimestamp = $util.Long.fromValue(object.muteEveryoneMentionEndTimestamp)).unsigned = false;
+                    else if (typeof object.muteEveryoneMentionEndTimestamp === "string")
+                        message.muteEveryoneMentionEndTimestamp = parseInt(object.muteEveryoneMentionEndTimestamp, 10);
+                    else if (typeof object.muteEveryoneMentionEndTimestamp === "number")
+                        message.muteEveryoneMentionEndTimestamp = object.muteEveryoneMentionEndTimestamp;
+                    else if (typeof object.muteEveryoneMentionEndTimestamp === "object")
+                        message.muteEveryoneMentionEndTimestamp = new $util.LongBits(object.muteEveryoneMentionEndTimestamp.low >>> 0, object.muteEveryoneMentionEndTimestamp.high >>> 0).toNumber();
                 return message;
             };
 
@@ -14396,6 +14431,14 @@ $root.SyncAction = (function() {
                     object.autoMuted = message.autoMuted;
                     if (options.oneofs)
                         object._autoMuted = "autoMuted";
+                }
+                if (message.muteEveryoneMentionEndTimestamp != null && message.hasOwnProperty("muteEveryoneMentionEndTimestamp")) {
+                    if (typeof message.muteEveryoneMentionEndTimestamp === "number")
+                        object.muteEveryoneMentionEndTimestamp = options.longs === String ? String(message.muteEveryoneMentionEndTimestamp) : message.muteEveryoneMentionEndTimestamp;
+                    else
+                        object.muteEveryoneMentionEndTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.muteEveryoneMentionEndTimestamp) : options.longs === Number ? new $util.LongBits(message.muteEveryoneMentionEndTimestamp.low >>> 0, message.muteEveryoneMentionEndTimestamp.high >>> 0).toNumber() : message.muteEveryoneMentionEndTimestamp;
+                    if (options.oneofs)
+                        object._muteEveryoneMentionEndTimestamp = "muteEveryoneMentionEndTimestamp";
                 }
                 return object;
             };
