@@ -25,6 +25,7 @@ $root.AICommon = (function() {
          * @memberof AICommon
          * @interface IBotInfrastructureDiagnostics
          * @property {AICommon.BotInfrastructureDiagnostics.BotBackend|null} [botBackend] BotInfrastructureDiagnostics botBackend
+         * @property {Array.<string>|null} [toolsUsed] BotInfrastructureDiagnostics toolsUsed
          */
 
         /**
@@ -36,6 +37,7 @@ $root.AICommon = (function() {
          * @param {AICommon.IBotInfrastructureDiagnostics=} [properties] Properties to set
          */
         function BotInfrastructureDiagnostics(properties) {
+            this.toolsUsed = [];
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -49,6 +51,14 @@ $root.AICommon = (function() {
          * @instance
          */
         BotInfrastructureDiagnostics.prototype.botBackend = null;
+
+        /**
+         * BotInfrastructureDiagnostics toolsUsed.
+         * @member {Array.<string>} toolsUsed
+         * @memberof AICommon.BotInfrastructureDiagnostics
+         * @instance
+         */
+        BotInfrastructureDiagnostics.prototype.toolsUsed = $util.emptyArray;
 
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
@@ -85,6 +95,9 @@ $root.AICommon = (function() {
                 writer = $Writer.create();
             if (message.botBackend != null && Object.hasOwnProperty.call(message, "botBackend"))
                 writer.uint32(/* id 1, wireType 0 =*/8).int32(message.botBackend);
+            if (message.toolsUsed != null && message.toolsUsed.length)
+                for (var i = 0; i < message.toolsUsed.length; ++i)
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.toolsUsed[i]);
             return writer;
         };
 
@@ -123,6 +136,12 @@ $root.AICommon = (function() {
                 switch (tag >>> 3) {
                 case 1: {
                         message.botBackend = reader.int32();
+                        break;
+                    }
+                case 2: {
+                        if (!(message.toolsUsed && message.toolsUsed.length))
+                            message.toolsUsed = [];
+                        message.toolsUsed.push(reader.string());
                         break;
                     }
                 default:
@@ -171,6 +190,13 @@ $root.AICommon = (function() {
                     break;
                 }
             }
+            if (message.toolsUsed != null && message.hasOwnProperty("toolsUsed")) {
+                if (!Array.isArray(message.toolsUsed))
+                    return "toolsUsed: array expected";
+                for (var i = 0; i < message.toolsUsed.length; ++i)
+                    if (!$util.isString(message.toolsUsed[i]))
+                        return "toolsUsed: string[] expected";
+            }
             return null;
         };
 
@@ -202,6 +228,13 @@ $root.AICommon = (function() {
                 message.botBackend = 1;
                 break;
             }
+            if (object.toolsUsed) {
+                if (!Array.isArray(object.toolsUsed))
+                    throw TypeError(".AICommon.BotInfrastructureDiagnostics.toolsUsed: array expected");
+                message.toolsUsed = [];
+                for (var i = 0; i < object.toolsUsed.length; ++i)
+                    message.toolsUsed[i] = String(object.toolsUsed[i]);
+            }
             return message;
         };
 
@@ -218,10 +251,17 @@ $root.AICommon = (function() {
             if (!options)
                 options = {};
             var object = {};
+            if (options.arrays || options.defaults)
+                object.toolsUsed = [];
             if (message.botBackend != null && message.hasOwnProperty("botBackend")) {
                 object.botBackend = options.enums === String ? $root.AICommon.BotInfrastructureDiagnostics.BotBackend[message.botBackend] === undefined ? message.botBackend : $root.AICommon.BotInfrastructureDiagnostics.BotBackend[message.botBackend] : message.botBackend;
                 if (options.oneofs)
                     object._botBackend = "botBackend";
+            }
+            if (message.toolsUsed && message.toolsUsed.length) {
+                object.toolsUsed = [];
+                for (var j = 0; j < message.toolsUsed.length; ++j)
+                    object.toolsUsed[j] = message.toolsUsed[j];
             }
             return object;
         };
@@ -883,6 +923,7 @@ $root.AICommon = (function() {
                     case 1:
                     case 2:
                     case 3:
+                    case 4:
                         break;
                     }
                 }
@@ -958,6 +999,10 @@ $root.AICommon = (function() {
                 case "ANALYZE_FILE":
                 case 3:
                     message.type = 3;
+                    break;
+                case "COLLABORATE":
+                case 4:
+                    message.type = 4;
                     break;
                 }
                 if (object.title != null)
@@ -1067,6 +1112,7 @@ $root.AICommon = (function() {
              * @property {number} CREATE_IMAGE=1 CREATE_IMAGE value
              * @property {number} ANIMATE_PHOTO=2 ANIMATE_PHOTO value
              * @property {number} ANALYZE_FILE=3 ANALYZE_FILE value
+             * @property {number} COLLABORATE=4 COLLABORATE value
              */
             AIHomeOption.AIHomeActionType = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
@@ -1074,6 +1120,7 @@ $root.AICommon = (function() {
                 values[valuesById[1] = "CREATE_IMAGE"] = 1;
                 values[valuesById[2] = "ANIMATE_PHOTO"] = 2;
                 values[valuesById[3] = "ANALYZE_FILE"] = 3;
+                values[valuesById[4] = "COLLABORATE"] = 4;
                 return values;
             })();
 
@@ -19124,6 +19171,7 @@ $root.AICommon = (function() {
          * @memberof AICommon
          * @interface IBotModeSelectionMetadata
          * @property {Array.<AICommon.BotModeSelectionMetadata.BotUserSelectionMode>|null} [mode] BotModeSelectionMetadata mode
+         * @property {Array.<number>|null} [overrideMode] BotModeSelectionMetadata overrideMode
          */
 
         /**
@@ -19136,6 +19184,7 @@ $root.AICommon = (function() {
          */
         function BotModeSelectionMetadata(properties) {
             this.mode = [];
+            this.overrideMode = [];
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -19149,6 +19198,14 @@ $root.AICommon = (function() {
          * @instance
          */
         BotModeSelectionMetadata.prototype.mode = $util.emptyArray;
+
+        /**
+         * BotModeSelectionMetadata overrideMode.
+         * @member {Array.<number>} overrideMode
+         * @memberof AICommon.BotModeSelectionMetadata
+         * @instance
+         */
+        BotModeSelectionMetadata.prototype.overrideMode = $util.emptyArray;
 
         /**
          * Creates a new BotModeSelectionMetadata instance using the specified properties.
@@ -19178,6 +19235,12 @@ $root.AICommon = (function() {
                 writer.uint32(/* id 1, wireType 2 =*/10).fork();
                 for (var i = 0; i < message.mode.length; ++i)
                     writer.int32(message.mode[i]);
+                writer.ldelim();
+            }
+            if (message.overrideMode != null && message.overrideMode.length) {
+                writer.uint32(/* id 2, wireType 2 =*/18).fork();
+                for (var i = 0; i < message.overrideMode.length; ++i)
+                    writer.uint32(message.overrideMode[i]);
                 writer.ldelim();
             }
             return writer;
@@ -19227,6 +19290,17 @@ $root.AICommon = (function() {
                             message.mode.push(reader.int32());
                         break;
                     }
+                case 2: {
+                        if (!(message.overrideMode && message.overrideMode.length))
+                            message.overrideMode = [];
+                        if ((tag & 7) === 2) {
+                            var end2 = reader.uint32() + reader.pos;
+                            while (reader.pos < end2)
+                                message.overrideMode.push(reader.uint32());
+                        } else
+                            message.overrideMode.push(reader.uint32());
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -19274,6 +19348,13 @@ $root.AICommon = (function() {
                         break;
                     }
             }
+            if (message.overrideMode != null && message.hasOwnProperty("overrideMode")) {
+                if (!Array.isArray(message.overrideMode))
+                    return "overrideMode: array expected";
+                for (var i = 0; i < message.overrideMode.length; ++i)
+                    if (!$util.isInteger(message.overrideMode[i]))
+                        return "overrideMode: integer[] expected";
+            }
             return null;
         };
 
@@ -19310,6 +19391,13 @@ $root.AICommon = (function() {
                         break;
                     }
             }
+            if (object.overrideMode) {
+                if (!Array.isArray(object.overrideMode))
+                    throw TypeError(".AICommon.BotModeSelectionMetadata.overrideMode: array expected");
+                message.overrideMode = [];
+                for (var i = 0; i < object.overrideMode.length; ++i)
+                    message.overrideMode[i] = object.overrideMode[i] >>> 0;
+            }
             return message;
         };
 
@@ -19326,12 +19414,19 @@ $root.AICommon = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.arrays || options.defaults)
+            if (options.arrays || options.defaults) {
                 object.mode = [];
+                object.overrideMode = [];
+            }
             if (message.mode && message.mode.length) {
                 object.mode = [];
                 for (var j = 0; j < message.mode.length; ++j)
                     object.mode[j] = options.enums === String ? $root.AICommon.BotModeSelectionMetadata.BotUserSelectionMode[message.mode[j]] === undefined ? message.mode[j] : $root.AICommon.BotModeSelectionMetadata.BotUserSelectionMode[message.mode[j]] : message.mode[j];
+            }
+            if (message.overrideMode && message.overrideMode.length) {
+                object.overrideMode = [];
+                for (var j = 0; j < message.overrideMode.length; ++j)
+                    object.overrideMode[j] = message.overrideMode[j];
             }
             return object;
         };
@@ -19588,6 +19683,7 @@ $root.AICommon = (function() {
                     case 54:
                     case 55:
                     case 56:
+                    case 57:
                         break;
                     }
             }
@@ -19845,6 +19941,10 @@ $root.AICommon = (function() {
                     case 56:
                         message.capabilities[i] = 56;
                         break;
+                    case "RICH_RESPONSE_UR_IMAGINE_VIDEO":
+                    case 57:
+                        message.capabilities[i] = 57;
+                        break;
                     }
             }
             return message;
@@ -19960,6 +20060,7 @@ $root.AICommon = (function() {
          * @property {number} AI_IMAGINE_UR_TO_NATIVE_LOADING_INDICATOR=54 AI_IMAGINE_UR_TO_NATIVE_LOADING_INDICATOR value
          * @property {number} RICH_RESPONSE_UR_BLOKS_ENABLED=55 RICH_RESPONSE_UR_BLOKS_ENABLED value
          * @property {number} RICH_RESPONSE_INLINE_LINKS_ENABLED=56 RICH_RESPONSE_INLINE_LINKS_ENABLED value
+         * @property {number} RICH_RESPONSE_UR_IMAGINE_VIDEO=57 RICH_RESPONSE_UR_IMAGINE_VIDEO value
          */
         BotCapabilityMetadata.BotCapabilityType = (function() {
             var valuesById = {}, values = Object.create(valuesById);
@@ -20020,6 +20121,7 @@ $root.AICommon = (function() {
             values[valuesById[54] = "AI_IMAGINE_UR_TO_NATIVE_LOADING_INDICATOR"] = 54;
             values[valuesById[55] = "RICH_RESPONSE_UR_BLOKS_ENABLED"] = 55;
             values[valuesById[56] = "RICH_RESPONSE_INLINE_LINKS_ENABLED"] = 56;
+            values[valuesById[57] = "RICH_RESPONSE_UR_IMAGINE_VIDEO"] = 57;
             return values;
         })();
 
@@ -29839,7 +29941,7 @@ $root.StatusAttributions = (function() {
             case 8:
                 message.type = 8;
                 break;
-            case "STATUS_CLOSE_SHARING":
+            case "NEWSLETTER_STATUS":
             case 9:
                 message.type = 9;
                 break;
@@ -32132,7 +32234,7 @@ $root.StatusAttributions = (function() {
          * @property {number} RL_ATTRIBUTION=6 RL_ATTRIBUTION value
          * @property {number} AI_CREATED=7 AI_CREATED value
          * @property {number} LAYOUTS=8 LAYOUTS value
-         * @property {number} STATUS_CLOSE_SHARING=9 STATUS_CLOSE_SHARING value
+         * @property {number} NEWSLETTER_STATUS=9 NEWSLETTER_STATUS value
          */
         StatusAttribution.Type = (function() {
             var valuesById = {}, values = Object.create(valuesById);
@@ -32145,7 +32247,7 @@ $root.StatusAttributions = (function() {
             values[valuesById[6] = "RL_ATTRIBUTION"] = 6;
             values[valuesById[7] = "AI_CREATED"] = 7;
             values[valuesById[8] = "LAYOUTS"] = 8;
-            values[valuesById[9] = "STATUS_CLOSE_SHARING"] = 9;
+            values[valuesById[9] = "NEWSLETTER_STATUS"] = 9;
             return values;
         })();
 
