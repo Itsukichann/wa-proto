@@ -12058,7 +12058,6 @@ $root.AICommon = (function() {
          * Properties of a BotMetadata.
          * @memberof AICommon
          * @interface IBotMetadata
-         * @property {AICommon.IBotAvatarMetadata|null} [avatarMetadata] BotMetadata avatarMetadata
          * @property {string|null} [personaId] BotMetadata personaId
          * @property {AICommon.IBotPluginMetadata|null} [pluginMetadata] BotMetadata pluginMetadata
          * @property {AICommon.IBotSuggestedPromptMetadata|null} [suggestedPromptMetadata] BotMetadata suggestedPromptMetadata
@@ -12113,14 +12112,6 @@ $root.AICommon = (function() {
                     if (properties[keys[i]] != null)
                         this[keys[i]] = properties[keys[i]];
         }
-
-        /**
-         * BotMetadata avatarMetadata.
-         * @member {AICommon.IBotAvatarMetadata|null|undefined} avatarMetadata
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
-        BotMetadata.prototype.avatarMetadata = null;
 
         /**
          * BotMetadata personaId.
@@ -12430,12 +12421,6 @@ $root.AICommon = (function() {
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(BotMetadata.prototype, "_avatarMetadata", {
-            get: $util.oneOfGetter($oneOfFields = ["avatarMetadata"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_personaId", {
             get: $util.oneOfGetter($oneOfFields = ["personaId"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -12687,8 +12672,6 @@ $root.AICommon = (function() {
         BotMetadata.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.avatarMetadata != null && Object.hasOwnProperty.call(message, "avatarMetadata"))
-                $root.AICommon.BotAvatarMetadata.encode(message.avatarMetadata, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
             if (message.personaId != null && Object.hasOwnProperty.call(message, "personaId"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.personaId);
             if (message.pluginMetadata != null && Object.hasOwnProperty.call(message, "pluginMetadata"))
@@ -12801,10 +12784,6 @@ $root.AICommon = (function() {
                 if (tag === error)
                     break;
                 switch (tag >>> 3) {
-                case 1: {
-                        message.avatarMetadata = $root.AICommon.BotAvatarMetadata.decode(reader, reader.uint32());
-                        break;
-                    }
                 case 2: {
                         message.personaId = reader.string();
                         break;
@@ -12993,14 +12972,6 @@ $root.AICommon = (function() {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             var properties = {};
-            if (message.avatarMetadata != null && message.hasOwnProperty("avatarMetadata")) {
-                properties._avatarMetadata = 1;
-                {
-                    var error = $root.AICommon.BotAvatarMetadata.verify(message.avatarMetadata);
-                    if (error)
-                        return "avatarMetadata." + error;
-                }
-            }
             if (message.personaId != null && message.hasOwnProperty("personaId")) {
                 properties._personaId = 1;
                 if (!$util.isString(message.personaId))
@@ -13296,11 +13267,6 @@ $root.AICommon = (function() {
             if (object instanceof $root.AICommon.BotMetadata)
                 return object;
             var message = new $root.AICommon.BotMetadata();
-            if (object.avatarMetadata != null) {
-                if (typeof object.avatarMetadata !== "object")
-                    throw TypeError(".AICommon.BotMetadata.avatarMetadata: object expected");
-                message.avatarMetadata = $root.AICommon.BotAvatarMetadata.fromObject(object.avatarMetadata);
-            }
             if (object.personaId != null)
                 message.personaId = String(object.personaId);
             if (object.pluginMetadata != null) {
@@ -13489,11 +13455,6 @@ $root.AICommon = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (message.avatarMetadata != null && message.hasOwnProperty("avatarMetadata")) {
-                object.avatarMetadata = $root.AICommon.BotAvatarMetadata.toObject(message.avatarMetadata, options);
-                if (options.oneofs)
-                    object._avatarMetadata = "avatarMetadata";
-            }
             if (message.personaId != null && message.hasOwnProperty("personaId")) {
                 object.personaId = message.personaId;
                 if (options.oneofs)
@@ -28864,356 +28825,6 @@ $root.AICommon = (function() {
         })();
 
         return BotPluginMetadata;
-    })();
-
-    AICommon.BotAvatarMetadata = (function() {
-
-        /**
-         * Properties of a BotAvatarMetadata.
-         * @memberof AICommon
-         * @interface IBotAvatarMetadata
-         * @property {number|null} [sentiment] BotAvatarMetadata sentiment
-         * @property {string|null} [behaviorGraph] BotAvatarMetadata behaviorGraph
-         * @property {number|null} [action] BotAvatarMetadata action
-         * @property {number|null} [intensity] BotAvatarMetadata intensity
-         * @property {number|null} [wordCount] BotAvatarMetadata wordCount
-         */
-
-        /**
-         * Constructs a new BotAvatarMetadata.
-         * @memberof AICommon
-         * @classdesc Represents a BotAvatarMetadata.
-         * @implements IBotAvatarMetadata
-         * @constructor
-         * @param {AICommon.IBotAvatarMetadata=} [properties] Properties to set
-         */
-        function BotAvatarMetadata(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * BotAvatarMetadata sentiment.
-         * @member {number|null|undefined} sentiment
-         * @memberof AICommon.BotAvatarMetadata
-         * @instance
-         */
-        BotAvatarMetadata.prototype.sentiment = null;
-
-        /**
-         * BotAvatarMetadata behaviorGraph.
-         * @member {string|null|undefined} behaviorGraph
-         * @memberof AICommon.BotAvatarMetadata
-         * @instance
-         */
-        BotAvatarMetadata.prototype.behaviorGraph = null;
-
-        /**
-         * BotAvatarMetadata action.
-         * @member {number|null|undefined} action
-         * @memberof AICommon.BotAvatarMetadata
-         * @instance
-         */
-        BotAvatarMetadata.prototype.action = null;
-
-        /**
-         * BotAvatarMetadata intensity.
-         * @member {number|null|undefined} intensity
-         * @memberof AICommon.BotAvatarMetadata
-         * @instance
-         */
-        BotAvatarMetadata.prototype.intensity = null;
-
-        /**
-         * BotAvatarMetadata wordCount.
-         * @member {number|null|undefined} wordCount
-         * @memberof AICommon.BotAvatarMetadata
-         * @instance
-         */
-        BotAvatarMetadata.prototype.wordCount = null;
-
-        // OneOf field names bound to virtual getters and setters
-        var $oneOfFields;
-
-        // Virtual OneOf for proto3 optional field
-        Object.defineProperty(BotAvatarMetadata.prototype, "_sentiment", {
-            get: $util.oneOfGetter($oneOfFields = ["sentiment"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        // Virtual OneOf for proto3 optional field
-        Object.defineProperty(BotAvatarMetadata.prototype, "_behaviorGraph", {
-            get: $util.oneOfGetter($oneOfFields = ["behaviorGraph"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        // Virtual OneOf for proto3 optional field
-        Object.defineProperty(BotAvatarMetadata.prototype, "_action", {
-            get: $util.oneOfGetter($oneOfFields = ["action"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        // Virtual OneOf for proto3 optional field
-        Object.defineProperty(BotAvatarMetadata.prototype, "_intensity", {
-            get: $util.oneOfGetter($oneOfFields = ["intensity"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        // Virtual OneOf for proto3 optional field
-        Object.defineProperty(BotAvatarMetadata.prototype, "_wordCount", {
-            get: $util.oneOfGetter($oneOfFields = ["wordCount"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * Creates a new BotAvatarMetadata instance using the specified properties.
-         * @function create
-         * @memberof AICommon.BotAvatarMetadata
-         * @static
-         * @param {AICommon.IBotAvatarMetadata=} [properties] Properties to set
-         * @returns {AICommon.BotAvatarMetadata} BotAvatarMetadata instance
-         */
-        BotAvatarMetadata.create = function create(properties) {
-            return new BotAvatarMetadata(properties);
-        };
-
-        /**
-         * Encodes the specified BotAvatarMetadata message. Does not implicitly {@link AICommon.BotAvatarMetadata.verify|verify} messages.
-         * @function encode
-         * @memberof AICommon.BotAvatarMetadata
-         * @static
-         * @param {AICommon.IBotAvatarMetadata} message BotAvatarMetadata message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        BotAvatarMetadata.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.sentiment != null && Object.hasOwnProperty.call(message, "sentiment"))
-                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.sentiment);
-            if (message.behaviorGraph != null && Object.hasOwnProperty.call(message, "behaviorGraph"))
-                writer.uint32(/* id 2, wireType 2 =*/18).string(message.behaviorGraph);
-            if (message.action != null && Object.hasOwnProperty.call(message, "action"))
-                writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.action);
-            if (message.intensity != null && Object.hasOwnProperty.call(message, "intensity"))
-                writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.intensity);
-            if (message.wordCount != null && Object.hasOwnProperty.call(message, "wordCount"))
-                writer.uint32(/* id 5, wireType 0 =*/40).uint32(message.wordCount);
-            return writer;
-        };
-
-        /**
-         * Encodes the specified BotAvatarMetadata message, length delimited. Does not implicitly {@link AICommon.BotAvatarMetadata.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof AICommon.BotAvatarMetadata
-         * @static
-         * @param {AICommon.IBotAvatarMetadata} message BotAvatarMetadata message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        BotAvatarMetadata.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-
-        /**
-         * Decodes a BotAvatarMetadata message from the specified reader or buffer.
-         * @function decode
-         * @memberof AICommon.BotAvatarMetadata
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotAvatarMetadata} BotAvatarMetadata
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        BotAvatarMetadata.decode = function decode(reader, length, error) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotAvatarMetadata();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.sentiment = reader.uint32();
-                        break;
-                    }
-                case 2: {
-                        message.behaviorGraph = reader.string();
-                        break;
-                    }
-                case 3: {
-                        message.action = reader.uint32();
-                        break;
-                    }
-                case 4: {
-                        message.intensity = reader.uint32();
-                        break;
-                    }
-                case 5: {
-                        message.wordCount = reader.uint32();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Decodes a BotAvatarMetadata message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof AICommon.BotAvatarMetadata
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotAvatarMetadata} BotAvatarMetadata
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        BotAvatarMetadata.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-
-        /**
-         * Verifies a BotAvatarMetadata message.
-         * @function verify
-         * @memberof AICommon.BotAvatarMetadata
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        BotAvatarMetadata.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            var properties = {};
-            if (message.sentiment != null && message.hasOwnProperty("sentiment")) {
-                properties._sentiment = 1;
-                if (!$util.isInteger(message.sentiment))
-                    return "sentiment: integer expected";
-            }
-            if (message.behaviorGraph != null && message.hasOwnProperty("behaviorGraph")) {
-                properties._behaviorGraph = 1;
-                if (!$util.isString(message.behaviorGraph))
-                    return "behaviorGraph: string expected";
-            }
-            if (message.action != null && message.hasOwnProperty("action")) {
-                properties._action = 1;
-                if (!$util.isInteger(message.action))
-                    return "action: integer expected";
-            }
-            if (message.intensity != null && message.hasOwnProperty("intensity")) {
-                properties._intensity = 1;
-                if (!$util.isInteger(message.intensity))
-                    return "intensity: integer expected";
-            }
-            if (message.wordCount != null && message.hasOwnProperty("wordCount")) {
-                properties._wordCount = 1;
-                if (!$util.isInteger(message.wordCount))
-                    return "wordCount: integer expected";
-            }
-            return null;
-        };
-
-        /**
-         * Creates a BotAvatarMetadata message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof AICommon.BotAvatarMetadata
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {AICommon.BotAvatarMetadata} BotAvatarMetadata
-         */
-        BotAvatarMetadata.fromObject = function fromObject(object) {
-            if (object instanceof $root.AICommon.BotAvatarMetadata)
-                return object;
-            var message = new $root.AICommon.BotAvatarMetadata();
-            if (object.sentiment != null)
-                message.sentiment = object.sentiment >>> 0;
-            if (object.behaviorGraph != null)
-                message.behaviorGraph = String(object.behaviorGraph);
-            if (object.action != null)
-                message.action = object.action >>> 0;
-            if (object.intensity != null)
-                message.intensity = object.intensity >>> 0;
-            if (object.wordCount != null)
-                message.wordCount = object.wordCount >>> 0;
-            return message;
-        };
-
-        /**
-         * Creates a plain object from a BotAvatarMetadata message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof AICommon.BotAvatarMetadata
-         * @static
-         * @param {AICommon.BotAvatarMetadata} message BotAvatarMetadata
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        BotAvatarMetadata.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (message.sentiment != null && message.hasOwnProperty("sentiment")) {
-                object.sentiment = message.sentiment;
-                if (options.oneofs)
-                    object._sentiment = "sentiment";
-            }
-            if (message.behaviorGraph != null && message.hasOwnProperty("behaviorGraph")) {
-                object.behaviorGraph = message.behaviorGraph;
-                if (options.oneofs)
-                    object._behaviorGraph = "behaviorGraph";
-            }
-            if (message.action != null && message.hasOwnProperty("action")) {
-                object.action = message.action;
-                if (options.oneofs)
-                    object._action = "action";
-            }
-            if (message.intensity != null && message.hasOwnProperty("intensity")) {
-                object.intensity = message.intensity;
-                if (options.oneofs)
-                    object._intensity = "intensity";
-            }
-            if (message.wordCount != null && message.hasOwnProperty("wordCount")) {
-                object.wordCount = message.wordCount;
-                if (options.oneofs)
-                    object._wordCount = "wordCount";
-            }
-            return object;
-        };
-
-        /**
-         * Converts this BotAvatarMetadata to JSON.
-         * @function toJSON
-         * @memberof AICommon.BotAvatarMetadata
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        BotAvatarMetadata.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        /**
-         * Gets the default type url for BotAvatarMetadata
-         * @function getTypeUrl
-         * @memberof AICommon.BotAvatarMetadata
-         * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
-         */
-        BotAvatarMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotAvatarMetadata";
-        };
-
-        return BotAvatarMetadata;
     })();
 
     /**

@@ -52420,6 +52420,267 @@ $root.E2E = (function() {
             return ExtendedTextMessage;
         })();
 
+        Message.FullHistorySyncOnDemandConfig = (function() {
+
+            /**
+             * Properties of a FullHistorySyncOnDemandConfig.
+             * @memberof E2E.Message
+             * @interface IFullHistorySyncOnDemandConfig
+             * @property {number|Long|null} [historyFromTimestamp] FullHistorySyncOnDemandConfig historyFromTimestamp
+             * @property {number|null} [historyDurationDays] FullHistorySyncOnDemandConfig historyDurationDays
+             */
+
+            /**
+             * Constructs a new FullHistorySyncOnDemandConfig.
+             * @memberof E2E.Message
+             * @classdesc Represents a FullHistorySyncOnDemandConfig.
+             * @implements IFullHistorySyncOnDemandConfig
+             * @constructor
+             * @param {E2E.Message.IFullHistorySyncOnDemandConfig=} [properties] Properties to set
+             */
+            function FullHistorySyncOnDemandConfig(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * FullHistorySyncOnDemandConfig historyFromTimestamp.
+             * @member {number|Long|null|undefined} historyFromTimestamp
+             * @memberof E2E.Message.FullHistorySyncOnDemandConfig
+             * @instance
+             */
+            FullHistorySyncOnDemandConfig.prototype.historyFromTimestamp = null;
+
+            /**
+             * FullHistorySyncOnDemandConfig historyDurationDays.
+             * @member {number|null|undefined} historyDurationDays
+             * @memberof E2E.Message.FullHistorySyncOnDemandConfig
+             * @instance
+             */
+            FullHistorySyncOnDemandConfig.prototype.historyDurationDays = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(FullHistorySyncOnDemandConfig.prototype, "_historyFromTimestamp", {
+                get: $util.oneOfGetter($oneOfFields = ["historyFromTimestamp"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(FullHistorySyncOnDemandConfig.prototype, "_historyDurationDays", {
+                get: $util.oneOfGetter($oneOfFields = ["historyDurationDays"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new FullHistorySyncOnDemandConfig instance using the specified properties.
+             * @function create
+             * @memberof E2E.Message.FullHistorySyncOnDemandConfig
+             * @static
+             * @param {E2E.Message.IFullHistorySyncOnDemandConfig=} [properties] Properties to set
+             * @returns {E2E.Message.FullHistorySyncOnDemandConfig} FullHistorySyncOnDemandConfig instance
+             */
+            FullHistorySyncOnDemandConfig.create = function create(properties) {
+                return new FullHistorySyncOnDemandConfig(properties);
+            };
+
+            /**
+             * Encodes the specified FullHistorySyncOnDemandConfig message. Does not implicitly {@link E2E.Message.FullHistorySyncOnDemandConfig.verify|verify} messages.
+             * @function encode
+             * @memberof E2E.Message.FullHistorySyncOnDemandConfig
+             * @static
+             * @param {E2E.Message.IFullHistorySyncOnDemandConfig} message FullHistorySyncOnDemandConfig message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            FullHistorySyncOnDemandConfig.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.historyFromTimestamp != null && Object.hasOwnProperty.call(message, "historyFromTimestamp"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).uint64(message.historyFromTimestamp);
+                if (message.historyDurationDays != null && Object.hasOwnProperty.call(message, "historyDurationDays"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.historyDurationDays);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified FullHistorySyncOnDemandConfig message, length delimited. Does not implicitly {@link E2E.Message.FullHistorySyncOnDemandConfig.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof E2E.Message.FullHistorySyncOnDemandConfig
+             * @static
+             * @param {E2E.Message.IFullHistorySyncOnDemandConfig} message FullHistorySyncOnDemandConfig message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            FullHistorySyncOnDemandConfig.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a FullHistorySyncOnDemandConfig message from the specified reader or buffer.
+             * @function decode
+             * @memberof E2E.Message.FullHistorySyncOnDemandConfig
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {E2E.Message.FullHistorySyncOnDemandConfig} FullHistorySyncOnDemandConfig
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            FullHistorySyncOnDemandConfig.decode = function decode(reader, length, error) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.E2E.Message.FullHistorySyncOnDemandConfig();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    if (tag === error)
+                        break;
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.historyFromTimestamp = reader.uint64();
+                            break;
+                        }
+                    case 2: {
+                            message.historyDurationDays = reader.uint32();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a FullHistorySyncOnDemandConfig message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof E2E.Message.FullHistorySyncOnDemandConfig
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {E2E.Message.FullHistorySyncOnDemandConfig} FullHistorySyncOnDemandConfig
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            FullHistorySyncOnDemandConfig.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a FullHistorySyncOnDemandConfig message.
+             * @function verify
+             * @memberof E2E.Message.FullHistorySyncOnDemandConfig
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            FullHistorySyncOnDemandConfig.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                var properties = {};
+                if (message.historyFromTimestamp != null && message.hasOwnProperty("historyFromTimestamp")) {
+                    properties._historyFromTimestamp = 1;
+                    if (!$util.isInteger(message.historyFromTimestamp) && !(message.historyFromTimestamp && $util.isInteger(message.historyFromTimestamp.low) && $util.isInteger(message.historyFromTimestamp.high)))
+                        return "historyFromTimestamp: integer|Long expected";
+                }
+                if (message.historyDurationDays != null && message.hasOwnProperty("historyDurationDays")) {
+                    properties._historyDurationDays = 1;
+                    if (!$util.isInteger(message.historyDurationDays))
+                        return "historyDurationDays: integer expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a FullHistorySyncOnDemandConfig message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof E2E.Message.FullHistorySyncOnDemandConfig
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {E2E.Message.FullHistorySyncOnDemandConfig} FullHistorySyncOnDemandConfig
+             */
+            FullHistorySyncOnDemandConfig.fromObject = function fromObject(object) {
+                if (object instanceof $root.E2E.Message.FullHistorySyncOnDemandConfig)
+                    return object;
+                var message = new $root.E2E.Message.FullHistorySyncOnDemandConfig();
+                if (object.historyFromTimestamp != null)
+                    if ($util.Long)
+                        (message.historyFromTimestamp = $util.Long.fromValue(object.historyFromTimestamp)).unsigned = true;
+                    else if (typeof object.historyFromTimestamp === "string")
+                        message.historyFromTimestamp = parseInt(object.historyFromTimestamp, 10);
+                    else if (typeof object.historyFromTimestamp === "number")
+                        message.historyFromTimestamp = object.historyFromTimestamp;
+                    else if (typeof object.historyFromTimestamp === "object")
+                        message.historyFromTimestamp = new $util.LongBits(object.historyFromTimestamp.low >>> 0, object.historyFromTimestamp.high >>> 0).toNumber(true);
+                if (object.historyDurationDays != null)
+                    message.historyDurationDays = object.historyDurationDays >>> 0;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a FullHistorySyncOnDemandConfig message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof E2E.Message.FullHistorySyncOnDemandConfig
+             * @static
+             * @param {E2E.Message.FullHistorySyncOnDemandConfig} message FullHistorySyncOnDemandConfig
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            FullHistorySyncOnDemandConfig.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (message.historyFromTimestamp != null && message.hasOwnProperty("historyFromTimestamp")) {
+                    if (typeof message.historyFromTimestamp === "number")
+                        object.historyFromTimestamp = options.longs === String ? String(message.historyFromTimestamp) : message.historyFromTimestamp;
+                    else
+                        object.historyFromTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.historyFromTimestamp) : options.longs === Number ? new $util.LongBits(message.historyFromTimestamp.low >>> 0, message.historyFromTimestamp.high >>> 0).toNumber(true) : message.historyFromTimestamp;
+                    if (options.oneofs)
+                        object._historyFromTimestamp = "historyFromTimestamp";
+                }
+                if (message.historyDurationDays != null && message.hasOwnProperty("historyDurationDays")) {
+                    object.historyDurationDays = message.historyDurationDays;
+                    if (options.oneofs)
+                        object._historyDurationDays = "historyDurationDays";
+                }
+                return object;
+            };
+
+            /**
+             * Converts this FullHistorySyncOnDemandConfig to JSON.
+             * @function toJSON
+             * @memberof E2E.Message.FullHistorySyncOnDemandConfig
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            FullHistorySyncOnDemandConfig.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for FullHistorySyncOnDemandConfig
+             * @function getTypeUrl
+             * @memberof E2E.Message.FullHistorySyncOnDemandConfig
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            FullHistorySyncOnDemandConfig.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/E2E.Message.FullHistorySyncOnDemandConfig";
+            };
+
+            return FullHistorySyncOnDemandConfig;
+        })();
+
         Message.FullHistorySyncOnDemandRequestMetadata = (function() {
 
             /**
@@ -52427,6 +52688,8 @@ $root.E2E = (function() {
              * @memberof E2E.Message
              * @interface IFullHistorySyncOnDemandRequestMetadata
              * @property {string|null} [requestId] FullHistorySyncOnDemandRequestMetadata requestId
+             * @property {string|null} [businessProduct] FullHistorySyncOnDemandRequestMetadata businessProduct
+             * @property {Uint8Array|null} [opaqueClientData] FullHistorySyncOnDemandRequestMetadata opaqueClientData
              */
 
             /**
@@ -52452,12 +52715,40 @@ $root.E2E = (function() {
              */
             FullHistorySyncOnDemandRequestMetadata.prototype.requestId = null;
 
+            /**
+             * FullHistorySyncOnDemandRequestMetadata businessProduct.
+             * @member {string|null|undefined} businessProduct
+             * @memberof E2E.Message.FullHistorySyncOnDemandRequestMetadata
+             * @instance
+             */
+            FullHistorySyncOnDemandRequestMetadata.prototype.businessProduct = null;
+
+            /**
+             * FullHistorySyncOnDemandRequestMetadata opaqueClientData.
+             * @member {Uint8Array|null|undefined} opaqueClientData
+             * @memberof E2E.Message.FullHistorySyncOnDemandRequestMetadata
+             * @instance
+             */
+            FullHistorySyncOnDemandRequestMetadata.prototype.opaqueClientData = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
             // Virtual OneOf for proto3 optional field
             Object.defineProperty(FullHistorySyncOnDemandRequestMetadata.prototype, "_requestId", {
                 get: $util.oneOfGetter($oneOfFields = ["requestId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(FullHistorySyncOnDemandRequestMetadata.prototype, "_businessProduct", {
+                get: $util.oneOfGetter($oneOfFields = ["businessProduct"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(FullHistorySyncOnDemandRequestMetadata.prototype, "_opaqueClientData", {
+                get: $util.oneOfGetter($oneOfFields = ["opaqueClientData"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -52487,6 +52778,10 @@ $root.E2E = (function() {
                     writer = $Writer.create();
                 if (message.requestId != null && Object.hasOwnProperty.call(message, "requestId"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.requestId);
+                if (message.businessProduct != null && Object.hasOwnProperty.call(message, "businessProduct"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.businessProduct);
+                if (message.opaqueClientData != null && Object.hasOwnProperty.call(message, "opaqueClientData"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.opaqueClientData);
                 return writer;
             };
 
@@ -52525,6 +52820,14 @@ $root.E2E = (function() {
                     switch (tag >>> 3) {
                     case 1: {
                             message.requestId = reader.string();
+                            break;
+                        }
+                    case 2: {
+                            message.businessProduct = reader.string();
+                            break;
+                        }
+                    case 3: {
+                            message.opaqueClientData = reader.bytes();
                             break;
                         }
                     default:
@@ -52568,6 +52871,16 @@ $root.E2E = (function() {
                     if (!$util.isString(message.requestId))
                         return "requestId: string expected";
                 }
+                if (message.businessProduct != null && message.hasOwnProperty("businessProduct")) {
+                    properties._businessProduct = 1;
+                    if (!$util.isString(message.businessProduct))
+                        return "businessProduct: string expected";
+                }
+                if (message.opaqueClientData != null && message.hasOwnProperty("opaqueClientData")) {
+                    properties._opaqueClientData = 1;
+                    if (!(message.opaqueClientData && typeof message.opaqueClientData.length === "number" || $util.isString(message.opaqueClientData)))
+                        return "opaqueClientData: buffer expected";
+                }
                 return null;
             };
 
@@ -52585,6 +52898,13 @@ $root.E2E = (function() {
                 var message = new $root.E2E.Message.FullHistorySyncOnDemandRequestMetadata();
                 if (object.requestId != null)
                     message.requestId = String(object.requestId);
+                if (object.businessProduct != null)
+                    message.businessProduct = String(object.businessProduct);
+                if (object.opaqueClientData != null)
+                    if (typeof object.opaqueClientData === "string")
+                        $util.base64.decode(object.opaqueClientData, message.opaqueClientData = $util.newBuffer($util.base64.length(object.opaqueClientData)), 0);
+                    else if (object.opaqueClientData.length >= 0)
+                        message.opaqueClientData = object.opaqueClientData;
                 return message;
             };
 
@@ -52605,6 +52925,16 @@ $root.E2E = (function() {
                     object.requestId = message.requestId;
                     if (options.oneofs)
                         object._requestId = "requestId";
+                }
+                if (message.businessProduct != null && message.hasOwnProperty("businessProduct")) {
+                    object.businessProduct = message.businessProduct;
+                    if (options.oneofs)
+                        object._businessProduct = "businessProduct";
+                }
+                if (message.opaqueClientData != null && message.hasOwnProperty("opaqueClientData")) {
+                    object.opaqueClientData = options.bytes === String ? $util.base64.encode(message.opaqueClientData, 0, message.opaqueClientData.length) : options.bytes === Array ? Array.prototype.slice.call(message.opaqueClientData) : message.opaqueClientData;
+                    if (options.oneofs)
+                        object._opaqueClientData = "opaqueClientData";
                 }
                 return object;
             };
@@ -73114,6 +73444,7 @@ $root.E2E = (function() {
                  * @interface IFullHistorySyncOnDemandRequest
                  * @property {E2E.Message.IFullHistorySyncOnDemandRequestMetadata|null} [requestMetadata] FullHistorySyncOnDemandRequest requestMetadata
                  * @property {CompanionReg.DeviceProps.IHistorySyncConfig|null} [historySyncConfig] FullHistorySyncOnDemandRequest historySyncConfig
+                 * @property {E2E.Message.IFullHistorySyncOnDemandConfig|null} [fullHistorySyncOnDemandConfig] FullHistorySyncOnDemandRequest fullHistorySyncOnDemandConfig
                  */
 
                 /**
@@ -73147,6 +73478,14 @@ $root.E2E = (function() {
                  */
                 FullHistorySyncOnDemandRequest.prototype.historySyncConfig = null;
 
+                /**
+                 * FullHistorySyncOnDemandRequest fullHistorySyncOnDemandConfig.
+                 * @member {E2E.Message.IFullHistorySyncOnDemandConfig|null|undefined} fullHistorySyncOnDemandConfig
+                 * @memberof E2E.Message.PeerDataOperationRequestMessage.FullHistorySyncOnDemandRequest
+                 * @instance
+                 */
+                FullHistorySyncOnDemandRequest.prototype.fullHistorySyncOnDemandConfig = null;
+
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
@@ -73159,6 +73498,12 @@ $root.E2E = (function() {
                 // Virtual OneOf for proto3 optional field
                 Object.defineProperty(FullHistorySyncOnDemandRequest.prototype, "_historySyncConfig", {
                     get: $util.oneOfGetter($oneOfFields = ["historySyncConfig"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                // Virtual OneOf for proto3 optional field
+                Object.defineProperty(FullHistorySyncOnDemandRequest.prototype, "_fullHistorySyncOnDemandConfig", {
+                    get: $util.oneOfGetter($oneOfFields = ["fullHistorySyncOnDemandConfig"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
@@ -73190,6 +73535,8 @@ $root.E2E = (function() {
                         $root.E2E.Message.FullHistorySyncOnDemandRequestMetadata.encode(message.requestMetadata, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
                     if (message.historySyncConfig != null && Object.hasOwnProperty.call(message, "historySyncConfig"))
                         $root.CompanionReg.DeviceProps.HistorySyncConfig.encode(message.historySyncConfig, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                    if (message.fullHistorySyncOnDemandConfig != null && Object.hasOwnProperty.call(message, "fullHistorySyncOnDemandConfig"))
+                        $root.E2E.Message.FullHistorySyncOnDemandConfig.encode(message.fullHistorySyncOnDemandConfig, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
                     return writer;
                 };
 
@@ -73232,6 +73579,10 @@ $root.E2E = (function() {
                             }
                         case 2: {
                                 message.historySyncConfig = $root.CompanionReg.DeviceProps.HistorySyncConfig.decode(reader, reader.uint32());
+                                break;
+                            }
+                        case 3: {
+                                message.fullHistorySyncOnDemandConfig = $root.E2E.Message.FullHistorySyncOnDemandConfig.decode(reader, reader.uint32());
                                 break;
                             }
                         default:
@@ -73286,6 +73637,14 @@ $root.E2E = (function() {
                                 return "historySyncConfig." + error;
                         }
                     }
+                    if (message.fullHistorySyncOnDemandConfig != null && message.hasOwnProperty("fullHistorySyncOnDemandConfig")) {
+                        properties._fullHistorySyncOnDemandConfig = 1;
+                        {
+                            var error = $root.E2E.Message.FullHistorySyncOnDemandConfig.verify(message.fullHistorySyncOnDemandConfig);
+                            if (error)
+                                return "fullHistorySyncOnDemandConfig." + error;
+                        }
+                    }
                     return null;
                 };
 
@@ -73310,6 +73669,11 @@ $root.E2E = (function() {
                         if (typeof object.historySyncConfig !== "object")
                             throw TypeError(".E2E.Message.PeerDataOperationRequestMessage.FullHistorySyncOnDemandRequest.historySyncConfig: object expected");
                         message.historySyncConfig = $root.CompanionReg.DeviceProps.HistorySyncConfig.fromObject(object.historySyncConfig);
+                    }
+                    if (object.fullHistorySyncOnDemandConfig != null) {
+                        if (typeof object.fullHistorySyncOnDemandConfig !== "object")
+                            throw TypeError(".E2E.Message.PeerDataOperationRequestMessage.FullHistorySyncOnDemandRequest.fullHistorySyncOnDemandConfig: object expected");
+                        message.fullHistorySyncOnDemandConfig = $root.E2E.Message.FullHistorySyncOnDemandConfig.fromObject(object.fullHistorySyncOnDemandConfig);
                     }
                     return message;
                 };
@@ -73336,6 +73700,11 @@ $root.E2E = (function() {
                         object.historySyncConfig = $root.CompanionReg.DeviceProps.HistorySyncConfig.toObject(message.historySyncConfig, options);
                         if (options.oneofs)
                             object._historySyncConfig = "historySyncConfig";
+                    }
+                    if (message.fullHistorySyncOnDemandConfig != null && message.hasOwnProperty("fullHistorySyncOnDemandConfig")) {
+                        object.fullHistorySyncOnDemandConfig = $root.E2E.Message.FullHistorySyncOnDemandConfig.toObject(message.fullHistorySyncOnDemandConfig, options);
+                        if (options.oneofs)
+                            object._fullHistorySyncOnDemandConfig = "fullHistorySyncOnDemandConfig";
                     }
                     return object;
                 };
@@ -84065,6 +84434,7 @@ $root.E2E = (function() {
              * @property {E2E.IAIQueryFanout|null} [aiQueryFanout] ProtocolMessage aiQueryFanout
              * @property {E2E.IMemberLabel|null} [memberLabel] ProtocolMessage memberLabel
              * @property {AICommon.IAIMediaCollectionMessage|null} [aiMediaCollectionMessage] ProtocolMessage aiMediaCollectionMessage
+             * @property {number|null} [afterReadDurationMs] ProtocolMessage afterReadDurationMs
              */
 
             /**
@@ -84282,6 +84652,14 @@ $root.E2E = (function() {
              */
             ProtocolMessage.prototype.aiMediaCollectionMessage = null;
 
+            /**
+             * ProtocolMessage afterReadDurationMs.
+             * @member {number|null|undefined} afterReadDurationMs
+             * @memberof E2E.Message.ProtocolMessage
+             * @instance
+             */
+            ProtocolMessage.prototype.afterReadDurationMs = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -84435,6 +84813,12 @@ $root.E2E = (function() {
                 set: $util.oneOfSetter($oneOfFields)
             });
 
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(ProtocolMessage.prototype, "_afterReadDurationMs", {
+                get: $util.oneOfGetter($oneOfFields = ["afterReadDurationMs"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
             /**
              * Creates a new ProtocolMessage instance using the specified properties.
              * @function create
@@ -84509,6 +84893,8 @@ $root.E2E = (function() {
                     $root.E2E.MemberLabel.encode(message.memberLabel, writer.uint32(/* id 27, wireType 2 =*/218).fork()).ldelim();
                 if (message.aiMediaCollectionMessage != null && Object.hasOwnProperty.call(message, "aiMediaCollectionMessage"))
                     $root.AICommon.AIMediaCollectionMessage.encode(message.aiMediaCollectionMessage, writer.uint32(/* id 28, wireType 2 =*/226).fork()).ldelim();
+                if (message.afterReadDurationMs != null && Object.hasOwnProperty.call(message, "afterReadDurationMs"))
+                    writer.uint32(/* id 29, wireType 0 =*/232).uint32(message.afterReadDurationMs);
                 return writer;
             };
 
@@ -84643,6 +85029,10 @@ $root.E2E = (function() {
                         }
                     case 28: {
                             message.aiMediaCollectionMessage = $root.AICommon.AIMediaCollectionMessage.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 29: {
+                            message.afterReadDurationMs = reader.uint32();
                             break;
                         }
                     default:
@@ -84893,6 +85283,11 @@ $root.E2E = (function() {
                         if (error)
                             return "aiMediaCollectionMessage." + error;
                     }
+                }
+                if (message.afterReadDurationMs != null && message.hasOwnProperty("afterReadDurationMs")) {
+                    properties._afterReadDurationMs = 1;
+                    if (!$util.isInteger(message.afterReadDurationMs))
+                        return "afterReadDurationMs: integer expected";
                 }
                 return null;
             };
@@ -85151,6 +85546,8 @@ $root.E2E = (function() {
                         throw TypeError(".E2E.Message.ProtocolMessage.aiMediaCollectionMessage: object expected");
                     message.aiMediaCollectionMessage = $root.AICommon.AIMediaCollectionMessage.fromObject(object.aiMediaCollectionMessage);
                 }
+                if (object.afterReadDurationMs != null)
+                    message.afterReadDurationMs = object.afterReadDurationMs >>> 0;
                 return message;
             };
 
@@ -85297,6 +85694,11 @@ $root.E2E = (function() {
                     object.aiMediaCollectionMessage = $root.AICommon.AIMediaCollectionMessage.toObject(message.aiMediaCollectionMessage, options);
                     if (options.oneofs)
                         object._aiMediaCollectionMessage = "aiMediaCollectionMessage";
+                }
+                if (message.afterReadDurationMs != null && message.hasOwnProperty("afterReadDurationMs")) {
+                    object.afterReadDurationMs = message.afterReadDurationMs;
+                    if (options.oneofs)
+                        object._afterReadDurationMs = "afterReadDurationMs";
                 }
                 return object;
             };
@@ -108937,7 +109339,6 @@ $root.AICommon = (function() {
          * Properties of a BotMetadata.
          * @memberof AICommon
          * @interface IBotMetadata
-         * @property {AICommon.IBotAvatarMetadata|null} [avatarMetadata] BotMetadata avatarMetadata
          * @property {string|null} [personaId] BotMetadata personaId
          * @property {AICommon.IBotPluginMetadata|null} [pluginMetadata] BotMetadata pluginMetadata
          * @property {AICommon.IBotSuggestedPromptMetadata|null} [suggestedPromptMetadata] BotMetadata suggestedPromptMetadata
@@ -108992,14 +109393,6 @@ $root.AICommon = (function() {
                     if (properties[keys[i]] != null)
                         this[keys[i]] = properties[keys[i]];
         }
-
-        /**
-         * BotMetadata avatarMetadata.
-         * @member {AICommon.IBotAvatarMetadata|null|undefined} avatarMetadata
-         * @memberof AICommon.BotMetadata
-         * @instance
-         */
-        BotMetadata.prototype.avatarMetadata = null;
 
         /**
          * BotMetadata personaId.
@@ -109309,12 +109702,6 @@ $root.AICommon = (function() {
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(BotMetadata.prototype, "_avatarMetadata", {
-            get: $util.oneOfGetter($oneOfFields = ["avatarMetadata"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_personaId", {
             get: $util.oneOfGetter($oneOfFields = ["personaId"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -109566,8 +109953,6 @@ $root.AICommon = (function() {
         BotMetadata.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.avatarMetadata != null && Object.hasOwnProperty.call(message, "avatarMetadata"))
-                $root.AICommon.BotAvatarMetadata.encode(message.avatarMetadata, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
             if (message.personaId != null && Object.hasOwnProperty.call(message, "personaId"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.personaId);
             if (message.pluginMetadata != null && Object.hasOwnProperty.call(message, "pluginMetadata"))
@@ -109680,10 +110065,6 @@ $root.AICommon = (function() {
                 if (tag === error)
                     break;
                 switch (tag >>> 3) {
-                case 1: {
-                        message.avatarMetadata = $root.AICommon.BotAvatarMetadata.decode(reader, reader.uint32());
-                        break;
-                    }
                 case 2: {
                         message.personaId = reader.string();
                         break;
@@ -109872,14 +110253,6 @@ $root.AICommon = (function() {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             var properties = {};
-            if (message.avatarMetadata != null && message.hasOwnProperty("avatarMetadata")) {
-                properties._avatarMetadata = 1;
-                {
-                    var error = $root.AICommon.BotAvatarMetadata.verify(message.avatarMetadata);
-                    if (error)
-                        return "avatarMetadata." + error;
-                }
-            }
             if (message.personaId != null && message.hasOwnProperty("personaId")) {
                 properties._personaId = 1;
                 if (!$util.isString(message.personaId))
@@ -110175,11 +110548,6 @@ $root.AICommon = (function() {
             if (object instanceof $root.AICommon.BotMetadata)
                 return object;
             var message = new $root.AICommon.BotMetadata();
-            if (object.avatarMetadata != null) {
-                if (typeof object.avatarMetadata !== "object")
-                    throw TypeError(".AICommon.BotMetadata.avatarMetadata: object expected");
-                message.avatarMetadata = $root.AICommon.BotAvatarMetadata.fromObject(object.avatarMetadata);
-            }
             if (object.personaId != null)
                 message.personaId = String(object.personaId);
             if (object.pluginMetadata != null) {
@@ -110368,11 +110736,6 @@ $root.AICommon = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (message.avatarMetadata != null && message.hasOwnProperty("avatarMetadata")) {
-                object.avatarMetadata = $root.AICommon.BotAvatarMetadata.toObject(message.avatarMetadata, options);
-                if (options.oneofs)
-                    object._avatarMetadata = "avatarMetadata";
-            }
             if (message.personaId != null && message.hasOwnProperty("personaId")) {
                 object.personaId = message.personaId;
                 if (options.oneofs)
@@ -125743,356 +126106,6 @@ $root.AICommon = (function() {
         })();
 
         return BotPluginMetadata;
-    })();
-
-    AICommon.BotAvatarMetadata = (function() {
-
-        /**
-         * Properties of a BotAvatarMetadata.
-         * @memberof AICommon
-         * @interface IBotAvatarMetadata
-         * @property {number|null} [sentiment] BotAvatarMetadata sentiment
-         * @property {string|null} [behaviorGraph] BotAvatarMetadata behaviorGraph
-         * @property {number|null} [action] BotAvatarMetadata action
-         * @property {number|null} [intensity] BotAvatarMetadata intensity
-         * @property {number|null} [wordCount] BotAvatarMetadata wordCount
-         */
-
-        /**
-         * Constructs a new BotAvatarMetadata.
-         * @memberof AICommon
-         * @classdesc Represents a BotAvatarMetadata.
-         * @implements IBotAvatarMetadata
-         * @constructor
-         * @param {AICommon.IBotAvatarMetadata=} [properties] Properties to set
-         */
-        function BotAvatarMetadata(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * BotAvatarMetadata sentiment.
-         * @member {number|null|undefined} sentiment
-         * @memberof AICommon.BotAvatarMetadata
-         * @instance
-         */
-        BotAvatarMetadata.prototype.sentiment = null;
-
-        /**
-         * BotAvatarMetadata behaviorGraph.
-         * @member {string|null|undefined} behaviorGraph
-         * @memberof AICommon.BotAvatarMetadata
-         * @instance
-         */
-        BotAvatarMetadata.prototype.behaviorGraph = null;
-
-        /**
-         * BotAvatarMetadata action.
-         * @member {number|null|undefined} action
-         * @memberof AICommon.BotAvatarMetadata
-         * @instance
-         */
-        BotAvatarMetadata.prototype.action = null;
-
-        /**
-         * BotAvatarMetadata intensity.
-         * @member {number|null|undefined} intensity
-         * @memberof AICommon.BotAvatarMetadata
-         * @instance
-         */
-        BotAvatarMetadata.prototype.intensity = null;
-
-        /**
-         * BotAvatarMetadata wordCount.
-         * @member {number|null|undefined} wordCount
-         * @memberof AICommon.BotAvatarMetadata
-         * @instance
-         */
-        BotAvatarMetadata.prototype.wordCount = null;
-
-        // OneOf field names bound to virtual getters and setters
-        var $oneOfFields;
-
-        // Virtual OneOf for proto3 optional field
-        Object.defineProperty(BotAvatarMetadata.prototype, "_sentiment", {
-            get: $util.oneOfGetter($oneOfFields = ["sentiment"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        // Virtual OneOf for proto3 optional field
-        Object.defineProperty(BotAvatarMetadata.prototype, "_behaviorGraph", {
-            get: $util.oneOfGetter($oneOfFields = ["behaviorGraph"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        // Virtual OneOf for proto3 optional field
-        Object.defineProperty(BotAvatarMetadata.prototype, "_action", {
-            get: $util.oneOfGetter($oneOfFields = ["action"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        // Virtual OneOf for proto3 optional field
-        Object.defineProperty(BotAvatarMetadata.prototype, "_intensity", {
-            get: $util.oneOfGetter($oneOfFields = ["intensity"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        // Virtual OneOf for proto3 optional field
-        Object.defineProperty(BotAvatarMetadata.prototype, "_wordCount", {
-            get: $util.oneOfGetter($oneOfFields = ["wordCount"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
-
-        /**
-         * Creates a new BotAvatarMetadata instance using the specified properties.
-         * @function create
-         * @memberof AICommon.BotAvatarMetadata
-         * @static
-         * @param {AICommon.IBotAvatarMetadata=} [properties] Properties to set
-         * @returns {AICommon.BotAvatarMetadata} BotAvatarMetadata instance
-         */
-        BotAvatarMetadata.create = function create(properties) {
-            return new BotAvatarMetadata(properties);
-        };
-
-        /**
-         * Encodes the specified BotAvatarMetadata message. Does not implicitly {@link AICommon.BotAvatarMetadata.verify|verify} messages.
-         * @function encode
-         * @memberof AICommon.BotAvatarMetadata
-         * @static
-         * @param {AICommon.IBotAvatarMetadata} message BotAvatarMetadata message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        BotAvatarMetadata.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.sentiment != null && Object.hasOwnProperty.call(message, "sentiment"))
-                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.sentiment);
-            if (message.behaviorGraph != null && Object.hasOwnProperty.call(message, "behaviorGraph"))
-                writer.uint32(/* id 2, wireType 2 =*/18).string(message.behaviorGraph);
-            if (message.action != null && Object.hasOwnProperty.call(message, "action"))
-                writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.action);
-            if (message.intensity != null && Object.hasOwnProperty.call(message, "intensity"))
-                writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.intensity);
-            if (message.wordCount != null && Object.hasOwnProperty.call(message, "wordCount"))
-                writer.uint32(/* id 5, wireType 0 =*/40).uint32(message.wordCount);
-            return writer;
-        };
-
-        /**
-         * Encodes the specified BotAvatarMetadata message, length delimited. Does not implicitly {@link AICommon.BotAvatarMetadata.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof AICommon.BotAvatarMetadata
-         * @static
-         * @param {AICommon.IBotAvatarMetadata} message BotAvatarMetadata message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        BotAvatarMetadata.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-
-        /**
-         * Decodes a BotAvatarMetadata message from the specified reader or buffer.
-         * @function decode
-         * @memberof AICommon.BotAvatarMetadata
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotAvatarMetadata} BotAvatarMetadata
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        BotAvatarMetadata.decode = function decode(reader, length, error) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotAvatarMetadata();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.sentiment = reader.uint32();
-                        break;
-                    }
-                case 2: {
-                        message.behaviorGraph = reader.string();
-                        break;
-                    }
-                case 3: {
-                        message.action = reader.uint32();
-                        break;
-                    }
-                case 4: {
-                        message.intensity = reader.uint32();
-                        break;
-                    }
-                case 5: {
-                        message.wordCount = reader.uint32();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Decodes a BotAvatarMetadata message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof AICommon.BotAvatarMetadata
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotAvatarMetadata} BotAvatarMetadata
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        BotAvatarMetadata.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-
-        /**
-         * Verifies a BotAvatarMetadata message.
-         * @function verify
-         * @memberof AICommon.BotAvatarMetadata
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        BotAvatarMetadata.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            var properties = {};
-            if (message.sentiment != null && message.hasOwnProperty("sentiment")) {
-                properties._sentiment = 1;
-                if (!$util.isInteger(message.sentiment))
-                    return "sentiment: integer expected";
-            }
-            if (message.behaviorGraph != null && message.hasOwnProperty("behaviorGraph")) {
-                properties._behaviorGraph = 1;
-                if (!$util.isString(message.behaviorGraph))
-                    return "behaviorGraph: string expected";
-            }
-            if (message.action != null && message.hasOwnProperty("action")) {
-                properties._action = 1;
-                if (!$util.isInteger(message.action))
-                    return "action: integer expected";
-            }
-            if (message.intensity != null && message.hasOwnProperty("intensity")) {
-                properties._intensity = 1;
-                if (!$util.isInteger(message.intensity))
-                    return "intensity: integer expected";
-            }
-            if (message.wordCount != null && message.hasOwnProperty("wordCount")) {
-                properties._wordCount = 1;
-                if (!$util.isInteger(message.wordCount))
-                    return "wordCount: integer expected";
-            }
-            return null;
-        };
-
-        /**
-         * Creates a BotAvatarMetadata message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof AICommon.BotAvatarMetadata
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {AICommon.BotAvatarMetadata} BotAvatarMetadata
-         */
-        BotAvatarMetadata.fromObject = function fromObject(object) {
-            if (object instanceof $root.AICommon.BotAvatarMetadata)
-                return object;
-            var message = new $root.AICommon.BotAvatarMetadata();
-            if (object.sentiment != null)
-                message.sentiment = object.sentiment >>> 0;
-            if (object.behaviorGraph != null)
-                message.behaviorGraph = String(object.behaviorGraph);
-            if (object.action != null)
-                message.action = object.action >>> 0;
-            if (object.intensity != null)
-                message.intensity = object.intensity >>> 0;
-            if (object.wordCount != null)
-                message.wordCount = object.wordCount >>> 0;
-            return message;
-        };
-
-        /**
-         * Creates a plain object from a BotAvatarMetadata message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof AICommon.BotAvatarMetadata
-         * @static
-         * @param {AICommon.BotAvatarMetadata} message BotAvatarMetadata
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        BotAvatarMetadata.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (message.sentiment != null && message.hasOwnProperty("sentiment")) {
-                object.sentiment = message.sentiment;
-                if (options.oneofs)
-                    object._sentiment = "sentiment";
-            }
-            if (message.behaviorGraph != null && message.hasOwnProperty("behaviorGraph")) {
-                object.behaviorGraph = message.behaviorGraph;
-                if (options.oneofs)
-                    object._behaviorGraph = "behaviorGraph";
-            }
-            if (message.action != null && message.hasOwnProperty("action")) {
-                object.action = message.action;
-                if (options.oneofs)
-                    object._action = "action";
-            }
-            if (message.intensity != null && message.hasOwnProperty("intensity")) {
-                object.intensity = message.intensity;
-                if (options.oneofs)
-                    object._intensity = "intensity";
-            }
-            if (message.wordCount != null && message.hasOwnProperty("wordCount")) {
-                object.wordCount = message.wordCount;
-                if (options.oneofs)
-                    object._wordCount = "wordCount";
-            }
-            return object;
-        };
-
-        /**
-         * Converts this BotAvatarMetadata to JSON.
-         * @function toJSON
-         * @memberof AICommon.BotAvatarMetadata
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        BotAvatarMetadata.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        /**
-         * Gets the default type url for BotAvatarMetadata
-         * @function getTypeUrl
-         * @memberof AICommon.BotAvatarMetadata
-         * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
-         */
-        BotAvatarMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotAvatarMetadata";
-        };
-
-        return BotAvatarMetadata;
     })();
 
     /**
