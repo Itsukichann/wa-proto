@@ -2913,6 +2913,7 @@ $root.CompanionReg = (function() {
              * @property {boolean|null} [completeOnDemandReady] HistorySyncConfig completeOnDemandReady
              * @property {number|null} [thumbnailSyncDaysLimit] HistorySyncConfig thumbnailSyncDaysLimit
              * @property {number|null} [initialSyncMaxMessagesPerChat] HistorySyncConfig initialSyncMaxMessagesPerChat
+             * @property {boolean|null} [supportManusHistory] HistorySyncConfig supportManusHistory
              */
 
             /**
@@ -3090,6 +3091,14 @@ $root.CompanionReg = (function() {
              */
             HistorySyncConfig.prototype.initialSyncMaxMessagesPerChat = null;
 
+            /**
+             * HistorySyncConfig supportManusHistory.
+             * @member {boolean|null|undefined} supportManusHistory
+             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
+             * @instance
+             */
+            HistorySyncConfig.prototype.supportManusHistory = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -3213,6 +3222,12 @@ $root.CompanionReg = (function() {
                 set: $util.oneOfSetter($oneOfFields)
             });
 
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(HistorySyncConfig.prototype, "_supportManusHistory", {
+                get: $util.oneOfGetter($oneOfFields = ["supportManusHistory"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
             /**
              * Creates a new HistorySyncConfig instance using the specified properties.
              * @function create
@@ -3277,6 +3292,8 @@ $root.CompanionReg = (function() {
                     writer.uint32(/* id 19, wireType 0 =*/152).uint32(message.thumbnailSyncDaysLimit);
                 if (message.initialSyncMaxMessagesPerChat != null && Object.hasOwnProperty.call(message, "initialSyncMaxMessagesPerChat"))
                     writer.uint32(/* id 20, wireType 0 =*/160).uint32(message.initialSyncMaxMessagesPerChat);
+                if (message.supportManusHistory != null && Object.hasOwnProperty.call(message, "supportManusHistory"))
+                    writer.uint32(/* id 21, wireType 0 =*/168).bool(message.supportManusHistory);
                 return writer;
             };
 
@@ -3391,6 +3408,10 @@ $root.CompanionReg = (function() {
                         }
                     case 20: {
                             message.initialSyncMaxMessagesPerChat = reader.uint32();
+                            break;
+                        }
+                    case 21: {
+                            message.supportManusHistory = reader.bool();
                             break;
                         }
                     default:
@@ -3529,6 +3550,11 @@ $root.CompanionReg = (function() {
                     if (!$util.isInteger(message.initialSyncMaxMessagesPerChat))
                         return "initialSyncMaxMessagesPerChat: integer expected";
                 }
+                if (message.supportManusHistory != null && message.hasOwnProperty("supportManusHistory")) {
+                    properties._supportManusHistory = 1;
+                    if (typeof message.supportManusHistory !== "boolean")
+                        return "supportManusHistory: boolean expected";
+                }
                 return null;
             };
 
@@ -3584,6 +3610,8 @@ $root.CompanionReg = (function() {
                     message.thumbnailSyncDaysLimit = object.thumbnailSyncDaysLimit >>> 0;
                 if (object.initialSyncMaxMessagesPerChat != null)
                     message.initialSyncMaxMessagesPerChat = object.initialSyncMaxMessagesPerChat >>> 0;
+                if (object.supportManusHistory != null)
+                    message.supportManusHistory = Boolean(object.supportManusHistory);
                 return message;
             };
 
@@ -3699,6 +3727,11 @@ $root.CompanionReg = (function() {
                     object.initialSyncMaxMessagesPerChat = message.initialSyncMaxMessagesPerChat;
                     if (options.oneofs)
                         object._initialSyncMaxMessagesPerChat = "initialSyncMaxMessagesPerChat";
+                }
+                if (message.supportManusHistory != null && message.hasOwnProperty("supportManusHistory")) {
+                    object.supportManusHistory = message.supportManusHistory;
+                    if (options.oneofs)
+                        object._supportManusHistory = "supportManusHistory";
                 }
                 return object;
             };

@@ -12021,6 +12021,7 @@ $root.E2E = (function() {
          * @property {boolean|null} [isSpoiler] ContextInfo isSpoiler
          * @property {E2E.IMediaDomainInfo|null} [mediaDomainInfo] ContextInfo mediaDomainInfo
          * @property {E2E.ContextInfo.IPartiallySelectedContent|null} [partiallySelectedContent] ContextInfo partiallySelectedContent
+         * @property {number|null} [afterReadDurationMs] ContextInfo afterReadDurationMs
          */
 
         /**
@@ -12505,6 +12506,14 @@ $root.E2E = (function() {
          */
         ContextInfo.prototype.partiallySelectedContent = null;
 
+        /**
+         * ContextInfo afterReadDurationMs.
+         * @member {number|null|undefined} afterReadDurationMs
+         * @memberof E2E.ContextInfo
+         * @instance
+         */
+        ContextInfo.prototype.afterReadDurationMs = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -12838,6 +12847,12 @@ $root.E2E = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(ContextInfo.prototype, "_afterReadDurationMs", {
+            get: $util.oneOfGetter($oneOfFields = ["afterReadDurationMs"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new ContextInfo instance using the specified properties.
          * @function create
@@ -12981,6 +12996,8 @@ $root.E2E = (function() {
                 $root.E2E.MediaDomainInfo.encode(message.mediaDomainInfo, writer.uint32(/* id 74, wireType 2 =*/594).fork()).ldelim();
             if (message.partiallySelectedContent != null && Object.hasOwnProperty.call(message, "partiallySelectedContent"))
                 $root.E2E.ContextInfo.PartiallySelectedContent.encode(message.partiallySelectedContent, writer.uint32(/* id 75, wireType 2 =*/602).fork()).ldelim();
+            if (message.afterReadDurationMs != null && Object.hasOwnProperty.call(message, "afterReadDurationMs"))
+                writer.uint32(/* id 76, wireType 0 =*/608).uint32(message.afterReadDurationMs);
             return writer;
         };
 
@@ -13253,6 +13270,10 @@ $root.E2E = (function() {
                     }
                 case 75: {
                         message.partiallySelectedContent = $root.E2E.ContextInfo.PartiallySelectedContent.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 76: {
+                        message.afterReadDurationMs = reader.uint32();
                         break;
                     }
                 default:
@@ -13691,6 +13712,11 @@ $root.E2E = (function() {
                         return "partiallySelectedContent." + error;
                 }
             }
+            if (message.afterReadDurationMs != null && message.hasOwnProperty("afterReadDurationMs")) {
+                properties._afterReadDurationMs = 1;
+                if (!$util.isInteger(message.afterReadDurationMs))
+                    return "afterReadDurationMs: integer expected";
+            }
             return null;
         };
 
@@ -14058,6 +14084,8 @@ $root.E2E = (function() {
                     throw TypeError(".E2E.ContextInfo.partiallySelectedContent: object expected");
                 message.partiallySelectedContent = $root.E2E.ContextInfo.PartiallySelectedContent.fromObject(object.partiallySelectedContent);
             }
+            if (object.afterReadDurationMs != null)
+                message.afterReadDurationMs = object.afterReadDurationMs >>> 0;
             return message;
         };
 
@@ -14371,6 +14399,11 @@ $root.E2E = (function() {
                 object.partiallySelectedContent = $root.E2E.ContextInfo.PartiallySelectedContent.toObject(message.partiallySelectedContent, options);
                 if (options.oneofs)
                     object._partiallySelectedContent = "partiallySelectedContent";
+            }
+            if (message.afterReadDurationMs != null && message.hasOwnProperty("afterReadDurationMs")) {
+                object.afterReadDurationMs = message.afterReadDurationMs;
+                if (options.oneofs)
+                    object._afterReadDurationMs = "afterReadDurationMs";
             }
             return object;
         };
@@ -71674,6 +71707,7 @@ $root.E2E = (function() {
              * @memberof E2E.Message
              * @interface IRequestWelcomeMessageMetadata
              * @property {E2E.Message.RequestWelcomeMessageMetadata.LocalChatState|null} [localChatState] RequestWelcomeMessageMetadata localChatState
+             * @property {E2E.Message.RequestWelcomeMessageMetadata.WelcomeTrigger|null} [welcomeTrigger] RequestWelcomeMessageMetadata welcomeTrigger
              */
 
             /**
@@ -71699,12 +71733,26 @@ $root.E2E = (function() {
              */
             RequestWelcomeMessageMetadata.prototype.localChatState = null;
 
+            /**
+             * RequestWelcomeMessageMetadata welcomeTrigger.
+             * @member {E2E.Message.RequestWelcomeMessageMetadata.WelcomeTrigger|null|undefined} welcomeTrigger
+             * @memberof E2E.Message.RequestWelcomeMessageMetadata
+             * @instance
+             */
+            RequestWelcomeMessageMetadata.prototype.welcomeTrigger = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
             // Virtual OneOf for proto3 optional field
             Object.defineProperty(RequestWelcomeMessageMetadata.prototype, "_localChatState", {
                 get: $util.oneOfGetter($oneOfFields = ["localChatState"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(RequestWelcomeMessageMetadata.prototype, "_welcomeTrigger", {
+                get: $util.oneOfGetter($oneOfFields = ["welcomeTrigger"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -71734,6 +71782,8 @@ $root.E2E = (function() {
                     writer = $Writer.create();
                 if (message.localChatState != null && Object.hasOwnProperty.call(message, "localChatState"))
                     writer.uint32(/* id 1, wireType 0 =*/8).int32(message.localChatState);
+                if (message.welcomeTrigger != null && Object.hasOwnProperty.call(message, "welcomeTrigger"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).int32(message.welcomeTrigger);
                 return writer;
             };
 
@@ -71772,6 +71822,10 @@ $root.E2E = (function() {
                     switch (tag >>> 3) {
                     case 1: {
                             message.localChatState = reader.int32();
+                            break;
+                        }
+                    case 2: {
+                            message.welcomeTrigger = reader.int32();
                             break;
                         }
                     default:
@@ -71820,6 +71874,16 @@ $root.E2E = (function() {
                         break;
                     }
                 }
+                if (message.welcomeTrigger != null && message.hasOwnProperty("welcomeTrigger")) {
+                    properties._welcomeTrigger = 1;
+                    switch (message.welcomeTrigger) {
+                    default:
+                        return "welcomeTrigger: enum value expected";
+                    case 0:
+                    case 1:
+                        break;
+                    }
+                }
                 return null;
             };
 
@@ -71851,6 +71915,22 @@ $root.E2E = (function() {
                     message.localChatState = 1;
                     break;
                 }
+                switch (object.welcomeTrigger) {
+                default:
+                    if (typeof object.welcomeTrigger === "number") {
+                        message.welcomeTrigger = object.welcomeTrigger;
+                        break;
+                    }
+                    break;
+                case "CHAT_OPEN":
+                case 0:
+                    message.welcomeTrigger = 0;
+                    break;
+                case "COMPANION_PAIRING":
+                case 1:
+                    message.welcomeTrigger = 1;
+                    break;
+                }
                 return message;
             };
 
@@ -71871,6 +71951,11 @@ $root.E2E = (function() {
                     object.localChatState = options.enums === String ? $root.E2E.Message.RequestWelcomeMessageMetadata.LocalChatState[message.localChatState] === undefined ? message.localChatState : $root.E2E.Message.RequestWelcomeMessageMetadata.LocalChatState[message.localChatState] : message.localChatState;
                     if (options.oneofs)
                         object._localChatState = "localChatState";
+                }
+                if (message.welcomeTrigger != null && message.hasOwnProperty("welcomeTrigger")) {
+                    object.welcomeTrigger = options.enums === String ? $root.E2E.Message.RequestWelcomeMessageMetadata.WelcomeTrigger[message.welcomeTrigger] === undefined ? message.welcomeTrigger : $root.E2E.Message.RequestWelcomeMessageMetadata.WelcomeTrigger[message.welcomeTrigger] : message.welcomeTrigger;
+                    if (options.oneofs)
+                        object._welcomeTrigger = "welcomeTrigger";
                 }
                 return object;
             };
@@ -71912,6 +71997,20 @@ $root.E2E = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
                 values[valuesById[0] = "EMPTY"] = 0;
                 values[valuesById[1] = "NON_EMPTY"] = 1;
+                return values;
+            })();
+
+            /**
+             * WelcomeTrigger enum.
+             * @name E2E.Message.RequestWelcomeMessageMetadata.WelcomeTrigger
+             * @enum {number}
+             * @property {number} CHAT_OPEN=0 CHAT_OPEN value
+             * @property {number} COMPANION_PAIRING=1 COMPANION_PAIRING value
+             */
+            RequestWelcomeMessageMetadata.WelcomeTrigger = (function() {
+                var valuesById = {}, values = Object.create(valuesById);
+                values[valuesById[0] = "CHAT_OPEN"] = 0;
+                values[valuesById[1] = "COMPANION_PAIRING"] = 1;
                 return values;
             })();
 
@@ -76758,6 +76857,7 @@ $root.E2E = (function() {
                  * @property {string|null} [accessibilityLabel] Sticker accessibilityLabel
                  * @property {boolean|null} [isLottie] Sticker isLottie
                  * @property {string|null} [mimetype] Sticker mimetype
+                 * @property {number|null} [premium] Sticker premium
                  */
 
                 /**
@@ -76824,6 +76924,14 @@ $root.E2E = (function() {
                  */
                 Sticker.prototype.mimetype = null;
 
+                /**
+                 * Sticker premium.
+                 * @member {number|null|undefined} premium
+                 * @memberof E2E.Message.StickerPackMessage.Sticker
+                 * @instance
+                 */
+                Sticker.prototype.premium = null;
+
                 // OneOf field names bound to virtual getters and setters
                 var $oneOfFields;
 
@@ -76854,6 +76962,12 @@ $root.E2E = (function() {
                 // Virtual OneOf for proto3 optional field
                 Object.defineProperty(Sticker.prototype, "_mimetype", {
                     get: $util.oneOfGetter($oneOfFields = ["mimetype"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                // Virtual OneOf for proto3 optional field
+                Object.defineProperty(Sticker.prototype, "_premium", {
+                    get: $util.oneOfGetter($oneOfFields = ["premium"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
@@ -76894,6 +77008,8 @@ $root.E2E = (function() {
                         writer.uint32(/* id 5, wireType 0 =*/40).bool(message.isLottie);
                     if (message.mimetype != null && Object.hasOwnProperty.call(message, "mimetype"))
                         writer.uint32(/* id 6, wireType 2 =*/50).string(message.mimetype);
+                    if (message.premium != null && Object.hasOwnProperty.call(message, "premium"))
+                        writer.uint32(/* id 7, wireType 0 =*/56).int32(message.premium);
                     return writer;
                 };
 
@@ -76954,6 +77070,10 @@ $root.E2E = (function() {
                             }
                         case 6: {
                                 message.mimetype = reader.string();
+                                break;
+                            }
+                        case 7: {
+                                message.premium = reader.int32();
                                 break;
                             }
                         default:
@@ -77024,6 +77144,11 @@ $root.E2E = (function() {
                         if (!$util.isString(message.mimetype))
                             return "mimetype: string expected";
                     }
+                    if (message.premium != null && message.hasOwnProperty("premium")) {
+                        properties._premium = 1;
+                        if (!$util.isInteger(message.premium))
+                            return "premium: integer expected";
+                    }
                     return null;
                 };
 
@@ -77056,6 +77181,8 @@ $root.E2E = (function() {
                         message.isLottie = Boolean(object.isLottie);
                     if (object.mimetype != null)
                         message.mimetype = String(object.mimetype);
+                    if (object.premium != null)
+                        message.premium = object.premium | 0;
                     return message;
                 };
 
@@ -77103,6 +77230,11 @@ $root.E2E = (function() {
                         object.mimetype = message.mimetype;
                         if (options.oneofs)
                             object._mimetype = "mimetype";
+                    }
+                    if (message.premium != null && message.hasOwnProperty("premium")) {
+                        object.premium = message.premium;
+                        if (options.oneofs)
+                            object._premium = "premium";
                     }
                     return object;
                 };
@@ -93940,6 +94072,7 @@ $root.AICommon = (function() {
          * Properties of a BotMetadata.
          * @memberof AICommon
          * @interface IBotMetadata
+         * @property {AICommon.IBotAvatarMetadata|null} [avatarMetadata] BotMetadata avatarMetadata
          * @property {string|null} [personaId] BotMetadata personaId
          * @property {AICommon.IBotPluginMetadata|null} [pluginMetadata] BotMetadata pluginMetadata
          * @property {AICommon.IBotSuggestedPromptMetadata|null} [suggestedPromptMetadata] BotMetadata suggestedPromptMetadata
@@ -93994,6 +94127,14 @@ $root.AICommon = (function() {
                     if (properties[keys[i]] != null)
                         this[keys[i]] = properties[keys[i]];
         }
+
+        /**
+         * BotMetadata avatarMetadata.
+         * @member {AICommon.IBotAvatarMetadata|null|undefined} avatarMetadata
+         * @memberof AICommon.BotMetadata
+         * @instance
+         */
+        BotMetadata.prototype.avatarMetadata = null;
 
         /**
          * BotMetadata personaId.
@@ -94303,6 +94444,12 @@ $root.AICommon = (function() {
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
+        Object.defineProperty(BotMetadata.prototype, "_avatarMetadata", {
+            get: $util.oneOfGetter($oneOfFields = ["avatarMetadata"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_personaId", {
             get: $util.oneOfGetter($oneOfFields = ["personaId"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -94554,6 +94701,8 @@ $root.AICommon = (function() {
         BotMetadata.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
+            if (message.avatarMetadata != null && Object.hasOwnProperty.call(message, "avatarMetadata"))
+                $root.AICommon.BotAvatarMetadata.encode(message.avatarMetadata, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
             if (message.personaId != null && Object.hasOwnProperty.call(message, "personaId"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.personaId);
             if (message.pluginMetadata != null && Object.hasOwnProperty.call(message, "pluginMetadata"))
@@ -94666,6 +94815,10 @@ $root.AICommon = (function() {
                 if (tag === error)
                     break;
                 switch (tag >>> 3) {
+                case 1: {
+                        message.avatarMetadata = $root.AICommon.BotAvatarMetadata.decode(reader, reader.uint32());
+                        break;
+                    }
                 case 2: {
                         message.personaId = reader.string();
                         break;
@@ -94854,6 +95007,14 @@ $root.AICommon = (function() {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             var properties = {};
+            if (message.avatarMetadata != null && message.hasOwnProperty("avatarMetadata")) {
+                properties._avatarMetadata = 1;
+                {
+                    var error = $root.AICommon.BotAvatarMetadata.verify(message.avatarMetadata);
+                    if (error)
+                        return "avatarMetadata." + error;
+                }
+            }
             if (message.personaId != null && message.hasOwnProperty("personaId")) {
                 properties._personaId = 1;
                 if (!$util.isString(message.personaId))
@@ -95149,6 +95310,11 @@ $root.AICommon = (function() {
             if (object instanceof $root.AICommon.BotMetadata)
                 return object;
             var message = new $root.AICommon.BotMetadata();
+            if (object.avatarMetadata != null) {
+                if (typeof object.avatarMetadata !== "object")
+                    throw TypeError(".AICommon.BotMetadata.avatarMetadata: object expected");
+                message.avatarMetadata = $root.AICommon.BotAvatarMetadata.fromObject(object.avatarMetadata);
+            }
             if (object.personaId != null)
                 message.personaId = String(object.personaId);
             if (object.pluginMetadata != null) {
@@ -95337,6 +95503,11 @@ $root.AICommon = (function() {
             if (!options)
                 options = {};
             var object = {};
+            if (message.avatarMetadata != null && message.hasOwnProperty("avatarMetadata")) {
+                object.avatarMetadata = $root.AICommon.BotAvatarMetadata.toObject(message.avatarMetadata, options);
+                if (options.oneofs)
+                    object._avatarMetadata = "avatarMetadata";
+            }
             if (message.personaId != null && message.hasOwnProperty("personaId")) {
                 object.personaId = message.personaId;
                 if (options.oneofs)
@@ -110709,6 +110880,356 @@ $root.AICommon = (function() {
         return BotPluginMetadata;
     })();
 
+    AICommon.BotAvatarMetadata = (function() {
+
+        /**
+         * Properties of a BotAvatarMetadata.
+         * @memberof AICommon
+         * @interface IBotAvatarMetadata
+         * @property {number|null} [sentiment] BotAvatarMetadata sentiment
+         * @property {string|null} [behaviorGraph] BotAvatarMetadata behaviorGraph
+         * @property {number|null} [action] BotAvatarMetadata action
+         * @property {number|null} [intensity] BotAvatarMetadata intensity
+         * @property {number|null} [wordCount] BotAvatarMetadata wordCount
+         */
+
+        /**
+         * Constructs a new BotAvatarMetadata.
+         * @memberof AICommon
+         * @classdesc Represents a BotAvatarMetadata.
+         * @implements IBotAvatarMetadata
+         * @constructor
+         * @param {AICommon.IBotAvatarMetadata=} [properties] Properties to set
+         */
+        function BotAvatarMetadata(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * BotAvatarMetadata sentiment.
+         * @member {number|null|undefined} sentiment
+         * @memberof AICommon.BotAvatarMetadata
+         * @instance
+         */
+        BotAvatarMetadata.prototype.sentiment = null;
+
+        /**
+         * BotAvatarMetadata behaviorGraph.
+         * @member {string|null|undefined} behaviorGraph
+         * @memberof AICommon.BotAvatarMetadata
+         * @instance
+         */
+        BotAvatarMetadata.prototype.behaviorGraph = null;
+
+        /**
+         * BotAvatarMetadata action.
+         * @member {number|null|undefined} action
+         * @memberof AICommon.BotAvatarMetadata
+         * @instance
+         */
+        BotAvatarMetadata.prototype.action = null;
+
+        /**
+         * BotAvatarMetadata intensity.
+         * @member {number|null|undefined} intensity
+         * @memberof AICommon.BotAvatarMetadata
+         * @instance
+         */
+        BotAvatarMetadata.prototype.intensity = null;
+
+        /**
+         * BotAvatarMetadata wordCount.
+         * @member {number|null|undefined} wordCount
+         * @memberof AICommon.BotAvatarMetadata
+         * @instance
+         */
+        BotAvatarMetadata.prototype.wordCount = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(BotAvatarMetadata.prototype, "_sentiment", {
+            get: $util.oneOfGetter($oneOfFields = ["sentiment"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(BotAvatarMetadata.prototype, "_behaviorGraph", {
+            get: $util.oneOfGetter($oneOfFields = ["behaviorGraph"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(BotAvatarMetadata.prototype, "_action", {
+            get: $util.oneOfGetter($oneOfFields = ["action"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(BotAvatarMetadata.prototype, "_intensity", {
+            get: $util.oneOfGetter($oneOfFields = ["intensity"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(BotAvatarMetadata.prototype, "_wordCount", {
+            get: $util.oneOfGetter($oneOfFields = ["wordCount"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Creates a new BotAvatarMetadata instance using the specified properties.
+         * @function create
+         * @memberof AICommon.BotAvatarMetadata
+         * @static
+         * @param {AICommon.IBotAvatarMetadata=} [properties] Properties to set
+         * @returns {AICommon.BotAvatarMetadata} BotAvatarMetadata instance
+         */
+        BotAvatarMetadata.create = function create(properties) {
+            return new BotAvatarMetadata(properties);
+        };
+
+        /**
+         * Encodes the specified BotAvatarMetadata message. Does not implicitly {@link AICommon.BotAvatarMetadata.verify|verify} messages.
+         * @function encode
+         * @memberof AICommon.BotAvatarMetadata
+         * @static
+         * @param {AICommon.IBotAvatarMetadata} message BotAvatarMetadata message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        BotAvatarMetadata.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.sentiment != null && Object.hasOwnProperty.call(message, "sentiment"))
+                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.sentiment);
+            if (message.behaviorGraph != null && Object.hasOwnProperty.call(message, "behaviorGraph"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.behaviorGraph);
+            if (message.action != null && Object.hasOwnProperty.call(message, "action"))
+                writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.action);
+            if (message.intensity != null && Object.hasOwnProperty.call(message, "intensity"))
+                writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.intensity);
+            if (message.wordCount != null && Object.hasOwnProperty.call(message, "wordCount"))
+                writer.uint32(/* id 5, wireType 0 =*/40).uint32(message.wordCount);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified BotAvatarMetadata message, length delimited. Does not implicitly {@link AICommon.BotAvatarMetadata.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof AICommon.BotAvatarMetadata
+         * @static
+         * @param {AICommon.IBotAvatarMetadata} message BotAvatarMetadata message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        BotAvatarMetadata.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a BotAvatarMetadata message from the specified reader or buffer.
+         * @function decode
+         * @memberof AICommon.BotAvatarMetadata
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {AICommon.BotAvatarMetadata} BotAvatarMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        BotAvatarMetadata.decode = function decode(reader, length, error) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotAvatarMetadata();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                if (tag === error)
+                    break;
+                switch (tag >>> 3) {
+                case 1: {
+                        message.sentiment = reader.uint32();
+                        break;
+                    }
+                case 2: {
+                        message.behaviorGraph = reader.string();
+                        break;
+                    }
+                case 3: {
+                        message.action = reader.uint32();
+                        break;
+                    }
+                case 4: {
+                        message.intensity = reader.uint32();
+                        break;
+                    }
+                case 5: {
+                        message.wordCount = reader.uint32();
+                        break;
+                    }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a BotAvatarMetadata message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof AICommon.BotAvatarMetadata
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {AICommon.BotAvatarMetadata} BotAvatarMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        BotAvatarMetadata.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a BotAvatarMetadata message.
+         * @function verify
+         * @memberof AICommon.BotAvatarMetadata
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        BotAvatarMetadata.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            var properties = {};
+            if (message.sentiment != null && message.hasOwnProperty("sentiment")) {
+                properties._sentiment = 1;
+                if (!$util.isInteger(message.sentiment))
+                    return "sentiment: integer expected";
+            }
+            if (message.behaviorGraph != null && message.hasOwnProperty("behaviorGraph")) {
+                properties._behaviorGraph = 1;
+                if (!$util.isString(message.behaviorGraph))
+                    return "behaviorGraph: string expected";
+            }
+            if (message.action != null && message.hasOwnProperty("action")) {
+                properties._action = 1;
+                if (!$util.isInteger(message.action))
+                    return "action: integer expected";
+            }
+            if (message.intensity != null && message.hasOwnProperty("intensity")) {
+                properties._intensity = 1;
+                if (!$util.isInteger(message.intensity))
+                    return "intensity: integer expected";
+            }
+            if (message.wordCount != null && message.hasOwnProperty("wordCount")) {
+                properties._wordCount = 1;
+                if (!$util.isInteger(message.wordCount))
+                    return "wordCount: integer expected";
+            }
+            return null;
+        };
+
+        /**
+         * Creates a BotAvatarMetadata message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof AICommon.BotAvatarMetadata
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {AICommon.BotAvatarMetadata} BotAvatarMetadata
+         */
+        BotAvatarMetadata.fromObject = function fromObject(object) {
+            if (object instanceof $root.AICommon.BotAvatarMetadata)
+                return object;
+            var message = new $root.AICommon.BotAvatarMetadata();
+            if (object.sentiment != null)
+                message.sentiment = object.sentiment >>> 0;
+            if (object.behaviorGraph != null)
+                message.behaviorGraph = String(object.behaviorGraph);
+            if (object.action != null)
+                message.action = object.action >>> 0;
+            if (object.intensity != null)
+                message.intensity = object.intensity >>> 0;
+            if (object.wordCount != null)
+                message.wordCount = object.wordCount >>> 0;
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a BotAvatarMetadata message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof AICommon.BotAvatarMetadata
+         * @static
+         * @param {AICommon.BotAvatarMetadata} message BotAvatarMetadata
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        BotAvatarMetadata.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (message.sentiment != null && message.hasOwnProperty("sentiment")) {
+                object.sentiment = message.sentiment;
+                if (options.oneofs)
+                    object._sentiment = "sentiment";
+            }
+            if (message.behaviorGraph != null && message.hasOwnProperty("behaviorGraph")) {
+                object.behaviorGraph = message.behaviorGraph;
+                if (options.oneofs)
+                    object._behaviorGraph = "behaviorGraph";
+            }
+            if (message.action != null && message.hasOwnProperty("action")) {
+                object.action = message.action;
+                if (options.oneofs)
+                    object._action = "action";
+            }
+            if (message.intensity != null && message.hasOwnProperty("intensity")) {
+                object.intensity = message.intensity;
+                if (options.oneofs)
+                    object._intensity = "intensity";
+            }
+            if (message.wordCount != null && message.hasOwnProperty("wordCount")) {
+                object.wordCount = message.wordCount;
+                if (options.oneofs)
+                    object._wordCount = "wordCount";
+            }
+            return object;
+        };
+
+        /**
+         * Converts this BotAvatarMetadata to JSON.
+         * @function toJSON
+         * @memberof AICommon.BotAvatarMetadata
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        BotAvatarMetadata.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for BotAvatarMetadata
+         * @function getTypeUrl
+         * @memberof AICommon.BotAvatarMetadata
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        BotAvatarMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/AICommon.BotAvatarMetadata";
+        };
+
+        return BotAvatarMetadata;
+    })();
+
     /**
      * SessionTransparencyType enum.
      * @name AICommon.SessionTransparencyType
@@ -111205,6 +111726,7 @@ $root.StatusAttributions = (function() {
                 case 7:
                 case 8:
                 case 9:
+                case 10:
                     break;
                 }
             }
@@ -111332,6 +111854,10 @@ $root.StatusAttributions = (function() {
             case "NEWSLETTER_STATUS":
             case 9:
                 message.type = 9;
+                break;
+            case "STATUS_CLOSE_SHARING":
+            case 10:
+                message.type = 10;
                 break;
             }
             if (object.actionUrl != null)
@@ -113623,6 +114149,7 @@ $root.StatusAttributions = (function() {
          * @property {number} AI_CREATED=7 AI_CREATED value
          * @property {number} LAYOUTS=8 LAYOUTS value
          * @property {number} NEWSLETTER_STATUS=9 NEWSLETTER_STATUS value
+         * @property {number} STATUS_CLOSE_SHARING=10 STATUS_CLOSE_SHARING value
          */
         StatusAttribution.Type = (function() {
             var valuesById = {}, values = Object.create(valuesById);
@@ -113636,6 +114163,7 @@ $root.StatusAttributions = (function() {
             values[valuesById[7] = "AI_CREATED"] = 7;
             values[valuesById[8] = "LAYOUTS"] = 8;
             values[valuesById[9] = "NEWSLETTER_STATUS"] = 9;
+            values[valuesById[10] = "STATUS_CLOSE_SHARING"] = 10;
             return values;
         })();
 
@@ -118298,6 +118826,7 @@ $root.CompanionReg = (function() {
              * @property {boolean|null} [completeOnDemandReady] HistorySyncConfig completeOnDemandReady
              * @property {number|null} [thumbnailSyncDaysLimit] HistorySyncConfig thumbnailSyncDaysLimit
              * @property {number|null} [initialSyncMaxMessagesPerChat] HistorySyncConfig initialSyncMaxMessagesPerChat
+             * @property {boolean|null} [supportManusHistory] HistorySyncConfig supportManusHistory
              */
 
             /**
@@ -118475,6 +119004,14 @@ $root.CompanionReg = (function() {
              */
             HistorySyncConfig.prototype.initialSyncMaxMessagesPerChat = null;
 
+            /**
+             * HistorySyncConfig supportManusHistory.
+             * @member {boolean|null|undefined} supportManusHistory
+             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
+             * @instance
+             */
+            HistorySyncConfig.prototype.supportManusHistory = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -118598,6 +119135,12 @@ $root.CompanionReg = (function() {
                 set: $util.oneOfSetter($oneOfFields)
             });
 
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(HistorySyncConfig.prototype, "_supportManusHistory", {
+                get: $util.oneOfGetter($oneOfFields = ["supportManusHistory"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
             /**
              * Creates a new HistorySyncConfig instance using the specified properties.
              * @function create
@@ -118662,6 +119205,8 @@ $root.CompanionReg = (function() {
                     writer.uint32(/* id 19, wireType 0 =*/152).uint32(message.thumbnailSyncDaysLimit);
                 if (message.initialSyncMaxMessagesPerChat != null && Object.hasOwnProperty.call(message, "initialSyncMaxMessagesPerChat"))
                     writer.uint32(/* id 20, wireType 0 =*/160).uint32(message.initialSyncMaxMessagesPerChat);
+                if (message.supportManusHistory != null && Object.hasOwnProperty.call(message, "supportManusHistory"))
+                    writer.uint32(/* id 21, wireType 0 =*/168).bool(message.supportManusHistory);
                 return writer;
             };
 
@@ -118776,6 +119321,10 @@ $root.CompanionReg = (function() {
                         }
                     case 20: {
                             message.initialSyncMaxMessagesPerChat = reader.uint32();
+                            break;
+                        }
+                    case 21: {
+                            message.supportManusHistory = reader.bool();
                             break;
                         }
                     default:
@@ -118914,6 +119463,11 @@ $root.CompanionReg = (function() {
                     if (!$util.isInteger(message.initialSyncMaxMessagesPerChat))
                         return "initialSyncMaxMessagesPerChat: integer expected";
                 }
+                if (message.supportManusHistory != null && message.hasOwnProperty("supportManusHistory")) {
+                    properties._supportManusHistory = 1;
+                    if (typeof message.supportManusHistory !== "boolean")
+                        return "supportManusHistory: boolean expected";
+                }
                 return null;
             };
 
@@ -118969,6 +119523,8 @@ $root.CompanionReg = (function() {
                     message.thumbnailSyncDaysLimit = object.thumbnailSyncDaysLimit >>> 0;
                 if (object.initialSyncMaxMessagesPerChat != null)
                     message.initialSyncMaxMessagesPerChat = object.initialSyncMaxMessagesPerChat >>> 0;
+                if (object.supportManusHistory != null)
+                    message.supportManusHistory = Boolean(object.supportManusHistory);
                 return message;
             };
 
@@ -119084,6 +119640,11 @@ $root.CompanionReg = (function() {
                     object.initialSyncMaxMessagesPerChat = message.initialSyncMaxMessagesPerChat;
                     if (options.oneofs)
                         object._initialSyncMaxMessagesPerChat = "initialSyncMaxMessagesPerChat";
+                }
+                if (message.supportManusHistory != null && message.hasOwnProperty("supportManusHistory")) {
+                    object.supportManusHistory = message.supportManusHistory;
+                    if (options.oneofs)
+                        object._supportManusHistory = "supportManusHistory";
                 }
                 return object;
             };
