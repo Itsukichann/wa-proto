@@ -89766,6 +89766,7 @@ $root.AICommon = (function() {
                 case 45:
                 case 46:
                 case 47:
+                case 54:
                     break;
                 }
             }
@@ -89975,6 +89976,10 @@ $root.AICommon = (function() {
             case "WEB_NAVIGATION_BAR":
             case 47:
                 message.botEntryPointOrigin = 47;
+                break;
+            case "GROUP_MEMBER":
+            case 54:
+                message.botEntryPointOrigin = 54;
                 break;
             }
             if (object.forwardScore != null)
@@ -106573,6 +106578,7 @@ $root.AICommon = (function() {
                 case 45:
                 case 46:
                 case 47:
+                case 54:
                     break;
                 }
             }
@@ -106792,6 +106798,10 @@ $root.AICommon = (function() {
             case "WEB_NAVIGATION_BAR":
             case 47:
                 message.destinationEntryPoint = 47;
+                break;
+            case "GROUP_MEMBER":
+            case 54:
+                message.destinationEntryPoint = 54;
                 break;
             }
             switch (object.threadOrigin) {
@@ -111383,6 +111393,7 @@ $root.AICommon = (function() {
      * @property {number} META_AI_SETTINGS=45 META_AI_SETTINGS value
      * @property {number} WEB_INTRO_PANEL=46 WEB_INTRO_PANEL value
      * @property {number} WEB_NAVIGATION_BAR=47 WEB_NAVIGATION_BAR value
+     * @property {number} GROUP_MEMBER=54 GROUP_MEMBER value
      */
     AICommon.BotMetricsEntryPoint = (function() {
         var valuesById = {}, values = Object.create(valuesById);
@@ -111431,6 +111442,7 @@ $root.AICommon = (function() {
         values[valuesById[45] = "META_AI_SETTINGS"] = 45;
         values[valuesById[46] = "WEB_INTRO_PANEL"] = 46;
         values[valuesById[47] = "WEB_NAVIGATION_BAR"] = 47;
+        values[valuesById[54] = "GROUP_MEMBER"] = 54;
         return values;
     })();
 
