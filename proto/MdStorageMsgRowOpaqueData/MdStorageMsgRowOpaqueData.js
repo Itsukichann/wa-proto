@@ -22741,7 +22741,7 @@ $root.E2E = (function() {
          * @property {E2E.Message.IFutureProofMessage|null} [newsletterAdminProfileMessage] Message newsletterAdminProfileMessage
          * @property {E2E.Message.IFutureProofMessage|null} [newsletterAdminProfileMessageV2] Message newsletterAdminProfileMessageV2
          * @property {E2E.Message.IFutureProofMessage|null} [spoilerMessage] Message spoilerMessage
-         * @property {E2E.Message.IFutureProofMessage|null} [pollCreationMessageV6] Message pollCreationMessageV6
+         * @property {E2E.Message.IPollCreationMessage|null} [pollCreationMessageV6] Message pollCreationMessageV6
          */
 
         /**
@@ -23545,7 +23545,7 @@ $root.E2E = (function() {
 
         /**
          * Message pollCreationMessageV6.
-         * @member {E2E.Message.IFutureProofMessage|null|undefined} pollCreationMessageV6
+         * @member {E2E.Message.IPollCreationMessage|null|undefined} pollCreationMessageV6
          * @memberof E2E.Message
          * @instance
          */
@@ -24369,7 +24369,7 @@ $root.E2E = (function() {
             if (message.spoilerMessage != null && Object.hasOwnProperty.call(message, "spoilerMessage"))
                 $root.E2E.Message.FutureProofMessage.encode(message.spoilerMessage, writer.uint32(/* id 118, wireType 2 =*/946).fork()).ldelim();
             if (message.pollCreationMessageV6 != null && Object.hasOwnProperty.call(message, "pollCreationMessageV6"))
-                $root.E2E.Message.FutureProofMessage.encode(message.pollCreationMessageV6, writer.uint32(/* id 119, wireType 2 =*/954).fork()).ldelim();
+                $root.E2E.Message.PollCreationMessage.encode(message.pollCreationMessageV6, writer.uint32(/* id 119, wireType 2 =*/954).fork()).ldelim();
             return writer;
         };
 
@@ -24799,7 +24799,7 @@ $root.E2E = (function() {
                         break;
                     }
                 case 119: {
-                        message.pollCreationMessageV6 = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32());
+                        message.pollCreationMessageV6 = $root.E2E.Message.PollCreationMessage.decode(reader, reader.uint32());
                         break;
                     }
                 default:
@@ -25622,7 +25622,7 @@ $root.E2E = (function() {
             if (message.pollCreationMessageV6 != null && message.hasOwnProperty("pollCreationMessageV6")) {
                 properties._pollCreationMessageV6 = 1;
                 {
-                    var error = $root.E2E.Message.FutureProofMessage.verify(message.pollCreationMessageV6);
+                    var error = $root.E2E.Message.PollCreationMessage.verify(message.pollCreationMessageV6);
                     if (error)
                         return "pollCreationMessageV6." + error;
                 }
@@ -26132,7 +26132,7 @@ $root.E2E = (function() {
             if (object.pollCreationMessageV6 != null) {
                 if (typeof object.pollCreationMessageV6 !== "object")
                     throw TypeError(".E2E.Message.pollCreationMessageV6: object expected");
-                message.pollCreationMessageV6 = $root.E2E.Message.FutureProofMessage.fromObject(object.pollCreationMessageV6);
+                message.pollCreationMessageV6 = $root.E2E.Message.PollCreationMessage.fromObject(object.pollCreationMessageV6);
             }
             return message;
         };
@@ -26641,7 +26641,7 @@ $root.E2E = (function() {
                     object._spoilerMessage = "spoilerMessage";
             }
             if (message.pollCreationMessageV6 != null && message.hasOwnProperty("pollCreationMessageV6")) {
-                object.pollCreationMessageV6 = $root.E2E.Message.FutureProofMessage.toObject(message.pollCreationMessageV6, options);
+                object.pollCreationMessageV6 = $root.E2E.Message.PollCreationMessage.toObject(message.pollCreationMessageV6, options);
                 if (options.oneofs)
                     object._pollCreationMessageV6 = "pollCreationMessageV6";
             }
