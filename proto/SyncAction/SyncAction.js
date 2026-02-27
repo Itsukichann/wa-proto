@@ -1094,6 +1094,7 @@ $root.SyncAction = (function() {
          * @property {SyncAction.SyncActionValue.IOutContactAction|null} [outContactAction] SyncActionValue outContactAction
          * @property {SyncAction.SyncActionValue.INctSaltSyncAction|null} [nctSaltSyncAction] SyncActionValue nctSaltSyncAction
          * @property {SyncAction.SyncActionValue.IBusinessBroadcastCampaignAction|null} [businessBroadcastCampaignAction] SyncActionValue businessBroadcastCampaignAction
+         * @property {SyncAction.SyncActionValue.IBusinessBroadcastInsightsAction|null} [businessBroadcastInsightsAction] SyncActionValue businessBroadcastInsightsAction
          */
 
         /**
@@ -1687,6 +1688,14 @@ $root.SyncAction = (function() {
          */
         SyncActionValue.prototype.businessBroadcastCampaignAction = null;
 
+        /**
+         * SyncActionValue businessBroadcastInsightsAction.
+         * @member {SyncAction.SyncActionValue.IBusinessBroadcastInsightsAction|null|undefined} businessBroadcastInsightsAction
+         * @memberof SyncAction.SyncActionValue
+         * @instance
+         */
+        SyncActionValue.prototype.businessBroadcastInsightsAction = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -2122,6 +2131,12 @@ $root.SyncAction = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(SyncActionValue.prototype, "_businessBroadcastInsightsAction", {
+            get: $util.oneOfGetter($oneOfFields = ["businessBroadcastInsightsAction"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new SyncActionValue instance using the specified properties.
          * @function create
@@ -2290,6 +2305,8 @@ $root.SyncAction = (function() {
                 $root.SyncAction.SyncActionValue.NctSaltSyncAction.encode(message.nctSaltSyncAction, writer.uint32(/* id 80, wireType 2 =*/642).fork()).ldelim();
             if (message.businessBroadcastCampaignAction != null && Object.hasOwnProperty.call(message, "businessBroadcastCampaignAction"))
                 $root.SyncAction.SyncActionValue.BusinessBroadcastCampaignAction.encode(message.businessBroadcastCampaignAction, writer.uint32(/* id 81, wireType 2 =*/650).fork()).ldelim();
+            if (message.businessBroadcastInsightsAction != null && Object.hasOwnProperty.call(message, "businessBroadcastInsightsAction"))
+                $root.SyncAction.SyncActionValue.BusinessBroadcastInsightsAction.encode(message.businessBroadcastInsightsAction, writer.uint32(/* id 82, wireType 2 =*/658).fork()).ldelim();
             return writer;
         };
 
@@ -2612,6 +2629,10 @@ $root.SyncAction = (function() {
                     }
                 case 81: {
                         message.businessBroadcastCampaignAction = $root.SyncAction.SyncActionValue.BusinessBroadcastCampaignAction.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 82: {
+                        message.businessBroadcastInsightsAction = $root.SyncAction.SyncActionValue.BusinessBroadcastInsightsAction.decode(reader, reader.uint32());
                         break;
                     }
                 default:
@@ -3223,6 +3244,14 @@ $root.SyncAction = (function() {
                         return "businessBroadcastCampaignAction." + error;
                 }
             }
+            if (message.businessBroadcastInsightsAction != null && message.hasOwnProperty("businessBroadcastInsightsAction")) {
+                properties._businessBroadcastInsightsAction = 1;
+                {
+                    var error = $root.SyncAction.SyncActionValue.BusinessBroadcastInsightsAction.verify(message.businessBroadcastInsightsAction);
+                    if (error)
+                        return "businessBroadcastInsightsAction." + error;
+                }
+            }
             return null;
         };
 
@@ -3602,6 +3631,11 @@ $root.SyncAction = (function() {
                     throw TypeError(".SyncAction.SyncActionValue.businessBroadcastCampaignAction: object expected");
                 message.businessBroadcastCampaignAction = $root.SyncAction.SyncActionValue.BusinessBroadcastCampaignAction.fromObject(object.businessBroadcastCampaignAction);
             }
+            if (object.businessBroadcastInsightsAction != null) {
+                if (typeof object.businessBroadcastInsightsAction !== "object")
+                    throw TypeError(".SyncAction.SyncActionValue.businessBroadcastInsightsAction: object expected");
+                message.businessBroadcastInsightsAction = $root.SyncAction.SyncActionValue.BusinessBroadcastInsightsAction.fromObject(object.businessBroadcastInsightsAction);
+            }
             return message;
         };
 
@@ -3980,6 +4014,11 @@ $root.SyncAction = (function() {
                 object.businessBroadcastCampaignAction = $root.SyncAction.SyncActionValue.BusinessBroadcastCampaignAction.toObject(message.businessBroadcastCampaignAction, options);
                 if (options.oneofs)
                     object._businessBroadcastCampaignAction = "businessBroadcastCampaignAction";
+            }
+            if (message.businessBroadcastInsightsAction != null && message.hasOwnProperty("businessBroadcastInsightsAction")) {
+                object.businessBroadcastInsightsAction = $root.SyncAction.SyncActionValue.BusinessBroadcastInsightsAction.toObject(message.businessBroadcastInsightsAction, options);
+                if (options.oneofs)
+                    object._businessBroadcastInsightsAction = "businessBroadcastInsightsAction";
             }
             return object;
         };
@@ -5992,10 +6031,6 @@ $root.SyncAction = (function() {
              * @property {number|Long|null} [scheduledTimestamp] BusinessBroadcastCampaignAction scheduledTimestamp
              * @property {number|Long|null} [createTimestamp] BusinessBroadcastCampaignAction createTimestamp
              * @property {SyncAction.SyncActionValue.BusinessBroadcastCampaignStatus|null} [status] BusinessBroadcastCampaignAction status
-             * @property {string|null} [messageBody] BusinessBroadcastCampaignAction messageBody
-             * @property {Uint8Array|null} [mediaData] BusinessBroadcastCampaignAction mediaData
-             * @property {string|null} [mediaMetadata] BusinessBroadcastCampaignAction mediaMetadata
-             * @property {string|null} [ctaButtonJson] BusinessBroadcastCampaignAction ctaButtonJson
              */
 
             /**
@@ -6085,38 +6120,6 @@ $root.SyncAction = (function() {
              */
             BusinessBroadcastCampaignAction.prototype.status = null;
 
-            /**
-             * BusinessBroadcastCampaignAction messageBody.
-             * @member {string|null|undefined} messageBody
-             * @memberof SyncAction.SyncActionValue.BusinessBroadcastCampaignAction
-             * @instance
-             */
-            BusinessBroadcastCampaignAction.prototype.messageBody = null;
-
-            /**
-             * BusinessBroadcastCampaignAction mediaData.
-             * @member {Uint8Array|null|undefined} mediaData
-             * @memberof SyncAction.SyncActionValue.BusinessBroadcastCampaignAction
-             * @instance
-             */
-            BusinessBroadcastCampaignAction.prototype.mediaData = null;
-
-            /**
-             * BusinessBroadcastCampaignAction mediaMetadata.
-             * @member {string|null|undefined} mediaMetadata
-             * @memberof SyncAction.SyncActionValue.BusinessBroadcastCampaignAction
-             * @instance
-             */
-            BusinessBroadcastCampaignAction.prototype.mediaMetadata = null;
-
-            /**
-             * BusinessBroadcastCampaignAction ctaButtonJson.
-             * @member {string|null|undefined} ctaButtonJson
-             * @memberof SyncAction.SyncActionValue.BusinessBroadcastCampaignAction
-             * @instance
-             */
-            BusinessBroadcastCampaignAction.prototype.ctaButtonJson = null;
-
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -6174,30 +6177,6 @@ $root.SyncAction = (function() {
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            // Virtual OneOf for proto3 optional field
-            Object.defineProperty(BusinessBroadcastCampaignAction.prototype, "_messageBody", {
-                get: $util.oneOfGetter($oneOfFields = ["messageBody"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            // Virtual OneOf for proto3 optional field
-            Object.defineProperty(BusinessBroadcastCampaignAction.prototype, "_mediaData", {
-                get: $util.oneOfGetter($oneOfFields = ["mediaData"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            // Virtual OneOf for proto3 optional field
-            Object.defineProperty(BusinessBroadcastCampaignAction.prototype, "_mediaMetadata", {
-                get: $util.oneOfGetter($oneOfFields = ["mediaMetadata"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            // Virtual OneOf for proto3 optional field
-            Object.defineProperty(BusinessBroadcastCampaignAction.prototype, "_ctaButtonJson", {
-                get: $util.oneOfGetter($oneOfFields = ["ctaButtonJson"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
             /**
              * Creates a new BusinessBroadcastCampaignAction instance using the specified properties.
              * @function create
@@ -6240,14 +6219,6 @@ $root.SyncAction = (function() {
                     writer.uint32(/* id 8, wireType 0 =*/64).int64(message.createTimestamp);
                 if (message.status != null && Object.hasOwnProperty.call(message, "status"))
                     writer.uint32(/* id 9, wireType 0 =*/72).int32(message.status);
-                if (message.messageBody != null && Object.hasOwnProperty.call(message, "messageBody"))
-                    writer.uint32(/* id 10, wireType 2 =*/82).string(message.messageBody);
-                if (message.mediaData != null && Object.hasOwnProperty.call(message, "mediaData"))
-                    writer.uint32(/* id 11, wireType 2 =*/90).bytes(message.mediaData);
-                if (message.mediaMetadata != null && Object.hasOwnProperty.call(message, "mediaMetadata"))
-                    writer.uint32(/* id 12, wireType 2 =*/98).string(message.mediaMetadata);
-                if (message.ctaButtonJson != null && Object.hasOwnProperty.call(message, "ctaButtonJson"))
-                    writer.uint32(/* id 13, wireType 2 =*/106).string(message.ctaButtonJson);
                 return writer;
             };
 
@@ -6318,22 +6289,6 @@ $root.SyncAction = (function() {
                         }
                     case 9: {
                             message.status = reader.int32();
-                            break;
-                        }
-                    case 10: {
-                            message.messageBody = reader.string();
-                            break;
-                        }
-                    case 11: {
-                            message.mediaData = reader.bytes();
-                            break;
-                        }
-                    case 12: {
-                            message.mediaMetadata = reader.string();
-                            break;
-                        }
-                    case 13: {
-                            message.ctaButtonJson = reader.string();
                             break;
                         }
                     default:
@@ -6425,26 +6380,6 @@ $root.SyncAction = (function() {
                         break;
                     }
                 }
-                if (message.messageBody != null && message.hasOwnProperty("messageBody")) {
-                    properties._messageBody = 1;
-                    if (!$util.isString(message.messageBody))
-                        return "messageBody: string expected";
-                }
-                if (message.mediaData != null && message.hasOwnProperty("mediaData")) {
-                    properties._mediaData = 1;
-                    if (!(message.mediaData && typeof message.mediaData.length === "number" || $util.isString(message.mediaData)))
-                        return "mediaData: buffer expected";
-                }
-                if (message.mediaMetadata != null && message.hasOwnProperty("mediaMetadata")) {
-                    properties._mediaMetadata = 1;
-                    if (!$util.isString(message.mediaMetadata))
-                        return "mediaMetadata: string expected";
-                }
-                if (message.ctaButtonJson != null && message.hasOwnProperty("ctaButtonJson")) {
-                    properties._ctaButtonJson = 1;
-                    if (!$util.isString(message.ctaButtonJson))
-                        return "ctaButtonJson: string expected";
-                }
                 return null;
             };
 
@@ -6518,17 +6453,6 @@ $root.SyncAction = (function() {
                     message.status = 5;
                     break;
                 }
-                if (object.messageBody != null)
-                    message.messageBody = String(object.messageBody);
-                if (object.mediaData != null)
-                    if (typeof object.mediaData === "string")
-                        $util.base64.decode(object.mediaData, message.mediaData = $util.newBuffer($util.base64.length(object.mediaData)), 0);
-                    else if (object.mediaData.length >= 0)
-                        message.mediaData = object.mediaData;
-                if (object.mediaMetadata != null)
-                    message.mediaMetadata = String(object.mediaMetadata);
-                if (object.ctaButtonJson != null)
-                    message.ctaButtonJson = String(object.ctaButtonJson);
                 return message;
             };
 
@@ -6596,26 +6520,6 @@ $root.SyncAction = (function() {
                     if (options.oneofs)
                         object._status = "status";
                 }
-                if (message.messageBody != null && message.hasOwnProperty("messageBody")) {
-                    object.messageBody = message.messageBody;
-                    if (options.oneofs)
-                        object._messageBody = "messageBody";
-                }
-                if (message.mediaData != null && message.hasOwnProperty("mediaData")) {
-                    object.mediaData = options.bytes === String ? $util.base64.encode(message.mediaData, 0, message.mediaData.length) : options.bytes === Array ? Array.prototype.slice.call(message.mediaData) : message.mediaData;
-                    if (options.oneofs)
-                        object._mediaData = "mediaData";
-                }
-                if (message.mediaMetadata != null && message.hasOwnProperty("mediaMetadata")) {
-                    object.mediaMetadata = message.mediaMetadata;
-                    if (options.oneofs)
-                        object._mediaMetadata = "mediaMetadata";
-                }
-                if (message.ctaButtonJson != null && message.hasOwnProperty("ctaButtonJson")) {
-                    object.ctaButtonJson = message.ctaButtonJson;
-                    if (options.oneofs)
-                        object._ctaButtonJson = "ctaButtonJson";
-                }
                 return object;
             };
 
@@ -6666,6 +6570,356 @@ $root.SyncAction = (function() {
             values[valuesById[4] = "FAILED"] = 4;
             values[valuesById[5] = "SENT"] = 5;
             return values;
+        })();
+
+        SyncActionValue.BusinessBroadcastInsightsAction = (function() {
+
+            /**
+             * Properties of a BusinessBroadcastInsightsAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IBusinessBroadcastInsightsAction
+             * @property {number|null} [recipientCount] BusinessBroadcastInsightsAction recipientCount
+             * @property {number|null} [deliveredCount] BusinessBroadcastInsightsAction deliveredCount
+             * @property {number|null} [readCount] BusinessBroadcastInsightsAction readCount
+             * @property {number|null} [repliedCount] BusinessBroadcastInsightsAction repliedCount
+             * @property {number|null} [quickReplyCount] BusinessBroadcastInsightsAction quickReplyCount
+             */
+
+            /**
+             * Constructs a new BusinessBroadcastInsightsAction.
+             * @memberof SyncAction.SyncActionValue
+             * @classdesc Represents a BusinessBroadcastInsightsAction.
+             * @implements IBusinessBroadcastInsightsAction
+             * @constructor
+             * @param {SyncAction.SyncActionValue.IBusinessBroadcastInsightsAction=} [properties] Properties to set
+             */
+            function BusinessBroadcastInsightsAction(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * BusinessBroadcastInsightsAction recipientCount.
+             * @member {number|null|undefined} recipientCount
+             * @memberof SyncAction.SyncActionValue.BusinessBroadcastInsightsAction
+             * @instance
+             */
+            BusinessBroadcastInsightsAction.prototype.recipientCount = null;
+
+            /**
+             * BusinessBroadcastInsightsAction deliveredCount.
+             * @member {number|null|undefined} deliveredCount
+             * @memberof SyncAction.SyncActionValue.BusinessBroadcastInsightsAction
+             * @instance
+             */
+            BusinessBroadcastInsightsAction.prototype.deliveredCount = null;
+
+            /**
+             * BusinessBroadcastInsightsAction readCount.
+             * @member {number|null|undefined} readCount
+             * @memberof SyncAction.SyncActionValue.BusinessBroadcastInsightsAction
+             * @instance
+             */
+            BusinessBroadcastInsightsAction.prototype.readCount = null;
+
+            /**
+             * BusinessBroadcastInsightsAction repliedCount.
+             * @member {number|null|undefined} repliedCount
+             * @memberof SyncAction.SyncActionValue.BusinessBroadcastInsightsAction
+             * @instance
+             */
+            BusinessBroadcastInsightsAction.prototype.repliedCount = null;
+
+            /**
+             * BusinessBroadcastInsightsAction quickReplyCount.
+             * @member {number|null|undefined} quickReplyCount
+             * @memberof SyncAction.SyncActionValue.BusinessBroadcastInsightsAction
+             * @instance
+             */
+            BusinessBroadcastInsightsAction.prototype.quickReplyCount = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(BusinessBroadcastInsightsAction.prototype, "_recipientCount", {
+                get: $util.oneOfGetter($oneOfFields = ["recipientCount"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(BusinessBroadcastInsightsAction.prototype, "_deliveredCount", {
+                get: $util.oneOfGetter($oneOfFields = ["deliveredCount"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(BusinessBroadcastInsightsAction.prototype, "_readCount", {
+                get: $util.oneOfGetter($oneOfFields = ["readCount"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(BusinessBroadcastInsightsAction.prototype, "_repliedCount", {
+                get: $util.oneOfGetter($oneOfFields = ["repliedCount"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(BusinessBroadcastInsightsAction.prototype, "_quickReplyCount", {
+                get: $util.oneOfGetter($oneOfFields = ["quickReplyCount"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new BusinessBroadcastInsightsAction instance using the specified properties.
+             * @function create
+             * @memberof SyncAction.SyncActionValue.BusinessBroadcastInsightsAction
+             * @static
+             * @param {SyncAction.SyncActionValue.IBusinessBroadcastInsightsAction=} [properties] Properties to set
+             * @returns {SyncAction.SyncActionValue.BusinessBroadcastInsightsAction} BusinessBroadcastInsightsAction instance
+             */
+            BusinessBroadcastInsightsAction.create = function create(properties) {
+                return new BusinessBroadcastInsightsAction(properties);
+            };
+
+            /**
+             * Encodes the specified BusinessBroadcastInsightsAction message. Does not implicitly {@link SyncAction.SyncActionValue.BusinessBroadcastInsightsAction.verify|verify} messages.
+             * @function encode
+             * @memberof SyncAction.SyncActionValue.BusinessBroadcastInsightsAction
+             * @static
+             * @param {SyncAction.SyncActionValue.IBusinessBroadcastInsightsAction} message BusinessBroadcastInsightsAction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BusinessBroadcastInsightsAction.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.recipientCount != null && Object.hasOwnProperty.call(message, "recipientCount"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.recipientCount);
+                if (message.deliveredCount != null && Object.hasOwnProperty.call(message, "deliveredCount"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).int32(message.deliveredCount);
+                if (message.readCount != null && Object.hasOwnProperty.call(message, "readCount"))
+                    writer.uint32(/* id 3, wireType 0 =*/24).int32(message.readCount);
+                if (message.repliedCount != null && Object.hasOwnProperty.call(message, "repliedCount"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).int32(message.repliedCount);
+                if (message.quickReplyCount != null && Object.hasOwnProperty.call(message, "quickReplyCount"))
+                    writer.uint32(/* id 5, wireType 0 =*/40).int32(message.quickReplyCount);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified BusinessBroadcastInsightsAction message, length delimited. Does not implicitly {@link SyncAction.SyncActionValue.BusinessBroadcastInsightsAction.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof SyncAction.SyncActionValue.BusinessBroadcastInsightsAction
+             * @static
+             * @param {SyncAction.SyncActionValue.IBusinessBroadcastInsightsAction} message BusinessBroadcastInsightsAction message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BusinessBroadcastInsightsAction.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a BusinessBroadcastInsightsAction message from the specified reader or buffer.
+             * @function decode
+             * @memberof SyncAction.SyncActionValue.BusinessBroadcastInsightsAction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {SyncAction.SyncActionValue.BusinessBroadcastInsightsAction} BusinessBroadcastInsightsAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BusinessBroadcastInsightsAction.decode = function decode(reader, length, error) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SyncAction.SyncActionValue.BusinessBroadcastInsightsAction();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    if (tag === error)
+                        break;
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.recipientCount = reader.int32();
+                            break;
+                        }
+                    case 2: {
+                            message.deliveredCount = reader.int32();
+                            break;
+                        }
+                    case 3: {
+                            message.readCount = reader.int32();
+                            break;
+                        }
+                    case 4: {
+                            message.repliedCount = reader.int32();
+                            break;
+                        }
+                    case 5: {
+                            message.quickReplyCount = reader.int32();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a BusinessBroadcastInsightsAction message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof SyncAction.SyncActionValue.BusinessBroadcastInsightsAction
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {SyncAction.SyncActionValue.BusinessBroadcastInsightsAction} BusinessBroadcastInsightsAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BusinessBroadcastInsightsAction.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a BusinessBroadcastInsightsAction message.
+             * @function verify
+             * @memberof SyncAction.SyncActionValue.BusinessBroadcastInsightsAction
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            BusinessBroadcastInsightsAction.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                var properties = {};
+                if (message.recipientCount != null && message.hasOwnProperty("recipientCount")) {
+                    properties._recipientCount = 1;
+                    if (!$util.isInteger(message.recipientCount))
+                        return "recipientCount: integer expected";
+                }
+                if (message.deliveredCount != null && message.hasOwnProperty("deliveredCount")) {
+                    properties._deliveredCount = 1;
+                    if (!$util.isInteger(message.deliveredCount))
+                        return "deliveredCount: integer expected";
+                }
+                if (message.readCount != null && message.hasOwnProperty("readCount")) {
+                    properties._readCount = 1;
+                    if (!$util.isInteger(message.readCount))
+                        return "readCount: integer expected";
+                }
+                if (message.repliedCount != null && message.hasOwnProperty("repliedCount")) {
+                    properties._repliedCount = 1;
+                    if (!$util.isInteger(message.repliedCount))
+                        return "repliedCount: integer expected";
+                }
+                if (message.quickReplyCount != null && message.hasOwnProperty("quickReplyCount")) {
+                    properties._quickReplyCount = 1;
+                    if (!$util.isInteger(message.quickReplyCount))
+                        return "quickReplyCount: integer expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a BusinessBroadcastInsightsAction message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof SyncAction.SyncActionValue.BusinessBroadcastInsightsAction
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {SyncAction.SyncActionValue.BusinessBroadcastInsightsAction} BusinessBroadcastInsightsAction
+             */
+            BusinessBroadcastInsightsAction.fromObject = function fromObject(object) {
+                if (object instanceof $root.SyncAction.SyncActionValue.BusinessBroadcastInsightsAction)
+                    return object;
+                var message = new $root.SyncAction.SyncActionValue.BusinessBroadcastInsightsAction();
+                if (object.recipientCount != null)
+                    message.recipientCount = object.recipientCount | 0;
+                if (object.deliveredCount != null)
+                    message.deliveredCount = object.deliveredCount | 0;
+                if (object.readCount != null)
+                    message.readCount = object.readCount | 0;
+                if (object.repliedCount != null)
+                    message.repliedCount = object.repliedCount | 0;
+                if (object.quickReplyCount != null)
+                    message.quickReplyCount = object.quickReplyCount | 0;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a BusinessBroadcastInsightsAction message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof SyncAction.SyncActionValue.BusinessBroadcastInsightsAction
+             * @static
+             * @param {SyncAction.SyncActionValue.BusinessBroadcastInsightsAction} message BusinessBroadcastInsightsAction
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            BusinessBroadcastInsightsAction.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (message.recipientCount != null && message.hasOwnProperty("recipientCount")) {
+                    object.recipientCount = message.recipientCount;
+                    if (options.oneofs)
+                        object._recipientCount = "recipientCount";
+                }
+                if (message.deliveredCount != null && message.hasOwnProperty("deliveredCount")) {
+                    object.deliveredCount = message.deliveredCount;
+                    if (options.oneofs)
+                        object._deliveredCount = "deliveredCount";
+                }
+                if (message.readCount != null && message.hasOwnProperty("readCount")) {
+                    object.readCount = message.readCount;
+                    if (options.oneofs)
+                        object._readCount = "readCount";
+                }
+                if (message.repliedCount != null && message.hasOwnProperty("repliedCount")) {
+                    object.repliedCount = message.repliedCount;
+                    if (options.oneofs)
+                        object._repliedCount = "repliedCount";
+                }
+                if (message.quickReplyCount != null && message.hasOwnProperty("quickReplyCount")) {
+                    object.quickReplyCount = message.quickReplyCount;
+                    if (options.oneofs)
+                        object._quickReplyCount = "quickReplyCount";
+                }
+                return object;
+            };
+
+            /**
+             * Converts this BusinessBroadcastInsightsAction to JSON.
+             * @function toJSON
+             * @memberof SyncAction.SyncActionValue.BusinessBroadcastInsightsAction
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            BusinessBroadcastInsightsAction.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for BusinessBroadcastInsightsAction
+             * @function getTypeUrl
+             * @memberof SyncAction.SyncActionValue.BusinessBroadcastInsightsAction
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            BusinessBroadcastInsightsAction.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/SyncAction.SyncActionValue.BusinessBroadcastInsightsAction";
+            };
+
+            return BusinessBroadcastInsightsAction;
         })();
 
         SyncActionValue.BusinessBroadcastListAction = (function() {
@@ -11980,6 +12234,7 @@ $root.SyncAction = (function() {
                     case 7:
                     case 8:
                     case 9:
+                    case 10:
                         break;
                     }
                 }
@@ -12066,6 +12321,10 @@ $root.SyncAction = (function() {
                 case "AI_HANDOFF":
                 case 9:
                     message.type = 9;
+                    break;
+                case "CHANNELS":
+                case 10:
+                    message.type = 10;
                     break;
                 }
                 if (object.isImmutable != null)
@@ -12186,6 +12445,7 @@ $root.SyncAction = (function() {
              * @property {number} SERVER_ASSIGNED=7 SERVER_ASSIGNED value
              * @property {number} DRAFTED=8 DRAFTED value
              * @property {number} AI_HANDOFF=9 AI_HANDOFF value
+             * @property {number} CHANNELS=10 CHANNELS value
              */
             LabelEditAction.ListType = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
@@ -12199,6 +12459,7 @@ $root.SyncAction = (function() {
                 values[valuesById[7] = "SERVER_ASSIGNED"] = 7;
                 values[valuesById[8] = "DRAFTED"] = 8;
                 values[valuesById[9] = "AI_HANDOFF"] = 9;
+                values[valuesById[10] = "CHANNELS"] = 10;
                 return values;
             })();
 
@@ -27067,6 +27328,7 @@ $root.SyncAction = (function() {
      * @property {number} OUT_CONTACT_ACTION=79 OUT_CONTACT_ACTION value
      * @property {number} NCT_SALT_SYNC_ACTION=80 NCT_SALT_SYNC_ACTION value
      * @property {number} BUSINESS_BROADCAST_CAMPAIGN_ACTION=81 BUSINESS_BROADCAST_CAMPAIGN_ACTION value
+     * @property {number} BUSINESS_BROADCAST_INSIGHTS_ACTION=82 BUSINESS_BROADCAST_INSIGHTS_ACTION value
      * @property {number} SHARE_OWN_PN=10001 SHARE_OWN_PN value
      * @property {number} BUSINESS_BROADCAST_ACTION=10002 BUSINESS_BROADCAST_ACTION value
      * @property {number} AI_THREAD_DELETE_ACTION=10003 AI_THREAD_DELETE_ACTION value
@@ -27148,6 +27410,7 @@ $root.SyncAction = (function() {
         values[valuesById[79] = "OUT_CONTACT_ACTION"] = 79;
         values[valuesById[80] = "NCT_SALT_SYNC_ACTION"] = 80;
         values[valuesById[81] = "BUSINESS_BROADCAST_CAMPAIGN_ACTION"] = 81;
+        values[valuesById[82] = "BUSINESS_BROADCAST_INSIGHTS_ACTION"] = 82;
         values[valuesById[10001] = "SHARE_OWN_PN"] = 10001;
         values[valuesById[10002] = "BUSINESS_BROADCAST_ACTION"] = 10002;
         values[valuesById[10003] = "AI_THREAD_DELETE_ACTION"] = 10003;
