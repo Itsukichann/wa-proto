@@ -70,6 +70,7 @@ $root.MdStorageMsgRowOpaqueData = (function() {
          * @property {string|null} [quarantineExtractedText] MsgOpaqueData quarantineExtractedText
          * @property {number|Long|null} [pollEndTime] MsgOpaqueData pollEndTime
          * @property {boolean|null} [pollHideVoterNames] MsgOpaqueData pollHideVoterNames
+         * @property {boolean|null} [pollAllowAddOption] MsgOpaqueData pollAllowAddOption
          */
 
         /**
@@ -456,6 +457,14 @@ $root.MdStorageMsgRowOpaqueData = (function() {
          */
         MsgOpaqueData.prototype.pollHideVoterNames = null;
 
+        /**
+         * MsgOpaqueData pollAllowAddOption.
+         * @member {boolean|null|undefined} pollAllowAddOption
+         * @memberof MdStorageMsgRowOpaqueData.MsgOpaqueData
+         * @instance
+         */
+        MsgOpaqueData.prototype.pollAllowAddOption = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -729,6 +738,12 @@ $root.MdStorageMsgRowOpaqueData = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(MsgOpaqueData.prototype, "_pollAllowAddOption", {
+            get: $util.oneOfGetter($oneOfFields = ["pollAllowAddOption"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new MsgOpaqueData instance using the specified properties.
          * @function create
@@ -846,6 +861,8 @@ $root.MdStorageMsgRowOpaqueData = (function() {
                 writer.uint32(/* id 50, wireType 0 =*/400).bool(message.pollHideVoterNames);
             if (message.originalSelfAuthor != null && Object.hasOwnProperty.call(message, "originalSelfAuthor"))
                 writer.uint32(/* id 51, wireType 2 =*/410).string(message.originalSelfAuthor);
+            if (message.pollAllowAddOption != null && Object.hasOwnProperty.call(message, "pollAllowAddOption"))
+                writer.uint32(/* id 52, wireType 0 =*/416).bool(message.pollAllowAddOption);
             return writer;
         };
 
@@ -1066,6 +1083,10 @@ $root.MdStorageMsgRowOpaqueData = (function() {
                     }
                 case 50: {
                         message.pollHideVoterNames = reader.bool();
+                        break;
+                    }
+                case 52: {
+                        message.pollAllowAddOption = reader.bool();
                         break;
                     }
                 default:
@@ -1358,6 +1379,11 @@ $root.MdStorageMsgRowOpaqueData = (function() {
                 if (typeof message.pollHideVoterNames !== "boolean")
                     return "pollHideVoterNames: boolean expected";
             }
+            if (message.pollAllowAddOption != null && message.hasOwnProperty("pollAllowAddOption")) {
+                properties._pollAllowAddOption = 1;
+                if (typeof message.pollAllowAddOption !== "boolean")
+                    return "pollAllowAddOption: boolean expected";
+            }
             return null;
         };
 
@@ -1566,6 +1592,8 @@ $root.MdStorageMsgRowOpaqueData = (function() {
                     message.pollEndTime = new $util.LongBits(object.pollEndTime.low >>> 0, object.pollEndTime.high >>> 0).toNumber();
             if (object.pollHideVoterNames != null)
                 message.pollHideVoterNames = Boolean(object.pollHideVoterNames);
+            if (object.pollAllowAddOption != null)
+                message.pollAllowAddOption = Boolean(object.pollAllowAddOption);
             return message;
         };
 
@@ -1825,6 +1853,11 @@ $root.MdStorageMsgRowOpaqueData = (function() {
                 object.originalSelfAuthor = message.originalSelfAuthor;
                 if (options.oneofs)
                     object._originalSelfAuthor = "originalSelfAuthor";
+            }
+            if (message.pollAllowAddOption != null && message.hasOwnProperty("pollAllowAddOption")) {
+                object.pollAllowAddOption = message.pollAllowAddOption;
+                if (options.oneofs)
+                    object._pollAllowAddOption = "pollAllowAddOption";
             }
             return object;
         };
