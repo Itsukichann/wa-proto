@@ -2914,6 +2914,7 @@ $root.CompanionReg = (function() {
              * @property {number|null} [thumbnailSyncDaysLimit] HistorySyncConfig thumbnailSyncDaysLimit
              * @property {number|null} [initialSyncMaxMessagesPerChat] HistorySyncConfig initialSyncMaxMessagesPerChat
              * @property {boolean|null} [supportManusHistory] HistorySyncConfig supportManusHistory
+             * @property {boolean|null} [supportHatchHistory] HistorySyncConfig supportHatchHistory
              */
 
             /**
@@ -3099,6 +3100,14 @@ $root.CompanionReg = (function() {
              */
             HistorySyncConfig.prototype.supportManusHistory = null;
 
+            /**
+             * HistorySyncConfig supportHatchHistory.
+             * @member {boolean|null|undefined} supportHatchHistory
+             * @memberof CompanionReg.DeviceProps.HistorySyncConfig
+             * @instance
+             */
+            HistorySyncConfig.prototype.supportHatchHistory = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -3228,6 +3237,12 @@ $root.CompanionReg = (function() {
                 set: $util.oneOfSetter($oneOfFields)
             });
 
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(HistorySyncConfig.prototype, "_supportHatchHistory", {
+                get: $util.oneOfGetter($oneOfFields = ["supportHatchHistory"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
             /**
              * Creates a new HistorySyncConfig instance using the specified properties.
              * @function create
@@ -3294,6 +3309,8 @@ $root.CompanionReg = (function() {
                     writer.uint32(/* id 20, wireType 0 =*/160).uint32(message.initialSyncMaxMessagesPerChat);
                 if (message.supportManusHistory != null && Object.hasOwnProperty.call(message, "supportManusHistory"))
                     writer.uint32(/* id 21, wireType 0 =*/168).bool(message.supportManusHistory);
+                if (message.supportHatchHistory != null && Object.hasOwnProperty.call(message, "supportHatchHistory"))
+                    writer.uint32(/* id 22, wireType 0 =*/176).bool(message.supportHatchHistory);
                 return writer;
             };
 
@@ -3412,6 +3429,10 @@ $root.CompanionReg = (function() {
                         }
                     case 21: {
                             message.supportManusHistory = reader.bool();
+                            break;
+                        }
+                    case 22: {
+                            message.supportHatchHistory = reader.bool();
                             break;
                         }
                     default:
@@ -3555,6 +3576,11 @@ $root.CompanionReg = (function() {
                     if (typeof message.supportManusHistory !== "boolean")
                         return "supportManusHistory: boolean expected";
                 }
+                if (message.supportHatchHistory != null && message.hasOwnProperty("supportHatchHistory")) {
+                    properties._supportHatchHistory = 1;
+                    if (typeof message.supportHatchHistory !== "boolean")
+                        return "supportHatchHistory: boolean expected";
+                }
                 return null;
             };
 
@@ -3612,6 +3638,8 @@ $root.CompanionReg = (function() {
                     message.initialSyncMaxMessagesPerChat = object.initialSyncMaxMessagesPerChat >>> 0;
                 if (object.supportManusHistory != null)
                     message.supportManusHistory = Boolean(object.supportManusHistory);
+                if (object.supportHatchHistory != null)
+                    message.supportHatchHistory = Boolean(object.supportHatchHistory);
                 return message;
             };
 
@@ -3732,6 +3760,11 @@ $root.CompanionReg = (function() {
                     object.supportManusHistory = message.supportManusHistory;
                     if (options.oneofs)
                         object._supportManusHistory = "supportManusHistory";
+                }
+                if (message.supportHatchHistory != null && message.hasOwnProperty("supportHatchHistory")) {
+                    object.supportHatchHistory = message.supportHatchHistory;
+                    if (options.oneofs)
+                        object._supportHatchHistory = "supportHatchHistory";
                 }
                 return object;
             };

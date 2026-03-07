@@ -735,6 +735,7 @@ $root.DeviceCapabilities = (function() {
              * @memberof DeviceCapabilities.DeviceCapabilities
              * @interface IBusinessBroadcast
              * @property {boolean|null} [importListEnabled] BusinessBroadcast importListEnabled
+             * @property {boolean|null} [companionSupportEnabled] BusinessBroadcast companionSupportEnabled
              */
 
             /**
@@ -760,12 +761,26 @@ $root.DeviceCapabilities = (function() {
              */
             BusinessBroadcast.prototype.importListEnabled = null;
 
+            /**
+             * BusinessBroadcast companionSupportEnabled.
+             * @member {boolean|null|undefined} companionSupportEnabled
+             * @memberof DeviceCapabilities.DeviceCapabilities.BusinessBroadcast
+             * @instance
+             */
+            BusinessBroadcast.prototype.companionSupportEnabled = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
             // Virtual OneOf for proto3 optional field
             Object.defineProperty(BusinessBroadcast.prototype, "_importListEnabled", {
                 get: $util.oneOfGetter($oneOfFields = ["importListEnabled"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(BusinessBroadcast.prototype, "_companionSupportEnabled", {
+                get: $util.oneOfGetter($oneOfFields = ["companionSupportEnabled"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -795,6 +810,8 @@ $root.DeviceCapabilities = (function() {
                     writer = $Writer.create();
                 if (message.importListEnabled != null && Object.hasOwnProperty.call(message, "importListEnabled"))
                     writer.uint32(/* id 1, wireType 0 =*/8).bool(message.importListEnabled);
+                if (message.companionSupportEnabled != null && Object.hasOwnProperty.call(message, "companionSupportEnabled"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).bool(message.companionSupportEnabled);
                 return writer;
             };
 
@@ -833,6 +850,10 @@ $root.DeviceCapabilities = (function() {
                     switch (tag >>> 3) {
                     case 1: {
                             message.importListEnabled = reader.bool();
+                            break;
+                        }
+                    case 2: {
+                            message.companionSupportEnabled = reader.bool();
                             break;
                         }
                     default:
@@ -876,6 +897,11 @@ $root.DeviceCapabilities = (function() {
                     if (typeof message.importListEnabled !== "boolean")
                         return "importListEnabled: boolean expected";
                 }
+                if (message.companionSupportEnabled != null && message.hasOwnProperty("companionSupportEnabled")) {
+                    properties._companionSupportEnabled = 1;
+                    if (typeof message.companionSupportEnabled !== "boolean")
+                        return "companionSupportEnabled: boolean expected";
+                }
                 return null;
             };
 
@@ -893,6 +919,8 @@ $root.DeviceCapabilities = (function() {
                 var message = new $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast();
                 if (object.importListEnabled != null)
                     message.importListEnabled = Boolean(object.importListEnabled);
+                if (object.companionSupportEnabled != null)
+                    message.companionSupportEnabled = Boolean(object.companionSupportEnabled);
                 return message;
             };
 
@@ -913,6 +941,11 @@ $root.DeviceCapabilities = (function() {
                     object.importListEnabled = message.importListEnabled;
                     if (options.oneofs)
                         object._importListEnabled = "importListEnabled";
+                }
+                if (message.companionSupportEnabled != null && message.hasOwnProperty("companionSupportEnabled")) {
+                    object.companionSupportEnabled = message.companionSupportEnabled;
+                    if (options.oneofs)
+                        object._companionSupportEnabled = "companionSupportEnabled";
                 }
                 return object;
             };
