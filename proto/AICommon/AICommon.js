@@ -15422,6 +15422,7 @@ $root.AICommon = (function() {
                     case 56:
                     case 57:
                     case 58:
+                    case 59:
                         break;
                     }
             }
@@ -15687,6 +15688,10 @@ $root.AICommon = (function() {
                     case 58:
                         message.capabilities[i] = 58;
                         break;
+                    case "AI_TAB_FORCE_CLIPPY":
+                    case 59:
+                        message.capabilities[i] = 59;
+                        break;
                     }
             }
             return message;
@@ -15804,6 +15809,7 @@ $root.AICommon = (function() {
          * @property {number} RICH_RESPONSE_INLINE_LINKS_ENABLED=56 RICH_RESPONSE_INLINE_LINKS_ENABLED value
          * @property {number} RICH_RESPONSE_UR_IMAGINE_VIDEO=57 RICH_RESPONSE_UR_IMAGINE_VIDEO value
          * @property {number} JSON_PATCH_STREAMING=58 JSON_PATCH_STREAMING value
+         * @property {number} AI_TAB_FORCE_CLIPPY=59 AI_TAB_FORCE_CLIPPY value
          */
         BotCapabilityMetadata.BotCapabilityType = (function() {
             var valuesById = {}, values = Object.create(valuesById);
@@ -15866,6 +15872,7 @@ $root.AICommon = (function() {
             values[valuesById[56] = "RICH_RESPONSE_INLINE_LINKS_ENABLED"] = 56;
             values[valuesById[57] = "RICH_RESPONSE_UR_IMAGINE_VIDEO"] = 57;
             values[valuesById[58] = "JSON_PATCH_STREAMING"] = 58;
+            values[valuesById[59] = "AI_TAB_FORCE_CLIPPY"] = 59;
             return values;
         })();
 

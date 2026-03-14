@@ -6416,6 +6416,7 @@ $root.StatusAttributions = (function() {
                     case 8:
                     case 9:
                     case 10:
+                    case 11:
                         break;
                     }
                 }
@@ -6496,6 +6497,10 @@ $root.StatusAttributions = (function() {
                 case "GOOGLE_PHOTOS":
                 case 10:
                     message.source = 10;
+                    break;
+                case "SOUNDCLOUD":
+                case 11:
+                    message.source = 11;
                     break;
                 }
                 if (object.duration != null)
@@ -6582,6 +6587,7 @@ $root.StatusAttributions = (function() {
              * @property {number} APPLE_MUSIC=8 APPLE_MUSIC value
              * @property {number} SHARECHAT=9 SHARECHAT value
              * @property {number} GOOGLE_PHOTOS=10 GOOGLE_PHOTOS value
+             * @property {number} SOUNDCLOUD=11 SOUNDCLOUD value
              */
             ExternalShare.Source = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
@@ -6596,6 +6602,7 @@ $root.StatusAttributions = (function() {
                 values[valuesById[8] = "APPLE_MUSIC"] = 8;
                 values[valuesById[9] = "SHARECHAT"] = 9;
                 values[valuesById[10] = "GOOGLE_PHOTOS"] = 10;
+                values[valuesById[11] = "SOUNDCLOUD"] = 11;
                 return values;
             })();
 
