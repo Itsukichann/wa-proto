@@ -15423,6 +15423,7 @@ $root.AICommon = (function() {
                     case 57:
                     case 58:
                     case 59:
+                    case 60:
                         break;
                     }
             }
@@ -15692,6 +15693,10 @@ $root.AICommon = (function() {
                     case 59:
                         message.capabilities[i] = 59;
                         break;
+                    case "UNIFIED_RESPONSE_EMBEDDED_SCREENS":
+                    case 60:
+                        message.capabilities[i] = 60;
+                        break;
                     }
             }
             return message;
@@ -15810,6 +15815,7 @@ $root.AICommon = (function() {
          * @property {number} RICH_RESPONSE_UR_IMAGINE_VIDEO=57 RICH_RESPONSE_UR_IMAGINE_VIDEO value
          * @property {number} JSON_PATCH_STREAMING=58 JSON_PATCH_STREAMING value
          * @property {number} AI_TAB_FORCE_CLIPPY=59 AI_TAB_FORCE_CLIPPY value
+         * @property {number} UNIFIED_RESPONSE_EMBEDDED_SCREENS=60 UNIFIED_RESPONSE_EMBEDDED_SCREENS value
          */
         BotCapabilityMetadata.BotCapabilityType = (function() {
             var valuesById = {}, values = Object.create(valuesById);
@@ -15873,6 +15879,7 @@ $root.AICommon = (function() {
             values[valuesById[57] = "RICH_RESPONSE_UR_IMAGINE_VIDEO"] = 57;
             values[valuesById[58] = "JSON_PATCH_STREAMING"] = 58;
             values[valuesById[59] = "AI_TAB_FORCE_CLIPPY"] = 59;
+            values[valuesById[60] = "UNIFIED_RESPONSE_EMBEDDED_SCREENS"] = 60;
             return values;
         })();
 
