@@ -6021,6 +6021,7 @@ $root.Wa6 = (function() {
              * @property {Uint8Array|null} [paddedBytes] ClientHello paddedBytes
              * @property {boolean|null} [sendServerHelloPaddedBytes] ClientHello sendServerHelloPaddedBytes
              * @property {boolean|null} [simulateXxkemFs] ClientHello simulateXxkemFs
+             * @property {Wa6.HandshakeMessage.HandshakePqMode|null} [pqMode] ClientHello pqMode
              */
 
             /**
@@ -6102,6 +6103,14 @@ $root.Wa6 = (function() {
              */
             ClientHello.prototype.simulateXxkemFs = null;
 
+            /**
+             * ClientHello pqMode.
+             * @member {Wa6.HandshakeMessage.HandshakePqMode|null|undefined} pqMode
+             * @memberof Wa6.HandshakeMessage.ClientHello
+             * @instance
+             */
+            ClientHello.prototype.pqMode = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -6153,6 +6162,12 @@ $root.Wa6 = (function() {
                 set: $util.oneOfSetter($oneOfFields)
             });
 
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(ClientHello.prototype, "_pqMode", {
+                get: $util.oneOfGetter($oneOfFields = ["pqMode"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
             /**
              * Creates a new ClientHello instance using the specified properties.
              * @function create
@@ -6193,6 +6208,8 @@ $root.Wa6 = (function() {
                     writer.uint32(/* id 7, wireType 0 =*/56).bool(message.sendServerHelloPaddedBytes);
                 if (message.simulateXxkemFs != null && Object.hasOwnProperty.call(message, "simulateXxkemFs"))
                     writer.uint32(/* id 8, wireType 0 =*/64).bool(message.simulateXxkemFs);
+                if (message.pqMode != null && Object.hasOwnProperty.call(message, "pqMode"))
+                    writer.uint32(/* id 9, wireType 0 =*/72).int32(message.pqMode);
                 return writer;
             };
 
@@ -6259,6 +6276,10 @@ $root.Wa6 = (function() {
                         }
                     case 8: {
                             message.simulateXxkemFs = reader.bool();
+                            break;
+                        }
+                    case 9: {
+                            message.pqMode = reader.int32();
                             break;
                         }
                     default:
@@ -6337,6 +6358,23 @@ $root.Wa6 = (function() {
                     if (typeof message.simulateXxkemFs !== "boolean")
                         return "simulateXxkemFs: boolean expected";
                 }
+                if (message.pqMode != null && message.hasOwnProperty("pqMode")) {
+                    properties._pqMode = 1;
+                    switch (message.pqMode) {
+                    default:
+                        return "pqMode: enum value expected";
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                        break;
+                    }
+                }
                 return null;
             };
 
@@ -6383,6 +6421,50 @@ $root.Wa6 = (function() {
                     message.sendServerHelloPaddedBytes = Boolean(object.sendServerHelloPaddedBytes);
                 if (object.simulateXxkemFs != null)
                     message.simulateXxkemFs = Boolean(object.simulateXxkemFs);
+                switch (object.pqMode) {
+                default:
+                    if (typeof object.pqMode === "number") {
+                        message.pqMode = object.pqMode;
+                        break;
+                    }
+                    break;
+                case "HANDSHAKE_PQ_MODE_UNKNOWN":
+                case 0:
+                    message.pqMode = 0;
+                    break;
+                case "XXKEM":
+                case 1:
+                    message.pqMode = 1;
+                    break;
+                case "XXKEM_FS":
+                case 2:
+                    message.pqMode = 2;
+                    break;
+                case "WA_CLASSICAL":
+                case 3:
+                    message.pqMode = 3;
+                    break;
+                case "WA_PQ":
+                case 4:
+                    message.pqMode = 4;
+                    break;
+                case "IKKEM":
+                case 5:
+                    message.pqMode = 5;
+                    break;
+                case "IKKEM_FS":
+                case 6:
+                    message.pqMode = 6;
+                    break;
+                case "XXKEM_2":
+                case 7:
+                    message.pqMode = 7;
+                    break;
+                case "IKKEM_2":
+                case 8:
+                    message.pqMode = 8;
+                    break;
+                }
                 return message;
             };
 
@@ -6439,6 +6521,11 @@ $root.Wa6 = (function() {
                     if (options.oneofs)
                         object._simulateXxkemFs = "simulateXxkemFs";
                 }
+                if (message.pqMode != null && message.hasOwnProperty("pqMode")) {
+                    object.pqMode = options.enums === String ? $root.Wa6.HandshakeMessage.HandshakePqMode[message.pqMode] === undefined ? message.pqMode : $root.Wa6.HandshakeMessage.HandshakePqMode[message.pqMode] : message.pqMode;
+                    if (options.oneofs)
+                        object._pqMode = "pqMode";
+                }
                 return object;
             };
 
@@ -6469,6 +6556,34 @@ $root.Wa6 = (function() {
             };
 
             return ClientHello;
+        })();
+
+        /**
+         * HandshakePqMode enum.
+         * @name Wa6.HandshakeMessage.HandshakePqMode
+         * @enum {number}
+         * @property {number} HANDSHAKE_PQ_MODE_UNKNOWN=0 HANDSHAKE_PQ_MODE_UNKNOWN value
+         * @property {number} XXKEM=1 XXKEM value
+         * @property {number} XXKEM_FS=2 XXKEM_FS value
+         * @property {number} WA_CLASSICAL=3 WA_CLASSICAL value
+         * @property {number} WA_PQ=4 WA_PQ value
+         * @property {number} IKKEM=5 IKKEM value
+         * @property {number} IKKEM_FS=6 IKKEM_FS value
+         * @property {number} XXKEM_2=7 XXKEM_2 value
+         * @property {number} IKKEM_2=8 IKKEM_2 value
+         */
+        HandshakeMessage.HandshakePqMode = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "HANDSHAKE_PQ_MODE_UNKNOWN"] = 0;
+            values[valuesById[1] = "XXKEM"] = 1;
+            values[valuesById[2] = "XXKEM_FS"] = 2;
+            values[valuesById[3] = "WA_CLASSICAL"] = 3;
+            values[valuesById[4] = "WA_PQ"] = 4;
+            values[valuesById[5] = "IKKEM"] = 5;
+            values[valuesById[6] = "IKKEM_FS"] = 6;
+            values[valuesById[7] = "XXKEM_2"] = 7;
+            values[valuesById[8] = "IKKEM_2"] = 8;
+            return values;
         })();
 
         HandshakeMessage.ServerHello = (function() {
