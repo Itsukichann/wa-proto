@@ -100264,7 +100264,6 @@ $root.Protocol = (function() {
                 case 1:
                 case 2:
                 case 3:
-                case 4:
                     break;
                 }
             }
@@ -100317,10 +100316,6 @@ $root.Protocol = (function() {
             case "UNKNOWN_GROUP":
             case 3:
                 message.trigger = 3;
-                break;
-            case "DEPRECATION":
-            case 4:
-                message.trigger = 4;
                 break;
             }
             if (object.limitSharingSettingTimestamp != null)
@@ -100410,7 +100405,6 @@ $root.Protocol = (function() {
          * @property {number} CHAT_SETTING=1 CHAT_SETTING value
          * @property {number} BIZ_SUPPORTS_FB_HOSTING=2 BIZ_SUPPORTS_FB_HOSTING value
          * @property {number} UNKNOWN_GROUP=3 UNKNOWN_GROUP value
-         * @property {number} DEPRECATION=4 DEPRECATION value
          */
         LimitSharing.TriggerType = (function() {
             var valuesById = {}, values = Object.create(valuesById);
@@ -100418,7 +100412,6 @@ $root.Protocol = (function() {
             values[valuesById[1] = "CHAT_SETTING"] = 1;
             values[valuesById[2] = "BIZ_SUPPORTS_FB_HOSTING"] = 2;
             values[valuesById[3] = "UNKNOWN_GROUP"] = 3;
-            values[valuesById[4] = "DEPRECATION"] = 4;
             return values;
         })();
 
