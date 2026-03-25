@@ -23449,7 +23449,7 @@ $root.SyncAction = (function() {
                  * Properties of a CustomList.
                  * @memberof SyncAction.SyncActionValue.StatusPrivacyAction
                  * @interface ICustomList
-                 * @property {number|Long|null} [id] CustomList id
+                 * @property {string|null} [listId] CustomList listId
                  * @property {string|null} [name] CustomList name
                  * @property {string|null} [emoji] CustomList emoji
                  * @property {boolean|null} [isSelected] CustomList isSelected
@@ -23473,12 +23473,12 @@ $root.SyncAction = (function() {
                 }
 
                 /**
-                 * CustomList id.
-                 * @member {number|Long|null|undefined} id
+                 * CustomList listId.
+                 * @member {string|null|undefined} listId
                  * @memberof SyncAction.SyncActionValue.StatusPrivacyAction.CustomList
                  * @instance
                  */
-                CustomList.prototype.id = null;
+                CustomList.prototype.listId = null;
 
                 /**
                  * CustomList name.
@@ -23516,8 +23516,8 @@ $root.SyncAction = (function() {
                 var $oneOfFields;
 
                 // Virtual OneOf for proto3 optional field
-                Object.defineProperty(CustomList.prototype, "_id", {
-                    get: $util.oneOfGetter($oneOfFields = ["id"]),
+                Object.defineProperty(CustomList.prototype, "_listId", {
+                    get: $util.oneOfGetter($oneOfFields = ["listId"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
@@ -23563,8 +23563,8 @@ $root.SyncAction = (function() {
                 CustomList.encode = function encode(message, writer) {
                     if (!writer)
                         writer = $Writer.create();
-                    if (message.id != null && Object.hasOwnProperty.call(message, "id"))
-                        writer.uint32(/* id 1, wireType 0 =*/8).int64(message.id);
+                    if (message.listId != null && Object.hasOwnProperty.call(message, "listId"))
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.listId);
                     if (message.name != null && Object.hasOwnProperty.call(message, "name"))
                         writer.uint32(/* id 2, wireType 2 =*/18).string(message.name);
                     if (message.emoji != null && Object.hasOwnProperty.call(message, "emoji"))
@@ -23611,7 +23611,7 @@ $root.SyncAction = (function() {
                             break;
                         switch (tag >>> 3) {
                         case 1: {
-                                message.id = reader.int64();
+                                message.listId = reader.string();
                                 break;
                             }
                         case 2: {
@@ -23668,10 +23668,10 @@ $root.SyncAction = (function() {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
                     var properties = {};
-                    if (message.id != null && message.hasOwnProperty("id")) {
-                        properties._id = 1;
-                        if (!$util.isInteger(message.id) && !(message.id && $util.isInteger(message.id.low) && $util.isInteger(message.id.high)))
-                            return "id: integer|Long expected";
+                    if (message.listId != null && message.hasOwnProperty("listId")) {
+                        properties._listId = 1;
+                        if (!$util.isString(message.listId))
+                            return "listId: string expected";
                     }
                     if (message.name != null && message.hasOwnProperty("name")) {
                         properties._name = 1;
@@ -23710,15 +23710,8 @@ $root.SyncAction = (function() {
                     if (object instanceof $root.SyncAction.SyncActionValue.StatusPrivacyAction.CustomList)
                         return object;
                     var message = new $root.SyncAction.SyncActionValue.StatusPrivacyAction.CustomList();
-                    if (object.id != null)
-                        if ($util.Long)
-                            (message.id = $util.Long.fromValue(object.id)).unsigned = false;
-                        else if (typeof object.id === "string")
-                            message.id = parseInt(object.id, 10);
-                        else if (typeof object.id === "number")
-                            message.id = object.id;
-                        else if (typeof object.id === "object")
-                            message.id = new $util.LongBits(object.id.low >>> 0, object.id.high >>> 0).toNumber();
+                    if (object.listId != null)
+                        message.listId = String(object.listId);
                     if (object.name != null)
                         message.name = String(object.name);
                     if (object.emoji != null)
@@ -23750,13 +23743,10 @@ $root.SyncAction = (function() {
                     var object = {};
                     if (options.arrays || options.defaults)
                         object.userJid = [];
-                    if (message.id != null && message.hasOwnProperty("id")) {
-                        if (typeof message.id === "number")
-                            object.id = options.longs === String ? String(message.id) : message.id;
-                        else
-                            object.id = options.longs === String ? $util.Long.prototype.toString.call(message.id) : options.longs === Number ? new $util.LongBits(message.id.low >>> 0, message.id.high >>> 0).toNumber() : message.id;
+                    if (message.listId != null && message.hasOwnProperty("listId")) {
+                        object.listId = message.listId;
                         if (options.oneofs)
-                            object._id = "id";
+                            object._listId = "listId";
                     }
                     if (message.name != null && message.hasOwnProperty("name")) {
                         object.name = message.name;
