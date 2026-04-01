@@ -13904,6 +13904,7 @@ $root.Web = (function() {
                 case 222:
                 case 223:
                 case 224:
+                case 225:
                     break;
                 }
             }
@@ -15287,6 +15288,10 @@ $root.Web = (function() {
             case 224:
                 message.messageStubType = 224;
                 break;
+            case "SCHEDULED_MESSAGE_CREATED":
+            case 225:
+                message.messageStubType = 225;
+                break;
             }
             if (object.clearMedia != null)
                 message.clearMedia = Boolean(object.clearMedia);
@@ -16279,6 +16284,7 @@ $root.Web = (function() {
          * @property {number} GROUP_OPEN_BOT_ADDED=222 GROUP_OPEN_BOT_ADDED value
          * @property {number} GROUP_TEE_BOT_ADDED=223 GROUP_TEE_BOT_ADDED value
          * @property {number} CONTACT_INFO=224 CONTACT_INFO value
+         * @property {number} SCHEDULED_MESSAGE_CREATED=225 SCHEDULED_MESSAGE_CREATED value
          */
         WebMessageInfo.StubType = (function() {
             var valuesById = {}, values = Object.create(valuesById);
@@ -16507,6 +16513,7 @@ $root.Web = (function() {
             values[valuesById[222] = "GROUP_OPEN_BOT_ADDED"] = 222;
             values[valuesById[223] = "GROUP_TEE_BOT_ADDED"] = 223;
             values[valuesById[224] = "CONTACT_INFO"] = 224;
+            values[valuesById[225] = "SCHEDULED_MESSAGE_CREATED"] = 225;
             return values;
         })();
 
