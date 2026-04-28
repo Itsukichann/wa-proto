@@ -43,7 +43,7 @@ $root.Reporting = (function() {
             this.subfield = {};
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
         }
 
@@ -178,9 +178,13 @@ $root.Reporting = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        Field.decode = function decode(reader, length, error) {
+        Field.decode = function decode(reader, length, error, long) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
+            if (long === undefined)
+                long = 0;
+            if (long > $Reader.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Reporting.Field(), key, value;
             while (reader.pos < end) {
                 var tag = reader.uint32();
@@ -216,10 +220,10 @@ $root.Reporting = (function() {
                                 key = reader.uint32();
                                 break;
                             case 2:
-                                value = $root.Reporting.Field.decode(reader, reader.uint32());
+                                value = $root.Reporting.Field.decode(reader, reader.uint32(), undefined, long + 1);
                                 break;
                             default:
-                                reader.skipType(tag2 & 7);
+                                reader.skipType(tag2 & 7, long);
                                 break;
                             }
                         }
@@ -227,7 +231,7 @@ $root.Reporting = (function() {
                         break;
                     }
                 default:
-                    reader.skipType(tag & 7);
+                    reader.skipType(tag & 7, long);
                     break;
                 }
             }
@@ -258,9 +262,13 @@ $root.Reporting = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        Field.verify = function verify(message) {
+        Field.verify = function verify(message, long) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                return "maximum nesting depth exceeded";
             var properties = {};
             if (message.minVersion != null && message.hasOwnProperty("minVersion")) {
                 properties._minVersion = 1;
@@ -290,7 +298,7 @@ $root.Reporting = (function() {
                     if (!$util.key32Re.test(key[i]))
                         return "subfield: integer key{k:uint32} expected";
                     {
-                        var error = $root.Reporting.Field.verify(message.subfield[key[i]]);
+                        var error = $root.Reporting.Field.verify(message.subfield[key[i]], long + 1);
                         if (error)
                             return "subfield." + error;
                     }
@@ -307,9 +315,13 @@ $root.Reporting = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Reporting.Field} Field
          */
-        Field.fromObject = function fromObject(object) {
+        Field.fromObject = function fromObject(object, long) {
             if (object instanceof $root.Reporting.Field)
                 return object;
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var message = new $root.Reporting.Field();
             if (object.minVersion != null)
                 message.minVersion = object.minVersion >>> 0;
@@ -324,9 +336,11 @@ $root.Reporting = (function() {
                     throw TypeError(".Reporting.Field.subfield: object expected");
                 message.subfield = {};
                 for (var keys = Object.keys(object.subfield), i = 0; i < keys.length; ++i) {
+                    if (keys[i] === "__proto__")
+                        $util.makeProp(message.subfield, keys[i]);
                     if (typeof object.subfield[keys[i]] !== "object")
                         throw TypeError(".Reporting.Field.subfield: object expected");
-                    message.subfield[keys[i]] = $root.Reporting.Field.fromObject(object.subfield[keys[i]]);
+                    message.subfield[keys[i]] = $root.Reporting.Field.fromObject(object.subfield[keys[i]], long + 1);
                 }
             }
             return message;
@@ -370,8 +384,11 @@ $root.Reporting = (function() {
             var keys2;
             if (message.subfield && (keys2 = Object.keys(message.subfield)).length) {
                 object.subfield = {};
-                for (var j = 0; j < keys2.length; ++j)
+                for (var j = 0; j < keys2.length; ++j) {
+                    if (keys2[j] === "__proto__")
+                        $util.makeProp(object.subfield, keys2[j]);
                     object.subfield[keys2[j]] = $root.Reporting.Field.toObject(message.subfield[keys2[j]], options);
+                }
             }
             return object;
         };
@@ -427,7 +444,7 @@ $root.Reporting = (function() {
             this.field = {};
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
         }
 
@@ -514,9 +531,13 @@ $root.Reporting = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        Config.decode = function decode(reader, length, error) {
+        Config.decode = function decode(reader, length, error, long) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
+            if (long === undefined)
+                long = 0;
+            if (long > $Reader.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Reporting.Config(), key, value;
             while (reader.pos < end) {
                 var tag = reader.uint32();
@@ -536,10 +557,10 @@ $root.Reporting = (function() {
                                 key = reader.uint32();
                                 break;
                             case 2:
-                                value = $root.Reporting.Field.decode(reader, reader.uint32());
+                                value = $root.Reporting.Field.decode(reader, reader.uint32(), undefined, long + 1);
                                 break;
                             default:
-                                reader.skipType(tag2 & 7);
+                                reader.skipType(tag2 & 7, long);
                                 break;
                             }
                         }
@@ -551,7 +572,7 @@ $root.Reporting = (function() {
                         break;
                     }
                 default:
-                    reader.skipType(tag & 7);
+                    reader.skipType(tag & 7, long);
                     break;
                 }
             }
@@ -582,9 +603,13 @@ $root.Reporting = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        Config.verify = function verify(message) {
+        Config.verify = function verify(message, long) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                return "maximum nesting depth exceeded";
             var properties = {};
             if (message.field != null && message.hasOwnProperty("field")) {
                 if (!$util.isObject(message.field))
@@ -594,7 +619,7 @@ $root.Reporting = (function() {
                     if (!$util.key32Re.test(key[i]))
                         return "field: integer key{k:uint32} expected";
                     {
-                        var error = $root.Reporting.Field.verify(message.field[key[i]]);
+                        var error = $root.Reporting.Field.verify(message.field[key[i]], long + 1);
                         if (error)
                             return "field." + error;
                     }
@@ -616,18 +641,24 @@ $root.Reporting = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Reporting.Config} Config
          */
-        Config.fromObject = function fromObject(object) {
+        Config.fromObject = function fromObject(object, long) {
             if (object instanceof $root.Reporting.Config)
                 return object;
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var message = new $root.Reporting.Config();
             if (object.field) {
                 if (typeof object.field !== "object")
                     throw TypeError(".Reporting.Config.field: object expected");
                 message.field = {};
                 for (var keys = Object.keys(object.field), i = 0; i < keys.length; ++i) {
+                    if (keys[i] === "__proto__")
+                        $util.makeProp(message.field, keys[i]);
                     if (typeof object.field[keys[i]] !== "object")
                         throw TypeError(".Reporting.Config.field: object expected");
-                    message.field[keys[i]] = $root.Reporting.Field.fromObject(object.field[keys[i]]);
+                    message.field[keys[i]] = $root.Reporting.Field.fromObject(object.field[keys[i]], long + 1);
                 }
             }
             if (object.version != null)
@@ -653,8 +684,11 @@ $root.Reporting = (function() {
             var keys2;
             if (message.field && (keys2 = Object.keys(message.field)).length) {
                 object.field = {};
-                for (var j = 0; j < keys2.length; ++j)
+                for (var j = 0; j < keys2.length; ++j) {
+                    if (keys2[j] === "__proto__")
+                        $util.makeProp(object.field, keys2[j]);
                     object.field[keys2[j]] = $root.Reporting.Field.toObject(message.field[keys2[j]], options);
+                }
             }
             if (message.version != null && message.hasOwnProperty("version")) {
                 object.version = message.version;
@@ -716,7 +750,7 @@ $root.Reporting = (function() {
         function Reportable(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
         }
 
@@ -838,9 +872,13 @@ $root.Reporting = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        Reportable.decode = function decode(reader, length, error) {
+        Reportable.decode = function decode(reader, length, error, long) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
+            if (long === undefined)
+                long = 0;
+            if (long > $Reader.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Reporting.Reportable();
             while (reader.pos < end) {
                 var tag = reader.uint32();
@@ -864,7 +902,7 @@ $root.Reporting = (function() {
                         break;
                     }
                 default:
-                    reader.skipType(tag & 7);
+                    reader.skipType(tag & 7, long);
                     break;
                 }
             }
@@ -895,9 +933,13 @@ $root.Reporting = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        Reportable.verify = function verify(message) {
+        Reportable.verify = function verify(message, long) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                return "maximum nesting depth exceeded";
             var properties = {};
             if (message.minVersion != null && message.hasOwnProperty("minVersion")) {
                 properties._minVersion = 1;
@@ -930,9 +972,13 @@ $root.Reporting = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Reporting.Reportable} Reportable
          */
-        Reportable.fromObject = function fromObject(object) {
+        Reportable.fromObject = function fromObject(object, long) {
             if (object instanceof $root.Reporting.Reportable)
                 return object;
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var message = new $root.Reporting.Reportable();
             if (object.minVersion != null)
                 message.minVersion = object.minVersion >>> 0;

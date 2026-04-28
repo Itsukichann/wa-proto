@@ -42,7 +42,7 @@ $root.CompanionReg = (function() {
         function ClientPairingProps(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
         }
 
@@ -180,9 +180,13 @@ $root.CompanionReg = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ClientPairingProps.decode = function decode(reader, length, error) {
+        ClientPairingProps.decode = function decode(reader, length, error, long) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
+            if (long === undefined)
+                long = 0;
+            if (long > $Reader.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.CompanionReg.ClientPairingProps();
             while (reader.pos < end) {
                 var tag = reader.uint32();
@@ -210,7 +214,7 @@ $root.CompanionReg = (function() {
                         break;
                     }
                 default:
-                    reader.skipType(tag & 7);
+                    reader.skipType(tag & 7, long);
                     break;
                 }
             }
@@ -241,9 +245,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        ClientPairingProps.verify = function verify(message) {
+        ClientPairingProps.verify = function verify(message, long) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                return "maximum nesting depth exceeded";
             var properties = {};
             if (message.isChatDbLidMigrated != null && message.hasOwnProperty("isChatDbLidMigrated")) {
                 properties._isChatDbLidMigrated = 1;
@@ -281,9 +289,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {CompanionReg.ClientPairingProps} ClientPairingProps
          */
-        ClientPairingProps.fromObject = function fromObject(object) {
+        ClientPairingProps.fromObject = function fromObject(object, long) {
             if (object instanceof $root.CompanionReg.ClientPairingProps)
                 return object;
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var message = new $root.CompanionReg.ClientPairingProps();
             if (object.isChatDbLidMigrated != null)
                 message.isChatDbLidMigrated = Boolean(object.isChatDbLidMigrated);
@@ -392,7 +404,7 @@ $root.CompanionReg = (function() {
         function EncryptedPairingRequest(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
         }
 
@@ -482,9 +494,13 @@ $root.CompanionReg = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        EncryptedPairingRequest.decode = function decode(reader, length, error) {
+        EncryptedPairingRequest.decode = function decode(reader, length, error, long) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
+            if (long === undefined)
+                long = 0;
+            if (long > $Reader.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.CompanionReg.EncryptedPairingRequest();
             while (reader.pos < end) {
                 var tag = reader.uint32();
@@ -500,7 +516,7 @@ $root.CompanionReg = (function() {
                         break;
                     }
                 default:
-                    reader.skipType(tag & 7);
+                    reader.skipType(tag & 7, long);
                     break;
                 }
             }
@@ -531,9 +547,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        EncryptedPairingRequest.verify = function verify(message) {
+        EncryptedPairingRequest.verify = function verify(message, long) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                return "maximum nesting depth exceeded";
             var properties = {};
             if (message.encryptedPayload != null && message.hasOwnProperty("encryptedPayload")) {
                 properties._encryptedPayload = 1;
@@ -556,9 +576,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {CompanionReg.EncryptedPairingRequest} EncryptedPairingRequest
          */
-        EncryptedPairingRequest.fromObject = function fromObject(object) {
+        EncryptedPairingRequest.fromObject = function fromObject(object, long) {
             if (object instanceof $root.CompanionReg.EncryptedPairingRequest)
                 return object;
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var message = new $root.CompanionReg.EncryptedPairingRequest();
             if (object.encryptedPayload != null)
                 if (typeof object.encryptedPayload === "string")
@@ -650,7 +674,7 @@ $root.CompanionReg = (function() {
         function PairingRequest(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
         }
 
@@ -756,9 +780,13 @@ $root.CompanionReg = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        PairingRequest.decode = function decode(reader, length, error) {
+        PairingRequest.decode = function decode(reader, length, error, long) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
+            if (long === undefined)
+                long = 0;
+            if (long > $Reader.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.CompanionReg.PairingRequest();
             while (reader.pos < end) {
                 var tag = reader.uint32();
@@ -778,7 +806,7 @@ $root.CompanionReg = (function() {
                         break;
                     }
                 default:
-                    reader.skipType(tag & 7);
+                    reader.skipType(tag & 7, long);
                     break;
                 }
             }
@@ -809,9 +837,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        PairingRequest.verify = function verify(message) {
+        PairingRequest.verify = function verify(message, long) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                return "maximum nesting depth exceeded";
             var properties = {};
             if (message.companionPublicKey != null && message.hasOwnProperty("companionPublicKey")) {
                 properties._companionPublicKey = 1;
@@ -839,9 +871,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {CompanionReg.PairingRequest} PairingRequest
          */
-        PairingRequest.fromObject = function fromObject(object) {
+        PairingRequest.fromObject = function fromObject(object, long) {
             if (object instanceof $root.CompanionReg.PairingRequest)
                 return object;
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var message = new $root.CompanionReg.PairingRequest();
             if (object.companionPublicKey != null)
                 if (typeof object.companionPublicKey === "string")
@@ -942,7 +978,7 @@ $root.CompanionReg = (function() {
         function PrimaryEphemeralIdentity(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
         }
 
@@ -1032,9 +1068,13 @@ $root.CompanionReg = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        PrimaryEphemeralIdentity.decode = function decode(reader, length, error) {
+        PrimaryEphemeralIdentity.decode = function decode(reader, length, error, long) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
+            if (long === undefined)
+                long = 0;
+            if (long > $Reader.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.CompanionReg.PrimaryEphemeralIdentity();
             while (reader.pos < end) {
                 var tag = reader.uint32();
@@ -1050,7 +1090,7 @@ $root.CompanionReg = (function() {
                         break;
                     }
                 default:
-                    reader.skipType(tag & 7);
+                    reader.skipType(tag & 7, long);
                     break;
                 }
             }
@@ -1081,9 +1121,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        PrimaryEphemeralIdentity.verify = function verify(message) {
+        PrimaryEphemeralIdentity.verify = function verify(message, long) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                return "maximum nesting depth exceeded";
             var properties = {};
             if (message.publicKey != null && message.hasOwnProperty("publicKey")) {
                 properties._publicKey = 1;
@@ -1106,9 +1150,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {CompanionReg.PrimaryEphemeralIdentity} PrimaryEphemeralIdentity
          */
-        PrimaryEphemeralIdentity.fromObject = function fromObject(object) {
+        PrimaryEphemeralIdentity.fromObject = function fromObject(object, long) {
             if (object instanceof $root.CompanionReg.PrimaryEphemeralIdentity)
                 return object;
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var message = new $root.CompanionReg.PrimaryEphemeralIdentity();
             if (object.publicKey != null)
                 if (typeof object.publicKey === "string")
@@ -1199,7 +1247,7 @@ $root.CompanionReg = (function() {
         function ProloguePayload(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
         }
 
@@ -1289,9 +1337,13 @@ $root.CompanionReg = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ProloguePayload.decode = function decode(reader, length, error) {
+        ProloguePayload.decode = function decode(reader, length, error, long) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
+            if (long === undefined)
+                long = 0;
+            if (long > $Reader.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.CompanionReg.ProloguePayload();
             while (reader.pos < end) {
                 var tag = reader.uint32();
@@ -1303,11 +1355,11 @@ $root.CompanionReg = (function() {
                         break;
                     }
                 case 2: {
-                        message.commitment = $root.CompanionReg.CompanionCommitment.decode(reader, reader.uint32());
+                        message.commitment = $root.CompanionReg.CompanionCommitment.decode(reader, reader.uint32(), undefined, long + 1);
                         break;
                     }
                 default:
-                    reader.skipType(tag & 7);
+                    reader.skipType(tag & 7, long);
                     break;
                 }
             }
@@ -1338,9 +1390,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        ProloguePayload.verify = function verify(message) {
+        ProloguePayload.verify = function verify(message, long) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                return "maximum nesting depth exceeded";
             var properties = {};
             if (message.companionEphemeralIdentity != null && message.hasOwnProperty("companionEphemeralIdentity")) {
                 properties._companionEphemeralIdentity = 1;
@@ -1350,7 +1406,7 @@ $root.CompanionReg = (function() {
             if (message.commitment != null && message.hasOwnProperty("commitment")) {
                 properties._commitment = 1;
                 {
-                    var error = $root.CompanionReg.CompanionCommitment.verify(message.commitment);
+                    var error = $root.CompanionReg.CompanionCommitment.verify(message.commitment, long + 1);
                     if (error)
                         return "commitment." + error;
                 }
@@ -1366,9 +1422,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {CompanionReg.ProloguePayload} ProloguePayload
          */
-        ProloguePayload.fromObject = function fromObject(object) {
+        ProloguePayload.fromObject = function fromObject(object, long) {
             if (object instanceof $root.CompanionReg.ProloguePayload)
                 return object;
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var message = new $root.CompanionReg.ProloguePayload();
             if (object.companionEphemeralIdentity != null)
                 if (typeof object.companionEphemeralIdentity === "string")
@@ -1378,7 +1438,7 @@ $root.CompanionReg = (function() {
             if (object.commitment != null) {
                 if (typeof object.commitment !== "object")
                     throw TypeError(".CompanionReg.ProloguePayload.commitment: object expected");
-                message.commitment = $root.CompanionReg.CompanionCommitment.fromObject(object.commitment);
+                message.commitment = $root.CompanionReg.CompanionCommitment.fromObject(object.commitment, long + 1);
             }
             return message;
         };
@@ -1458,7 +1518,7 @@ $root.CompanionReg = (function() {
         function CompanionCommitment(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
         }
 
@@ -1532,9 +1592,13 @@ $root.CompanionReg = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        CompanionCommitment.decode = function decode(reader, length, error) {
+        CompanionCommitment.decode = function decode(reader, length, error, long) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
+            if (long === undefined)
+                long = 0;
+            if (long > $Reader.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.CompanionReg.CompanionCommitment();
             while (reader.pos < end) {
                 var tag = reader.uint32();
@@ -1546,7 +1610,7 @@ $root.CompanionReg = (function() {
                         break;
                     }
                 default:
-                    reader.skipType(tag & 7);
+                    reader.skipType(tag & 7, long);
                     break;
                 }
             }
@@ -1577,9 +1641,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        CompanionCommitment.verify = function verify(message) {
+        CompanionCommitment.verify = function verify(message, long) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                return "maximum nesting depth exceeded";
             var properties = {};
             if (message.hash != null && message.hasOwnProperty("hash")) {
                 properties._hash = 1;
@@ -1597,9 +1665,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {CompanionReg.CompanionCommitment} CompanionCommitment
          */
-        CompanionCommitment.fromObject = function fromObject(object) {
+        CompanionCommitment.fromObject = function fromObject(object, long) {
             if (object instanceof $root.CompanionReg.CompanionCommitment)
                 return object;
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var message = new $root.CompanionReg.CompanionCommitment();
             if (object.hash != null)
                 if (typeof object.hash === "string")
@@ -1681,7 +1753,7 @@ $root.CompanionReg = (function() {
         function CompanionEphemeralIdentity(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
         }
 
@@ -1787,9 +1859,13 @@ $root.CompanionReg = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        CompanionEphemeralIdentity.decode = function decode(reader, length, error) {
+        CompanionEphemeralIdentity.decode = function decode(reader, length, error, long) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
+            if (long === undefined)
+                long = 0;
+            if (long > $Reader.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.CompanionReg.CompanionEphemeralIdentity();
             while (reader.pos < end) {
                 var tag = reader.uint32();
@@ -1809,7 +1885,7 @@ $root.CompanionReg = (function() {
                         break;
                     }
                 default:
-                    reader.skipType(tag & 7);
+                    reader.skipType(tag & 7, long);
                     break;
                 }
             }
@@ -1840,9 +1916,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        CompanionEphemeralIdentity.verify = function verify(message) {
+        CompanionEphemeralIdentity.verify = function verify(message, long) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                return "maximum nesting depth exceeded";
             var properties = {};
             if (message.publicKey != null && message.hasOwnProperty("publicKey")) {
                 properties._publicKey = 1;
@@ -1898,9 +1978,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {CompanionReg.CompanionEphemeralIdentity} CompanionEphemeralIdentity
          */
-        CompanionEphemeralIdentity.fromObject = function fromObject(object) {
+        CompanionEphemeralIdentity.fromObject = function fromObject(object, long) {
             if (object instanceof $root.CompanionReg.CompanionEphemeralIdentity)
                 return object;
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var message = new $root.CompanionReg.CompanionEphemeralIdentity();
             if (object.publicKey != null)
                 if (typeof object.publicKey === "string")
@@ -2104,7 +2188,7 @@ $root.CompanionReg = (function() {
         function DeviceProps(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
         }
 
@@ -2242,9 +2326,13 @@ $root.CompanionReg = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        DeviceProps.decode = function decode(reader, length, error) {
+        DeviceProps.decode = function decode(reader, length, error, long) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
+            if (long === undefined)
+                long = 0;
+            if (long > $Reader.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.CompanionReg.DeviceProps();
             while (reader.pos < end) {
                 var tag = reader.uint32();
@@ -2256,7 +2344,7 @@ $root.CompanionReg = (function() {
                         break;
                     }
                 case 2: {
-                        message.version = $root.CompanionReg.DeviceProps.AppVersion.decode(reader, reader.uint32());
+                        message.version = $root.CompanionReg.DeviceProps.AppVersion.decode(reader, reader.uint32(), undefined, long + 1);
                         break;
                     }
                 case 3: {
@@ -2268,11 +2356,11 @@ $root.CompanionReg = (function() {
                         break;
                     }
                 case 5: {
-                        message.historySyncConfig = $root.CompanionReg.DeviceProps.HistorySyncConfig.decode(reader, reader.uint32());
+                        message.historySyncConfig = $root.CompanionReg.DeviceProps.HistorySyncConfig.decode(reader, reader.uint32(), undefined, long + 1);
                         break;
                     }
                 default:
-                    reader.skipType(tag & 7);
+                    reader.skipType(tag & 7, long);
                     break;
                 }
             }
@@ -2303,9 +2391,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        DeviceProps.verify = function verify(message) {
+        DeviceProps.verify = function verify(message, long) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                return "maximum nesting depth exceeded";
             var properties = {};
             if (message.os != null && message.hasOwnProperty("os")) {
                 properties._os = 1;
@@ -2315,7 +2407,7 @@ $root.CompanionReg = (function() {
             if (message.version != null && message.hasOwnProperty("version")) {
                 properties._version = 1;
                 {
-                    var error = $root.CompanionReg.DeviceProps.AppVersion.verify(message.version);
+                    var error = $root.CompanionReg.DeviceProps.AppVersion.verify(message.version, long + 1);
                     if (error)
                         return "version." + error;
                 }
@@ -2361,7 +2453,7 @@ $root.CompanionReg = (function() {
             if (message.historySyncConfig != null && message.hasOwnProperty("historySyncConfig")) {
                 properties._historySyncConfig = 1;
                 {
-                    var error = $root.CompanionReg.DeviceProps.HistorySyncConfig.verify(message.historySyncConfig);
+                    var error = $root.CompanionReg.DeviceProps.HistorySyncConfig.verify(message.historySyncConfig, long + 1);
                     if (error)
                         return "historySyncConfig." + error;
                 }
@@ -2377,16 +2469,20 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {CompanionReg.DeviceProps} DeviceProps
          */
-        DeviceProps.fromObject = function fromObject(object) {
+        DeviceProps.fromObject = function fromObject(object, long) {
             if (object instanceof $root.CompanionReg.DeviceProps)
                 return object;
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var message = new $root.CompanionReg.DeviceProps();
             if (object.os != null)
                 message.os = String(object.os);
             if (object.version != null) {
                 if (typeof object.version !== "object")
                     throw TypeError(".CompanionReg.DeviceProps.version: object expected");
-                message.version = $root.CompanionReg.DeviceProps.AppVersion.fromObject(object.version);
+                message.version = $root.CompanionReg.DeviceProps.AppVersion.fromObject(object.version, long + 1);
             }
             switch (object.platformType) {
             default:
@@ -2501,7 +2597,7 @@ $root.CompanionReg = (function() {
             if (object.historySyncConfig != null) {
                 if (typeof object.historySyncConfig !== "object")
                     throw TypeError(".CompanionReg.DeviceProps.historySyncConfig: object expected");
-                message.historySyncConfig = $root.CompanionReg.DeviceProps.HistorySyncConfig.fromObject(object.historySyncConfig);
+                message.historySyncConfig = $root.CompanionReg.DeviceProps.HistorySyncConfig.fromObject(object.historySyncConfig, long + 1);
             }
             return message;
         };
@@ -2597,7 +2693,7 @@ $root.CompanionReg = (function() {
             function AppVersion(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
                             this[keys[i]] = properties[keys[i]];
             }
 
@@ -2735,9 +2831,13 @@ $root.CompanionReg = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            AppVersion.decode = function decode(reader, length, error) {
+            AppVersion.decode = function decode(reader, length, error, long) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
+                if (long === undefined)
+                    long = 0;
+                if (long > $Reader.recursionLimit)
+                    throw Error("maximum nesting depth exceeded");
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.CompanionReg.DeviceProps.AppVersion();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
@@ -2765,7 +2865,7 @@ $root.CompanionReg = (function() {
                             break;
                         }
                     default:
-                        reader.skipType(tag & 7);
+                        reader.skipType(tag & 7, long);
                         break;
                     }
                 }
@@ -2796,9 +2896,13 @@ $root.CompanionReg = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            AppVersion.verify = function verify(message) {
+            AppVersion.verify = function verify(message, long) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
+                if (long === undefined)
+                    long = 0;
+                if (long > $util.recursionLimit)
+                    return "maximum nesting depth exceeded";
                 var properties = {};
                 if (message.primary != null && message.hasOwnProperty("primary")) {
                     properties._primary = 1;
@@ -2836,9 +2940,13 @@ $root.CompanionReg = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {CompanionReg.DeviceProps.AppVersion} AppVersion
              */
-            AppVersion.fromObject = function fromObject(object) {
+            AppVersion.fromObject = function fromObject(object, long) {
                 if (object instanceof $root.CompanionReg.DeviceProps.AppVersion)
                     return object;
+                if (long === undefined)
+                    long = 0;
+                if (long > $util.recursionLimit)
+                    throw Error("maximum nesting depth exceeded");
                 var message = new $root.CompanionReg.DeviceProps.AppVersion();
                 if (object.primary != null)
                     message.primary = object.primary >>> 0;
@@ -2967,7 +3075,7 @@ $root.CompanionReg = (function() {
                 this.supportedBotChannelFbids = [];
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
                             this[keys[i]] = properties[keys[i]];
             }
 
@@ -3404,9 +3512,13 @@ $root.CompanionReg = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            HistorySyncConfig.decode = function decode(reader, length, error) {
+            HistorySyncConfig.decode = function decode(reader, length, error, long) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
+                if (long === undefined)
+                    long = 0;
+                if (long > $Reader.recursionLimit)
+                    throw Error("maximum nesting depth exceeded");
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.CompanionReg.DeviceProps.HistorySyncConfig();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
@@ -3512,7 +3624,7 @@ $root.CompanionReg = (function() {
                             break;
                         }
                     default:
-                        reader.skipType(tag & 7);
+                        reader.skipType(tag & 7, long);
                         break;
                     }
                 }
@@ -3543,9 +3655,13 @@ $root.CompanionReg = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            HistorySyncConfig.verify = function verify(message) {
+            HistorySyncConfig.verify = function verify(message, long) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
+                if (long === undefined)
+                    long = 0;
+                if (long > $util.recursionLimit)
+                    return "maximum nesting depth exceeded";
                 var properties = {};
                 if (message.fullSyncDaysLimit != null && message.hasOwnProperty("fullSyncDaysLimit")) {
                     properties._fullSyncDaysLimit = 1;
@@ -3680,9 +3796,13 @@ $root.CompanionReg = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {CompanionReg.DeviceProps.HistorySyncConfig} HistorySyncConfig
              */
-            HistorySyncConfig.fromObject = function fromObject(object) {
+            HistorySyncConfig.fromObject = function fromObject(object, long) {
                 if (object instanceof $root.CompanionReg.DeviceProps.HistorySyncConfig)
                     return object;
+                if (long === undefined)
+                    long = 0;
+                if (long > $util.recursionLimit)
+                    throw Error("maximum nesting depth exceeded");
                 var message = new $root.CompanionReg.DeviceProps.HistorySyncConfig();
                 if (object.fullSyncDaysLimit != null)
                     message.fullSyncDaysLimit = object.fullSyncDaysLimit >>> 0;

@@ -39,7 +39,7 @@ $root.ChatLockSettings = (function() {
         function ChatLockSettings(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
         }
 
@@ -129,9 +129,13 @@ $root.ChatLockSettings = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ChatLockSettings.decode = function decode(reader, length, error) {
+        ChatLockSettings.decode = function decode(reader, length, error, long) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
+            if (long === undefined)
+                long = 0;
+            if (long > $Reader.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ChatLockSettings.ChatLockSettings();
             while (reader.pos < end) {
                 var tag = reader.uint32();
@@ -143,11 +147,11 @@ $root.ChatLockSettings = (function() {
                         break;
                     }
                 case 2: {
-                        message.secretCode = $root.UserPassword.UserPassword.decode(reader, reader.uint32());
+                        message.secretCode = $root.UserPassword.UserPassword.decode(reader, reader.uint32(), undefined, long + 1);
                         break;
                     }
                 default:
-                    reader.skipType(tag & 7);
+                    reader.skipType(tag & 7, long);
                     break;
                 }
             }
@@ -178,9 +182,13 @@ $root.ChatLockSettings = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        ChatLockSettings.verify = function verify(message) {
+        ChatLockSettings.verify = function verify(message, long) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                return "maximum nesting depth exceeded";
             var properties = {};
             if (message.hideLockedChats != null && message.hasOwnProperty("hideLockedChats")) {
                 properties._hideLockedChats = 1;
@@ -190,7 +198,7 @@ $root.ChatLockSettings = (function() {
             if (message.secretCode != null && message.hasOwnProperty("secretCode")) {
                 properties._secretCode = 1;
                 {
-                    var error = $root.UserPassword.UserPassword.verify(message.secretCode);
+                    var error = $root.UserPassword.UserPassword.verify(message.secretCode, long + 1);
                     if (error)
                         return "secretCode." + error;
                 }
@@ -206,16 +214,20 @@ $root.ChatLockSettings = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {ChatLockSettings.ChatLockSettings} ChatLockSettings
          */
-        ChatLockSettings.fromObject = function fromObject(object) {
+        ChatLockSettings.fromObject = function fromObject(object, long) {
             if (object instanceof $root.ChatLockSettings.ChatLockSettings)
                 return object;
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var message = new $root.ChatLockSettings.ChatLockSettings();
             if (object.hideLockedChats != null)
                 message.hideLockedChats = Boolean(object.hideLockedChats);
             if (object.secretCode != null) {
                 if (typeof object.secretCode !== "object")
                     throw TypeError(".ChatLockSettings.ChatLockSettings.secretCode: object expected");
-                message.secretCode = $root.UserPassword.UserPassword.fromObject(object.secretCode);
+                message.secretCode = $root.UserPassword.UserPassword.fromObject(object.secretCode, long + 1);
             }
             return message;
         };
@@ -311,7 +323,7 @@ $root.UserPassword = (function() {
             this.transformerArg = [];
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
         }
 
@@ -428,9 +440,13 @@ $root.UserPassword = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        UserPassword.decode = function decode(reader, length, error) {
+        UserPassword.decode = function decode(reader, length, error, long) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
+            if (long === undefined)
+                long = 0;
+            if (long > $Reader.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.UserPassword.UserPassword();
             while (reader.pos < end) {
                 var tag = reader.uint32();
@@ -448,7 +464,7 @@ $root.UserPassword = (function() {
                 case 3: {
                         if (!(message.transformerArg && message.transformerArg.length))
                             message.transformerArg = [];
-                        message.transformerArg.push($root.UserPassword.UserPassword.TransformerArg.decode(reader, reader.uint32()));
+                        message.transformerArg.push($root.UserPassword.UserPassword.TransformerArg.decode(reader, reader.uint32(), undefined, long + 1));
                         break;
                     }
                 case 4: {
@@ -456,7 +472,7 @@ $root.UserPassword = (function() {
                         break;
                     }
                 default:
-                    reader.skipType(tag & 7);
+                    reader.skipType(tag & 7, long);
                     break;
                 }
             }
@@ -487,9 +503,13 @@ $root.UserPassword = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        UserPassword.verify = function verify(message) {
+        UserPassword.verify = function verify(message, long) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                return "maximum nesting depth exceeded";
             var properties = {};
             if (message.encoding != null && message.hasOwnProperty("encoding")) {
                 properties._encoding = 1;
@@ -516,7 +536,7 @@ $root.UserPassword = (function() {
                 if (!Array.isArray(message.transformerArg))
                     return "transformerArg: array expected";
                 for (var i = 0; i < message.transformerArg.length; ++i) {
-                    var error = $root.UserPassword.UserPassword.TransformerArg.verify(message.transformerArg[i]);
+                    var error = $root.UserPassword.UserPassword.TransformerArg.verify(message.transformerArg[i], long + 1);
                     if (error)
                         return "transformerArg." + error;
                 }
@@ -537,9 +557,13 @@ $root.UserPassword = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {UserPassword.UserPassword} UserPassword
          */
-        UserPassword.fromObject = function fromObject(object) {
+        UserPassword.fromObject = function fromObject(object, long) {
             if (object instanceof $root.UserPassword.UserPassword)
                 return object;
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var message = new $root.UserPassword.UserPassword();
             switch (object.encoding) {
             default:
@@ -584,7 +608,7 @@ $root.UserPassword = (function() {
                 for (var i = 0; i < object.transformerArg.length; ++i) {
                     if (typeof object.transformerArg[i] !== "object")
                         throw TypeError(".UserPassword.UserPassword.transformerArg: object expected");
-                    message.transformerArg[i] = $root.UserPassword.UserPassword.TransformerArg.fromObject(object.transformerArg[i]);
+                    message.transformerArg[i] = $root.UserPassword.UserPassword.TransformerArg.fromObject(object.transformerArg[i], long + 1);
                 }
             }
             if (object.transformedData != null)
@@ -710,7 +734,7 @@ $root.UserPassword = (function() {
             function TransformerArg(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
                             this[keys[i]] = properties[keys[i]];
             }
 
@@ -800,9 +824,13 @@ $root.UserPassword = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            TransformerArg.decode = function decode(reader, length, error) {
+            TransformerArg.decode = function decode(reader, length, error, long) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
+                if (long === undefined)
+                    long = 0;
+                if (long > $Reader.recursionLimit)
+                    throw Error("maximum nesting depth exceeded");
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.UserPassword.UserPassword.TransformerArg();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
@@ -814,11 +842,11 @@ $root.UserPassword = (function() {
                             break;
                         }
                     case 2: {
-                            message.value = $root.UserPassword.UserPassword.TransformerArg.Value.decode(reader, reader.uint32());
+                            message.value = $root.UserPassword.UserPassword.TransformerArg.Value.decode(reader, reader.uint32(), undefined, long + 1);
                             break;
                         }
                     default:
-                        reader.skipType(tag & 7);
+                        reader.skipType(tag & 7, long);
                         break;
                     }
                 }
@@ -849,9 +877,13 @@ $root.UserPassword = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            TransformerArg.verify = function verify(message) {
+            TransformerArg.verify = function verify(message, long) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
+                if (long === undefined)
+                    long = 0;
+                if (long > $util.recursionLimit)
+                    return "maximum nesting depth exceeded";
                 var properties = {};
                 if (message.key != null && message.hasOwnProperty("key")) {
                     properties._key = 1;
@@ -861,7 +893,7 @@ $root.UserPassword = (function() {
                 if (message.value != null && message.hasOwnProperty("value")) {
                     properties._value = 1;
                     {
-                        var error = $root.UserPassword.UserPassword.TransformerArg.Value.verify(message.value);
+                        var error = $root.UserPassword.UserPassword.TransformerArg.Value.verify(message.value, long + 1);
                         if (error)
                             return "value." + error;
                     }
@@ -877,16 +909,20 @@ $root.UserPassword = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {UserPassword.UserPassword.TransformerArg} TransformerArg
              */
-            TransformerArg.fromObject = function fromObject(object) {
+            TransformerArg.fromObject = function fromObject(object, long) {
                 if (object instanceof $root.UserPassword.UserPassword.TransformerArg)
                     return object;
+                if (long === undefined)
+                    long = 0;
+                if (long > $util.recursionLimit)
+                    throw Error("maximum nesting depth exceeded");
                 var message = new $root.UserPassword.UserPassword.TransformerArg();
                 if (object.key != null)
                     message.key = String(object.key);
                 if (object.value != null) {
                     if (typeof object.value !== "object")
                         throw TypeError(".UserPassword.UserPassword.TransformerArg.value: object expected");
-                    message.value = $root.UserPassword.UserPassword.TransformerArg.Value.fromObject(object.value);
+                    message.value = $root.UserPassword.UserPassword.TransformerArg.Value.fromObject(object.value, long + 1);
                 }
                 return message;
             };
@@ -964,7 +1000,7 @@ $root.UserPassword = (function() {
                 function Value(properties) {
                     if (properties)
                         for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                            if (properties[keys[i]] != null)
+                            if (properties[keys[i]] != null && keys[i] !== "__proto__")
                                 this[keys[i]] = properties[keys[i]];
                 }
 
@@ -1053,9 +1089,13 @@ $root.UserPassword = (function() {
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                Value.decode = function decode(reader, length, error) {
+                Value.decode = function decode(reader, length, error, long) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
+                    if (long === undefined)
+                        long = 0;
+                    if (long > $Reader.recursionLimit)
+                        throw Error("maximum nesting depth exceeded");
                     var end = length === undefined ? reader.len : reader.pos + length, message = new $root.UserPassword.UserPassword.TransformerArg.Value();
                     while (reader.pos < end) {
                         var tag = reader.uint32();
@@ -1071,7 +1111,7 @@ $root.UserPassword = (function() {
                                 break;
                             }
                         default:
-                            reader.skipType(tag & 7);
+                            reader.skipType(tag & 7, long);
                             break;
                         }
                     }
@@ -1102,9 +1142,13 @@ $root.UserPassword = (function() {
                  * @param {Object.<string,*>} message Plain object to verify
                  * @returns {string|null} `null` if valid, otherwise the reason why it is not
                  */
-                Value.verify = function verify(message) {
+                Value.verify = function verify(message, long) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
+                    if (long === undefined)
+                        long = 0;
+                    if (long > $util.recursionLimit)
+                        return "maximum nesting depth exceeded";
                     var properties = {};
                     if (message.asBlob != null && message.hasOwnProperty("asBlob")) {
                         properties.value = 1;
@@ -1129,9 +1173,13 @@ $root.UserPassword = (function() {
                  * @param {Object.<string,*>} object Plain object
                  * @returns {UserPassword.UserPassword.TransformerArg.Value} Value
                  */
-                Value.fromObject = function fromObject(object) {
+                Value.fromObject = function fromObject(object, long) {
                     if (object instanceof $root.UserPassword.UserPassword.TransformerArg.Value)
                         return object;
+                    if (long === undefined)
+                        long = 0;
+                    if (long > $util.recursionLimit)
+                        throw Error("maximum nesting depth exceeded");
                     var message = new $root.UserPassword.UserPassword.TransformerArg.Value();
                     if (object.asBlob != null)
                         if (typeof object.asBlob === "string")

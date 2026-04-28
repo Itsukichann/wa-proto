@@ -39,7 +39,7 @@ $root.SignalLocalStorageProtocol = (function() {
             this.senderKeyStates = [];
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
         }
 
@@ -105,9 +105,13 @@ $root.SignalLocalStorageProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SenderKeyRecordStructure.decode = function decode(reader, length, error) {
+        SenderKeyRecordStructure.decode = function decode(reader, length, error, long) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
+            if (long === undefined)
+                long = 0;
+            if (long > $Reader.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SenderKeyRecordStructure();
             while (reader.pos < end) {
                 var tag = reader.uint32();
@@ -117,11 +121,11 @@ $root.SignalLocalStorageProtocol = (function() {
                 case 1: {
                         if (!(message.senderKeyStates && message.senderKeyStates.length))
                             message.senderKeyStates = [];
-                        message.senderKeyStates.push($root.SignalLocalStorageProtocol.SenderKeyStateStructure.decode(reader, reader.uint32()));
+                        message.senderKeyStates.push($root.SignalLocalStorageProtocol.SenderKeyStateStructure.decode(reader, reader.uint32(), undefined, long + 1));
                         break;
                     }
                 default:
-                    reader.skipType(tag & 7);
+                    reader.skipType(tag & 7, long);
                     break;
                 }
             }
@@ -152,14 +156,18 @@ $root.SignalLocalStorageProtocol = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        SenderKeyRecordStructure.verify = function verify(message) {
+        SenderKeyRecordStructure.verify = function verify(message, long) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                return "maximum nesting depth exceeded";
             if (message.senderKeyStates != null && message.hasOwnProperty("senderKeyStates")) {
                 if (!Array.isArray(message.senderKeyStates))
                     return "senderKeyStates: array expected";
                 for (var i = 0; i < message.senderKeyStates.length; ++i) {
-                    var error = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.verify(message.senderKeyStates[i]);
+                    var error = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.verify(message.senderKeyStates[i], long + 1);
                     if (error)
                         return "senderKeyStates." + error;
                 }
@@ -175,9 +183,13 @@ $root.SignalLocalStorageProtocol = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {SignalLocalStorageProtocol.SenderKeyRecordStructure} SenderKeyRecordStructure
          */
-        SenderKeyRecordStructure.fromObject = function fromObject(object) {
+        SenderKeyRecordStructure.fromObject = function fromObject(object, long) {
             if (object instanceof $root.SignalLocalStorageProtocol.SenderKeyRecordStructure)
                 return object;
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var message = new $root.SignalLocalStorageProtocol.SenderKeyRecordStructure();
             if (object.senderKeyStates) {
                 if (!Array.isArray(object.senderKeyStates))
@@ -186,7 +198,7 @@ $root.SignalLocalStorageProtocol = (function() {
                 for (var i = 0; i < object.senderKeyStates.length; ++i) {
                     if (typeof object.senderKeyStates[i] !== "object")
                         throw TypeError(".SignalLocalStorageProtocol.SenderKeyRecordStructure.senderKeyStates: object expected");
-                    message.senderKeyStates[i] = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.fromObject(object.senderKeyStates[i]);
+                    message.senderKeyStates[i] = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.fromObject(object.senderKeyStates[i], long + 1);
                 }
             }
             return message;
@@ -268,7 +280,7 @@ $root.SignalLocalStorageProtocol = (function() {
             this.senderMessageKeys = [];
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
         }
 
@@ -385,9 +397,13 @@ $root.SignalLocalStorageProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SenderKeyStateStructure.decode = function decode(reader, length, error) {
+        SenderKeyStateStructure.decode = function decode(reader, length, error, long) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
+            if (long === undefined)
+                long = 0;
+            if (long > $Reader.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SenderKeyStateStructure();
             while (reader.pos < end) {
                 var tag = reader.uint32();
@@ -399,21 +415,21 @@ $root.SignalLocalStorageProtocol = (function() {
                         break;
                     }
                 case 2: {
-                        message.senderChainKey = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.decode(reader, reader.uint32());
+                        message.senderChainKey = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.decode(reader, reader.uint32(), undefined, long + 1);
                         break;
                     }
                 case 3: {
-                        message.senderSigningKey = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.decode(reader, reader.uint32());
+                        message.senderSigningKey = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.decode(reader, reader.uint32(), undefined, long + 1);
                         break;
                     }
                 case 4: {
                         if (!(message.senderMessageKeys && message.senderMessageKeys.length))
                             message.senderMessageKeys = [];
-                        message.senderMessageKeys.push($root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.decode(reader, reader.uint32()));
+                        message.senderMessageKeys.push($root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.decode(reader, reader.uint32(), undefined, long + 1));
                         break;
                     }
                 default:
-                    reader.skipType(tag & 7);
+                    reader.skipType(tag & 7, long);
                     break;
                 }
             }
@@ -444,9 +460,13 @@ $root.SignalLocalStorageProtocol = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        SenderKeyStateStructure.verify = function verify(message) {
+        SenderKeyStateStructure.verify = function verify(message, long) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                return "maximum nesting depth exceeded";
             var properties = {};
             if (message.senderKeyId != null && message.hasOwnProperty("senderKeyId")) {
                 properties._senderKeyId = 1;
@@ -456,7 +476,7 @@ $root.SignalLocalStorageProtocol = (function() {
             if (message.senderChainKey != null && message.hasOwnProperty("senderChainKey")) {
                 properties._senderChainKey = 1;
                 {
-                    var error = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.verify(message.senderChainKey);
+                    var error = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.verify(message.senderChainKey, long + 1);
                     if (error)
                         return "senderChainKey." + error;
                 }
@@ -464,7 +484,7 @@ $root.SignalLocalStorageProtocol = (function() {
             if (message.senderSigningKey != null && message.hasOwnProperty("senderSigningKey")) {
                 properties._senderSigningKey = 1;
                 {
-                    var error = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.verify(message.senderSigningKey);
+                    var error = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.verify(message.senderSigningKey, long + 1);
                     if (error)
                         return "senderSigningKey." + error;
                 }
@@ -473,7 +493,7 @@ $root.SignalLocalStorageProtocol = (function() {
                 if (!Array.isArray(message.senderMessageKeys))
                     return "senderMessageKeys: array expected";
                 for (var i = 0; i < message.senderMessageKeys.length; ++i) {
-                    var error = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.verify(message.senderMessageKeys[i]);
+                    var error = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.verify(message.senderMessageKeys[i], long + 1);
                     if (error)
                         return "senderMessageKeys." + error;
                 }
@@ -489,21 +509,25 @@ $root.SignalLocalStorageProtocol = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {SignalLocalStorageProtocol.SenderKeyStateStructure} SenderKeyStateStructure
          */
-        SenderKeyStateStructure.fromObject = function fromObject(object) {
+        SenderKeyStateStructure.fromObject = function fromObject(object, long) {
             if (object instanceof $root.SignalLocalStorageProtocol.SenderKeyStateStructure)
                 return object;
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var message = new $root.SignalLocalStorageProtocol.SenderKeyStateStructure();
             if (object.senderKeyId != null)
                 message.senderKeyId = object.senderKeyId >>> 0;
             if (object.senderChainKey != null) {
                 if (typeof object.senderChainKey !== "object")
                     throw TypeError(".SignalLocalStorageProtocol.SenderKeyStateStructure.senderChainKey: object expected");
-                message.senderChainKey = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.fromObject(object.senderChainKey);
+                message.senderChainKey = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.fromObject(object.senderChainKey, long + 1);
             }
             if (object.senderSigningKey != null) {
                 if (typeof object.senderSigningKey !== "object")
                     throw TypeError(".SignalLocalStorageProtocol.SenderKeyStateStructure.senderSigningKey: object expected");
-                message.senderSigningKey = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.fromObject(object.senderSigningKey);
+                message.senderSigningKey = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.fromObject(object.senderSigningKey, long + 1);
             }
             if (object.senderMessageKeys) {
                 if (!Array.isArray(object.senderMessageKeys))
@@ -512,7 +536,7 @@ $root.SignalLocalStorageProtocol = (function() {
                 for (var i = 0; i < object.senderMessageKeys.length; ++i) {
                     if (typeof object.senderMessageKeys[i] !== "object")
                         throw TypeError(".SignalLocalStorageProtocol.SenderKeyStateStructure.senderMessageKeys: object expected");
-                    message.senderMessageKeys[i] = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.fromObject(object.senderMessageKeys[i]);
+                    message.senderMessageKeys[i] = $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.fromObject(object.senderMessageKeys[i], long + 1);
                 }
             }
             return message;
@@ -603,7 +627,7 @@ $root.SignalLocalStorageProtocol = (function() {
             function SenderChainKey(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
                             this[keys[i]] = properties[keys[i]];
             }
 
@@ -693,9 +717,13 @@ $root.SignalLocalStorageProtocol = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SenderChainKey.decode = function decode(reader, length, error) {
+            SenderChainKey.decode = function decode(reader, length, error, long) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
+                if (long === undefined)
+                    long = 0;
+                if (long > $Reader.recursionLimit)
+                    throw Error("maximum nesting depth exceeded");
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
@@ -711,7 +739,7 @@ $root.SignalLocalStorageProtocol = (function() {
                             break;
                         }
                     default:
-                        reader.skipType(tag & 7);
+                        reader.skipType(tag & 7, long);
                         break;
                     }
                 }
@@ -742,9 +770,13 @@ $root.SignalLocalStorageProtocol = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            SenderChainKey.verify = function verify(message) {
+            SenderChainKey.verify = function verify(message, long) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
+                if (long === undefined)
+                    long = 0;
+                if (long > $util.recursionLimit)
+                    return "maximum nesting depth exceeded";
                 var properties = {};
                 if (message.iteration != null && message.hasOwnProperty("iteration")) {
                     properties._iteration = 1;
@@ -767,9 +799,13 @@ $root.SignalLocalStorageProtocol = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey} SenderChainKey
              */
-            SenderChainKey.fromObject = function fromObject(object) {
+            SenderChainKey.fromObject = function fromObject(object, long) {
                 if (object instanceof $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey)
                     return object;
+                if (long === undefined)
+                    long = 0;
+                if (long > $util.recursionLimit)
+                    throw Error("maximum nesting depth exceeded");
                 var message = new $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey();
                 if (object.iteration != null)
                     message.iteration = object.iteration >>> 0;
@@ -857,7 +893,7 @@ $root.SignalLocalStorageProtocol = (function() {
             function SenderMessageKey(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
                             this[keys[i]] = properties[keys[i]];
             }
 
@@ -947,9 +983,13 @@ $root.SignalLocalStorageProtocol = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SenderMessageKey.decode = function decode(reader, length, error) {
+            SenderMessageKey.decode = function decode(reader, length, error, long) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
+                if (long === undefined)
+                    long = 0;
+                if (long > $Reader.recursionLimit)
+                    throw Error("maximum nesting depth exceeded");
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
@@ -965,7 +1005,7 @@ $root.SignalLocalStorageProtocol = (function() {
                             break;
                         }
                     default:
-                        reader.skipType(tag & 7);
+                        reader.skipType(tag & 7, long);
                         break;
                     }
                 }
@@ -996,9 +1036,13 @@ $root.SignalLocalStorageProtocol = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            SenderMessageKey.verify = function verify(message) {
+            SenderMessageKey.verify = function verify(message, long) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
+                if (long === undefined)
+                    long = 0;
+                if (long > $util.recursionLimit)
+                    return "maximum nesting depth exceeded";
                 var properties = {};
                 if (message.iteration != null && message.hasOwnProperty("iteration")) {
                     properties._iteration = 1;
@@ -1021,9 +1065,13 @@ $root.SignalLocalStorageProtocol = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey} SenderMessageKey
              */
-            SenderMessageKey.fromObject = function fromObject(object) {
+            SenderMessageKey.fromObject = function fromObject(object, long) {
                 if (object instanceof $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey)
                     return object;
+                if (long === undefined)
+                    long = 0;
+                if (long > $util.recursionLimit)
+                    throw Error("maximum nesting depth exceeded");
                 var message = new $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey();
                 if (object.iteration != null)
                     message.iteration = object.iteration >>> 0;
@@ -1111,7 +1159,7 @@ $root.SignalLocalStorageProtocol = (function() {
             function SenderSigningKey(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
                             this[keys[i]] = properties[keys[i]];
             }
 
@@ -1201,9 +1249,13 @@ $root.SignalLocalStorageProtocol = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SenderSigningKey.decode = function decode(reader, length, error) {
+            SenderSigningKey.decode = function decode(reader, length, error, long) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
+                if (long === undefined)
+                    long = 0;
+                if (long > $Reader.recursionLimit)
+                    throw Error("maximum nesting depth exceeded");
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
@@ -1219,7 +1271,7 @@ $root.SignalLocalStorageProtocol = (function() {
                             break;
                         }
                     default:
-                        reader.skipType(tag & 7);
+                        reader.skipType(tag & 7, long);
                         break;
                     }
                 }
@@ -1250,9 +1302,13 @@ $root.SignalLocalStorageProtocol = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            SenderSigningKey.verify = function verify(message) {
+            SenderSigningKey.verify = function verify(message, long) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
+                if (long === undefined)
+                    long = 0;
+                if (long > $util.recursionLimit)
+                    return "maximum nesting depth exceeded";
                 var properties = {};
                 if (message["public"] != null && message.hasOwnProperty("public")) {
                     properties._public = 1;
@@ -1275,9 +1331,13 @@ $root.SignalLocalStorageProtocol = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey} SenderSigningKey
              */
-            SenderSigningKey.fromObject = function fromObject(object) {
+            SenderSigningKey.fromObject = function fromObject(object, long) {
                 if (object instanceof $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey)
                     return object;
+                if (long === undefined)
+                    long = 0;
+                if (long > $util.recursionLimit)
+                    throw Error("maximum nesting depth exceeded");
                 var message = new $root.SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey();
                 if (object["public"] != null)
                     if (typeof object["public"] === "string")
@@ -1371,7 +1431,7 @@ $root.SignalLocalStorageProtocol = (function() {
         function IdentityKeyPairStructure(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
         }
 
@@ -1461,9 +1521,13 @@ $root.SignalLocalStorageProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        IdentityKeyPairStructure.decode = function decode(reader, length, error) {
+        IdentityKeyPairStructure.decode = function decode(reader, length, error, long) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
+            if (long === undefined)
+                long = 0;
+            if (long > $Reader.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.IdentityKeyPairStructure();
             while (reader.pos < end) {
                 var tag = reader.uint32();
@@ -1479,7 +1543,7 @@ $root.SignalLocalStorageProtocol = (function() {
                         break;
                     }
                 default:
-                    reader.skipType(tag & 7);
+                    reader.skipType(tag & 7, long);
                     break;
                 }
             }
@@ -1510,9 +1574,13 @@ $root.SignalLocalStorageProtocol = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        IdentityKeyPairStructure.verify = function verify(message) {
+        IdentityKeyPairStructure.verify = function verify(message, long) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                return "maximum nesting depth exceeded";
             var properties = {};
             if (message.publicKey != null && message.hasOwnProperty("publicKey")) {
                 properties._publicKey = 1;
@@ -1535,9 +1603,13 @@ $root.SignalLocalStorageProtocol = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {SignalLocalStorageProtocol.IdentityKeyPairStructure} IdentityKeyPairStructure
          */
-        IdentityKeyPairStructure.fromObject = function fromObject(object) {
+        IdentityKeyPairStructure.fromObject = function fromObject(object, long) {
             if (object instanceof $root.SignalLocalStorageProtocol.IdentityKeyPairStructure)
                 return object;
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var message = new $root.SignalLocalStorageProtocol.IdentityKeyPairStructure();
             if (object.publicKey != null)
                 if (typeof object.publicKey === "string")
@@ -1631,7 +1703,7 @@ $root.SignalLocalStorageProtocol = (function() {
         function SignedPreKeyRecordStructure(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
         }
 
@@ -1769,9 +1841,13 @@ $root.SignalLocalStorageProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SignedPreKeyRecordStructure.decode = function decode(reader, length, error) {
+        SignedPreKeyRecordStructure.decode = function decode(reader, length, error, long) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
+            if (long === undefined)
+                long = 0;
+            if (long > $Reader.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SignedPreKeyRecordStructure();
             while (reader.pos < end) {
                 var tag = reader.uint32();
@@ -1799,7 +1875,7 @@ $root.SignalLocalStorageProtocol = (function() {
                         break;
                     }
                 default:
-                    reader.skipType(tag & 7);
+                    reader.skipType(tag & 7, long);
                     break;
                 }
             }
@@ -1830,9 +1906,13 @@ $root.SignalLocalStorageProtocol = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        SignedPreKeyRecordStructure.verify = function verify(message) {
+        SignedPreKeyRecordStructure.verify = function verify(message, long) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                return "maximum nesting depth exceeded";
             var properties = {};
             if (message.id != null && message.hasOwnProperty("id")) {
                 properties._id = 1;
@@ -1870,9 +1950,13 @@ $root.SignalLocalStorageProtocol = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {SignalLocalStorageProtocol.SignedPreKeyRecordStructure} SignedPreKeyRecordStructure
          */
-        SignedPreKeyRecordStructure.fromObject = function fromObject(object) {
+        SignedPreKeyRecordStructure.fromObject = function fromObject(object, long) {
             if (object instanceof $root.SignalLocalStorageProtocol.SignedPreKeyRecordStructure)
                 return object;
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var message = new $root.SignalLocalStorageProtocol.SignedPreKeyRecordStructure();
             if (object.id != null)
                 message.id = object.id >>> 0;
@@ -1998,7 +2082,7 @@ $root.SignalLocalStorageProtocol = (function() {
         function PreKeyRecordStructure(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
         }
 
@@ -2104,9 +2188,13 @@ $root.SignalLocalStorageProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        PreKeyRecordStructure.decode = function decode(reader, length, error) {
+        PreKeyRecordStructure.decode = function decode(reader, length, error, long) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
+            if (long === undefined)
+                long = 0;
+            if (long > $Reader.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.PreKeyRecordStructure();
             while (reader.pos < end) {
                 var tag = reader.uint32();
@@ -2126,7 +2214,7 @@ $root.SignalLocalStorageProtocol = (function() {
                         break;
                     }
                 default:
-                    reader.skipType(tag & 7);
+                    reader.skipType(tag & 7, long);
                     break;
                 }
             }
@@ -2157,9 +2245,13 @@ $root.SignalLocalStorageProtocol = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        PreKeyRecordStructure.verify = function verify(message) {
+        PreKeyRecordStructure.verify = function verify(message, long) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                return "maximum nesting depth exceeded";
             var properties = {};
             if (message.id != null && message.hasOwnProperty("id")) {
                 properties._id = 1;
@@ -2187,9 +2279,13 @@ $root.SignalLocalStorageProtocol = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {SignalLocalStorageProtocol.PreKeyRecordStructure} PreKeyRecordStructure
          */
-        PreKeyRecordStructure.fromObject = function fromObject(object) {
+        PreKeyRecordStructure.fromObject = function fromObject(object, long) {
             if (object instanceof $root.SignalLocalStorageProtocol.PreKeyRecordStructure)
                 return object;
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var message = new $root.SignalLocalStorageProtocol.PreKeyRecordStructure();
             if (object.id != null)
                 message.id = object.id >>> 0;
@@ -2288,7 +2384,7 @@ $root.SignalLocalStorageProtocol = (function() {
             this.previousSessions = [];
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
         }
 
@@ -2373,9 +2469,13 @@ $root.SignalLocalStorageProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        RecordStructure.decode = function decode(reader, length, error) {
+        RecordStructure.decode = function decode(reader, length, error, long) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
+            if (long === undefined)
+                long = 0;
+            if (long > $Reader.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.RecordStructure();
             while (reader.pos < end) {
                 var tag = reader.uint32();
@@ -2383,17 +2483,17 @@ $root.SignalLocalStorageProtocol = (function() {
                     break;
                 switch (tag >>> 3) {
                 case 1: {
-                        message.currentSession = $root.SignalLocalStorageProtocol.SessionStructure.decode(reader, reader.uint32());
+                        message.currentSession = $root.SignalLocalStorageProtocol.SessionStructure.decode(reader, reader.uint32(), undefined, long + 1);
                         break;
                     }
                 case 2: {
                         if (!(message.previousSessions && message.previousSessions.length))
                             message.previousSessions = [];
-                        message.previousSessions.push($root.SignalLocalStorageProtocol.SessionStructure.decode(reader, reader.uint32()));
+                        message.previousSessions.push($root.SignalLocalStorageProtocol.SessionStructure.decode(reader, reader.uint32(), undefined, long + 1));
                         break;
                     }
                 default:
-                    reader.skipType(tag & 7);
+                    reader.skipType(tag & 7, long);
                     break;
                 }
             }
@@ -2424,14 +2524,18 @@ $root.SignalLocalStorageProtocol = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        RecordStructure.verify = function verify(message) {
+        RecordStructure.verify = function verify(message, long) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                return "maximum nesting depth exceeded";
             var properties = {};
             if (message.currentSession != null && message.hasOwnProperty("currentSession")) {
                 properties._currentSession = 1;
                 {
-                    var error = $root.SignalLocalStorageProtocol.SessionStructure.verify(message.currentSession);
+                    var error = $root.SignalLocalStorageProtocol.SessionStructure.verify(message.currentSession, long + 1);
                     if (error)
                         return "currentSession." + error;
                 }
@@ -2440,7 +2544,7 @@ $root.SignalLocalStorageProtocol = (function() {
                 if (!Array.isArray(message.previousSessions))
                     return "previousSessions: array expected";
                 for (var i = 0; i < message.previousSessions.length; ++i) {
-                    var error = $root.SignalLocalStorageProtocol.SessionStructure.verify(message.previousSessions[i]);
+                    var error = $root.SignalLocalStorageProtocol.SessionStructure.verify(message.previousSessions[i], long + 1);
                     if (error)
                         return "previousSessions." + error;
                 }
@@ -2456,14 +2560,18 @@ $root.SignalLocalStorageProtocol = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {SignalLocalStorageProtocol.RecordStructure} RecordStructure
          */
-        RecordStructure.fromObject = function fromObject(object) {
+        RecordStructure.fromObject = function fromObject(object, long) {
             if (object instanceof $root.SignalLocalStorageProtocol.RecordStructure)
                 return object;
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var message = new $root.SignalLocalStorageProtocol.RecordStructure();
             if (object.currentSession != null) {
                 if (typeof object.currentSession !== "object")
                     throw TypeError(".SignalLocalStorageProtocol.RecordStructure.currentSession: object expected");
-                message.currentSession = $root.SignalLocalStorageProtocol.SessionStructure.fromObject(object.currentSession);
+                message.currentSession = $root.SignalLocalStorageProtocol.SessionStructure.fromObject(object.currentSession, long + 1);
             }
             if (object.previousSessions) {
                 if (!Array.isArray(object.previousSessions))
@@ -2472,7 +2580,7 @@ $root.SignalLocalStorageProtocol = (function() {
                 for (var i = 0; i < object.previousSessions.length; ++i) {
                     if (typeof object.previousSessions[i] !== "object")
                         throw TypeError(".SignalLocalStorageProtocol.RecordStructure.previousSessions: object expected");
-                    message.previousSessions[i] = $root.SignalLocalStorageProtocol.SessionStructure.fromObject(object.previousSessions[i]);
+                    message.previousSessions[i] = $root.SignalLocalStorageProtocol.SessionStructure.fromObject(object.previousSessions[i], long + 1);
                 }
             }
             return message;
@@ -2568,7 +2676,7 @@ $root.SignalLocalStorageProtocol = (function() {
             this.receiverChains = [];
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
         }
 
@@ -2829,9 +2937,13 @@ $root.SignalLocalStorageProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SessionStructure.decode = function decode(reader, length, error) {
+        SessionStructure.decode = function decode(reader, length, error, long) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
+            if (long === undefined)
+                long = 0;
+            if (long > $Reader.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SessionStructure();
             while (reader.pos < end) {
                 var tag = reader.uint32();
@@ -2859,21 +2971,21 @@ $root.SignalLocalStorageProtocol = (function() {
                         break;
                     }
                 case 6: {
-                        message.senderChain = $root.SignalLocalStorageProtocol.SessionStructure.Chain.decode(reader, reader.uint32());
+                        message.senderChain = $root.SignalLocalStorageProtocol.SessionStructure.Chain.decode(reader, reader.uint32(), undefined, long + 1);
                         break;
                     }
                 case 7: {
                         if (!(message.receiverChains && message.receiverChains.length))
                             message.receiverChains = [];
-                        message.receiverChains.push($root.SignalLocalStorageProtocol.SessionStructure.Chain.decode(reader, reader.uint32()));
+                        message.receiverChains.push($root.SignalLocalStorageProtocol.SessionStructure.Chain.decode(reader, reader.uint32(), undefined, long + 1));
                         break;
                     }
                 case 8: {
-                        message.pendingKeyExchange = $root.SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.decode(reader, reader.uint32());
+                        message.pendingKeyExchange = $root.SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.decode(reader, reader.uint32(), undefined, long + 1);
                         break;
                     }
                 case 9: {
-                        message.pendingPreKey = $root.SignalLocalStorageProtocol.SessionStructure.PendingPreKey.decode(reader, reader.uint32());
+                        message.pendingPreKey = $root.SignalLocalStorageProtocol.SessionStructure.PendingPreKey.decode(reader, reader.uint32(), undefined, long + 1);
                         break;
                     }
                 case 10: {
@@ -2893,7 +3005,7 @@ $root.SignalLocalStorageProtocol = (function() {
                         break;
                     }
                 default:
-                    reader.skipType(tag & 7);
+                    reader.skipType(tag & 7, long);
                     break;
                 }
             }
@@ -2924,9 +3036,13 @@ $root.SignalLocalStorageProtocol = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        SessionStructure.verify = function verify(message) {
+        SessionStructure.verify = function verify(message, long) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                return "maximum nesting depth exceeded";
             var properties = {};
             if (message.sessionVersion != null && message.hasOwnProperty("sessionVersion")) {
                 properties._sessionVersion = 1;
@@ -2956,7 +3072,7 @@ $root.SignalLocalStorageProtocol = (function() {
             if (message.senderChain != null && message.hasOwnProperty("senderChain")) {
                 properties._senderChain = 1;
                 {
-                    var error = $root.SignalLocalStorageProtocol.SessionStructure.Chain.verify(message.senderChain);
+                    var error = $root.SignalLocalStorageProtocol.SessionStructure.Chain.verify(message.senderChain, long + 1);
                     if (error)
                         return "senderChain." + error;
                 }
@@ -2965,7 +3081,7 @@ $root.SignalLocalStorageProtocol = (function() {
                 if (!Array.isArray(message.receiverChains))
                     return "receiverChains: array expected";
                 for (var i = 0; i < message.receiverChains.length; ++i) {
-                    var error = $root.SignalLocalStorageProtocol.SessionStructure.Chain.verify(message.receiverChains[i]);
+                    var error = $root.SignalLocalStorageProtocol.SessionStructure.Chain.verify(message.receiverChains[i], long + 1);
                     if (error)
                         return "receiverChains." + error;
                 }
@@ -2973,7 +3089,7 @@ $root.SignalLocalStorageProtocol = (function() {
             if (message.pendingKeyExchange != null && message.hasOwnProperty("pendingKeyExchange")) {
                 properties._pendingKeyExchange = 1;
                 {
-                    var error = $root.SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.verify(message.pendingKeyExchange);
+                    var error = $root.SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.verify(message.pendingKeyExchange, long + 1);
                     if (error)
                         return "pendingKeyExchange." + error;
                 }
@@ -2981,7 +3097,7 @@ $root.SignalLocalStorageProtocol = (function() {
             if (message.pendingPreKey != null && message.hasOwnProperty("pendingPreKey")) {
                 properties._pendingPreKey = 1;
                 {
-                    var error = $root.SignalLocalStorageProtocol.SessionStructure.PendingPreKey.verify(message.pendingPreKey);
+                    var error = $root.SignalLocalStorageProtocol.SessionStructure.PendingPreKey.verify(message.pendingPreKey, long + 1);
                     if (error)
                         return "pendingPreKey." + error;
                 }
@@ -3017,9 +3133,13 @@ $root.SignalLocalStorageProtocol = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {SignalLocalStorageProtocol.SessionStructure} SessionStructure
          */
-        SessionStructure.fromObject = function fromObject(object) {
+        SessionStructure.fromObject = function fromObject(object, long) {
             if (object instanceof $root.SignalLocalStorageProtocol.SessionStructure)
                 return object;
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
             var message = new $root.SignalLocalStorageProtocol.SessionStructure();
             if (object.sessionVersion != null)
                 message.sessionVersion = object.sessionVersion >>> 0;
@@ -3043,7 +3163,7 @@ $root.SignalLocalStorageProtocol = (function() {
             if (object.senderChain != null) {
                 if (typeof object.senderChain !== "object")
                     throw TypeError(".SignalLocalStorageProtocol.SessionStructure.senderChain: object expected");
-                message.senderChain = $root.SignalLocalStorageProtocol.SessionStructure.Chain.fromObject(object.senderChain);
+                message.senderChain = $root.SignalLocalStorageProtocol.SessionStructure.Chain.fromObject(object.senderChain, long + 1);
             }
             if (object.receiverChains) {
                 if (!Array.isArray(object.receiverChains))
@@ -3052,18 +3172,18 @@ $root.SignalLocalStorageProtocol = (function() {
                 for (var i = 0; i < object.receiverChains.length; ++i) {
                     if (typeof object.receiverChains[i] !== "object")
                         throw TypeError(".SignalLocalStorageProtocol.SessionStructure.receiverChains: object expected");
-                    message.receiverChains[i] = $root.SignalLocalStorageProtocol.SessionStructure.Chain.fromObject(object.receiverChains[i]);
+                    message.receiverChains[i] = $root.SignalLocalStorageProtocol.SessionStructure.Chain.fromObject(object.receiverChains[i], long + 1);
                 }
             }
             if (object.pendingKeyExchange != null) {
                 if (typeof object.pendingKeyExchange !== "object")
                     throw TypeError(".SignalLocalStorageProtocol.SessionStructure.pendingKeyExchange: object expected");
-                message.pendingKeyExchange = $root.SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.fromObject(object.pendingKeyExchange);
+                message.pendingKeyExchange = $root.SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.fromObject(object.pendingKeyExchange, long + 1);
             }
             if (object.pendingPreKey != null) {
                 if (typeof object.pendingPreKey !== "object")
                     throw TypeError(".SignalLocalStorageProtocol.SessionStructure.pendingPreKey: object expected");
-                message.pendingPreKey = $root.SignalLocalStorageProtocol.SessionStructure.PendingPreKey.fromObject(object.pendingPreKey);
+                message.pendingPreKey = $root.SignalLocalStorageProtocol.SessionStructure.PendingPreKey.fromObject(object.pendingPreKey, long + 1);
             }
             if (object.remoteRegistrationId != null)
                 message.remoteRegistrationId = object.remoteRegistrationId >>> 0;
@@ -3212,7 +3332,7 @@ $root.SignalLocalStorageProtocol = (function() {
                 this.messageKeys = [];
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
                             this[keys[i]] = properties[keys[i]];
             }
 
@@ -3329,9 +3449,13 @@ $root.SignalLocalStorageProtocol = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Chain.decode = function decode(reader, length, error) {
+            Chain.decode = function decode(reader, length, error, long) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
+                if (long === undefined)
+                    long = 0;
+                if (long > $Reader.recursionLimit)
+                    throw Error("maximum nesting depth exceeded");
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SessionStructure.Chain();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
@@ -3347,17 +3471,17 @@ $root.SignalLocalStorageProtocol = (function() {
                             break;
                         }
                     case 3: {
-                            message.chainKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.decode(reader, reader.uint32());
+                            message.chainKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.decode(reader, reader.uint32(), undefined, long + 1);
                             break;
                         }
                     case 4: {
                             if (!(message.messageKeys && message.messageKeys.length))
                                 message.messageKeys = [];
-                            message.messageKeys.push($root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32()));
+                            message.messageKeys.push($root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.decode(reader, reader.uint32(), undefined, long + 1));
                             break;
                         }
                     default:
-                        reader.skipType(tag & 7);
+                        reader.skipType(tag & 7, long);
                         break;
                     }
                 }
@@ -3388,9 +3512,13 @@ $root.SignalLocalStorageProtocol = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            Chain.verify = function verify(message) {
+            Chain.verify = function verify(message, long) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
+                if (long === undefined)
+                    long = 0;
+                if (long > $util.recursionLimit)
+                    return "maximum nesting depth exceeded";
                 var properties = {};
                 if (message.senderRatchetKey != null && message.hasOwnProperty("senderRatchetKey")) {
                     properties._senderRatchetKey = 1;
@@ -3405,7 +3533,7 @@ $root.SignalLocalStorageProtocol = (function() {
                 if (message.chainKey != null && message.hasOwnProperty("chainKey")) {
                     properties._chainKey = 1;
                     {
-                        var error = $root.SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.verify(message.chainKey);
+                        var error = $root.SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.verify(message.chainKey, long + 1);
                         if (error)
                             return "chainKey." + error;
                     }
@@ -3414,7 +3542,7 @@ $root.SignalLocalStorageProtocol = (function() {
                     if (!Array.isArray(message.messageKeys))
                         return "messageKeys: array expected";
                     for (var i = 0; i < message.messageKeys.length; ++i) {
-                        var error = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.verify(message.messageKeys[i]);
+                        var error = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.verify(message.messageKeys[i], long + 1);
                         if (error)
                             return "messageKeys." + error;
                     }
@@ -3430,9 +3558,13 @@ $root.SignalLocalStorageProtocol = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {SignalLocalStorageProtocol.SessionStructure.Chain} Chain
              */
-            Chain.fromObject = function fromObject(object) {
+            Chain.fromObject = function fromObject(object, long) {
                 if (object instanceof $root.SignalLocalStorageProtocol.SessionStructure.Chain)
                     return object;
+                if (long === undefined)
+                    long = 0;
+                if (long > $util.recursionLimit)
+                    throw Error("maximum nesting depth exceeded");
                 var message = new $root.SignalLocalStorageProtocol.SessionStructure.Chain();
                 if (object.senderRatchetKey != null)
                     if (typeof object.senderRatchetKey === "string")
@@ -3447,7 +3579,7 @@ $root.SignalLocalStorageProtocol = (function() {
                 if (object.chainKey != null) {
                     if (typeof object.chainKey !== "object")
                         throw TypeError(".SignalLocalStorageProtocol.SessionStructure.Chain.chainKey: object expected");
-                    message.chainKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.fromObject(object.chainKey);
+                    message.chainKey = $root.SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.fromObject(object.chainKey, long + 1);
                 }
                 if (object.messageKeys) {
                     if (!Array.isArray(object.messageKeys))
@@ -3456,7 +3588,7 @@ $root.SignalLocalStorageProtocol = (function() {
                     for (var i = 0; i < object.messageKeys.length; ++i) {
                         if (typeof object.messageKeys[i] !== "object")
                             throw TypeError(".SignalLocalStorageProtocol.SessionStructure.Chain.messageKeys: object expected");
-                        message.messageKeys[i] = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.fromObject(object.messageKeys[i]);
+                        message.messageKeys[i] = $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.fromObject(object.messageKeys[i], long + 1);
                     }
                 }
                 return message;
@@ -3547,7 +3679,7 @@ $root.SignalLocalStorageProtocol = (function() {
                 function ChainKey(properties) {
                     if (properties)
                         for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                            if (properties[keys[i]] != null)
+                            if (properties[keys[i]] != null && keys[i] !== "__proto__")
                                 this[keys[i]] = properties[keys[i]];
                 }
 
@@ -3637,9 +3769,13 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                ChainKey.decode = function decode(reader, length, error) {
+                ChainKey.decode = function decode(reader, length, error, long) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
+                    if (long === undefined)
+                        long = 0;
+                    if (long > $Reader.recursionLimit)
+                        throw Error("maximum nesting depth exceeded");
                     var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey();
                     while (reader.pos < end) {
                         var tag = reader.uint32();
@@ -3655,7 +3791,7 @@ $root.SignalLocalStorageProtocol = (function() {
                                 break;
                             }
                         default:
-                            reader.skipType(tag & 7);
+                            reader.skipType(tag & 7, long);
                             break;
                         }
                     }
@@ -3686,9 +3822,13 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @param {Object.<string,*>} message Plain object to verify
                  * @returns {string|null} `null` if valid, otherwise the reason why it is not
                  */
-                ChainKey.verify = function verify(message) {
+                ChainKey.verify = function verify(message, long) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
+                    if (long === undefined)
+                        long = 0;
+                    if (long > $util.recursionLimit)
+                        return "maximum nesting depth exceeded";
                     var properties = {};
                     if (message.index != null && message.hasOwnProperty("index")) {
                         properties._index = 1;
@@ -3711,9 +3851,13 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @param {Object.<string,*>} object Plain object
                  * @returns {SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey} ChainKey
                  */
-                ChainKey.fromObject = function fromObject(object) {
+                ChainKey.fromObject = function fromObject(object, long) {
                     if (object instanceof $root.SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey)
                         return object;
+                    if (long === undefined)
+                        long = 0;
+                    if (long > $util.recursionLimit)
+                        throw Error("maximum nesting depth exceeded");
                     var message = new $root.SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey();
                     if (object.index != null)
                         message.index = object.index >>> 0;
@@ -3803,7 +3947,7 @@ $root.SignalLocalStorageProtocol = (function() {
                 function MessageKey(properties) {
                     if (properties)
                         for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                            if (properties[keys[i]] != null)
+                            if (properties[keys[i]] != null && keys[i] !== "__proto__")
                                 this[keys[i]] = properties[keys[i]];
                 }
 
@@ -3925,9 +4069,13 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                MessageKey.decode = function decode(reader, length, error) {
+                MessageKey.decode = function decode(reader, length, error, long) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
+                    if (long === undefined)
+                        long = 0;
+                    if (long > $Reader.recursionLimit)
+                        throw Error("maximum nesting depth exceeded");
                     var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey();
                     while (reader.pos < end) {
                         var tag = reader.uint32();
@@ -3951,7 +4099,7 @@ $root.SignalLocalStorageProtocol = (function() {
                                 break;
                             }
                         default:
-                            reader.skipType(tag & 7);
+                            reader.skipType(tag & 7, long);
                             break;
                         }
                     }
@@ -3982,9 +4130,13 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @param {Object.<string,*>} message Plain object to verify
                  * @returns {string|null} `null` if valid, otherwise the reason why it is not
                  */
-                MessageKey.verify = function verify(message) {
+                MessageKey.verify = function verify(message, long) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
+                    if (long === undefined)
+                        long = 0;
+                    if (long > $util.recursionLimit)
+                        return "maximum nesting depth exceeded";
                     var properties = {};
                     if (message.index != null && message.hasOwnProperty("index")) {
                         properties._index = 1;
@@ -4017,9 +4169,13 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @param {Object.<string,*>} object Plain object
                  * @returns {SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey} MessageKey
                  */
-                MessageKey.fromObject = function fromObject(object) {
+                MessageKey.fromObject = function fromObject(object, long) {
                     if (object instanceof $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey)
                         return object;
+                    if (long === undefined)
+                        long = 0;
+                    if (long > $util.recursionLimit)
+                        throw Error("maximum nesting depth exceeded");
                     var message = new $root.SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey();
                     if (object.index != null)
                         message.index = object.index >>> 0;
@@ -4135,7 +4291,7 @@ $root.SignalLocalStorageProtocol = (function() {
             function PendingKeyExchange(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
                             this[keys[i]] = properties[keys[i]];
             }
 
@@ -4305,9 +4461,13 @@ $root.SignalLocalStorageProtocol = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            PendingKeyExchange.decode = function decode(reader, length, error) {
+            PendingKeyExchange.decode = function decode(reader, length, error, long) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
+                if (long === undefined)
+                    long = 0;
+                if (long > $Reader.recursionLimit)
+                    throw Error("maximum nesting depth exceeded");
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
@@ -4343,7 +4503,7 @@ $root.SignalLocalStorageProtocol = (function() {
                             break;
                         }
                     default:
-                        reader.skipType(tag & 7);
+                        reader.skipType(tag & 7, long);
                         break;
                     }
                 }
@@ -4374,9 +4534,13 @@ $root.SignalLocalStorageProtocol = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            PendingKeyExchange.verify = function verify(message) {
+            PendingKeyExchange.verify = function verify(message, long) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
+                if (long === undefined)
+                    long = 0;
+                if (long > $util.recursionLimit)
+                    return "maximum nesting depth exceeded";
                 var properties = {};
                 if (message.sequence != null && message.hasOwnProperty("sequence")) {
                     properties._sequence = 1;
@@ -4424,9 +4588,13 @@ $root.SignalLocalStorageProtocol = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange} PendingKeyExchange
              */
-            PendingKeyExchange.fromObject = function fromObject(object) {
+            PendingKeyExchange.fromObject = function fromObject(object, long) {
                 if (object instanceof $root.SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange)
                     return object;
+                if (long === undefined)
+                    long = 0;
+                if (long > $util.recursionLimit)
+                    throw Error("maximum nesting depth exceeded");
                 var message = new $root.SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange();
                 if (object.sequence != null)
                     message.sequence = object.sequence >>> 0;
@@ -4565,7 +4733,7 @@ $root.SignalLocalStorageProtocol = (function() {
             function PendingPreKey(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
                             this[keys[i]] = properties[keys[i]];
             }
 
@@ -4671,9 +4839,13 @@ $root.SignalLocalStorageProtocol = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            PendingPreKey.decode = function decode(reader, length, error) {
+            PendingPreKey.decode = function decode(reader, length, error, long) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
+                if (long === undefined)
+                    long = 0;
+                if (long > $Reader.recursionLimit)
+                    throw Error("maximum nesting depth exceeded");
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalLocalStorageProtocol.SessionStructure.PendingPreKey();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
@@ -4693,7 +4865,7 @@ $root.SignalLocalStorageProtocol = (function() {
                             break;
                         }
                     default:
-                        reader.skipType(tag & 7);
+                        reader.skipType(tag & 7, long);
                         break;
                     }
                 }
@@ -4724,9 +4896,13 @@ $root.SignalLocalStorageProtocol = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            PendingPreKey.verify = function verify(message) {
+            PendingPreKey.verify = function verify(message, long) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
+                if (long === undefined)
+                    long = 0;
+                if (long > $util.recursionLimit)
+                    return "maximum nesting depth exceeded";
                 var properties = {};
                 if (message.preKeyId != null && message.hasOwnProperty("preKeyId")) {
                     properties._preKeyId = 1;
@@ -4754,9 +4930,13 @@ $root.SignalLocalStorageProtocol = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {SignalLocalStorageProtocol.SessionStructure.PendingPreKey} PendingPreKey
              */
-            PendingPreKey.fromObject = function fromObject(object) {
+            PendingPreKey.fromObject = function fromObject(object, long) {
                 if (object instanceof $root.SignalLocalStorageProtocol.SessionStructure.PendingPreKey)
                     return object;
+                if (long === undefined)
+                    long = 0;
+                if (long > $util.recursionLimit)
+                    throw Error("maximum nesting depth exceeded");
                 var message = new $root.SignalLocalStorageProtocol.SessionStructure.PendingPreKey();
                 if (object.preKeyId != null)
                     message.preKeyId = object.preKeyId >>> 0;
