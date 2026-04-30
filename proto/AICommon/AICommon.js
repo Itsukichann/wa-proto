@@ -1455,6 +1455,7 @@ $root.AICommon = (function() {
                     case 2:
                     case 3:
                     case 4:
+                    case 5:
                         break;
                     }
                 }
@@ -1538,6 +1539,10 @@ $root.AICommon = (function() {
                 case "COLLABORATE":
                 case 4:
                     message.type = 4;
+                    break;
+                case "OPEN_GREETING_CARD":
+                case 5:
+                    message.type = 5;
                     break;
                 }
                 if (object.title != null)
@@ -1648,6 +1653,7 @@ $root.AICommon = (function() {
              * @property {number} ANIMATE_PHOTO=2 ANIMATE_PHOTO value
              * @property {number} ANALYZE_FILE=3 ANALYZE_FILE value
              * @property {number} COLLABORATE=4 COLLABORATE value
+             * @property {number} OPEN_GREETING_CARD=5 OPEN_GREETING_CARD value
              */
             AIHomeOption.AIHomeActionType = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
@@ -1656,6 +1662,7 @@ $root.AICommon = (function() {
                 values[valuesById[2] = "ANIMATE_PHOTO"] = 2;
                 values[valuesById[3] = "ANALYZE_FILE"] = 3;
                 values[valuesById[4] = "COLLABORATE"] = 4;
+                values[valuesById[5] = "OPEN_GREETING_CARD"] = 5;
                 return values;
             })();
 
@@ -7452,6 +7459,265 @@ $root.AICommon = (function() {
         return BotGroupMetadata;
     })();
 
+    AICommon.AISubscriptionUpsellMetadata = (function() {
+
+        /**
+         * Properties of a AISubscriptionUpsellMetadata.
+         * @memberof AICommon
+         * @interface IAISubscriptionUpsellMetadata
+         * @property {AICommon.AISubscriptionRequestType|null} [requestType] AISubscriptionUpsellMetadata requestType
+         */
+
+        /**
+         * Constructs a new AISubscriptionUpsellMetadata.
+         * @memberof AICommon
+         * @classdesc Represents a AISubscriptionUpsellMetadata.
+         * @implements IAISubscriptionUpsellMetadata
+         * @constructor
+         * @param {AICommon.IAISubscriptionUpsellMetadata=} [properties] Properties to set
+         */
+        function AISubscriptionUpsellMetadata(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * AISubscriptionUpsellMetadata requestType.
+         * @member {AICommon.AISubscriptionRequestType|null|undefined} requestType
+         * @memberof AICommon.AISubscriptionUpsellMetadata
+         * @instance
+         */
+        AISubscriptionUpsellMetadata.prototype.requestType = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(AISubscriptionUpsellMetadata.prototype, "_requestType", {
+            get: $util.oneOfGetter($oneOfFields = ["requestType"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Creates a new AISubscriptionUpsellMetadata instance using the specified properties.
+         * @function create
+         * @memberof AICommon.AISubscriptionUpsellMetadata
+         * @static
+         * @param {AICommon.IAISubscriptionUpsellMetadata=} [properties] Properties to set
+         * @returns {AICommon.AISubscriptionUpsellMetadata} AISubscriptionUpsellMetadata instance
+         */
+        AISubscriptionUpsellMetadata.create = function create(properties) {
+            return new AISubscriptionUpsellMetadata(properties);
+        };
+
+        /**
+         * Encodes the specified AISubscriptionUpsellMetadata message. Does not implicitly {@link AICommon.AISubscriptionUpsellMetadata.verify|verify} messages.
+         * @function encode
+         * @memberof AICommon.AISubscriptionUpsellMetadata
+         * @static
+         * @param {AICommon.IAISubscriptionUpsellMetadata} message AISubscriptionUpsellMetadata message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        AISubscriptionUpsellMetadata.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.requestType != null && Object.hasOwnProperty.call(message, "requestType"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.requestType);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified AISubscriptionUpsellMetadata message, length delimited. Does not implicitly {@link AICommon.AISubscriptionUpsellMetadata.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof AICommon.AISubscriptionUpsellMetadata
+         * @static
+         * @param {AICommon.IAISubscriptionUpsellMetadata} message AISubscriptionUpsellMetadata message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        AISubscriptionUpsellMetadata.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a AISubscriptionUpsellMetadata message from the specified reader or buffer.
+         * @function decode
+         * @memberof AICommon.AISubscriptionUpsellMetadata
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {AICommon.AISubscriptionUpsellMetadata} AISubscriptionUpsellMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        AISubscriptionUpsellMetadata.decode = function decode(reader, length, error, long) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            if (long === undefined)
+                long = 0;
+            if (long > $Reader.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.AISubscriptionUpsellMetadata();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                if (tag === error)
+                    break;
+                switch (tag >>> 3) {
+                case 1: {
+                        message.requestType = reader.int32();
+                        break;
+                    }
+                default:
+                    reader.skipType(tag & 7, long);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a AISubscriptionUpsellMetadata message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof AICommon.AISubscriptionUpsellMetadata
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {AICommon.AISubscriptionUpsellMetadata} AISubscriptionUpsellMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        AISubscriptionUpsellMetadata.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a AISubscriptionUpsellMetadata message.
+         * @function verify
+         * @memberof AICommon.AISubscriptionUpsellMetadata
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        AISubscriptionUpsellMetadata.verify = function verify(message, long) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                return "maximum nesting depth exceeded";
+            var properties = {};
+            if (message.requestType != null && message.hasOwnProperty("requestType")) {
+                properties._requestType = 1;
+                switch (message.requestType) {
+                default:
+                    return "requestType: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                    break;
+                }
+            }
+            return null;
+        };
+
+        /**
+         * Creates a AISubscriptionUpsellMetadata message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof AICommon.AISubscriptionUpsellMetadata
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {AICommon.AISubscriptionUpsellMetadata} AISubscriptionUpsellMetadata
+         */
+        AISubscriptionUpsellMetadata.fromObject = function fromObject(object, long) {
+            if (object instanceof $root.AICommon.AISubscriptionUpsellMetadata)
+                return object;
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
+            var message = new $root.AICommon.AISubscriptionUpsellMetadata();
+            switch (object.requestType) {
+            default:
+                if (typeof object.requestType === "number") {
+                    message.requestType = object.requestType;
+                    break;
+                }
+                break;
+            case "UNSPECIFIED":
+            case 0:
+                message.requestType = 0;
+                break;
+            case "THINK_HARD":
+            case 1:
+                message.requestType = 1;
+                break;
+            case "IMAGE_GEN":
+            case 2:
+                message.requestType = 2;
+                break;
+            case "VIDEO_GEN":
+            case 3:
+                message.requestType = 3;
+                break;
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a AISubscriptionUpsellMetadata message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof AICommon.AISubscriptionUpsellMetadata
+         * @static
+         * @param {AICommon.AISubscriptionUpsellMetadata} message AISubscriptionUpsellMetadata
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        AISubscriptionUpsellMetadata.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (message.requestType != null && message.hasOwnProperty("requestType")) {
+                object.requestType = options.enums === String ? $root.AICommon.AISubscriptionRequestType[message.requestType] === undefined ? message.requestType : $root.AICommon.AISubscriptionRequestType[message.requestType] : message.requestType;
+                if (options.oneofs)
+                    object._requestType = "requestType";
+            }
+            return object;
+        };
+
+        /**
+         * Converts this AISubscriptionUpsellMetadata to JSON.
+         * @function toJSON
+         * @memberof AICommon.AISubscriptionUpsellMetadata
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        AISubscriptionUpsellMetadata.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for AISubscriptionUpsellMetadata
+         * @function getTypeUrl
+         * @memberof AICommon.AISubscriptionUpsellMetadata
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        AISubscriptionUpsellMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/AICommon.AISubscriptionUpsellMetadata";
+        };
+
+        return AISubscriptionUpsellMetadata;
+    })();
+
     AICommon.BotMetadata = (function() {
 
         /**
@@ -7496,6 +7762,8 @@ $root.AICommon = (function() {
          * @property {AICommon.IBotInfrastructureDiagnostics|null} [botInfrastructureDiagnostics] BotMetadata botInfrastructureDiagnostics
          * @property {AICommon.IAIMediaCollectionMetadata|null} [aiMediaCollectionMetadata] BotMetadata aiMediaCollectionMetadata
          * @property {AICommon.IBotCommandMetadata|null} [commandMetadata] BotMetadata commandMetadata
+         * @property {AICommon.IBotResolvedToolCallMetadata|null} [resolvedToolCallMetadata] BotMetadata resolvedToolCallMetadata
+         * @property {AICommon.IAISubscriptionUpsellMetadata|null} [subscriptionUpsellMetadata] BotMetadata subscriptionUpsellMetadata
          * @property {Uint8Array|null} [internalMetadata] BotMetadata internalMetadata
          */
 
@@ -7819,6 +8087,22 @@ $root.AICommon = (function() {
         BotMetadata.prototype.commandMetadata = null;
 
         /**
+         * BotMetadata resolvedToolCallMetadata.
+         * @member {AICommon.IBotResolvedToolCallMetadata|null|undefined} resolvedToolCallMetadata
+         * @memberof AICommon.BotMetadata
+         * @instance
+         */
+        BotMetadata.prototype.resolvedToolCallMetadata = null;
+
+        /**
+         * BotMetadata subscriptionUpsellMetadata.
+         * @member {AICommon.IAISubscriptionUpsellMetadata|null|undefined} subscriptionUpsellMetadata
+         * @memberof AICommon.BotMetadata
+         * @instance
+         */
+        BotMetadata.prototype.subscriptionUpsellMetadata = null;
+
+        /**
          * BotMetadata internalMetadata.
          * @member {Uint8Array|null|undefined} internalMetadata
          * @memberof AICommon.BotMetadata
@@ -8058,6 +8342,18 @@ $root.AICommon = (function() {
         });
 
         // Virtual OneOf for proto3 optional field
+        Object.defineProperty(BotMetadata.prototype, "_resolvedToolCallMetadata", {
+            get: $util.oneOfGetter($oneOfFields = ["resolvedToolCallMetadata"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(BotMetadata.prototype, "_subscriptionUpsellMetadata", {
+            get: $util.oneOfGetter($oneOfFields = ["subscriptionUpsellMetadata"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
         Object.defineProperty(BotMetadata.prototype, "_internalMetadata", {
             get: $util.oneOfGetter($oneOfFields = ["internalMetadata"]),
             set: $util.oneOfSetter($oneOfFields)
@@ -8163,6 +8459,10 @@ $root.AICommon = (function() {
                 $root.AICommon.AIMediaCollectionMetadata.encode(message.aiMediaCollectionMetadata, writer.uint32(/* id 38, wireType 2 =*/306).fork()).ldelim();
             if (message.commandMetadata != null && Object.hasOwnProperty.call(message, "commandMetadata"))
                 $root.AICommon.BotCommandMetadata.encode(message.commandMetadata, writer.uint32(/* id 39, wireType 2 =*/314).fork()).ldelim();
+            if (message.resolvedToolCallMetadata != null && Object.hasOwnProperty.call(message, "resolvedToolCallMetadata"))
+                $root.AICommon.BotResolvedToolCallMetadata.encode(message.resolvedToolCallMetadata, writer.uint32(/* id 40, wireType 2 =*/322).fork()).ldelim();
+            if (message.subscriptionUpsellMetadata != null && Object.hasOwnProperty.call(message, "subscriptionUpsellMetadata"))
+                $root.AICommon.AISubscriptionUpsellMetadata.encode(message.subscriptionUpsellMetadata, writer.uint32(/* id 41, wireType 2 =*/330).fork()).ldelim();
             if (message.internalMetadata != null && Object.hasOwnProperty.call(message, "internalMetadata"))
                 writer.uint32(/* id 999, wireType 2 =*/7994).bytes(message.internalMetadata);
             return writer;
@@ -8355,6 +8655,14 @@ $root.AICommon = (function() {
                     }
                 case 39: {
                         message.commandMetadata = $root.AICommon.BotCommandMetadata.decode(reader, reader.uint32(), undefined, long + 1);
+                        break;
+                    }
+                case 40: {
+                        message.resolvedToolCallMetadata = $root.AICommon.BotResolvedToolCallMetadata.decode(reader, reader.uint32(), undefined, long + 1);
+                        break;
+                    }
+                case 41: {
+                        message.subscriptionUpsellMetadata = $root.AICommon.AISubscriptionUpsellMetadata.decode(reader, reader.uint32(), undefined, long + 1);
                         break;
                     }
                 case 999: {
@@ -8684,6 +8992,22 @@ $root.AICommon = (function() {
                         return "commandMetadata." + error;
                 }
             }
+            if (message.resolvedToolCallMetadata != null && message.hasOwnProperty("resolvedToolCallMetadata")) {
+                properties._resolvedToolCallMetadata = 1;
+                {
+                    var error = $root.AICommon.BotResolvedToolCallMetadata.verify(message.resolvedToolCallMetadata, long + 1);
+                    if (error)
+                        return "resolvedToolCallMetadata." + error;
+                }
+            }
+            if (message.subscriptionUpsellMetadata != null && message.hasOwnProperty("subscriptionUpsellMetadata")) {
+                properties._subscriptionUpsellMetadata = 1;
+                {
+                    var error = $root.AICommon.AISubscriptionUpsellMetadata.verify(message.subscriptionUpsellMetadata, long + 1);
+                    if (error)
+                        return "subscriptionUpsellMetadata." + error;
+                }
+            }
             if (message.internalMetadata != null && message.hasOwnProperty("internalMetadata")) {
                 properties._internalMetadata = 1;
                 if (!(message.internalMetadata && typeof message.internalMetadata.length === "number" || $util.isString(message.internalMetadata)))
@@ -8879,6 +9203,16 @@ $root.AICommon = (function() {
                 if (typeof object.commandMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.commandMetadata: object expected");
                 message.commandMetadata = $root.AICommon.BotCommandMetadata.fromObject(object.commandMetadata, long + 1);
+            }
+            if (object.resolvedToolCallMetadata != null) {
+                if (typeof object.resolvedToolCallMetadata !== "object")
+                    throw TypeError(".AICommon.BotMetadata.resolvedToolCallMetadata: object expected");
+                message.resolvedToolCallMetadata = $root.AICommon.BotResolvedToolCallMetadata.fromObject(object.resolvedToolCallMetadata, long + 1);
+            }
+            if (object.subscriptionUpsellMetadata != null) {
+                if (typeof object.subscriptionUpsellMetadata !== "object")
+                    throw TypeError(".AICommon.BotMetadata.subscriptionUpsellMetadata: object expected");
+                message.subscriptionUpsellMetadata = $root.AICommon.AISubscriptionUpsellMetadata.fromObject(object.subscriptionUpsellMetadata, long + 1);
             }
             if (object.internalMetadata != null)
                 if (typeof object.internalMetadata === "string")
@@ -9091,6 +9425,16 @@ $root.AICommon = (function() {
                 if (options.oneofs)
                     object._commandMetadata = "commandMetadata";
             }
+            if (message.resolvedToolCallMetadata != null && message.hasOwnProperty("resolvedToolCallMetadata")) {
+                object.resolvedToolCallMetadata = $root.AICommon.BotResolvedToolCallMetadata.toObject(message.resolvedToolCallMetadata, options);
+                if (options.oneofs)
+                    object._resolvedToolCallMetadata = "resolvedToolCallMetadata";
+            }
+            if (message.subscriptionUpsellMetadata != null && message.hasOwnProperty("subscriptionUpsellMetadata")) {
+                object.subscriptionUpsellMetadata = $root.AICommon.AISubscriptionUpsellMetadata.toObject(message.subscriptionUpsellMetadata, options);
+                if (options.oneofs)
+                    object._subscriptionUpsellMetadata = "subscriptionUpsellMetadata";
+            }
             if (message.internalMetadata != null && message.hasOwnProperty("internalMetadata")) {
                 object.internalMetadata = options.bytes === String ? $util.base64.encode(message.internalMetadata, 0, message.internalMetadata.length) : options.bytes === Array ? Array.prototype.slice.call(message.internalMetadata) : message.internalMetadata;
                 if (options.oneofs)
@@ -9126,6 +9470,269 @@ $root.AICommon = (function() {
         };
 
         return BotMetadata;
+    })();
+
+    AICommon.BotResolvedToolCallMetadata = (function() {
+
+        /**
+         * Properties of a BotResolvedToolCallMetadata.
+         * @memberof AICommon
+         * @interface IBotResolvedToolCallMetadata
+         * @property {string|null} [toolCallId] BotResolvedToolCallMetadata toolCallId
+         * @property {string|null} [resolutionDataSerialized] BotResolvedToolCallMetadata resolutionDataSerialized
+         */
+
+        /**
+         * Constructs a new BotResolvedToolCallMetadata.
+         * @memberof AICommon
+         * @classdesc Represents a BotResolvedToolCallMetadata.
+         * @implements IBotResolvedToolCallMetadata
+         * @constructor
+         * @param {AICommon.IBotResolvedToolCallMetadata=} [properties] Properties to set
+         */
+        function BotResolvedToolCallMetadata(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * BotResolvedToolCallMetadata toolCallId.
+         * @member {string|null|undefined} toolCallId
+         * @memberof AICommon.BotResolvedToolCallMetadata
+         * @instance
+         */
+        BotResolvedToolCallMetadata.prototype.toolCallId = null;
+
+        /**
+         * BotResolvedToolCallMetadata resolutionDataSerialized.
+         * @member {string|null|undefined} resolutionDataSerialized
+         * @memberof AICommon.BotResolvedToolCallMetadata
+         * @instance
+         */
+        BotResolvedToolCallMetadata.prototype.resolutionDataSerialized = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(BotResolvedToolCallMetadata.prototype, "_toolCallId", {
+            get: $util.oneOfGetter($oneOfFields = ["toolCallId"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(BotResolvedToolCallMetadata.prototype, "_resolutionDataSerialized", {
+            get: $util.oneOfGetter($oneOfFields = ["resolutionDataSerialized"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Creates a new BotResolvedToolCallMetadata instance using the specified properties.
+         * @function create
+         * @memberof AICommon.BotResolvedToolCallMetadata
+         * @static
+         * @param {AICommon.IBotResolvedToolCallMetadata=} [properties] Properties to set
+         * @returns {AICommon.BotResolvedToolCallMetadata} BotResolvedToolCallMetadata instance
+         */
+        BotResolvedToolCallMetadata.create = function create(properties) {
+            return new BotResolvedToolCallMetadata(properties);
+        };
+
+        /**
+         * Encodes the specified BotResolvedToolCallMetadata message. Does not implicitly {@link AICommon.BotResolvedToolCallMetadata.verify|verify} messages.
+         * @function encode
+         * @memberof AICommon.BotResolvedToolCallMetadata
+         * @static
+         * @param {AICommon.IBotResolvedToolCallMetadata} message BotResolvedToolCallMetadata message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        BotResolvedToolCallMetadata.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.toolCallId != null && Object.hasOwnProperty.call(message, "toolCallId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.toolCallId);
+            if (message.resolutionDataSerialized != null && Object.hasOwnProperty.call(message, "resolutionDataSerialized"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.resolutionDataSerialized);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified BotResolvedToolCallMetadata message, length delimited. Does not implicitly {@link AICommon.BotResolvedToolCallMetadata.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof AICommon.BotResolvedToolCallMetadata
+         * @static
+         * @param {AICommon.IBotResolvedToolCallMetadata} message BotResolvedToolCallMetadata message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        BotResolvedToolCallMetadata.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a BotResolvedToolCallMetadata message from the specified reader or buffer.
+         * @function decode
+         * @memberof AICommon.BotResolvedToolCallMetadata
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {AICommon.BotResolvedToolCallMetadata} BotResolvedToolCallMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        BotResolvedToolCallMetadata.decode = function decode(reader, length, error, long) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            if (long === undefined)
+                long = 0;
+            if (long > $Reader.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotResolvedToolCallMetadata();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                if (tag === error)
+                    break;
+                switch (tag >>> 3) {
+                case 1: {
+                        message.toolCallId = reader.string();
+                        break;
+                    }
+                case 2: {
+                        message.resolutionDataSerialized = reader.string();
+                        break;
+                    }
+                default:
+                    reader.skipType(tag & 7, long);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a BotResolvedToolCallMetadata message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof AICommon.BotResolvedToolCallMetadata
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {AICommon.BotResolvedToolCallMetadata} BotResolvedToolCallMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        BotResolvedToolCallMetadata.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a BotResolvedToolCallMetadata message.
+         * @function verify
+         * @memberof AICommon.BotResolvedToolCallMetadata
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        BotResolvedToolCallMetadata.verify = function verify(message, long) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                return "maximum nesting depth exceeded";
+            var properties = {};
+            if (message.toolCallId != null && message.hasOwnProperty("toolCallId")) {
+                properties._toolCallId = 1;
+                if (!$util.isString(message.toolCallId))
+                    return "toolCallId: string expected";
+            }
+            if (message.resolutionDataSerialized != null && message.hasOwnProperty("resolutionDataSerialized")) {
+                properties._resolutionDataSerialized = 1;
+                if (!$util.isString(message.resolutionDataSerialized))
+                    return "resolutionDataSerialized: string expected";
+            }
+            return null;
+        };
+
+        /**
+         * Creates a BotResolvedToolCallMetadata message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof AICommon.BotResolvedToolCallMetadata
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {AICommon.BotResolvedToolCallMetadata} BotResolvedToolCallMetadata
+         */
+        BotResolvedToolCallMetadata.fromObject = function fromObject(object, long) {
+            if (object instanceof $root.AICommon.BotResolvedToolCallMetadata)
+                return object;
+            if (long === undefined)
+                long = 0;
+            if (long > $util.recursionLimit)
+                throw Error("maximum nesting depth exceeded");
+            var message = new $root.AICommon.BotResolvedToolCallMetadata();
+            if (object.toolCallId != null)
+                message.toolCallId = String(object.toolCallId);
+            if (object.resolutionDataSerialized != null)
+                message.resolutionDataSerialized = String(object.resolutionDataSerialized);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a BotResolvedToolCallMetadata message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof AICommon.BotResolvedToolCallMetadata
+         * @static
+         * @param {AICommon.BotResolvedToolCallMetadata} message BotResolvedToolCallMetadata
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        BotResolvedToolCallMetadata.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (message.toolCallId != null && message.hasOwnProperty("toolCallId")) {
+                object.toolCallId = message.toolCallId;
+                if (options.oneofs)
+                    object._toolCallId = "toolCallId";
+            }
+            if (message.resolutionDataSerialized != null && message.hasOwnProperty("resolutionDataSerialized")) {
+                object.resolutionDataSerialized = message.resolutionDataSerialized;
+                if (options.oneofs)
+                    object._resolutionDataSerialized = "resolutionDataSerialized";
+            }
+            return object;
+        };
+
+        /**
+         * Converts this BotResolvedToolCallMetadata to JSON.
+         * @function toJSON
+         * @memberof AICommon.BotResolvedToolCallMetadata
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        BotResolvedToolCallMetadata.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for BotResolvedToolCallMetadata
+         * @function getTypeUrl
+         * @memberof AICommon.BotResolvedToolCallMetadata
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        BotResolvedToolCallMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/AICommon.BotResolvedToolCallMetadata";
+        };
+
+        return BotResolvedToolCallMetadata;
     })();
 
     AICommon.BotCommandMetadata = (function() {
@@ -25260,6 +25867,24 @@ $root.AICommon = (function() {
         var valuesById = {}, values = Object.create(valuesById);
         values[valuesById[0] = "UNKNOWN_TYPE"] = 0;
         values[valuesById[1] = "NY_AI_SAFETY_DISCLAIMER"] = 1;
+        return values;
+    })();
+
+    /**
+     * AISubscriptionRequestType enum.
+     * @name AICommon.AISubscriptionRequestType
+     * @enum {number}
+     * @property {number} UNSPECIFIED=0 UNSPECIFIED value
+     * @property {number} THINK_HARD=1 THINK_HARD value
+     * @property {number} IMAGE_GEN=2 IMAGE_GEN value
+     * @property {number} VIDEO_GEN=3 VIDEO_GEN value
+     */
+    AICommon.AISubscriptionRequestType = (function() {
+        var valuesById = {}, values = Object.create(valuesById);
+        values[valuesById[0] = "UNSPECIFIED"] = 0;
+        values[valuesById[1] = "THINK_HARD"] = 1;
+        values[valuesById[2] = "IMAGE_GEN"] = 2;
+        values[valuesById[3] = "VIDEO_GEN"] = 3;
         return values;
     })();
 
