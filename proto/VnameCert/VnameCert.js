@@ -1,4 +1,4 @@
-/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars*/
+/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
 "use strict";
 
 var $protobuf = require("protobufjs/minimal");
@@ -32,6 +32,7 @@ $root.VnameCert = (function() {
          * @property {VnameCert.BizIdentityInfo.ActualActorsType|null} [actualActors] BizIdentityInfo actualActors
          * @property {number|Long|null} [privacyModeTs] BizIdentityInfo privacyModeTs
          * @property {number|Long|null} [featureControls] BizIdentityInfo featureControls
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -41,6 +42,7 @@ $root.VnameCert = (function() {
          * @implements IBizIdentityInfo
          * @constructor
          * @param {VnameCert.IBizIdentityInfo=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BizIdentityInfo(properties) {
             if (properties)
@@ -204,6 +206,9 @@ $root.VnameCert = (function() {
                 writer.uint32(/* id 7, wireType 0 =*/56).uint64(message.privacyModeTs);
             if (message.featureControls != null && Object.hasOwnProperty.call(message, "featureControls"))
                 writer.uint32(/* id 8, wireType 0 =*/64).uint64(message.featureControls);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -231,56 +236,86 @@ $root.VnameCert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BizIdentityInfo.decode = function decode(reader, length, error, long) {
+        BizIdentityInfo.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.VnameCert.BizIdentityInfo();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.VnameCert.BizIdentityInfo();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.vlevel = reader.int32();
-                        break;
-                    }
-                case 2: {
-                        message.vnameCert = $root.VnameCert.VerifiedNameCertificate.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 3: {
-                        message.signed = reader.bool();
-                        break;
-                    }
-                case 4: {
-                        message.revoked = reader.bool();
-                        break;
-                    }
-                case 5: {
-                        message.hostStorage = reader.int32();
-                        break;
-                    }
-                case 6: {
-                        message.actualActors = reader.int32();
-                        break;
-                    }
-                case 7: {
-                        message.privacyModeTs = reader.uint64();
-                        break;
-                    }
-                case 8: {
-                        message.featureControls = reader.uint64();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.vlevel = reader.int32();
+                        message._vlevel = "vlevel";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.vnameCert = $root.VnameCert.VerifiedNameCertificate.decode(reader, reader.uint32(), undefined, _depth + 1, message.vnameCert);
+                        message._vnameCert = "vnameCert";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 0)
+                            break;
+                        message.signed = reader.bool();
+                        message._signed = "signed";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 0)
+                            break;
+                        message.revoked = reader.bool();
+                        message._revoked = "revoked";
+                        continue;
+                    }
+                case 5: {
+                        if (wireType !== 0)
+                            break;
+                        message.hostStorage = reader.int32();
+                        message._hostStorage = "hostStorage";
+                        continue;
+                    }
+                case 6: {
+                        if (wireType !== 0)
+                            break;
+                        message.actualActors = reader.int32();
+                        message._actualActors = "actualActors";
+                        continue;
+                    }
+                case 7: {
+                        if (wireType !== 0)
+                            break;
+                        message.privacyModeTs = reader.uint64();
+                        message._privacyModeTs = "privacyModeTs";
+                        continue;
+                    }
+                case 8: {
+                        if (wireType !== 0)
+                            break;
+                        message.featureControls = reader.uint64();
+                        message._featureControls = "featureControls";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -308,13 +343,13 @@ $root.VnameCert = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BizIdentityInfo.verify = function verify(message, long) {
+        BizIdentityInfo.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.vlevel != null && message.hasOwnProperty("vlevel")) {
                 properties._vlevel = 1;
@@ -330,7 +365,7 @@ $root.VnameCert = (function() {
             if (message.vnameCert != null && message.hasOwnProperty("vnameCert")) {
                 properties._vnameCert = 1;
                 {
-                    var error = $root.VnameCert.VerifiedNameCertificate.verify(message.vnameCert, long + 1);
+                    var error = $root.VnameCert.VerifiedNameCertificate.verify(message.vnameCert, _depth + 1);
                     if (error)
                         return "vnameCert." + error;
                 }
@@ -386,13 +421,13 @@ $root.VnameCert = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {VnameCert.BizIdentityInfo} BizIdentityInfo
          */
-        BizIdentityInfo.fromObject = function fromObject(object, long) {
+        BizIdentityInfo.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.VnameCert.BizIdentityInfo)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.VnameCert.BizIdentityInfo();
             switch (object.vlevel) {
             default:
@@ -417,7 +452,7 @@ $root.VnameCert = (function() {
             if (object.vnameCert != null) {
                 if (typeof object.vnameCert !== "object")
                     throw TypeError(".VnameCert.BizIdentityInfo.vnameCert: object expected");
-                message.vnameCert = $root.VnameCert.VerifiedNameCertificate.fromObject(object.vnameCert, long + 1);
+                message.vnameCert = $root.VnameCert.VerifiedNameCertificate.fromObject(object.vnameCert, _depth + 1);
             }
             if (object.signed != null)
                 message.signed = Boolean(object.signed);
@@ -550,18 +585,17 @@ $root.VnameCert = (function() {
         };
 
         /**
-         * Gets the default type url for BizIdentityInfo
+         * Gets the type url for BizIdentityInfo
          * @function getTypeUrl
          * @memberof VnameCert.BizIdentityInfo
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BizIdentityInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/VnameCert.BizIdentityInfo";
+        BizIdentityInfo.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/VnameCert.BizIdentityInfo";
         };
 
         /**
@@ -622,6 +656,7 @@ $root.VnameCert = (function() {
          * @property {number|Long|null} [issueTime] BizAccountLinkInfo issueTime
          * @property {VnameCert.BizAccountLinkInfo.HostStorageType|null} [hostStorage] BizAccountLinkInfo hostStorage
          * @property {VnameCert.BizAccountLinkInfo.AccountType|null} [accountType] BizAccountLinkInfo accountType
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -631,6 +666,7 @@ $root.VnameCert = (function() {
          * @implements IBizAccountLinkInfo
          * @constructor
          * @param {VnameCert.IBizAccountLinkInfo=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BizAccountLinkInfo(properties) {
             if (properties)
@@ -746,6 +782,9 @@ $root.VnameCert = (function() {
                 writer.uint32(/* id 4, wireType 0 =*/32).int32(message.hostStorage);
             if (message.accountType != null && Object.hasOwnProperty.call(message, "accountType"))
                 writer.uint32(/* id 5, wireType 0 =*/40).int32(message.accountType);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -773,44 +812,65 @@ $root.VnameCert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BizAccountLinkInfo.decode = function decode(reader, length, error, long) {
+        BizAccountLinkInfo.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.VnameCert.BizAccountLinkInfo();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.VnameCert.BizAccountLinkInfo();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.whatsappBizAcctFbid = reader.uint64();
-                        break;
-                    }
-                case 2: {
-                        message.whatsappAcctNumber = reader.string();
-                        break;
-                    }
-                case 3: {
-                        message.issueTime = reader.uint64();
-                        break;
-                    }
-                case 4: {
-                        message.hostStorage = reader.int32();
-                        break;
-                    }
-                case 5: {
-                        message.accountType = reader.int32();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.whatsappBizAcctFbid = reader.uint64();
+                        message._whatsappBizAcctFbid = "whatsappBizAcctFbid";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.whatsappAcctNumber = reader.string();
+                        message._whatsappAcctNumber = "whatsappAcctNumber";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 0)
+                            break;
+                        message.issueTime = reader.uint64();
+                        message._issueTime = "issueTime";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 0)
+                            break;
+                        message.hostStorage = reader.int32();
+                        message._hostStorage = "hostStorage";
+                        continue;
+                    }
+                case 5: {
+                        if (wireType !== 0)
+                            break;
+                        message.accountType = reader.int32();
+                        message._accountType = "accountType";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -838,13 +898,13 @@ $root.VnameCert = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BizAccountLinkInfo.verify = function verify(message, long) {
+        BizAccountLinkInfo.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.whatsappBizAcctFbid != null && message.hasOwnProperty("whatsappBizAcctFbid")) {
                 properties._whatsappBizAcctFbid = 1;
@@ -891,13 +951,13 @@ $root.VnameCert = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {VnameCert.BizAccountLinkInfo} BizAccountLinkInfo
          */
-        BizAccountLinkInfo.fromObject = function fromObject(object, long) {
+        BizAccountLinkInfo.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.VnameCert.BizAccountLinkInfo)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.VnameCert.BizAccountLinkInfo();
             if (object.whatsappBizAcctFbid != null)
                 if ($util.Long)
@@ -1009,18 +1069,17 @@ $root.VnameCert = (function() {
         };
 
         /**
-         * Gets the default type url for BizAccountLinkInfo
+         * Gets the type url for BizAccountLinkInfo
          * @function getTypeUrl
          * @memberof VnameCert.BizAccountLinkInfo
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BizAccountLinkInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/VnameCert.BizAccountLinkInfo";
+        BizAccountLinkInfo.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/VnameCert.BizAccountLinkInfo";
         };
 
         /**
@@ -1060,6 +1119,7 @@ $root.VnameCert = (function() {
          * @interface IBizAccountPayload
          * @property {VnameCert.IVerifiedNameCertificate|null} [vnameCert] BizAccountPayload vnameCert
          * @property {Uint8Array|null} [bizAcctLinkInfo] BizAccountPayload bizAcctLinkInfo
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -1069,6 +1129,7 @@ $root.VnameCert = (function() {
          * @implements IBizAccountPayload
          * @constructor
          * @param {VnameCert.IBizAccountPayload=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BizAccountPayload(properties) {
             if (properties)
@@ -1136,6 +1197,9 @@ $root.VnameCert = (function() {
                 $root.VnameCert.VerifiedNameCertificate.encode(message.vnameCert, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
             if (message.bizAcctLinkInfo != null && Object.hasOwnProperty.call(message, "bizAcctLinkInfo"))
                 writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.bizAcctLinkInfo);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -1163,32 +1227,44 @@ $root.VnameCert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BizAccountPayload.decode = function decode(reader, length, error, long) {
+        BizAccountPayload.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.VnameCert.BizAccountPayload();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.VnameCert.BizAccountPayload();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.vnameCert = $root.VnameCert.VerifiedNameCertificate.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 2: {
-                        message.bizAcctLinkInfo = reader.bytes();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.vnameCert = $root.VnameCert.VerifiedNameCertificate.decode(reader, reader.uint32(), undefined, _depth + 1, message.vnameCert);
+                        message._vnameCert = "vnameCert";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.bizAcctLinkInfo = reader.bytes();
+                        message._bizAcctLinkInfo = "bizAcctLinkInfo";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -1216,18 +1292,18 @@ $root.VnameCert = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BizAccountPayload.verify = function verify(message, long) {
+        BizAccountPayload.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.vnameCert != null && message.hasOwnProperty("vnameCert")) {
                 properties._vnameCert = 1;
                 {
-                    var error = $root.VnameCert.VerifiedNameCertificate.verify(message.vnameCert, long + 1);
+                    var error = $root.VnameCert.VerifiedNameCertificate.verify(message.vnameCert, _depth + 1);
                     if (error)
                         return "vnameCert." + error;
                 }
@@ -1248,18 +1324,18 @@ $root.VnameCert = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {VnameCert.BizAccountPayload} BizAccountPayload
          */
-        BizAccountPayload.fromObject = function fromObject(object, long) {
+        BizAccountPayload.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.VnameCert.BizAccountPayload)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.VnameCert.BizAccountPayload();
             if (object.vnameCert != null) {
                 if (typeof object.vnameCert !== "object")
                     throw TypeError(".VnameCert.BizAccountPayload.vnameCert: object expected");
-                message.vnameCert = $root.VnameCert.VerifiedNameCertificate.fromObject(object.vnameCert, long + 1);
+                message.vnameCert = $root.VnameCert.VerifiedNameCertificate.fromObject(object.vnameCert, _depth + 1);
             }
             if (object.bizAcctLinkInfo != null)
                 if (typeof object.bizAcctLinkInfo === "string")
@@ -1307,18 +1383,17 @@ $root.VnameCert = (function() {
         };
 
         /**
-         * Gets the default type url for BizAccountPayload
+         * Gets the type url for BizAccountPayload
          * @function getTypeUrl
          * @memberof VnameCert.BizAccountPayload
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BizAccountPayload.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/VnameCert.BizAccountPayload";
+        BizAccountPayload.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/VnameCert.BizAccountPayload";
         };
 
         return BizAccountPayload;
@@ -1333,6 +1408,7 @@ $root.VnameCert = (function() {
          * @property {Uint8Array|null} [details] VerifiedNameCertificate details
          * @property {Uint8Array|null} [signature] VerifiedNameCertificate signature
          * @property {Uint8Array|null} [serverSignature] VerifiedNameCertificate serverSignature
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -1342,6 +1418,7 @@ $root.VnameCert = (function() {
          * @implements IVerifiedNameCertificate
          * @constructor
          * @param {VnameCert.IVerifiedNameCertificate=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function VerifiedNameCertificate(properties) {
             if (properties)
@@ -1425,6 +1502,9 @@ $root.VnameCert = (function() {
                 writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.signature);
             if (message.serverSignature != null && Object.hasOwnProperty.call(message, "serverSignature"))
                 writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.serverSignature);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -1452,36 +1532,51 @@ $root.VnameCert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        VerifiedNameCertificate.decode = function decode(reader, length, error, long) {
+        VerifiedNameCertificate.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.VnameCert.VerifiedNameCertificate();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.VnameCert.VerifiedNameCertificate();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.details = reader.bytes();
-                        break;
-                    }
-                case 2: {
-                        message.signature = reader.bytes();
-                        break;
-                    }
-                case 3: {
-                        message.serverSignature = reader.bytes();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.details = reader.bytes();
+                        message._details = "details";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.signature = reader.bytes();
+                        message._signature = "signature";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.serverSignature = reader.bytes();
+                        message._serverSignature = "serverSignature";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -1509,13 +1604,13 @@ $root.VnameCert = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        VerifiedNameCertificate.verify = function verify(message, long) {
+        VerifiedNameCertificate.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.details != null && message.hasOwnProperty("details")) {
                 properties._details = 1;
@@ -1543,13 +1638,13 @@ $root.VnameCert = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {VnameCert.VerifiedNameCertificate} VerifiedNameCertificate
          */
-        VerifiedNameCertificate.fromObject = function fromObject(object, long) {
+        VerifiedNameCertificate.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.VnameCert.VerifiedNameCertificate)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.VnameCert.VerifiedNameCertificate();
             if (object.details != null)
                 if (typeof object.details === "string")
@@ -1612,18 +1707,17 @@ $root.VnameCert = (function() {
         };
 
         /**
-         * Gets the default type url for VerifiedNameCertificate
+         * Gets the type url for VerifiedNameCertificate
          * @function getTypeUrl
          * @memberof VnameCert.VerifiedNameCertificate
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        VerifiedNameCertificate.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/VnameCert.VerifiedNameCertificate";
+        VerifiedNameCertificate.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/VnameCert.VerifiedNameCertificate";
         };
 
         VerifiedNameCertificate.Details = (function() {
@@ -1637,6 +1731,7 @@ $root.VnameCert = (function() {
              * @property {string|null} [verifiedName] Details verifiedName
              * @property {Array.<VnameCert.ILocalizedName>|null} [localizedNames] Details localizedNames
              * @property {number|Long|null} [issueTime] Details issueTime
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -1646,6 +1741,7 @@ $root.VnameCert = (function() {
              * @implements IDetails
              * @constructor
              * @param {VnameCert.VerifiedNameCertificate.IDetails=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function Details(properties) {
                 this.localizedNames = [];
@@ -1757,6 +1853,9 @@ $root.VnameCert = (function() {
                         $root.VnameCert.LocalizedName.encode(message.localizedNames[i], writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
                 if (message.issueTime != null && Object.hasOwnProperty.call(message, "issueTime"))
                     writer.uint32(/* id 10, wireType 0 =*/80).uint64(message.issueTime);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -1784,46 +1883,66 @@ $root.VnameCert = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Details.decode = function decode(reader, length, error, long) {
+            Details.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.VnameCert.VerifiedNameCertificate.Details();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.VnameCert.VerifiedNameCertificate.Details();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.serial = reader.uint64();
-                            break;
-                        }
-                    case 2: {
-                            message.issuer = reader.string();
-                            break;
-                        }
-                    case 4: {
-                            message.verifiedName = reader.string();
-                            break;
-                        }
-                    case 8: {
-                            if (!(message.localizedNames && message.localizedNames.length))
-                                message.localizedNames = [];
-                            message.localizedNames.push($root.VnameCert.LocalizedName.decode(reader, reader.uint32(), undefined, long + 1));
-                            break;
-                        }
-                    case 10: {
-                            message.issueTime = reader.uint64();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.serial = reader.uint64();
+                            message._serial = "serial";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.issuer = reader.string();
+                            message._issuer = "issuer";
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 2)
+                                break;
+                            message.verifiedName = reader.string();
+                            message._verifiedName = "verifiedName";
+                            continue;
+                        }
+                    case 8: {
+                            if (wireType !== 2)
+                                break;
+                            if (!(message.localizedNames && message.localizedNames.length))
+                                message.localizedNames = [];
+                            message.localizedNames.push($root.VnameCert.LocalizedName.decode(reader, reader.uint32(), undefined, _depth + 1));
+                            continue;
+                        }
+                    case 10: {
+                            if (wireType !== 0)
+                                break;
+                            message.issueTime = reader.uint64();
+                            message._issueTime = "issueTime";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -1851,13 +1970,13 @@ $root.VnameCert = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            Details.verify = function verify(message, long) {
+            Details.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.serial != null && message.hasOwnProperty("serial")) {
                     properties._serial = 1;
@@ -1878,7 +1997,7 @@ $root.VnameCert = (function() {
                     if (!Array.isArray(message.localizedNames))
                         return "localizedNames: array expected";
                     for (var i = 0; i < message.localizedNames.length; ++i) {
-                        var error = $root.VnameCert.LocalizedName.verify(message.localizedNames[i], long + 1);
+                        var error = $root.VnameCert.LocalizedName.verify(message.localizedNames[i], _depth + 1);
                         if (error)
                             return "localizedNames." + error;
                     }
@@ -1899,13 +2018,13 @@ $root.VnameCert = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {VnameCert.VerifiedNameCertificate.Details} Details
              */
-            Details.fromObject = function fromObject(object, long) {
+            Details.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.VnameCert.VerifiedNameCertificate.Details)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.VnameCert.VerifiedNameCertificate.Details();
                 if (object.serial != null)
                     if ($util.Long)
@@ -1923,11 +2042,11 @@ $root.VnameCert = (function() {
                 if (object.localizedNames) {
                     if (!Array.isArray(object.localizedNames))
                         throw TypeError(".VnameCert.VerifiedNameCertificate.Details.localizedNames: array expected");
-                    message.localizedNames = [];
+                    message.localizedNames = Array(object.localizedNames.length);
                     for (var i = 0; i < object.localizedNames.length; ++i) {
                         if (typeof object.localizedNames[i] !== "object")
                             throw TypeError(".VnameCert.VerifiedNameCertificate.Details.localizedNames: object expected");
-                        message.localizedNames[i] = $root.VnameCert.LocalizedName.fromObject(object.localizedNames[i], long + 1);
+                        message.localizedNames[i] = $root.VnameCert.LocalizedName.fromObject(object.localizedNames[i], _depth + 1);
                     }
                 }
                 if (object.issueTime != null)
@@ -1976,7 +2095,7 @@ $root.VnameCert = (function() {
                         object._verifiedName = "verifiedName";
                 }
                 if (message.localizedNames && message.localizedNames.length) {
-                    object.localizedNames = [];
+                    object.localizedNames = Array(message.localizedNames.length);
                     for (var j = 0; j < message.localizedNames.length; ++j)
                         object.localizedNames[j] = $root.VnameCert.LocalizedName.toObject(message.localizedNames[j], options);
                 }
@@ -2003,18 +2122,17 @@ $root.VnameCert = (function() {
             };
 
             /**
-             * Gets the default type url for Details
+             * Gets the type url for Details
              * @function getTypeUrl
              * @memberof VnameCert.VerifiedNameCertificate.Details
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            Details.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/VnameCert.VerifiedNameCertificate.Details";
+            Details.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/VnameCert.VerifiedNameCertificate.Details";
             };
 
             return Details;
@@ -2032,6 +2150,7 @@ $root.VnameCert = (function() {
          * @property {string|null} [lg] LocalizedName lg
          * @property {string|null} [lc] LocalizedName lc
          * @property {string|null} [verifiedName] LocalizedName verifiedName
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -2041,6 +2160,7 @@ $root.VnameCert = (function() {
          * @implements ILocalizedName
          * @constructor
          * @param {VnameCert.ILocalizedName=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function LocalizedName(properties) {
             if (properties)
@@ -2124,6 +2244,9 @@ $root.VnameCert = (function() {
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.lc);
             if (message.verifiedName != null && Object.hasOwnProperty.call(message, "verifiedName"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.verifiedName);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -2151,36 +2274,51 @@ $root.VnameCert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        LocalizedName.decode = function decode(reader, length, error, long) {
+        LocalizedName.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.VnameCert.LocalizedName();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.VnameCert.LocalizedName();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.lg = reader.string();
-                        break;
-                    }
-                case 2: {
-                        message.lc = reader.string();
-                        break;
-                    }
-                case 3: {
-                        message.verifiedName = reader.string();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.lg = reader.string();
+                        message._lg = "lg";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.lc = reader.string();
+                        message._lc = "lc";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.verifiedName = reader.string();
+                        message._verifiedName = "verifiedName";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -2208,13 +2346,13 @@ $root.VnameCert = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        LocalizedName.verify = function verify(message, long) {
+        LocalizedName.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.lg != null && message.hasOwnProperty("lg")) {
                 properties._lg = 1;
@@ -2242,13 +2380,13 @@ $root.VnameCert = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {VnameCert.LocalizedName} LocalizedName
          */
-        LocalizedName.fromObject = function fromObject(object, long) {
+        LocalizedName.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.VnameCert.LocalizedName)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.VnameCert.LocalizedName();
             if (object.lg != null)
                 message.lg = String(object.lg);
@@ -2302,18 +2440,17 @@ $root.VnameCert = (function() {
         };
 
         /**
-         * Gets the default type url for LocalizedName
+         * Gets the type url for LocalizedName
          * @function getTypeUrl
          * @memberof VnameCert.LocalizedName
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        LocalizedName.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/VnameCert.LocalizedName";
+        LocalizedName.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/VnameCert.LocalizedName";
         };
 
         return LocalizedName;

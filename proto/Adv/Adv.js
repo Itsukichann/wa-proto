@@ -1,4 +1,4 @@
-/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars*/
+/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
 "use strict";
 
 var $protobuf = require("protobufjs/minimal");
@@ -27,6 +27,7 @@ $root.Adv = (function() {
          * @property {Uint8Array|null} [details] ADVSignedDeviceIdentityHMAC details
          * @property {Uint8Array|null} [hmac] ADVSignedDeviceIdentityHMAC hmac
          * @property {Adv.ADVEncryptionType|null} [accountType] ADVSignedDeviceIdentityHMAC accountType
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -36,6 +37,7 @@ $root.Adv = (function() {
          * @implements IADVSignedDeviceIdentityHMAC
          * @constructor
          * @param {Adv.IADVSignedDeviceIdentityHMAC=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function ADVSignedDeviceIdentityHMAC(properties) {
             if (properties)
@@ -119,6 +121,9 @@ $root.Adv = (function() {
                 writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.hmac);
             if (message.accountType != null && Object.hasOwnProperty.call(message, "accountType"))
                 writer.uint32(/* id 3, wireType 0 =*/24).int32(message.accountType);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -146,36 +151,51 @@ $root.Adv = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ADVSignedDeviceIdentityHMAC.decode = function decode(reader, length, error, long) {
+        ADVSignedDeviceIdentityHMAC.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Adv.ADVSignedDeviceIdentityHMAC();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Adv.ADVSignedDeviceIdentityHMAC();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.details = reader.bytes();
-                        break;
-                    }
-                case 2: {
-                        message.hmac = reader.bytes();
-                        break;
-                    }
-                case 3: {
-                        message.accountType = reader.int32();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.details = reader.bytes();
+                        message._details = "details";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.hmac = reader.bytes();
+                        message._hmac = "hmac";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 0)
+                            break;
+                        message.accountType = reader.int32();
+                        message._accountType = "accountType";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -203,13 +223,13 @@ $root.Adv = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        ADVSignedDeviceIdentityHMAC.verify = function verify(message, long) {
+        ADVSignedDeviceIdentityHMAC.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.details != null && message.hasOwnProperty("details")) {
                 properties._details = 1;
@@ -243,13 +263,13 @@ $root.Adv = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Adv.ADVSignedDeviceIdentityHMAC} ADVSignedDeviceIdentityHMAC
          */
-        ADVSignedDeviceIdentityHMAC.fromObject = function fromObject(object, long) {
+        ADVSignedDeviceIdentityHMAC.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Adv.ADVSignedDeviceIdentityHMAC)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.Adv.ADVSignedDeviceIdentityHMAC();
             if (object.details != null)
                 if (typeof object.details === "string")
@@ -327,18 +347,17 @@ $root.Adv = (function() {
         };
 
         /**
-         * Gets the default type url for ADVSignedDeviceIdentityHMAC
+         * Gets the type url for ADVSignedDeviceIdentityHMAC
          * @function getTypeUrl
          * @memberof Adv.ADVSignedDeviceIdentityHMAC
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        ADVSignedDeviceIdentityHMAC.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/Adv.ADVSignedDeviceIdentityHMAC";
+        ADVSignedDeviceIdentityHMAC.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/Adv.ADVSignedDeviceIdentityHMAC";
         };
 
         return ADVSignedDeviceIdentityHMAC;
@@ -354,6 +373,7 @@ $root.Adv = (function() {
          * @property {Uint8Array|null} [accountSignatureKey] ADVSignedDeviceIdentity accountSignatureKey
          * @property {Uint8Array|null} [accountSignature] ADVSignedDeviceIdentity accountSignature
          * @property {Uint8Array|null} [deviceSignature] ADVSignedDeviceIdentity deviceSignature
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -363,6 +383,7 @@ $root.Adv = (function() {
          * @implements IADVSignedDeviceIdentity
          * @constructor
          * @param {Adv.IADVSignedDeviceIdentity=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function ADVSignedDeviceIdentity(properties) {
             if (properties)
@@ -462,6 +483,9 @@ $root.Adv = (function() {
                 writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.accountSignature);
             if (message.deviceSignature != null && Object.hasOwnProperty.call(message, "deviceSignature"))
                 writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.deviceSignature);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -489,40 +513,58 @@ $root.Adv = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ADVSignedDeviceIdentity.decode = function decode(reader, length, error, long) {
+        ADVSignedDeviceIdentity.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Adv.ADVSignedDeviceIdentity();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Adv.ADVSignedDeviceIdentity();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.details = reader.bytes();
-                        break;
-                    }
-                case 2: {
-                        message.accountSignatureKey = reader.bytes();
-                        break;
-                    }
-                case 3: {
-                        message.accountSignature = reader.bytes();
-                        break;
-                    }
-                case 4: {
-                        message.deviceSignature = reader.bytes();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.details = reader.bytes();
+                        message._details = "details";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.accountSignatureKey = reader.bytes();
+                        message._accountSignatureKey = "accountSignatureKey";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.accountSignature = reader.bytes();
+                        message._accountSignature = "accountSignature";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 2)
+                            break;
+                        message.deviceSignature = reader.bytes();
+                        message._deviceSignature = "deviceSignature";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -550,13 +592,13 @@ $root.Adv = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        ADVSignedDeviceIdentity.verify = function verify(message, long) {
+        ADVSignedDeviceIdentity.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.details != null && message.hasOwnProperty("details")) {
                 properties._details = 1;
@@ -589,13 +631,13 @@ $root.Adv = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Adv.ADVSignedDeviceIdentity} ADVSignedDeviceIdentity
          */
-        ADVSignedDeviceIdentity.fromObject = function fromObject(object, long) {
+        ADVSignedDeviceIdentity.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Adv.ADVSignedDeviceIdentity)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.Adv.ADVSignedDeviceIdentity();
             if (object.details != null)
                 if (typeof object.details === "string")
@@ -668,18 +710,17 @@ $root.Adv = (function() {
         };
 
         /**
-         * Gets the default type url for ADVSignedDeviceIdentity
+         * Gets the type url for ADVSignedDeviceIdentity
          * @function getTypeUrl
          * @memberof Adv.ADVSignedDeviceIdentity
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        ADVSignedDeviceIdentity.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/Adv.ADVSignedDeviceIdentity";
+        ADVSignedDeviceIdentity.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/Adv.ADVSignedDeviceIdentity";
         };
 
         return ADVSignedDeviceIdentity;
@@ -696,6 +737,7 @@ $root.Adv = (function() {
          * @property {number|null} [keyIndex] ADVDeviceIdentity keyIndex
          * @property {Adv.ADVEncryptionType|null} [accountType] ADVDeviceIdentity accountType
          * @property {Adv.ADVEncryptionType|null} [deviceType] ADVDeviceIdentity deviceType
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -705,6 +747,7 @@ $root.Adv = (function() {
          * @implements IADVDeviceIdentity
          * @constructor
          * @param {Adv.IADVDeviceIdentity=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function ADVDeviceIdentity(properties) {
             if (properties)
@@ -820,6 +863,9 @@ $root.Adv = (function() {
                 writer.uint32(/* id 4, wireType 0 =*/32).int32(message.accountType);
             if (message.deviceType != null && Object.hasOwnProperty.call(message, "deviceType"))
                 writer.uint32(/* id 5, wireType 0 =*/40).int32(message.deviceType);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -847,44 +893,65 @@ $root.Adv = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ADVDeviceIdentity.decode = function decode(reader, length, error, long) {
+        ADVDeviceIdentity.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Adv.ADVDeviceIdentity();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Adv.ADVDeviceIdentity();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.rawId = reader.uint32();
-                        break;
-                    }
-                case 2: {
-                        message.timestamp = reader.uint64();
-                        break;
-                    }
-                case 3: {
-                        message.keyIndex = reader.uint32();
-                        break;
-                    }
-                case 4: {
-                        message.accountType = reader.int32();
-                        break;
-                    }
-                case 5: {
-                        message.deviceType = reader.int32();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.rawId = reader.uint32();
+                        message._rawId = "rawId";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 0)
+                            break;
+                        message.timestamp = reader.uint64();
+                        message._timestamp = "timestamp";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 0)
+                            break;
+                        message.keyIndex = reader.uint32();
+                        message._keyIndex = "keyIndex";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 0)
+                            break;
+                        message.accountType = reader.int32();
+                        message._accountType = "accountType";
+                        continue;
+                    }
+                case 5: {
+                        if (wireType !== 0)
+                            break;
+                        message.deviceType = reader.int32();
+                        message._deviceType = "deviceType";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -912,13 +979,13 @@ $root.Adv = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        ADVDeviceIdentity.verify = function verify(message, long) {
+        ADVDeviceIdentity.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.rawId != null && message.hasOwnProperty("rawId")) {
                 properties._rawId = 1;
@@ -968,13 +1035,13 @@ $root.Adv = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Adv.ADVDeviceIdentity} ADVDeviceIdentity
          */
-        ADVDeviceIdentity.fromObject = function fromObject(object, long) {
+        ADVDeviceIdentity.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Adv.ADVDeviceIdentity)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.Adv.ADVDeviceIdentity();
             if (object.rawId != null)
                 message.rawId = object.rawId >>> 0;
@@ -1088,18 +1155,17 @@ $root.Adv = (function() {
         };
 
         /**
-         * Gets the default type url for ADVDeviceIdentity
+         * Gets the type url for ADVDeviceIdentity
          * @function getTypeUrl
          * @memberof Adv.ADVDeviceIdentity
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        ADVDeviceIdentity.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/Adv.ADVDeviceIdentity";
+        ADVDeviceIdentity.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/Adv.ADVDeviceIdentity";
         };
 
         return ADVDeviceIdentity;
@@ -1114,6 +1180,7 @@ $root.Adv = (function() {
          * @property {Uint8Array|null} [details] ADVSignedKeyIndexList details
          * @property {Uint8Array|null} [accountSignature] ADVSignedKeyIndexList accountSignature
          * @property {Uint8Array|null} [accountSignatureKey] ADVSignedKeyIndexList accountSignatureKey
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -1123,6 +1190,7 @@ $root.Adv = (function() {
          * @implements IADVSignedKeyIndexList
          * @constructor
          * @param {Adv.IADVSignedKeyIndexList=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function ADVSignedKeyIndexList(properties) {
             if (properties)
@@ -1206,6 +1274,9 @@ $root.Adv = (function() {
                 writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.accountSignature);
             if (message.accountSignatureKey != null && Object.hasOwnProperty.call(message, "accountSignatureKey"))
                 writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.accountSignatureKey);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -1233,36 +1304,51 @@ $root.Adv = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ADVSignedKeyIndexList.decode = function decode(reader, length, error, long) {
+        ADVSignedKeyIndexList.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Adv.ADVSignedKeyIndexList();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Adv.ADVSignedKeyIndexList();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.details = reader.bytes();
-                        break;
-                    }
-                case 2: {
-                        message.accountSignature = reader.bytes();
-                        break;
-                    }
-                case 3: {
-                        message.accountSignatureKey = reader.bytes();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.details = reader.bytes();
+                        message._details = "details";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.accountSignature = reader.bytes();
+                        message._accountSignature = "accountSignature";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.accountSignatureKey = reader.bytes();
+                        message._accountSignatureKey = "accountSignatureKey";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -1290,13 +1376,13 @@ $root.Adv = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        ADVSignedKeyIndexList.verify = function verify(message, long) {
+        ADVSignedKeyIndexList.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.details != null && message.hasOwnProperty("details")) {
                 properties._details = 1;
@@ -1324,13 +1410,13 @@ $root.Adv = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Adv.ADVSignedKeyIndexList} ADVSignedKeyIndexList
          */
-        ADVSignedKeyIndexList.fromObject = function fromObject(object, long) {
+        ADVSignedKeyIndexList.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Adv.ADVSignedKeyIndexList)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.Adv.ADVSignedKeyIndexList();
             if (object.details != null)
                 if (typeof object.details === "string")
@@ -1393,18 +1479,17 @@ $root.Adv = (function() {
         };
 
         /**
-         * Gets the default type url for ADVSignedKeyIndexList
+         * Gets the type url for ADVSignedKeyIndexList
          * @function getTypeUrl
          * @memberof Adv.ADVSignedKeyIndexList
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        ADVSignedKeyIndexList.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/Adv.ADVSignedKeyIndexList";
+        ADVSignedKeyIndexList.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/Adv.ADVSignedKeyIndexList";
         };
 
         return ADVSignedKeyIndexList;
@@ -1421,6 +1506,7 @@ $root.Adv = (function() {
          * @property {number|null} [currentIndex] ADVKeyIndexList currentIndex
          * @property {Array.<number>|null} [validIndexes] ADVKeyIndexList validIndexes
          * @property {Adv.ADVEncryptionType|null} [accountType] ADVKeyIndexList accountType
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -1430,6 +1516,7 @@ $root.Adv = (function() {
          * @implements IADVKeyIndexList
          * @constructor
          * @param {Adv.IADVKeyIndexList=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function ADVKeyIndexList(properties) {
             this.validIndexes = [];
@@ -1544,6 +1631,9 @@ $root.Adv = (function() {
             }
             if (message.accountType != null && Object.hasOwnProperty.call(message, "accountType"))
                 writer.uint32(/* id 5, wireType 0 =*/40).int32(message.accountType);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -1571,51 +1661,74 @@ $root.Adv = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ADVKeyIndexList.decode = function decode(reader, length, error, long) {
+        ADVKeyIndexList.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Adv.ADVKeyIndexList();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Adv.ADVKeyIndexList();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
-                switch (tag >>> 3) {
+                }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
                 case 1: {
+                        if (wireType !== 0)
+                            break;
                         message.rawId = reader.uint32();
-                        break;
+                        message._rawId = "rawId";
+                        continue;
                     }
                 case 2: {
+                        if (wireType !== 0)
+                            break;
                         message.timestamp = reader.uint64();
-                        break;
+                        message._timestamp = "timestamp";
+                        continue;
                     }
                 case 3: {
+                        if (wireType !== 0)
+                            break;
                         message.currentIndex = reader.uint32();
-                        break;
+                        message._currentIndex = "currentIndex";
+                        continue;
                     }
                 case 4: {
-                        if (!(message.validIndexes && message.validIndexes.length))
-                            message.validIndexes = [];
-                        if ((tag & 7) === 2) {
+                        if (wireType === 2) {
+                            if (!(message.validIndexes && message.validIndexes.length))
+                                message.validIndexes = [];
                             var end2 = reader.uint32() + reader.pos;
                             while (reader.pos < end2)
                                 message.validIndexes.push(reader.uint32());
-                        } else
-                            message.validIndexes.push(reader.uint32());
-                        break;
+                            continue;
+                        }
+                        if (wireType !== 0)
+                            break;
+                        if (!(message.validIndexes && message.validIndexes.length))
+                            message.validIndexes = [];
+                        message.validIndexes.push(reader.uint32());
+                        continue;
                     }
                 case 5: {
+                        if (wireType !== 0)
+                            break;
                         message.accountType = reader.int32();
-                        break;
+                        message._accountType = "accountType";
+                        continue;
                     }
-                default:
-                    reader.skipType(tag & 7, long);
-                    break;
                 }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -1643,13 +1756,13 @@ $root.Adv = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        ADVKeyIndexList.verify = function verify(message, long) {
+        ADVKeyIndexList.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.rawId != null && message.hasOwnProperty("rawId")) {
                 properties._rawId = 1;
@@ -1695,13 +1808,13 @@ $root.Adv = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Adv.ADVKeyIndexList} ADVKeyIndexList
          */
-        ADVKeyIndexList.fromObject = function fromObject(object, long) {
+        ADVKeyIndexList.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Adv.ADVKeyIndexList)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.Adv.ADVKeyIndexList();
             if (object.rawId != null)
                 message.rawId = object.rawId >>> 0;
@@ -1719,7 +1832,7 @@ $root.Adv = (function() {
             if (object.validIndexes) {
                 if (!Array.isArray(object.validIndexes))
                     throw TypeError(".Adv.ADVKeyIndexList.validIndexes: array expected");
-                message.validIndexes = [];
+                message.validIndexes = Array(object.validIndexes.length);
                 for (var i = 0; i < object.validIndexes.length; ++i)
                     message.validIndexes[i] = object.validIndexes[i] >>> 0;
             }
@@ -1780,7 +1893,7 @@ $root.Adv = (function() {
                     object._currentIndex = "currentIndex";
             }
             if (message.validIndexes && message.validIndexes.length) {
-                object.validIndexes = [];
+                object.validIndexes = Array(message.validIndexes.length);
                 for (var j = 0; j < message.validIndexes.length; ++j)
                     object.validIndexes[j] = message.validIndexes[j];
             }
@@ -1804,18 +1917,17 @@ $root.Adv = (function() {
         };
 
         /**
-         * Gets the default type url for ADVKeyIndexList
+         * Gets the type url for ADVKeyIndexList
          * @function getTypeUrl
          * @memberof Adv.ADVKeyIndexList
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        ADVKeyIndexList.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/Adv.ADVKeyIndexList";
+        ADVKeyIndexList.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/Adv.ADVKeyIndexList";
         };
 
         return ADVKeyIndexList;

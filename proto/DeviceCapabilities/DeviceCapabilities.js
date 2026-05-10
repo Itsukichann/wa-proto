@@ -1,4 +1,4 @@
-/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars*/
+/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
 "use strict";
 
 var $protobuf = require("protobufjs/minimal");
@@ -30,6 +30,7 @@ $root.DeviceCapabilities = (function() {
          * @property {DeviceCapabilities.DeviceCapabilities.IUserHasAvatar|null} [userHasAvatar] DeviceCapabilities userHasAvatar
          * @property {DeviceCapabilities.DeviceCapabilities.MemberNameTagPrimarySupport|null} [memberNameTagPrimarySupport] DeviceCapabilities memberNameTagPrimarySupport
          * @property {DeviceCapabilities.DeviceCapabilities.IAiThread|null} [aiThread] DeviceCapabilities aiThread
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -39,6 +40,7 @@ $root.DeviceCapabilities = (function() {
          * @implements IDeviceCapabilities
          * @constructor
          * @param {DeviceCapabilities.IDeviceCapabilities=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function DeviceCapabilities(properties) {
             if (properties)
@@ -170,6 +172,9 @@ $root.DeviceCapabilities = (function() {
                 writer.uint32(/* id 5, wireType 0 =*/40).int32(message.memberNameTagPrimarySupport);
             if (message.aiThread != null && Object.hasOwnProperty.call(message, "aiThread"))
                 $root.DeviceCapabilities.DeviceCapabilities.AiThread.encode(message.aiThread, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -197,48 +202,72 @@ $root.DeviceCapabilities = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        DeviceCapabilities.decode = function decode(reader, length, error, long) {
+        DeviceCapabilities.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.DeviceCapabilities.DeviceCapabilities();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.DeviceCapabilities.DeviceCapabilities();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.chatLockSupportLevel = reader.int32();
-                        break;
-                    }
-                case 2: {
-                        message.lidMigration = $root.DeviceCapabilities.DeviceCapabilities.LIDMigration.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 3: {
-                        message.businessBroadcast = $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 4: {
-                        message.userHasAvatar = $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 5: {
-                        message.memberNameTagPrimarySupport = reader.int32();
-                        break;
-                    }
-                case 6: {
-                        message.aiThread = $root.DeviceCapabilities.DeviceCapabilities.AiThread.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.chatLockSupportLevel = reader.int32();
+                        message._chatLockSupportLevel = "chatLockSupportLevel";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.lidMigration = $root.DeviceCapabilities.DeviceCapabilities.LIDMigration.decode(reader, reader.uint32(), undefined, _depth + 1, message.lidMigration);
+                        message._lidMigration = "lidMigration";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.businessBroadcast = $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.decode(reader, reader.uint32(), undefined, _depth + 1, message.businessBroadcast);
+                        message._businessBroadcast = "businessBroadcast";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 2)
+                            break;
+                        message.userHasAvatar = $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.decode(reader, reader.uint32(), undefined, _depth + 1, message.userHasAvatar);
+                        message._userHasAvatar = "userHasAvatar";
+                        continue;
+                    }
+                case 5: {
+                        if (wireType !== 0)
+                            break;
+                        message.memberNameTagPrimarySupport = reader.int32();
+                        message._memberNameTagPrimarySupport = "memberNameTagPrimarySupport";
+                        continue;
+                    }
+                case 6: {
+                        if (wireType !== 2)
+                            break;
+                        message.aiThread = $root.DeviceCapabilities.DeviceCapabilities.AiThread.decode(reader, reader.uint32(), undefined, _depth + 1, message.aiThread);
+                        message._aiThread = "aiThread";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -266,13 +295,13 @@ $root.DeviceCapabilities = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        DeviceCapabilities.verify = function verify(message, long) {
+        DeviceCapabilities.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.chatLockSupportLevel != null && message.hasOwnProperty("chatLockSupportLevel")) {
                 properties._chatLockSupportLevel = 1;
@@ -288,7 +317,7 @@ $root.DeviceCapabilities = (function() {
             if (message.lidMigration != null && message.hasOwnProperty("lidMigration")) {
                 properties._lidMigration = 1;
                 {
-                    var error = $root.DeviceCapabilities.DeviceCapabilities.LIDMigration.verify(message.lidMigration, long + 1);
+                    var error = $root.DeviceCapabilities.DeviceCapabilities.LIDMigration.verify(message.lidMigration, _depth + 1);
                     if (error)
                         return "lidMigration." + error;
                 }
@@ -296,7 +325,7 @@ $root.DeviceCapabilities = (function() {
             if (message.businessBroadcast != null && message.hasOwnProperty("businessBroadcast")) {
                 properties._businessBroadcast = 1;
                 {
-                    var error = $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.verify(message.businessBroadcast, long + 1);
+                    var error = $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.verify(message.businessBroadcast, _depth + 1);
                     if (error)
                         return "businessBroadcast." + error;
                 }
@@ -304,7 +333,7 @@ $root.DeviceCapabilities = (function() {
             if (message.userHasAvatar != null && message.hasOwnProperty("userHasAvatar")) {
                 properties._userHasAvatar = 1;
                 {
-                    var error = $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.verify(message.userHasAvatar, long + 1);
+                    var error = $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.verify(message.userHasAvatar, _depth + 1);
                     if (error)
                         return "userHasAvatar." + error;
                 }
@@ -323,7 +352,7 @@ $root.DeviceCapabilities = (function() {
             if (message.aiThread != null && message.hasOwnProperty("aiThread")) {
                 properties._aiThread = 1;
                 {
-                    var error = $root.DeviceCapabilities.DeviceCapabilities.AiThread.verify(message.aiThread, long + 1);
+                    var error = $root.DeviceCapabilities.DeviceCapabilities.AiThread.verify(message.aiThread, _depth + 1);
                     if (error)
                         return "aiThread." + error;
                 }
@@ -339,13 +368,13 @@ $root.DeviceCapabilities = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {DeviceCapabilities.DeviceCapabilities} DeviceCapabilities
          */
-        DeviceCapabilities.fromObject = function fromObject(object, long) {
+        DeviceCapabilities.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.DeviceCapabilities.DeviceCapabilities)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.DeviceCapabilities.DeviceCapabilities();
             switch (object.chatLockSupportLevel) {
             default:
@@ -370,17 +399,17 @@ $root.DeviceCapabilities = (function() {
             if (object.lidMigration != null) {
                 if (typeof object.lidMigration !== "object")
                     throw TypeError(".DeviceCapabilities.DeviceCapabilities.lidMigration: object expected");
-                message.lidMigration = $root.DeviceCapabilities.DeviceCapabilities.LIDMigration.fromObject(object.lidMigration, long + 1);
+                message.lidMigration = $root.DeviceCapabilities.DeviceCapabilities.LIDMigration.fromObject(object.lidMigration, _depth + 1);
             }
             if (object.businessBroadcast != null) {
                 if (typeof object.businessBroadcast !== "object")
                     throw TypeError(".DeviceCapabilities.DeviceCapabilities.businessBroadcast: object expected");
-                message.businessBroadcast = $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.fromObject(object.businessBroadcast, long + 1);
+                message.businessBroadcast = $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.fromObject(object.businessBroadcast, _depth + 1);
             }
             if (object.userHasAvatar != null) {
                 if (typeof object.userHasAvatar !== "object")
                     throw TypeError(".DeviceCapabilities.DeviceCapabilities.userHasAvatar: object expected");
-                message.userHasAvatar = $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.fromObject(object.userHasAvatar, long + 1);
+                message.userHasAvatar = $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.fromObject(object.userHasAvatar, _depth + 1);
             }
             switch (object.memberNameTagPrimarySupport) {
             default:
@@ -405,7 +434,7 @@ $root.DeviceCapabilities = (function() {
             if (object.aiThread != null) {
                 if (typeof object.aiThread !== "object")
                     throw TypeError(".DeviceCapabilities.DeviceCapabilities.aiThread: object expected");
-                message.aiThread = $root.DeviceCapabilities.DeviceCapabilities.AiThread.fromObject(object.aiThread, long + 1);
+                message.aiThread = $root.DeviceCapabilities.DeviceCapabilities.AiThread.fromObject(object.aiThread, _depth + 1);
             }
             return message;
         };
@@ -468,18 +497,17 @@ $root.DeviceCapabilities = (function() {
         };
 
         /**
-         * Gets the default type url for DeviceCapabilities
+         * Gets the type url for DeviceCapabilities
          * @function getTypeUrl
          * @memberof DeviceCapabilities.DeviceCapabilities
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        DeviceCapabilities.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/DeviceCapabilities.DeviceCapabilities";
+        DeviceCapabilities.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/DeviceCapabilities.DeviceCapabilities";
         };
 
         DeviceCapabilities.AiThread = (function() {
@@ -489,6 +517,7 @@ $root.DeviceCapabilities = (function() {
              * @memberof DeviceCapabilities.DeviceCapabilities
              * @interface IAiThread
              * @property {DeviceCapabilities.DeviceCapabilities.AiThread.SupportLevel|null} [supportLevel] AiThread supportLevel
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -498,6 +527,7 @@ $root.DeviceCapabilities = (function() {
              * @implements IAiThread
              * @constructor
              * @param {DeviceCapabilities.DeviceCapabilities.IAiThread=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AiThread(properties) {
                 if (properties)
@@ -549,6 +579,9 @@ $root.DeviceCapabilities = (function() {
                     writer = $Writer.create();
                 if (message.supportLevel != null && Object.hasOwnProperty.call(message, "supportLevel"))
                     writer.uint32(/* id 1, wireType 0 =*/8).int32(message.supportLevel);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -576,28 +609,37 @@ $root.DeviceCapabilities = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            AiThread.decode = function decode(reader, length, error, long) {
+            AiThread.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.DeviceCapabilities.DeviceCapabilities.AiThread();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.DeviceCapabilities.DeviceCapabilities.AiThread();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.supportLevel = reader.int32();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.supportLevel = reader.int32();
+                            message._supportLevel = "supportLevel";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -625,13 +667,13 @@ $root.DeviceCapabilities = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            AiThread.verify = function verify(message, long) {
+            AiThread.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.supportLevel != null && message.hasOwnProperty("supportLevel")) {
                     properties._supportLevel = 1;
@@ -655,13 +697,13 @@ $root.DeviceCapabilities = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {DeviceCapabilities.DeviceCapabilities.AiThread} AiThread
              */
-            AiThread.fromObject = function fromObject(object, long) {
+            AiThread.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.DeviceCapabilities.DeviceCapabilities.AiThread)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.DeviceCapabilities.DeviceCapabilities.AiThread();
                 switch (object.supportLevel) {
                 default:
@@ -719,18 +761,17 @@ $root.DeviceCapabilities = (function() {
             };
 
             /**
-             * Gets the default type url for AiThread
+             * Gets the type url for AiThread
              * @function getTypeUrl
              * @memberof DeviceCapabilities.DeviceCapabilities.AiThread
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            AiThread.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/DeviceCapabilities.DeviceCapabilities.AiThread";
+            AiThread.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/DeviceCapabilities.DeviceCapabilities.AiThread";
             };
 
             /**
@@ -763,6 +804,7 @@ $root.DeviceCapabilities = (function() {
              * @property {boolean|null} [campaignSyncEnabled] BusinessBroadcast campaignSyncEnabled
              * @property {boolean|null} [insightsSyncEnabled] BusinessBroadcast insightsSyncEnabled
              * @property {number|null} [recipientLimit] BusinessBroadcast recipientLimit
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -772,6 +814,7 @@ $root.DeviceCapabilities = (function() {
              * @implements IBusinessBroadcast
              * @constructor
              * @param {DeviceCapabilities.DeviceCapabilities.IBusinessBroadcast=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function BusinessBroadcast(properties) {
                 if (properties)
@@ -887,6 +930,9 @@ $root.DeviceCapabilities = (function() {
                     writer.uint32(/* id 4, wireType 0 =*/32).bool(message.insightsSyncEnabled);
                 if (message.recipientLimit != null && Object.hasOwnProperty.call(message, "recipientLimit"))
                     writer.uint32(/* id 5, wireType 0 =*/40).int32(message.recipientLimit);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -914,44 +960,65 @@ $root.DeviceCapabilities = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            BusinessBroadcast.decode = function decode(reader, length, error, long) {
+            BusinessBroadcast.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.importListEnabled = reader.bool();
-                            break;
-                        }
-                    case 2: {
-                            message.companionSupportEnabled = reader.bool();
-                            break;
-                        }
-                    case 3: {
-                            message.campaignSyncEnabled = reader.bool();
-                            break;
-                        }
-                    case 4: {
-                            message.insightsSyncEnabled = reader.bool();
-                            break;
-                        }
-                    case 5: {
-                            message.recipientLimit = reader.int32();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.importListEnabled = reader.bool();
+                            message._importListEnabled = "importListEnabled";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 0)
+                                break;
+                            message.companionSupportEnabled = reader.bool();
+                            message._companionSupportEnabled = "companionSupportEnabled";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 0)
+                                break;
+                            message.campaignSyncEnabled = reader.bool();
+                            message._campaignSyncEnabled = "campaignSyncEnabled";
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 0)
+                                break;
+                            message.insightsSyncEnabled = reader.bool();
+                            message._insightsSyncEnabled = "insightsSyncEnabled";
+                            continue;
+                        }
+                    case 5: {
+                            if (wireType !== 0)
+                                break;
+                            message.recipientLimit = reader.int32();
+                            message._recipientLimit = "recipientLimit";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -979,13 +1046,13 @@ $root.DeviceCapabilities = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            BusinessBroadcast.verify = function verify(message, long) {
+            BusinessBroadcast.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.importListEnabled != null && message.hasOwnProperty("importListEnabled")) {
                     properties._importListEnabled = 1;
@@ -1023,13 +1090,13 @@ $root.DeviceCapabilities = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {DeviceCapabilities.DeviceCapabilities.BusinessBroadcast} BusinessBroadcast
              */
-            BusinessBroadcast.fromObject = function fromObject(object, long) {
+            BusinessBroadcast.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast();
                 if (object.importListEnabled != null)
                     message.importListEnabled = Boolean(object.importListEnabled);
@@ -1097,18 +1164,17 @@ $root.DeviceCapabilities = (function() {
             };
 
             /**
-             * Gets the default type url for BusinessBroadcast
+             * Gets the type url for BusinessBroadcast
              * @function getTypeUrl
              * @memberof DeviceCapabilities.DeviceCapabilities.BusinessBroadcast
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            BusinessBroadcast.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/DeviceCapabilities.DeviceCapabilities.BusinessBroadcast";
+            BusinessBroadcast.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/DeviceCapabilities.DeviceCapabilities.BusinessBroadcast";
             };
 
             return BusinessBroadcast;
@@ -1137,6 +1203,7 @@ $root.DeviceCapabilities = (function() {
              * @memberof DeviceCapabilities.DeviceCapabilities
              * @interface ILIDMigration
              * @property {number|Long|null} [chatDbMigrationTimestamp] LIDMigration chatDbMigrationTimestamp
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -1146,6 +1213,7 @@ $root.DeviceCapabilities = (function() {
              * @implements ILIDMigration
              * @constructor
              * @param {DeviceCapabilities.DeviceCapabilities.ILIDMigration=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function LIDMigration(properties) {
                 if (properties)
@@ -1197,6 +1265,9 @@ $root.DeviceCapabilities = (function() {
                     writer = $Writer.create();
                 if (message.chatDbMigrationTimestamp != null && Object.hasOwnProperty.call(message, "chatDbMigrationTimestamp"))
                     writer.uint32(/* id 1, wireType 0 =*/8).uint64(message.chatDbMigrationTimestamp);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -1224,28 +1295,37 @@ $root.DeviceCapabilities = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            LIDMigration.decode = function decode(reader, length, error, long) {
+            LIDMigration.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.DeviceCapabilities.DeviceCapabilities.LIDMigration();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.DeviceCapabilities.DeviceCapabilities.LIDMigration();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.chatDbMigrationTimestamp = reader.uint64();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.chatDbMigrationTimestamp = reader.uint64();
+                            message._chatDbMigrationTimestamp = "chatDbMigrationTimestamp";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -1273,13 +1353,13 @@ $root.DeviceCapabilities = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            LIDMigration.verify = function verify(message, long) {
+            LIDMigration.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.chatDbMigrationTimestamp != null && message.hasOwnProperty("chatDbMigrationTimestamp")) {
                     properties._chatDbMigrationTimestamp = 1;
@@ -1297,13 +1377,13 @@ $root.DeviceCapabilities = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {DeviceCapabilities.DeviceCapabilities.LIDMigration} LIDMigration
              */
-            LIDMigration.fromObject = function fromObject(object, long) {
+            LIDMigration.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.DeviceCapabilities.DeviceCapabilities.LIDMigration)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.DeviceCapabilities.DeviceCapabilities.LIDMigration();
                 if (object.chatDbMigrationTimestamp != null)
                     if ($util.Long)
@@ -1353,18 +1433,17 @@ $root.DeviceCapabilities = (function() {
             };
 
             /**
-             * Gets the default type url for LIDMigration
+             * Gets the type url for LIDMigration
              * @function getTypeUrl
              * @memberof DeviceCapabilities.DeviceCapabilities.LIDMigration
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            LIDMigration.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/DeviceCapabilities.DeviceCapabilities.LIDMigration";
+            LIDMigration.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/DeviceCapabilities.DeviceCapabilities.LIDMigration";
             };
 
             return LIDMigration;
@@ -1393,6 +1472,7 @@ $root.DeviceCapabilities = (function() {
              * @memberof DeviceCapabilities.DeviceCapabilities
              * @interface IUserHasAvatar
              * @property {boolean|null} [userHasAvatar] UserHasAvatar userHasAvatar
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -1402,6 +1482,7 @@ $root.DeviceCapabilities = (function() {
              * @implements IUserHasAvatar
              * @constructor
              * @param {DeviceCapabilities.DeviceCapabilities.IUserHasAvatar=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function UserHasAvatar(properties) {
                 if (properties)
@@ -1453,6 +1534,9 @@ $root.DeviceCapabilities = (function() {
                     writer = $Writer.create();
                 if (message.userHasAvatar != null && Object.hasOwnProperty.call(message, "userHasAvatar"))
                     writer.uint32(/* id 1, wireType 0 =*/8).bool(message.userHasAvatar);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -1480,28 +1564,37 @@ $root.DeviceCapabilities = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            UserHasAvatar.decode = function decode(reader, length, error, long) {
+            UserHasAvatar.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.userHasAvatar = reader.bool();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.userHasAvatar = reader.bool();
+                            message._userHasAvatar = "userHasAvatar";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -1529,13 +1622,13 @@ $root.DeviceCapabilities = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            UserHasAvatar.verify = function verify(message, long) {
+            UserHasAvatar.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.userHasAvatar != null && message.hasOwnProperty("userHasAvatar")) {
                     properties._userHasAvatar = 1;
@@ -1553,13 +1646,13 @@ $root.DeviceCapabilities = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {DeviceCapabilities.DeviceCapabilities.UserHasAvatar} UserHasAvatar
              */
-            UserHasAvatar.fromObject = function fromObject(object, long) {
+            UserHasAvatar.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar();
                 if (object.userHasAvatar != null)
                     message.userHasAvatar = Boolean(object.userHasAvatar);
@@ -1599,18 +1692,17 @@ $root.DeviceCapabilities = (function() {
             };
 
             /**
-             * Gets the default type url for UserHasAvatar
+             * Gets the type url for UserHasAvatar
              * @function getTypeUrl
              * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            UserHasAvatar.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/DeviceCapabilities.DeviceCapabilities.UserHasAvatar";
+            UserHasAvatar.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/DeviceCapabilities.DeviceCapabilities.UserHasAvatar";
             };
 
             return UserHasAvatar;

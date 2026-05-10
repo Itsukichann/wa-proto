@@ -1,4 +1,4 @@
-/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars*/
+/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
 "use strict";
 
 var $protobuf = require("protobufjs/minimal");
@@ -26,6 +26,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @interface IDeviceConsistencyCodeMessage
          * @property {number|null} [generation] DeviceConsistencyCodeMessage generation
          * @property {Uint8Array|null} [signature] DeviceConsistencyCodeMessage signature
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -35,6 +36,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @implements IDeviceConsistencyCodeMessage
          * @constructor
          * @param {SignalWhisperTextProtocol.IDeviceConsistencyCodeMessage=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function DeviceConsistencyCodeMessage(properties) {
             if (properties)
@@ -102,6 +104,9 @@ $root.SignalWhisperTextProtocol = (function() {
                 writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.generation);
             if (message.signature != null && Object.hasOwnProperty.call(message, "signature"))
                 writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.signature);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -129,32 +134,44 @@ $root.SignalWhisperTextProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        DeviceConsistencyCodeMessage.decode = function decode(reader, length, error, long) {
+        DeviceConsistencyCodeMessage.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalWhisperTextProtocol.DeviceConsistencyCodeMessage();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.SignalWhisperTextProtocol.DeviceConsistencyCodeMessage();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.generation = reader.uint32();
-                        break;
-                    }
-                case 2: {
-                        message.signature = reader.bytes();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.generation = reader.uint32();
+                        message._generation = "generation";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.signature = reader.bytes();
+                        message._signature = "signature";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -182,13 +199,13 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        DeviceConsistencyCodeMessage.verify = function verify(message, long) {
+        DeviceConsistencyCodeMessage.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.generation != null && message.hasOwnProperty("generation")) {
                 properties._generation = 1;
@@ -211,13 +228,13 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {SignalWhisperTextProtocol.DeviceConsistencyCodeMessage} DeviceConsistencyCodeMessage
          */
-        DeviceConsistencyCodeMessage.fromObject = function fromObject(object, long) {
+        DeviceConsistencyCodeMessage.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.SignalWhisperTextProtocol.DeviceConsistencyCodeMessage)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.SignalWhisperTextProtocol.DeviceConsistencyCodeMessage();
             if (object.generation != null)
                 message.generation = object.generation >>> 0;
@@ -267,18 +284,17 @@ $root.SignalWhisperTextProtocol = (function() {
         };
 
         /**
-         * Gets the default type url for DeviceConsistencyCodeMessage
+         * Gets the type url for DeviceConsistencyCodeMessage
          * @function getTypeUrl
          * @memberof SignalWhisperTextProtocol.DeviceConsistencyCodeMessage
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        DeviceConsistencyCodeMessage.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/SignalWhisperTextProtocol.DeviceConsistencyCodeMessage";
+        DeviceConsistencyCodeMessage.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/SignalWhisperTextProtocol.DeviceConsistencyCodeMessage";
         };
 
         return DeviceConsistencyCodeMessage;
@@ -294,6 +310,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @property {number|null} [iteration] SenderKeyDistributionMessage iteration
          * @property {Uint8Array|null} [chainKey] SenderKeyDistributionMessage chainKey
          * @property {Uint8Array|null} [signingKey] SenderKeyDistributionMessage signingKey
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -303,6 +320,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @implements ISenderKeyDistributionMessage
          * @constructor
          * @param {SignalWhisperTextProtocol.ISenderKeyDistributionMessage=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SenderKeyDistributionMessage(properties) {
             if (properties)
@@ -402,6 +420,9 @@ $root.SignalWhisperTextProtocol = (function() {
                 writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.chainKey);
             if (message.signingKey != null && Object.hasOwnProperty.call(message, "signingKey"))
                 writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.signingKey);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -429,40 +450,58 @@ $root.SignalWhisperTextProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SenderKeyDistributionMessage.decode = function decode(reader, length, error, long) {
+        SenderKeyDistributionMessage.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalWhisperTextProtocol.SenderKeyDistributionMessage();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.SignalWhisperTextProtocol.SenderKeyDistributionMessage();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.id = reader.uint32();
-                        break;
-                    }
-                case 2: {
-                        message.iteration = reader.uint32();
-                        break;
-                    }
-                case 3: {
-                        message.chainKey = reader.bytes();
-                        break;
-                    }
-                case 4: {
-                        message.signingKey = reader.bytes();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.id = reader.uint32();
+                        message._id = "id";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 0)
+                            break;
+                        message.iteration = reader.uint32();
+                        message._iteration = "iteration";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.chainKey = reader.bytes();
+                        message._chainKey = "chainKey";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 2)
+                            break;
+                        message.signingKey = reader.bytes();
+                        message._signingKey = "signingKey";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -490,13 +529,13 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        SenderKeyDistributionMessage.verify = function verify(message, long) {
+        SenderKeyDistributionMessage.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.id != null && message.hasOwnProperty("id")) {
                 properties._id = 1;
@@ -529,13 +568,13 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {SignalWhisperTextProtocol.SenderKeyDistributionMessage} SenderKeyDistributionMessage
          */
-        SenderKeyDistributionMessage.fromObject = function fromObject(object, long) {
+        SenderKeyDistributionMessage.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.SignalWhisperTextProtocol.SenderKeyDistributionMessage)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.SignalWhisperTextProtocol.SenderKeyDistributionMessage();
             if (object.id != null)
                 message.id = object.id >>> 0;
@@ -602,18 +641,17 @@ $root.SignalWhisperTextProtocol = (function() {
         };
 
         /**
-         * Gets the default type url for SenderKeyDistributionMessage
+         * Gets the type url for SenderKeyDistributionMessage
          * @function getTypeUrl
          * @memberof SignalWhisperTextProtocol.SenderKeyDistributionMessage
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        SenderKeyDistributionMessage.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/SignalWhisperTextProtocol.SenderKeyDistributionMessage";
+        SenderKeyDistributionMessage.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/SignalWhisperTextProtocol.SenderKeyDistributionMessage";
         };
 
         return SenderKeyDistributionMessage;
@@ -628,6 +666,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @property {number|null} [id] SenderKeyMessage id
          * @property {number|null} [iteration] SenderKeyMessage iteration
          * @property {Uint8Array|null} [ciphertext] SenderKeyMessage ciphertext
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -637,6 +676,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @implements ISenderKeyMessage
          * @constructor
          * @param {SignalWhisperTextProtocol.ISenderKeyMessage=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SenderKeyMessage(properties) {
             if (properties)
@@ -720,6 +760,9 @@ $root.SignalWhisperTextProtocol = (function() {
                 writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.iteration);
             if (message.ciphertext != null && Object.hasOwnProperty.call(message, "ciphertext"))
                 writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.ciphertext);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -747,36 +790,51 @@ $root.SignalWhisperTextProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SenderKeyMessage.decode = function decode(reader, length, error, long) {
+        SenderKeyMessage.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalWhisperTextProtocol.SenderKeyMessage();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.SignalWhisperTextProtocol.SenderKeyMessage();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.id = reader.uint32();
-                        break;
-                    }
-                case 2: {
-                        message.iteration = reader.uint32();
-                        break;
-                    }
-                case 3: {
-                        message.ciphertext = reader.bytes();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.id = reader.uint32();
+                        message._id = "id";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 0)
+                            break;
+                        message.iteration = reader.uint32();
+                        message._iteration = "iteration";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.ciphertext = reader.bytes();
+                        message._ciphertext = "ciphertext";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -804,13 +862,13 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        SenderKeyMessage.verify = function verify(message, long) {
+        SenderKeyMessage.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.id != null && message.hasOwnProperty("id")) {
                 properties._id = 1;
@@ -838,13 +896,13 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {SignalWhisperTextProtocol.SenderKeyMessage} SenderKeyMessage
          */
-        SenderKeyMessage.fromObject = function fromObject(object, long) {
+        SenderKeyMessage.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.SignalWhisperTextProtocol.SenderKeyMessage)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.SignalWhisperTextProtocol.SenderKeyMessage();
             if (object.id != null)
                 message.id = object.id >>> 0;
@@ -901,18 +959,17 @@ $root.SignalWhisperTextProtocol = (function() {
         };
 
         /**
-         * Gets the default type url for SenderKeyMessage
+         * Gets the type url for SenderKeyMessage
          * @function getTypeUrl
          * @memberof SignalWhisperTextProtocol.SenderKeyMessage
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        SenderKeyMessage.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/SignalWhisperTextProtocol.SenderKeyMessage";
+        SenderKeyMessage.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/SignalWhisperTextProtocol.SenderKeyMessage";
         };
 
         return SenderKeyMessage;
@@ -929,6 +986,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @property {Uint8Array|null} [ratchetKey] KeyExchangeMessage ratchetKey
          * @property {Uint8Array|null} [identityKey] KeyExchangeMessage identityKey
          * @property {Uint8Array|null} [baseKeySignature] KeyExchangeMessage baseKeySignature
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -938,6 +996,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @implements IKeyExchangeMessage
          * @constructor
          * @param {SignalWhisperTextProtocol.IKeyExchangeMessage=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function KeyExchangeMessage(properties) {
             if (properties)
@@ -1053,6 +1112,9 @@ $root.SignalWhisperTextProtocol = (function() {
                 writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.identityKey);
             if (message.baseKeySignature != null && Object.hasOwnProperty.call(message, "baseKeySignature"))
                 writer.uint32(/* id 5, wireType 2 =*/42).bytes(message.baseKeySignature);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -1080,44 +1142,65 @@ $root.SignalWhisperTextProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        KeyExchangeMessage.decode = function decode(reader, length, error, long) {
+        KeyExchangeMessage.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalWhisperTextProtocol.KeyExchangeMessage();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.SignalWhisperTextProtocol.KeyExchangeMessage();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.id = reader.uint32();
-                        break;
-                    }
-                case 2: {
-                        message.baseKey = reader.bytes();
-                        break;
-                    }
-                case 3: {
-                        message.ratchetKey = reader.bytes();
-                        break;
-                    }
-                case 4: {
-                        message.identityKey = reader.bytes();
-                        break;
-                    }
-                case 5: {
-                        message.baseKeySignature = reader.bytes();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.id = reader.uint32();
+                        message._id = "id";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.baseKey = reader.bytes();
+                        message._baseKey = "baseKey";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.ratchetKey = reader.bytes();
+                        message._ratchetKey = "ratchetKey";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 2)
+                            break;
+                        message.identityKey = reader.bytes();
+                        message._identityKey = "identityKey";
+                        continue;
+                    }
+                case 5: {
+                        if (wireType !== 2)
+                            break;
+                        message.baseKeySignature = reader.bytes();
+                        message._baseKeySignature = "baseKeySignature";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -1145,13 +1228,13 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        KeyExchangeMessage.verify = function verify(message, long) {
+        KeyExchangeMessage.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.id != null && message.hasOwnProperty("id")) {
                 properties._id = 1;
@@ -1189,13 +1272,13 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {SignalWhisperTextProtocol.KeyExchangeMessage} KeyExchangeMessage
          */
-        KeyExchangeMessage.fromObject = function fromObject(object, long) {
+        KeyExchangeMessage.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.SignalWhisperTextProtocol.KeyExchangeMessage)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.SignalWhisperTextProtocol.KeyExchangeMessage();
             if (object.id != null)
                 message.id = object.id >>> 0;
@@ -1275,18 +1358,17 @@ $root.SignalWhisperTextProtocol = (function() {
         };
 
         /**
-         * Gets the default type url for KeyExchangeMessage
+         * Gets the type url for KeyExchangeMessage
          * @function getTypeUrl
          * @memberof SignalWhisperTextProtocol.KeyExchangeMessage
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        KeyExchangeMessage.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/SignalWhisperTextProtocol.KeyExchangeMessage";
+        KeyExchangeMessage.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/SignalWhisperTextProtocol.KeyExchangeMessage";
         };
 
         return KeyExchangeMessage;
@@ -1304,6 +1386,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @property {Uint8Array|null} [baseKey] PreKeySignalMessage baseKey
          * @property {Uint8Array|null} [identityKey] PreKeySignalMessage identityKey
          * @property {Uint8Array|null} [message] PreKeySignalMessage message
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -1313,6 +1396,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @implements IPreKeySignalMessage
          * @constructor
          * @param {SignalWhisperTextProtocol.IPreKeySignalMessage=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function PreKeySignalMessage(properties) {
             if (properties)
@@ -1444,6 +1528,9 @@ $root.SignalWhisperTextProtocol = (function() {
                 writer.uint32(/* id 5, wireType 0 =*/40).uint32(message.registrationId);
             if (message.signedPreKeyId != null && Object.hasOwnProperty.call(message, "signedPreKeyId"))
                 writer.uint32(/* id 6, wireType 0 =*/48).uint32(message.signedPreKeyId);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -1471,48 +1558,72 @@ $root.SignalWhisperTextProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        PreKeySignalMessage.decode = function decode(reader, length, error, long) {
+        PreKeySignalMessage.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalWhisperTextProtocol.PreKeySignalMessage();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.SignalWhisperTextProtocol.PreKeySignalMessage();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 5: {
-                        message.registrationId = reader.uint32();
-                        break;
-                    }
-                case 1: {
-                        message.preKeyId = reader.uint32();
-                        break;
-                    }
-                case 6: {
-                        message.signedPreKeyId = reader.uint32();
-                        break;
-                    }
-                case 2: {
-                        message.baseKey = reader.bytes();
-                        break;
-                    }
-                case 3: {
-                        message.identityKey = reader.bytes();
-                        break;
-                    }
-                case 4: {
-                        message.message = reader.bytes();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 5: {
+                        if (wireType !== 0)
+                            break;
+                        message.registrationId = reader.uint32();
+                        message._registrationId = "registrationId";
+                        continue;
+                    }
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.preKeyId = reader.uint32();
+                        message._preKeyId = "preKeyId";
+                        continue;
+                    }
+                case 6: {
+                        if (wireType !== 0)
+                            break;
+                        message.signedPreKeyId = reader.uint32();
+                        message._signedPreKeyId = "signedPreKeyId";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.baseKey = reader.bytes();
+                        message._baseKey = "baseKey";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.identityKey = reader.bytes();
+                        message._identityKey = "identityKey";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 2)
+                            break;
+                        message.message = reader.bytes();
+                        message._message = "message";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -1540,13 +1651,13 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        PreKeySignalMessage.verify = function verify(message, long) {
+        PreKeySignalMessage.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.registrationId != null && message.hasOwnProperty("registrationId")) {
                 properties._registrationId = 1;
@@ -1589,13 +1700,13 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {SignalWhisperTextProtocol.PreKeySignalMessage} PreKeySignalMessage
          */
-        PreKeySignalMessage.fromObject = function fromObject(object, long) {
+        PreKeySignalMessage.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.SignalWhisperTextProtocol.PreKeySignalMessage)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.SignalWhisperTextProtocol.PreKeySignalMessage();
             if (object.registrationId != null)
                 message.registrationId = object.registrationId >>> 0;
@@ -1679,18 +1790,17 @@ $root.SignalWhisperTextProtocol = (function() {
         };
 
         /**
-         * Gets the default type url for PreKeySignalMessage
+         * Gets the type url for PreKeySignalMessage
          * @function getTypeUrl
          * @memberof SignalWhisperTextProtocol.PreKeySignalMessage
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        PreKeySignalMessage.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/SignalWhisperTextProtocol.PreKeySignalMessage";
+        PreKeySignalMessage.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/SignalWhisperTextProtocol.PreKeySignalMessage";
         };
 
         return PreKeySignalMessage;
@@ -1706,6 +1816,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @property {number|null} [counter] SignalMessage counter
          * @property {number|null} [previousCounter] SignalMessage previousCounter
          * @property {Uint8Array|null} [ciphertext] SignalMessage ciphertext
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -1715,6 +1826,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @implements ISignalMessage
          * @constructor
          * @param {SignalWhisperTextProtocol.ISignalMessage=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SignalMessage(properties) {
             if (properties)
@@ -1814,6 +1926,9 @@ $root.SignalWhisperTextProtocol = (function() {
                 writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.previousCounter);
             if (message.ciphertext != null && Object.hasOwnProperty.call(message, "ciphertext"))
                 writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.ciphertext);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -1841,40 +1956,58 @@ $root.SignalWhisperTextProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SignalMessage.decode = function decode(reader, length, error, long) {
+        SignalMessage.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SignalWhisperTextProtocol.SignalMessage();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.SignalWhisperTextProtocol.SignalMessage();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.ratchetKey = reader.bytes();
-                        break;
-                    }
-                case 2: {
-                        message.counter = reader.uint32();
-                        break;
-                    }
-                case 3: {
-                        message.previousCounter = reader.uint32();
-                        break;
-                    }
-                case 4: {
-                        message.ciphertext = reader.bytes();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.ratchetKey = reader.bytes();
+                        message._ratchetKey = "ratchetKey";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 0)
+                            break;
+                        message.counter = reader.uint32();
+                        message._counter = "counter";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 0)
+                            break;
+                        message.previousCounter = reader.uint32();
+                        message._previousCounter = "previousCounter";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 2)
+                            break;
+                        message.ciphertext = reader.bytes();
+                        message._ciphertext = "ciphertext";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -1902,13 +2035,13 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        SignalMessage.verify = function verify(message, long) {
+        SignalMessage.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.ratchetKey != null && message.hasOwnProperty("ratchetKey")) {
                 properties._ratchetKey = 1;
@@ -1941,13 +2074,13 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {SignalWhisperTextProtocol.SignalMessage} SignalMessage
          */
-        SignalMessage.fromObject = function fromObject(object, long) {
+        SignalMessage.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.SignalWhisperTextProtocol.SignalMessage)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.SignalWhisperTextProtocol.SignalMessage();
             if (object.ratchetKey != null)
                 if (typeof object.ratchetKey === "string")
@@ -2014,18 +2147,17 @@ $root.SignalWhisperTextProtocol = (function() {
         };
 
         /**
-         * Gets the default type url for SignalMessage
+         * Gets the type url for SignalMessage
          * @function getTypeUrl
          * @memberof SignalWhisperTextProtocol.SignalMessage
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        SignalMessage.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/SignalWhisperTextProtocol.SignalMessage";
+        SignalMessage.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/SignalWhisperTextProtocol.SignalMessage";
         };
 
         return SignalMessage;

@@ -1,4 +1,4 @@
-/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars*/
+/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
 "use strict";
 
 var $protobuf = require("protobufjs/minimal");
@@ -28,6 +28,7 @@ $root.UserPassword = (function() {
          * @property {UserPassword.UserPassword.Transformer|null} [transformer] UserPassword transformer
          * @property {Array.<UserPassword.UserPassword.ITransformerArg>|null} [transformerArg] UserPassword transformerArg
          * @property {Uint8Array|null} [transformedData] UserPassword transformedData
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -37,6 +38,7 @@ $root.UserPassword = (function() {
          * @implements IUserPassword
          * @constructor
          * @param {UserPassword.IUserPassword=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function UserPassword(properties) {
             this.transformerArg = [];
@@ -132,6 +134,9 @@ $root.UserPassword = (function() {
                     $root.UserPassword.UserPassword.TransformerArg.encode(message.transformerArg[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
             if (message.transformedData != null && Object.hasOwnProperty.call(message, "transformedData"))
                 writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.transformedData);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -159,42 +164,59 @@ $root.UserPassword = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        UserPassword.decode = function decode(reader, length, error, long) {
+        UserPassword.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.UserPassword.UserPassword();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.UserPassword.UserPassword();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.encoding = reader.int32();
-                        break;
-                    }
-                case 2: {
-                        message.transformer = reader.int32();
-                        break;
-                    }
-                case 3: {
-                        if (!(message.transformerArg && message.transformerArg.length))
-                            message.transformerArg = [];
-                        message.transformerArg.push($root.UserPassword.UserPassword.TransformerArg.decode(reader, reader.uint32(), undefined, long + 1));
-                        break;
-                    }
-                case 4: {
-                        message.transformedData = reader.bytes();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.encoding = reader.int32();
+                        message._encoding = "encoding";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 0)
+                            break;
+                        message.transformer = reader.int32();
+                        message._transformer = "transformer";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.transformerArg && message.transformerArg.length))
+                            message.transformerArg = [];
+                        message.transformerArg.push($root.UserPassword.UserPassword.TransformerArg.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 2)
+                            break;
+                        message.transformedData = reader.bytes();
+                        message._transformedData = "transformedData";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -222,13 +244,13 @@ $root.UserPassword = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        UserPassword.verify = function verify(message, long) {
+        UserPassword.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.encoding != null && message.hasOwnProperty("encoding")) {
                 properties._encoding = 1;
@@ -255,7 +277,7 @@ $root.UserPassword = (function() {
                 if (!Array.isArray(message.transformerArg))
                     return "transformerArg: array expected";
                 for (var i = 0; i < message.transformerArg.length; ++i) {
-                    var error = $root.UserPassword.UserPassword.TransformerArg.verify(message.transformerArg[i], long + 1);
+                    var error = $root.UserPassword.UserPassword.TransformerArg.verify(message.transformerArg[i], _depth + 1);
                     if (error)
                         return "transformerArg." + error;
                 }
@@ -276,13 +298,13 @@ $root.UserPassword = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {UserPassword.UserPassword} UserPassword
          */
-        UserPassword.fromObject = function fromObject(object, long) {
+        UserPassword.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.UserPassword.UserPassword)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.UserPassword.UserPassword();
             switch (object.encoding) {
             default:
@@ -323,11 +345,11 @@ $root.UserPassword = (function() {
             if (object.transformerArg) {
                 if (!Array.isArray(object.transformerArg))
                     throw TypeError(".UserPassword.UserPassword.transformerArg: array expected");
-                message.transformerArg = [];
+                message.transformerArg = Array(object.transformerArg.length);
                 for (var i = 0; i < object.transformerArg.length; ++i) {
                     if (typeof object.transformerArg[i] !== "object")
                         throw TypeError(".UserPassword.UserPassword.transformerArg: object expected");
-                    message.transformerArg[i] = $root.UserPassword.UserPassword.TransformerArg.fromObject(object.transformerArg[i], long + 1);
+                    message.transformerArg[i] = $root.UserPassword.UserPassword.TransformerArg.fromObject(object.transformerArg[i], _depth + 1);
                 }
             }
             if (object.transformedData != null)
@@ -364,7 +386,7 @@ $root.UserPassword = (function() {
                     object._transformer = "transformer";
             }
             if (message.transformerArg && message.transformerArg.length) {
-                object.transformerArg = [];
+                object.transformerArg = Array(message.transformerArg.length);
                 for (var j = 0; j < message.transformerArg.length; ++j)
                     object.transformerArg[j] = $root.UserPassword.UserPassword.TransformerArg.toObject(message.transformerArg[j], options);
             }
@@ -388,18 +410,17 @@ $root.UserPassword = (function() {
         };
 
         /**
-         * Gets the default type url for UserPassword
+         * Gets the type url for UserPassword
          * @function getTypeUrl
          * @memberof UserPassword.UserPassword
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        UserPassword.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/UserPassword.UserPassword";
+        UserPassword.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/UserPassword.UserPassword";
         };
 
         /**
@@ -440,6 +461,7 @@ $root.UserPassword = (function() {
              * @interface ITransformerArg
              * @property {string|null} [key] TransformerArg key
              * @property {UserPassword.UserPassword.TransformerArg.IValue|null} [value] TransformerArg value
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -449,6 +471,7 @@ $root.UserPassword = (function() {
              * @implements ITransformerArg
              * @constructor
              * @param {UserPassword.UserPassword.ITransformerArg=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function TransformerArg(properties) {
                 if (properties)
@@ -516,6 +539,9 @@ $root.UserPassword = (function() {
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.key);
                 if (message.value != null && Object.hasOwnProperty.call(message, "value"))
                     $root.UserPassword.UserPassword.TransformerArg.Value.encode(message.value, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -543,32 +569,44 @@ $root.UserPassword = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            TransformerArg.decode = function decode(reader, length, error, long) {
+            TransformerArg.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.UserPassword.UserPassword.TransformerArg();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.UserPassword.UserPassword.TransformerArg();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.key = reader.string();
-                            break;
-                        }
-                    case 2: {
-                            message.value = $root.UserPassword.UserPassword.TransformerArg.Value.decode(reader, reader.uint32(), undefined, long + 1);
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.key = reader.string();
+                            message._key = "key";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.value = $root.UserPassword.UserPassword.TransformerArg.Value.decode(reader, reader.uint32(), undefined, _depth + 1, message.value);
+                            message._value = "value";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -596,13 +634,13 @@ $root.UserPassword = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            TransformerArg.verify = function verify(message, long) {
+            TransformerArg.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.key != null && message.hasOwnProperty("key")) {
                     properties._key = 1;
@@ -612,7 +650,7 @@ $root.UserPassword = (function() {
                 if (message.value != null && message.hasOwnProperty("value")) {
                     properties._value = 1;
                     {
-                        var error = $root.UserPassword.UserPassword.TransformerArg.Value.verify(message.value, long + 1);
+                        var error = $root.UserPassword.UserPassword.TransformerArg.Value.verify(message.value, _depth + 1);
                         if (error)
                             return "value." + error;
                     }
@@ -628,20 +666,20 @@ $root.UserPassword = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {UserPassword.UserPassword.TransformerArg} TransformerArg
              */
-            TransformerArg.fromObject = function fromObject(object, long) {
+            TransformerArg.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.UserPassword.UserPassword.TransformerArg)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.UserPassword.UserPassword.TransformerArg();
                 if (object.key != null)
                     message.key = String(object.key);
                 if (object.value != null) {
                     if (typeof object.value !== "object")
                         throw TypeError(".UserPassword.UserPassword.TransformerArg.value: object expected");
-                    message.value = $root.UserPassword.UserPassword.TransformerArg.Value.fromObject(object.value, long + 1);
+                    message.value = $root.UserPassword.UserPassword.TransformerArg.Value.fromObject(object.value, _depth + 1);
                 }
                 return message;
             };
@@ -684,18 +722,17 @@ $root.UserPassword = (function() {
             };
 
             /**
-             * Gets the default type url for TransformerArg
+             * Gets the type url for TransformerArg
              * @function getTypeUrl
              * @memberof UserPassword.UserPassword.TransformerArg
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            TransformerArg.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/UserPassword.UserPassword.TransformerArg";
+            TransformerArg.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/UserPassword.UserPassword.TransformerArg";
             };
 
             TransformerArg.Value = (function() {
@@ -706,6 +743,7 @@ $root.UserPassword = (function() {
                  * @interface IValue
                  * @property {Uint8Array|null} [asBlob] Value asBlob
                  * @property {number|null} [asUnsignedInteger] Value asUnsignedInteger
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
 
                 /**
@@ -715,6 +753,7 @@ $root.UserPassword = (function() {
                  * @implements IValue
                  * @constructor
                  * @param {UserPassword.UserPassword.TransformerArg.IValue=} [properties] Properties to set
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function Value(properties) {
                     if (properties)
@@ -781,6 +820,9 @@ $root.UserPassword = (function() {
                         writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.asBlob);
                     if (message.asUnsignedInteger != null && Object.hasOwnProperty.call(message, "asUnsignedInteger"))
                         writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.asUnsignedInteger);
+                    if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                        for (var i = 0; i < message.$unknowns.length; ++i)
+                            writer.raw(message.$unknowns[i]);
                     return writer;
                 };
 
@@ -808,32 +850,44 @@ $root.UserPassword = (function() {
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                Value.decode = function decode(reader, length, error, long) {
+                Value.decode = function decode(reader, length, _end, _depth, _target) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $Reader.recursionLimit)
-                        throw Error("maximum nesting depth exceeded");
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.UserPassword.UserPassword.TransformerArg.Value();
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $Reader.recursionLimit)
+                        throw Error("max depth exceeded");
+                    var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.UserPassword.UserPassword.TransformerArg.Value();
                     while (reader.pos < end) {
-                        var tag = reader.uint32();
-                        if (tag === error)
-                            break;
-                        switch (tag >>> 3) {
-                        case 1: {
-                                message.asBlob = reader.bytes();
-                                break;
-                            }
-                        case 2: {
-                                message.asUnsignedInteger = reader.uint32();
-                                break;
-                            }
-                        default:
-                            reader.skipType(tag & 7, long);
+                        var start = reader.pos;
+                        var tag = reader.tag();
+                        if (tag === _end) {
+                            _end = undefined;
                             break;
                         }
+                        var wireType = tag & 7;
+                        switch (tag >>>= 3) {
+                        case 1: {
+                                if (wireType !== 2)
+                                    break;
+                                message.asBlob = reader.bytes();
+                                message.value = "asBlob";
+                                continue;
+                            }
+                        case 2: {
+                                if (wireType !== 0)
+                                    break;
+                                message.asUnsignedInteger = reader.uint32();
+                                message.value = "asUnsignedInteger";
+                                continue;
+                            }
+                        }
+                        reader.skipType(wireType, _depth, tag);
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                    if (_end !== undefined)
+                        throw Error("missing end group");
                     return message;
                 };
 
@@ -861,13 +915,13 @@ $root.UserPassword = (function() {
                  * @param {Object.<string,*>} message Plain object to verify
                  * @returns {string|null} `null` if valid, otherwise the reason why it is not
                  */
-                Value.verify = function verify(message, long) {
+                Value.verify = function verify(message, _depth) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $util.recursionLimit)
-                        return "maximum nesting depth exceeded";
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        return "max depth exceeded";
                     var properties = {};
                     if (message.asBlob != null && message.hasOwnProperty("asBlob")) {
                         properties.value = 1;
@@ -892,13 +946,13 @@ $root.UserPassword = (function() {
                  * @param {Object.<string,*>} object Plain object
                  * @returns {UserPassword.UserPassword.TransformerArg.Value} Value
                  */
-                Value.fromObject = function fromObject(object, long) {
+                Value.fromObject = function fromObject(object, _depth) {
                     if (object instanceof $root.UserPassword.UserPassword.TransformerArg.Value)
                         return object;
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $util.recursionLimit)
-                        throw Error("maximum nesting depth exceeded");
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw Error("max depth exceeded");
                     var message = new $root.UserPassword.UserPassword.TransformerArg.Value();
                     if (object.asBlob != null)
                         if (typeof object.asBlob === "string")
@@ -948,18 +1002,17 @@ $root.UserPassword = (function() {
                 };
 
                 /**
-                 * Gets the default type url for Value
+                 * Gets the type url for Value
                  * @function getTypeUrl
                  * @memberof UserPassword.UserPassword.TransformerArg.Value
                  * @static
-                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-                 * @returns {string} The default type url
+                 * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+                 * @returns {string} The type url
                  */
-                Value.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                    if (typeUrlPrefix === undefined) {
-                        typeUrlPrefix = "type.googleapis.com";
-                    }
-                    return typeUrlPrefix + "/UserPassword.UserPassword.TransformerArg.Value";
+                Value.getTypeUrl = function getTypeUrl(prefix) {
+                    if (prefix === undefined)
+                        prefix = "type.googleapis.com";
+                    return prefix + "/UserPassword.UserPassword.TransformerArg.Value";
                 };
 
                 return Value;

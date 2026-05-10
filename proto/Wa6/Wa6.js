@@ -1,4 +1,4 @@
-/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars*/
+/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
 "use strict";
 
 var $protobuf = require("protobufjs/minimal");
@@ -60,6 +60,7 @@ $root.Wa6 = (function() {
          * @property {number|null} [processingQueueSize] ClientPayload processingQueueSize
          * @property {Array.<string>|null} [pairedPeripherals] ClientPayload pairedPeripherals
          * @property {Uint8Array|null} [testIsolationId] ClientPayload testIsolationId
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -69,6 +70,7 @@ $root.Wa6 = (function() {
          * @implements IClientPayload
          * @constructor
          * @param {Wa6.IClientPayload=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function ClientPayload(properties) {
             this.shards = [];
@@ -675,6 +677,9 @@ $root.Wa6 = (function() {
                     writer.uint32(/* id 47, wireType 2 =*/378).string(message.pairedPeripherals[i]);
             if (message.testIsolationId != null && Object.hasOwnProperty.call(message, "testIsolationId"))
                 writer.uint32(/* id 48, wireType 2 =*/386).bytes(message.testIsolationId);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -702,177 +707,292 @@ $root.Wa6 = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ClientPayload.decode = function decode(reader, length, error, long) {
+        ClientPayload.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Wa6.ClientPayload();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Wa6.ClientPayload();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
-                switch (tag >>> 3) {
+                }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
                 case 1: {
+                        if (wireType !== 0)
+                            break;
                         message.username = reader.uint64();
-                        break;
+                        message._username = "username";
+                        continue;
                     }
                 case 3: {
+                        if (wireType !== 0)
+                            break;
                         message.passive = reader.bool();
-                        break;
+                        message._passive = "passive";
+                        continue;
                     }
                 case 5: {
-                        message.userAgent = $root.Wa6.ClientPayload.UserAgent.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
+                        if (wireType !== 2)
+                            break;
+                        message.userAgent = $root.Wa6.ClientPayload.UserAgent.decode(reader, reader.uint32(), undefined, _depth + 1, message.userAgent);
+                        message._userAgent = "userAgent";
+                        continue;
                     }
                 case 6: {
-                        message.webInfo = $root.Wa6.ClientPayload.WebInfo.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
+                        if (wireType !== 2)
+                            break;
+                        message.webInfo = $root.Wa6.ClientPayload.WebInfo.decode(reader, reader.uint32(), undefined, _depth + 1, message.webInfo);
+                        message._webInfo = "webInfo";
+                        continue;
                     }
                 case 7: {
+                        if (wireType !== 2)
+                            break;
                         message.pushName = reader.string();
-                        break;
+                        message._pushName = "pushName";
+                        continue;
                     }
                 case 9: {
+                        if (wireType !== 5)
+                            break;
                         message.sessionId = reader.sfixed32();
-                        break;
+                        message._sessionId = "sessionId";
+                        continue;
                     }
                 case 10: {
+                        if (wireType !== 0)
+                            break;
                         message.shortConnect = reader.bool();
-                        break;
+                        message._shortConnect = "shortConnect";
+                        continue;
                     }
                 case 12: {
+                        if (wireType !== 0)
+                            break;
                         message.connectType = reader.int32();
-                        break;
+                        message._connectType = "connectType";
+                        continue;
                     }
                 case 13: {
+                        if (wireType !== 0)
+                            break;
                         message.connectReason = reader.int32();
-                        break;
+                        message._connectReason = "connectReason";
+                        continue;
                     }
                 case 14: {
-                        if (!(message.shards && message.shards.length))
-                            message.shards = [];
-                        if ((tag & 7) === 2) {
+                        if (wireType === 2) {
+                            if (!(message.shards && message.shards.length))
+                                message.shards = [];
                             var end2 = reader.uint32() + reader.pos;
                             while (reader.pos < end2)
                                 message.shards.push(reader.int32());
-                        } else
-                            message.shards.push(reader.int32());
-                        break;
+                            continue;
+                        }
+                        if (wireType !== 0)
+                            break;
+                        if (!(message.shards && message.shards.length))
+                            message.shards = [];
+                        message.shards.push(reader.int32());
+                        continue;
                     }
                 case 15: {
-                        message.dnsSource = $root.Wa6.ClientPayload.DNSSource.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
+                        if (wireType !== 2)
+                            break;
+                        message.dnsSource = $root.Wa6.ClientPayload.DNSSource.decode(reader, reader.uint32(), undefined, _depth + 1, message.dnsSource);
+                        message._dnsSource = "dnsSource";
+                        continue;
                     }
                 case 16: {
+                        if (wireType !== 0)
+                            break;
                         message.connectAttemptCount = reader.uint32();
-                        break;
+                        message._connectAttemptCount = "connectAttemptCount";
+                        continue;
                     }
                 case 18: {
+                        if (wireType !== 0)
+                            break;
                         message.device = reader.uint32();
-                        break;
+                        message._device = "device";
+                        continue;
                     }
                 case 19: {
-                        message.devicePairingData = $root.Wa6.ClientPayload.DevicePairingRegistrationData.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
+                        if (wireType !== 2)
+                            break;
+                        message.devicePairingData = $root.Wa6.ClientPayload.DevicePairingRegistrationData.decode(reader, reader.uint32(), undefined, _depth + 1, message.devicePairingData);
+                        message._devicePairingData = "devicePairingData";
+                        continue;
                     }
                 case 20: {
+                        if (wireType !== 0)
+                            break;
                         message.product = reader.int32();
-                        break;
+                        message._product = "product";
+                        continue;
                     }
                 case 21: {
+                        if (wireType !== 2)
+                            break;
                         message.fbCat = reader.bytes();
-                        break;
+                        message._fbCat = "fbCat";
+                        continue;
                     }
                 case 22: {
+                        if (wireType !== 2)
+                            break;
                         message.fbUserAgent = reader.bytes();
-                        break;
+                        message._fbUserAgent = "fbUserAgent";
+                        continue;
                     }
                 case 23: {
+                        if (wireType !== 0)
+                            break;
                         message.oc = reader.bool();
-                        break;
+                        message._oc = "oc";
+                        continue;
                     }
                 case 24: {
+                        if (wireType !== 0)
+                            break;
                         message.lc = reader.int32();
-                        break;
+                        message._lc = "lc";
+                        continue;
                     }
                 case 30: {
+                        if (wireType !== 0)
+                            break;
                         message.iosAppExtension = reader.int32();
-                        break;
+                        message._iosAppExtension = "iosAppExtension";
+                        continue;
                     }
                 case 31: {
+                        if (wireType !== 0)
+                            break;
                         message.fbAppId = reader.uint64();
-                        break;
+                        message._fbAppId = "fbAppId";
+                        continue;
                     }
                 case 32: {
+                        if (wireType !== 2)
+                            break;
                         message.fbDeviceId = reader.bytes();
-                        break;
+                        message._fbDeviceId = "fbDeviceId";
+                        continue;
                     }
                 case 33: {
+                        if (wireType !== 0)
+                            break;
                         message.pull = reader.bool();
-                        break;
+                        message._pull = "pull";
+                        continue;
                     }
                 case 34: {
+                        if (wireType !== 2)
+                            break;
                         message.paddingBytes = reader.bytes();
-                        break;
+                        message._paddingBytes = "paddingBytes";
+                        continue;
                     }
                 case 36: {
+                        if (wireType !== 0)
+                            break;
                         message.yearClass = reader.int32();
-                        break;
+                        message._yearClass = "yearClass";
+                        continue;
                     }
                 case 37: {
+                        if (wireType !== 0)
+                            break;
                         message.memClass = reader.int32();
-                        break;
+                        message._memClass = "memClass";
+                        continue;
                     }
                 case 38: {
-                        message.interopData = $root.Wa6.ClientPayload.InteropData.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
+                        if (wireType !== 2)
+                            break;
+                        message.interopData = $root.Wa6.ClientPayload.InteropData.decode(reader, reader.uint32(), undefined, _depth + 1, message.interopData);
+                        message._interopData = "interopData";
+                        continue;
                     }
                 case 40: {
+                        if (wireType !== 0)
+                            break;
                         message.trafficAnonymization = reader.int32();
-                        break;
+                        message._trafficAnonymization = "trafficAnonymization";
+                        continue;
                     }
                 case 41: {
+                        if (wireType !== 0)
+                            break;
                         message.lidDbMigrated = reader.bool();
-                        break;
+                        message._lidDbMigrated = "lidDbMigrated";
+                        continue;
                     }
                 case 42: {
+                        if (wireType !== 0)
+                            break;
                         message.accountType = reader.int32();
-                        break;
+                        message._accountType = "accountType";
+                        continue;
                     }
                 case 43: {
+                        if (wireType !== 5)
+                            break;
                         message.connectionSequenceInfo = reader.sfixed32();
-                        break;
+                        message._connectionSequenceInfo = "connectionSequenceInfo";
+                        continue;
                     }
                 case 44: {
+                        if (wireType !== 0)
+                            break;
                         message.paaLink = reader.bool();
-                        break;
+                        message._paaLink = "paaLink";
+                        continue;
                     }
                 case 45: {
+                        if (wireType !== 0)
+                            break;
                         message.preacksCount = reader.int32();
-                        break;
+                        message._preacksCount = "preacksCount";
+                        continue;
                     }
                 case 46: {
+                        if (wireType !== 0)
+                            break;
                         message.processingQueueSize = reader.int32();
-                        break;
+                        message._processingQueueSize = "processingQueueSize";
+                        continue;
                     }
                 case 47: {
+                        if (wireType !== 2)
+                            break;
                         if (!(message.pairedPeripherals && message.pairedPeripherals.length))
                             message.pairedPeripherals = [];
                         message.pairedPeripherals.push(reader.string());
-                        break;
+                        continue;
                     }
                 case 48: {
+                        if (wireType !== 2)
+                            break;
                         message.testIsolationId = reader.bytes();
-                        break;
+                        message._testIsolationId = "testIsolationId";
+                        continue;
                     }
-                default:
-                    reader.skipType(tag & 7, long);
-                    break;
                 }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -900,13 +1020,13 @@ $root.Wa6 = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        ClientPayload.verify = function verify(message, long) {
+        ClientPayload.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.username != null && message.hasOwnProperty("username")) {
                 properties._username = 1;
@@ -921,7 +1041,7 @@ $root.Wa6 = (function() {
             if (message.userAgent != null && message.hasOwnProperty("userAgent")) {
                 properties._userAgent = 1;
                 {
-                    var error = $root.Wa6.ClientPayload.UserAgent.verify(message.userAgent, long + 1);
+                    var error = $root.Wa6.ClientPayload.UserAgent.verify(message.userAgent, _depth + 1);
                     if (error)
                         return "userAgent." + error;
                 }
@@ -929,7 +1049,7 @@ $root.Wa6 = (function() {
             if (message.webInfo != null && message.hasOwnProperty("webInfo")) {
                 properties._webInfo = 1;
                 {
-                    var error = $root.Wa6.ClientPayload.WebInfo.verify(message.webInfo, long + 1);
+                    var error = $root.Wa6.ClientPayload.WebInfo.verify(message.webInfo, _depth + 1);
                     if (error)
                         return "webInfo." + error;
                 }
@@ -997,7 +1117,7 @@ $root.Wa6 = (function() {
             if (message.dnsSource != null && message.hasOwnProperty("dnsSource")) {
                 properties._dnsSource = 1;
                 {
-                    var error = $root.Wa6.ClientPayload.DNSSource.verify(message.dnsSource, long + 1);
+                    var error = $root.Wa6.ClientPayload.DNSSource.verify(message.dnsSource, _depth + 1);
                     if (error)
                         return "dnsSource." + error;
                 }
@@ -1015,7 +1135,7 @@ $root.Wa6 = (function() {
             if (message.devicePairingData != null && message.hasOwnProperty("devicePairingData")) {
                 properties._devicePairingData = 1;
                 {
-                    var error = $root.Wa6.ClientPayload.DevicePairingRegistrationData.verify(message.devicePairingData, long + 1);
+                    var error = $root.Wa6.ClientPayload.DevicePairingRegistrationData.verify(message.devicePairingData, _depth + 1);
                     if (error)
                         return "devicePairingData." + error;
                 }
@@ -1097,7 +1217,7 @@ $root.Wa6 = (function() {
             if (message.interopData != null && message.hasOwnProperty("interopData")) {
                 properties._interopData = 1;
                 {
-                    var error = $root.Wa6.ClientPayload.InteropData.verify(message.interopData, long + 1);
+                    var error = $root.Wa6.ClientPayload.InteropData.verify(message.interopData, _depth + 1);
                     if (error)
                         return "interopData." + error;
                 }
@@ -1170,13 +1290,13 @@ $root.Wa6 = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Wa6.ClientPayload} ClientPayload
          */
-        ClientPayload.fromObject = function fromObject(object, long) {
+        ClientPayload.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Wa6.ClientPayload)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.Wa6.ClientPayload();
             if (object.username != null)
                 if ($util.Long)
@@ -1192,12 +1312,12 @@ $root.Wa6 = (function() {
             if (object.userAgent != null) {
                 if (typeof object.userAgent !== "object")
                     throw TypeError(".Wa6.ClientPayload.userAgent: object expected");
-                message.userAgent = $root.Wa6.ClientPayload.UserAgent.fromObject(object.userAgent, long + 1);
+                message.userAgent = $root.Wa6.ClientPayload.UserAgent.fromObject(object.userAgent, _depth + 1);
             }
             if (object.webInfo != null) {
                 if (typeof object.webInfo !== "object")
                     throw TypeError(".Wa6.ClientPayload.webInfo: object expected");
-                message.webInfo = $root.Wa6.ClientPayload.WebInfo.fromObject(object.webInfo, long + 1);
+                message.webInfo = $root.Wa6.ClientPayload.WebInfo.fromObject(object.webInfo, _depth + 1);
             }
             if (object.pushName != null)
                 message.pushName = String(object.pushName);
@@ -1312,14 +1432,14 @@ $root.Wa6 = (function() {
             if (object.shards) {
                 if (!Array.isArray(object.shards))
                     throw TypeError(".Wa6.ClientPayload.shards: array expected");
-                message.shards = [];
+                message.shards = Array(object.shards.length);
                 for (var i = 0; i < object.shards.length; ++i)
                     message.shards[i] = object.shards[i] | 0;
             }
             if (object.dnsSource != null) {
                 if (typeof object.dnsSource !== "object")
                     throw TypeError(".Wa6.ClientPayload.dnsSource: object expected");
-                message.dnsSource = $root.Wa6.ClientPayload.DNSSource.fromObject(object.dnsSource, long + 1);
+                message.dnsSource = $root.Wa6.ClientPayload.DNSSource.fromObject(object.dnsSource, _depth + 1);
             }
             if (object.connectAttemptCount != null)
                 message.connectAttemptCount = object.connectAttemptCount >>> 0;
@@ -1328,7 +1448,7 @@ $root.Wa6 = (function() {
             if (object.devicePairingData != null) {
                 if (typeof object.devicePairingData !== "object")
                     throw TypeError(".Wa6.ClientPayload.devicePairingData: object expected");
-                message.devicePairingData = $root.Wa6.ClientPayload.DevicePairingRegistrationData.fromObject(object.devicePairingData, long + 1);
+                message.devicePairingData = $root.Wa6.ClientPayload.DevicePairingRegistrationData.fromObject(object.devicePairingData, _depth + 1);
             }
             switch (object.product) {
             default:
@@ -1420,7 +1540,7 @@ $root.Wa6 = (function() {
             if (object.interopData != null) {
                 if (typeof object.interopData !== "object")
                     throw TypeError(".Wa6.ClientPayload.interopData: object expected");
-                message.interopData = $root.Wa6.ClientPayload.InteropData.fromObject(object.interopData, long + 1);
+                message.interopData = $root.Wa6.ClientPayload.InteropData.fromObject(object.interopData, _depth + 1);
             }
             switch (object.trafficAnonymization) {
             default:
@@ -1467,7 +1587,7 @@ $root.Wa6 = (function() {
             if (object.pairedPeripherals) {
                 if (!Array.isArray(object.pairedPeripherals))
                     throw TypeError(".Wa6.ClientPayload.pairedPeripherals: array expected");
-                message.pairedPeripherals = [];
+                message.pairedPeripherals = Array(object.pairedPeripherals.length);
                 for (var i = 0; i < object.pairedPeripherals.length; ++i)
                     message.pairedPeripherals[i] = String(object.pairedPeripherals[i]);
             }
@@ -1545,7 +1665,7 @@ $root.Wa6 = (function() {
                     object._connectReason = "connectReason";
             }
             if (message.shards && message.shards.length) {
-                object.shards = [];
+                object.shards = Array(message.shards.length);
                 for (var j = 0; j < message.shards.length; ++j)
                     object.shards[j] = message.shards[j];
             }
@@ -1673,7 +1793,7 @@ $root.Wa6 = (function() {
                     object._processingQueueSize = "processingQueueSize";
             }
             if (message.pairedPeripherals && message.pairedPeripherals.length) {
-                object.pairedPeripherals = [];
+                object.pairedPeripherals = Array(message.pairedPeripherals.length);
                 for (var j = 0; j < message.pairedPeripherals.length; ++j)
                     object.pairedPeripherals[j] = message.pairedPeripherals[j];
             }
@@ -1697,18 +1817,17 @@ $root.Wa6 = (function() {
         };
 
         /**
-         * Gets the default type url for ClientPayload
+         * Gets the type url for ClientPayload
          * @function getTypeUrl
          * @memberof Wa6.ClientPayload
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        ClientPayload.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/Wa6.ClientPayload";
+        ClientPayload.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/Wa6.ClientPayload";
         };
 
         /**
@@ -1797,6 +1916,7 @@ $root.Wa6 = (function() {
              * @interface IDNSSource
              * @property {Wa6.ClientPayload.DNSSource.DNSResolutionMethod|null} [dnsMethod] DNSSource dnsMethod
              * @property {boolean|null} [appCached] DNSSource appCached
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -1806,6 +1926,7 @@ $root.Wa6 = (function() {
              * @implements IDNSSource
              * @constructor
              * @param {Wa6.ClientPayload.IDNSSource=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function DNSSource(properties) {
                 if (properties)
@@ -1873,6 +1994,9 @@ $root.Wa6 = (function() {
                     writer.uint32(/* id 15, wireType 0 =*/120).int32(message.dnsMethod);
                 if (message.appCached != null && Object.hasOwnProperty.call(message, "appCached"))
                     writer.uint32(/* id 16, wireType 0 =*/128).bool(message.appCached);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -1900,32 +2024,44 @@ $root.Wa6 = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DNSSource.decode = function decode(reader, length, error, long) {
+            DNSSource.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Wa6.ClientPayload.DNSSource();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Wa6.ClientPayload.DNSSource();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 15: {
-                            message.dnsMethod = reader.int32();
-                            break;
-                        }
-                    case 16: {
-                            message.appCached = reader.bool();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 15: {
+                            if (wireType !== 0)
+                                break;
+                            message.dnsMethod = reader.int32();
+                            message._dnsMethod = "dnsMethod";
+                            continue;
+                        }
+                    case 16: {
+                            if (wireType !== 0)
+                                break;
+                            message.appCached = reader.bool();
+                            message._appCached = "appCached";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -1953,13 +2089,13 @@ $root.Wa6 = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            DNSSource.verify = function verify(message, long) {
+            DNSSource.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.dnsMethod != null && message.hasOwnProperty("dnsMethod")) {
                     properties._dnsMethod = 1;
@@ -1993,13 +2129,13 @@ $root.Wa6 = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {Wa6.ClientPayload.DNSSource} DNSSource
              */
-            DNSSource.fromObject = function fromObject(object, long) {
+            DNSSource.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.Wa6.ClientPayload.DNSSource)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.Wa6.ClientPayload.DNSSource();
                 switch (object.dnsMethod) {
                 default:
@@ -2084,18 +2220,17 @@ $root.Wa6 = (function() {
             };
 
             /**
-             * Gets the default type url for DNSSource
+             * Gets the type url for DNSSource
              * @function getTypeUrl
              * @memberof Wa6.ClientPayload.DNSSource
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            DNSSource.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/Wa6.ClientPayload.DNSSource";
+            DNSSource.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/Wa6.ClientPayload.DNSSource";
             };
 
             /**
@@ -2141,6 +2276,7 @@ $root.Wa6 = (function() {
              * @property {Uint8Array|null} [eSkeySig] DevicePairingRegistrationData eSkeySig
              * @property {Uint8Array|null} [buildHash] DevicePairingRegistrationData buildHash
              * @property {Uint8Array|null} [deviceProps] DevicePairingRegistrationData deviceProps
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -2150,6 +2286,7 @@ $root.Wa6 = (function() {
              * @implements IDevicePairingRegistrationData
              * @constructor
              * @param {Wa6.ClientPayload.IDevicePairingRegistrationData=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function DevicePairingRegistrationData(properties) {
                 if (properties)
@@ -2313,6 +2450,9 @@ $root.Wa6 = (function() {
                     writer.uint32(/* id 7, wireType 2 =*/58).bytes(message.buildHash);
                 if (message.deviceProps != null && Object.hasOwnProperty.call(message, "deviceProps"))
                     writer.uint32(/* id 8, wireType 2 =*/66).bytes(message.deviceProps);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -2340,56 +2480,86 @@ $root.Wa6 = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DevicePairingRegistrationData.decode = function decode(reader, length, error, long) {
+            DevicePairingRegistrationData.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Wa6.ClientPayload.DevicePairingRegistrationData();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Wa6.ClientPayload.DevicePairingRegistrationData();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.eRegid = reader.bytes();
-                            break;
-                        }
-                    case 2: {
-                            message.eKeytype = reader.bytes();
-                            break;
-                        }
-                    case 3: {
-                            message.eIdent = reader.bytes();
-                            break;
-                        }
-                    case 4: {
-                            message.eSkeyId = reader.bytes();
-                            break;
-                        }
-                    case 5: {
-                            message.eSkeyVal = reader.bytes();
-                            break;
-                        }
-                    case 6: {
-                            message.eSkeySig = reader.bytes();
-                            break;
-                        }
-                    case 7: {
-                            message.buildHash = reader.bytes();
-                            break;
-                        }
-                    case 8: {
-                            message.deviceProps = reader.bytes();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.eRegid = reader.bytes();
+                            message._eRegid = "eRegid";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.eKeytype = reader.bytes();
+                            message._eKeytype = "eKeytype";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 2)
+                                break;
+                            message.eIdent = reader.bytes();
+                            message._eIdent = "eIdent";
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 2)
+                                break;
+                            message.eSkeyId = reader.bytes();
+                            message._eSkeyId = "eSkeyId";
+                            continue;
+                        }
+                    case 5: {
+                            if (wireType !== 2)
+                                break;
+                            message.eSkeyVal = reader.bytes();
+                            message._eSkeyVal = "eSkeyVal";
+                            continue;
+                        }
+                    case 6: {
+                            if (wireType !== 2)
+                                break;
+                            message.eSkeySig = reader.bytes();
+                            message._eSkeySig = "eSkeySig";
+                            continue;
+                        }
+                    case 7: {
+                            if (wireType !== 2)
+                                break;
+                            message.buildHash = reader.bytes();
+                            message._buildHash = "buildHash";
+                            continue;
+                        }
+                    case 8: {
+                            if (wireType !== 2)
+                                break;
+                            message.deviceProps = reader.bytes();
+                            message._deviceProps = "deviceProps";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -2417,13 +2587,13 @@ $root.Wa6 = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            DevicePairingRegistrationData.verify = function verify(message, long) {
+            DevicePairingRegistrationData.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.eRegid != null && message.hasOwnProperty("eRegid")) {
                     properties._eRegid = 1;
@@ -2476,13 +2646,13 @@ $root.Wa6 = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {Wa6.ClientPayload.DevicePairingRegistrationData} DevicePairingRegistrationData
              */
-            DevicePairingRegistrationData.fromObject = function fromObject(object, long) {
+            DevicePairingRegistrationData.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.Wa6.ClientPayload.DevicePairingRegistrationData)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.Wa6.ClientPayload.DevicePairingRegistrationData();
                 if (object.eRegid != null)
                     if (typeof object.eRegid === "string")
@@ -2595,18 +2765,17 @@ $root.Wa6 = (function() {
             };
 
             /**
-             * Gets the default type url for DevicePairingRegistrationData
+             * Gets the type url for DevicePairingRegistrationData
              * @function getTypeUrl
              * @memberof Wa6.ClientPayload.DevicePairingRegistrationData
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            DevicePairingRegistrationData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/Wa6.ClientPayload.DevicePairingRegistrationData";
+            DevicePairingRegistrationData.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/Wa6.ClientPayload.DevicePairingRegistrationData";
             };
 
             return DevicePairingRegistrationData;
@@ -2637,6 +2806,7 @@ $root.Wa6 = (function() {
              * @property {number|Long|null} [accountId] InteropData accountId
              * @property {Uint8Array|null} [token] InteropData token
              * @property {boolean|null} [enableReadReceipts] InteropData enableReadReceipts
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -2646,6 +2816,7 @@ $root.Wa6 = (function() {
              * @implements IInteropData
              * @constructor
              * @param {Wa6.ClientPayload.IInteropData=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function InteropData(properties) {
                 if (properties)
@@ -2729,6 +2900,9 @@ $root.Wa6 = (function() {
                     writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.token);
                 if (message.enableReadReceipts != null && Object.hasOwnProperty.call(message, "enableReadReceipts"))
                     writer.uint32(/* id 3, wireType 0 =*/24).bool(message.enableReadReceipts);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -2756,36 +2930,51 @@ $root.Wa6 = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            InteropData.decode = function decode(reader, length, error, long) {
+            InteropData.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Wa6.ClientPayload.InteropData();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Wa6.ClientPayload.InteropData();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.accountId = reader.uint64();
-                            break;
-                        }
-                    case 2: {
-                            message.token = reader.bytes();
-                            break;
-                        }
-                    case 3: {
-                            message.enableReadReceipts = reader.bool();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.accountId = reader.uint64();
+                            message._accountId = "accountId";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.token = reader.bytes();
+                            message._token = "token";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 0)
+                                break;
+                            message.enableReadReceipts = reader.bool();
+                            message._enableReadReceipts = "enableReadReceipts";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -2813,13 +3002,13 @@ $root.Wa6 = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            InteropData.verify = function verify(message, long) {
+            InteropData.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.accountId != null && message.hasOwnProperty("accountId")) {
                     properties._accountId = 1;
@@ -2847,13 +3036,13 @@ $root.Wa6 = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {Wa6.ClientPayload.InteropData} InteropData
              */
-            InteropData.fromObject = function fromObject(object, long) {
+            InteropData.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.Wa6.ClientPayload.InteropData)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.Wa6.ClientPayload.InteropData();
                 if (object.accountId != null)
                     if ($util.Long)
@@ -2920,18 +3109,17 @@ $root.Wa6 = (function() {
             };
 
             /**
-             * Gets the default type url for InteropData
+             * Gets the type url for InteropData
              * @function getTypeUrl
              * @memberof Wa6.ClientPayload.InteropData
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            InteropData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/Wa6.ClientPayload.InteropData";
+            InteropData.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/Wa6.ClientPayload.InteropData";
             };
 
             return InteropData;
@@ -2994,6 +3182,7 @@ $root.Wa6 = (function() {
              * @property {Wa6.ClientPayload.UserAgent.DeviceType|null} [deviceType] UserAgent deviceType
              * @property {string|null} [deviceModelType] UserAgent deviceModelType
              * @property {Wa6.ClientPayload.UserAgent.DistributionChannel|null} [distributionChannel] UserAgent distributionChannel
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -3003,6 +3192,7 @@ $root.Wa6 = (function() {
              * @implements IUserAgent
              * @constructor
              * @param {Wa6.ClientPayload.IUserAgent=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function UserAgent(properties) {
                 if (properties)
@@ -3310,6 +3500,9 @@ $root.Wa6 = (function() {
                     writer.uint32(/* id 16, wireType 2 =*/130).string(message.deviceModelType);
                 if (message.distributionChannel != null && Object.hasOwnProperty.call(message, "distributionChannel"))
                     writer.uint32(/* id 17, wireType 0 =*/136).int32(message.distributionChannel);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -3337,92 +3530,149 @@ $root.Wa6 = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            UserAgent.decode = function decode(reader, length, error, long) {
+            UserAgent.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Wa6.ClientPayload.UserAgent();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Wa6.ClientPayload.UserAgent();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.platform = reader.int32();
-                            break;
-                        }
-                    case 2: {
-                            message.appVersion = $root.Wa6.ClientPayload.UserAgent.AppVersion.decode(reader, reader.uint32(), undefined, long + 1);
-                            break;
-                        }
-                    case 3: {
-                            message.mcc = reader.string();
-                            break;
-                        }
-                    case 4: {
-                            message.mnc = reader.string();
-                            break;
-                        }
-                    case 5: {
-                            message.osVersion = reader.string();
-                            break;
-                        }
-                    case 6: {
-                            message.manufacturer = reader.string();
-                            break;
-                        }
-                    case 7: {
-                            message.device = reader.string();
-                            break;
-                        }
-                    case 8: {
-                            message.osBuildNumber = reader.string();
-                            break;
-                        }
-                    case 9: {
-                            message.phoneId = reader.string();
-                            break;
-                        }
-                    case 10: {
-                            message.releaseChannel = reader.int32();
-                            break;
-                        }
-                    case 11: {
-                            message.localeLanguageIso6391 = reader.string();
-                            break;
-                        }
-                    case 12: {
-                            message.localeCountryIso31661Alpha2 = reader.string();
-                            break;
-                        }
-                    case 13: {
-                            message.deviceBoard = reader.string();
-                            break;
-                        }
-                    case 14: {
-                            message.deviceExpId = reader.string();
-                            break;
-                        }
-                    case 15: {
-                            message.deviceType = reader.int32();
-                            break;
-                        }
-                    case 16: {
-                            message.deviceModelType = reader.string();
-                            break;
-                        }
-                    case 17: {
-                            message.distributionChannel = reader.int32();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.platform = reader.int32();
+                            message._platform = "platform";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.appVersion = $root.Wa6.ClientPayload.UserAgent.AppVersion.decode(reader, reader.uint32(), undefined, _depth + 1, message.appVersion);
+                            message._appVersion = "appVersion";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 2)
+                                break;
+                            message.mcc = reader.string();
+                            message._mcc = "mcc";
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 2)
+                                break;
+                            message.mnc = reader.string();
+                            message._mnc = "mnc";
+                            continue;
+                        }
+                    case 5: {
+                            if (wireType !== 2)
+                                break;
+                            message.osVersion = reader.string();
+                            message._osVersion = "osVersion";
+                            continue;
+                        }
+                    case 6: {
+                            if (wireType !== 2)
+                                break;
+                            message.manufacturer = reader.string();
+                            message._manufacturer = "manufacturer";
+                            continue;
+                        }
+                    case 7: {
+                            if (wireType !== 2)
+                                break;
+                            message.device = reader.string();
+                            message._device = "device";
+                            continue;
+                        }
+                    case 8: {
+                            if (wireType !== 2)
+                                break;
+                            message.osBuildNumber = reader.string();
+                            message._osBuildNumber = "osBuildNumber";
+                            continue;
+                        }
+                    case 9: {
+                            if (wireType !== 2)
+                                break;
+                            message.phoneId = reader.string();
+                            message._phoneId = "phoneId";
+                            continue;
+                        }
+                    case 10: {
+                            if (wireType !== 0)
+                                break;
+                            message.releaseChannel = reader.int32();
+                            message._releaseChannel = "releaseChannel";
+                            continue;
+                        }
+                    case 11: {
+                            if (wireType !== 2)
+                                break;
+                            message.localeLanguageIso6391 = reader.string();
+                            message._localeLanguageIso6391 = "localeLanguageIso6391";
+                            continue;
+                        }
+                    case 12: {
+                            if (wireType !== 2)
+                                break;
+                            message.localeCountryIso31661Alpha2 = reader.string();
+                            message._localeCountryIso31661Alpha2 = "localeCountryIso31661Alpha2";
+                            continue;
+                        }
+                    case 13: {
+                            if (wireType !== 2)
+                                break;
+                            message.deviceBoard = reader.string();
+                            message._deviceBoard = "deviceBoard";
+                            continue;
+                        }
+                    case 14: {
+                            if (wireType !== 2)
+                                break;
+                            message.deviceExpId = reader.string();
+                            message._deviceExpId = "deviceExpId";
+                            continue;
+                        }
+                    case 15: {
+                            if (wireType !== 0)
+                                break;
+                            message.deviceType = reader.int32();
+                            message._deviceType = "deviceType";
+                            continue;
+                        }
+                    case 16: {
+                            if (wireType !== 2)
+                                break;
+                            message.deviceModelType = reader.string();
+                            message._deviceModelType = "deviceModelType";
+                            continue;
+                        }
+                    case 17: {
+                            if (wireType !== 0)
+                                break;
+                            message.distributionChannel = reader.int32();
+                            message._distributionChannel = "distributionChannel";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -3450,13 +3700,13 @@ $root.Wa6 = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            UserAgent.verify = function verify(message, long) {
+            UserAgent.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.platform != null && message.hasOwnProperty("platform")) {
                     properties._platform = 1;
@@ -3507,7 +3757,7 @@ $root.Wa6 = (function() {
                 if (message.appVersion != null && message.hasOwnProperty("appVersion")) {
                     properties._appVersion = 1;
                     {
-                        var error = $root.Wa6.ClientPayload.UserAgent.AppVersion.verify(message.appVersion, long + 1);
+                        var error = $root.Wa6.ClientPayload.UserAgent.AppVersion.verify(message.appVersion, _depth + 1);
                         if (error)
                             return "appVersion." + error;
                     }
@@ -3620,13 +3870,13 @@ $root.Wa6 = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {Wa6.ClientPayload.UserAgent} UserAgent
              */
-            UserAgent.fromObject = function fromObject(object, long) {
+            UserAgent.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.Wa6.ClientPayload.UserAgent)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.Wa6.ClientPayload.UserAgent();
                 switch (object.platform) {
                 default:
@@ -3791,7 +4041,7 @@ $root.Wa6 = (function() {
                 if (object.appVersion != null) {
                     if (typeof object.appVersion !== "object")
                         throw TypeError(".Wa6.ClientPayload.UserAgent.appVersion: object expected");
-                    message.appVersion = $root.Wa6.ClientPayload.UserAgent.AppVersion.fromObject(object.appVersion, long + 1);
+                    message.appVersion = $root.Wa6.ClientPayload.UserAgent.AppVersion.fromObject(object.appVersion, _depth + 1);
                 }
                 if (object.mcc != null)
                     message.mcc = String(object.mcc);
@@ -4009,18 +4259,17 @@ $root.Wa6 = (function() {
             };
 
             /**
-             * Gets the default type url for UserAgent
+             * Gets the type url for UserAgent
              * @function getTypeUrl
              * @memberof Wa6.ClientPayload.UserAgent
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            UserAgent.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/Wa6.ClientPayload.UserAgent";
+            UserAgent.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/Wa6.ClientPayload.UserAgent";
             };
 
             UserAgent.AppVersion = (function() {
@@ -4034,6 +4283,7 @@ $root.Wa6 = (function() {
                  * @property {number|null} [tertiary] AppVersion tertiary
                  * @property {number|null} [quaternary] AppVersion quaternary
                  * @property {number|null} [quinary] AppVersion quinary
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
 
                 /**
@@ -4043,6 +4293,7 @@ $root.Wa6 = (function() {
                  * @implements IAppVersion
                  * @constructor
                  * @param {Wa6.ClientPayload.UserAgent.IAppVersion=} [properties] Properties to set
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function AppVersion(properties) {
                     if (properties)
@@ -4158,6 +4409,9 @@ $root.Wa6 = (function() {
                         writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.quaternary);
                     if (message.quinary != null && Object.hasOwnProperty.call(message, "quinary"))
                         writer.uint32(/* id 5, wireType 0 =*/40).uint32(message.quinary);
+                    if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                        for (var i = 0; i < message.$unknowns.length; ++i)
+                            writer.raw(message.$unknowns[i]);
                     return writer;
                 };
 
@@ -4185,44 +4439,65 @@ $root.Wa6 = (function() {
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                AppVersion.decode = function decode(reader, length, error, long) {
+                AppVersion.decode = function decode(reader, length, _end, _depth, _target) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $Reader.recursionLimit)
-                        throw Error("maximum nesting depth exceeded");
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Wa6.ClientPayload.UserAgent.AppVersion();
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $Reader.recursionLimit)
+                        throw Error("max depth exceeded");
+                    var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Wa6.ClientPayload.UserAgent.AppVersion();
                     while (reader.pos < end) {
-                        var tag = reader.uint32();
-                        if (tag === error)
-                            break;
-                        switch (tag >>> 3) {
-                        case 1: {
-                                message.primary = reader.uint32();
-                                break;
-                            }
-                        case 2: {
-                                message.secondary = reader.uint32();
-                                break;
-                            }
-                        case 3: {
-                                message.tertiary = reader.uint32();
-                                break;
-                            }
-                        case 4: {
-                                message.quaternary = reader.uint32();
-                                break;
-                            }
-                        case 5: {
-                                message.quinary = reader.uint32();
-                                break;
-                            }
-                        default:
-                            reader.skipType(tag & 7, long);
+                        var start = reader.pos;
+                        var tag = reader.tag();
+                        if (tag === _end) {
+                            _end = undefined;
                             break;
                         }
+                        var wireType = tag & 7;
+                        switch (tag >>>= 3) {
+                        case 1: {
+                                if (wireType !== 0)
+                                    break;
+                                message.primary = reader.uint32();
+                                message._primary = "primary";
+                                continue;
+                            }
+                        case 2: {
+                                if (wireType !== 0)
+                                    break;
+                                message.secondary = reader.uint32();
+                                message._secondary = "secondary";
+                                continue;
+                            }
+                        case 3: {
+                                if (wireType !== 0)
+                                    break;
+                                message.tertiary = reader.uint32();
+                                message._tertiary = "tertiary";
+                                continue;
+                            }
+                        case 4: {
+                                if (wireType !== 0)
+                                    break;
+                                message.quaternary = reader.uint32();
+                                message._quaternary = "quaternary";
+                                continue;
+                            }
+                        case 5: {
+                                if (wireType !== 0)
+                                    break;
+                                message.quinary = reader.uint32();
+                                message._quinary = "quinary";
+                                continue;
+                            }
+                        }
+                        reader.skipType(wireType, _depth, tag);
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                    if (_end !== undefined)
+                        throw Error("missing end group");
                     return message;
                 };
 
@@ -4250,13 +4525,13 @@ $root.Wa6 = (function() {
                  * @param {Object.<string,*>} message Plain object to verify
                  * @returns {string|null} `null` if valid, otherwise the reason why it is not
                  */
-                AppVersion.verify = function verify(message, long) {
+                AppVersion.verify = function verify(message, _depth) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $util.recursionLimit)
-                        return "maximum nesting depth exceeded";
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        return "max depth exceeded";
                     var properties = {};
                     if (message.primary != null && message.hasOwnProperty("primary")) {
                         properties._primary = 1;
@@ -4294,13 +4569,13 @@ $root.Wa6 = (function() {
                  * @param {Object.<string,*>} object Plain object
                  * @returns {Wa6.ClientPayload.UserAgent.AppVersion} AppVersion
                  */
-                AppVersion.fromObject = function fromObject(object, long) {
+                AppVersion.fromObject = function fromObject(object, _depth) {
                     if (object instanceof $root.Wa6.ClientPayload.UserAgent.AppVersion)
                         return object;
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $util.recursionLimit)
-                        throw Error("maximum nesting depth exceeded");
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw Error("max depth exceeded");
                     var message = new $root.Wa6.ClientPayload.UserAgent.AppVersion();
                     if (object.primary != null)
                         message.primary = object.primary >>> 0;
@@ -4368,18 +4643,17 @@ $root.Wa6 = (function() {
                 };
 
                 /**
-                 * Gets the default type url for AppVersion
+                 * Gets the type url for AppVersion
                  * @function getTypeUrl
                  * @memberof Wa6.ClientPayload.UserAgent.AppVersion
                  * @static
-                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-                 * @returns {string} The default type url
+                 * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+                 * @returns {string} The type url
                  */
-                AppVersion.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                    if (typeUrlPrefix === undefined) {
-                        typeUrlPrefix = "type.googleapis.com";
-                    }
-                    return typeUrlPrefix + "/Wa6.ClientPayload.UserAgent.AppVersion";
+                AppVersion.getTypeUrl = function getTypeUrl(prefix) {
+                    if (prefix === undefined)
+                        prefix = "type.googleapis.com";
+                    return prefix + "/Wa6.ClientPayload.UserAgent.AppVersion";
                 };
 
                 return AppVersion;
@@ -4542,6 +4816,7 @@ $root.Wa6 = (function() {
              * @property {Wa6.ClientPayload.WebInfo.WebSubPlatform|null} [webSubPlatform] WebInfo webSubPlatform
              * @property {string|null} [browser] WebInfo browser
              * @property {string|null} [browserVersion] WebInfo browserVersion
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -4551,6 +4826,7 @@ $root.Wa6 = (function() {
              * @implements IWebInfo
              * @constructor
              * @param {Wa6.ClientPayload.IWebInfo=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function WebInfo(properties) {
                 if (properties)
@@ -4682,6 +4958,9 @@ $root.Wa6 = (function() {
                     writer.uint32(/* id 5, wireType 2 =*/42).string(message.browser);
                 if (message.browserVersion != null && Object.hasOwnProperty.call(message, "browserVersion"))
                     writer.uint32(/* id 6, wireType 2 =*/50).string(message.browserVersion);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -4709,48 +4988,72 @@ $root.Wa6 = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            WebInfo.decode = function decode(reader, length, error, long) {
+            WebInfo.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Wa6.ClientPayload.WebInfo();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Wa6.ClientPayload.WebInfo();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.refToken = reader.string();
-                            break;
-                        }
-                    case 2: {
-                            message.version = reader.string();
-                            break;
-                        }
-                    case 3: {
-                            message.webdPayload = $root.Wa6.ClientPayload.WebInfo.WebdPayload.decode(reader, reader.uint32(), undefined, long + 1);
-                            break;
-                        }
-                    case 4: {
-                            message.webSubPlatform = reader.int32();
-                            break;
-                        }
-                    case 5: {
-                            message.browser = reader.string();
-                            break;
-                        }
-                    case 6: {
-                            message.browserVersion = reader.string();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.refToken = reader.string();
+                            message._refToken = "refToken";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.version = reader.string();
+                            message._version = "version";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 2)
+                                break;
+                            message.webdPayload = $root.Wa6.ClientPayload.WebInfo.WebdPayload.decode(reader, reader.uint32(), undefined, _depth + 1, message.webdPayload);
+                            message._webdPayload = "webdPayload";
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 0)
+                                break;
+                            message.webSubPlatform = reader.int32();
+                            message._webSubPlatform = "webSubPlatform";
+                            continue;
+                        }
+                    case 5: {
+                            if (wireType !== 2)
+                                break;
+                            message.browser = reader.string();
+                            message._browser = "browser";
+                            continue;
+                        }
+                    case 6: {
+                            if (wireType !== 2)
+                                break;
+                            message.browserVersion = reader.string();
+                            message._browserVersion = "browserVersion";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -4778,13 +5081,13 @@ $root.Wa6 = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            WebInfo.verify = function verify(message, long) {
+            WebInfo.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.refToken != null && message.hasOwnProperty("refToken")) {
                     properties._refToken = 1;
@@ -4799,7 +5102,7 @@ $root.Wa6 = (function() {
                 if (message.webdPayload != null && message.hasOwnProperty("webdPayload")) {
                     properties._webdPayload = 1;
                     {
-                        var error = $root.Wa6.ClientPayload.WebInfo.WebdPayload.verify(message.webdPayload, long + 1);
+                        var error = $root.Wa6.ClientPayload.WebInfo.WebdPayload.verify(message.webdPayload, _depth + 1);
                         if (error)
                             return "webdPayload." + error;
                     }
@@ -4839,13 +5142,13 @@ $root.Wa6 = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {Wa6.ClientPayload.WebInfo} WebInfo
              */
-            WebInfo.fromObject = function fromObject(object, long) {
+            WebInfo.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.Wa6.ClientPayload.WebInfo)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.Wa6.ClientPayload.WebInfo();
                 if (object.refToken != null)
                     message.refToken = String(object.refToken);
@@ -4854,7 +5157,7 @@ $root.Wa6 = (function() {
                 if (object.webdPayload != null) {
                     if (typeof object.webdPayload !== "object")
                         throw TypeError(".Wa6.ClientPayload.WebInfo.webdPayload: object expected");
-                    message.webdPayload = $root.Wa6.ClientPayload.WebInfo.WebdPayload.fromObject(object.webdPayload, long + 1);
+                    message.webdPayload = $root.Wa6.ClientPayload.WebInfo.WebdPayload.fromObject(object.webdPayload, _depth + 1);
                 }
                 switch (object.webSubPlatform) {
                 default:
@@ -4953,18 +5256,17 @@ $root.Wa6 = (function() {
             };
 
             /**
-             * Gets the default type url for WebInfo
+             * Gets the type url for WebInfo
              * @function getTypeUrl
              * @memberof Wa6.ClientPayload.WebInfo
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            WebInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/Wa6.ClientPayload.WebInfo";
+            WebInfo.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/Wa6.ClientPayload.WebInfo";
             };
 
             /**
@@ -5006,6 +5308,7 @@ $root.Wa6 = (function() {
                  * @property {boolean|null} [supportsE2EDocument] WebdPayload supportsE2EDocument
                  * @property {string|null} [documentTypes] WebdPayload documentTypes
                  * @property {Uint8Array|null} [features] WebdPayload features
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
 
                 /**
@@ -5015,6 +5318,7 @@ $root.Wa6 = (function() {
                  * @implements IWebdPayload
                  * @constructor
                  * @param {Wa6.ClientPayload.WebInfo.IWebdPayload=} [properties] Properties to set
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function WebdPayload(properties) {
                     if (properties)
@@ -5226,6 +5530,9 @@ $root.Wa6 = (function() {
                         writer.uint32(/* id 10, wireType 2 =*/82).string(message.documentTypes);
                     if (message.features != null && Object.hasOwnProperty.call(message, "features"))
                         writer.uint32(/* id 11, wireType 2 =*/90).bytes(message.features);
+                    if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                        for (var i = 0; i < message.$unknowns.length; ++i)
+                            writer.raw(message.$unknowns[i]);
                     return writer;
                 };
 
@@ -5253,68 +5560,107 @@ $root.Wa6 = (function() {
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                WebdPayload.decode = function decode(reader, length, error, long) {
+                WebdPayload.decode = function decode(reader, length, _end, _depth, _target) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $Reader.recursionLimit)
-                        throw Error("maximum nesting depth exceeded");
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Wa6.ClientPayload.WebInfo.WebdPayload();
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $Reader.recursionLimit)
+                        throw Error("max depth exceeded");
+                    var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Wa6.ClientPayload.WebInfo.WebdPayload();
                     while (reader.pos < end) {
-                        var tag = reader.uint32();
-                        if (tag === error)
-                            break;
-                        switch (tag >>> 3) {
-                        case 1: {
-                                message.usesParticipantInKey = reader.bool();
-                                break;
-                            }
-                        case 2: {
-                                message.supportsStarredMessages = reader.bool();
-                                break;
-                            }
-                        case 3: {
-                                message.supportsDocumentMessages = reader.bool();
-                                break;
-                            }
-                        case 4: {
-                                message.supportsUrlMessages = reader.bool();
-                                break;
-                            }
-                        case 5: {
-                                message.supportsMediaRetry = reader.bool();
-                                break;
-                            }
-                        case 6: {
-                                message.supportsE2EImage = reader.bool();
-                                break;
-                            }
-                        case 7: {
-                                message.supportsE2EVideo = reader.bool();
-                                break;
-                            }
-                        case 8: {
-                                message.supportsE2EAudio = reader.bool();
-                                break;
-                            }
-                        case 9: {
-                                message.supportsE2EDocument = reader.bool();
-                                break;
-                            }
-                        case 10: {
-                                message.documentTypes = reader.string();
-                                break;
-                            }
-                        case 11: {
-                                message.features = reader.bytes();
-                                break;
-                            }
-                        default:
-                            reader.skipType(tag & 7, long);
+                        var start = reader.pos;
+                        var tag = reader.tag();
+                        if (tag === _end) {
+                            _end = undefined;
                             break;
                         }
+                        var wireType = tag & 7;
+                        switch (tag >>>= 3) {
+                        case 1: {
+                                if (wireType !== 0)
+                                    break;
+                                message.usesParticipantInKey = reader.bool();
+                                message._usesParticipantInKey = "usesParticipantInKey";
+                                continue;
+                            }
+                        case 2: {
+                                if (wireType !== 0)
+                                    break;
+                                message.supportsStarredMessages = reader.bool();
+                                message._supportsStarredMessages = "supportsStarredMessages";
+                                continue;
+                            }
+                        case 3: {
+                                if (wireType !== 0)
+                                    break;
+                                message.supportsDocumentMessages = reader.bool();
+                                message._supportsDocumentMessages = "supportsDocumentMessages";
+                                continue;
+                            }
+                        case 4: {
+                                if (wireType !== 0)
+                                    break;
+                                message.supportsUrlMessages = reader.bool();
+                                message._supportsUrlMessages = "supportsUrlMessages";
+                                continue;
+                            }
+                        case 5: {
+                                if (wireType !== 0)
+                                    break;
+                                message.supportsMediaRetry = reader.bool();
+                                message._supportsMediaRetry = "supportsMediaRetry";
+                                continue;
+                            }
+                        case 6: {
+                                if (wireType !== 0)
+                                    break;
+                                message.supportsE2EImage = reader.bool();
+                                message._supportsE2EImage = "supportsE2EImage";
+                                continue;
+                            }
+                        case 7: {
+                                if (wireType !== 0)
+                                    break;
+                                message.supportsE2EVideo = reader.bool();
+                                message._supportsE2EVideo = "supportsE2EVideo";
+                                continue;
+                            }
+                        case 8: {
+                                if (wireType !== 0)
+                                    break;
+                                message.supportsE2EAudio = reader.bool();
+                                message._supportsE2EAudio = "supportsE2EAudio";
+                                continue;
+                            }
+                        case 9: {
+                                if (wireType !== 0)
+                                    break;
+                                message.supportsE2EDocument = reader.bool();
+                                message._supportsE2EDocument = "supportsE2EDocument";
+                                continue;
+                            }
+                        case 10: {
+                                if (wireType !== 2)
+                                    break;
+                                message.documentTypes = reader.string();
+                                message._documentTypes = "documentTypes";
+                                continue;
+                            }
+                        case 11: {
+                                if (wireType !== 2)
+                                    break;
+                                message.features = reader.bytes();
+                                message._features = "features";
+                                continue;
+                            }
+                        }
+                        reader.skipType(wireType, _depth, tag);
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                    if (_end !== undefined)
+                        throw Error("missing end group");
                     return message;
                 };
 
@@ -5342,13 +5688,13 @@ $root.Wa6 = (function() {
                  * @param {Object.<string,*>} message Plain object to verify
                  * @returns {string|null} `null` if valid, otherwise the reason why it is not
                  */
-                WebdPayload.verify = function verify(message, long) {
+                WebdPayload.verify = function verify(message, _depth) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $util.recursionLimit)
-                        return "maximum nesting depth exceeded";
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        return "max depth exceeded";
                     var properties = {};
                     if (message.usesParticipantInKey != null && message.hasOwnProperty("usesParticipantInKey")) {
                         properties._usesParticipantInKey = 1;
@@ -5416,13 +5762,13 @@ $root.Wa6 = (function() {
                  * @param {Object.<string,*>} object Plain object
                  * @returns {Wa6.ClientPayload.WebInfo.WebdPayload} WebdPayload
                  */
-                WebdPayload.fromObject = function fromObject(object, long) {
+                WebdPayload.fromObject = function fromObject(object, _depth) {
                     if (object instanceof $root.Wa6.ClientPayload.WebInfo.WebdPayload)
                         return object;
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $util.recursionLimit)
-                        throw Error("maximum nesting depth exceeded");
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw Error("max depth exceeded");
                     var message = new $root.Wa6.ClientPayload.WebInfo.WebdPayload();
                     if (object.usesParticipantInKey != null)
                         message.usesParticipantInKey = Boolean(object.usesParticipantInKey);
@@ -5535,18 +5881,17 @@ $root.Wa6 = (function() {
                 };
 
                 /**
-                 * Gets the default type url for WebdPayload
+                 * Gets the type url for WebdPayload
                  * @function getTypeUrl
                  * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
                  * @static
-                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-                 * @returns {string} The default type url
+                 * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+                 * @returns {string} The type url
                  */
-                WebdPayload.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                    if (typeUrlPrefix === undefined) {
-                        typeUrlPrefix = "type.googleapis.com";
-                    }
-                    return typeUrlPrefix + "/Wa6.ClientPayload.WebInfo.WebdPayload";
+                WebdPayload.getTypeUrl = function getTypeUrl(prefix) {
+                    if (prefix === undefined)
+                        prefix = "type.googleapis.com";
+                    return prefix + "/Wa6.ClientPayload.WebInfo.WebdPayload";
                 };
 
                 return WebdPayload;
@@ -5567,6 +5912,7 @@ $root.Wa6 = (function() {
          * @property {Wa6.HandshakeMessage.IClientHello|null} [clientHello] HandshakeMessage clientHello
          * @property {Wa6.HandshakeMessage.IServerHello|null} [serverHello] HandshakeMessage serverHello
          * @property {Wa6.HandshakeMessage.IClientFinish|null} [clientFinish] HandshakeMessage clientFinish
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -5576,6 +5922,7 @@ $root.Wa6 = (function() {
          * @implements IHandshakeMessage
          * @constructor
          * @param {Wa6.IHandshakeMessage=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function HandshakeMessage(properties) {
             if (properties)
@@ -5659,6 +6006,9 @@ $root.Wa6 = (function() {
                 $root.Wa6.HandshakeMessage.ServerHello.encode(message.serverHello, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
             if (message.clientFinish != null && Object.hasOwnProperty.call(message, "clientFinish"))
                 $root.Wa6.HandshakeMessage.ClientFinish.encode(message.clientFinish, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -5686,36 +6036,51 @@ $root.Wa6 = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        HandshakeMessage.decode = function decode(reader, length, error, long) {
+        HandshakeMessage.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Wa6.HandshakeMessage();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Wa6.HandshakeMessage();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 2: {
-                        message.clientHello = $root.Wa6.HandshakeMessage.ClientHello.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 3: {
-                        message.serverHello = $root.Wa6.HandshakeMessage.ServerHello.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 4: {
-                        message.clientFinish = $root.Wa6.HandshakeMessage.ClientFinish.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.clientHello = $root.Wa6.HandshakeMessage.ClientHello.decode(reader, reader.uint32(), undefined, _depth + 1, message.clientHello);
+                        message._clientHello = "clientHello";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.serverHello = $root.Wa6.HandshakeMessage.ServerHello.decode(reader, reader.uint32(), undefined, _depth + 1, message.serverHello);
+                        message._serverHello = "serverHello";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 2)
+                            break;
+                        message.clientFinish = $root.Wa6.HandshakeMessage.ClientFinish.decode(reader, reader.uint32(), undefined, _depth + 1, message.clientFinish);
+                        message._clientFinish = "clientFinish";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -5743,18 +6108,18 @@ $root.Wa6 = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        HandshakeMessage.verify = function verify(message, long) {
+        HandshakeMessage.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.clientHello != null && message.hasOwnProperty("clientHello")) {
                 properties._clientHello = 1;
                 {
-                    var error = $root.Wa6.HandshakeMessage.ClientHello.verify(message.clientHello, long + 1);
+                    var error = $root.Wa6.HandshakeMessage.ClientHello.verify(message.clientHello, _depth + 1);
                     if (error)
                         return "clientHello." + error;
                 }
@@ -5762,7 +6127,7 @@ $root.Wa6 = (function() {
             if (message.serverHello != null && message.hasOwnProperty("serverHello")) {
                 properties._serverHello = 1;
                 {
-                    var error = $root.Wa6.HandshakeMessage.ServerHello.verify(message.serverHello, long + 1);
+                    var error = $root.Wa6.HandshakeMessage.ServerHello.verify(message.serverHello, _depth + 1);
                     if (error)
                         return "serverHello." + error;
                 }
@@ -5770,7 +6135,7 @@ $root.Wa6 = (function() {
             if (message.clientFinish != null && message.hasOwnProperty("clientFinish")) {
                 properties._clientFinish = 1;
                 {
-                    var error = $root.Wa6.HandshakeMessage.ClientFinish.verify(message.clientFinish, long + 1);
+                    var error = $root.Wa6.HandshakeMessage.ClientFinish.verify(message.clientFinish, _depth + 1);
                     if (error)
                         return "clientFinish." + error;
                 }
@@ -5786,28 +6151,28 @@ $root.Wa6 = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Wa6.HandshakeMessage} HandshakeMessage
          */
-        HandshakeMessage.fromObject = function fromObject(object, long) {
+        HandshakeMessage.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Wa6.HandshakeMessage)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.Wa6.HandshakeMessage();
             if (object.clientHello != null) {
                 if (typeof object.clientHello !== "object")
                     throw TypeError(".Wa6.HandshakeMessage.clientHello: object expected");
-                message.clientHello = $root.Wa6.HandshakeMessage.ClientHello.fromObject(object.clientHello, long + 1);
+                message.clientHello = $root.Wa6.HandshakeMessage.ClientHello.fromObject(object.clientHello, _depth + 1);
             }
             if (object.serverHello != null) {
                 if (typeof object.serverHello !== "object")
                     throw TypeError(".Wa6.HandshakeMessage.serverHello: object expected");
-                message.serverHello = $root.Wa6.HandshakeMessage.ServerHello.fromObject(object.serverHello, long + 1);
+                message.serverHello = $root.Wa6.HandshakeMessage.ServerHello.fromObject(object.serverHello, _depth + 1);
             }
             if (object.clientFinish != null) {
                 if (typeof object.clientFinish !== "object")
                     throw TypeError(".Wa6.HandshakeMessage.clientFinish: object expected");
-                message.clientFinish = $root.Wa6.HandshakeMessage.ClientFinish.fromObject(object.clientFinish, long + 1);
+                message.clientFinish = $root.Wa6.HandshakeMessage.ClientFinish.fromObject(object.clientFinish, _depth + 1);
             }
             return message;
         };
@@ -5855,18 +6220,17 @@ $root.Wa6 = (function() {
         };
 
         /**
-         * Gets the default type url for HandshakeMessage
+         * Gets the type url for HandshakeMessage
          * @function getTypeUrl
          * @memberof Wa6.HandshakeMessage
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        HandshakeMessage.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/Wa6.HandshakeMessage";
+        HandshakeMessage.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/Wa6.HandshakeMessage";
         };
 
         HandshakeMessage.ClientFinish = (function() {
@@ -5880,6 +6244,7 @@ $root.Wa6 = (function() {
              * @property {Uint8Array|null} [extendedCiphertext] ClientFinish extendedCiphertext
              * @property {Uint8Array|null} [paddedBytes] ClientFinish paddedBytes
              * @property {boolean|null} [simulateXxkemFs] ClientFinish simulateXxkemFs
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -5889,6 +6254,7 @@ $root.Wa6 = (function() {
              * @implements IClientFinish
              * @constructor
              * @param {Wa6.HandshakeMessage.IClientFinish=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function ClientFinish(properties) {
                 if (properties)
@@ -6004,6 +6370,9 @@ $root.Wa6 = (function() {
                     writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.paddedBytes);
                 if (message.simulateXxkemFs != null && Object.hasOwnProperty.call(message, "simulateXxkemFs"))
                     writer.uint32(/* id 5, wireType 0 =*/40).bool(message.simulateXxkemFs);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -6031,44 +6400,65 @@ $root.Wa6 = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            ClientFinish.decode = function decode(reader, length, error, long) {
+            ClientFinish.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Wa6.HandshakeMessage.ClientFinish();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Wa6.HandshakeMessage.ClientFinish();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message["static"] = reader.bytes();
-                            break;
-                        }
-                    case 2: {
-                            message.payload = reader.bytes();
-                            break;
-                        }
-                    case 3: {
-                            message.extendedCiphertext = reader.bytes();
-                            break;
-                        }
-                    case 4: {
-                            message.paddedBytes = reader.bytes();
-                            break;
-                        }
-                    case 5: {
-                            message.simulateXxkemFs = reader.bool();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message["static"] = reader.bytes();
+                            message._static = "static";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.payload = reader.bytes();
+                            message._payload = "payload";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 2)
+                                break;
+                            message.extendedCiphertext = reader.bytes();
+                            message._extendedCiphertext = "extendedCiphertext";
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 2)
+                                break;
+                            message.paddedBytes = reader.bytes();
+                            message._paddedBytes = "paddedBytes";
+                            continue;
+                        }
+                    case 5: {
+                            if (wireType !== 0)
+                                break;
+                            message.simulateXxkemFs = reader.bool();
+                            message._simulateXxkemFs = "simulateXxkemFs";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -6096,13 +6486,13 @@ $root.Wa6 = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            ClientFinish.verify = function verify(message, long) {
+            ClientFinish.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message["static"] != null && message.hasOwnProperty("static")) {
                     properties._static = 1;
@@ -6140,13 +6530,13 @@ $root.Wa6 = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {Wa6.HandshakeMessage.ClientFinish} ClientFinish
              */
-            ClientFinish.fromObject = function fromObject(object, long) {
+            ClientFinish.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.Wa6.HandshakeMessage.ClientFinish)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.Wa6.HandshakeMessage.ClientFinish();
                 if (object["static"] != null)
                     if (typeof object["static"] === "string")
@@ -6226,18 +6616,17 @@ $root.Wa6 = (function() {
             };
 
             /**
-             * Gets the default type url for ClientFinish
+             * Gets the type url for ClientFinish
              * @function getTypeUrl
              * @memberof Wa6.HandshakeMessage.ClientFinish
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            ClientFinish.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/Wa6.HandshakeMessage.ClientFinish";
+            ClientFinish.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/Wa6.HandshakeMessage.ClientFinish";
             };
 
             return ClientFinish;
@@ -6259,6 +6648,7 @@ $root.Wa6 = (function() {
              * @property {boolean|null} [simulateXxkemFs] ClientHello simulateXxkemFs
              * @property {Wa6.HandshakeMessage.HandshakePqMode|null} [pqMode] ClientHello pqMode
              * @property {Uint8Array|null} [extendedEphemeral] ClientHello extendedEphemeral
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -6268,6 +6658,7 @@ $root.Wa6 = (function() {
              * @implements IClientHello
              * @constructor
              * @param {Wa6.HandshakeMessage.IClientHello=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function ClientHello(properties) {
                 if (properties)
@@ -6463,6 +6854,9 @@ $root.Wa6 = (function() {
                     writer.uint32(/* id 9, wireType 0 =*/72).int32(message.pqMode);
                 if (message.extendedEphemeral != null && Object.hasOwnProperty.call(message, "extendedEphemeral"))
                     writer.uint32(/* id 10, wireType 2 =*/82).bytes(message.extendedEphemeral);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -6490,64 +6884,100 @@ $root.Wa6 = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            ClientHello.decode = function decode(reader, length, error, long) {
+            ClientHello.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Wa6.HandshakeMessage.ClientHello();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Wa6.HandshakeMessage.ClientHello();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.ephemeral = reader.bytes();
-                            break;
-                        }
-                    case 2: {
-                            message["static"] = reader.bytes();
-                            break;
-                        }
-                    case 3: {
-                            message.payload = reader.bytes();
-                            break;
-                        }
-                    case 4: {
-                            message.useExtended = reader.bool();
-                            break;
-                        }
-                    case 5: {
-                            message.extendedCiphertext = reader.bytes();
-                            break;
-                        }
-                    case 6: {
-                            message.paddedBytes = reader.bytes();
-                            break;
-                        }
-                    case 7: {
-                            message.sendServerHelloPaddedBytes = reader.bool();
-                            break;
-                        }
-                    case 8: {
-                            message.simulateXxkemFs = reader.bool();
-                            break;
-                        }
-                    case 9: {
-                            message.pqMode = reader.int32();
-                            break;
-                        }
-                    case 10: {
-                            message.extendedEphemeral = reader.bytes();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.ephemeral = reader.bytes();
+                            message._ephemeral = "ephemeral";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message["static"] = reader.bytes();
+                            message._static = "static";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 2)
+                                break;
+                            message.payload = reader.bytes();
+                            message._payload = "payload";
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 0)
+                                break;
+                            message.useExtended = reader.bool();
+                            message._useExtended = "useExtended";
+                            continue;
+                        }
+                    case 5: {
+                            if (wireType !== 2)
+                                break;
+                            message.extendedCiphertext = reader.bytes();
+                            message._extendedCiphertext = "extendedCiphertext";
+                            continue;
+                        }
+                    case 6: {
+                            if (wireType !== 2)
+                                break;
+                            message.paddedBytes = reader.bytes();
+                            message._paddedBytes = "paddedBytes";
+                            continue;
+                        }
+                    case 7: {
+                            if (wireType !== 0)
+                                break;
+                            message.sendServerHelloPaddedBytes = reader.bool();
+                            message._sendServerHelloPaddedBytes = "sendServerHelloPaddedBytes";
+                            continue;
+                        }
+                    case 8: {
+                            if (wireType !== 0)
+                                break;
+                            message.simulateXxkemFs = reader.bool();
+                            message._simulateXxkemFs = "simulateXxkemFs";
+                            continue;
+                        }
+                    case 9: {
+                            if (wireType !== 0)
+                                break;
+                            message.pqMode = reader.int32();
+                            message._pqMode = "pqMode";
+                            continue;
+                        }
+                    case 10: {
+                            if (wireType !== 2)
+                                break;
+                            message.extendedEphemeral = reader.bytes();
+                            message._extendedEphemeral = "extendedEphemeral";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -6575,13 +7005,13 @@ $root.Wa6 = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            ClientHello.verify = function verify(message, long) {
+            ClientHello.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.ephemeral != null && message.hasOwnProperty("ephemeral")) {
                     properties._ephemeral = 1;
@@ -6656,13 +7086,13 @@ $root.Wa6 = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {Wa6.HandshakeMessage.ClientHello} ClientHello
              */
-            ClientHello.fromObject = function fromObject(object, long) {
+            ClientHello.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.Wa6.HandshakeMessage.ClientHello)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.Wa6.HandshakeMessage.ClientHello();
                 if (object.ephemeral != null)
                     if (typeof object.ephemeral === "string")
@@ -6825,18 +7255,17 @@ $root.Wa6 = (function() {
             };
 
             /**
-             * Gets the default type url for ClientHello
+             * Gets the type url for ClientHello
              * @function getTypeUrl
              * @memberof Wa6.HandshakeMessage.ClientHello
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            ClientHello.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/Wa6.HandshakeMessage.ClientHello";
+            ClientHello.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/Wa6.HandshakeMessage.ClientHello";
             };
 
             return ClientHello;
@@ -6882,6 +7311,7 @@ $root.Wa6 = (function() {
              * @property {Uint8Array|null} [extendedStatic] ServerHello extendedStatic
              * @property {Uint8Array|null} [paddingBytes] ServerHello paddingBytes
              * @property {Uint8Array|null} [extendedCiphertext] ServerHello extendedCiphertext
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -6891,6 +7321,7 @@ $root.Wa6 = (function() {
              * @implements IServerHello
              * @constructor
              * @param {Wa6.HandshakeMessage.IServerHello=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function ServerHello(properties) {
                 if (properties)
@@ -7022,6 +7453,9 @@ $root.Wa6 = (function() {
                     writer.uint32(/* id 5, wireType 2 =*/42).bytes(message.paddingBytes);
                 if (message.extendedCiphertext != null && Object.hasOwnProperty.call(message, "extendedCiphertext"))
                     writer.uint32(/* id 6, wireType 2 =*/50).bytes(message.extendedCiphertext);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -7049,48 +7483,72 @@ $root.Wa6 = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            ServerHello.decode = function decode(reader, length, error, long) {
+            ServerHello.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Wa6.HandshakeMessage.ServerHello();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Wa6.HandshakeMessage.ServerHello();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.ephemeral = reader.bytes();
-                            break;
-                        }
-                    case 2: {
-                            message["static"] = reader.bytes();
-                            break;
-                        }
-                    case 3: {
-                            message.payload = reader.bytes();
-                            break;
-                        }
-                    case 4: {
-                            message.extendedStatic = reader.bytes();
-                            break;
-                        }
-                    case 5: {
-                            message.paddingBytes = reader.bytes();
-                            break;
-                        }
-                    case 6: {
-                            message.extendedCiphertext = reader.bytes();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.ephemeral = reader.bytes();
+                            message._ephemeral = "ephemeral";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message["static"] = reader.bytes();
+                            message._static = "static";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 2)
+                                break;
+                            message.payload = reader.bytes();
+                            message._payload = "payload";
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 2)
+                                break;
+                            message.extendedStatic = reader.bytes();
+                            message._extendedStatic = "extendedStatic";
+                            continue;
+                        }
+                    case 5: {
+                            if (wireType !== 2)
+                                break;
+                            message.paddingBytes = reader.bytes();
+                            message._paddingBytes = "paddingBytes";
+                            continue;
+                        }
+                    case 6: {
+                            if (wireType !== 2)
+                                break;
+                            message.extendedCiphertext = reader.bytes();
+                            message._extendedCiphertext = "extendedCiphertext";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -7118,13 +7576,13 @@ $root.Wa6 = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            ServerHello.verify = function verify(message, long) {
+            ServerHello.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.ephemeral != null && message.hasOwnProperty("ephemeral")) {
                     properties._ephemeral = 1;
@@ -7167,13 +7625,13 @@ $root.Wa6 = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {Wa6.HandshakeMessage.ServerHello} ServerHello
              */
-            ServerHello.fromObject = function fromObject(object, long) {
+            ServerHello.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.Wa6.HandshakeMessage.ServerHello)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.Wa6.HandshakeMessage.ServerHello();
                 if (object.ephemeral != null)
                     if (typeof object.ephemeral === "string")
@@ -7266,18 +7724,17 @@ $root.Wa6 = (function() {
             };
 
             /**
-             * Gets the default type url for ServerHello
+             * Gets the type url for ServerHello
              * @function getTypeUrl
              * @memberof Wa6.HandshakeMessage.ServerHello
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            ServerHello.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/Wa6.HandshakeMessage.ServerHello";
+            ServerHello.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/Wa6.HandshakeMessage.ServerHello";
             };
 
             return ServerHello;

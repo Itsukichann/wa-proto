@@ -1,4 +1,4 @@
-/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars*/
+/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
 "use strict";
 
 var $protobuf = require("protobufjs/minimal");
@@ -34,6 +34,7 @@ $root.AICommonDeprecated = (function() {
          * @property {AICommonDeprecated.IAIRichResponseLatexMetadata|null} [latexMetadata] AIRichResponseSubMessage latexMetadata
          * @property {AICommonDeprecated.IAIRichResponseMapMetadata|null} [mapMetadata] AIRichResponseSubMessage mapMetadata
          * @property {AICommonDeprecated.IAIRichResponseContentItemsMetadata|null} [contentItemsMetadata] AIRichResponseSubMessage contentItemsMetadata
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -43,6 +44,7 @@ $root.AICommonDeprecated = (function() {
          * @implements IAIRichResponseSubMessage
          * @constructor
          * @param {AICommonDeprecated.IAIRichResponseSubMessage=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIRichResponseSubMessage(properties) {
             if (properties)
@@ -238,6 +240,9 @@ $root.AICommonDeprecated = (function() {
                 $root.AICommonDeprecated.AIRichResponseMapMetadata.encode(message.mapMetadata, writer.uint32(/* id 9, wireType 2 =*/74).fork()).ldelim();
             if (message.contentItemsMetadata != null && Object.hasOwnProperty.call(message, "contentItemsMetadata"))
                 $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.encode(message.contentItemsMetadata, writer.uint32(/* id 10, wireType 2 =*/82).fork()).ldelim();
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -265,64 +270,100 @@ $root.AICommonDeprecated = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        AIRichResponseSubMessage.decode = function decode(reader, length, error, long) {
+        AIRichResponseSubMessage.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommonDeprecated.AIRichResponseSubMessage();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommonDeprecated.AIRichResponseSubMessage();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.messageType = reader.int32();
-                        break;
-                    }
-                case 2: {
-                        message.gridImageMetadata = $root.AICommonDeprecated.AIRichResponseGridImageMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 3: {
-                        message.messageText = reader.string();
-                        break;
-                    }
-                case 4: {
-                        message.imageMetadata = $root.AICommonDeprecated.AIRichResponseInlineImageMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 5: {
-                        message.codeMetadata = $root.AICommonDeprecated.AIRichResponseCodeMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 6: {
-                        message.tableMetadata = $root.AICommonDeprecated.AIRichResponseTableMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 7: {
-                        message.dynamicMetadata = $root.AICommonDeprecated.AIRichResponseDynamicMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 8: {
-                        message.latexMetadata = $root.AICommonDeprecated.AIRichResponseLatexMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 9: {
-                        message.mapMetadata = $root.AICommonDeprecated.AIRichResponseMapMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 10: {
-                        message.contentItemsMetadata = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.messageType = reader.int32();
+                        message._messageType = "messageType";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.gridImageMetadata = $root.AICommonDeprecated.AIRichResponseGridImageMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.gridImageMetadata);
+                        message._gridImageMetadata = "gridImageMetadata";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.messageText = reader.string();
+                        message._messageText = "messageText";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 2)
+                            break;
+                        message.imageMetadata = $root.AICommonDeprecated.AIRichResponseInlineImageMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.imageMetadata);
+                        message._imageMetadata = "imageMetadata";
+                        continue;
+                    }
+                case 5: {
+                        if (wireType !== 2)
+                            break;
+                        message.codeMetadata = $root.AICommonDeprecated.AIRichResponseCodeMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.codeMetadata);
+                        message._codeMetadata = "codeMetadata";
+                        continue;
+                    }
+                case 6: {
+                        if (wireType !== 2)
+                            break;
+                        message.tableMetadata = $root.AICommonDeprecated.AIRichResponseTableMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.tableMetadata);
+                        message._tableMetadata = "tableMetadata";
+                        continue;
+                    }
+                case 7: {
+                        if (wireType !== 2)
+                            break;
+                        message.dynamicMetadata = $root.AICommonDeprecated.AIRichResponseDynamicMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.dynamicMetadata);
+                        message._dynamicMetadata = "dynamicMetadata";
+                        continue;
+                    }
+                case 8: {
+                        if (wireType !== 2)
+                            break;
+                        message.latexMetadata = $root.AICommonDeprecated.AIRichResponseLatexMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.latexMetadata);
+                        message._latexMetadata = "latexMetadata";
+                        continue;
+                    }
+                case 9: {
+                        if (wireType !== 2)
+                            break;
+                        message.mapMetadata = $root.AICommonDeprecated.AIRichResponseMapMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.mapMetadata);
+                        message._mapMetadata = "mapMetadata";
+                        continue;
+                    }
+                case 10: {
+                        if (wireType !== 2)
+                            break;
+                        message.contentItemsMetadata = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.contentItemsMetadata);
+                        message._contentItemsMetadata = "contentItemsMetadata";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -350,13 +391,13 @@ $root.AICommonDeprecated = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        AIRichResponseSubMessage.verify = function verify(message, long) {
+        AIRichResponseSubMessage.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.messageType != null && message.hasOwnProperty("messageType")) {
                 properties._messageType = 1;
@@ -379,7 +420,7 @@ $root.AICommonDeprecated = (function() {
             if (message.gridImageMetadata != null && message.hasOwnProperty("gridImageMetadata")) {
                 properties._gridImageMetadata = 1;
                 {
-                    var error = $root.AICommonDeprecated.AIRichResponseGridImageMetadata.verify(message.gridImageMetadata, long + 1);
+                    var error = $root.AICommonDeprecated.AIRichResponseGridImageMetadata.verify(message.gridImageMetadata, _depth + 1);
                     if (error)
                         return "gridImageMetadata." + error;
                 }
@@ -392,7 +433,7 @@ $root.AICommonDeprecated = (function() {
             if (message.imageMetadata != null && message.hasOwnProperty("imageMetadata")) {
                 properties._imageMetadata = 1;
                 {
-                    var error = $root.AICommonDeprecated.AIRichResponseInlineImageMetadata.verify(message.imageMetadata, long + 1);
+                    var error = $root.AICommonDeprecated.AIRichResponseInlineImageMetadata.verify(message.imageMetadata, _depth + 1);
                     if (error)
                         return "imageMetadata." + error;
                 }
@@ -400,7 +441,7 @@ $root.AICommonDeprecated = (function() {
             if (message.codeMetadata != null && message.hasOwnProperty("codeMetadata")) {
                 properties._codeMetadata = 1;
                 {
-                    var error = $root.AICommonDeprecated.AIRichResponseCodeMetadata.verify(message.codeMetadata, long + 1);
+                    var error = $root.AICommonDeprecated.AIRichResponseCodeMetadata.verify(message.codeMetadata, _depth + 1);
                     if (error)
                         return "codeMetadata." + error;
                 }
@@ -408,7 +449,7 @@ $root.AICommonDeprecated = (function() {
             if (message.tableMetadata != null && message.hasOwnProperty("tableMetadata")) {
                 properties._tableMetadata = 1;
                 {
-                    var error = $root.AICommonDeprecated.AIRichResponseTableMetadata.verify(message.tableMetadata, long + 1);
+                    var error = $root.AICommonDeprecated.AIRichResponseTableMetadata.verify(message.tableMetadata, _depth + 1);
                     if (error)
                         return "tableMetadata." + error;
                 }
@@ -416,7 +457,7 @@ $root.AICommonDeprecated = (function() {
             if (message.dynamicMetadata != null && message.hasOwnProperty("dynamicMetadata")) {
                 properties._dynamicMetadata = 1;
                 {
-                    var error = $root.AICommonDeprecated.AIRichResponseDynamicMetadata.verify(message.dynamicMetadata, long + 1);
+                    var error = $root.AICommonDeprecated.AIRichResponseDynamicMetadata.verify(message.dynamicMetadata, _depth + 1);
                     if (error)
                         return "dynamicMetadata." + error;
                 }
@@ -424,7 +465,7 @@ $root.AICommonDeprecated = (function() {
             if (message.latexMetadata != null && message.hasOwnProperty("latexMetadata")) {
                 properties._latexMetadata = 1;
                 {
-                    var error = $root.AICommonDeprecated.AIRichResponseLatexMetadata.verify(message.latexMetadata, long + 1);
+                    var error = $root.AICommonDeprecated.AIRichResponseLatexMetadata.verify(message.latexMetadata, _depth + 1);
                     if (error)
                         return "latexMetadata." + error;
                 }
@@ -432,7 +473,7 @@ $root.AICommonDeprecated = (function() {
             if (message.mapMetadata != null && message.hasOwnProperty("mapMetadata")) {
                 properties._mapMetadata = 1;
                 {
-                    var error = $root.AICommonDeprecated.AIRichResponseMapMetadata.verify(message.mapMetadata, long + 1);
+                    var error = $root.AICommonDeprecated.AIRichResponseMapMetadata.verify(message.mapMetadata, _depth + 1);
                     if (error)
                         return "mapMetadata." + error;
                 }
@@ -440,7 +481,7 @@ $root.AICommonDeprecated = (function() {
             if (message.contentItemsMetadata != null && message.hasOwnProperty("contentItemsMetadata")) {
                 properties._contentItemsMetadata = 1;
                 {
-                    var error = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.verify(message.contentItemsMetadata, long + 1);
+                    var error = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.verify(message.contentItemsMetadata, _depth + 1);
                     if (error)
                         return "contentItemsMetadata." + error;
                 }
@@ -456,13 +497,13 @@ $root.AICommonDeprecated = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommonDeprecated.AIRichResponseSubMessage} AIRichResponseSubMessage
          */
-        AIRichResponseSubMessage.fromObject = function fromObject(object, long) {
+        AIRichResponseSubMessage.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommonDeprecated.AIRichResponseSubMessage)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommonDeprecated.AIRichResponseSubMessage();
             switch (object.messageType) {
             default:
@@ -515,44 +556,44 @@ $root.AICommonDeprecated = (function() {
             if (object.gridImageMetadata != null) {
                 if (typeof object.gridImageMetadata !== "object")
                     throw TypeError(".AICommonDeprecated.AIRichResponseSubMessage.gridImageMetadata: object expected");
-                message.gridImageMetadata = $root.AICommonDeprecated.AIRichResponseGridImageMetadata.fromObject(object.gridImageMetadata, long + 1);
+                message.gridImageMetadata = $root.AICommonDeprecated.AIRichResponseGridImageMetadata.fromObject(object.gridImageMetadata, _depth + 1);
             }
             if (object.messageText != null)
                 message.messageText = String(object.messageText);
             if (object.imageMetadata != null) {
                 if (typeof object.imageMetadata !== "object")
                     throw TypeError(".AICommonDeprecated.AIRichResponseSubMessage.imageMetadata: object expected");
-                message.imageMetadata = $root.AICommonDeprecated.AIRichResponseInlineImageMetadata.fromObject(object.imageMetadata, long + 1);
+                message.imageMetadata = $root.AICommonDeprecated.AIRichResponseInlineImageMetadata.fromObject(object.imageMetadata, _depth + 1);
             }
             if (object.codeMetadata != null) {
                 if (typeof object.codeMetadata !== "object")
                     throw TypeError(".AICommonDeprecated.AIRichResponseSubMessage.codeMetadata: object expected");
-                message.codeMetadata = $root.AICommonDeprecated.AIRichResponseCodeMetadata.fromObject(object.codeMetadata, long + 1);
+                message.codeMetadata = $root.AICommonDeprecated.AIRichResponseCodeMetadata.fromObject(object.codeMetadata, _depth + 1);
             }
             if (object.tableMetadata != null) {
                 if (typeof object.tableMetadata !== "object")
                     throw TypeError(".AICommonDeprecated.AIRichResponseSubMessage.tableMetadata: object expected");
-                message.tableMetadata = $root.AICommonDeprecated.AIRichResponseTableMetadata.fromObject(object.tableMetadata, long + 1);
+                message.tableMetadata = $root.AICommonDeprecated.AIRichResponseTableMetadata.fromObject(object.tableMetadata, _depth + 1);
             }
             if (object.dynamicMetadata != null) {
                 if (typeof object.dynamicMetadata !== "object")
                     throw TypeError(".AICommonDeprecated.AIRichResponseSubMessage.dynamicMetadata: object expected");
-                message.dynamicMetadata = $root.AICommonDeprecated.AIRichResponseDynamicMetadata.fromObject(object.dynamicMetadata, long + 1);
+                message.dynamicMetadata = $root.AICommonDeprecated.AIRichResponseDynamicMetadata.fromObject(object.dynamicMetadata, _depth + 1);
             }
             if (object.latexMetadata != null) {
                 if (typeof object.latexMetadata !== "object")
                     throw TypeError(".AICommonDeprecated.AIRichResponseSubMessage.latexMetadata: object expected");
-                message.latexMetadata = $root.AICommonDeprecated.AIRichResponseLatexMetadata.fromObject(object.latexMetadata, long + 1);
+                message.latexMetadata = $root.AICommonDeprecated.AIRichResponseLatexMetadata.fromObject(object.latexMetadata, _depth + 1);
             }
             if (object.mapMetadata != null) {
                 if (typeof object.mapMetadata !== "object")
                     throw TypeError(".AICommonDeprecated.AIRichResponseSubMessage.mapMetadata: object expected");
-                message.mapMetadata = $root.AICommonDeprecated.AIRichResponseMapMetadata.fromObject(object.mapMetadata, long + 1);
+                message.mapMetadata = $root.AICommonDeprecated.AIRichResponseMapMetadata.fromObject(object.mapMetadata, _depth + 1);
             }
             if (object.contentItemsMetadata != null) {
                 if (typeof object.contentItemsMetadata !== "object")
                     throw TypeError(".AICommonDeprecated.AIRichResponseSubMessage.contentItemsMetadata: object expected");
-                message.contentItemsMetadata = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.fromObject(object.contentItemsMetadata, long + 1);
+                message.contentItemsMetadata = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.fromObject(object.contentItemsMetadata, _depth + 1);
             }
             return message;
         };
@@ -635,18 +676,17 @@ $root.AICommonDeprecated = (function() {
         };
 
         /**
-         * Gets the default type url for AIRichResponseSubMessage
+         * Gets the type url for AIRichResponseSubMessage
          * @function getTypeUrl
          * @memberof AICommonDeprecated.AIRichResponseSubMessage
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        AIRichResponseSubMessage.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommonDeprecated.AIRichResponseSubMessage";
+        AIRichResponseSubMessage.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommonDeprecated.AIRichResponseSubMessage";
         };
 
         return AIRichResponseSubMessage;
@@ -660,6 +700,7 @@ $root.AICommonDeprecated = (function() {
          * @interface IAIRichResponseContentItemsMetadata
          * @property {Array.<AICommonDeprecated.AIRichResponseContentItemsMetadata.IAIRichResponseContentItemMetadata>|null} [itemsMetadata] AIRichResponseContentItemsMetadata itemsMetadata
          * @property {AICommonDeprecated.AIRichResponseContentItemsMetadata.ContentType|null} [contentType] AIRichResponseContentItemsMetadata contentType
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -669,6 +710,7 @@ $root.AICommonDeprecated = (function() {
          * @implements IAIRichResponseContentItemsMetadata
          * @constructor
          * @param {AICommonDeprecated.IAIRichResponseContentItemsMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIRichResponseContentItemsMetadata(properties) {
             this.itemsMetadata = [];
@@ -732,6 +774,9 @@ $root.AICommonDeprecated = (function() {
                     $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.encode(message.itemsMetadata[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
             if (message.contentType != null && Object.hasOwnProperty.call(message, "contentType"))
                 writer.uint32(/* id 2, wireType 0 =*/16).int32(message.contentType);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -759,34 +804,45 @@ $root.AICommonDeprecated = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        AIRichResponseContentItemsMetadata.decode = function decode(reader, length, error, long) {
+        AIRichResponseContentItemsMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommonDeprecated.AIRichResponseContentItemsMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommonDeprecated.AIRichResponseContentItemsMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        if (!(message.itemsMetadata && message.itemsMetadata.length))
-                            message.itemsMetadata = [];
-                        message.itemsMetadata.push($root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.decode(reader, reader.uint32(), undefined, long + 1));
-                        break;
-                    }
-                case 2: {
-                        message.contentType = reader.int32();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.itemsMetadata && message.itemsMetadata.length))
+                            message.itemsMetadata = [];
+                        message.itemsMetadata.push($root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 0)
+                            break;
+                        message.contentType = reader.int32();
+                        message._contentType = "contentType";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -814,19 +870,19 @@ $root.AICommonDeprecated = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        AIRichResponseContentItemsMetadata.verify = function verify(message, long) {
+        AIRichResponseContentItemsMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.itemsMetadata != null && message.hasOwnProperty("itemsMetadata")) {
                 if (!Array.isArray(message.itemsMetadata))
                     return "itemsMetadata: array expected";
                 for (var i = 0; i < message.itemsMetadata.length; ++i) {
-                    var error = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.verify(message.itemsMetadata[i], long + 1);
+                    var error = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.verify(message.itemsMetadata[i], _depth + 1);
                     if (error)
                         return "itemsMetadata." + error;
                 }
@@ -852,22 +908,22 @@ $root.AICommonDeprecated = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommonDeprecated.AIRichResponseContentItemsMetadata} AIRichResponseContentItemsMetadata
          */
-        AIRichResponseContentItemsMetadata.fromObject = function fromObject(object, long) {
+        AIRichResponseContentItemsMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommonDeprecated.AIRichResponseContentItemsMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommonDeprecated.AIRichResponseContentItemsMetadata();
             if (object.itemsMetadata) {
                 if (!Array.isArray(object.itemsMetadata))
                     throw TypeError(".AICommonDeprecated.AIRichResponseContentItemsMetadata.itemsMetadata: array expected");
-                message.itemsMetadata = [];
+                message.itemsMetadata = Array(object.itemsMetadata.length);
                 for (var i = 0; i < object.itemsMetadata.length; ++i) {
                     if (typeof object.itemsMetadata[i] !== "object")
                         throw TypeError(".AICommonDeprecated.AIRichResponseContentItemsMetadata.itemsMetadata: object expected");
-                    message.itemsMetadata[i] = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.fromObject(object.itemsMetadata[i], long + 1);
+                    message.itemsMetadata[i] = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.fromObject(object.itemsMetadata[i], _depth + 1);
                 }
             }
             switch (object.contentType) {
@@ -905,7 +961,7 @@ $root.AICommonDeprecated = (function() {
             if (options.arrays || options.defaults)
                 object.itemsMetadata = [];
             if (message.itemsMetadata && message.itemsMetadata.length) {
-                object.itemsMetadata = [];
+                object.itemsMetadata = Array(message.itemsMetadata.length);
                 for (var j = 0; j < message.itemsMetadata.length; ++j)
                     object.itemsMetadata[j] = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.toObject(message.itemsMetadata[j], options);
             }
@@ -929,18 +985,17 @@ $root.AICommonDeprecated = (function() {
         };
 
         /**
-         * Gets the default type url for AIRichResponseContentItemsMetadata
+         * Gets the type url for AIRichResponseContentItemsMetadata
          * @function getTypeUrl
          * @memberof AICommonDeprecated.AIRichResponseContentItemsMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        AIRichResponseContentItemsMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommonDeprecated.AIRichResponseContentItemsMetadata";
+        AIRichResponseContentItemsMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommonDeprecated.AIRichResponseContentItemsMetadata";
         };
 
         AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata = (function() {
@@ -950,6 +1005,7 @@ $root.AICommonDeprecated = (function() {
              * @memberof AICommonDeprecated.AIRichResponseContentItemsMetadata
              * @interface IAIRichResponseContentItemMetadata
              * @property {AICommonDeprecated.AIRichResponseContentItemsMetadata.IAIRichResponseReelItem|null} [reelItem] AIRichResponseContentItemMetadata reelItem
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -959,6 +1015,7 @@ $root.AICommonDeprecated = (function() {
              * @implements IAIRichResponseContentItemMetadata
              * @constructor
              * @param {AICommonDeprecated.AIRichResponseContentItemsMetadata.IAIRichResponseContentItemMetadata=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AIRichResponseContentItemMetadata(properties) {
                 if (properties)
@@ -1015,6 +1072,9 @@ $root.AICommonDeprecated = (function() {
                     writer = $Writer.create();
                 if (message.reelItem != null && Object.hasOwnProperty.call(message, "reelItem"))
                     $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.encode(message.reelItem, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -1042,28 +1102,37 @@ $root.AICommonDeprecated = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            AIRichResponseContentItemMetadata.decode = function decode(reader, length, error, long) {
+            AIRichResponseContentItemMetadata.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.reelItem = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.decode(reader, reader.uint32(), undefined, long + 1);
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.reelItem = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.decode(reader, reader.uint32(), undefined, _depth + 1, message.reelItem);
+                            message.aIRichResponseContentItem = "reelItem";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -1091,18 +1160,18 @@ $root.AICommonDeprecated = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            AIRichResponseContentItemMetadata.verify = function verify(message, long) {
+            AIRichResponseContentItemMetadata.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.reelItem != null && message.hasOwnProperty("reelItem")) {
                     properties.aIRichResponseContentItem = 1;
                     {
-                        var error = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.verify(message.reelItem, long + 1);
+                        var error = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.verify(message.reelItem, _depth + 1);
                         if (error)
                             return "reelItem." + error;
                     }
@@ -1118,18 +1187,18 @@ $root.AICommonDeprecated = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata} AIRichResponseContentItemMetadata
              */
-            AIRichResponseContentItemMetadata.fromObject = function fromObject(object, long) {
+            AIRichResponseContentItemMetadata.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata();
                 if (object.reelItem != null) {
                     if (typeof object.reelItem !== "object")
                         throw TypeError(".AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.reelItem: object expected");
-                    message.reelItem = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.fromObject(object.reelItem, long + 1);
+                    message.reelItem = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.fromObject(object.reelItem, _depth + 1);
                 }
                 return message;
             };
@@ -1167,18 +1236,17 @@ $root.AICommonDeprecated = (function() {
             };
 
             /**
-             * Gets the default type url for AIRichResponseContentItemMetadata
+             * Gets the type url for AIRichResponseContentItemMetadata
              * @function getTypeUrl
              * @memberof AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            AIRichResponseContentItemMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata";
+            AIRichResponseContentItemMetadata.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata";
             };
 
             return AIRichResponseContentItemMetadata;
@@ -1194,6 +1262,7 @@ $root.AICommonDeprecated = (function() {
              * @property {string|null} [profileIconUrl] AIRichResponseReelItem profileIconUrl
              * @property {string|null} [thumbnailUrl] AIRichResponseReelItem thumbnailUrl
              * @property {string|null} [videoUrl] AIRichResponseReelItem videoUrl
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -1203,6 +1272,7 @@ $root.AICommonDeprecated = (function() {
              * @implements IAIRichResponseReelItem
              * @constructor
              * @param {AICommonDeprecated.AIRichResponseContentItemsMetadata.IAIRichResponseReelItem=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AIRichResponseReelItem(properties) {
                 if (properties)
@@ -1302,6 +1372,9 @@ $root.AICommonDeprecated = (function() {
                     writer.uint32(/* id 3, wireType 2 =*/26).string(message.thumbnailUrl);
                 if (message.videoUrl != null && Object.hasOwnProperty.call(message, "videoUrl"))
                     writer.uint32(/* id 4, wireType 2 =*/34).string(message.videoUrl);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -1329,40 +1402,58 @@ $root.AICommonDeprecated = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            AIRichResponseReelItem.decode = function decode(reader, length, error, long) {
+            AIRichResponseReelItem.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.title = reader.string();
-                            break;
-                        }
-                    case 2: {
-                            message.profileIconUrl = reader.string();
-                            break;
-                        }
-                    case 3: {
-                            message.thumbnailUrl = reader.string();
-                            break;
-                        }
-                    case 4: {
-                            message.videoUrl = reader.string();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.title = reader.string();
+                            message._title = "title";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.profileIconUrl = reader.string();
+                            message._profileIconUrl = "profileIconUrl";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 2)
+                                break;
+                            message.thumbnailUrl = reader.string();
+                            message._thumbnailUrl = "thumbnailUrl";
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 2)
+                                break;
+                            message.videoUrl = reader.string();
+                            message._videoUrl = "videoUrl";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -1390,13 +1481,13 @@ $root.AICommonDeprecated = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            AIRichResponseReelItem.verify = function verify(message, long) {
+            AIRichResponseReelItem.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.title != null && message.hasOwnProperty("title")) {
                     properties._title = 1;
@@ -1429,13 +1520,13 @@ $root.AICommonDeprecated = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem} AIRichResponseReelItem
              */
-            AIRichResponseReelItem.fromObject = function fromObject(object, long) {
+            AIRichResponseReelItem.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem();
                 if (object.title != null)
                     message.title = String(object.title);
@@ -1496,18 +1587,17 @@ $root.AICommonDeprecated = (function() {
             };
 
             /**
-             * Gets the default type url for AIRichResponseReelItem
+             * Gets the type url for AIRichResponseReelItem
              * @function getTypeUrl
              * @memberof AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            AIRichResponseReelItem.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem";
+            AIRichResponseReelItem.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem";
             };
 
             return AIRichResponseReelItem;
@@ -1542,6 +1632,7 @@ $root.AICommonDeprecated = (function() {
          * @property {number|null} [longitudeDelta] AIRichResponseMapMetadata longitudeDelta
          * @property {Array.<AICommonDeprecated.AIRichResponseMapMetadata.IAIRichResponseMapAnnotation>|null} [annotations] AIRichResponseMapMetadata annotations
          * @property {boolean|null} [showInfoList] AIRichResponseMapMetadata showInfoList
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -1551,6 +1642,7 @@ $root.AICommonDeprecated = (function() {
          * @implements IAIRichResponseMapMetadata
          * @constructor
          * @param {AICommonDeprecated.IAIRichResponseMapMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIRichResponseMapMetadata(properties) {
             this.annotations = [];
@@ -1678,6 +1770,9 @@ $root.AICommonDeprecated = (function() {
                     $root.AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.encode(message.annotations[i], writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
             if (message.showInfoList != null && Object.hasOwnProperty.call(message, "showInfoList"))
                 writer.uint32(/* id 6, wireType 0 =*/48).bool(message.showInfoList);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -1705,50 +1800,73 @@ $root.AICommonDeprecated = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        AIRichResponseMapMetadata.decode = function decode(reader, length, error, long) {
+        AIRichResponseMapMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommonDeprecated.AIRichResponseMapMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommonDeprecated.AIRichResponseMapMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.centerLatitude = reader.double();
-                        break;
-                    }
-                case 2: {
-                        message.centerLongitude = reader.double();
-                        break;
-                    }
-                case 3: {
-                        message.latitudeDelta = reader.double();
-                        break;
-                    }
-                case 4: {
-                        message.longitudeDelta = reader.double();
-                        break;
-                    }
-                case 5: {
-                        if (!(message.annotations && message.annotations.length))
-                            message.annotations = [];
-                        message.annotations.push($root.AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.decode(reader, reader.uint32(), undefined, long + 1));
-                        break;
-                    }
-                case 6: {
-                        message.showInfoList = reader.bool();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 1)
+                            break;
+                        message.centerLatitude = reader.double();
+                        message._centerLatitude = "centerLatitude";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 1)
+                            break;
+                        message.centerLongitude = reader.double();
+                        message._centerLongitude = "centerLongitude";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 1)
+                            break;
+                        message.latitudeDelta = reader.double();
+                        message._latitudeDelta = "latitudeDelta";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 1)
+                            break;
+                        message.longitudeDelta = reader.double();
+                        message._longitudeDelta = "longitudeDelta";
+                        continue;
+                    }
+                case 5: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.annotations && message.annotations.length))
+                            message.annotations = [];
+                        message.annotations.push($root.AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                case 6: {
+                        if (wireType !== 0)
+                            break;
+                        message.showInfoList = reader.bool();
+                        message._showInfoList = "showInfoList";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -1776,13 +1894,13 @@ $root.AICommonDeprecated = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        AIRichResponseMapMetadata.verify = function verify(message, long) {
+        AIRichResponseMapMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.centerLatitude != null && message.hasOwnProperty("centerLatitude")) {
                 properties._centerLatitude = 1;
@@ -1808,7 +1926,7 @@ $root.AICommonDeprecated = (function() {
                 if (!Array.isArray(message.annotations))
                     return "annotations: array expected";
                 for (var i = 0; i < message.annotations.length; ++i) {
-                    var error = $root.AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.verify(message.annotations[i], long + 1);
+                    var error = $root.AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.verify(message.annotations[i], _depth + 1);
                     if (error)
                         return "annotations." + error;
                 }
@@ -1829,13 +1947,13 @@ $root.AICommonDeprecated = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommonDeprecated.AIRichResponseMapMetadata} AIRichResponseMapMetadata
          */
-        AIRichResponseMapMetadata.fromObject = function fromObject(object, long) {
+        AIRichResponseMapMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommonDeprecated.AIRichResponseMapMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommonDeprecated.AIRichResponseMapMetadata();
             if (object.centerLatitude != null)
                 message.centerLatitude = Number(object.centerLatitude);
@@ -1848,11 +1966,11 @@ $root.AICommonDeprecated = (function() {
             if (object.annotations) {
                 if (!Array.isArray(object.annotations))
                     throw TypeError(".AICommonDeprecated.AIRichResponseMapMetadata.annotations: array expected");
-                message.annotations = [];
+                message.annotations = Array(object.annotations.length);
                 for (var i = 0; i < object.annotations.length; ++i) {
                     if (typeof object.annotations[i] !== "object")
                         throw TypeError(".AICommonDeprecated.AIRichResponseMapMetadata.annotations: object expected");
-                    message.annotations[i] = $root.AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.fromObject(object.annotations[i], long + 1);
+                    message.annotations[i] = $root.AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.fromObject(object.annotations[i], _depth + 1);
                 }
             }
             if (object.showInfoList != null)
@@ -1896,7 +2014,7 @@ $root.AICommonDeprecated = (function() {
                     object._longitudeDelta = "longitudeDelta";
             }
             if (message.annotations && message.annotations.length) {
-                object.annotations = [];
+                object.annotations = Array(message.annotations.length);
                 for (var j = 0; j < message.annotations.length; ++j)
                     object.annotations[j] = $root.AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.toObject(message.annotations[j], options);
             }
@@ -1920,18 +2038,17 @@ $root.AICommonDeprecated = (function() {
         };
 
         /**
-         * Gets the default type url for AIRichResponseMapMetadata
+         * Gets the type url for AIRichResponseMapMetadata
          * @function getTypeUrl
          * @memberof AICommonDeprecated.AIRichResponseMapMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        AIRichResponseMapMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommonDeprecated.AIRichResponseMapMetadata";
+        AIRichResponseMapMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommonDeprecated.AIRichResponseMapMetadata";
         };
 
         AIRichResponseMapMetadata.AIRichResponseMapAnnotation = (function() {
@@ -1945,6 +2062,7 @@ $root.AICommonDeprecated = (function() {
              * @property {number|null} [longitude] AIRichResponseMapAnnotation longitude
              * @property {string|null} [title] AIRichResponseMapAnnotation title
              * @property {string|null} [body] AIRichResponseMapAnnotation body
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -1954,6 +2072,7 @@ $root.AICommonDeprecated = (function() {
              * @implements IAIRichResponseMapAnnotation
              * @constructor
              * @param {AICommonDeprecated.AIRichResponseMapMetadata.IAIRichResponseMapAnnotation=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AIRichResponseMapAnnotation(properties) {
                 if (properties)
@@ -2069,6 +2188,9 @@ $root.AICommonDeprecated = (function() {
                     writer.uint32(/* id 4, wireType 2 =*/34).string(message.title);
                 if (message.body != null && Object.hasOwnProperty.call(message, "body"))
                     writer.uint32(/* id 5, wireType 2 =*/42).string(message.body);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -2096,44 +2218,65 @@ $root.AICommonDeprecated = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            AIRichResponseMapAnnotation.decode = function decode(reader, length, error, long) {
+            AIRichResponseMapAnnotation.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.annotationNumber = reader.uint32();
-                            break;
-                        }
-                    case 2: {
-                            message.latitude = reader.double();
-                            break;
-                        }
-                    case 3: {
-                            message.longitude = reader.double();
-                            break;
-                        }
-                    case 4: {
-                            message.title = reader.string();
-                            break;
-                        }
-                    case 5: {
-                            message.body = reader.string();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.annotationNumber = reader.uint32();
+                            message._annotationNumber = "annotationNumber";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 1)
+                                break;
+                            message.latitude = reader.double();
+                            message._latitude = "latitude";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 1)
+                                break;
+                            message.longitude = reader.double();
+                            message._longitude = "longitude";
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 2)
+                                break;
+                            message.title = reader.string();
+                            message._title = "title";
+                            continue;
+                        }
+                    case 5: {
+                            if (wireType !== 2)
+                                break;
+                            message.body = reader.string();
+                            message._body = "body";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -2161,13 +2304,13 @@ $root.AICommonDeprecated = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            AIRichResponseMapAnnotation.verify = function verify(message, long) {
+            AIRichResponseMapAnnotation.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.annotationNumber != null && message.hasOwnProperty("annotationNumber")) {
                     properties._annotationNumber = 1;
@@ -2205,13 +2348,13 @@ $root.AICommonDeprecated = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation} AIRichResponseMapAnnotation
              */
-            AIRichResponseMapAnnotation.fromObject = function fromObject(object, long) {
+            AIRichResponseMapAnnotation.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation();
                 if (object.annotationNumber != null)
                     message.annotationNumber = object.annotationNumber >>> 0;
@@ -2279,18 +2422,17 @@ $root.AICommonDeprecated = (function() {
             };
 
             /**
-             * Gets the default type url for AIRichResponseMapAnnotation
+             * Gets the type url for AIRichResponseMapAnnotation
              * @function getTypeUrl
              * @memberof AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            AIRichResponseMapAnnotation.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation";
+            AIRichResponseMapAnnotation.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation";
             };
 
             return AIRichResponseMapAnnotation;
@@ -2307,6 +2449,7 @@ $root.AICommonDeprecated = (function() {
          * @interface IAIRichResponseLatexMetadata
          * @property {string|null} [text] AIRichResponseLatexMetadata text
          * @property {Array.<AICommonDeprecated.AIRichResponseLatexMetadata.IAIRichResponseLatexExpression>|null} [expressions] AIRichResponseLatexMetadata expressions
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -2316,6 +2459,7 @@ $root.AICommonDeprecated = (function() {
          * @implements IAIRichResponseLatexMetadata
          * @constructor
          * @param {AICommonDeprecated.IAIRichResponseLatexMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIRichResponseLatexMetadata(properties) {
             this.expressions = [];
@@ -2379,6 +2523,9 @@ $root.AICommonDeprecated = (function() {
             if (message.expressions != null && message.expressions.length)
                 for (var i = 0; i < message.expressions.length; ++i)
                     $root.AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.encode(message.expressions[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -2406,34 +2553,45 @@ $root.AICommonDeprecated = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        AIRichResponseLatexMetadata.decode = function decode(reader, length, error, long) {
+        AIRichResponseLatexMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommonDeprecated.AIRichResponseLatexMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommonDeprecated.AIRichResponseLatexMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.text = reader.string();
-                        break;
-                    }
-                case 2: {
-                        if (!(message.expressions && message.expressions.length))
-                            message.expressions = [];
-                        message.expressions.push($root.AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.decode(reader, reader.uint32(), undefined, long + 1));
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.text = reader.string();
+                        message._text = "text";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.expressions && message.expressions.length))
+                            message.expressions = [];
+                        message.expressions.push($root.AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -2461,13 +2619,13 @@ $root.AICommonDeprecated = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        AIRichResponseLatexMetadata.verify = function verify(message, long) {
+        AIRichResponseLatexMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.text != null && message.hasOwnProperty("text")) {
                 properties._text = 1;
@@ -2478,7 +2636,7 @@ $root.AICommonDeprecated = (function() {
                 if (!Array.isArray(message.expressions))
                     return "expressions: array expected";
                 for (var i = 0; i < message.expressions.length; ++i) {
-                    var error = $root.AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.verify(message.expressions[i], long + 1);
+                    var error = $root.AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.verify(message.expressions[i], _depth + 1);
                     if (error)
                         return "expressions." + error;
                 }
@@ -2494,24 +2652,24 @@ $root.AICommonDeprecated = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommonDeprecated.AIRichResponseLatexMetadata} AIRichResponseLatexMetadata
          */
-        AIRichResponseLatexMetadata.fromObject = function fromObject(object, long) {
+        AIRichResponseLatexMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommonDeprecated.AIRichResponseLatexMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommonDeprecated.AIRichResponseLatexMetadata();
             if (object.text != null)
                 message.text = String(object.text);
             if (object.expressions) {
                 if (!Array.isArray(object.expressions))
                     throw TypeError(".AICommonDeprecated.AIRichResponseLatexMetadata.expressions: array expected");
-                message.expressions = [];
+                message.expressions = Array(object.expressions.length);
                 for (var i = 0; i < object.expressions.length; ++i) {
                     if (typeof object.expressions[i] !== "object")
                         throw TypeError(".AICommonDeprecated.AIRichResponseLatexMetadata.expressions: object expected");
-                    message.expressions[i] = $root.AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.fromObject(object.expressions[i], long + 1);
+                    message.expressions[i] = $root.AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.fromObject(object.expressions[i], _depth + 1);
                 }
             }
             return message;
@@ -2538,7 +2696,7 @@ $root.AICommonDeprecated = (function() {
                     object._text = "text";
             }
             if (message.expressions && message.expressions.length) {
-                object.expressions = [];
+                object.expressions = Array(message.expressions.length);
                 for (var j = 0; j < message.expressions.length; ++j)
                     object.expressions[j] = $root.AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.toObject(message.expressions[j], options);
             }
@@ -2557,18 +2715,17 @@ $root.AICommonDeprecated = (function() {
         };
 
         /**
-         * Gets the default type url for AIRichResponseLatexMetadata
+         * Gets the type url for AIRichResponseLatexMetadata
          * @function getTypeUrl
          * @memberof AICommonDeprecated.AIRichResponseLatexMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        AIRichResponseLatexMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommonDeprecated.AIRichResponseLatexMetadata";
+        AIRichResponseLatexMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommonDeprecated.AIRichResponseLatexMetadata";
         };
 
         AIRichResponseLatexMetadata.AIRichResponseLatexExpression = (function() {
@@ -2586,6 +2743,7 @@ $root.AICommonDeprecated = (function() {
              * @property {number|null} [imageLeadingPadding] AIRichResponseLatexExpression imageLeadingPadding
              * @property {number|null} [imageBottomPadding] AIRichResponseLatexExpression imageBottomPadding
              * @property {number|null} [imageTrailingPadding] AIRichResponseLatexExpression imageTrailingPadding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -2595,6 +2753,7 @@ $root.AICommonDeprecated = (function() {
              * @implements IAIRichResponseLatexExpression
              * @constructor
              * @param {AICommonDeprecated.AIRichResponseLatexMetadata.IAIRichResponseLatexExpression=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AIRichResponseLatexExpression(properties) {
                 if (properties)
@@ -2774,6 +2933,9 @@ $root.AICommonDeprecated = (function() {
                     writer.uint32(/* id 8, wireType 1 =*/65).double(message.imageBottomPadding);
                 if (message.imageTrailingPadding != null && Object.hasOwnProperty.call(message, "imageTrailingPadding"))
                     writer.uint32(/* id 9, wireType 1 =*/73).double(message.imageTrailingPadding);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -2801,60 +2963,93 @@ $root.AICommonDeprecated = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            AIRichResponseLatexExpression.decode = function decode(reader, length, error, long) {
+            AIRichResponseLatexExpression.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.latexExpression = reader.string();
-                            break;
-                        }
-                    case 2: {
-                            message.url = reader.string();
-                            break;
-                        }
-                    case 3: {
-                            message.width = reader.double();
-                            break;
-                        }
-                    case 4: {
-                            message.height = reader.double();
-                            break;
-                        }
-                    case 5: {
-                            message.fontHeight = reader.double();
-                            break;
-                        }
-                    case 6: {
-                            message.imageTopPadding = reader.double();
-                            break;
-                        }
-                    case 7: {
-                            message.imageLeadingPadding = reader.double();
-                            break;
-                        }
-                    case 8: {
-                            message.imageBottomPadding = reader.double();
-                            break;
-                        }
-                    case 9: {
-                            message.imageTrailingPadding = reader.double();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.latexExpression = reader.string();
+                            message._latexExpression = "latexExpression";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.url = reader.string();
+                            message._url = "url";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 1)
+                                break;
+                            message.width = reader.double();
+                            message._width = "width";
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 1)
+                                break;
+                            message.height = reader.double();
+                            message._height = "height";
+                            continue;
+                        }
+                    case 5: {
+                            if (wireType !== 1)
+                                break;
+                            message.fontHeight = reader.double();
+                            message._fontHeight = "fontHeight";
+                            continue;
+                        }
+                    case 6: {
+                            if (wireType !== 1)
+                                break;
+                            message.imageTopPadding = reader.double();
+                            message._imageTopPadding = "imageTopPadding";
+                            continue;
+                        }
+                    case 7: {
+                            if (wireType !== 1)
+                                break;
+                            message.imageLeadingPadding = reader.double();
+                            message._imageLeadingPadding = "imageLeadingPadding";
+                            continue;
+                        }
+                    case 8: {
+                            if (wireType !== 1)
+                                break;
+                            message.imageBottomPadding = reader.double();
+                            message._imageBottomPadding = "imageBottomPadding";
+                            continue;
+                        }
+                    case 9: {
+                            if (wireType !== 1)
+                                break;
+                            message.imageTrailingPadding = reader.double();
+                            message._imageTrailingPadding = "imageTrailingPadding";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -2882,13 +3077,13 @@ $root.AICommonDeprecated = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            AIRichResponseLatexExpression.verify = function verify(message, long) {
+            AIRichResponseLatexExpression.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.latexExpression != null && message.hasOwnProperty("latexExpression")) {
                     properties._latexExpression = 1;
@@ -2946,13 +3141,13 @@ $root.AICommonDeprecated = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression} AIRichResponseLatexExpression
              */
-            AIRichResponseLatexExpression.fromObject = function fromObject(object, long) {
+            AIRichResponseLatexExpression.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression();
                 if (object.latexExpression != null)
                     message.latexExpression = String(object.latexExpression);
@@ -3048,18 +3243,17 @@ $root.AICommonDeprecated = (function() {
             };
 
             /**
-             * Gets the default type url for AIRichResponseLatexExpression
+             * Gets the type url for AIRichResponseLatexExpression
              * @function getTypeUrl
              * @memberof AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            AIRichResponseLatexExpression.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression";
+            AIRichResponseLatexExpression.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression";
             };
 
             return AIRichResponseLatexExpression;
@@ -3078,6 +3272,7 @@ $root.AICommonDeprecated = (function() {
          * @property {number|Long|null} [version] AIRichResponseDynamicMetadata version
          * @property {string|null} [url] AIRichResponseDynamicMetadata url
          * @property {number|null} [loopCount] AIRichResponseDynamicMetadata loopCount
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -3087,6 +3282,7 @@ $root.AICommonDeprecated = (function() {
          * @implements IAIRichResponseDynamicMetadata
          * @constructor
          * @param {AICommonDeprecated.IAIRichResponseDynamicMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIRichResponseDynamicMetadata(properties) {
             if (properties)
@@ -3186,6 +3382,9 @@ $root.AICommonDeprecated = (function() {
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.url);
             if (message.loopCount != null && Object.hasOwnProperty.call(message, "loopCount"))
                 writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.loopCount);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -3213,40 +3412,58 @@ $root.AICommonDeprecated = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        AIRichResponseDynamicMetadata.decode = function decode(reader, length, error, long) {
+        AIRichResponseDynamicMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommonDeprecated.AIRichResponseDynamicMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommonDeprecated.AIRichResponseDynamicMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.type = reader.int32();
-                        break;
-                    }
-                case 2: {
-                        message.version = reader.uint64();
-                        break;
-                    }
-                case 3: {
-                        message.url = reader.string();
-                        break;
-                    }
-                case 4: {
-                        message.loopCount = reader.uint32();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.type = reader.int32();
+                        message._type = "type";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 0)
+                            break;
+                        message.version = reader.uint64();
+                        message._version = "version";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.url = reader.string();
+                        message._url = "url";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 0)
+                            break;
+                        message.loopCount = reader.uint32();
+                        message._loopCount = "loopCount";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -3274,13 +3491,13 @@ $root.AICommonDeprecated = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        AIRichResponseDynamicMetadata.verify = function verify(message, long) {
+        AIRichResponseDynamicMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.type != null && message.hasOwnProperty("type")) {
                 properties._type = 1;
@@ -3319,13 +3536,13 @@ $root.AICommonDeprecated = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommonDeprecated.AIRichResponseDynamicMetadata} AIRichResponseDynamicMetadata
          */
-        AIRichResponseDynamicMetadata.fromObject = function fromObject(object, long) {
+        AIRichResponseDynamicMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommonDeprecated.AIRichResponseDynamicMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommonDeprecated.AIRichResponseDynamicMetadata();
             switch (object.type) {
             default:
@@ -3414,18 +3631,17 @@ $root.AICommonDeprecated = (function() {
         };
 
         /**
-         * Gets the default type url for AIRichResponseDynamicMetadata
+         * Gets the type url for AIRichResponseDynamicMetadata
          * @function getTypeUrl
          * @memberof AICommonDeprecated.AIRichResponseDynamicMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        AIRichResponseDynamicMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommonDeprecated.AIRichResponseDynamicMetadata";
+        AIRichResponseDynamicMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommonDeprecated.AIRichResponseDynamicMetadata";
         };
 
         /**
@@ -3455,6 +3671,7 @@ $root.AICommonDeprecated = (function() {
          * @interface IAIRichResponseTableMetadata
          * @property {Array.<AICommonDeprecated.AIRichResponseTableMetadata.IAIRichResponseTableRow>|null} [rows] AIRichResponseTableMetadata rows
          * @property {string|null} [title] AIRichResponseTableMetadata title
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -3464,6 +3681,7 @@ $root.AICommonDeprecated = (function() {
          * @implements IAIRichResponseTableMetadata
          * @constructor
          * @param {AICommonDeprecated.IAIRichResponseTableMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIRichResponseTableMetadata(properties) {
             this.rows = [];
@@ -3527,6 +3745,9 @@ $root.AICommonDeprecated = (function() {
                     $root.AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.encode(message.rows[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
             if (message.title != null && Object.hasOwnProperty.call(message, "title"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.title);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -3554,34 +3775,45 @@ $root.AICommonDeprecated = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        AIRichResponseTableMetadata.decode = function decode(reader, length, error, long) {
+        AIRichResponseTableMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommonDeprecated.AIRichResponseTableMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommonDeprecated.AIRichResponseTableMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        if (!(message.rows && message.rows.length))
-                            message.rows = [];
-                        message.rows.push($root.AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.decode(reader, reader.uint32(), undefined, long + 1));
-                        break;
-                    }
-                case 2: {
-                        message.title = reader.string();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.rows && message.rows.length))
+                            message.rows = [];
+                        message.rows.push($root.AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.title = reader.string();
+                        message._title = "title";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -3609,19 +3841,19 @@ $root.AICommonDeprecated = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        AIRichResponseTableMetadata.verify = function verify(message, long) {
+        AIRichResponseTableMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.rows != null && message.hasOwnProperty("rows")) {
                 if (!Array.isArray(message.rows))
                     return "rows: array expected";
                 for (var i = 0; i < message.rows.length; ++i) {
-                    var error = $root.AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.verify(message.rows[i], long + 1);
+                    var error = $root.AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.verify(message.rows[i], _depth + 1);
                     if (error)
                         return "rows." + error;
                 }
@@ -3642,22 +3874,22 @@ $root.AICommonDeprecated = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommonDeprecated.AIRichResponseTableMetadata} AIRichResponseTableMetadata
          */
-        AIRichResponseTableMetadata.fromObject = function fromObject(object, long) {
+        AIRichResponseTableMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommonDeprecated.AIRichResponseTableMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommonDeprecated.AIRichResponseTableMetadata();
             if (object.rows) {
                 if (!Array.isArray(object.rows))
                     throw TypeError(".AICommonDeprecated.AIRichResponseTableMetadata.rows: array expected");
-                message.rows = [];
+                message.rows = Array(object.rows.length);
                 for (var i = 0; i < object.rows.length; ++i) {
                     if (typeof object.rows[i] !== "object")
                         throw TypeError(".AICommonDeprecated.AIRichResponseTableMetadata.rows: object expected");
-                    message.rows[i] = $root.AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.fromObject(object.rows[i], long + 1);
+                    message.rows[i] = $root.AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.fromObject(object.rows[i], _depth + 1);
                 }
             }
             if (object.title != null)
@@ -3681,7 +3913,7 @@ $root.AICommonDeprecated = (function() {
             if (options.arrays || options.defaults)
                 object.rows = [];
             if (message.rows && message.rows.length) {
-                object.rows = [];
+                object.rows = Array(message.rows.length);
                 for (var j = 0; j < message.rows.length; ++j)
                     object.rows[j] = $root.AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.toObject(message.rows[j], options);
             }
@@ -3705,18 +3937,17 @@ $root.AICommonDeprecated = (function() {
         };
 
         /**
-         * Gets the default type url for AIRichResponseTableMetadata
+         * Gets the type url for AIRichResponseTableMetadata
          * @function getTypeUrl
          * @memberof AICommonDeprecated.AIRichResponseTableMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        AIRichResponseTableMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommonDeprecated.AIRichResponseTableMetadata";
+        AIRichResponseTableMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommonDeprecated.AIRichResponseTableMetadata";
         };
 
         AIRichResponseTableMetadata.AIRichResponseTableRow = (function() {
@@ -3727,6 +3958,7 @@ $root.AICommonDeprecated = (function() {
              * @interface IAIRichResponseTableRow
              * @property {Array.<string>|null} [items] AIRichResponseTableRow items
              * @property {boolean|null} [isHeading] AIRichResponseTableRow isHeading
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -3736,6 +3968,7 @@ $root.AICommonDeprecated = (function() {
              * @implements IAIRichResponseTableRow
              * @constructor
              * @param {AICommonDeprecated.AIRichResponseTableMetadata.IAIRichResponseTableRow=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AIRichResponseTableRow(properties) {
                 this.items = [];
@@ -3799,6 +4032,9 @@ $root.AICommonDeprecated = (function() {
                         writer.uint32(/* id 1, wireType 2 =*/10).string(message.items[i]);
                 if (message.isHeading != null && Object.hasOwnProperty.call(message, "isHeading"))
                     writer.uint32(/* id 2, wireType 0 =*/16).bool(message.isHeading);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -3826,34 +4062,45 @@ $root.AICommonDeprecated = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            AIRichResponseTableRow.decode = function decode(reader, length, error, long) {
+            AIRichResponseTableRow.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
-                    switch (tag >>> 3) {
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
                     case 1: {
+                            if (wireType !== 2)
+                                break;
                             if (!(message.items && message.items.length))
                                 message.items = [];
                             message.items.push(reader.string());
-                            break;
+                            continue;
                         }
                     case 2: {
+                            if (wireType !== 0)
+                                break;
                             message.isHeading = reader.bool();
-                            break;
+                            message._isHeading = "isHeading";
+                            continue;
                         }
-                    default:
-                        reader.skipType(tag & 7, long);
-                        break;
                     }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -3881,13 +4128,13 @@ $root.AICommonDeprecated = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            AIRichResponseTableRow.verify = function verify(message, long) {
+            AIRichResponseTableRow.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.items != null && message.hasOwnProperty("items")) {
                     if (!Array.isArray(message.items))
@@ -3912,18 +4159,18 @@ $root.AICommonDeprecated = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow} AIRichResponseTableRow
              */
-            AIRichResponseTableRow.fromObject = function fromObject(object, long) {
+            AIRichResponseTableRow.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow();
                 if (object.items) {
                     if (!Array.isArray(object.items))
                         throw TypeError(".AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.items: array expected");
-                    message.items = [];
+                    message.items = Array(object.items.length);
                     for (var i = 0; i < object.items.length; ++i)
                         message.items[i] = String(object.items[i]);
                 }
@@ -3948,7 +4195,7 @@ $root.AICommonDeprecated = (function() {
                 if (options.arrays || options.defaults)
                     object.items = [];
                 if (message.items && message.items.length) {
-                    object.items = [];
+                    object.items = Array(message.items.length);
                     for (var j = 0; j < message.items.length; ++j)
                         object.items[j] = message.items[j];
                 }
@@ -3972,18 +4219,17 @@ $root.AICommonDeprecated = (function() {
             };
 
             /**
-             * Gets the default type url for AIRichResponseTableRow
+             * Gets the type url for AIRichResponseTableRow
              * @function getTypeUrl
              * @memberof AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            AIRichResponseTableRow.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow";
+            AIRichResponseTableRow.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow";
             };
 
             return AIRichResponseTableRow;
@@ -4000,6 +4246,7 @@ $root.AICommonDeprecated = (function() {
          * @interface IAIRichResponseCodeMetadata
          * @property {string|null} [codeLanguage] AIRichResponseCodeMetadata codeLanguage
          * @property {Array.<AICommonDeprecated.AIRichResponseCodeMetadata.IAIRichResponseCodeBlock>|null} [codeBlocks] AIRichResponseCodeMetadata codeBlocks
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -4009,6 +4256,7 @@ $root.AICommonDeprecated = (function() {
          * @implements IAIRichResponseCodeMetadata
          * @constructor
          * @param {AICommonDeprecated.IAIRichResponseCodeMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIRichResponseCodeMetadata(properties) {
             this.codeBlocks = [];
@@ -4072,6 +4320,9 @@ $root.AICommonDeprecated = (function() {
             if (message.codeBlocks != null && message.codeBlocks.length)
                 for (var i = 0; i < message.codeBlocks.length; ++i)
                     $root.AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.encode(message.codeBlocks[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -4099,34 +4350,45 @@ $root.AICommonDeprecated = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        AIRichResponseCodeMetadata.decode = function decode(reader, length, error, long) {
+        AIRichResponseCodeMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommonDeprecated.AIRichResponseCodeMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommonDeprecated.AIRichResponseCodeMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.codeLanguage = reader.string();
-                        break;
-                    }
-                case 2: {
-                        if (!(message.codeBlocks && message.codeBlocks.length))
-                            message.codeBlocks = [];
-                        message.codeBlocks.push($root.AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.decode(reader, reader.uint32(), undefined, long + 1));
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.codeLanguage = reader.string();
+                        message._codeLanguage = "codeLanguage";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.codeBlocks && message.codeBlocks.length))
+                            message.codeBlocks = [];
+                        message.codeBlocks.push($root.AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -4154,13 +4416,13 @@ $root.AICommonDeprecated = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        AIRichResponseCodeMetadata.verify = function verify(message, long) {
+        AIRichResponseCodeMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.codeLanguage != null && message.hasOwnProperty("codeLanguage")) {
                 properties._codeLanguage = 1;
@@ -4171,7 +4433,7 @@ $root.AICommonDeprecated = (function() {
                 if (!Array.isArray(message.codeBlocks))
                     return "codeBlocks: array expected";
                 for (var i = 0; i < message.codeBlocks.length; ++i) {
-                    var error = $root.AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.verify(message.codeBlocks[i], long + 1);
+                    var error = $root.AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.verify(message.codeBlocks[i], _depth + 1);
                     if (error)
                         return "codeBlocks." + error;
                 }
@@ -4187,24 +4449,24 @@ $root.AICommonDeprecated = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommonDeprecated.AIRichResponseCodeMetadata} AIRichResponseCodeMetadata
          */
-        AIRichResponseCodeMetadata.fromObject = function fromObject(object, long) {
+        AIRichResponseCodeMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommonDeprecated.AIRichResponseCodeMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommonDeprecated.AIRichResponseCodeMetadata();
             if (object.codeLanguage != null)
                 message.codeLanguage = String(object.codeLanguage);
             if (object.codeBlocks) {
                 if (!Array.isArray(object.codeBlocks))
                     throw TypeError(".AICommonDeprecated.AIRichResponseCodeMetadata.codeBlocks: array expected");
-                message.codeBlocks = [];
+                message.codeBlocks = Array(object.codeBlocks.length);
                 for (var i = 0; i < object.codeBlocks.length; ++i) {
                     if (typeof object.codeBlocks[i] !== "object")
                         throw TypeError(".AICommonDeprecated.AIRichResponseCodeMetadata.codeBlocks: object expected");
-                    message.codeBlocks[i] = $root.AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.fromObject(object.codeBlocks[i], long + 1);
+                    message.codeBlocks[i] = $root.AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.fromObject(object.codeBlocks[i], _depth + 1);
                 }
             }
             return message;
@@ -4231,7 +4493,7 @@ $root.AICommonDeprecated = (function() {
                     object._codeLanguage = "codeLanguage";
             }
             if (message.codeBlocks && message.codeBlocks.length) {
-                object.codeBlocks = [];
+                object.codeBlocks = Array(message.codeBlocks.length);
                 for (var j = 0; j < message.codeBlocks.length; ++j)
                     object.codeBlocks[j] = $root.AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.toObject(message.codeBlocks[j], options);
             }
@@ -4250,18 +4512,17 @@ $root.AICommonDeprecated = (function() {
         };
 
         /**
-         * Gets the default type url for AIRichResponseCodeMetadata
+         * Gets the type url for AIRichResponseCodeMetadata
          * @function getTypeUrl
          * @memberof AICommonDeprecated.AIRichResponseCodeMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        AIRichResponseCodeMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommonDeprecated.AIRichResponseCodeMetadata";
+        AIRichResponseCodeMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommonDeprecated.AIRichResponseCodeMetadata";
         };
 
         AIRichResponseCodeMetadata.AIRichResponseCodeBlock = (function() {
@@ -4272,6 +4533,7 @@ $root.AICommonDeprecated = (function() {
              * @interface IAIRichResponseCodeBlock
              * @property {AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeHighlightType|null} [highlightType] AIRichResponseCodeBlock highlightType
              * @property {string|null} [codeContent] AIRichResponseCodeBlock codeContent
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -4281,6 +4543,7 @@ $root.AICommonDeprecated = (function() {
              * @implements IAIRichResponseCodeBlock
              * @constructor
              * @param {AICommonDeprecated.AIRichResponseCodeMetadata.IAIRichResponseCodeBlock=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AIRichResponseCodeBlock(properties) {
                 if (properties)
@@ -4348,6 +4611,9 @@ $root.AICommonDeprecated = (function() {
                     writer.uint32(/* id 1, wireType 0 =*/8).int32(message.highlightType);
                 if (message.codeContent != null && Object.hasOwnProperty.call(message, "codeContent"))
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.codeContent);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -4375,32 +4641,44 @@ $root.AICommonDeprecated = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            AIRichResponseCodeBlock.decode = function decode(reader, length, error, long) {
+            AIRichResponseCodeBlock.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.highlightType = reader.int32();
-                            break;
-                        }
-                    case 2: {
-                            message.codeContent = reader.string();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.highlightType = reader.int32();
+                            message._highlightType = "highlightType";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.codeContent = reader.string();
+                            message._codeContent = "codeContent";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -4428,13 +4706,13 @@ $root.AICommonDeprecated = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            AIRichResponseCodeBlock.verify = function verify(message, long) {
+            AIRichResponseCodeBlock.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.highlightType != null && message.hasOwnProperty("highlightType")) {
                     properties._highlightType = 1;
@@ -4466,13 +4744,13 @@ $root.AICommonDeprecated = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock} AIRichResponseCodeBlock
              */
-            AIRichResponseCodeBlock.fromObject = function fromObject(object, long) {
+            AIRichResponseCodeBlock.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock();
                 switch (object.highlightType) {
                 default:
@@ -4549,18 +4827,17 @@ $root.AICommonDeprecated = (function() {
             };
 
             /**
-             * Gets the default type url for AIRichResponseCodeBlock
+             * Gets the type url for AIRichResponseCodeBlock
              * @function getTypeUrl
              * @memberof AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            AIRichResponseCodeBlock.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock";
+            AIRichResponseCodeBlock.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock";
             };
 
             return AIRichResponseCodeBlock;
@@ -4601,6 +4878,7 @@ $root.AICommonDeprecated = (function() {
          * @property {string|null} [imageText] AIRichResponseInlineImageMetadata imageText
          * @property {AICommonDeprecated.AIRichResponseInlineImageMetadata.AIRichResponseImageAlignment|null} [alignment] AIRichResponseInlineImageMetadata alignment
          * @property {string|null} [tapLinkUrl] AIRichResponseInlineImageMetadata tapLinkUrl
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -4610,6 +4888,7 @@ $root.AICommonDeprecated = (function() {
          * @implements IAIRichResponseInlineImageMetadata
          * @constructor
          * @param {AICommonDeprecated.IAIRichResponseInlineImageMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIRichResponseInlineImageMetadata(properties) {
             if (properties)
@@ -4709,6 +4988,9 @@ $root.AICommonDeprecated = (function() {
                 writer.uint32(/* id 3, wireType 0 =*/24).int32(message.alignment);
             if (message.tapLinkUrl != null && Object.hasOwnProperty.call(message, "tapLinkUrl"))
                 writer.uint32(/* id 4, wireType 2 =*/34).string(message.tapLinkUrl);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -4736,40 +5018,58 @@ $root.AICommonDeprecated = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        AIRichResponseInlineImageMetadata.decode = function decode(reader, length, error, long) {
+        AIRichResponseInlineImageMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommonDeprecated.AIRichResponseInlineImageMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommonDeprecated.AIRichResponseInlineImageMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.imageUrl = $root.AICommonDeprecated.AIRichResponseImageURL.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 2: {
-                        message.imageText = reader.string();
-                        break;
-                    }
-                case 3: {
-                        message.alignment = reader.int32();
-                        break;
-                    }
-                case 4: {
-                        message.tapLinkUrl = reader.string();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.imageUrl = $root.AICommonDeprecated.AIRichResponseImageURL.decode(reader, reader.uint32(), undefined, _depth + 1, message.imageUrl);
+                        message._imageUrl = "imageUrl";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.imageText = reader.string();
+                        message._imageText = "imageText";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 0)
+                            break;
+                        message.alignment = reader.int32();
+                        message._alignment = "alignment";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 2)
+                            break;
+                        message.tapLinkUrl = reader.string();
+                        message._tapLinkUrl = "tapLinkUrl";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -4797,18 +5097,18 @@ $root.AICommonDeprecated = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        AIRichResponseInlineImageMetadata.verify = function verify(message, long) {
+        AIRichResponseInlineImageMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.imageUrl != null && message.hasOwnProperty("imageUrl")) {
                 properties._imageUrl = 1;
                 {
-                    var error = $root.AICommonDeprecated.AIRichResponseImageURL.verify(message.imageUrl, long + 1);
+                    var error = $root.AICommonDeprecated.AIRichResponseImageURL.verify(message.imageUrl, _depth + 1);
                     if (error)
                         return "imageUrl." + error;
                 }
@@ -4845,18 +5145,18 @@ $root.AICommonDeprecated = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommonDeprecated.AIRichResponseInlineImageMetadata} AIRichResponseInlineImageMetadata
          */
-        AIRichResponseInlineImageMetadata.fromObject = function fromObject(object, long) {
+        AIRichResponseInlineImageMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommonDeprecated.AIRichResponseInlineImageMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommonDeprecated.AIRichResponseInlineImageMetadata();
             if (object.imageUrl != null) {
                 if (typeof object.imageUrl !== "object")
                     throw TypeError(".AICommonDeprecated.AIRichResponseInlineImageMetadata.imageUrl: object expected");
-                message.imageUrl = $root.AICommonDeprecated.AIRichResponseImageURL.fromObject(object.imageUrl, long + 1);
+                message.imageUrl = $root.AICommonDeprecated.AIRichResponseImageURL.fromObject(object.imageUrl, _depth + 1);
             }
             if (object.imageText != null)
                 message.imageText = String(object.imageText);
@@ -4933,18 +5233,17 @@ $root.AICommonDeprecated = (function() {
         };
 
         /**
-         * Gets the default type url for AIRichResponseInlineImageMetadata
+         * Gets the type url for AIRichResponseInlineImageMetadata
          * @function getTypeUrl
          * @memberof AICommonDeprecated.AIRichResponseInlineImageMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        AIRichResponseInlineImageMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommonDeprecated.AIRichResponseInlineImageMetadata";
+        AIRichResponseInlineImageMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommonDeprecated.AIRichResponseInlineImageMetadata";
         };
 
         /**
@@ -4974,6 +5273,7 @@ $root.AICommonDeprecated = (function() {
          * @interface IAIRichResponseGridImageMetadata
          * @property {AICommonDeprecated.IAIRichResponseImageURL|null} [gridImageUrl] AIRichResponseGridImageMetadata gridImageUrl
          * @property {Array.<AICommonDeprecated.IAIRichResponseImageURL>|null} [imageUrls] AIRichResponseGridImageMetadata imageUrls
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -4983,6 +5283,7 @@ $root.AICommonDeprecated = (function() {
          * @implements IAIRichResponseGridImageMetadata
          * @constructor
          * @param {AICommonDeprecated.IAIRichResponseGridImageMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIRichResponseGridImageMetadata(properties) {
             this.imageUrls = [];
@@ -5046,6 +5347,9 @@ $root.AICommonDeprecated = (function() {
             if (message.imageUrls != null && message.imageUrls.length)
                 for (var i = 0; i < message.imageUrls.length; ++i)
                     $root.AICommonDeprecated.AIRichResponseImageURL.encode(message.imageUrls[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -5073,34 +5377,45 @@ $root.AICommonDeprecated = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        AIRichResponseGridImageMetadata.decode = function decode(reader, length, error, long) {
+        AIRichResponseGridImageMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommonDeprecated.AIRichResponseGridImageMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommonDeprecated.AIRichResponseGridImageMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.gridImageUrl = $root.AICommonDeprecated.AIRichResponseImageURL.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 2: {
-                        if (!(message.imageUrls && message.imageUrls.length))
-                            message.imageUrls = [];
-                        message.imageUrls.push($root.AICommonDeprecated.AIRichResponseImageURL.decode(reader, reader.uint32(), undefined, long + 1));
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.gridImageUrl = $root.AICommonDeprecated.AIRichResponseImageURL.decode(reader, reader.uint32(), undefined, _depth + 1, message.gridImageUrl);
+                        message._gridImageUrl = "gridImageUrl";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.imageUrls && message.imageUrls.length))
+                            message.imageUrls = [];
+                        message.imageUrls.push($root.AICommonDeprecated.AIRichResponseImageURL.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -5128,18 +5443,18 @@ $root.AICommonDeprecated = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        AIRichResponseGridImageMetadata.verify = function verify(message, long) {
+        AIRichResponseGridImageMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.gridImageUrl != null && message.hasOwnProperty("gridImageUrl")) {
                 properties._gridImageUrl = 1;
                 {
-                    var error = $root.AICommonDeprecated.AIRichResponseImageURL.verify(message.gridImageUrl, long + 1);
+                    var error = $root.AICommonDeprecated.AIRichResponseImageURL.verify(message.gridImageUrl, _depth + 1);
                     if (error)
                         return "gridImageUrl." + error;
                 }
@@ -5148,7 +5463,7 @@ $root.AICommonDeprecated = (function() {
                 if (!Array.isArray(message.imageUrls))
                     return "imageUrls: array expected";
                 for (var i = 0; i < message.imageUrls.length; ++i) {
-                    var error = $root.AICommonDeprecated.AIRichResponseImageURL.verify(message.imageUrls[i], long + 1);
+                    var error = $root.AICommonDeprecated.AIRichResponseImageURL.verify(message.imageUrls[i], _depth + 1);
                     if (error)
                         return "imageUrls." + error;
                 }
@@ -5164,27 +5479,27 @@ $root.AICommonDeprecated = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommonDeprecated.AIRichResponseGridImageMetadata} AIRichResponseGridImageMetadata
          */
-        AIRichResponseGridImageMetadata.fromObject = function fromObject(object, long) {
+        AIRichResponseGridImageMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommonDeprecated.AIRichResponseGridImageMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommonDeprecated.AIRichResponseGridImageMetadata();
             if (object.gridImageUrl != null) {
                 if (typeof object.gridImageUrl !== "object")
                     throw TypeError(".AICommonDeprecated.AIRichResponseGridImageMetadata.gridImageUrl: object expected");
-                message.gridImageUrl = $root.AICommonDeprecated.AIRichResponseImageURL.fromObject(object.gridImageUrl, long + 1);
+                message.gridImageUrl = $root.AICommonDeprecated.AIRichResponseImageURL.fromObject(object.gridImageUrl, _depth + 1);
             }
             if (object.imageUrls) {
                 if (!Array.isArray(object.imageUrls))
                     throw TypeError(".AICommonDeprecated.AIRichResponseGridImageMetadata.imageUrls: array expected");
-                message.imageUrls = [];
+                message.imageUrls = Array(object.imageUrls.length);
                 for (var i = 0; i < object.imageUrls.length; ++i) {
                     if (typeof object.imageUrls[i] !== "object")
                         throw TypeError(".AICommonDeprecated.AIRichResponseGridImageMetadata.imageUrls: object expected");
-                    message.imageUrls[i] = $root.AICommonDeprecated.AIRichResponseImageURL.fromObject(object.imageUrls[i], long + 1);
+                    message.imageUrls[i] = $root.AICommonDeprecated.AIRichResponseImageURL.fromObject(object.imageUrls[i], _depth + 1);
                 }
             }
             return message;
@@ -5211,7 +5526,7 @@ $root.AICommonDeprecated = (function() {
                     object._gridImageUrl = "gridImageUrl";
             }
             if (message.imageUrls && message.imageUrls.length) {
-                object.imageUrls = [];
+                object.imageUrls = Array(message.imageUrls.length);
                 for (var j = 0; j < message.imageUrls.length; ++j)
                     object.imageUrls[j] = $root.AICommonDeprecated.AIRichResponseImageURL.toObject(message.imageUrls[j], options);
             }
@@ -5230,18 +5545,17 @@ $root.AICommonDeprecated = (function() {
         };
 
         /**
-         * Gets the default type url for AIRichResponseGridImageMetadata
+         * Gets the type url for AIRichResponseGridImageMetadata
          * @function getTypeUrl
          * @memberof AICommonDeprecated.AIRichResponseGridImageMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        AIRichResponseGridImageMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommonDeprecated.AIRichResponseGridImageMetadata";
+        AIRichResponseGridImageMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommonDeprecated.AIRichResponseGridImageMetadata";
         };
 
         return AIRichResponseGridImageMetadata;
@@ -5256,6 +5570,7 @@ $root.AICommonDeprecated = (function() {
          * @property {string|null} [imagePreviewUrl] AIRichResponseImageURL imagePreviewUrl
          * @property {string|null} [imageHighResUrl] AIRichResponseImageURL imageHighResUrl
          * @property {string|null} [sourceUrl] AIRichResponseImageURL sourceUrl
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -5265,6 +5580,7 @@ $root.AICommonDeprecated = (function() {
          * @implements IAIRichResponseImageURL
          * @constructor
          * @param {AICommonDeprecated.IAIRichResponseImageURL=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIRichResponseImageURL(properties) {
             if (properties)
@@ -5348,6 +5664,9 @@ $root.AICommonDeprecated = (function() {
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.imageHighResUrl);
             if (message.sourceUrl != null && Object.hasOwnProperty.call(message, "sourceUrl"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.sourceUrl);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -5375,36 +5694,51 @@ $root.AICommonDeprecated = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        AIRichResponseImageURL.decode = function decode(reader, length, error, long) {
+        AIRichResponseImageURL.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommonDeprecated.AIRichResponseImageURL();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommonDeprecated.AIRichResponseImageURL();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.imagePreviewUrl = reader.string();
-                        break;
-                    }
-                case 2: {
-                        message.imageHighResUrl = reader.string();
-                        break;
-                    }
-                case 3: {
-                        message.sourceUrl = reader.string();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.imagePreviewUrl = reader.string();
+                        message._imagePreviewUrl = "imagePreviewUrl";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.imageHighResUrl = reader.string();
+                        message._imageHighResUrl = "imageHighResUrl";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.sourceUrl = reader.string();
+                        message._sourceUrl = "sourceUrl";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -5432,13 +5766,13 @@ $root.AICommonDeprecated = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        AIRichResponseImageURL.verify = function verify(message, long) {
+        AIRichResponseImageURL.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.imagePreviewUrl != null && message.hasOwnProperty("imagePreviewUrl")) {
                 properties._imagePreviewUrl = 1;
@@ -5466,13 +5800,13 @@ $root.AICommonDeprecated = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommonDeprecated.AIRichResponseImageURL} AIRichResponseImageURL
          */
-        AIRichResponseImageURL.fromObject = function fromObject(object, long) {
+        AIRichResponseImageURL.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommonDeprecated.AIRichResponseImageURL)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommonDeprecated.AIRichResponseImageURL();
             if (object.imagePreviewUrl != null)
                 message.imagePreviewUrl = String(object.imagePreviewUrl);
@@ -5526,18 +5860,17 @@ $root.AICommonDeprecated = (function() {
         };
 
         /**
-         * Gets the default type url for AIRichResponseImageURL
+         * Gets the type url for AIRichResponseImageURL
          * @function getTypeUrl
          * @memberof AICommonDeprecated.AIRichResponseImageURL
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        AIRichResponseImageURL.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommonDeprecated.AIRichResponseImageURL";
+        AIRichResponseImageURL.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommonDeprecated.AIRichResponseImageURL";
         };
 
         return AIRichResponseImageURL;
@@ -5613,6 +5946,7 @@ $root.StatusAttributions = (function() {
          * @property {StatusAttributions.StatusAttribution.IGroupStatus|null} [groupStatus] StatusAttribution groupStatus
          * @property {StatusAttributions.StatusAttribution.IRLAttribution|null} [rlAttribution] StatusAttribution rlAttribution
          * @property {StatusAttributions.StatusAttribution.IAiCreatedAttribution|null} [aiCreatedAttribution] StatusAttribution aiCreatedAttribution
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -5622,6 +5956,7 @@ $root.StatusAttributions = (function() {
          * @implements IStatusAttribution
          * @constructor
          * @param {StatusAttributions.IStatusAttribution=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function StatusAttribution(properties) {
             if (properties)
@@ -5760,6 +6095,9 @@ $root.StatusAttributions = (function() {
                 $root.StatusAttributions.StatusAttribution.RLAttribution.encode(message.rlAttribution, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
             if (message.aiCreatedAttribution != null && Object.hasOwnProperty.call(message, "aiCreatedAttribution"))
                 $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.encode(message.aiCreatedAttribution, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -5787,56 +6125,86 @@ $root.StatusAttributions = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        StatusAttribution.decode = function decode(reader, length, error, long) {
+        StatusAttribution.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.StatusAttributions.StatusAttribution();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.type = reader.int32();
-                        break;
-                    }
-                case 2: {
-                        message.actionUrl = reader.string();
-                        break;
-                    }
-                case 3: {
-                        message.statusReshare = $root.StatusAttributions.StatusAttribution.StatusReshare.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 4: {
-                        message.externalShare = $root.StatusAttributions.StatusAttribution.ExternalShare.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 5: {
-                        message.music = $root.StatusAttributions.StatusAttribution.Music.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 6: {
-                        message.groupStatus = $root.StatusAttributions.StatusAttribution.GroupStatus.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 7: {
-                        message.rlAttribution = $root.StatusAttributions.StatusAttribution.RLAttribution.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 8: {
-                        message.aiCreatedAttribution = $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.type = reader.int32();
+                        message._type = "type";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.actionUrl = reader.string();
+                        message._actionUrl = "actionUrl";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.statusReshare = $root.StatusAttributions.StatusAttribution.StatusReshare.decode(reader, reader.uint32(), undefined, _depth + 1, message.statusReshare);
+                        message.attributionData = "statusReshare";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 2)
+                            break;
+                        message.externalShare = $root.StatusAttributions.StatusAttribution.ExternalShare.decode(reader, reader.uint32(), undefined, _depth + 1, message.externalShare);
+                        message.attributionData = "externalShare";
+                        continue;
+                    }
+                case 5: {
+                        if (wireType !== 2)
+                            break;
+                        message.music = $root.StatusAttributions.StatusAttribution.Music.decode(reader, reader.uint32(), undefined, _depth + 1, message.music);
+                        message.attributionData = "music";
+                        continue;
+                    }
+                case 6: {
+                        if (wireType !== 2)
+                            break;
+                        message.groupStatus = $root.StatusAttributions.StatusAttribution.GroupStatus.decode(reader, reader.uint32(), undefined, _depth + 1, message.groupStatus);
+                        message.attributionData = "groupStatus";
+                        continue;
+                    }
+                case 7: {
+                        if (wireType !== 2)
+                            break;
+                        message.rlAttribution = $root.StatusAttributions.StatusAttribution.RLAttribution.decode(reader, reader.uint32(), undefined, _depth + 1, message.rlAttribution);
+                        message.attributionData = "rlAttribution";
+                        continue;
+                    }
+                case 8: {
+                        if (wireType !== 2)
+                            break;
+                        message.aiCreatedAttribution = $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.decode(reader, reader.uint32(), undefined, _depth + 1, message.aiCreatedAttribution);
+                        message.attributionData = "aiCreatedAttribution";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -5864,13 +6232,13 @@ $root.StatusAttributions = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        StatusAttribution.verify = function verify(message, long) {
+        StatusAttribution.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.type != null && message.hasOwnProperty("type")) {
                 properties._type = 1;
@@ -5900,7 +6268,7 @@ $root.StatusAttributions = (function() {
             if (message.statusReshare != null && message.hasOwnProperty("statusReshare")) {
                 properties.attributionData = 1;
                 {
-                    var error = $root.StatusAttributions.StatusAttribution.StatusReshare.verify(message.statusReshare, long + 1);
+                    var error = $root.StatusAttributions.StatusAttribution.StatusReshare.verify(message.statusReshare, _depth + 1);
                     if (error)
                         return "statusReshare." + error;
                 }
@@ -5910,7 +6278,7 @@ $root.StatusAttributions = (function() {
                     return "attributionData: multiple values";
                 properties.attributionData = 1;
                 {
-                    var error = $root.StatusAttributions.StatusAttribution.ExternalShare.verify(message.externalShare, long + 1);
+                    var error = $root.StatusAttributions.StatusAttribution.ExternalShare.verify(message.externalShare, _depth + 1);
                     if (error)
                         return "externalShare." + error;
                 }
@@ -5920,7 +6288,7 @@ $root.StatusAttributions = (function() {
                     return "attributionData: multiple values";
                 properties.attributionData = 1;
                 {
-                    var error = $root.StatusAttributions.StatusAttribution.Music.verify(message.music, long + 1);
+                    var error = $root.StatusAttributions.StatusAttribution.Music.verify(message.music, _depth + 1);
                     if (error)
                         return "music." + error;
                 }
@@ -5930,7 +6298,7 @@ $root.StatusAttributions = (function() {
                     return "attributionData: multiple values";
                 properties.attributionData = 1;
                 {
-                    var error = $root.StatusAttributions.StatusAttribution.GroupStatus.verify(message.groupStatus, long + 1);
+                    var error = $root.StatusAttributions.StatusAttribution.GroupStatus.verify(message.groupStatus, _depth + 1);
                     if (error)
                         return "groupStatus." + error;
                 }
@@ -5940,7 +6308,7 @@ $root.StatusAttributions = (function() {
                     return "attributionData: multiple values";
                 properties.attributionData = 1;
                 {
-                    var error = $root.StatusAttributions.StatusAttribution.RLAttribution.verify(message.rlAttribution, long + 1);
+                    var error = $root.StatusAttributions.StatusAttribution.RLAttribution.verify(message.rlAttribution, _depth + 1);
                     if (error)
                         return "rlAttribution." + error;
                 }
@@ -5950,7 +6318,7 @@ $root.StatusAttributions = (function() {
                     return "attributionData: multiple values";
                 properties.attributionData = 1;
                 {
-                    var error = $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.verify(message.aiCreatedAttribution, long + 1);
+                    var error = $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.verify(message.aiCreatedAttribution, _depth + 1);
                     if (error)
                         return "aiCreatedAttribution." + error;
                 }
@@ -5966,13 +6334,13 @@ $root.StatusAttributions = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {StatusAttributions.StatusAttribution} StatusAttribution
          */
-        StatusAttribution.fromObject = function fromObject(object, long) {
+        StatusAttribution.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.StatusAttributions.StatusAttribution)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.StatusAttributions.StatusAttribution();
             switch (object.type) {
             default:
@@ -6035,32 +6403,32 @@ $root.StatusAttributions = (function() {
             if (object.statusReshare != null) {
                 if (typeof object.statusReshare !== "object")
                     throw TypeError(".StatusAttributions.StatusAttribution.statusReshare: object expected");
-                message.statusReshare = $root.StatusAttributions.StatusAttribution.StatusReshare.fromObject(object.statusReshare, long + 1);
+                message.statusReshare = $root.StatusAttributions.StatusAttribution.StatusReshare.fromObject(object.statusReshare, _depth + 1);
             }
             if (object.externalShare != null) {
                 if (typeof object.externalShare !== "object")
                     throw TypeError(".StatusAttributions.StatusAttribution.externalShare: object expected");
-                message.externalShare = $root.StatusAttributions.StatusAttribution.ExternalShare.fromObject(object.externalShare, long + 1);
+                message.externalShare = $root.StatusAttributions.StatusAttribution.ExternalShare.fromObject(object.externalShare, _depth + 1);
             }
             if (object.music != null) {
                 if (typeof object.music !== "object")
                     throw TypeError(".StatusAttributions.StatusAttribution.music: object expected");
-                message.music = $root.StatusAttributions.StatusAttribution.Music.fromObject(object.music, long + 1);
+                message.music = $root.StatusAttributions.StatusAttribution.Music.fromObject(object.music, _depth + 1);
             }
             if (object.groupStatus != null) {
                 if (typeof object.groupStatus !== "object")
                     throw TypeError(".StatusAttributions.StatusAttribution.groupStatus: object expected");
-                message.groupStatus = $root.StatusAttributions.StatusAttribution.GroupStatus.fromObject(object.groupStatus, long + 1);
+                message.groupStatus = $root.StatusAttributions.StatusAttribution.GroupStatus.fromObject(object.groupStatus, _depth + 1);
             }
             if (object.rlAttribution != null) {
                 if (typeof object.rlAttribution !== "object")
                     throw TypeError(".StatusAttributions.StatusAttribution.rlAttribution: object expected");
-                message.rlAttribution = $root.StatusAttributions.StatusAttribution.RLAttribution.fromObject(object.rlAttribution, long + 1);
+                message.rlAttribution = $root.StatusAttributions.StatusAttribution.RLAttribution.fromObject(object.rlAttribution, _depth + 1);
             }
             if (object.aiCreatedAttribution != null) {
                 if (typeof object.aiCreatedAttribution !== "object")
                     throw TypeError(".StatusAttributions.StatusAttribution.aiCreatedAttribution: object expected");
-                message.aiCreatedAttribution = $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.fromObject(object.aiCreatedAttribution, long + 1);
+                message.aiCreatedAttribution = $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.fromObject(object.aiCreatedAttribution, _depth + 1);
             }
             return message;
         };
@@ -6133,18 +6501,17 @@ $root.StatusAttributions = (function() {
         };
 
         /**
-         * Gets the default type url for StatusAttribution
+         * Gets the type url for StatusAttribution
          * @function getTypeUrl
          * @memberof StatusAttributions.StatusAttribution
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        StatusAttribution.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/StatusAttributions.StatusAttribution";
+        StatusAttribution.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/StatusAttributions.StatusAttribution";
         };
 
         StatusAttribution.AiCreatedAttribution = (function() {
@@ -6154,6 +6521,7 @@ $root.StatusAttributions = (function() {
              * @memberof StatusAttributions.StatusAttribution
              * @interface IAiCreatedAttribution
              * @property {StatusAttributions.StatusAttribution.AiCreatedAttribution.Source|null} [source] AiCreatedAttribution source
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -6163,6 +6531,7 @@ $root.StatusAttributions = (function() {
              * @implements IAiCreatedAttribution
              * @constructor
              * @param {StatusAttributions.StatusAttribution.IAiCreatedAttribution=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AiCreatedAttribution(properties) {
                 if (properties)
@@ -6214,6 +6583,9 @@ $root.StatusAttributions = (function() {
                     writer = $Writer.create();
                 if (message.source != null && Object.hasOwnProperty.call(message, "source"))
                     writer.uint32(/* id 1, wireType 0 =*/8).int32(message.source);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -6241,28 +6613,37 @@ $root.StatusAttributions = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            AiCreatedAttribution.decode = function decode(reader, length, error, long) {
+            AiCreatedAttribution.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.StatusAttributions.StatusAttribution.AiCreatedAttribution();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.AiCreatedAttribution();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.source = reader.int32();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.source = reader.int32();
+                            message._source = "source";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -6290,13 +6671,13 @@ $root.StatusAttributions = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            AiCreatedAttribution.verify = function verify(message, long) {
+            AiCreatedAttribution.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.source != null && message.hasOwnProperty("source")) {
                     properties._source = 1;
@@ -6319,13 +6700,13 @@ $root.StatusAttributions = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {StatusAttributions.StatusAttribution.AiCreatedAttribution} AiCreatedAttribution
              */
-            AiCreatedAttribution.fromObject = function fromObject(object, long) {
+            AiCreatedAttribution.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.StatusAttributions.StatusAttribution.AiCreatedAttribution)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.StatusAttributions.StatusAttribution.AiCreatedAttribution();
                 switch (object.source) {
                 default:
@@ -6379,18 +6760,17 @@ $root.StatusAttributions = (function() {
             };
 
             /**
-             * Gets the default type url for AiCreatedAttribution
+             * Gets the type url for AiCreatedAttribution
              * @function getTypeUrl
              * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            AiCreatedAttribution.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/StatusAttributions.StatusAttribution.AiCreatedAttribution";
+            AiCreatedAttribution.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/StatusAttributions.StatusAttribution.AiCreatedAttribution";
             };
 
             /**
@@ -6420,6 +6800,7 @@ $root.StatusAttributions = (function() {
              * @property {StatusAttributions.StatusAttribution.ExternalShare.Source|null} [source] ExternalShare source
              * @property {number|null} [duration] ExternalShare duration
              * @property {string|null} [actionFallbackUrl] ExternalShare actionFallbackUrl
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -6429,6 +6810,7 @@ $root.StatusAttributions = (function() {
              * @implements IExternalShare
              * @constructor
              * @param {StatusAttributions.StatusAttribution.IExternalShare=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function ExternalShare(properties) {
                 if (properties)
@@ -6528,6 +6910,9 @@ $root.StatusAttributions = (function() {
                     writer.uint32(/* id 3, wireType 0 =*/24).int32(message.duration);
                 if (message.actionFallbackUrl != null && Object.hasOwnProperty.call(message, "actionFallbackUrl"))
                     writer.uint32(/* id 4, wireType 2 =*/34).string(message.actionFallbackUrl);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -6555,40 +6940,58 @@ $root.StatusAttributions = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            ExternalShare.decode = function decode(reader, length, error, long) {
+            ExternalShare.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.StatusAttributions.StatusAttribution.ExternalShare();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.ExternalShare();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.actionUrl = reader.string();
-                            break;
-                        }
-                    case 2: {
-                            message.source = reader.int32();
-                            break;
-                        }
-                    case 3: {
-                            message.duration = reader.int32();
-                            break;
-                        }
-                    case 4: {
-                            message.actionFallbackUrl = reader.string();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.actionUrl = reader.string();
+                            message._actionUrl = "actionUrl";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 0)
+                                break;
+                            message.source = reader.int32();
+                            message._source = "source";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 0)
+                                break;
+                            message.duration = reader.int32();
+                            message._duration = "duration";
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 2)
+                                break;
+                            message.actionFallbackUrl = reader.string();
+                            message._actionFallbackUrl = "actionFallbackUrl";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -6616,13 +7019,13 @@ $root.StatusAttributions = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            ExternalShare.verify = function verify(message, long) {
+            ExternalShare.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.actionUrl != null && message.hasOwnProperty("actionUrl")) {
                     properties._actionUrl = 1;
@@ -6671,13 +7074,13 @@ $root.StatusAttributions = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {StatusAttributions.StatusAttribution.ExternalShare} ExternalShare
              */
-            ExternalShare.fromObject = function fromObject(object, long) {
+            ExternalShare.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.StatusAttributions.StatusAttribution.ExternalShare)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.StatusAttributions.StatusAttribution.ExternalShare();
                 if (object.actionUrl != null)
                     message.actionUrl = String(object.actionUrl);
@@ -6796,18 +7199,17 @@ $root.StatusAttributions = (function() {
             };
 
             /**
-             * Gets the default type url for ExternalShare
+             * Gets the type url for ExternalShare
              * @function getTypeUrl
              * @memberof StatusAttributions.StatusAttribution.ExternalShare
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            ExternalShare.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/StatusAttributions.StatusAttribution.ExternalShare";
+            ExternalShare.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/StatusAttributions.StatusAttribution.ExternalShare";
             };
 
             /**
@@ -6856,6 +7258,7 @@ $root.StatusAttributions = (function() {
              * @memberof StatusAttributions.StatusAttribution
              * @interface IGroupStatus
              * @property {string|null} [authorJid] GroupStatus authorJid
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -6865,6 +7268,7 @@ $root.StatusAttributions = (function() {
              * @implements IGroupStatus
              * @constructor
              * @param {StatusAttributions.StatusAttribution.IGroupStatus=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function GroupStatus(properties) {
                 if (properties)
@@ -6916,6 +7320,9 @@ $root.StatusAttributions = (function() {
                     writer = $Writer.create();
                 if (message.authorJid != null && Object.hasOwnProperty.call(message, "authorJid"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.authorJid);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -6943,28 +7350,37 @@ $root.StatusAttributions = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GroupStatus.decode = function decode(reader, length, error, long) {
+            GroupStatus.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.StatusAttributions.StatusAttribution.GroupStatus();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.GroupStatus();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.authorJid = reader.string();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.authorJid = reader.string();
+                            message._authorJid = "authorJid";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -6992,13 +7408,13 @@ $root.StatusAttributions = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            GroupStatus.verify = function verify(message, long) {
+            GroupStatus.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.authorJid != null && message.hasOwnProperty("authorJid")) {
                     properties._authorJid = 1;
@@ -7016,13 +7432,13 @@ $root.StatusAttributions = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {StatusAttributions.StatusAttribution.GroupStatus} GroupStatus
              */
-            GroupStatus.fromObject = function fromObject(object, long) {
+            GroupStatus.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.StatusAttributions.StatusAttribution.GroupStatus)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.StatusAttributions.StatusAttribution.GroupStatus();
                 if (object.authorJid != null)
                     message.authorJid = String(object.authorJid);
@@ -7062,18 +7478,17 @@ $root.StatusAttributions = (function() {
             };
 
             /**
-             * Gets the default type url for GroupStatus
+             * Gets the type url for GroupStatus
              * @function getTypeUrl
              * @memberof StatusAttributions.StatusAttribution.GroupStatus
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            GroupStatus.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/StatusAttributions.StatusAttribution.GroupStatus";
+            GroupStatus.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/StatusAttributions.StatusAttribution.GroupStatus";
             };
 
             return GroupStatus;
@@ -7091,6 +7506,7 @@ $root.StatusAttributions = (function() {
              * @property {string|null} [author] Music author
              * @property {string|null} [artistAttribution] Music artistAttribution
              * @property {boolean|null} [isExplicit] Music isExplicit
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -7100,6 +7516,7 @@ $root.StatusAttributions = (function() {
              * @implements IMusic
              * @constructor
              * @param {StatusAttributions.StatusAttribution.IMusic=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function Music(properties) {
                 if (properties)
@@ -7231,6 +7648,9 @@ $root.StatusAttributions = (function() {
                     writer.uint32(/* id 5, wireType 2 =*/42).string(message.artistAttribution);
                 if (message.isExplicit != null && Object.hasOwnProperty.call(message, "isExplicit"))
                     writer.uint32(/* id 6, wireType 0 =*/48).bool(message.isExplicit);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -7258,48 +7678,72 @@ $root.StatusAttributions = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Music.decode = function decode(reader, length, error, long) {
+            Music.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.StatusAttributions.StatusAttribution.Music();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.Music();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.authorName = reader.string();
-                            break;
-                        }
-                    case 2: {
-                            message.songId = reader.string();
-                            break;
-                        }
-                    case 3: {
-                            message.title = reader.string();
-                            break;
-                        }
-                    case 4: {
-                            message.author = reader.string();
-                            break;
-                        }
-                    case 5: {
-                            message.artistAttribution = reader.string();
-                            break;
-                        }
-                    case 6: {
-                            message.isExplicit = reader.bool();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.authorName = reader.string();
+                            message._authorName = "authorName";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.songId = reader.string();
+                            message._songId = "songId";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 2)
+                                break;
+                            message.title = reader.string();
+                            message._title = "title";
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 2)
+                                break;
+                            message.author = reader.string();
+                            message._author = "author";
+                            continue;
+                        }
+                    case 5: {
+                            if (wireType !== 2)
+                                break;
+                            message.artistAttribution = reader.string();
+                            message._artistAttribution = "artistAttribution";
+                            continue;
+                        }
+                    case 6: {
+                            if (wireType !== 0)
+                                break;
+                            message.isExplicit = reader.bool();
+                            message._isExplicit = "isExplicit";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -7327,13 +7771,13 @@ $root.StatusAttributions = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            Music.verify = function verify(message, long) {
+            Music.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.authorName != null && message.hasOwnProperty("authorName")) {
                     properties._authorName = 1;
@@ -7376,13 +7820,13 @@ $root.StatusAttributions = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {StatusAttributions.StatusAttribution.Music} Music
              */
-            Music.fromObject = function fromObject(object, long) {
+            Music.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.StatusAttributions.StatusAttribution.Music)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.StatusAttributions.StatusAttribution.Music();
                 if (object.authorName != null)
                     message.authorName = String(object.authorName);
@@ -7457,18 +7901,17 @@ $root.StatusAttributions = (function() {
             };
 
             /**
-             * Gets the default type url for Music
+             * Gets the type url for Music
              * @function getTypeUrl
              * @memberof StatusAttributions.StatusAttribution.Music
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            Music.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/StatusAttributions.StatusAttribution.Music";
+            Music.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/StatusAttributions.StatusAttribution.Music";
             };
 
             return Music;
@@ -7481,6 +7924,7 @@ $root.StatusAttributions = (function() {
              * @memberof StatusAttributions.StatusAttribution
              * @interface IRLAttribution
              * @property {StatusAttributions.StatusAttribution.RLAttribution.Source|null} [source] RLAttribution source
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -7490,6 +7934,7 @@ $root.StatusAttributions = (function() {
              * @implements IRLAttribution
              * @constructor
              * @param {StatusAttributions.StatusAttribution.IRLAttribution=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function RLAttribution(properties) {
                 if (properties)
@@ -7541,6 +7986,9 @@ $root.StatusAttributions = (function() {
                     writer = $Writer.create();
                 if (message.source != null && Object.hasOwnProperty.call(message, "source"))
                     writer.uint32(/* id 1, wireType 0 =*/8).int32(message.source);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -7568,28 +8016,37 @@ $root.StatusAttributions = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            RLAttribution.decode = function decode(reader, length, error, long) {
+            RLAttribution.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.StatusAttributions.StatusAttribution.RLAttribution();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.RLAttribution();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.source = reader.int32();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.source = reader.int32();
+                            message._source = "source";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -7617,13 +8074,13 @@ $root.StatusAttributions = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            RLAttribution.verify = function verify(message, long) {
+            RLAttribution.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.source != null && message.hasOwnProperty("source")) {
                     properties._source = 1;
@@ -7648,13 +8105,13 @@ $root.StatusAttributions = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {StatusAttributions.StatusAttribution.RLAttribution} RLAttribution
              */
-            RLAttribution.fromObject = function fromObject(object, long) {
+            RLAttribution.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.StatusAttributions.StatusAttribution.RLAttribution)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.StatusAttributions.StatusAttribution.RLAttribution();
                 switch (object.source) {
                 default:
@@ -7716,18 +8173,17 @@ $root.StatusAttributions = (function() {
             };
 
             /**
-             * Gets the default type url for RLAttribution
+             * Gets the type url for RLAttribution
              * @function getTypeUrl
              * @memberof StatusAttributions.StatusAttribution.RLAttribution
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            RLAttribution.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/StatusAttributions.StatusAttribution.RLAttribution";
+            RLAttribution.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/StatusAttributions.StatusAttribution.RLAttribution";
             };
 
             /**
@@ -7759,6 +8215,7 @@ $root.StatusAttributions = (function() {
              * @interface IStatusReshare
              * @property {StatusAttributions.StatusAttribution.StatusReshare.Source|null} [source] StatusReshare source
              * @property {StatusAttributions.StatusAttribution.StatusReshare.IMetadata|null} [metadata] StatusReshare metadata
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -7768,6 +8225,7 @@ $root.StatusAttributions = (function() {
              * @implements IStatusReshare
              * @constructor
              * @param {StatusAttributions.StatusAttribution.IStatusReshare=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function StatusReshare(properties) {
                 if (properties)
@@ -7835,6 +8293,9 @@ $root.StatusAttributions = (function() {
                     writer.uint32(/* id 1, wireType 0 =*/8).int32(message.source);
                 if (message.metadata != null && Object.hasOwnProperty.call(message, "metadata"))
                     $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.encode(message.metadata, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -7862,32 +8323,44 @@ $root.StatusAttributions = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            StatusReshare.decode = function decode(reader, length, error, long) {
+            StatusReshare.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.StatusAttributions.StatusAttribution.StatusReshare();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.StatusReshare();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.source = reader.int32();
-                            break;
-                        }
-                    case 2: {
-                            message.metadata = $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.decode(reader, reader.uint32(), undefined, long + 1);
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.source = reader.int32();
+                            message._source = "source";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.metadata = $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.metadata);
+                            message._metadata = "metadata";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -7915,13 +8388,13 @@ $root.StatusAttributions = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            StatusReshare.verify = function verify(message, long) {
+            StatusReshare.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.source != null && message.hasOwnProperty("source")) {
                     properties._source = 1;
@@ -7939,7 +8412,7 @@ $root.StatusAttributions = (function() {
                 if (message.metadata != null && message.hasOwnProperty("metadata")) {
                     properties._metadata = 1;
                     {
-                        var error = $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.verify(message.metadata, long + 1);
+                        var error = $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.verify(message.metadata, _depth + 1);
                         if (error)
                             return "metadata." + error;
                     }
@@ -7955,13 +8428,13 @@ $root.StatusAttributions = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {StatusAttributions.StatusAttribution.StatusReshare} StatusReshare
              */
-            StatusReshare.fromObject = function fromObject(object, long) {
+            StatusReshare.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.StatusAttributions.StatusAttribution.StatusReshare)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.StatusAttributions.StatusAttribution.StatusReshare();
                 switch (object.source) {
                 default:
@@ -7994,7 +8467,7 @@ $root.StatusAttributions = (function() {
                 if (object.metadata != null) {
                     if (typeof object.metadata !== "object")
                         throw TypeError(".StatusAttributions.StatusAttribution.StatusReshare.metadata: object expected");
-                    message.metadata = $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.fromObject(object.metadata, long + 1);
+                    message.metadata = $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.fromObject(object.metadata, _depth + 1);
                 }
                 return message;
             };
@@ -8037,18 +8510,17 @@ $root.StatusAttributions = (function() {
             };
 
             /**
-             * Gets the default type url for StatusReshare
+             * Gets the type url for StatusReshare
              * @function getTypeUrl
              * @memberof StatusAttributions.StatusAttribution.StatusReshare
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            StatusReshare.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/StatusAttributions.StatusAttribution.StatusReshare";
+            StatusReshare.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/StatusAttributions.StatusAttribution.StatusReshare";
             };
 
             StatusReshare.Metadata = (function() {
@@ -8061,6 +8533,7 @@ $root.StatusAttributions = (function() {
                  * @property {string|null} [channelJid] Metadata channelJid
                  * @property {number|null} [channelMessageId] Metadata channelMessageId
                  * @property {boolean|null} [hasMultipleReshares] Metadata hasMultipleReshares
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
 
                 /**
@@ -8070,6 +8543,7 @@ $root.StatusAttributions = (function() {
                  * @implements IMetadata
                  * @constructor
                  * @param {StatusAttributions.StatusAttribution.StatusReshare.IMetadata=} [properties] Properties to set
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function Metadata(properties) {
                     if (properties)
@@ -8169,6 +8643,9 @@ $root.StatusAttributions = (function() {
                         writer.uint32(/* id 3, wireType 0 =*/24).int32(message.channelMessageId);
                     if (message.hasMultipleReshares != null && Object.hasOwnProperty.call(message, "hasMultipleReshares"))
                         writer.uint32(/* id 4, wireType 0 =*/32).bool(message.hasMultipleReshares);
+                    if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                        for (var i = 0; i < message.$unknowns.length; ++i)
+                            writer.raw(message.$unknowns[i]);
                     return writer;
                 };
 
@@ -8196,40 +8673,58 @@ $root.StatusAttributions = (function() {
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                Metadata.decode = function decode(reader, length, error, long) {
+                Metadata.decode = function decode(reader, length, _end, _depth, _target) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $Reader.recursionLimit)
-                        throw Error("maximum nesting depth exceeded");
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata();
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $Reader.recursionLimit)
+                        throw Error("max depth exceeded");
+                    var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata();
                     while (reader.pos < end) {
-                        var tag = reader.uint32();
-                        if (tag === error)
-                            break;
-                        switch (tag >>> 3) {
-                        case 1: {
-                                message.duration = reader.int32();
-                                break;
-                            }
-                        case 2: {
-                                message.channelJid = reader.string();
-                                break;
-                            }
-                        case 3: {
-                                message.channelMessageId = reader.int32();
-                                break;
-                            }
-                        case 4: {
-                                message.hasMultipleReshares = reader.bool();
-                                break;
-                            }
-                        default:
-                            reader.skipType(tag & 7, long);
+                        var start = reader.pos;
+                        var tag = reader.tag();
+                        if (tag === _end) {
+                            _end = undefined;
                             break;
                         }
+                        var wireType = tag & 7;
+                        switch (tag >>>= 3) {
+                        case 1: {
+                                if (wireType !== 0)
+                                    break;
+                                message.duration = reader.int32();
+                                message._duration = "duration";
+                                continue;
+                            }
+                        case 2: {
+                                if (wireType !== 2)
+                                    break;
+                                message.channelJid = reader.string();
+                                message._channelJid = "channelJid";
+                                continue;
+                            }
+                        case 3: {
+                                if (wireType !== 0)
+                                    break;
+                                message.channelMessageId = reader.int32();
+                                message._channelMessageId = "channelMessageId";
+                                continue;
+                            }
+                        case 4: {
+                                if (wireType !== 0)
+                                    break;
+                                message.hasMultipleReshares = reader.bool();
+                                message._hasMultipleReshares = "hasMultipleReshares";
+                                continue;
+                            }
+                        }
+                        reader.skipType(wireType, _depth, tag);
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                    if (_end !== undefined)
+                        throw Error("missing end group");
                     return message;
                 };
 
@@ -8257,13 +8752,13 @@ $root.StatusAttributions = (function() {
                  * @param {Object.<string,*>} message Plain object to verify
                  * @returns {string|null} `null` if valid, otherwise the reason why it is not
                  */
-                Metadata.verify = function verify(message, long) {
+                Metadata.verify = function verify(message, _depth) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $util.recursionLimit)
-                        return "maximum nesting depth exceeded";
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        return "max depth exceeded";
                     var properties = {};
                     if (message.duration != null && message.hasOwnProperty("duration")) {
                         properties._duration = 1;
@@ -8296,13 +8791,13 @@ $root.StatusAttributions = (function() {
                  * @param {Object.<string,*>} object Plain object
                  * @returns {StatusAttributions.StatusAttribution.StatusReshare.Metadata} Metadata
                  */
-                Metadata.fromObject = function fromObject(object, long) {
+                Metadata.fromObject = function fromObject(object, _depth) {
                     if (object instanceof $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata)
                         return object;
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $util.recursionLimit)
-                        throw Error("maximum nesting depth exceeded");
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw Error("max depth exceeded");
                     var message = new $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata();
                     if (object.duration != null)
                         message.duration = object.duration | 0;
@@ -8363,18 +8858,17 @@ $root.StatusAttributions = (function() {
                 };
 
                 /**
-                 * Gets the default type url for Metadata
+                 * Gets the type url for Metadata
                  * @function getTypeUrl
                  * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
                  * @static
-                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-                 * @returns {string} The default type url
+                 * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+                 * @returns {string} The type url
                  */
-                Metadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                    if (typeUrlPrefix === undefined) {
-                        typeUrlPrefix = "type.googleapis.com";
-                    }
-                    return typeUrlPrefix + "/StatusAttributions.StatusAttribution.StatusReshare.Metadata";
+                Metadata.getTypeUrl = function getTypeUrl(prefix) {
+                    if (prefix === undefined)
+                        prefix = "type.googleapis.com";
+                    return prefix + "/StatusAttributions.StatusAttribution.StatusReshare.Metadata";
                 };
 
                 return Metadata;

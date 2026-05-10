@@ -1,4 +1,4 @@
-/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars*/
+/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
 "use strict";
 
 var $protobuf = require("protobufjs/minimal");
@@ -26,6 +26,7 @@ $root.Cert = (function() {
          * @interface ICertChain
          * @property {Cert.CertChain.INoiseCertificate|null} [leaf] CertChain leaf
          * @property {Cert.CertChain.INoiseCertificate|null} [intermediate] CertChain intermediate
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -35,6 +36,7 @@ $root.Cert = (function() {
          * @implements ICertChain
          * @constructor
          * @param {Cert.ICertChain=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function CertChain(properties) {
             if (properties)
@@ -102,6 +104,9 @@ $root.Cert = (function() {
                 $root.Cert.CertChain.NoiseCertificate.encode(message.leaf, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
             if (message.intermediate != null && Object.hasOwnProperty.call(message, "intermediate"))
                 $root.Cert.CertChain.NoiseCertificate.encode(message.intermediate, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -129,32 +134,44 @@ $root.Cert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        CertChain.decode = function decode(reader, length, error, long) {
+        CertChain.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Cert.CertChain();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Cert.CertChain();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.leaf = $root.Cert.CertChain.NoiseCertificate.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 2: {
-                        message.intermediate = $root.Cert.CertChain.NoiseCertificate.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.leaf = $root.Cert.CertChain.NoiseCertificate.decode(reader, reader.uint32(), undefined, _depth + 1, message.leaf);
+                        message._leaf = "leaf";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.intermediate = $root.Cert.CertChain.NoiseCertificate.decode(reader, reader.uint32(), undefined, _depth + 1, message.intermediate);
+                        message._intermediate = "intermediate";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -182,18 +199,18 @@ $root.Cert = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        CertChain.verify = function verify(message, long) {
+        CertChain.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.leaf != null && message.hasOwnProperty("leaf")) {
                 properties._leaf = 1;
                 {
-                    var error = $root.Cert.CertChain.NoiseCertificate.verify(message.leaf, long + 1);
+                    var error = $root.Cert.CertChain.NoiseCertificate.verify(message.leaf, _depth + 1);
                     if (error)
                         return "leaf." + error;
                 }
@@ -201,7 +218,7 @@ $root.Cert = (function() {
             if (message.intermediate != null && message.hasOwnProperty("intermediate")) {
                 properties._intermediate = 1;
                 {
-                    var error = $root.Cert.CertChain.NoiseCertificate.verify(message.intermediate, long + 1);
+                    var error = $root.Cert.CertChain.NoiseCertificate.verify(message.intermediate, _depth + 1);
                     if (error)
                         return "intermediate." + error;
                 }
@@ -217,23 +234,23 @@ $root.Cert = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Cert.CertChain} CertChain
          */
-        CertChain.fromObject = function fromObject(object, long) {
+        CertChain.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Cert.CertChain)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.Cert.CertChain();
             if (object.leaf != null) {
                 if (typeof object.leaf !== "object")
                     throw TypeError(".Cert.CertChain.leaf: object expected");
-                message.leaf = $root.Cert.CertChain.NoiseCertificate.fromObject(object.leaf, long + 1);
+                message.leaf = $root.Cert.CertChain.NoiseCertificate.fromObject(object.leaf, _depth + 1);
             }
             if (object.intermediate != null) {
                 if (typeof object.intermediate !== "object")
                     throw TypeError(".Cert.CertChain.intermediate: object expected");
-                message.intermediate = $root.Cert.CertChain.NoiseCertificate.fromObject(object.intermediate, long + 1);
+                message.intermediate = $root.Cert.CertChain.NoiseCertificate.fromObject(object.intermediate, _depth + 1);
             }
             return message;
         };
@@ -276,18 +293,17 @@ $root.Cert = (function() {
         };
 
         /**
-         * Gets the default type url for CertChain
+         * Gets the type url for CertChain
          * @function getTypeUrl
          * @memberof Cert.CertChain
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        CertChain.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/Cert.CertChain";
+        CertChain.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/Cert.CertChain";
         };
 
         CertChain.NoiseCertificate = (function() {
@@ -298,6 +314,7 @@ $root.Cert = (function() {
              * @interface INoiseCertificate
              * @property {Uint8Array|null} [details] NoiseCertificate details
              * @property {Uint8Array|null} [signature] NoiseCertificate signature
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -307,6 +324,7 @@ $root.Cert = (function() {
              * @implements INoiseCertificate
              * @constructor
              * @param {Cert.CertChain.INoiseCertificate=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function NoiseCertificate(properties) {
                 if (properties)
@@ -374,6 +392,9 @@ $root.Cert = (function() {
                     writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.details);
                 if (message.signature != null && Object.hasOwnProperty.call(message, "signature"))
                     writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.signature);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -401,32 +422,44 @@ $root.Cert = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            NoiseCertificate.decode = function decode(reader, length, error, long) {
+            NoiseCertificate.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Cert.CertChain.NoiseCertificate();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Cert.CertChain.NoiseCertificate();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.details = reader.bytes();
-                            break;
-                        }
-                    case 2: {
-                            message.signature = reader.bytes();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.details = reader.bytes();
+                            message._details = "details";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.signature = reader.bytes();
+                            message._signature = "signature";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -454,13 +487,13 @@ $root.Cert = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            NoiseCertificate.verify = function verify(message, long) {
+            NoiseCertificate.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.details != null && message.hasOwnProperty("details")) {
                     properties._details = 1;
@@ -483,13 +516,13 @@ $root.Cert = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {Cert.CertChain.NoiseCertificate} NoiseCertificate
              */
-            NoiseCertificate.fromObject = function fromObject(object, long) {
+            NoiseCertificate.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.Cert.CertChain.NoiseCertificate)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.Cert.CertChain.NoiseCertificate();
                 if (object.details != null)
                     if (typeof object.details === "string")
@@ -542,18 +575,17 @@ $root.Cert = (function() {
             };
 
             /**
-             * Gets the default type url for NoiseCertificate
+             * Gets the type url for NoiseCertificate
              * @function getTypeUrl
              * @memberof Cert.CertChain.NoiseCertificate
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            NoiseCertificate.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/Cert.CertChain.NoiseCertificate";
+            NoiseCertificate.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/Cert.CertChain.NoiseCertificate";
             };
 
             NoiseCertificate.Details = (function() {
@@ -567,6 +599,7 @@ $root.Cert = (function() {
                  * @property {Uint8Array|null} [key] Details key
                  * @property {number|Long|null} [notBefore] Details notBefore
                  * @property {number|Long|null} [notAfter] Details notAfter
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
 
                 /**
@@ -576,6 +609,7 @@ $root.Cert = (function() {
                  * @implements IDetails
                  * @constructor
                  * @param {Cert.CertChain.NoiseCertificate.IDetails=} [properties] Properties to set
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function Details(properties) {
                     if (properties)
@@ -691,6 +725,9 @@ $root.Cert = (function() {
                         writer.uint32(/* id 4, wireType 0 =*/32).uint64(message.notBefore);
                     if (message.notAfter != null && Object.hasOwnProperty.call(message, "notAfter"))
                         writer.uint32(/* id 5, wireType 0 =*/40).uint64(message.notAfter);
+                    if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                        for (var i = 0; i < message.$unknowns.length; ++i)
+                            writer.raw(message.$unknowns[i]);
                     return writer;
                 };
 
@@ -718,44 +755,65 @@ $root.Cert = (function() {
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                Details.decode = function decode(reader, length, error, long) {
+                Details.decode = function decode(reader, length, _end, _depth, _target) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $Reader.recursionLimit)
-                        throw Error("maximum nesting depth exceeded");
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Cert.CertChain.NoiseCertificate.Details();
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $Reader.recursionLimit)
+                        throw Error("max depth exceeded");
+                    var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Cert.CertChain.NoiseCertificate.Details();
                     while (reader.pos < end) {
-                        var tag = reader.uint32();
-                        if (tag === error)
-                            break;
-                        switch (tag >>> 3) {
-                        case 1: {
-                                message.serial = reader.uint32();
-                                break;
-                            }
-                        case 2: {
-                                message.issuerSerial = reader.uint32();
-                                break;
-                            }
-                        case 3: {
-                                message.key = reader.bytes();
-                                break;
-                            }
-                        case 4: {
-                                message.notBefore = reader.uint64();
-                                break;
-                            }
-                        case 5: {
-                                message.notAfter = reader.uint64();
-                                break;
-                            }
-                        default:
-                            reader.skipType(tag & 7, long);
+                        var start = reader.pos;
+                        var tag = reader.tag();
+                        if (tag === _end) {
+                            _end = undefined;
                             break;
                         }
+                        var wireType = tag & 7;
+                        switch (tag >>>= 3) {
+                        case 1: {
+                                if (wireType !== 0)
+                                    break;
+                                message.serial = reader.uint32();
+                                message._serial = "serial";
+                                continue;
+                            }
+                        case 2: {
+                                if (wireType !== 0)
+                                    break;
+                                message.issuerSerial = reader.uint32();
+                                message._issuerSerial = "issuerSerial";
+                                continue;
+                            }
+                        case 3: {
+                                if (wireType !== 2)
+                                    break;
+                                message.key = reader.bytes();
+                                message._key = "key";
+                                continue;
+                            }
+                        case 4: {
+                                if (wireType !== 0)
+                                    break;
+                                message.notBefore = reader.uint64();
+                                message._notBefore = "notBefore";
+                                continue;
+                            }
+                        case 5: {
+                                if (wireType !== 0)
+                                    break;
+                                message.notAfter = reader.uint64();
+                                message._notAfter = "notAfter";
+                                continue;
+                            }
+                        }
+                        reader.skipType(wireType, _depth, tag);
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                    if (_end !== undefined)
+                        throw Error("missing end group");
                     return message;
                 };
 
@@ -783,13 +841,13 @@ $root.Cert = (function() {
                  * @param {Object.<string,*>} message Plain object to verify
                  * @returns {string|null} `null` if valid, otherwise the reason why it is not
                  */
-                Details.verify = function verify(message, long) {
+                Details.verify = function verify(message, _depth) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $util.recursionLimit)
-                        return "maximum nesting depth exceeded";
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        return "max depth exceeded";
                     var properties = {};
                     if (message.serial != null && message.hasOwnProperty("serial")) {
                         properties._serial = 1;
@@ -827,13 +885,13 @@ $root.Cert = (function() {
                  * @param {Object.<string,*>} object Plain object
                  * @returns {Cert.CertChain.NoiseCertificate.Details} Details
                  */
-                Details.fromObject = function fromObject(object, long) {
+                Details.fromObject = function fromObject(object, _depth) {
                     if (object instanceof $root.Cert.CertChain.NoiseCertificate.Details)
                         return object;
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $util.recursionLimit)
-                        throw Error("maximum nesting depth exceeded");
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw Error("max depth exceeded");
                     var message = new $root.Cert.CertChain.NoiseCertificate.Details();
                     if (object.serial != null)
                         message.serial = object.serial >>> 0;
@@ -924,18 +982,17 @@ $root.Cert = (function() {
                 };
 
                 /**
-                 * Gets the default type url for Details
+                 * Gets the type url for Details
                  * @function getTypeUrl
                  * @memberof Cert.CertChain.NoiseCertificate.Details
                  * @static
-                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-                 * @returns {string} The default type url
+                 * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+                 * @returns {string} The type url
                  */
-                Details.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                    if (typeUrlPrefix === undefined) {
-                        typeUrlPrefix = "type.googleapis.com";
-                    }
-                    return typeUrlPrefix + "/Cert.CertChain.NoiseCertificate.Details";
+                Details.getTypeUrl = function getTypeUrl(prefix) {
+                    if (prefix === undefined)
+                        prefix = "type.googleapis.com";
+                    return prefix + "/Cert.CertChain.NoiseCertificate.Details";
                 };
 
                 return Details;
@@ -955,6 +1012,7 @@ $root.Cert = (function() {
          * @interface INoiseCertificate
          * @property {Uint8Array|null} [details] NoiseCertificate details
          * @property {Uint8Array|null} [signature] NoiseCertificate signature
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -964,6 +1022,7 @@ $root.Cert = (function() {
          * @implements INoiseCertificate
          * @constructor
          * @param {Cert.INoiseCertificate=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function NoiseCertificate(properties) {
             if (properties)
@@ -1031,6 +1090,9 @@ $root.Cert = (function() {
                 writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.details);
             if (message.signature != null && Object.hasOwnProperty.call(message, "signature"))
                 writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.signature);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -1058,32 +1120,44 @@ $root.Cert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        NoiseCertificate.decode = function decode(reader, length, error, long) {
+        NoiseCertificate.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Cert.NoiseCertificate();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Cert.NoiseCertificate();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.details = reader.bytes();
-                        break;
-                    }
-                case 2: {
-                        message.signature = reader.bytes();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.details = reader.bytes();
+                        message._details = "details";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.signature = reader.bytes();
+                        message._signature = "signature";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -1111,13 +1185,13 @@ $root.Cert = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        NoiseCertificate.verify = function verify(message, long) {
+        NoiseCertificate.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.details != null && message.hasOwnProperty("details")) {
                 properties._details = 1;
@@ -1140,13 +1214,13 @@ $root.Cert = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Cert.NoiseCertificate} NoiseCertificate
          */
-        NoiseCertificate.fromObject = function fromObject(object, long) {
+        NoiseCertificate.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Cert.NoiseCertificate)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.Cert.NoiseCertificate();
             if (object.details != null)
                 if (typeof object.details === "string")
@@ -1199,18 +1273,17 @@ $root.Cert = (function() {
         };
 
         /**
-         * Gets the default type url for NoiseCertificate
+         * Gets the type url for NoiseCertificate
          * @function getTypeUrl
          * @memberof Cert.NoiseCertificate
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        NoiseCertificate.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/Cert.NoiseCertificate";
+        NoiseCertificate.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/Cert.NoiseCertificate";
         };
 
         NoiseCertificate.Details = (function() {
@@ -1224,6 +1297,7 @@ $root.Cert = (function() {
              * @property {number|Long|null} [expires] Details expires
              * @property {string|null} [subject] Details subject
              * @property {Uint8Array|null} [key] Details key
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -1233,6 +1307,7 @@ $root.Cert = (function() {
              * @implements IDetails
              * @constructor
              * @param {Cert.NoiseCertificate.IDetails=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function Details(properties) {
                 if (properties)
@@ -1348,6 +1423,9 @@ $root.Cert = (function() {
                     writer.uint32(/* id 4, wireType 2 =*/34).string(message.subject);
                 if (message.key != null && Object.hasOwnProperty.call(message, "key"))
                     writer.uint32(/* id 5, wireType 2 =*/42).bytes(message.key);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -1375,44 +1453,65 @@ $root.Cert = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Details.decode = function decode(reader, length, error, long) {
+            Details.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Cert.NoiseCertificate.Details();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Cert.NoiseCertificate.Details();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.serial = reader.uint32();
-                            break;
-                        }
-                    case 2: {
-                            message.issuer = reader.string();
-                            break;
-                        }
-                    case 3: {
-                            message.expires = reader.uint64();
-                            break;
-                        }
-                    case 4: {
-                            message.subject = reader.string();
-                            break;
-                        }
-                    case 5: {
-                            message.key = reader.bytes();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.serial = reader.uint32();
+                            message._serial = "serial";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.issuer = reader.string();
+                            message._issuer = "issuer";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 0)
+                                break;
+                            message.expires = reader.uint64();
+                            message._expires = "expires";
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 2)
+                                break;
+                            message.subject = reader.string();
+                            message._subject = "subject";
+                            continue;
+                        }
+                    case 5: {
+                            if (wireType !== 2)
+                                break;
+                            message.key = reader.bytes();
+                            message._key = "key";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -1440,13 +1539,13 @@ $root.Cert = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            Details.verify = function verify(message, long) {
+            Details.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.serial != null && message.hasOwnProperty("serial")) {
                     properties._serial = 1;
@@ -1484,13 +1583,13 @@ $root.Cert = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {Cert.NoiseCertificate.Details} Details
              */
-            Details.fromObject = function fromObject(object, long) {
+            Details.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.Cert.NoiseCertificate.Details)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.Cert.NoiseCertificate.Details();
                 if (object.serial != null)
                     message.serial = object.serial >>> 0;
@@ -1571,18 +1670,17 @@ $root.Cert = (function() {
             };
 
             /**
-             * Gets the default type url for Details
+             * Gets the type url for Details
              * @function getTypeUrl
              * @memberof Cert.NoiseCertificate.Details
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            Details.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/Cert.NoiseCertificate.Details";
+            Details.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/Cert.NoiseCertificate.Details";
             };
 
             return Details;

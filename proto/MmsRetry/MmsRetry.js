@@ -1,4 +1,4 @@
-/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars*/
+/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
 "use strict";
 
 var $protobuf = require("protobufjs/minimal");
@@ -25,6 +25,7 @@ $root.MmsRetry = (function() {
          * @memberof MmsRetry
          * @interface IServerErrorReceipt
          * @property {string|null} [stanzaId] ServerErrorReceipt stanzaId
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -34,6 +35,7 @@ $root.MmsRetry = (function() {
          * @implements IServerErrorReceipt
          * @constructor
          * @param {MmsRetry.IServerErrorReceipt=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function ServerErrorReceipt(properties) {
             if (properties)
@@ -85,6 +87,9 @@ $root.MmsRetry = (function() {
                 writer = $Writer.create();
             if (message.stanzaId != null && Object.hasOwnProperty.call(message, "stanzaId"))
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.stanzaId);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -112,28 +117,37 @@ $root.MmsRetry = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ServerErrorReceipt.decode = function decode(reader, length, error, long) {
+        ServerErrorReceipt.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.MmsRetry.ServerErrorReceipt();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.MmsRetry.ServerErrorReceipt();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.stanzaId = reader.string();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.stanzaId = reader.string();
+                        message._stanzaId = "stanzaId";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -161,13 +175,13 @@ $root.MmsRetry = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        ServerErrorReceipt.verify = function verify(message, long) {
+        ServerErrorReceipt.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.stanzaId != null && message.hasOwnProperty("stanzaId")) {
                 properties._stanzaId = 1;
@@ -185,13 +199,13 @@ $root.MmsRetry = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {MmsRetry.ServerErrorReceipt} ServerErrorReceipt
          */
-        ServerErrorReceipt.fromObject = function fromObject(object, long) {
+        ServerErrorReceipt.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.MmsRetry.ServerErrorReceipt)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.MmsRetry.ServerErrorReceipt();
             if (object.stanzaId != null)
                 message.stanzaId = String(object.stanzaId);
@@ -231,18 +245,17 @@ $root.MmsRetry = (function() {
         };
 
         /**
-         * Gets the default type url for ServerErrorReceipt
+         * Gets the type url for ServerErrorReceipt
          * @function getTypeUrl
          * @memberof MmsRetry.ServerErrorReceipt
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        ServerErrorReceipt.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/MmsRetry.ServerErrorReceipt";
+        ServerErrorReceipt.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/MmsRetry.ServerErrorReceipt";
         };
 
         return ServerErrorReceipt;
@@ -258,6 +271,7 @@ $root.MmsRetry = (function() {
          * @property {string|null} [directPath] MediaRetryNotification directPath
          * @property {MmsRetry.MediaRetryNotification.ResultType|null} [result] MediaRetryNotification result
          * @property {Uint8Array|null} [messageSecret] MediaRetryNotification messageSecret
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -267,6 +281,7 @@ $root.MmsRetry = (function() {
          * @implements IMediaRetryNotification
          * @constructor
          * @param {MmsRetry.IMediaRetryNotification=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function MediaRetryNotification(properties) {
             if (properties)
@@ -366,6 +381,9 @@ $root.MmsRetry = (function() {
                 writer.uint32(/* id 3, wireType 0 =*/24).int32(message.result);
             if (message.messageSecret != null && Object.hasOwnProperty.call(message, "messageSecret"))
                 writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.messageSecret);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -393,40 +411,58 @@ $root.MmsRetry = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        MediaRetryNotification.decode = function decode(reader, length, error, long) {
+        MediaRetryNotification.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.MmsRetry.MediaRetryNotification();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.MmsRetry.MediaRetryNotification();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.stanzaId = reader.string();
-                        break;
-                    }
-                case 2: {
-                        message.directPath = reader.string();
-                        break;
-                    }
-                case 3: {
-                        message.result = reader.int32();
-                        break;
-                    }
-                case 4: {
-                        message.messageSecret = reader.bytes();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.stanzaId = reader.string();
+                        message._stanzaId = "stanzaId";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.directPath = reader.string();
+                        message._directPath = "directPath";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 0)
+                            break;
+                        message.result = reader.int32();
+                        message._result = "result";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 2)
+                            break;
+                        message.messageSecret = reader.bytes();
+                        message._messageSecret = "messageSecret";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -454,13 +490,13 @@ $root.MmsRetry = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        MediaRetryNotification.verify = function verify(message, long) {
+        MediaRetryNotification.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.stanzaId != null && message.hasOwnProperty("stanzaId")) {
                 properties._stanzaId = 1;
@@ -500,13 +536,13 @@ $root.MmsRetry = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {MmsRetry.MediaRetryNotification} MediaRetryNotification
          */
-        MediaRetryNotification.fromObject = function fromObject(object, long) {
+        MediaRetryNotification.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.MmsRetry.MediaRetryNotification)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.MmsRetry.MediaRetryNotification();
             if (object.stanzaId != null)
                 message.stanzaId = String(object.stanzaId);
@@ -592,18 +628,17 @@ $root.MmsRetry = (function() {
         };
 
         /**
-         * Gets the default type url for MediaRetryNotification
+         * Gets the type url for MediaRetryNotification
          * @function getTypeUrl
          * @memberof MmsRetry.MediaRetryNotification
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        MediaRetryNotification.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/MmsRetry.MediaRetryNotification";
+        MediaRetryNotification.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/MmsRetry.MediaRetryNotification";
         };
 
         /**

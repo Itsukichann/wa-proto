@@ -1,4 +1,4 @@
-/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars*/
+/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
 "use strict";
 
 var $protobuf = require("protobufjs/minimal");
@@ -29,6 +29,7 @@ $root.Reporting = (function() {
          * @property {number|null} [notReportableMinVersion] Field notReportableMinVersion
          * @property {boolean|null} [isMessage] Field isMessage
          * @property {Object.<string,Reporting.IField>|null} [subfield] Field subfield
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -38,6 +39,7 @@ $root.Reporting = (function() {
          * @implements IField
          * @constructor
          * @param {Reporting.IField=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function Field(properties) {
             this.subfield = {};
@@ -151,6 +153,9 @@ $root.Reporting = (function() {
                     writer.uint32(/* id 5, wireType 2 =*/42).fork().uint32(/* id 1, wireType 0 =*/8).uint32(keys[i]);
                     $root.Reporting.Field.encode(message.subfield[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
                 }
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -178,63 +183,86 @@ $root.Reporting = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        Field.decode = function decode(reader, length, error, long) {
+        Field.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Reporting.Field(), key, value;
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Reporting.Field(), key, value;
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
-                switch (tag >>> 3) {
+                }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
                 case 1: {
+                        if (wireType !== 0)
+                            break;
                         message.minVersion = reader.uint32();
-                        break;
+                        message._minVersion = "minVersion";
+                        continue;
                     }
                 case 2: {
+                        if (wireType !== 0)
+                            break;
                         message.maxVersion = reader.uint32();
-                        break;
+                        message._maxVersion = "maxVersion";
+                        continue;
                     }
                 case 3: {
+                        if (wireType !== 0)
+                            break;
                         message.notReportableMinVersion = reader.uint32();
-                        break;
+                        message._notReportableMinVersion = "notReportableMinVersion";
+                        continue;
                     }
                 case 4: {
+                        if (wireType !== 0)
+                            break;
                         message.isMessage = reader.bool();
-                        break;
+                        message._isMessage = "isMessage";
+                        continue;
                     }
                 case 5: {
+                        if (wireType !== 2)
+                            break;
                         if (message.subfield === $util.emptyObject)
                             message.subfield = {};
                         var end2 = reader.uint32() + reader.pos;
                         key = 0;
                         value = null;
                         while (reader.pos < end2) {
-                            var tag2 = reader.uint32();
-                            switch (tag2 >>> 3) {
+                            var tag2 = reader.tag();
+                            wireType = tag2 & 7;
+                            switch (tag2 >>>= 3) {
                             case 1:
+                                if (wireType !== 0)
+                                    break;
                                 key = reader.uint32();
-                                break;
+                                continue;
                             case 2:
-                                value = $root.Reporting.Field.decode(reader, reader.uint32(), undefined, long + 1);
-                                break;
-                            default:
-                                reader.skipType(tag2 & 7, long);
-                                break;
+                                if (wireType !== 2)
+                                    break;
+                                value = $root.Reporting.Field.decode(reader, reader.uint32(), undefined, _depth + 1);
+                                continue;
                             }
+                            reader.skipType(wireType, _depth, tag2);
                         }
-                        message.subfield[key] = value;
-                        break;
+                        message.subfield[key] = value || new $root.Reporting.Field();
+                        continue;
                     }
-                default:
-                    reader.skipType(tag & 7, long);
-                    break;
                 }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -262,13 +290,13 @@ $root.Reporting = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        Field.verify = function verify(message, long) {
+        Field.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.minVersion != null && message.hasOwnProperty("minVersion")) {
                 properties._minVersion = 1;
@@ -298,7 +326,7 @@ $root.Reporting = (function() {
                     if (!$util.key32Re.test(key[i]))
                         return "subfield: integer key{k:uint32} expected";
                     {
-                        var error = $root.Reporting.Field.verify(message.subfield[key[i]], long + 1);
+                        var error = $root.Reporting.Field.verify(message.subfield[key[i]], _depth + 1);
                         if (error)
                             return "subfield." + error;
                     }
@@ -315,13 +343,13 @@ $root.Reporting = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Reporting.Field} Field
          */
-        Field.fromObject = function fromObject(object, long) {
+        Field.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Reporting.Field)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.Reporting.Field();
             if (object.minVersion != null)
                 message.minVersion = object.minVersion >>> 0;
@@ -340,7 +368,7 @@ $root.Reporting = (function() {
                         $util.makeProp(message.subfield, keys[i]);
                     if (typeof object.subfield[keys[i]] !== "object")
                         throw TypeError(".Reporting.Field.subfield: object expected");
-                    message.subfield[keys[i]] = $root.Reporting.Field.fromObject(object.subfield[keys[i]], long + 1);
+                    message.subfield[keys[i]] = $root.Reporting.Field.fromObject(object.subfield[keys[i]], _depth + 1);
                 }
             }
             return message;
@@ -405,18 +433,17 @@ $root.Reporting = (function() {
         };
 
         /**
-         * Gets the default type url for Field
+         * Gets the type url for Field
          * @function getTypeUrl
          * @memberof Reporting.Field
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        Field.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/Reporting.Field";
+        Field.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/Reporting.Field";
         };
 
         return Field;
@@ -430,6 +457,7 @@ $root.Reporting = (function() {
          * @interface IConfig
          * @property {Object.<string,Reporting.IField>|null} [field] Config field
          * @property {number|null} [version] Config version
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -439,6 +467,7 @@ $root.Reporting = (function() {
          * @implements IConfig
          * @constructor
          * @param {Reporting.IConfig=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function Config(properties) {
             this.field = {};
@@ -504,6 +533,9 @@ $root.Reporting = (function() {
                 }
             if (message.version != null && Object.hasOwnProperty.call(message, "version"))
                 writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.version);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -531,51 +563,65 @@ $root.Reporting = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        Config.decode = function decode(reader, length, error, long) {
+        Config.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Reporting.Config(), key, value;
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Reporting.Config(), key, value;
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
-                switch (tag >>> 3) {
+                }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
                 case 1: {
+                        if (wireType !== 2)
+                            break;
                         if (message.field === $util.emptyObject)
                             message.field = {};
                         var end2 = reader.uint32() + reader.pos;
                         key = 0;
                         value = null;
                         while (reader.pos < end2) {
-                            var tag2 = reader.uint32();
-                            switch (tag2 >>> 3) {
+                            var tag2 = reader.tag();
+                            wireType = tag2 & 7;
+                            switch (tag2 >>>= 3) {
                             case 1:
+                                if (wireType !== 0)
+                                    break;
                                 key = reader.uint32();
-                                break;
+                                continue;
                             case 2:
-                                value = $root.Reporting.Field.decode(reader, reader.uint32(), undefined, long + 1);
-                                break;
-                            default:
-                                reader.skipType(tag2 & 7, long);
-                                break;
+                                if (wireType !== 2)
+                                    break;
+                                value = $root.Reporting.Field.decode(reader, reader.uint32(), undefined, _depth + 1);
+                                continue;
                             }
+                            reader.skipType(wireType, _depth, tag2);
                         }
-                        message.field[key] = value;
-                        break;
+                        message.field[key] = value || new $root.Reporting.Field();
+                        continue;
                     }
                 case 2: {
+                        if (wireType !== 0)
+                            break;
                         message.version = reader.uint32();
-                        break;
+                        message._version = "version";
+                        continue;
                     }
-                default:
-                    reader.skipType(tag & 7, long);
-                    break;
                 }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -603,13 +649,13 @@ $root.Reporting = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        Config.verify = function verify(message, long) {
+        Config.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.field != null && message.hasOwnProperty("field")) {
                 if (!$util.isObject(message.field))
@@ -619,7 +665,7 @@ $root.Reporting = (function() {
                     if (!$util.key32Re.test(key[i]))
                         return "field: integer key{k:uint32} expected";
                     {
-                        var error = $root.Reporting.Field.verify(message.field[key[i]], long + 1);
+                        var error = $root.Reporting.Field.verify(message.field[key[i]], _depth + 1);
                         if (error)
                             return "field." + error;
                     }
@@ -641,13 +687,13 @@ $root.Reporting = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Reporting.Config} Config
          */
-        Config.fromObject = function fromObject(object, long) {
+        Config.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Reporting.Config)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.Reporting.Config();
             if (object.field) {
                 if (typeof object.field !== "object")
@@ -658,7 +704,7 @@ $root.Reporting = (function() {
                         $util.makeProp(message.field, keys[i]);
                     if (typeof object.field[keys[i]] !== "object")
                         throw TypeError(".Reporting.Config.field: object expected");
-                    message.field[keys[i]] = $root.Reporting.Field.fromObject(object.field[keys[i]], long + 1);
+                    message.field[keys[i]] = $root.Reporting.Field.fromObject(object.field[keys[i]], _depth + 1);
                 }
             }
             if (object.version != null)
@@ -710,18 +756,17 @@ $root.Reporting = (function() {
         };
 
         /**
-         * Gets the default type url for Config
+         * Gets the type url for Config
          * @function getTypeUrl
          * @memberof Reporting.Config
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        Config.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/Reporting.Config";
+        Config.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/Reporting.Config";
         };
 
         return Config;
@@ -737,6 +782,7 @@ $root.Reporting = (function() {
          * @property {number|null} [maxVersion] Reportable maxVersion
          * @property {number|null} [notReportableMinVersion] Reportable notReportableMinVersion
          * @property {boolean|null} [never] Reportable never
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -746,6 +792,7 @@ $root.Reporting = (function() {
          * @implements IReportable
          * @constructor
          * @param {Reporting.IReportable=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function Reportable(properties) {
             if (properties)
@@ -845,6 +892,9 @@ $root.Reporting = (function() {
                 writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.notReportableMinVersion);
             if (message.never != null && Object.hasOwnProperty.call(message, "never"))
                 writer.uint32(/* id 4, wireType 0 =*/32).bool(message.never);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -872,40 +922,58 @@ $root.Reporting = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        Reportable.decode = function decode(reader, length, error, long) {
+        Reportable.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Reporting.Reportable();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Reporting.Reportable();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.minVersion = reader.uint32();
-                        break;
-                    }
-                case 2: {
-                        message.maxVersion = reader.uint32();
-                        break;
-                    }
-                case 3: {
-                        message.notReportableMinVersion = reader.uint32();
-                        break;
-                    }
-                case 4: {
-                        message.never = reader.bool();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.minVersion = reader.uint32();
+                        message._minVersion = "minVersion";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 0)
+                            break;
+                        message.maxVersion = reader.uint32();
+                        message._maxVersion = "maxVersion";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 0)
+                            break;
+                        message.notReportableMinVersion = reader.uint32();
+                        message._notReportableMinVersion = "notReportableMinVersion";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 0)
+                            break;
+                        message.never = reader.bool();
+                        message._never = "never";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -933,13 +1001,13 @@ $root.Reporting = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        Reportable.verify = function verify(message, long) {
+        Reportable.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.minVersion != null && message.hasOwnProperty("minVersion")) {
                 properties._minVersion = 1;
@@ -972,13 +1040,13 @@ $root.Reporting = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Reporting.Reportable} Reportable
          */
-        Reportable.fromObject = function fromObject(object, long) {
+        Reportable.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Reporting.Reportable)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.Reporting.Reportable();
             if (object.minVersion != null)
                 message.minVersion = object.minVersion >>> 0;
@@ -1039,18 +1107,17 @@ $root.Reporting = (function() {
         };
 
         /**
-         * Gets the default type url for Reportable
+         * Gets the type url for Reportable
          * @function getTypeUrl
          * @memberof Reporting.Reportable
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        Reportable.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/Reporting.Reportable";
+        Reportable.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/Reporting.Reportable";
         };
 
         return Reportable;

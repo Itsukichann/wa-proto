@@ -1,4 +1,4 @@
-/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars*/
+/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
 "use strict";
 
 var $protobuf = require("protobufjs/minimal");
@@ -26,6 +26,7 @@ $root.Ephemeral = (function() {
          * @interface IEphemeralSetting
          * @property {number|null} [duration] EphemeralSetting duration
          * @property {number|Long|null} [timestamp] EphemeralSetting timestamp
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -35,6 +36,7 @@ $root.Ephemeral = (function() {
          * @implements IEphemeralSetting
          * @constructor
          * @param {Ephemeral.IEphemeralSetting=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function EphemeralSetting(properties) {
             if (properties)
@@ -102,6 +104,9 @@ $root.Ephemeral = (function() {
                 writer.uint32(/* id 1, wireType 5 =*/13).sfixed32(message.duration);
             if (message.timestamp != null && Object.hasOwnProperty.call(message, "timestamp"))
                 writer.uint32(/* id 2, wireType 1 =*/17).sfixed64(message.timestamp);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -129,32 +134,44 @@ $root.Ephemeral = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        EphemeralSetting.decode = function decode(reader, length, error, long) {
+        EphemeralSetting.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Ephemeral.EphemeralSetting();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Ephemeral.EphemeralSetting();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.duration = reader.sfixed32();
-                        break;
-                    }
-                case 2: {
-                        message.timestamp = reader.sfixed64();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 5)
+                            break;
+                        message.duration = reader.sfixed32();
+                        message._duration = "duration";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 1)
+                            break;
+                        message.timestamp = reader.sfixed64();
+                        message._timestamp = "timestamp";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -182,13 +199,13 @@ $root.Ephemeral = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        EphemeralSetting.verify = function verify(message, long) {
+        EphemeralSetting.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.duration != null && message.hasOwnProperty("duration")) {
                 properties._duration = 1;
@@ -211,13 +228,13 @@ $root.Ephemeral = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Ephemeral.EphemeralSetting} EphemeralSetting
          */
-        EphemeralSetting.fromObject = function fromObject(object, long) {
+        EphemeralSetting.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Ephemeral.EphemeralSetting)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.Ephemeral.EphemeralSetting();
             if (object.duration != null)
                 message.duration = object.duration | 0;
@@ -274,18 +291,17 @@ $root.Ephemeral = (function() {
         };
 
         /**
-         * Gets the default type url for EphemeralSetting
+         * Gets the type url for EphemeralSetting
          * @function getTypeUrl
          * @memberof Ephemeral.EphemeralSetting
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        EphemeralSetting.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/Ephemeral.EphemeralSetting";
+        EphemeralSetting.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/Ephemeral.EphemeralSetting";
         };
 
         return EphemeralSetting;

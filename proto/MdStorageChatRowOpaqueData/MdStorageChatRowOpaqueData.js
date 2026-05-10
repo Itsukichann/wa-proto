@@ -1,4 +1,4 @@
-/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars*/
+/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
 "use strict";
 
 var $protobuf = require("protobufjs/minimal");
@@ -25,6 +25,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
          * @memberof MdStorageChatRowOpaqueData
          * @interface IChatRowOpaqueData
          * @property {MdStorageChatRowOpaqueData.ChatRowOpaqueData.IDraftMessage|null} [draftMessage] ChatRowOpaqueData draftMessage
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -34,6 +35,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
          * @implements IChatRowOpaqueData
          * @constructor
          * @param {MdStorageChatRowOpaqueData.IChatRowOpaqueData=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function ChatRowOpaqueData(properties) {
             if (properties)
@@ -85,6 +87,9 @@ $root.MdStorageChatRowOpaqueData = (function() {
                 writer = $Writer.create();
             if (message.draftMessage != null && Object.hasOwnProperty.call(message, "draftMessage"))
                 $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.encode(message.draftMessage, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -112,28 +117,37 @@ $root.MdStorageChatRowOpaqueData = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ChatRowOpaqueData.decode = function decode(reader, length, error, long) {
+        ChatRowOpaqueData.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.draftMessage = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.draftMessage = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.decode(reader, reader.uint32(), undefined, _depth + 1, message.draftMessage);
+                        message._draftMessage = "draftMessage";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -161,18 +175,18 @@ $root.MdStorageChatRowOpaqueData = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        ChatRowOpaqueData.verify = function verify(message, long) {
+        ChatRowOpaqueData.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.draftMessage != null && message.hasOwnProperty("draftMessage")) {
                 properties._draftMessage = 1;
                 {
-                    var error = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.verify(message.draftMessage, long + 1);
+                    var error = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.verify(message.draftMessage, _depth + 1);
                     if (error)
                         return "draftMessage." + error;
                 }
@@ -188,18 +202,18 @@ $root.MdStorageChatRowOpaqueData = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {MdStorageChatRowOpaqueData.ChatRowOpaqueData} ChatRowOpaqueData
          */
-        ChatRowOpaqueData.fromObject = function fromObject(object, long) {
+        ChatRowOpaqueData.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData();
             if (object.draftMessage != null) {
                 if (typeof object.draftMessage !== "object")
                     throw TypeError(".MdStorageChatRowOpaqueData.ChatRowOpaqueData.draftMessage: object expected");
-                message.draftMessage = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.fromObject(object.draftMessage, long + 1);
+                message.draftMessage = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.fromObject(object.draftMessage, _depth + 1);
             }
             return message;
         };
@@ -237,18 +251,17 @@ $root.MdStorageChatRowOpaqueData = (function() {
         };
 
         /**
-         * Gets the default type url for ChatRowOpaqueData
+         * Gets the type url for ChatRowOpaqueData
          * @function getTypeUrl
          * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        ChatRowOpaqueData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/MdStorageChatRowOpaqueData.ChatRowOpaqueData";
+        ChatRowOpaqueData.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/MdStorageChatRowOpaqueData.ChatRowOpaqueData";
         };
 
         ChatRowOpaqueData.DraftMessage = (function() {
@@ -262,6 +275,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
              * @property {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.ICtwaContextLinkData|null} [ctwaContextLinkData] DraftMessage ctwaContextLinkData
              * @property {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.ICtwaContextData|null} [ctwaContext] DraftMessage ctwaContext
              * @property {number|Long|null} [timestamp] DraftMessage timestamp
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -271,6 +285,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
              * @implements IDraftMessage
              * @constructor
              * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.IDraftMessage=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function DraftMessage(properties) {
                 if (properties)
@@ -386,6 +401,9 @@ $root.MdStorageChatRowOpaqueData = (function() {
                     $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.encode(message.ctwaContext, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
                 if (message.timestamp != null && Object.hasOwnProperty.call(message, "timestamp"))
                     writer.uint32(/* id 5, wireType 0 =*/40).int64(message.timestamp);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -413,44 +431,65 @@ $root.MdStorageChatRowOpaqueData = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DraftMessage.decode = function decode(reader, length, error, long) {
+            DraftMessage.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.text = reader.string();
-                            break;
-                        }
-                    case 2: {
-                            message.omittedUrl = reader.string();
-                            break;
-                        }
-                    case 3: {
-                            message.ctwaContextLinkData = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.decode(reader, reader.uint32(), undefined, long + 1);
-                            break;
-                        }
-                    case 4: {
-                            message.ctwaContext = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.decode(reader, reader.uint32(), undefined, long + 1);
-                            break;
-                        }
-                    case 5: {
-                            message.timestamp = reader.int64();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.text = reader.string();
+                            message._text = "text";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.omittedUrl = reader.string();
+                            message._omittedUrl = "omittedUrl";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 2)
+                                break;
+                            message.ctwaContextLinkData = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.decode(reader, reader.uint32(), undefined, _depth + 1, message.ctwaContextLinkData);
+                            message._ctwaContextLinkData = "ctwaContextLinkData";
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 2)
+                                break;
+                            message.ctwaContext = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.decode(reader, reader.uint32(), undefined, _depth + 1, message.ctwaContext);
+                            message._ctwaContext = "ctwaContext";
+                            continue;
+                        }
+                    case 5: {
+                            if (wireType !== 0)
+                                break;
+                            message.timestamp = reader.int64();
+                            message._timestamp = "timestamp";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -478,13 +517,13 @@ $root.MdStorageChatRowOpaqueData = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            DraftMessage.verify = function verify(message, long) {
+            DraftMessage.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.text != null && message.hasOwnProperty("text")) {
                     properties._text = 1;
@@ -499,7 +538,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                 if (message.ctwaContextLinkData != null && message.hasOwnProperty("ctwaContextLinkData")) {
                     properties._ctwaContextLinkData = 1;
                     {
-                        var error = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.verify(message.ctwaContextLinkData, long + 1);
+                        var error = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.verify(message.ctwaContextLinkData, _depth + 1);
                         if (error)
                             return "ctwaContextLinkData." + error;
                     }
@@ -507,7 +546,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                 if (message.ctwaContext != null && message.hasOwnProperty("ctwaContext")) {
                     properties._ctwaContext = 1;
                     {
-                        var error = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.verify(message.ctwaContext, long + 1);
+                        var error = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.verify(message.ctwaContext, _depth + 1);
                         if (error)
                             return "ctwaContext." + error;
                     }
@@ -528,13 +567,13 @@ $root.MdStorageChatRowOpaqueData = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage} DraftMessage
              */
-            DraftMessage.fromObject = function fromObject(object, long) {
+            DraftMessage.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage();
                 if (object.text != null)
                     message.text = String(object.text);
@@ -543,12 +582,12 @@ $root.MdStorageChatRowOpaqueData = (function() {
                 if (object.ctwaContextLinkData != null) {
                     if (typeof object.ctwaContextLinkData !== "object")
                         throw TypeError(".MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.ctwaContextLinkData: object expected");
-                    message.ctwaContextLinkData = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.fromObject(object.ctwaContextLinkData, long + 1);
+                    message.ctwaContextLinkData = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.fromObject(object.ctwaContextLinkData, _depth + 1);
                 }
                 if (object.ctwaContext != null) {
                     if (typeof object.ctwaContext !== "object")
                         throw TypeError(".MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.ctwaContext: object expected");
-                    message.ctwaContext = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.fromObject(object.ctwaContext, long + 1);
+                    message.ctwaContext = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.fromObject(object.ctwaContext, _depth + 1);
                 }
                 if (object.timestamp != null)
                     if ($util.Long)
@@ -618,18 +657,17 @@ $root.MdStorageChatRowOpaqueData = (function() {
             };
 
             /**
-             * Gets the default type url for DraftMessage
+             * Gets the type url for DraftMessage
              * @function getTypeUrl
              * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            DraftMessage.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage";
+            DraftMessage.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage";
             };
 
             DraftMessage.CtwaContextData = (function() {
@@ -650,6 +688,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @property {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.ContextInfoExternalAdReplyInfoMediaType|null} [mediaType] CtwaContextData mediaType
                  * @property {string|null} [mediaUrl] CtwaContextData mediaUrl
                  * @property {boolean|null} [isSuspiciousLink] CtwaContextData isSuspiciousLink
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
 
                 /**
@@ -659,6 +698,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @implements ICtwaContextData
                  * @constructor
                  * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.ICtwaContextData=} [properties] Properties to set
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function CtwaContextData(properties) {
                     if (properties)
@@ -886,6 +926,9 @@ $root.MdStorageChatRowOpaqueData = (function() {
                         writer.uint32(/* id 11, wireType 2 =*/90).string(message.mediaUrl);
                     if (message.isSuspiciousLink != null && Object.hasOwnProperty.call(message, "isSuspiciousLink"))
                         writer.uint32(/* id 12, wireType 0 =*/96).bool(message.isSuspiciousLink);
+                    if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                        for (var i = 0; i < message.$unknowns.length; ++i)
+                            writer.raw(message.$unknowns[i]);
                     return writer;
                 };
 
@@ -913,72 +956,114 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                CtwaContextData.decode = function decode(reader, length, error, long) {
+                CtwaContextData.decode = function decode(reader, length, _end, _depth, _target) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $Reader.recursionLimit)
-                        throw Error("maximum nesting depth exceeded");
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData();
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $Reader.recursionLimit)
+                        throw Error("max depth exceeded");
+                    var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData();
                     while (reader.pos < end) {
-                        var tag = reader.uint32();
-                        if (tag === error)
-                            break;
-                        switch (tag >>> 3) {
-                        case 1: {
-                                message.conversionSource = reader.string();
-                                break;
-                            }
-                        case 2: {
-                                message.conversionData = reader.bytes();
-                                break;
-                            }
-                        case 3: {
-                                message.sourceUrl = reader.string();
-                                break;
-                            }
-                        case 4: {
-                                message.sourceId = reader.string();
-                                break;
-                            }
-                        case 5: {
-                                message.sourceType = reader.string();
-                                break;
-                            }
-                        case 6: {
-                                message.title = reader.string();
-                                break;
-                            }
-                        case 7: {
-                                message.description = reader.string();
-                                break;
-                            }
-                        case 8: {
-                                message.thumbnail = reader.string();
-                                break;
-                            }
-                        case 9: {
-                                message.thumbnailUrl = reader.string();
-                                break;
-                            }
-                        case 10: {
-                                message.mediaType = reader.int32();
-                                break;
-                            }
-                        case 11: {
-                                message.mediaUrl = reader.string();
-                                break;
-                            }
-                        case 12: {
-                                message.isSuspiciousLink = reader.bool();
-                                break;
-                            }
-                        default:
-                            reader.skipType(tag & 7, long);
+                        var start = reader.pos;
+                        var tag = reader.tag();
+                        if (tag === _end) {
+                            _end = undefined;
                             break;
                         }
+                        var wireType = tag & 7;
+                        switch (tag >>>= 3) {
+                        case 1: {
+                                if (wireType !== 2)
+                                    break;
+                                message.conversionSource = reader.string();
+                                message._conversionSource = "conversionSource";
+                                continue;
+                            }
+                        case 2: {
+                                if (wireType !== 2)
+                                    break;
+                                message.conversionData = reader.bytes();
+                                message._conversionData = "conversionData";
+                                continue;
+                            }
+                        case 3: {
+                                if (wireType !== 2)
+                                    break;
+                                message.sourceUrl = reader.string();
+                                message._sourceUrl = "sourceUrl";
+                                continue;
+                            }
+                        case 4: {
+                                if (wireType !== 2)
+                                    break;
+                                message.sourceId = reader.string();
+                                message._sourceId = "sourceId";
+                                continue;
+                            }
+                        case 5: {
+                                if (wireType !== 2)
+                                    break;
+                                message.sourceType = reader.string();
+                                message._sourceType = "sourceType";
+                                continue;
+                            }
+                        case 6: {
+                                if (wireType !== 2)
+                                    break;
+                                message.title = reader.string();
+                                message._title = "title";
+                                continue;
+                            }
+                        case 7: {
+                                if (wireType !== 2)
+                                    break;
+                                message.description = reader.string();
+                                message._description = "description";
+                                continue;
+                            }
+                        case 8: {
+                                if (wireType !== 2)
+                                    break;
+                                message.thumbnail = reader.string();
+                                message._thumbnail = "thumbnail";
+                                continue;
+                            }
+                        case 9: {
+                                if (wireType !== 2)
+                                    break;
+                                message.thumbnailUrl = reader.string();
+                                message._thumbnailUrl = "thumbnailUrl";
+                                continue;
+                            }
+                        case 10: {
+                                if (wireType !== 0)
+                                    break;
+                                message.mediaType = reader.int32();
+                                message._mediaType = "mediaType";
+                                continue;
+                            }
+                        case 11: {
+                                if (wireType !== 2)
+                                    break;
+                                message.mediaUrl = reader.string();
+                                message._mediaUrl = "mediaUrl";
+                                continue;
+                            }
+                        case 12: {
+                                if (wireType !== 0)
+                                    break;
+                                message.isSuspiciousLink = reader.bool();
+                                message._isSuspiciousLink = "isSuspiciousLink";
+                                continue;
+                            }
+                        }
+                        reader.skipType(wireType, _depth, tag);
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                    if (_end !== undefined)
+                        throw Error("missing end group");
                     return message;
                 };
 
@@ -1006,13 +1091,13 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @param {Object.<string,*>} message Plain object to verify
                  * @returns {string|null} `null` if valid, otherwise the reason why it is not
                  */
-                CtwaContextData.verify = function verify(message, long) {
+                CtwaContextData.verify = function verify(message, _depth) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $util.recursionLimit)
-                        return "maximum nesting depth exceeded";
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        return "max depth exceeded";
                     var properties = {};
                     if (message.conversionSource != null && message.hasOwnProperty("conversionSource")) {
                         properties._conversionSource = 1;
@@ -1091,13 +1176,13 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @param {Object.<string,*>} object Plain object
                  * @returns {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData} CtwaContextData
                  */
-                CtwaContextData.fromObject = function fromObject(object, long) {
+                CtwaContextData.fromObject = function fromObject(object, _depth) {
                     if (object instanceof $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData)
                         return object;
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $util.recursionLimit)
-                        throw Error("maximum nesting depth exceeded");
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw Error("max depth exceeded");
                     var message = new $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData();
                     if (object.conversionSource != null)
                         message.conversionSource = String(object.conversionSource);
@@ -1235,18 +1320,17 @@ $root.MdStorageChatRowOpaqueData = (function() {
                 };
 
                 /**
-                 * Gets the default type url for CtwaContextData
+                 * Gets the type url for CtwaContextData
                  * @function getTypeUrl
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
                  * @static
-                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-                 * @returns {string} The default type url
+                 * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+                 * @returns {string} The type url
                  */
-                CtwaContextData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                    if (typeUrlPrefix === undefined) {
-                        typeUrlPrefix = "type.googleapis.com";
-                    }
-                    return typeUrlPrefix + "/MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData";
+                CtwaContextData.getTypeUrl = function getTypeUrl(prefix) {
+                    if (prefix === undefined)
+                        prefix = "type.googleapis.com";
+                    return prefix + "/MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData";
                 };
 
                 /**
@@ -1278,6 +1362,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @property {string|null} [sourceUrl] CtwaContextLinkData sourceUrl
                  * @property {string|null} [icebreaker] CtwaContextLinkData icebreaker
                  * @property {string|null} [phone] CtwaContextLinkData phone
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
 
                 /**
@@ -1287,6 +1372,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @implements ICtwaContextLinkData
                  * @constructor
                  * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.ICtwaContextLinkData=} [properties] Properties to set
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function CtwaContextLinkData(properties) {
                     if (properties)
@@ -1386,6 +1472,9 @@ $root.MdStorageChatRowOpaqueData = (function() {
                         writer.uint32(/* id 3, wireType 2 =*/26).string(message.icebreaker);
                     if (message.phone != null && Object.hasOwnProperty.call(message, "phone"))
                         writer.uint32(/* id 4, wireType 2 =*/34).string(message.phone);
+                    if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                        for (var i = 0; i < message.$unknowns.length; ++i)
+                            writer.raw(message.$unknowns[i]);
                     return writer;
                 };
 
@@ -1413,40 +1502,58 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                CtwaContextLinkData.decode = function decode(reader, length, error, long) {
+                CtwaContextLinkData.decode = function decode(reader, length, _end, _depth, _target) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $Reader.recursionLimit)
-                        throw Error("maximum nesting depth exceeded");
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData();
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $Reader.recursionLimit)
+                        throw Error("max depth exceeded");
+                    var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData();
                     while (reader.pos < end) {
-                        var tag = reader.uint32();
-                        if (tag === error)
-                            break;
-                        switch (tag >>> 3) {
-                        case 1: {
-                                message.context = reader.string();
-                                break;
-                            }
-                        case 2: {
-                                message.sourceUrl = reader.string();
-                                break;
-                            }
-                        case 3: {
-                                message.icebreaker = reader.string();
-                                break;
-                            }
-                        case 4: {
-                                message.phone = reader.string();
-                                break;
-                            }
-                        default:
-                            reader.skipType(tag & 7, long);
+                        var start = reader.pos;
+                        var tag = reader.tag();
+                        if (tag === _end) {
+                            _end = undefined;
                             break;
                         }
+                        var wireType = tag & 7;
+                        switch (tag >>>= 3) {
+                        case 1: {
+                                if (wireType !== 2)
+                                    break;
+                                message.context = reader.string();
+                                message._context = "context";
+                                continue;
+                            }
+                        case 2: {
+                                if (wireType !== 2)
+                                    break;
+                                message.sourceUrl = reader.string();
+                                message._sourceUrl = "sourceUrl";
+                                continue;
+                            }
+                        case 3: {
+                                if (wireType !== 2)
+                                    break;
+                                message.icebreaker = reader.string();
+                                message._icebreaker = "icebreaker";
+                                continue;
+                            }
+                        case 4: {
+                                if (wireType !== 2)
+                                    break;
+                                message.phone = reader.string();
+                                message._phone = "phone";
+                                continue;
+                            }
+                        }
+                        reader.skipType(wireType, _depth, tag);
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                    if (_end !== undefined)
+                        throw Error("missing end group");
                     return message;
                 };
 
@@ -1474,13 +1581,13 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @param {Object.<string,*>} message Plain object to verify
                  * @returns {string|null} `null` if valid, otherwise the reason why it is not
                  */
-                CtwaContextLinkData.verify = function verify(message, long) {
+                CtwaContextLinkData.verify = function verify(message, _depth) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $util.recursionLimit)
-                        return "maximum nesting depth exceeded";
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        return "max depth exceeded";
                     var properties = {};
                     if (message.context != null && message.hasOwnProperty("context")) {
                         properties._context = 1;
@@ -1513,13 +1620,13 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @param {Object.<string,*>} object Plain object
                  * @returns {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData} CtwaContextLinkData
                  */
-                CtwaContextLinkData.fromObject = function fromObject(object, long) {
+                CtwaContextLinkData.fromObject = function fromObject(object, _depth) {
                     if (object instanceof $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData)
                         return object;
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $util.recursionLimit)
-                        throw Error("maximum nesting depth exceeded");
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw Error("max depth exceeded");
                     var message = new $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData();
                     if (object.context != null)
                         message.context = String(object.context);
@@ -1580,18 +1687,17 @@ $root.MdStorageChatRowOpaqueData = (function() {
                 };
 
                 /**
-                 * Gets the default type url for CtwaContextLinkData
+                 * Gets the type url for CtwaContextLinkData
                  * @function getTypeUrl
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData
                  * @static
-                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-                 * @returns {string} The default type url
+                 * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+                 * @returns {string} The type url
                  */
-                CtwaContextLinkData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                    if (typeUrlPrefix === undefined) {
-                        typeUrlPrefix = "type.googleapis.com";
-                    }
-                    return typeUrlPrefix + "/MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData";
+                CtwaContextLinkData.getTypeUrl = function getTypeUrl(prefix) {
+                    if (prefix === undefined)
+                        prefix = "type.googleapis.com";
+                    return prefix + "/MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData";
                 };
 
                 return CtwaContextLinkData;

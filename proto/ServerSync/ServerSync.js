@@ -1,4 +1,4 @@
-/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars*/
+/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
 "use strict";
 
 var $protobuf = require("protobufjs/minimal");
@@ -33,6 +33,7 @@ $root.ServerSync = (function() {
          * @property {ServerSync.IExitCode|null} [exitCode] SyncdPatch exitCode
          * @property {number|null} [deviceIndex] SyncdPatch deviceIndex
          * @property {Uint8Array|null} [clientDebugData] SyncdPatch clientDebugData
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -42,6 +43,7 @@ $root.ServerSync = (function() {
          * @implements ISyncdPatch
          * @constructor
          * @param {ServerSync.ISyncdPatch=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SyncdPatch(properties) {
             this.mutations = [];
@@ -217,6 +219,9 @@ $root.ServerSync = (function() {
                 writer.uint32(/* id 8, wireType 0 =*/64).uint32(message.deviceIndex);
             if (message.clientDebugData != null && Object.hasOwnProperty.call(message, "clientDebugData"))
                 writer.uint32(/* id 9, wireType 2 =*/74).bytes(message.clientDebugData);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -244,62 +249,94 @@ $root.ServerSync = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SyncdPatch.decode = function decode(reader, length, error, long) {
+        SyncdPatch.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ServerSync.SyncdPatch();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.ServerSync.SyncdPatch();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.version = $root.ServerSync.SyncdVersion.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 2: {
-                        if (!(message.mutations && message.mutations.length))
-                            message.mutations = [];
-                        message.mutations.push($root.ServerSync.SyncdMutation.decode(reader, reader.uint32(), undefined, long + 1));
-                        break;
-                    }
-                case 3: {
-                        message.externalMutations = $root.ServerSync.ExternalBlobReference.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 4: {
-                        message.snapshotMac = reader.bytes();
-                        break;
-                    }
-                case 5: {
-                        message.patchMac = reader.bytes();
-                        break;
-                    }
-                case 6: {
-                        message.keyId = $root.ServerSync.KeyId.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 7: {
-                        message.exitCode = $root.ServerSync.ExitCode.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 8: {
-                        message.deviceIndex = reader.uint32();
-                        break;
-                    }
-                case 9: {
-                        message.clientDebugData = reader.bytes();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.version = $root.ServerSync.SyncdVersion.decode(reader, reader.uint32(), undefined, _depth + 1, message.version);
+                        message._version = "version";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.mutations && message.mutations.length))
+                            message.mutations = [];
+                        message.mutations.push($root.ServerSync.SyncdMutation.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.externalMutations = $root.ServerSync.ExternalBlobReference.decode(reader, reader.uint32(), undefined, _depth + 1, message.externalMutations);
+                        message._externalMutations = "externalMutations";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 2)
+                            break;
+                        message.snapshotMac = reader.bytes();
+                        message._snapshotMac = "snapshotMac";
+                        continue;
+                    }
+                case 5: {
+                        if (wireType !== 2)
+                            break;
+                        message.patchMac = reader.bytes();
+                        message._patchMac = "patchMac";
+                        continue;
+                    }
+                case 6: {
+                        if (wireType !== 2)
+                            break;
+                        message.keyId = $root.ServerSync.KeyId.decode(reader, reader.uint32(), undefined, _depth + 1, message.keyId);
+                        message._keyId = "keyId";
+                        continue;
+                    }
+                case 7: {
+                        if (wireType !== 2)
+                            break;
+                        message.exitCode = $root.ServerSync.ExitCode.decode(reader, reader.uint32(), undefined, _depth + 1, message.exitCode);
+                        message._exitCode = "exitCode";
+                        continue;
+                    }
+                case 8: {
+                        if (wireType !== 0)
+                            break;
+                        message.deviceIndex = reader.uint32();
+                        message._deviceIndex = "deviceIndex";
+                        continue;
+                    }
+                case 9: {
+                        if (wireType !== 2)
+                            break;
+                        message.clientDebugData = reader.bytes();
+                        message._clientDebugData = "clientDebugData";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -327,18 +364,18 @@ $root.ServerSync = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        SyncdPatch.verify = function verify(message, long) {
+        SyncdPatch.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.version != null && message.hasOwnProperty("version")) {
                 properties._version = 1;
                 {
-                    var error = $root.ServerSync.SyncdVersion.verify(message.version, long + 1);
+                    var error = $root.ServerSync.SyncdVersion.verify(message.version, _depth + 1);
                     if (error)
                         return "version." + error;
                 }
@@ -347,7 +384,7 @@ $root.ServerSync = (function() {
                 if (!Array.isArray(message.mutations))
                     return "mutations: array expected";
                 for (var i = 0; i < message.mutations.length; ++i) {
-                    var error = $root.ServerSync.SyncdMutation.verify(message.mutations[i], long + 1);
+                    var error = $root.ServerSync.SyncdMutation.verify(message.mutations[i], _depth + 1);
                     if (error)
                         return "mutations." + error;
                 }
@@ -355,7 +392,7 @@ $root.ServerSync = (function() {
             if (message.externalMutations != null && message.hasOwnProperty("externalMutations")) {
                 properties._externalMutations = 1;
                 {
-                    var error = $root.ServerSync.ExternalBlobReference.verify(message.externalMutations, long + 1);
+                    var error = $root.ServerSync.ExternalBlobReference.verify(message.externalMutations, _depth + 1);
                     if (error)
                         return "externalMutations." + error;
                 }
@@ -373,7 +410,7 @@ $root.ServerSync = (function() {
             if (message.keyId != null && message.hasOwnProperty("keyId")) {
                 properties._keyId = 1;
                 {
-                    var error = $root.ServerSync.KeyId.verify(message.keyId, long + 1);
+                    var error = $root.ServerSync.KeyId.verify(message.keyId, _depth + 1);
                     if (error)
                         return "keyId." + error;
                 }
@@ -381,7 +418,7 @@ $root.ServerSync = (function() {
             if (message.exitCode != null && message.hasOwnProperty("exitCode")) {
                 properties._exitCode = 1;
                 {
-                    var error = $root.ServerSync.ExitCode.verify(message.exitCode, long + 1);
+                    var error = $root.ServerSync.ExitCode.verify(message.exitCode, _depth + 1);
                     if (error)
                         return "exitCode." + error;
                 }
@@ -407,33 +444,33 @@ $root.ServerSync = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {ServerSync.SyncdPatch} SyncdPatch
          */
-        SyncdPatch.fromObject = function fromObject(object, long) {
+        SyncdPatch.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.ServerSync.SyncdPatch)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.ServerSync.SyncdPatch();
             if (object.version != null) {
                 if (typeof object.version !== "object")
                     throw TypeError(".ServerSync.SyncdPatch.version: object expected");
-                message.version = $root.ServerSync.SyncdVersion.fromObject(object.version, long + 1);
+                message.version = $root.ServerSync.SyncdVersion.fromObject(object.version, _depth + 1);
             }
             if (object.mutations) {
                 if (!Array.isArray(object.mutations))
                     throw TypeError(".ServerSync.SyncdPatch.mutations: array expected");
-                message.mutations = [];
+                message.mutations = Array(object.mutations.length);
                 for (var i = 0; i < object.mutations.length; ++i) {
                     if (typeof object.mutations[i] !== "object")
                         throw TypeError(".ServerSync.SyncdPatch.mutations: object expected");
-                    message.mutations[i] = $root.ServerSync.SyncdMutation.fromObject(object.mutations[i], long + 1);
+                    message.mutations[i] = $root.ServerSync.SyncdMutation.fromObject(object.mutations[i], _depth + 1);
                 }
             }
             if (object.externalMutations != null) {
                 if (typeof object.externalMutations !== "object")
                     throw TypeError(".ServerSync.SyncdPatch.externalMutations: object expected");
-                message.externalMutations = $root.ServerSync.ExternalBlobReference.fromObject(object.externalMutations, long + 1);
+                message.externalMutations = $root.ServerSync.ExternalBlobReference.fromObject(object.externalMutations, _depth + 1);
             }
             if (object.snapshotMac != null)
                 if (typeof object.snapshotMac === "string")
@@ -448,12 +485,12 @@ $root.ServerSync = (function() {
             if (object.keyId != null) {
                 if (typeof object.keyId !== "object")
                     throw TypeError(".ServerSync.SyncdPatch.keyId: object expected");
-                message.keyId = $root.ServerSync.KeyId.fromObject(object.keyId, long + 1);
+                message.keyId = $root.ServerSync.KeyId.fromObject(object.keyId, _depth + 1);
             }
             if (object.exitCode != null) {
                 if (typeof object.exitCode !== "object")
                     throw TypeError(".ServerSync.SyncdPatch.exitCode: object expected");
-                message.exitCode = $root.ServerSync.ExitCode.fromObject(object.exitCode, long + 1);
+                message.exitCode = $root.ServerSync.ExitCode.fromObject(object.exitCode, _depth + 1);
             }
             if (object.deviceIndex != null)
                 message.deviceIndex = object.deviceIndex >>> 0;
@@ -486,7 +523,7 @@ $root.ServerSync = (function() {
                     object._version = "version";
             }
             if (message.mutations && message.mutations.length) {
-                object.mutations = [];
+                object.mutations = Array(message.mutations.length);
                 for (var j = 0; j < message.mutations.length; ++j)
                     object.mutations[j] = $root.ServerSync.SyncdMutation.toObject(message.mutations[j], options);
             }
@@ -540,18 +577,17 @@ $root.ServerSync = (function() {
         };
 
         /**
-         * Gets the default type url for SyncdPatch
+         * Gets the type url for SyncdPatch
          * @function getTypeUrl
          * @memberof ServerSync.SyncdPatch
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        SyncdPatch.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/ServerSync.SyncdPatch";
+        SyncdPatch.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/ServerSync.SyncdPatch";
         };
 
         return SyncdPatch;
@@ -565,6 +601,7 @@ $root.ServerSync = (function() {
          * @interface ISyncdMutation
          * @property {ServerSync.SyncdMutation.SyncdOperation|null} [operation] SyncdMutation operation
          * @property {ServerSync.ISyncdRecord|null} [record] SyncdMutation record
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -574,6 +611,7 @@ $root.ServerSync = (function() {
          * @implements ISyncdMutation
          * @constructor
          * @param {ServerSync.ISyncdMutation=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SyncdMutation(properties) {
             if (properties)
@@ -641,6 +679,9 @@ $root.ServerSync = (function() {
                 writer.uint32(/* id 1, wireType 0 =*/8).int32(message.operation);
             if (message.record != null && Object.hasOwnProperty.call(message, "record"))
                 $root.ServerSync.SyncdRecord.encode(message.record, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -668,32 +709,44 @@ $root.ServerSync = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SyncdMutation.decode = function decode(reader, length, error, long) {
+        SyncdMutation.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ServerSync.SyncdMutation();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.ServerSync.SyncdMutation();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.operation = reader.int32();
-                        break;
-                    }
-                case 2: {
-                        message.record = $root.ServerSync.SyncdRecord.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.operation = reader.int32();
+                        message._operation = "operation";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.record = $root.ServerSync.SyncdRecord.decode(reader, reader.uint32(), undefined, _depth + 1, message.record);
+                        message._record = "record";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -721,13 +774,13 @@ $root.ServerSync = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        SyncdMutation.verify = function verify(message, long) {
+        SyncdMutation.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.operation != null && message.hasOwnProperty("operation")) {
                 properties._operation = 1;
@@ -742,7 +795,7 @@ $root.ServerSync = (function() {
             if (message.record != null && message.hasOwnProperty("record")) {
                 properties._record = 1;
                 {
-                    var error = $root.ServerSync.SyncdRecord.verify(message.record, long + 1);
+                    var error = $root.ServerSync.SyncdRecord.verify(message.record, _depth + 1);
                     if (error)
                         return "record." + error;
                 }
@@ -758,13 +811,13 @@ $root.ServerSync = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {ServerSync.SyncdMutation} SyncdMutation
          */
-        SyncdMutation.fromObject = function fromObject(object, long) {
+        SyncdMutation.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.ServerSync.SyncdMutation)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.ServerSync.SyncdMutation();
             switch (object.operation) {
             default:
@@ -785,7 +838,7 @@ $root.ServerSync = (function() {
             if (object.record != null) {
                 if (typeof object.record !== "object")
                     throw TypeError(".ServerSync.SyncdMutation.record: object expected");
-                message.record = $root.ServerSync.SyncdRecord.fromObject(object.record, long + 1);
+                message.record = $root.ServerSync.SyncdRecord.fromObject(object.record, _depth + 1);
             }
             return message;
         };
@@ -828,18 +881,17 @@ $root.ServerSync = (function() {
         };
 
         /**
-         * Gets the default type url for SyncdMutation
+         * Gets the type url for SyncdMutation
          * @function getTypeUrl
          * @memberof ServerSync.SyncdMutation
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        SyncdMutation.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/ServerSync.SyncdMutation";
+        SyncdMutation.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/ServerSync.SyncdMutation";
         };
 
         /**
@@ -866,6 +918,7 @@ $root.ServerSync = (function() {
          * @memberof ServerSync
          * @interface ISyncdMutations
          * @property {Array.<ServerSync.ISyncdMutation>|null} [mutations] SyncdMutations mutations
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -875,6 +928,7 @@ $root.ServerSync = (function() {
          * @implements ISyncdMutations
          * @constructor
          * @param {ServerSync.ISyncdMutations=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SyncdMutations(properties) {
             this.mutations = [];
@@ -919,6 +973,9 @@ $root.ServerSync = (function() {
             if (message.mutations != null && message.mutations.length)
                 for (var i = 0; i < message.mutations.length; ++i)
                     $root.ServerSync.SyncdMutation.encode(message.mutations[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -946,30 +1003,38 @@ $root.ServerSync = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SyncdMutations.decode = function decode(reader, length, error, long) {
+        SyncdMutations.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ServerSync.SyncdMutations();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.ServerSync.SyncdMutations();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        if (!(message.mutations && message.mutations.length))
-                            message.mutations = [];
-                        message.mutations.push($root.ServerSync.SyncdMutation.decode(reader, reader.uint32(), undefined, long + 1));
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.mutations && message.mutations.length))
+                            message.mutations = [];
+                        message.mutations.push($root.ServerSync.SyncdMutation.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -997,18 +1062,18 @@ $root.ServerSync = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        SyncdMutations.verify = function verify(message, long) {
+        SyncdMutations.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             if (message.mutations != null && message.hasOwnProperty("mutations")) {
                 if (!Array.isArray(message.mutations))
                     return "mutations: array expected";
                 for (var i = 0; i < message.mutations.length; ++i) {
-                    var error = $root.ServerSync.SyncdMutation.verify(message.mutations[i], long + 1);
+                    var error = $root.ServerSync.SyncdMutation.verify(message.mutations[i], _depth + 1);
                     if (error)
                         return "mutations." + error;
                 }
@@ -1024,22 +1089,22 @@ $root.ServerSync = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {ServerSync.SyncdMutations} SyncdMutations
          */
-        SyncdMutations.fromObject = function fromObject(object, long) {
+        SyncdMutations.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.ServerSync.SyncdMutations)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.ServerSync.SyncdMutations();
             if (object.mutations) {
                 if (!Array.isArray(object.mutations))
                     throw TypeError(".ServerSync.SyncdMutations.mutations: array expected");
-                message.mutations = [];
+                message.mutations = Array(object.mutations.length);
                 for (var i = 0; i < object.mutations.length; ++i) {
                     if (typeof object.mutations[i] !== "object")
                         throw TypeError(".ServerSync.SyncdMutations.mutations: object expected");
-                    message.mutations[i] = $root.ServerSync.SyncdMutation.fromObject(object.mutations[i], long + 1);
+                    message.mutations[i] = $root.ServerSync.SyncdMutation.fromObject(object.mutations[i], _depth + 1);
                 }
             }
             return message;
@@ -1061,7 +1126,7 @@ $root.ServerSync = (function() {
             if (options.arrays || options.defaults)
                 object.mutations = [];
             if (message.mutations && message.mutations.length) {
-                object.mutations = [];
+                object.mutations = Array(message.mutations.length);
                 for (var j = 0; j < message.mutations.length; ++j)
                     object.mutations[j] = $root.ServerSync.SyncdMutation.toObject(message.mutations[j], options);
             }
@@ -1080,18 +1145,17 @@ $root.ServerSync = (function() {
         };
 
         /**
-         * Gets the default type url for SyncdMutations
+         * Gets the type url for SyncdMutations
          * @function getTypeUrl
          * @memberof ServerSync.SyncdMutations
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        SyncdMutations.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/ServerSync.SyncdMutations";
+        SyncdMutations.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/ServerSync.SyncdMutations";
         };
 
         return SyncdMutations;
@@ -1107,6 +1171,7 @@ $root.ServerSync = (function() {
          * @property {Array.<ServerSync.ISyncdRecord>|null} [records] SyncdSnapshot records
          * @property {Uint8Array|null} [mac] SyncdSnapshot mac
          * @property {ServerSync.IKeyId|null} [keyId] SyncdSnapshot keyId
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -1116,6 +1181,7 @@ $root.ServerSync = (function() {
          * @implements ISyncdSnapshot
          * @constructor
          * @param {ServerSync.ISyncdSnapshot=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SyncdSnapshot(properties) {
             this.records = [];
@@ -1211,6 +1277,9 @@ $root.ServerSync = (function() {
                 writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.mac);
             if (message.keyId != null && Object.hasOwnProperty.call(message, "keyId"))
                 $root.ServerSync.KeyId.encode(message.keyId, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -1238,42 +1307,59 @@ $root.ServerSync = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SyncdSnapshot.decode = function decode(reader, length, error, long) {
+        SyncdSnapshot.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ServerSync.SyncdSnapshot();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.ServerSync.SyncdSnapshot();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.version = $root.ServerSync.SyncdVersion.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 2: {
-                        if (!(message.records && message.records.length))
-                            message.records = [];
-                        message.records.push($root.ServerSync.SyncdRecord.decode(reader, reader.uint32(), undefined, long + 1));
-                        break;
-                    }
-                case 3: {
-                        message.mac = reader.bytes();
-                        break;
-                    }
-                case 4: {
-                        message.keyId = $root.ServerSync.KeyId.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.version = $root.ServerSync.SyncdVersion.decode(reader, reader.uint32(), undefined, _depth + 1, message.version);
+                        message._version = "version";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.records && message.records.length))
+                            message.records = [];
+                        message.records.push($root.ServerSync.SyncdRecord.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.mac = reader.bytes();
+                        message._mac = "mac";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 2)
+                            break;
+                        message.keyId = $root.ServerSync.KeyId.decode(reader, reader.uint32(), undefined, _depth + 1, message.keyId);
+                        message._keyId = "keyId";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -1301,18 +1387,18 @@ $root.ServerSync = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        SyncdSnapshot.verify = function verify(message, long) {
+        SyncdSnapshot.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.version != null && message.hasOwnProperty("version")) {
                 properties._version = 1;
                 {
-                    var error = $root.ServerSync.SyncdVersion.verify(message.version, long + 1);
+                    var error = $root.ServerSync.SyncdVersion.verify(message.version, _depth + 1);
                     if (error)
                         return "version." + error;
                 }
@@ -1321,7 +1407,7 @@ $root.ServerSync = (function() {
                 if (!Array.isArray(message.records))
                     return "records: array expected";
                 for (var i = 0; i < message.records.length; ++i) {
-                    var error = $root.ServerSync.SyncdRecord.verify(message.records[i], long + 1);
+                    var error = $root.ServerSync.SyncdRecord.verify(message.records[i], _depth + 1);
                     if (error)
                         return "records." + error;
                 }
@@ -1334,7 +1420,7 @@ $root.ServerSync = (function() {
             if (message.keyId != null && message.hasOwnProperty("keyId")) {
                 properties._keyId = 1;
                 {
-                    var error = $root.ServerSync.KeyId.verify(message.keyId, long + 1);
+                    var error = $root.ServerSync.KeyId.verify(message.keyId, _depth + 1);
                     if (error)
                         return "keyId." + error;
                 }
@@ -1350,27 +1436,27 @@ $root.ServerSync = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {ServerSync.SyncdSnapshot} SyncdSnapshot
          */
-        SyncdSnapshot.fromObject = function fromObject(object, long) {
+        SyncdSnapshot.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.ServerSync.SyncdSnapshot)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.ServerSync.SyncdSnapshot();
             if (object.version != null) {
                 if (typeof object.version !== "object")
                     throw TypeError(".ServerSync.SyncdSnapshot.version: object expected");
-                message.version = $root.ServerSync.SyncdVersion.fromObject(object.version, long + 1);
+                message.version = $root.ServerSync.SyncdVersion.fromObject(object.version, _depth + 1);
             }
             if (object.records) {
                 if (!Array.isArray(object.records))
                     throw TypeError(".ServerSync.SyncdSnapshot.records: array expected");
-                message.records = [];
+                message.records = Array(object.records.length);
                 for (var i = 0; i < object.records.length; ++i) {
                     if (typeof object.records[i] !== "object")
                         throw TypeError(".ServerSync.SyncdSnapshot.records: object expected");
-                    message.records[i] = $root.ServerSync.SyncdRecord.fromObject(object.records[i], long + 1);
+                    message.records[i] = $root.ServerSync.SyncdRecord.fromObject(object.records[i], _depth + 1);
                 }
             }
             if (object.mac != null)
@@ -1381,7 +1467,7 @@ $root.ServerSync = (function() {
             if (object.keyId != null) {
                 if (typeof object.keyId !== "object")
                     throw TypeError(".ServerSync.SyncdSnapshot.keyId: object expected");
-                message.keyId = $root.ServerSync.KeyId.fromObject(object.keyId, long + 1);
+                message.keyId = $root.ServerSync.KeyId.fromObject(object.keyId, _depth + 1);
             }
             return message;
         };
@@ -1407,7 +1493,7 @@ $root.ServerSync = (function() {
                     object._version = "version";
             }
             if (message.records && message.records.length) {
-                object.records = [];
+                object.records = Array(message.records.length);
                 for (var j = 0; j < message.records.length; ++j)
                     object.records[j] = $root.ServerSync.SyncdRecord.toObject(message.records[j], options);
             }
@@ -1436,18 +1522,17 @@ $root.ServerSync = (function() {
         };
 
         /**
-         * Gets the default type url for SyncdSnapshot
+         * Gets the type url for SyncdSnapshot
          * @function getTypeUrl
          * @memberof ServerSync.SyncdSnapshot
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        SyncdSnapshot.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/ServerSync.SyncdSnapshot";
+        SyncdSnapshot.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/ServerSync.SyncdSnapshot";
         };
 
         return SyncdSnapshot;
@@ -1465,6 +1550,7 @@ $root.ServerSync = (function() {
          * @property {number|Long|null} [fileSizeBytes] ExternalBlobReference fileSizeBytes
          * @property {Uint8Array|null} [fileSha256] ExternalBlobReference fileSha256
          * @property {Uint8Array|null} [fileEncSha256] ExternalBlobReference fileEncSha256
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -1474,6 +1560,7 @@ $root.ServerSync = (function() {
          * @implements IExternalBlobReference
          * @constructor
          * @param {ServerSync.IExternalBlobReference=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function ExternalBlobReference(properties) {
             if (properties)
@@ -1605,6 +1692,9 @@ $root.ServerSync = (function() {
                 writer.uint32(/* id 5, wireType 2 =*/42).bytes(message.fileSha256);
             if (message.fileEncSha256 != null && Object.hasOwnProperty.call(message, "fileEncSha256"))
                 writer.uint32(/* id 6, wireType 2 =*/50).bytes(message.fileEncSha256);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -1632,48 +1722,72 @@ $root.ServerSync = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ExternalBlobReference.decode = function decode(reader, length, error, long) {
+        ExternalBlobReference.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ServerSync.ExternalBlobReference();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.ServerSync.ExternalBlobReference();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.mediaKey = reader.bytes();
-                        break;
-                    }
-                case 2: {
-                        message.directPath = reader.string();
-                        break;
-                    }
-                case 3: {
-                        message.handle = reader.string();
-                        break;
-                    }
-                case 4: {
-                        message.fileSizeBytes = reader.uint64();
-                        break;
-                    }
-                case 5: {
-                        message.fileSha256 = reader.bytes();
-                        break;
-                    }
-                case 6: {
-                        message.fileEncSha256 = reader.bytes();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.mediaKey = reader.bytes();
+                        message._mediaKey = "mediaKey";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.directPath = reader.string();
+                        message._directPath = "directPath";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.handle = reader.string();
+                        message._handle = "handle";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 0)
+                            break;
+                        message.fileSizeBytes = reader.uint64();
+                        message._fileSizeBytes = "fileSizeBytes";
+                        continue;
+                    }
+                case 5: {
+                        if (wireType !== 2)
+                            break;
+                        message.fileSha256 = reader.bytes();
+                        message._fileSha256 = "fileSha256";
+                        continue;
+                    }
+                case 6: {
+                        if (wireType !== 2)
+                            break;
+                        message.fileEncSha256 = reader.bytes();
+                        message._fileEncSha256 = "fileEncSha256";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -1701,13 +1815,13 @@ $root.ServerSync = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        ExternalBlobReference.verify = function verify(message, long) {
+        ExternalBlobReference.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.mediaKey != null && message.hasOwnProperty("mediaKey")) {
                 properties._mediaKey = 1;
@@ -1750,13 +1864,13 @@ $root.ServerSync = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {ServerSync.ExternalBlobReference} ExternalBlobReference
          */
-        ExternalBlobReference.fromObject = function fromObject(object, long) {
+        ExternalBlobReference.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.ServerSync.ExternalBlobReference)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.ServerSync.ExternalBlobReference();
             if (object.mediaKey != null)
                 if (typeof object.mediaKey === "string")
@@ -1850,18 +1964,17 @@ $root.ServerSync = (function() {
         };
 
         /**
-         * Gets the default type url for ExternalBlobReference
+         * Gets the type url for ExternalBlobReference
          * @function getTypeUrl
          * @memberof ServerSync.ExternalBlobReference
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        ExternalBlobReference.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/ServerSync.ExternalBlobReference";
+        ExternalBlobReference.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/ServerSync.ExternalBlobReference";
         };
 
         return ExternalBlobReference;
@@ -1876,6 +1989,7 @@ $root.ServerSync = (function() {
          * @property {ServerSync.ISyncdIndex|null} [index] SyncdRecord index
          * @property {ServerSync.ISyncdValue|null} [value] SyncdRecord value
          * @property {ServerSync.IKeyId|null} [keyId] SyncdRecord keyId
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -1885,6 +1999,7 @@ $root.ServerSync = (function() {
          * @implements ISyncdRecord
          * @constructor
          * @param {ServerSync.ISyncdRecord=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SyncdRecord(properties) {
             if (properties)
@@ -1968,6 +2083,9 @@ $root.ServerSync = (function() {
                 $root.ServerSync.SyncdValue.encode(message.value, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
             if (message.keyId != null && Object.hasOwnProperty.call(message, "keyId"))
                 $root.ServerSync.KeyId.encode(message.keyId, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -1995,36 +2113,51 @@ $root.ServerSync = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SyncdRecord.decode = function decode(reader, length, error, long) {
+        SyncdRecord.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ServerSync.SyncdRecord();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.ServerSync.SyncdRecord();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.index = $root.ServerSync.SyncdIndex.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 2: {
-                        message.value = $root.ServerSync.SyncdValue.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 3: {
-                        message.keyId = $root.ServerSync.KeyId.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.index = $root.ServerSync.SyncdIndex.decode(reader, reader.uint32(), undefined, _depth + 1, message.index);
+                        message._index = "index";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.value = $root.ServerSync.SyncdValue.decode(reader, reader.uint32(), undefined, _depth + 1, message.value);
+                        message._value = "value";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.keyId = $root.ServerSync.KeyId.decode(reader, reader.uint32(), undefined, _depth + 1, message.keyId);
+                        message._keyId = "keyId";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -2052,18 +2185,18 @@ $root.ServerSync = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        SyncdRecord.verify = function verify(message, long) {
+        SyncdRecord.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.index != null && message.hasOwnProperty("index")) {
                 properties._index = 1;
                 {
-                    var error = $root.ServerSync.SyncdIndex.verify(message.index, long + 1);
+                    var error = $root.ServerSync.SyncdIndex.verify(message.index, _depth + 1);
                     if (error)
                         return "index." + error;
                 }
@@ -2071,7 +2204,7 @@ $root.ServerSync = (function() {
             if (message.value != null && message.hasOwnProperty("value")) {
                 properties._value = 1;
                 {
-                    var error = $root.ServerSync.SyncdValue.verify(message.value, long + 1);
+                    var error = $root.ServerSync.SyncdValue.verify(message.value, _depth + 1);
                     if (error)
                         return "value." + error;
                 }
@@ -2079,7 +2212,7 @@ $root.ServerSync = (function() {
             if (message.keyId != null && message.hasOwnProperty("keyId")) {
                 properties._keyId = 1;
                 {
-                    var error = $root.ServerSync.KeyId.verify(message.keyId, long + 1);
+                    var error = $root.ServerSync.KeyId.verify(message.keyId, _depth + 1);
                     if (error)
                         return "keyId." + error;
                 }
@@ -2095,28 +2228,28 @@ $root.ServerSync = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {ServerSync.SyncdRecord} SyncdRecord
          */
-        SyncdRecord.fromObject = function fromObject(object, long) {
+        SyncdRecord.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.ServerSync.SyncdRecord)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.ServerSync.SyncdRecord();
             if (object.index != null) {
                 if (typeof object.index !== "object")
                     throw TypeError(".ServerSync.SyncdRecord.index: object expected");
-                message.index = $root.ServerSync.SyncdIndex.fromObject(object.index, long + 1);
+                message.index = $root.ServerSync.SyncdIndex.fromObject(object.index, _depth + 1);
             }
             if (object.value != null) {
                 if (typeof object.value !== "object")
                     throw TypeError(".ServerSync.SyncdRecord.value: object expected");
-                message.value = $root.ServerSync.SyncdValue.fromObject(object.value, long + 1);
+                message.value = $root.ServerSync.SyncdValue.fromObject(object.value, _depth + 1);
             }
             if (object.keyId != null) {
                 if (typeof object.keyId !== "object")
                     throw TypeError(".ServerSync.SyncdRecord.keyId: object expected");
-                message.keyId = $root.ServerSync.KeyId.fromObject(object.keyId, long + 1);
+                message.keyId = $root.ServerSync.KeyId.fromObject(object.keyId, _depth + 1);
             }
             return message;
         };
@@ -2164,18 +2297,17 @@ $root.ServerSync = (function() {
         };
 
         /**
-         * Gets the default type url for SyncdRecord
+         * Gets the type url for SyncdRecord
          * @function getTypeUrl
          * @memberof ServerSync.SyncdRecord
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        SyncdRecord.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/ServerSync.SyncdRecord";
+        SyncdRecord.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/ServerSync.SyncdRecord";
         };
 
         return SyncdRecord;
@@ -2188,6 +2320,7 @@ $root.ServerSync = (function() {
          * @memberof ServerSync
          * @interface IKeyId
          * @property {Uint8Array|null} [id] KeyId id
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -2197,6 +2330,7 @@ $root.ServerSync = (function() {
          * @implements IKeyId
          * @constructor
          * @param {ServerSync.IKeyId=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function KeyId(properties) {
             if (properties)
@@ -2248,6 +2382,9 @@ $root.ServerSync = (function() {
                 writer = $Writer.create();
             if (message.id != null && Object.hasOwnProperty.call(message, "id"))
                 writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.id);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -2275,28 +2412,37 @@ $root.ServerSync = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        KeyId.decode = function decode(reader, length, error, long) {
+        KeyId.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ServerSync.KeyId();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.ServerSync.KeyId();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.id = reader.bytes();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.id = reader.bytes();
+                        message._id = "id";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -2324,13 +2470,13 @@ $root.ServerSync = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        KeyId.verify = function verify(message, long) {
+        KeyId.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.id != null && message.hasOwnProperty("id")) {
                 properties._id = 1;
@@ -2348,13 +2494,13 @@ $root.ServerSync = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {ServerSync.KeyId} KeyId
          */
-        KeyId.fromObject = function fromObject(object, long) {
+        KeyId.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.ServerSync.KeyId)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.ServerSync.KeyId();
             if (object.id != null)
                 if (typeof object.id === "string")
@@ -2397,18 +2543,17 @@ $root.ServerSync = (function() {
         };
 
         /**
-         * Gets the default type url for KeyId
+         * Gets the type url for KeyId
          * @function getTypeUrl
          * @memberof ServerSync.KeyId
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        KeyId.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/ServerSync.KeyId";
+        KeyId.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/ServerSync.KeyId";
         };
 
         return KeyId;
@@ -2421,6 +2566,7 @@ $root.ServerSync = (function() {
          * @memberof ServerSync
          * @interface ISyncdValue
          * @property {Uint8Array|null} [blob] SyncdValue blob
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -2430,6 +2576,7 @@ $root.ServerSync = (function() {
          * @implements ISyncdValue
          * @constructor
          * @param {ServerSync.ISyncdValue=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SyncdValue(properties) {
             if (properties)
@@ -2481,6 +2628,9 @@ $root.ServerSync = (function() {
                 writer = $Writer.create();
             if (message.blob != null && Object.hasOwnProperty.call(message, "blob"))
                 writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.blob);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -2508,28 +2658,37 @@ $root.ServerSync = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SyncdValue.decode = function decode(reader, length, error, long) {
+        SyncdValue.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ServerSync.SyncdValue();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.ServerSync.SyncdValue();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.blob = reader.bytes();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.blob = reader.bytes();
+                        message._blob = "blob";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -2557,13 +2716,13 @@ $root.ServerSync = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        SyncdValue.verify = function verify(message, long) {
+        SyncdValue.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.blob != null && message.hasOwnProperty("blob")) {
                 properties._blob = 1;
@@ -2581,13 +2740,13 @@ $root.ServerSync = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {ServerSync.SyncdValue} SyncdValue
          */
-        SyncdValue.fromObject = function fromObject(object, long) {
+        SyncdValue.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.ServerSync.SyncdValue)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.ServerSync.SyncdValue();
             if (object.blob != null)
                 if (typeof object.blob === "string")
@@ -2630,18 +2789,17 @@ $root.ServerSync = (function() {
         };
 
         /**
-         * Gets the default type url for SyncdValue
+         * Gets the type url for SyncdValue
          * @function getTypeUrl
          * @memberof ServerSync.SyncdValue
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        SyncdValue.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/ServerSync.SyncdValue";
+        SyncdValue.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/ServerSync.SyncdValue";
         };
 
         return SyncdValue;
@@ -2654,6 +2812,7 @@ $root.ServerSync = (function() {
          * @memberof ServerSync
          * @interface ISyncdIndex
          * @property {Uint8Array|null} [blob] SyncdIndex blob
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -2663,6 +2822,7 @@ $root.ServerSync = (function() {
          * @implements ISyncdIndex
          * @constructor
          * @param {ServerSync.ISyncdIndex=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SyncdIndex(properties) {
             if (properties)
@@ -2714,6 +2874,9 @@ $root.ServerSync = (function() {
                 writer = $Writer.create();
             if (message.blob != null && Object.hasOwnProperty.call(message, "blob"))
                 writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.blob);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -2741,28 +2904,37 @@ $root.ServerSync = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SyncdIndex.decode = function decode(reader, length, error, long) {
+        SyncdIndex.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ServerSync.SyncdIndex();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.ServerSync.SyncdIndex();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.blob = reader.bytes();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.blob = reader.bytes();
+                        message._blob = "blob";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -2790,13 +2962,13 @@ $root.ServerSync = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        SyncdIndex.verify = function verify(message, long) {
+        SyncdIndex.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.blob != null && message.hasOwnProperty("blob")) {
                 properties._blob = 1;
@@ -2814,13 +2986,13 @@ $root.ServerSync = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {ServerSync.SyncdIndex} SyncdIndex
          */
-        SyncdIndex.fromObject = function fromObject(object, long) {
+        SyncdIndex.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.ServerSync.SyncdIndex)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.ServerSync.SyncdIndex();
             if (object.blob != null)
                 if (typeof object.blob === "string")
@@ -2863,18 +3035,17 @@ $root.ServerSync = (function() {
         };
 
         /**
-         * Gets the default type url for SyncdIndex
+         * Gets the type url for SyncdIndex
          * @function getTypeUrl
          * @memberof ServerSync.SyncdIndex
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        SyncdIndex.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/ServerSync.SyncdIndex";
+        SyncdIndex.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/ServerSync.SyncdIndex";
         };
 
         return SyncdIndex;
@@ -2888,6 +3059,7 @@ $root.ServerSync = (function() {
          * @interface IExitCode
          * @property {number|Long|null} [code] ExitCode code
          * @property {string|null} [text] ExitCode text
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -2897,6 +3069,7 @@ $root.ServerSync = (function() {
          * @implements IExitCode
          * @constructor
          * @param {ServerSync.IExitCode=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function ExitCode(properties) {
             if (properties)
@@ -2964,6 +3137,9 @@ $root.ServerSync = (function() {
                 writer.uint32(/* id 1, wireType 0 =*/8).uint64(message.code);
             if (message.text != null && Object.hasOwnProperty.call(message, "text"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.text);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -2991,32 +3167,44 @@ $root.ServerSync = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ExitCode.decode = function decode(reader, length, error, long) {
+        ExitCode.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ServerSync.ExitCode();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.ServerSync.ExitCode();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.code = reader.uint64();
-                        break;
-                    }
-                case 2: {
-                        message.text = reader.string();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.code = reader.uint64();
+                        message._code = "code";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.text = reader.string();
+                        message._text = "text";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -3044,13 +3232,13 @@ $root.ServerSync = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        ExitCode.verify = function verify(message, long) {
+        ExitCode.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.code != null && message.hasOwnProperty("code")) {
                 properties._code = 1;
@@ -3073,13 +3261,13 @@ $root.ServerSync = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {ServerSync.ExitCode} ExitCode
          */
-        ExitCode.fromObject = function fromObject(object, long) {
+        ExitCode.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.ServerSync.ExitCode)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.ServerSync.ExitCode();
             if (object.code != null)
                 if ($util.Long)
@@ -3136,18 +3324,17 @@ $root.ServerSync = (function() {
         };
 
         /**
-         * Gets the default type url for ExitCode
+         * Gets the type url for ExitCode
          * @function getTypeUrl
          * @memberof ServerSync.ExitCode
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        ExitCode.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/ServerSync.ExitCode";
+        ExitCode.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/ServerSync.ExitCode";
         };
 
         return ExitCode;
@@ -3160,6 +3347,7 @@ $root.ServerSync = (function() {
          * @memberof ServerSync
          * @interface ISyncdVersion
          * @property {number|Long|null} [version] SyncdVersion version
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -3169,6 +3357,7 @@ $root.ServerSync = (function() {
          * @implements ISyncdVersion
          * @constructor
          * @param {ServerSync.ISyncdVersion=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SyncdVersion(properties) {
             if (properties)
@@ -3220,6 +3409,9 @@ $root.ServerSync = (function() {
                 writer = $Writer.create();
             if (message.version != null && Object.hasOwnProperty.call(message, "version"))
                 writer.uint32(/* id 1, wireType 0 =*/8).uint64(message.version);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -3247,28 +3439,37 @@ $root.ServerSync = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SyncdVersion.decode = function decode(reader, length, error, long) {
+        SyncdVersion.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ServerSync.SyncdVersion();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.ServerSync.SyncdVersion();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.version = reader.uint64();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.version = reader.uint64();
+                        message._version = "version";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -3296,13 +3497,13 @@ $root.ServerSync = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        SyncdVersion.verify = function verify(message, long) {
+        SyncdVersion.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.version != null && message.hasOwnProperty("version")) {
                 properties._version = 1;
@@ -3320,13 +3521,13 @@ $root.ServerSync = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {ServerSync.SyncdVersion} SyncdVersion
          */
-        SyncdVersion.fromObject = function fromObject(object, long) {
+        SyncdVersion.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.ServerSync.SyncdVersion)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.ServerSync.SyncdVersion();
             if (object.version != null)
                 if ($util.Long)
@@ -3376,18 +3577,17 @@ $root.ServerSync = (function() {
         };
 
         /**
-         * Gets the default type url for SyncdVersion
+         * Gets the type url for SyncdVersion
          * @function getTypeUrl
          * @memberof ServerSync.SyncdVersion
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        SyncdVersion.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/ServerSync.SyncdVersion";
+        SyncdVersion.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/ServerSync.SyncdVersion";
         };
 
         return SyncdVersion;

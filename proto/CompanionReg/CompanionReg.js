@@ -1,4 +1,4 @@
-/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars*/
+/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
 "use strict";
 
 var $protobuf = require("protobufjs/minimal");
@@ -29,6 +29,7 @@ $root.CompanionReg = (function() {
          * @property {boolean|null} [isSyncdSnapshotRecoveryEnabled] ClientPairingProps isSyncdSnapshotRecoveryEnabled
          * @property {boolean|null} [isHsThumbnailSyncEnabled] ClientPairingProps isHsThumbnailSyncEnabled
          * @property {Uint8Array|null} [subscriptionSyncPayload] ClientPairingProps subscriptionSyncPayload
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -38,6 +39,7 @@ $root.CompanionReg = (function() {
          * @implements IClientPairingProps
          * @constructor
          * @param {CompanionReg.IClientPairingProps=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function ClientPairingProps(properties) {
             if (properties)
@@ -153,6 +155,9 @@ $root.CompanionReg = (function() {
                 writer.uint32(/* id 4, wireType 0 =*/32).bool(message.isHsThumbnailSyncEnabled);
             if (message.subscriptionSyncPayload != null && Object.hasOwnProperty.call(message, "subscriptionSyncPayload"))
                 writer.uint32(/* id 5, wireType 2 =*/42).bytes(message.subscriptionSyncPayload);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -180,44 +185,65 @@ $root.CompanionReg = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ClientPairingProps.decode = function decode(reader, length, error, long) {
+        ClientPairingProps.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.CompanionReg.ClientPairingProps();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.CompanionReg.ClientPairingProps();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.isChatDbLidMigrated = reader.bool();
-                        break;
-                    }
-                case 2: {
-                        message.isSyncdPureLidSession = reader.bool();
-                        break;
-                    }
-                case 3: {
-                        message.isSyncdSnapshotRecoveryEnabled = reader.bool();
-                        break;
-                    }
-                case 4: {
-                        message.isHsThumbnailSyncEnabled = reader.bool();
-                        break;
-                    }
-                case 5: {
-                        message.subscriptionSyncPayload = reader.bytes();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.isChatDbLidMigrated = reader.bool();
+                        message._isChatDbLidMigrated = "isChatDbLidMigrated";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 0)
+                            break;
+                        message.isSyncdPureLidSession = reader.bool();
+                        message._isSyncdPureLidSession = "isSyncdPureLidSession";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 0)
+                            break;
+                        message.isSyncdSnapshotRecoveryEnabled = reader.bool();
+                        message._isSyncdSnapshotRecoveryEnabled = "isSyncdSnapshotRecoveryEnabled";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 0)
+                            break;
+                        message.isHsThumbnailSyncEnabled = reader.bool();
+                        message._isHsThumbnailSyncEnabled = "isHsThumbnailSyncEnabled";
+                        continue;
+                    }
+                case 5: {
+                        if (wireType !== 2)
+                            break;
+                        message.subscriptionSyncPayload = reader.bytes();
+                        message._subscriptionSyncPayload = "subscriptionSyncPayload";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -245,13 +271,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        ClientPairingProps.verify = function verify(message, long) {
+        ClientPairingProps.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.isChatDbLidMigrated != null && message.hasOwnProperty("isChatDbLidMigrated")) {
                 properties._isChatDbLidMigrated = 1;
@@ -289,13 +315,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {CompanionReg.ClientPairingProps} ClientPairingProps
          */
-        ClientPairingProps.fromObject = function fromObject(object, long) {
+        ClientPairingProps.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.CompanionReg.ClientPairingProps)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.CompanionReg.ClientPairingProps();
             if (object.isChatDbLidMigrated != null)
                 message.isChatDbLidMigrated = Boolean(object.isChatDbLidMigrated);
@@ -366,18 +392,17 @@ $root.CompanionReg = (function() {
         };
 
         /**
-         * Gets the default type url for ClientPairingProps
+         * Gets the type url for ClientPairingProps
          * @function getTypeUrl
          * @memberof CompanionReg.ClientPairingProps
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        ClientPairingProps.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/CompanionReg.ClientPairingProps";
+        ClientPairingProps.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/CompanionReg.ClientPairingProps";
         };
 
         return ClientPairingProps;
@@ -391,6 +416,7 @@ $root.CompanionReg = (function() {
          * @interface IEncryptedPairingRequest
          * @property {Uint8Array|null} [encryptedPayload] EncryptedPairingRequest encryptedPayload
          * @property {Uint8Array|null} [iv] EncryptedPairingRequest iv
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -400,6 +426,7 @@ $root.CompanionReg = (function() {
          * @implements IEncryptedPairingRequest
          * @constructor
          * @param {CompanionReg.IEncryptedPairingRequest=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function EncryptedPairingRequest(properties) {
             if (properties)
@@ -467,6 +494,9 @@ $root.CompanionReg = (function() {
                 writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.encryptedPayload);
             if (message.iv != null && Object.hasOwnProperty.call(message, "iv"))
                 writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.iv);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -494,32 +524,44 @@ $root.CompanionReg = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        EncryptedPairingRequest.decode = function decode(reader, length, error, long) {
+        EncryptedPairingRequest.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.CompanionReg.EncryptedPairingRequest();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.CompanionReg.EncryptedPairingRequest();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.encryptedPayload = reader.bytes();
-                        break;
-                    }
-                case 2: {
-                        message.iv = reader.bytes();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.encryptedPayload = reader.bytes();
+                        message._encryptedPayload = "encryptedPayload";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.iv = reader.bytes();
+                        message._iv = "iv";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -547,13 +589,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        EncryptedPairingRequest.verify = function verify(message, long) {
+        EncryptedPairingRequest.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.encryptedPayload != null && message.hasOwnProperty("encryptedPayload")) {
                 properties._encryptedPayload = 1;
@@ -576,13 +618,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {CompanionReg.EncryptedPairingRequest} EncryptedPairingRequest
          */
-        EncryptedPairingRequest.fromObject = function fromObject(object, long) {
+        EncryptedPairingRequest.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.CompanionReg.EncryptedPairingRequest)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.CompanionReg.EncryptedPairingRequest();
             if (object.encryptedPayload != null)
                 if (typeof object.encryptedPayload === "string")
@@ -635,18 +677,17 @@ $root.CompanionReg = (function() {
         };
 
         /**
-         * Gets the default type url for EncryptedPairingRequest
+         * Gets the type url for EncryptedPairingRequest
          * @function getTypeUrl
          * @memberof CompanionReg.EncryptedPairingRequest
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        EncryptedPairingRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/CompanionReg.EncryptedPairingRequest";
+        EncryptedPairingRequest.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/CompanionReg.EncryptedPairingRequest";
         };
 
         return EncryptedPairingRequest;
@@ -661,6 +702,7 @@ $root.CompanionReg = (function() {
          * @property {Uint8Array|null} [companionPublicKey] PairingRequest companionPublicKey
          * @property {Uint8Array|null} [companionIdentityKey] PairingRequest companionIdentityKey
          * @property {Uint8Array|null} [advSecret] PairingRequest advSecret
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -670,6 +712,7 @@ $root.CompanionReg = (function() {
          * @implements IPairingRequest
          * @constructor
          * @param {CompanionReg.IPairingRequest=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function PairingRequest(properties) {
             if (properties)
@@ -753,6 +796,9 @@ $root.CompanionReg = (function() {
                 writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.companionIdentityKey);
             if (message.advSecret != null && Object.hasOwnProperty.call(message, "advSecret"))
                 writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.advSecret);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -780,36 +826,51 @@ $root.CompanionReg = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        PairingRequest.decode = function decode(reader, length, error, long) {
+        PairingRequest.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.CompanionReg.PairingRequest();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.CompanionReg.PairingRequest();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.companionPublicKey = reader.bytes();
-                        break;
-                    }
-                case 2: {
-                        message.companionIdentityKey = reader.bytes();
-                        break;
-                    }
-                case 3: {
-                        message.advSecret = reader.bytes();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.companionPublicKey = reader.bytes();
+                        message._companionPublicKey = "companionPublicKey";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.companionIdentityKey = reader.bytes();
+                        message._companionIdentityKey = "companionIdentityKey";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.advSecret = reader.bytes();
+                        message._advSecret = "advSecret";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -837,13 +898,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        PairingRequest.verify = function verify(message, long) {
+        PairingRequest.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.companionPublicKey != null && message.hasOwnProperty("companionPublicKey")) {
                 properties._companionPublicKey = 1;
@@ -871,13 +932,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {CompanionReg.PairingRequest} PairingRequest
          */
-        PairingRequest.fromObject = function fromObject(object, long) {
+        PairingRequest.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.CompanionReg.PairingRequest)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.CompanionReg.PairingRequest();
             if (object.companionPublicKey != null)
                 if (typeof object.companionPublicKey === "string")
@@ -940,18 +1001,17 @@ $root.CompanionReg = (function() {
         };
 
         /**
-         * Gets the default type url for PairingRequest
+         * Gets the type url for PairingRequest
          * @function getTypeUrl
          * @memberof CompanionReg.PairingRequest
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        PairingRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/CompanionReg.PairingRequest";
+        PairingRequest.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/CompanionReg.PairingRequest";
         };
 
         return PairingRequest;
@@ -965,6 +1025,7 @@ $root.CompanionReg = (function() {
          * @interface IPrimaryEphemeralIdentity
          * @property {Uint8Array|null} [publicKey] PrimaryEphemeralIdentity publicKey
          * @property {Uint8Array|null} [nonce] PrimaryEphemeralIdentity nonce
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -974,6 +1035,7 @@ $root.CompanionReg = (function() {
          * @implements IPrimaryEphemeralIdentity
          * @constructor
          * @param {CompanionReg.IPrimaryEphemeralIdentity=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function PrimaryEphemeralIdentity(properties) {
             if (properties)
@@ -1041,6 +1103,9 @@ $root.CompanionReg = (function() {
                 writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.publicKey);
             if (message.nonce != null && Object.hasOwnProperty.call(message, "nonce"))
                 writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.nonce);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -1068,32 +1133,44 @@ $root.CompanionReg = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        PrimaryEphemeralIdentity.decode = function decode(reader, length, error, long) {
+        PrimaryEphemeralIdentity.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.CompanionReg.PrimaryEphemeralIdentity();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.CompanionReg.PrimaryEphemeralIdentity();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.publicKey = reader.bytes();
-                        break;
-                    }
-                case 2: {
-                        message.nonce = reader.bytes();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.publicKey = reader.bytes();
+                        message._publicKey = "publicKey";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.nonce = reader.bytes();
+                        message._nonce = "nonce";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -1121,13 +1198,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        PrimaryEphemeralIdentity.verify = function verify(message, long) {
+        PrimaryEphemeralIdentity.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.publicKey != null && message.hasOwnProperty("publicKey")) {
                 properties._publicKey = 1;
@@ -1150,13 +1227,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {CompanionReg.PrimaryEphemeralIdentity} PrimaryEphemeralIdentity
          */
-        PrimaryEphemeralIdentity.fromObject = function fromObject(object, long) {
+        PrimaryEphemeralIdentity.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.CompanionReg.PrimaryEphemeralIdentity)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.CompanionReg.PrimaryEphemeralIdentity();
             if (object.publicKey != null)
                 if (typeof object.publicKey === "string")
@@ -1209,18 +1286,17 @@ $root.CompanionReg = (function() {
         };
 
         /**
-         * Gets the default type url for PrimaryEphemeralIdentity
+         * Gets the type url for PrimaryEphemeralIdentity
          * @function getTypeUrl
          * @memberof CompanionReg.PrimaryEphemeralIdentity
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        PrimaryEphemeralIdentity.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/CompanionReg.PrimaryEphemeralIdentity";
+        PrimaryEphemeralIdentity.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/CompanionReg.PrimaryEphemeralIdentity";
         };
 
         return PrimaryEphemeralIdentity;
@@ -1234,6 +1310,7 @@ $root.CompanionReg = (function() {
          * @interface IProloguePayload
          * @property {Uint8Array|null} [companionEphemeralIdentity] ProloguePayload companionEphemeralIdentity
          * @property {CompanionReg.ICompanionCommitment|null} [commitment] ProloguePayload commitment
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -1243,6 +1320,7 @@ $root.CompanionReg = (function() {
          * @implements IProloguePayload
          * @constructor
          * @param {CompanionReg.IProloguePayload=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function ProloguePayload(properties) {
             if (properties)
@@ -1310,6 +1388,9 @@ $root.CompanionReg = (function() {
                 writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.companionEphemeralIdentity);
             if (message.commitment != null && Object.hasOwnProperty.call(message, "commitment"))
                 $root.CompanionReg.CompanionCommitment.encode(message.commitment, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -1337,32 +1418,44 @@ $root.CompanionReg = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ProloguePayload.decode = function decode(reader, length, error, long) {
+        ProloguePayload.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.CompanionReg.ProloguePayload();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.CompanionReg.ProloguePayload();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.companionEphemeralIdentity = reader.bytes();
-                        break;
-                    }
-                case 2: {
-                        message.commitment = $root.CompanionReg.CompanionCommitment.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.companionEphemeralIdentity = reader.bytes();
+                        message._companionEphemeralIdentity = "companionEphemeralIdentity";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.commitment = $root.CompanionReg.CompanionCommitment.decode(reader, reader.uint32(), undefined, _depth + 1, message.commitment);
+                        message._commitment = "commitment";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -1390,13 +1483,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        ProloguePayload.verify = function verify(message, long) {
+        ProloguePayload.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.companionEphemeralIdentity != null && message.hasOwnProperty("companionEphemeralIdentity")) {
                 properties._companionEphemeralIdentity = 1;
@@ -1406,7 +1499,7 @@ $root.CompanionReg = (function() {
             if (message.commitment != null && message.hasOwnProperty("commitment")) {
                 properties._commitment = 1;
                 {
-                    var error = $root.CompanionReg.CompanionCommitment.verify(message.commitment, long + 1);
+                    var error = $root.CompanionReg.CompanionCommitment.verify(message.commitment, _depth + 1);
                     if (error)
                         return "commitment." + error;
                 }
@@ -1422,13 +1515,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {CompanionReg.ProloguePayload} ProloguePayload
          */
-        ProloguePayload.fromObject = function fromObject(object, long) {
+        ProloguePayload.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.CompanionReg.ProloguePayload)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.CompanionReg.ProloguePayload();
             if (object.companionEphemeralIdentity != null)
                 if (typeof object.companionEphemeralIdentity === "string")
@@ -1438,7 +1531,7 @@ $root.CompanionReg = (function() {
             if (object.commitment != null) {
                 if (typeof object.commitment !== "object")
                     throw TypeError(".CompanionReg.ProloguePayload.commitment: object expected");
-                message.commitment = $root.CompanionReg.CompanionCommitment.fromObject(object.commitment, long + 1);
+                message.commitment = $root.CompanionReg.CompanionCommitment.fromObject(object.commitment, _depth + 1);
             }
             return message;
         };
@@ -1481,18 +1574,17 @@ $root.CompanionReg = (function() {
         };
 
         /**
-         * Gets the default type url for ProloguePayload
+         * Gets the type url for ProloguePayload
          * @function getTypeUrl
          * @memberof CompanionReg.ProloguePayload
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        ProloguePayload.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/CompanionReg.ProloguePayload";
+        ProloguePayload.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/CompanionReg.ProloguePayload";
         };
 
         return ProloguePayload;
@@ -1505,6 +1597,7 @@ $root.CompanionReg = (function() {
          * @memberof CompanionReg
          * @interface ICompanionCommitment
          * @property {Uint8Array|null} [hash] CompanionCommitment hash
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -1514,6 +1607,7 @@ $root.CompanionReg = (function() {
          * @implements ICompanionCommitment
          * @constructor
          * @param {CompanionReg.ICompanionCommitment=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function CompanionCommitment(properties) {
             if (properties)
@@ -1565,6 +1659,9 @@ $root.CompanionReg = (function() {
                 writer = $Writer.create();
             if (message.hash != null && Object.hasOwnProperty.call(message, "hash"))
                 writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.hash);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -1592,28 +1689,37 @@ $root.CompanionReg = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        CompanionCommitment.decode = function decode(reader, length, error, long) {
+        CompanionCommitment.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.CompanionReg.CompanionCommitment();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.CompanionReg.CompanionCommitment();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.hash = reader.bytes();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.hash = reader.bytes();
+                        message._hash = "hash";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -1641,13 +1747,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        CompanionCommitment.verify = function verify(message, long) {
+        CompanionCommitment.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.hash != null && message.hasOwnProperty("hash")) {
                 properties._hash = 1;
@@ -1665,13 +1771,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {CompanionReg.CompanionCommitment} CompanionCommitment
          */
-        CompanionCommitment.fromObject = function fromObject(object, long) {
+        CompanionCommitment.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.CompanionReg.CompanionCommitment)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.CompanionReg.CompanionCommitment();
             if (object.hash != null)
                 if (typeof object.hash === "string")
@@ -1714,18 +1820,17 @@ $root.CompanionReg = (function() {
         };
 
         /**
-         * Gets the default type url for CompanionCommitment
+         * Gets the type url for CompanionCommitment
          * @function getTypeUrl
          * @memberof CompanionReg.CompanionCommitment
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        CompanionCommitment.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/CompanionReg.CompanionCommitment";
+        CompanionCommitment.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/CompanionReg.CompanionCommitment";
         };
 
         return CompanionCommitment;
@@ -1740,6 +1845,7 @@ $root.CompanionReg = (function() {
          * @property {Uint8Array|null} [publicKey] CompanionEphemeralIdentity publicKey
          * @property {CompanionReg.DeviceProps.PlatformType|null} [deviceType] CompanionEphemeralIdentity deviceType
          * @property {string|null} [ref] CompanionEphemeralIdentity ref
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -1749,6 +1855,7 @@ $root.CompanionReg = (function() {
          * @implements ICompanionEphemeralIdentity
          * @constructor
          * @param {CompanionReg.ICompanionEphemeralIdentity=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function CompanionEphemeralIdentity(properties) {
             if (properties)
@@ -1832,6 +1939,9 @@ $root.CompanionReg = (function() {
                 writer.uint32(/* id 2, wireType 0 =*/16).int32(message.deviceType);
             if (message.ref != null && Object.hasOwnProperty.call(message, "ref"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.ref);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -1859,36 +1969,51 @@ $root.CompanionReg = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        CompanionEphemeralIdentity.decode = function decode(reader, length, error, long) {
+        CompanionEphemeralIdentity.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.CompanionReg.CompanionEphemeralIdentity();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.CompanionReg.CompanionEphemeralIdentity();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.publicKey = reader.bytes();
-                        break;
-                    }
-                case 2: {
-                        message.deviceType = reader.int32();
-                        break;
-                    }
-                case 3: {
-                        message.ref = reader.string();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.publicKey = reader.bytes();
+                        message._publicKey = "publicKey";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 0)
+                            break;
+                        message.deviceType = reader.int32();
+                        message._deviceType = "deviceType";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.ref = reader.string();
+                        message._ref = "ref";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -1916,13 +2041,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        CompanionEphemeralIdentity.verify = function verify(message, long) {
+        CompanionEphemeralIdentity.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.publicKey != null && message.hasOwnProperty("publicKey")) {
                 properties._publicKey = 1;
@@ -1978,13 +2103,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {CompanionReg.CompanionEphemeralIdentity} CompanionEphemeralIdentity
          */
-        CompanionEphemeralIdentity.fromObject = function fromObject(object, long) {
+        CompanionEphemeralIdentity.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.CompanionReg.CompanionEphemeralIdentity)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.CompanionReg.CompanionEphemeralIdentity();
             if (object.publicKey != null)
                 if (typeof object.publicKey === "string")
@@ -2147,18 +2272,17 @@ $root.CompanionReg = (function() {
         };
 
         /**
-         * Gets the default type url for CompanionEphemeralIdentity
+         * Gets the type url for CompanionEphemeralIdentity
          * @function getTypeUrl
          * @memberof CompanionReg.CompanionEphemeralIdentity
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        CompanionEphemeralIdentity.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/CompanionReg.CompanionEphemeralIdentity";
+        CompanionEphemeralIdentity.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/CompanionReg.CompanionEphemeralIdentity";
         };
 
         return CompanionEphemeralIdentity;
@@ -2175,6 +2299,7 @@ $root.CompanionReg = (function() {
          * @property {CompanionReg.DeviceProps.PlatformType|null} [platformType] DeviceProps platformType
          * @property {boolean|null} [requireFullSync] DeviceProps requireFullSync
          * @property {CompanionReg.DeviceProps.IHistorySyncConfig|null} [historySyncConfig] DeviceProps historySyncConfig
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -2184,6 +2309,7 @@ $root.CompanionReg = (function() {
          * @implements IDeviceProps
          * @constructor
          * @param {CompanionReg.IDeviceProps=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function DeviceProps(properties) {
             if (properties)
@@ -2299,6 +2425,9 @@ $root.CompanionReg = (function() {
                 writer.uint32(/* id 4, wireType 0 =*/32).bool(message.requireFullSync);
             if (message.historySyncConfig != null && Object.hasOwnProperty.call(message, "historySyncConfig"))
                 $root.CompanionReg.DeviceProps.HistorySyncConfig.encode(message.historySyncConfig, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -2326,44 +2455,65 @@ $root.CompanionReg = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        DeviceProps.decode = function decode(reader, length, error, long) {
+        DeviceProps.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.CompanionReg.DeviceProps();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.CompanionReg.DeviceProps();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.os = reader.string();
-                        break;
-                    }
-                case 2: {
-                        message.version = $root.CompanionReg.DeviceProps.AppVersion.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 3: {
-                        message.platformType = reader.int32();
-                        break;
-                    }
-                case 4: {
-                        message.requireFullSync = reader.bool();
-                        break;
-                    }
-                case 5: {
-                        message.historySyncConfig = $root.CompanionReg.DeviceProps.HistorySyncConfig.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.os = reader.string();
+                        message._os = "os";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.version = $root.CompanionReg.DeviceProps.AppVersion.decode(reader, reader.uint32(), undefined, _depth + 1, message.version);
+                        message._version = "version";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 0)
+                            break;
+                        message.platformType = reader.int32();
+                        message._platformType = "platformType";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 0)
+                            break;
+                        message.requireFullSync = reader.bool();
+                        message._requireFullSync = "requireFullSync";
+                        continue;
+                    }
+                case 5: {
+                        if (wireType !== 2)
+                            break;
+                        message.historySyncConfig = $root.CompanionReg.DeviceProps.HistorySyncConfig.decode(reader, reader.uint32(), undefined, _depth + 1, message.historySyncConfig);
+                        message._historySyncConfig = "historySyncConfig";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -2391,13 +2541,13 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        DeviceProps.verify = function verify(message, long) {
+        DeviceProps.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.os != null && message.hasOwnProperty("os")) {
                 properties._os = 1;
@@ -2407,7 +2557,7 @@ $root.CompanionReg = (function() {
             if (message.version != null && message.hasOwnProperty("version")) {
                 properties._version = 1;
                 {
-                    var error = $root.CompanionReg.DeviceProps.AppVersion.verify(message.version, long + 1);
+                    var error = $root.CompanionReg.DeviceProps.AppVersion.verify(message.version, _depth + 1);
                     if (error)
                         return "version." + error;
                 }
@@ -2453,7 +2603,7 @@ $root.CompanionReg = (function() {
             if (message.historySyncConfig != null && message.hasOwnProperty("historySyncConfig")) {
                 properties._historySyncConfig = 1;
                 {
-                    var error = $root.CompanionReg.DeviceProps.HistorySyncConfig.verify(message.historySyncConfig, long + 1);
+                    var error = $root.CompanionReg.DeviceProps.HistorySyncConfig.verify(message.historySyncConfig, _depth + 1);
                     if (error)
                         return "historySyncConfig." + error;
                 }
@@ -2469,20 +2619,20 @@ $root.CompanionReg = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {CompanionReg.DeviceProps} DeviceProps
          */
-        DeviceProps.fromObject = function fromObject(object, long) {
+        DeviceProps.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.CompanionReg.DeviceProps)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.CompanionReg.DeviceProps();
             if (object.os != null)
                 message.os = String(object.os);
             if (object.version != null) {
                 if (typeof object.version !== "object")
                     throw TypeError(".CompanionReg.DeviceProps.version: object expected");
-                message.version = $root.CompanionReg.DeviceProps.AppVersion.fromObject(object.version, long + 1);
+                message.version = $root.CompanionReg.DeviceProps.AppVersion.fromObject(object.version, _depth + 1);
             }
             switch (object.platformType) {
             default:
@@ -2597,7 +2747,7 @@ $root.CompanionReg = (function() {
             if (object.historySyncConfig != null) {
                 if (typeof object.historySyncConfig !== "object")
                     throw TypeError(".CompanionReg.DeviceProps.historySyncConfig: object expected");
-                message.historySyncConfig = $root.CompanionReg.DeviceProps.HistorySyncConfig.fromObject(object.historySyncConfig, long + 1);
+                message.historySyncConfig = $root.CompanionReg.DeviceProps.HistorySyncConfig.fromObject(object.historySyncConfig, _depth + 1);
             }
             return message;
         };
@@ -2655,18 +2805,17 @@ $root.CompanionReg = (function() {
         };
 
         /**
-         * Gets the default type url for DeviceProps
+         * Gets the type url for DeviceProps
          * @function getTypeUrl
          * @memberof CompanionReg.DeviceProps
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        DeviceProps.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/CompanionReg.DeviceProps";
+        DeviceProps.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/CompanionReg.DeviceProps";
         };
 
         DeviceProps.AppVersion = (function() {
@@ -2680,6 +2829,7 @@ $root.CompanionReg = (function() {
              * @property {number|null} [tertiary] AppVersion tertiary
              * @property {number|null} [quaternary] AppVersion quaternary
              * @property {number|null} [quinary] AppVersion quinary
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -2689,6 +2839,7 @@ $root.CompanionReg = (function() {
              * @implements IAppVersion
              * @constructor
              * @param {CompanionReg.DeviceProps.IAppVersion=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AppVersion(properties) {
                 if (properties)
@@ -2804,6 +2955,9 @@ $root.CompanionReg = (function() {
                     writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.quaternary);
                 if (message.quinary != null && Object.hasOwnProperty.call(message, "quinary"))
                     writer.uint32(/* id 5, wireType 0 =*/40).uint32(message.quinary);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -2831,44 +2985,65 @@ $root.CompanionReg = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            AppVersion.decode = function decode(reader, length, error, long) {
+            AppVersion.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.CompanionReg.DeviceProps.AppVersion();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.CompanionReg.DeviceProps.AppVersion();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.primary = reader.uint32();
-                            break;
-                        }
-                    case 2: {
-                            message.secondary = reader.uint32();
-                            break;
-                        }
-                    case 3: {
-                            message.tertiary = reader.uint32();
-                            break;
-                        }
-                    case 4: {
-                            message.quaternary = reader.uint32();
-                            break;
-                        }
-                    case 5: {
-                            message.quinary = reader.uint32();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.primary = reader.uint32();
+                            message._primary = "primary";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 0)
+                                break;
+                            message.secondary = reader.uint32();
+                            message._secondary = "secondary";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 0)
+                                break;
+                            message.tertiary = reader.uint32();
+                            message._tertiary = "tertiary";
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 0)
+                                break;
+                            message.quaternary = reader.uint32();
+                            message._quaternary = "quaternary";
+                            continue;
+                        }
+                    case 5: {
+                            if (wireType !== 0)
+                                break;
+                            message.quinary = reader.uint32();
+                            message._quinary = "quinary";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -2896,13 +3071,13 @@ $root.CompanionReg = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            AppVersion.verify = function verify(message, long) {
+            AppVersion.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.primary != null && message.hasOwnProperty("primary")) {
                     properties._primary = 1;
@@ -2940,13 +3115,13 @@ $root.CompanionReg = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {CompanionReg.DeviceProps.AppVersion} AppVersion
              */
-            AppVersion.fromObject = function fromObject(object, long) {
+            AppVersion.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.CompanionReg.DeviceProps.AppVersion)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.CompanionReg.DeviceProps.AppVersion();
                 if (object.primary != null)
                     message.primary = object.primary >>> 0;
@@ -3014,18 +3189,17 @@ $root.CompanionReg = (function() {
             };
 
             /**
-             * Gets the default type url for AppVersion
+             * Gets the type url for AppVersion
              * @function getTypeUrl
              * @memberof CompanionReg.DeviceProps.AppVersion
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            AppVersion.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/CompanionReg.DeviceProps.AppVersion";
+            AppVersion.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/CompanionReg.DeviceProps.AppVersion";
             };
 
             return AppVersion;
@@ -3061,6 +3235,7 @@ $root.CompanionReg = (function() {
              * @property {boolean|null} [supportHatchHistory] HistorySyncConfig supportHatchHistory
              * @property {Array.<string>|null} [supportedBotChannelFbids] HistorySyncConfig supportedBotChannelFbids
              * @property {boolean|null} [supportInlineContacts] HistorySyncConfig supportInlineContacts
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -3070,6 +3245,7 @@ $root.CompanionReg = (function() {
              * @implements IHistorySyncConfig
              * @constructor
              * @param {CompanionReg.DeviceProps.IHistorySyncConfig=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function HistorySyncConfig(properties) {
                 this.supportedBotChannelFbids = [];
@@ -3485,6 +3661,9 @@ $root.CompanionReg = (function() {
                         writer.uint32(/* id 23, wireType 2 =*/186).string(message.supportedBotChannelFbids[i]);
                 if (message.supportInlineContacts != null && Object.hasOwnProperty.call(message, "supportInlineContacts"))
                     writer.uint32(/* id 24, wireType 0 =*/192).bool(message.supportInlineContacts);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -3512,122 +3691,199 @@ $root.CompanionReg = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            HistorySyncConfig.decode = function decode(reader, length, error, long) {
+            HistorySyncConfig.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.CompanionReg.DeviceProps.HistorySyncConfig();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.CompanionReg.DeviceProps.HistorySyncConfig();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
-                    switch (tag >>> 3) {
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
                     case 1: {
+                            if (wireType !== 0)
+                                break;
                             message.fullSyncDaysLimit = reader.uint32();
-                            break;
+                            message._fullSyncDaysLimit = "fullSyncDaysLimit";
+                            continue;
                         }
                     case 2: {
+                            if (wireType !== 0)
+                                break;
                             message.fullSyncSizeMbLimit = reader.uint32();
-                            break;
+                            message._fullSyncSizeMbLimit = "fullSyncSizeMbLimit";
+                            continue;
                         }
                     case 3: {
+                            if (wireType !== 0)
+                                break;
                             message.storageQuotaMb = reader.uint32();
-                            break;
+                            message._storageQuotaMb = "storageQuotaMb";
+                            continue;
                         }
                     case 4: {
+                            if (wireType !== 0)
+                                break;
                             message.inlineInitialPayloadInE2EeMsg = reader.bool();
-                            break;
+                            message._inlineInitialPayloadInE2EeMsg = "inlineInitialPayloadInE2EeMsg";
+                            continue;
                         }
                     case 5: {
+                            if (wireType !== 0)
+                                break;
                             message.recentSyncDaysLimit = reader.uint32();
-                            break;
+                            message._recentSyncDaysLimit = "recentSyncDaysLimit";
+                            continue;
                         }
                     case 6: {
+                            if (wireType !== 0)
+                                break;
                             message.supportCallLogHistory = reader.bool();
-                            break;
+                            message._supportCallLogHistory = "supportCallLogHistory";
+                            continue;
                         }
                     case 7: {
+                            if (wireType !== 0)
+                                break;
                             message.supportBotUserAgentChatHistory = reader.bool();
-                            break;
+                            message._supportBotUserAgentChatHistory = "supportBotUserAgentChatHistory";
+                            continue;
                         }
                     case 8: {
+                            if (wireType !== 0)
+                                break;
                             message.supportCagReactionsAndPolls = reader.bool();
-                            break;
+                            message._supportCagReactionsAndPolls = "supportCagReactionsAndPolls";
+                            continue;
                         }
                     case 9: {
+                            if (wireType !== 0)
+                                break;
                             message.supportBizHostedMsg = reader.bool();
-                            break;
+                            message._supportBizHostedMsg = "supportBizHostedMsg";
+                            continue;
                         }
                     case 10: {
+                            if (wireType !== 0)
+                                break;
                             message.supportRecentSyncChunkMessageCountTuning = reader.bool();
-                            break;
+                            message._supportRecentSyncChunkMessageCountTuning = "supportRecentSyncChunkMessageCountTuning";
+                            continue;
                         }
                     case 11: {
+                            if (wireType !== 0)
+                                break;
                             message.supportHostedGroupMsg = reader.bool();
-                            break;
+                            message._supportHostedGroupMsg = "supportHostedGroupMsg";
+                            continue;
                         }
                     case 12: {
+                            if (wireType !== 0)
+                                break;
                             message.supportFbidBotChatHistory = reader.bool();
-                            break;
+                            message._supportFbidBotChatHistory = "supportFbidBotChatHistory";
+                            continue;
                         }
                     case 13: {
+                            if (wireType !== 0)
+                                break;
                             message.supportAddOnHistorySyncMigration = reader.bool();
-                            break;
+                            message._supportAddOnHistorySyncMigration = "supportAddOnHistorySyncMigration";
+                            continue;
                         }
                     case 14: {
+                            if (wireType !== 0)
+                                break;
                             message.supportMessageAssociation = reader.bool();
-                            break;
+                            message._supportMessageAssociation = "supportMessageAssociation";
+                            continue;
                         }
                     case 15: {
+                            if (wireType !== 0)
+                                break;
                             message.supportGroupHistory = reader.bool();
-                            break;
+                            message._supportGroupHistory = "supportGroupHistory";
+                            continue;
                         }
                     case 16: {
+                            if (wireType !== 0)
+                                break;
                             message.onDemandReady = reader.bool();
-                            break;
+                            message._onDemandReady = "onDemandReady";
+                            continue;
                         }
                     case 17: {
+                            if (wireType !== 0)
+                                break;
                             message.supportGuestChat = reader.bool();
-                            break;
+                            message._supportGuestChat = "supportGuestChat";
+                            continue;
                         }
                     case 18: {
+                            if (wireType !== 0)
+                                break;
                             message.completeOnDemandReady = reader.bool();
-                            break;
+                            message._completeOnDemandReady = "completeOnDemandReady";
+                            continue;
                         }
                     case 19: {
+                            if (wireType !== 0)
+                                break;
                             message.thumbnailSyncDaysLimit = reader.uint32();
-                            break;
+                            message._thumbnailSyncDaysLimit = "thumbnailSyncDaysLimit";
+                            continue;
                         }
                     case 20: {
+                            if (wireType !== 0)
+                                break;
                             message.initialSyncMaxMessagesPerChat = reader.uint32();
-                            break;
+                            message._initialSyncMaxMessagesPerChat = "initialSyncMaxMessagesPerChat";
+                            continue;
                         }
                     case 21: {
+                            if (wireType !== 0)
+                                break;
                             message.supportManusHistory = reader.bool();
-                            break;
+                            message._supportManusHistory = "supportManusHistory";
+                            continue;
                         }
                     case 22: {
+                            if (wireType !== 0)
+                                break;
                             message.supportHatchHistory = reader.bool();
-                            break;
+                            message._supportHatchHistory = "supportHatchHistory";
+                            continue;
                         }
                     case 23: {
+                            if (wireType !== 2)
+                                break;
                             if (!(message.supportedBotChannelFbids && message.supportedBotChannelFbids.length))
                                 message.supportedBotChannelFbids = [];
                             message.supportedBotChannelFbids.push(reader.string());
-                            break;
+                            continue;
                         }
                     case 24: {
+                            if (wireType !== 0)
+                                break;
                             message.supportInlineContacts = reader.bool();
-                            break;
+                            message._supportInlineContacts = "supportInlineContacts";
+                            continue;
                         }
-                    default:
-                        reader.skipType(tag & 7, long);
-                        break;
                     }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -3655,13 +3911,13 @@ $root.CompanionReg = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            HistorySyncConfig.verify = function verify(message, long) {
+            HistorySyncConfig.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.fullSyncDaysLimit != null && message.hasOwnProperty("fullSyncDaysLimit")) {
                     properties._fullSyncDaysLimit = 1;
@@ -3796,13 +4052,13 @@ $root.CompanionReg = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {CompanionReg.DeviceProps.HistorySyncConfig} HistorySyncConfig
              */
-            HistorySyncConfig.fromObject = function fromObject(object, long) {
+            HistorySyncConfig.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.CompanionReg.DeviceProps.HistorySyncConfig)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.CompanionReg.DeviceProps.HistorySyncConfig();
                 if (object.fullSyncDaysLimit != null)
                     message.fullSyncDaysLimit = object.fullSyncDaysLimit >>> 0;
@@ -3851,7 +4107,7 @@ $root.CompanionReg = (function() {
                 if (object.supportedBotChannelFbids) {
                     if (!Array.isArray(object.supportedBotChannelFbids))
                         throw TypeError(".CompanionReg.DeviceProps.HistorySyncConfig.supportedBotChannelFbids: array expected");
-                    message.supportedBotChannelFbids = [];
+                    message.supportedBotChannelFbids = Array(object.supportedBotChannelFbids.length);
                     for (var i = 0; i < object.supportedBotChannelFbids.length; ++i)
                         message.supportedBotChannelFbids[i] = String(object.supportedBotChannelFbids[i]);
                 }
@@ -3986,7 +4242,7 @@ $root.CompanionReg = (function() {
                         object._supportHatchHistory = "supportHatchHistory";
                 }
                 if (message.supportedBotChannelFbids && message.supportedBotChannelFbids.length) {
-                    object.supportedBotChannelFbids = [];
+                    object.supportedBotChannelFbids = Array(message.supportedBotChannelFbids.length);
                     for (var j = 0; j < message.supportedBotChannelFbids.length; ++j)
                         object.supportedBotChannelFbids[j] = message.supportedBotChannelFbids[j];
                 }
@@ -4010,18 +4266,17 @@ $root.CompanionReg = (function() {
             };
 
             /**
-             * Gets the default type url for HistorySyncConfig
+             * Gets the type url for HistorySyncConfig
              * @function getTypeUrl
              * @memberof CompanionReg.DeviceProps.HistorySyncConfig
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            HistorySyncConfig.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/CompanionReg.DeviceProps.HistorySyncConfig";
+            HistorySyncConfig.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/CompanionReg.DeviceProps.HistorySyncConfig";
             };
 
             return HistorySyncConfig;

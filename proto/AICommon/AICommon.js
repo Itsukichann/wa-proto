@@ -1,4 +1,4 @@
-/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars*/
+/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
 "use strict";
 
 var $protobuf = require("protobufjs/minimal");
@@ -25,6 +25,7 @@ $root.AICommon = (function() {
          * @memberof AICommon
          * @interface IBotAgentDeepLinkMetadata
          * @property {string|null} [token] BotAgentDeepLinkMetadata token
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -34,6 +35,7 @@ $root.AICommon = (function() {
          * @implements IBotAgentDeepLinkMetadata
          * @constructor
          * @param {AICommon.IBotAgentDeepLinkMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotAgentDeepLinkMetadata(properties) {
             if (properties)
@@ -85,6 +87,9 @@ $root.AICommon = (function() {
                 writer = $Writer.create();
             if (message.token != null && Object.hasOwnProperty.call(message, "token"))
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.token);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -112,28 +117,37 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotAgentDeepLinkMetadata.decode = function decode(reader, length, error, long) {
+        BotAgentDeepLinkMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotAgentDeepLinkMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotAgentDeepLinkMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.token = reader.string();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.token = reader.string();
+                        message._token = "token";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -161,13 +175,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotAgentDeepLinkMetadata.verify = function verify(message, long) {
+        BotAgentDeepLinkMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.token != null && message.hasOwnProperty("token")) {
                 properties._token = 1;
@@ -185,13 +199,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotAgentDeepLinkMetadata} BotAgentDeepLinkMetadata
          */
-        BotAgentDeepLinkMetadata.fromObject = function fromObject(object, long) {
+        BotAgentDeepLinkMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotAgentDeepLinkMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotAgentDeepLinkMetadata();
             if (object.token != null)
                 message.token = String(object.token);
@@ -231,18 +245,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotAgentDeepLinkMetadata
+         * Gets the type url for BotAgentDeepLinkMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotAgentDeepLinkMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotAgentDeepLinkMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotAgentDeepLinkMetadata";
+        BotAgentDeepLinkMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotAgentDeepLinkMetadata";
         };
 
         return BotAgentDeepLinkMetadata;
@@ -255,6 +268,7 @@ $root.AICommon = (function() {
          * @memberof AICommon
          * @interface IBotAgentMetadata
          * @property {AICommon.IBotAgentDeepLinkMetadata|null} [deepLinkMetadata] BotAgentMetadata deepLinkMetadata
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -264,6 +278,7 @@ $root.AICommon = (function() {
          * @implements IBotAgentMetadata
          * @constructor
          * @param {AICommon.IBotAgentMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotAgentMetadata(properties) {
             if (properties)
@@ -315,6 +330,9 @@ $root.AICommon = (function() {
                 writer = $Writer.create();
             if (message.deepLinkMetadata != null && Object.hasOwnProperty.call(message, "deepLinkMetadata"))
                 $root.AICommon.BotAgentDeepLinkMetadata.encode(message.deepLinkMetadata, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -342,28 +360,37 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotAgentMetadata.decode = function decode(reader, length, error, long) {
+        BotAgentMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotAgentMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotAgentMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.deepLinkMetadata = $root.AICommon.BotAgentDeepLinkMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.deepLinkMetadata = $root.AICommon.BotAgentDeepLinkMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.deepLinkMetadata);
+                        message._deepLinkMetadata = "deepLinkMetadata";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -391,18 +418,18 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotAgentMetadata.verify = function verify(message, long) {
+        BotAgentMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.deepLinkMetadata != null && message.hasOwnProperty("deepLinkMetadata")) {
                 properties._deepLinkMetadata = 1;
                 {
-                    var error = $root.AICommon.BotAgentDeepLinkMetadata.verify(message.deepLinkMetadata, long + 1);
+                    var error = $root.AICommon.BotAgentDeepLinkMetadata.verify(message.deepLinkMetadata, _depth + 1);
                     if (error)
                         return "deepLinkMetadata." + error;
                 }
@@ -418,18 +445,18 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotAgentMetadata} BotAgentMetadata
          */
-        BotAgentMetadata.fromObject = function fromObject(object, long) {
+        BotAgentMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotAgentMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotAgentMetadata();
             if (object.deepLinkMetadata != null) {
                 if (typeof object.deepLinkMetadata !== "object")
                     throw TypeError(".AICommon.BotAgentMetadata.deepLinkMetadata: object expected");
-                message.deepLinkMetadata = $root.AICommon.BotAgentDeepLinkMetadata.fromObject(object.deepLinkMetadata, long + 1);
+                message.deepLinkMetadata = $root.AICommon.BotAgentDeepLinkMetadata.fromObject(object.deepLinkMetadata, _depth + 1);
             }
             return message;
         };
@@ -467,18 +494,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotAgentMetadata
+         * Gets the type url for BotAgentMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotAgentMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotAgentMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotAgentMetadata";
+        BotAgentMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotAgentMetadata";
         };
 
         return BotAgentMetadata;
@@ -493,6 +519,7 @@ $root.AICommon = (function() {
          * @property {AICommon.BotInfrastructureDiagnostics.BotBackend|null} [botBackend] BotInfrastructureDiagnostics botBackend
          * @property {Array.<string>|null} [toolsUsed] BotInfrastructureDiagnostics toolsUsed
          * @property {boolean|null} [isThinking] BotInfrastructureDiagnostics isThinking
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -502,6 +529,7 @@ $root.AICommon = (function() {
          * @implements IBotInfrastructureDiagnostics
          * @constructor
          * @param {AICommon.IBotInfrastructureDiagnostics=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotInfrastructureDiagnostics(properties) {
             this.toolsUsed = [];
@@ -581,6 +609,9 @@ $root.AICommon = (function() {
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.toolsUsed[i]);
             if (message.isThinking != null && Object.hasOwnProperty.call(message, "isThinking"))
                 writer.uint32(/* id 3, wireType 0 =*/24).bool(message.isThinking);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -608,38 +639,52 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotInfrastructureDiagnostics.decode = function decode(reader, length, error, long) {
+        BotInfrastructureDiagnostics.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotInfrastructureDiagnostics();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotInfrastructureDiagnostics();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
-                switch (tag >>> 3) {
+                }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
                 case 1: {
+                        if (wireType !== 0)
+                            break;
                         message.botBackend = reader.int32();
-                        break;
+                        message._botBackend = "botBackend";
+                        continue;
                     }
                 case 2: {
+                        if (wireType !== 2)
+                            break;
                         if (!(message.toolsUsed && message.toolsUsed.length))
                             message.toolsUsed = [];
                         message.toolsUsed.push(reader.string());
-                        break;
+                        continue;
                     }
                 case 3: {
+                        if (wireType !== 0)
+                            break;
                         message.isThinking = reader.bool();
-                        break;
+                        message._isThinking = "isThinking";
+                        continue;
                     }
-                default:
-                    reader.skipType(tag & 7, long);
-                    break;
                 }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -667,13 +712,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotInfrastructureDiagnostics.verify = function verify(message, long) {
+        BotInfrastructureDiagnostics.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.botBackend != null && message.hasOwnProperty("botBackend")) {
                 properties._botBackend = 1;
@@ -708,13 +753,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotInfrastructureDiagnostics} BotInfrastructureDiagnostics
          */
-        BotInfrastructureDiagnostics.fromObject = function fromObject(object, long) {
+        BotInfrastructureDiagnostics.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotInfrastructureDiagnostics)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotInfrastructureDiagnostics();
             switch (object.botBackend) {
             default:
@@ -735,7 +780,7 @@ $root.AICommon = (function() {
             if (object.toolsUsed) {
                 if (!Array.isArray(object.toolsUsed))
                     throw TypeError(".AICommon.BotInfrastructureDiagnostics.toolsUsed: array expected");
-                message.toolsUsed = [];
+                message.toolsUsed = Array(object.toolsUsed.length);
                 for (var i = 0; i < object.toolsUsed.length; ++i)
                     message.toolsUsed[i] = String(object.toolsUsed[i]);
             }
@@ -765,7 +810,7 @@ $root.AICommon = (function() {
                     object._botBackend = "botBackend";
             }
             if (message.toolsUsed && message.toolsUsed.length) {
-                object.toolsUsed = [];
+                object.toolsUsed = Array(message.toolsUsed.length);
                 for (var j = 0; j < message.toolsUsed.length; ++j)
                     object.toolsUsed[j] = message.toolsUsed[j];
             }
@@ -789,18 +834,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotInfrastructureDiagnostics
+         * Gets the type url for BotInfrastructureDiagnostics
          * @function getTypeUrl
          * @memberof AICommon.BotInfrastructureDiagnostics
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotInfrastructureDiagnostics.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotInfrastructureDiagnostics";
+        BotInfrastructureDiagnostics.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotInfrastructureDiagnostics";
         };
 
         /**
@@ -829,6 +873,7 @@ $root.AICommon = (function() {
          * @property {number|Long|null} [lastFetchTime] AIHomeState lastFetchTime
          * @property {Array.<AICommon.AIHomeState.IAIHomeOption>|null} [capabilityOptions] AIHomeState capabilityOptions
          * @property {Array.<AICommon.AIHomeState.IAIHomeOption>|null} [conversationOptions] AIHomeState conversationOptions
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -838,6 +883,7 @@ $root.AICommon = (function() {
          * @implements IAIHomeState
          * @constructor
          * @param {AICommon.IAIHomeState=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIHomeState(properties) {
             this.capabilityOptions = [];
@@ -913,6 +959,9 @@ $root.AICommon = (function() {
             if (message.conversationOptions != null && message.conversationOptions.length)
                 for (var i = 0; i < message.conversationOptions.length; ++i)
                     $root.AICommon.AIHomeState.AIHomeOption.encode(message.conversationOptions[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -940,40 +989,53 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        AIHomeState.decode = function decode(reader, length, error, long) {
+        AIHomeState.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.AIHomeState();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.AIHomeState();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.lastFetchTime = reader.int64();
-                        break;
-                    }
-                case 2: {
-                        if (!(message.capabilityOptions && message.capabilityOptions.length))
-                            message.capabilityOptions = [];
-                        message.capabilityOptions.push($root.AICommon.AIHomeState.AIHomeOption.decode(reader, reader.uint32(), undefined, long + 1));
-                        break;
-                    }
-                case 3: {
-                        if (!(message.conversationOptions && message.conversationOptions.length))
-                            message.conversationOptions = [];
-                        message.conversationOptions.push($root.AICommon.AIHomeState.AIHomeOption.decode(reader, reader.uint32(), undefined, long + 1));
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.lastFetchTime = reader.int64();
+                        message._lastFetchTime = "lastFetchTime";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.capabilityOptions && message.capabilityOptions.length))
+                            message.capabilityOptions = [];
+                        message.capabilityOptions.push($root.AICommon.AIHomeState.AIHomeOption.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.conversationOptions && message.conversationOptions.length))
+                            message.conversationOptions = [];
+                        message.conversationOptions.push($root.AICommon.AIHomeState.AIHomeOption.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -1001,13 +1063,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        AIHomeState.verify = function verify(message, long) {
+        AIHomeState.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.lastFetchTime != null && message.hasOwnProperty("lastFetchTime")) {
                 properties._lastFetchTime = 1;
@@ -1018,7 +1080,7 @@ $root.AICommon = (function() {
                 if (!Array.isArray(message.capabilityOptions))
                     return "capabilityOptions: array expected";
                 for (var i = 0; i < message.capabilityOptions.length; ++i) {
-                    var error = $root.AICommon.AIHomeState.AIHomeOption.verify(message.capabilityOptions[i], long + 1);
+                    var error = $root.AICommon.AIHomeState.AIHomeOption.verify(message.capabilityOptions[i], _depth + 1);
                     if (error)
                         return "capabilityOptions." + error;
                 }
@@ -1027,7 +1089,7 @@ $root.AICommon = (function() {
                 if (!Array.isArray(message.conversationOptions))
                     return "conversationOptions: array expected";
                 for (var i = 0; i < message.conversationOptions.length; ++i) {
-                    var error = $root.AICommon.AIHomeState.AIHomeOption.verify(message.conversationOptions[i], long + 1);
+                    var error = $root.AICommon.AIHomeState.AIHomeOption.verify(message.conversationOptions[i], _depth + 1);
                     if (error)
                         return "conversationOptions." + error;
                 }
@@ -1043,13 +1105,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.AIHomeState} AIHomeState
          */
-        AIHomeState.fromObject = function fromObject(object, long) {
+        AIHomeState.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.AIHomeState)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.AIHomeState();
             if (object.lastFetchTime != null)
                 if ($util.Long)
@@ -1063,21 +1125,21 @@ $root.AICommon = (function() {
             if (object.capabilityOptions) {
                 if (!Array.isArray(object.capabilityOptions))
                     throw TypeError(".AICommon.AIHomeState.capabilityOptions: array expected");
-                message.capabilityOptions = [];
+                message.capabilityOptions = Array(object.capabilityOptions.length);
                 for (var i = 0; i < object.capabilityOptions.length; ++i) {
                     if (typeof object.capabilityOptions[i] !== "object")
                         throw TypeError(".AICommon.AIHomeState.capabilityOptions: object expected");
-                    message.capabilityOptions[i] = $root.AICommon.AIHomeState.AIHomeOption.fromObject(object.capabilityOptions[i], long + 1);
+                    message.capabilityOptions[i] = $root.AICommon.AIHomeState.AIHomeOption.fromObject(object.capabilityOptions[i], _depth + 1);
                 }
             }
             if (object.conversationOptions) {
                 if (!Array.isArray(object.conversationOptions))
                     throw TypeError(".AICommon.AIHomeState.conversationOptions: array expected");
-                message.conversationOptions = [];
+                message.conversationOptions = Array(object.conversationOptions.length);
                 for (var i = 0; i < object.conversationOptions.length; ++i) {
                     if (typeof object.conversationOptions[i] !== "object")
                         throw TypeError(".AICommon.AIHomeState.conversationOptions: object expected");
-                    message.conversationOptions[i] = $root.AICommon.AIHomeState.AIHomeOption.fromObject(object.conversationOptions[i], long + 1);
+                    message.conversationOptions[i] = $root.AICommon.AIHomeState.AIHomeOption.fromObject(object.conversationOptions[i], _depth + 1);
                 }
             }
             return message;
@@ -1109,12 +1171,12 @@ $root.AICommon = (function() {
                     object._lastFetchTime = "lastFetchTime";
             }
             if (message.capabilityOptions && message.capabilityOptions.length) {
-                object.capabilityOptions = [];
+                object.capabilityOptions = Array(message.capabilityOptions.length);
                 for (var j = 0; j < message.capabilityOptions.length; ++j)
                     object.capabilityOptions[j] = $root.AICommon.AIHomeState.AIHomeOption.toObject(message.capabilityOptions[j], options);
             }
             if (message.conversationOptions && message.conversationOptions.length) {
-                object.conversationOptions = [];
+                object.conversationOptions = Array(message.conversationOptions.length);
                 for (var j = 0; j < message.conversationOptions.length; ++j)
                     object.conversationOptions[j] = $root.AICommon.AIHomeState.AIHomeOption.toObject(message.conversationOptions[j], options);
             }
@@ -1133,18 +1195,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for AIHomeState
+         * Gets the type url for AIHomeState
          * @function getTypeUrl
          * @memberof AICommon.AIHomeState
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        AIHomeState.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.AIHomeState";
+        AIHomeState.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.AIHomeState";
         };
 
         AIHomeState.AIHomeOption = (function() {
@@ -1161,6 +1222,7 @@ $root.AICommon = (function() {
              * @property {string|null} [imageTintColor] AIHomeOption imageTintColor
              * @property {string|null} [imageBackgroundColor] AIHomeOption imageBackgroundColor
              * @property {string|null} [cardTypeId] AIHomeOption cardTypeId
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -1170,6 +1232,7 @@ $root.AICommon = (function() {
              * @implements IAIHomeOption
              * @constructor
              * @param {AICommon.AIHomeState.IAIHomeOption=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AIHomeOption(properties) {
                 if (properties)
@@ -1333,6 +1396,9 @@ $root.AICommon = (function() {
                     writer.uint32(/* id 7, wireType 2 =*/58).string(message.imageBackgroundColor);
                 if (message.cardTypeId != null && Object.hasOwnProperty.call(message, "cardTypeId"))
                     writer.uint32(/* id 8, wireType 2 =*/66).string(message.cardTypeId);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -1360,56 +1426,86 @@ $root.AICommon = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            AIHomeOption.decode = function decode(reader, length, error, long) {
+            AIHomeOption.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.AIHomeState.AIHomeOption();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.AIHomeState.AIHomeOption();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.type = reader.int32();
-                            break;
-                        }
-                    case 2: {
-                            message.title = reader.string();
-                            break;
-                        }
-                    case 3: {
-                            message.promptText = reader.string();
-                            break;
-                        }
-                    case 4: {
-                            message.sessionId = reader.string();
-                            break;
-                        }
-                    case 5: {
-                            message.imageWdsIdentifier = reader.string();
-                            break;
-                        }
-                    case 6: {
-                            message.imageTintColor = reader.string();
-                            break;
-                        }
-                    case 7: {
-                            message.imageBackgroundColor = reader.string();
-                            break;
-                        }
-                    case 8: {
-                            message.cardTypeId = reader.string();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.type = reader.int32();
+                            message._type = "type";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.title = reader.string();
+                            message._title = "title";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 2)
+                                break;
+                            message.promptText = reader.string();
+                            message._promptText = "promptText";
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 2)
+                                break;
+                            message.sessionId = reader.string();
+                            message._sessionId = "sessionId";
+                            continue;
+                        }
+                    case 5: {
+                            if (wireType !== 2)
+                                break;
+                            message.imageWdsIdentifier = reader.string();
+                            message._imageWdsIdentifier = "imageWdsIdentifier";
+                            continue;
+                        }
+                    case 6: {
+                            if (wireType !== 2)
+                                break;
+                            message.imageTintColor = reader.string();
+                            message._imageTintColor = "imageTintColor";
+                            continue;
+                        }
+                    case 7: {
+                            if (wireType !== 2)
+                                break;
+                            message.imageBackgroundColor = reader.string();
+                            message._imageBackgroundColor = "imageBackgroundColor";
+                            continue;
+                        }
+                    case 8: {
+                            if (wireType !== 2)
+                                break;
+                            message.cardTypeId = reader.string();
+                            message._cardTypeId = "cardTypeId";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -1437,13 +1533,13 @@ $root.AICommon = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            AIHomeOption.verify = function verify(message, long) {
+            AIHomeOption.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.type != null && message.hasOwnProperty("type")) {
                     properties._type = 1;
@@ -1505,13 +1601,13 @@ $root.AICommon = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {AICommon.AIHomeState.AIHomeOption} AIHomeOption
              */
-            AIHomeOption.fromObject = function fromObject(object, long) {
+            AIHomeOption.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.AICommon.AIHomeState.AIHomeOption)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.AICommon.AIHomeState.AIHomeOption();
                 switch (object.type) {
                 default:
@@ -1630,18 +1726,17 @@ $root.AICommon = (function() {
             };
 
             /**
-             * Gets the default type url for AIHomeOption
+             * Gets the type url for AIHomeOption
              * @function getTypeUrl
              * @memberof AICommon.AIHomeState.AIHomeOption
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            AIHomeOption.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/AICommon.AIHomeState.AIHomeOption";
+            AIHomeOption.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/AICommon.AIHomeState.AIHomeOption";
             };
 
             /**
@@ -1679,6 +1774,7 @@ $root.AICommon = (function() {
          * @memberof AICommon
          * @interface IBotDocumentMessageMetadata
          * @property {AICommon.BotDocumentMessageMetadata.DocumentPluginType|null} [pluginType] BotDocumentMessageMetadata pluginType
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -1688,6 +1784,7 @@ $root.AICommon = (function() {
          * @implements IBotDocumentMessageMetadata
          * @constructor
          * @param {AICommon.IBotDocumentMessageMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotDocumentMessageMetadata(properties) {
             if (properties)
@@ -1739,6 +1836,9 @@ $root.AICommon = (function() {
                 writer = $Writer.create();
             if (message.pluginType != null && Object.hasOwnProperty.call(message, "pluginType"))
                 writer.uint32(/* id 1, wireType 0 =*/8).int32(message.pluginType);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -1766,28 +1866,37 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotDocumentMessageMetadata.decode = function decode(reader, length, error, long) {
+        BotDocumentMessageMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotDocumentMessageMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotDocumentMessageMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.pluginType = reader.int32();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.pluginType = reader.int32();
+                        message._pluginType = "pluginType";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -1815,13 +1924,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotDocumentMessageMetadata.verify = function verify(message, long) {
+        BotDocumentMessageMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.pluginType != null && message.hasOwnProperty("pluginType")) {
                 properties._pluginType = 1;
@@ -1844,13 +1953,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotDocumentMessageMetadata} BotDocumentMessageMetadata
          */
-        BotDocumentMessageMetadata.fromObject = function fromObject(object, long) {
+        BotDocumentMessageMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotDocumentMessageMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotDocumentMessageMetadata();
             switch (object.pluginType) {
             default:
@@ -1904,18 +2013,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotDocumentMessageMetadata
+         * Gets the type url for BotDocumentMessageMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotDocumentMessageMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotDocumentMessageMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotDocumentMessageMetadata";
+        BotDocumentMessageMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotDocumentMessageMetadata";
         };
 
         /**
@@ -1944,6 +2052,7 @@ $root.AICommon = (function() {
          * @property {string|null} [disclaimerText] SessionTransparencyMetadata disclaimerText
          * @property {string|null} [hcaId] SessionTransparencyMetadata hcaId
          * @property {AICommon.SessionTransparencyType|null} [sessionTransparencyType] SessionTransparencyMetadata sessionTransparencyType
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -1953,6 +2062,7 @@ $root.AICommon = (function() {
          * @implements ISessionTransparencyMetadata
          * @constructor
          * @param {AICommon.ISessionTransparencyMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SessionTransparencyMetadata(properties) {
             if (properties)
@@ -2036,6 +2146,9 @@ $root.AICommon = (function() {
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.hcaId);
             if (message.sessionTransparencyType != null && Object.hasOwnProperty.call(message, "sessionTransparencyType"))
                 writer.uint32(/* id 3, wireType 0 =*/24).int32(message.sessionTransparencyType);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -2063,36 +2176,51 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SessionTransparencyMetadata.decode = function decode(reader, length, error, long) {
+        SessionTransparencyMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.SessionTransparencyMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.SessionTransparencyMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.disclaimerText = reader.string();
-                        break;
-                    }
-                case 2: {
-                        message.hcaId = reader.string();
-                        break;
-                    }
-                case 3: {
-                        message.sessionTransparencyType = reader.int32();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.disclaimerText = reader.string();
+                        message._disclaimerText = "disclaimerText";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.hcaId = reader.string();
+                        message._hcaId = "hcaId";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 0)
+                            break;
+                        message.sessionTransparencyType = reader.int32();
+                        message._sessionTransparencyType = "sessionTransparencyType";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -2120,13 +2248,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        SessionTransparencyMetadata.verify = function verify(message, long) {
+        SessionTransparencyMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.disclaimerText != null && message.hasOwnProperty("disclaimerText")) {
                 properties._disclaimerText = 1;
@@ -2159,13 +2287,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.SessionTransparencyMetadata} SessionTransparencyMetadata
          */
-        SessionTransparencyMetadata.fromObject = function fromObject(object, long) {
+        SessionTransparencyMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.SessionTransparencyMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.SessionTransparencyMetadata();
             if (object.disclaimerText != null)
                 message.disclaimerText = String(object.disclaimerText);
@@ -2233,18 +2361,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for SessionTransparencyMetadata
+         * Gets the type url for SessionTransparencyMetadata
          * @function getTypeUrl
          * @memberof AICommon.SessionTransparencyMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        SessionTransparencyMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.SessionTransparencyMetadata";
+        SessionTransparencyMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.SessionTransparencyMetadata";
         };
 
         return SessionTransparencyMetadata;
@@ -2258,6 +2385,7 @@ $root.AICommon = (function() {
          * @interface IAIRegenerateMetadata
          * @property {Protocol.IMessageKey|null} [messageKey] AIRegenerateMetadata messageKey
          * @property {number|Long|null} [responseTimestampMs] AIRegenerateMetadata responseTimestampMs
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -2267,6 +2395,7 @@ $root.AICommon = (function() {
          * @implements IAIRegenerateMetadata
          * @constructor
          * @param {AICommon.IAIRegenerateMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIRegenerateMetadata(properties) {
             if (properties)
@@ -2334,6 +2463,9 @@ $root.AICommon = (function() {
                 $root.Protocol.MessageKey.encode(message.messageKey, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
             if (message.responseTimestampMs != null && Object.hasOwnProperty.call(message, "responseTimestampMs"))
                 writer.uint32(/* id 2, wireType 0 =*/16).int64(message.responseTimestampMs);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -2361,32 +2493,44 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        AIRegenerateMetadata.decode = function decode(reader, length, error, long) {
+        AIRegenerateMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.AIRegenerateMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.AIRegenerateMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.messageKey = $root.Protocol.MessageKey.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 2: {
-                        message.responseTimestampMs = reader.int64();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.messageKey = $root.Protocol.MessageKey.decode(reader, reader.uint32(), undefined, _depth + 1, message.messageKey);
+                        message._messageKey = "messageKey";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 0)
+                            break;
+                        message.responseTimestampMs = reader.int64();
+                        message._responseTimestampMs = "responseTimestampMs";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -2414,18 +2558,18 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        AIRegenerateMetadata.verify = function verify(message, long) {
+        AIRegenerateMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.messageKey != null && message.hasOwnProperty("messageKey")) {
                 properties._messageKey = 1;
                 {
-                    var error = $root.Protocol.MessageKey.verify(message.messageKey, long + 1);
+                    var error = $root.Protocol.MessageKey.verify(message.messageKey, _depth + 1);
                     if (error)
                         return "messageKey." + error;
                 }
@@ -2446,18 +2590,18 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.AIRegenerateMetadata} AIRegenerateMetadata
          */
-        AIRegenerateMetadata.fromObject = function fromObject(object, long) {
+        AIRegenerateMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.AIRegenerateMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.AIRegenerateMetadata();
             if (object.messageKey != null) {
                 if (typeof object.messageKey !== "object")
                     throw TypeError(".AICommon.AIRegenerateMetadata.messageKey: object expected");
-                message.messageKey = $root.Protocol.MessageKey.fromObject(object.messageKey, long + 1);
+                message.messageKey = $root.Protocol.MessageKey.fromObject(object.messageKey, _depth + 1);
             }
             if (object.responseTimestampMs != null)
                 if ($util.Long)
@@ -2512,18 +2656,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for AIRegenerateMetadata
+         * Gets the type url for AIRegenerateMetadata
          * @function getTypeUrl
          * @memberof AICommon.AIRegenerateMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        AIRegenerateMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.AIRegenerateMetadata";
+        AIRegenerateMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.AIRegenerateMetadata";
         };
 
         return AIRegenerateMetadata;
@@ -2536,6 +2679,7 @@ $root.AICommon = (function() {
          * @memberof AICommon
          * @interface IAIRichResponseUnifiedResponse
          * @property {Uint8Array|null} [data] AIRichResponseUnifiedResponse data
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -2545,6 +2689,7 @@ $root.AICommon = (function() {
          * @implements IAIRichResponseUnifiedResponse
          * @constructor
          * @param {AICommon.IAIRichResponseUnifiedResponse=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIRichResponseUnifiedResponse(properties) {
             if (properties)
@@ -2596,6 +2741,9 @@ $root.AICommon = (function() {
                 writer = $Writer.create();
             if (message.data != null && Object.hasOwnProperty.call(message, "data"))
                 writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.data);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -2623,28 +2771,37 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        AIRichResponseUnifiedResponse.decode = function decode(reader, length, error, long) {
+        AIRichResponseUnifiedResponse.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.AIRichResponseUnifiedResponse();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.AIRichResponseUnifiedResponse();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.data = reader.bytes();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.data = reader.bytes();
+                        message._data = "data";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -2672,13 +2829,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        AIRichResponseUnifiedResponse.verify = function verify(message, long) {
+        AIRichResponseUnifiedResponse.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.data != null && message.hasOwnProperty("data")) {
                 properties._data = 1;
@@ -2696,13 +2853,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.AIRichResponseUnifiedResponse} AIRichResponseUnifiedResponse
          */
-        AIRichResponseUnifiedResponse.fromObject = function fromObject(object, long) {
+        AIRichResponseUnifiedResponse.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.AIRichResponseUnifiedResponse)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.AIRichResponseUnifiedResponse();
             if (object.data != null)
                 if (typeof object.data === "string")
@@ -2745,18 +2902,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for AIRichResponseUnifiedResponse
+         * Gets the type url for AIRichResponseUnifiedResponse
          * @function getTypeUrl
          * @memberof AICommon.AIRichResponseUnifiedResponse
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        AIRichResponseUnifiedResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.AIRichResponseUnifiedResponse";
+        AIRichResponseUnifiedResponse.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.AIRichResponseUnifiedResponse";
         };
 
         return AIRichResponseUnifiedResponse;
@@ -2770,6 +2926,7 @@ $root.AICommon = (function() {
          * @interface IBotMessageSharingInfo
          * @property {AICommon.BotMetricsEntryPoint|null} [botEntryPointOrigin] BotMessageSharingInfo botEntryPointOrigin
          * @property {number|null} [forwardScore] BotMessageSharingInfo forwardScore
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -2779,6 +2936,7 @@ $root.AICommon = (function() {
          * @implements IBotMessageSharingInfo
          * @constructor
          * @param {AICommon.IBotMessageSharingInfo=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotMessageSharingInfo(properties) {
             if (properties)
@@ -2846,6 +3004,9 @@ $root.AICommon = (function() {
                 writer.uint32(/* id 1, wireType 0 =*/8).int32(message.botEntryPointOrigin);
             if (message.forwardScore != null && Object.hasOwnProperty.call(message, "forwardScore"))
                 writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.forwardScore);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -2873,32 +3034,44 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotMessageSharingInfo.decode = function decode(reader, length, error, long) {
+        BotMessageSharingInfo.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotMessageSharingInfo();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotMessageSharingInfo();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.botEntryPointOrigin = reader.int32();
-                        break;
-                    }
-                case 2: {
-                        message.forwardScore = reader.uint32();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.botEntryPointOrigin = reader.int32();
+                        message._botEntryPointOrigin = "botEntryPointOrigin";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 0)
+                            break;
+                        message.forwardScore = reader.uint32();
+                        message._forwardScore = "forwardScore";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -2926,13 +3099,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotMessageSharingInfo.verify = function verify(message, long) {
+        BotMessageSharingInfo.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.botEntryPointOrigin != null && message.hasOwnProperty("botEntryPointOrigin")) {
                 properties._botEntryPointOrigin = 1;
@@ -3006,13 +3179,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotMessageSharingInfo} BotMessageSharingInfo
          */
-        BotMessageSharingInfo.fromObject = function fromObject(object, long) {
+        BotMessageSharingInfo.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotMessageSharingInfo)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotMessageSharingInfo();
             switch (object.botEntryPointOrigin) {
             default:
@@ -3257,18 +3430,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotMessageSharingInfo
+         * Gets the type url for BotMessageSharingInfo
          * @function getTypeUrl
          * @memberof AICommon.BotMessageSharingInfo
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotMessageSharingInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotMessageSharingInfo";
+        BotMessageSharingInfo.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotMessageSharingInfo";
         };
 
         return BotMessageSharingInfo;
@@ -3283,6 +3455,7 @@ $root.AICommon = (function() {
          * @property {string|null} [botName] ForwardedAIBotMessageInfo botName
          * @property {string|null} [botJid] ForwardedAIBotMessageInfo botJid
          * @property {string|null} [creatorName] ForwardedAIBotMessageInfo creatorName
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -3292,6 +3465,7 @@ $root.AICommon = (function() {
          * @implements IForwardedAIBotMessageInfo
          * @constructor
          * @param {AICommon.IForwardedAIBotMessageInfo=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function ForwardedAIBotMessageInfo(properties) {
             if (properties)
@@ -3375,6 +3549,9 @@ $root.AICommon = (function() {
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.botJid);
             if (message.creatorName != null && Object.hasOwnProperty.call(message, "creatorName"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.creatorName);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -3402,36 +3579,51 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ForwardedAIBotMessageInfo.decode = function decode(reader, length, error, long) {
+        ForwardedAIBotMessageInfo.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.ForwardedAIBotMessageInfo();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.ForwardedAIBotMessageInfo();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.botName = reader.string();
-                        break;
-                    }
-                case 2: {
-                        message.botJid = reader.string();
-                        break;
-                    }
-                case 3: {
-                        message.creatorName = reader.string();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.botName = reader.string();
+                        message._botName = "botName";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.botJid = reader.string();
+                        message._botJid = "botJid";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.creatorName = reader.string();
+                        message._creatorName = "creatorName";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -3459,13 +3651,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        ForwardedAIBotMessageInfo.verify = function verify(message, long) {
+        ForwardedAIBotMessageInfo.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.botName != null && message.hasOwnProperty("botName")) {
                 properties._botName = 1;
@@ -3493,13 +3685,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.ForwardedAIBotMessageInfo} ForwardedAIBotMessageInfo
          */
-        ForwardedAIBotMessageInfo.fromObject = function fromObject(object, long) {
+        ForwardedAIBotMessageInfo.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.ForwardedAIBotMessageInfo)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.ForwardedAIBotMessageInfo();
             if (object.botName != null)
                 message.botName = String(object.botName);
@@ -3553,18 +3745,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for ForwardedAIBotMessageInfo
+         * Gets the type url for ForwardedAIBotMessageInfo
          * @function getTypeUrl
          * @memberof AICommon.ForwardedAIBotMessageInfo
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        ForwardedAIBotMessageInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.ForwardedAIBotMessageInfo";
+        ForwardedAIBotMessageInfo.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.ForwardedAIBotMessageInfo";
         };
 
         return ForwardedAIBotMessageInfo;
@@ -3583,6 +3774,7 @@ $root.AICommon = (function() {
          * @property {number|Long|null} [kindPositive] BotFeedbackMessage kindPositive
          * @property {AICommon.BotFeedbackMessage.ReportKind|null} [kindReport] BotFeedbackMessage kindReport
          * @property {AICommon.BotFeedbackMessage.ISideBySideSurveyMetadata|null} [sideBySideSurveyMetadata] BotFeedbackMessage sideBySideSurveyMetadata
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -3592,6 +3784,7 @@ $root.AICommon = (function() {
          * @implements IBotFeedbackMessage
          * @constructor
          * @param {AICommon.IBotFeedbackMessage=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotFeedbackMessage(properties) {
             if (properties)
@@ -3739,6 +3932,9 @@ $root.AICommon = (function() {
                 writer.uint32(/* id 6, wireType 0 =*/48).int32(message.kindReport);
             if (message.sideBySideSurveyMetadata != null && Object.hasOwnProperty.call(message, "sideBySideSurveyMetadata"))
                 $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.encode(message.sideBySideSurveyMetadata, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -3766,52 +3962,79 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotFeedbackMessage.decode = function decode(reader, length, error, long) {
+        BotFeedbackMessage.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotFeedbackMessage();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotFeedbackMessage();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.messageKey = $root.Protocol.MessageKey.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 2: {
-                        message.kind = reader.int32();
-                        break;
-                    }
-                case 3: {
-                        message.text = reader.string();
-                        break;
-                    }
-                case 4: {
-                        message.kindNegative = reader.uint64();
-                        break;
-                    }
-                case 5: {
-                        message.kindPositive = reader.uint64();
-                        break;
-                    }
-                case 6: {
-                        message.kindReport = reader.int32();
-                        break;
-                    }
-                case 7: {
-                        message.sideBySideSurveyMetadata = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.messageKey = $root.Protocol.MessageKey.decode(reader, reader.uint32(), undefined, _depth + 1, message.messageKey);
+                        message._messageKey = "messageKey";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 0)
+                            break;
+                        message.kind = reader.int32();
+                        message._kind = "kind";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.text = reader.string();
+                        message._text = "text";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 0)
+                            break;
+                        message.kindNegative = reader.uint64();
+                        message._kindNegative = "kindNegative";
+                        continue;
+                    }
+                case 5: {
+                        if (wireType !== 0)
+                            break;
+                        message.kindPositive = reader.uint64();
+                        message._kindPositive = "kindPositive";
+                        continue;
+                    }
+                case 6: {
+                        if (wireType !== 0)
+                            break;
+                        message.kindReport = reader.int32();
+                        message._kindReport = "kindReport";
+                        continue;
+                    }
+                case 7: {
+                        if (wireType !== 2)
+                            break;
+                        message.sideBySideSurveyMetadata = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.sideBySideSurveyMetadata);
+                        message._sideBySideSurveyMetadata = "sideBySideSurveyMetadata";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -3839,18 +4062,18 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotFeedbackMessage.verify = function verify(message, long) {
+        BotFeedbackMessage.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.messageKey != null && message.hasOwnProperty("messageKey")) {
                 properties._messageKey = 1;
                 {
-                    var error = $root.Protocol.MessageKey.verify(message.messageKey, long + 1);
+                    var error = $root.Protocol.MessageKey.verify(message.messageKey, _depth + 1);
                     if (error)
                         return "messageKey." + error;
                 }
@@ -3906,7 +4129,7 @@ $root.AICommon = (function() {
             if (message.sideBySideSurveyMetadata != null && message.hasOwnProperty("sideBySideSurveyMetadata")) {
                 properties._sideBySideSurveyMetadata = 1;
                 {
-                    var error = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.verify(message.sideBySideSurveyMetadata, long + 1);
+                    var error = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.verify(message.sideBySideSurveyMetadata, _depth + 1);
                     if (error)
                         return "sideBySideSurveyMetadata." + error;
                 }
@@ -3922,18 +4145,18 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotFeedbackMessage} BotFeedbackMessage
          */
-        BotFeedbackMessage.fromObject = function fromObject(object, long) {
+        BotFeedbackMessage.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotFeedbackMessage)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotFeedbackMessage();
             if (object.messageKey != null) {
                 if (typeof object.messageKey !== "object")
                     throw TypeError(".AICommon.BotFeedbackMessage.messageKey: object expected");
-                message.messageKey = $root.Protocol.MessageKey.fromObject(object.messageKey, long + 1);
+                message.messageKey = $root.Protocol.MessageKey.fromObject(object.messageKey, _depth + 1);
             }
             switch (object.kind) {
             default:
@@ -4042,7 +4265,7 @@ $root.AICommon = (function() {
             if (object.sideBySideSurveyMetadata != null) {
                 if (typeof object.sideBySideSurveyMetadata !== "object")
                     throw TypeError(".AICommon.BotFeedbackMessage.sideBySideSurveyMetadata: object expected");
-                message.sideBySideSurveyMetadata = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.fromObject(object.sideBySideSurveyMetadata, long + 1);
+                message.sideBySideSurveyMetadata = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.fromObject(object.sideBySideSurveyMetadata, _depth + 1);
             }
             return message;
         };
@@ -4116,18 +4339,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotFeedbackMessage
+         * Gets the type url for BotFeedbackMessage
          * @function getTypeUrl
          * @memberof AICommon.BotFeedbackMessage
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotFeedbackMessage.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotFeedbackMessage";
+        BotFeedbackMessage.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotFeedbackMessage";
         };
 
         /**
@@ -4239,6 +4461,7 @@ $root.AICommon = (function() {
              * @property {string|null} [messageIdToEdit] SideBySideSurveyMetadata messageIdToEdit
              * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.ISideBySideSurveyAnalyticsData|null} [analyticsData] SideBySideSurveyMetadata analyticsData
              * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.ISidebySideSurveyMetaAiAnalyticsData|null} [metaAiAnalyticsData] SideBySideSurveyMetadata metaAiAnalyticsData
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -4248,6 +4471,7 @@ $root.AICommon = (function() {
              * @implements ISideBySideSurveyMetadata
              * @constructor
              * @param {AICommon.BotFeedbackMessage.ISideBySideSurveyMetadata=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function SideBySideSurveyMetadata(properties) {
                 if (properties)
@@ -4427,6 +4651,9 @@ $root.AICommon = (function() {
                     $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.encode(message.analyticsData, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
                 if (message.metaAiAnalyticsData != null && Object.hasOwnProperty.call(message, "metaAiAnalyticsData"))
                     $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.encode(message.metaAiAnalyticsData, writer.uint32(/* id 9, wireType 2 =*/74).fork()).ldelim();
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -4454,60 +4681,93 @@ $root.AICommon = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SideBySideSurveyMetadata.decode = function decode(reader, length, error, long) {
+            SideBySideSurveyMetadata.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.selectedRequestId = reader.string();
-                            break;
-                        }
-                    case 2: {
-                            message.surveyId = reader.uint32();
-                            break;
-                        }
-                    case 3: {
-                            message.simonSessionFbid = reader.string();
-                            break;
-                        }
-                    case 4: {
-                            message.responseOtid = reader.string();
-                            break;
-                        }
-                    case 5: {
-                            message.responseTimestampMsString = reader.string();
-                            break;
-                        }
-                    case 6: {
-                            message.isSelectedResponsePrimary = reader.bool();
-                            break;
-                        }
-                    case 7: {
-                            message.messageIdToEdit = reader.string();
-                            break;
-                        }
-                    case 8: {
-                            message.analyticsData = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.decode(reader, reader.uint32(), undefined, long + 1);
-                            break;
-                        }
-                    case 9: {
-                            message.metaAiAnalyticsData = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.decode(reader, reader.uint32(), undefined, long + 1);
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.selectedRequestId = reader.string();
+                            message._selectedRequestId = "selectedRequestId";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 0)
+                                break;
+                            message.surveyId = reader.uint32();
+                            message._surveyId = "surveyId";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 2)
+                                break;
+                            message.simonSessionFbid = reader.string();
+                            message._simonSessionFbid = "simonSessionFbid";
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 2)
+                                break;
+                            message.responseOtid = reader.string();
+                            message._responseOtid = "responseOtid";
+                            continue;
+                        }
+                    case 5: {
+                            if (wireType !== 2)
+                                break;
+                            message.responseTimestampMsString = reader.string();
+                            message._responseTimestampMsString = "responseTimestampMsString";
+                            continue;
+                        }
+                    case 6: {
+                            if (wireType !== 0)
+                                break;
+                            message.isSelectedResponsePrimary = reader.bool();
+                            message._isSelectedResponsePrimary = "isSelectedResponsePrimary";
+                            continue;
+                        }
+                    case 7: {
+                            if (wireType !== 2)
+                                break;
+                            message.messageIdToEdit = reader.string();
+                            message._messageIdToEdit = "messageIdToEdit";
+                            continue;
+                        }
+                    case 8: {
+                            if (wireType !== 2)
+                                break;
+                            message.analyticsData = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.decode(reader, reader.uint32(), undefined, _depth + 1, message.analyticsData);
+                            message._analyticsData = "analyticsData";
+                            continue;
+                        }
+                    case 9: {
+                            if (wireType !== 2)
+                                break;
+                            message.metaAiAnalyticsData = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.decode(reader, reader.uint32(), undefined, _depth + 1, message.metaAiAnalyticsData);
+                            message._metaAiAnalyticsData = "metaAiAnalyticsData";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -4535,13 +4795,13 @@ $root.AICommon = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            SideBySideSurveyMetadata.verify = function verify(message, long) {
+            SideBySideSurveyMetadata.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.selectedRequestId != null && message.hasOwnProperty("selectedRequestId")) {
                     properties._selectedRequestId = 1;
@@ -4581,7 +4841,7 @@ $root.AICommon = (function() {
                 if (message.analyticsData != null && message.hasOwnProperty("analyticsData")) {
                     properties._analyticsData = 1;
                     {
-                        var error = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.verify(message.analyticsData, long + 1);
+                        var error = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.verify(message.analyticsData, _depth + 1);
                         if (error)
                             return "analyticsData." + error;
                     }
@@ -4589,7 +4849,7 @@ $root.AICommon = (function() {
                 if (message.metaAiAnalyticsData != null && message.hasOwnProperty("metaAiAnalyticsData")) {
                     properties._metaAiAnalyticsData = 1;
                     {
-                        var error = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.verify(message.metaAiAnalyticsData, long + 1);
+                        var error = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.verify(message.metaAiAnalyticsData, _depth + 1);
                         if (error)
                             return "metaAiAnalyticsData." + error;
                     }
@@ -4605,13 +4865,13 @@ $root.AICommon = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata} SideBySideSurveyMetadata
              */
-            SideBySideSurveyMetadata.fromObject = function fromObject(object, long) {
+            SideBySideSurveyMetadata.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata();
                 if (object.selectedRequestId != null)
                     message.selectedRequestId = String(object.selectedRequestId);
@@ -4630,12 +4890,12 @@ $root.AICommon = (function() {
                 if (object.analyticsData != null) {
                     if (typeof object.analyticsData !== "object")
                         throw TypeError(".AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.analyticsData: object expected");
-                    message.analyticsData = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.fromObject(object.analyticsData, long + 1);
+                    message.analyticsData = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.fromObject(object.analyticsData, _depth + 1);
                 }
                 if (object.metaAiAnalyticsData != null) {
                     if (typeof object.metaAiAnalyticsData !== "object")
                         throw TypeError(".AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.metaAiAnalyticsData: object expected");
-                    message.metaAiAnalyticsData = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.fromObject(object.metaAiAnalyticsData, long + 1);
+                    message.metaAiAnalyticsData = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.fromObject(object.metaAiAnalyticsData, _depth + 1);
                 }
                 return message;
             };
@@ -4713,18 +4973,17 @@ $root.AICommon = (function() {
             };
 
             /**
-             * Gets the default type url for SideBySideSurveyMetadata
+             * Gets the type url for SideBySideSurveyMetadata
              * @function getTypeUrl
              * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            SideBySideSurveyMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/AICommon.BotFeedbackMessage.SideBySideSurveyMetadata";
+            SideBySideSurveyMetadata.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/AICommon.BotFeedbackMessage.SideBySideSurveyMetadata";
             };
 
             SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData = (function() {
@@ -4736,6 +4995,7 @@ $root.AICommon = (function() {
                  * @property {string|null} [tessaEvent] SideBySideSurveyAnalyticsData tessaEvent
                  * @property {string|null} [tessaSessionFbid] SideBySideSurveyAnalyticsData tessaSessionFbid
                  * @property {string|null} [simonSessionFbid] SideBySideSurveyAnalyticsData simonSessionFbid
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
 
                 /**
@@ -4745,6 +5005,7 @@ $root.AICommon = (function() {
                  * @implements ISideBySideSurveyAnalyticsData
                  * @constructor
                  * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.ISideBySideSurveyAnalyticsData=} [properties] Properties to set
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function SideBySideSurveyAnalyticsData(properties) {
                     if (properties)
@@ -4828,6 +5089,9 @@ $root.AICommon = (function() {
                         writer.uint32(/* id 2, wireType 2 =*/18).string(message.tessaSessionFbid);
                     if (message.simonSessionFbid != null && Object.hasOwnProperty.call(message, "simonSessionFbid"))
                         writer.uint32(/* id 3, wireType 2 =*/26).string(message.simonSessionFbid);
+                    if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                        for (var i = 0; i < message.$unknowns.length; ++i)
+                            writer.raw(message.$unknowns[i]);
                     return writer;
                 };
 
@@ -4855,36 +5119,51 @@ $root.AICommon = (function() {
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                SideBySideSurveyAnalyticsData.decode = function decode(reader, length, error, long) {
+                SideBySideSurveyAnalyticsData.decode = function decode(reader, length, _end, _depth, _target) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $Reader.recursionLimit)
-                        throw Error("maximum nesting depth exceeded");
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData();
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $Reader.recursionLimit)
+                        throw Error("max depth exceeded");
+                    var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData();
                     while (reader.pos < end) {
-                        var tag = reader.uint32();
-                        if (tag === error)
-                            break;
-                        switch (tag >>> 3) {
-                        case 1: {
-                                message.tessaEvent = reader.string();
-                                break;
-                            }
-                        case 2: {
-                                message.tessaSessionFbid = reader.string();
-                                break;
-                            }
-                        case 3: {
-                                message.simonSessionFbid = reader.string();
-                                break;
-                            }
-                        default:
-                            reader.skipType(tag & 7, long);
+                        var start = reader.pos;
+                        var tag = reader.tag();
+                        if (tag === _end) {
+                            _end = undefined;
                             break;
                         }
+                        var wireType = tag & 7;
+                        switch (tag >>>= 3) {
+                        case 1: {
+                                if (wireType !== 2)
+                                    break;
+                                message.tessaEvent = reader.string();
+                                message._tessaEvent = "tessaEvent";
+                                continue;
+                            }
+                        case 2: {
+                                if (wireType !== 2)
+                                    break;
+                                message.tessaSessionFbid = reader.string();
+                                message._tessaSessionFbid = "tessaSessionFbid";
+                                continue;
+                            }
+                        case 3: {
+                                if (wireType !== 2)
+                                    break;
+                                message.simonSessionFbid = reader.string();
+                                message._simonSessionFbid = "simonSessionFbid";
+                                continue;
+                            }
+                        }
+                        reader.skipType(wireType, _depth, tag);
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                    if (_end !== undefined)
+                        throw Error("missing end group");
                     return message;
                 };
 
@@ -4912,13 +5191,13 @@ $root.AICommon = (function() {
                  * @param {Object.<string,*>} message Plain object to verify
                  * @returns {string|null} `null` if valid, otherwise the reason why it is not
                  */
-                SideBySideSurveyAnalyticsData.verify = function verify(message, long) {
+                SideBySideSurveyAnalyticsData.verify = function verify(message, _depth) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $util.recursionLimit)
-                        return "maximum nesting depth exceeded";
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        return "max depth exceeded";
                     var properties = {};
                     if (message.tessaEvent != null && message.hasOwnProperty("tessaEvent")) {
                         properties._tessaEvent = 1;
@@ -4946,13 +5225,13 @@ $root.AICommon = (function() {
                  * @param {Object.<string,*>} object Plain object
                  * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData} SideBySideSurveyAnalyticsData
                  */
-                SideBySideSurveyAnalyticsData.fromObject = function fromObject(object, long) {
+                SideBySideSurveyAnalyticsData.fromObject = function fromObject(object, _depth) {
                     if (object instanceof $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData)
                         return object;
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $util.recursionLimit)
-                        throw Error("maximum nesting depth exceeded");
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw Error("max depth exceeded");
                     var message = new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData();
                     if (object.tessaEvent != null)
                         message.tessaEvent = String(object.tessaEvent);
@@ -5006,18 +5285,17 @@ $root.AICommon = (function() {
                 };
 
                 /**
-                 * Gets the default type url for SideBySideSurveyAnalyticsData
+                 * Gets the type url for SideBySideSurveyAnalyticsData
                  * @function getTypeUrl
                  * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData
                  * @static
-                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-                 * @returns {string} The default type url
+                 * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+                 * @returns {string} The type url
                  */
-                SideBySideSurveyAnalyticsData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                    if (typeUrlPrefix === undefined) {
-                        typeUrlPrefix = "type.googleapis.com";
-                    }
-                    return typeUrlPrefix + "/AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData";
+                SideBySideSurveyAnalyticsData.getTypeUrl = function getTypeUrl(prefix) {
+                    if (prefix === undefined)
+                        prefix = "type.googleapis.com";
+                    return prefix + "/AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData";
                 };
 
                 return SideBySideSurveyAnalyticsData;
@@ -5038,6 +5316,7 @@ $root.AICommon = (function() {
                  * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCardImpressionEventData|null} [cardImpressionEvent] SidebySideSurveyMetaAiAnalyticsData cardImpressionEvent
                  * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyResponseEventData|null} [responseEvent] SidebySideSurveyMetaAiAnalyticsData responseEvent
                  * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyAbandonEventData|null} [abandonEvent] SidebySideSurveyMetaAiAnalyticsData abandonEvent
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
 
                 /**
@@ -5047,6 +5326,7 @@ $root.AICommon = (function() {
                  * @implements ISidebySideSurveyMetaAiAnalyticsData
                  * @constructor
                  * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.ISidebySideSurveyMetaAiAnalyticsData=} [properties] Properties to set
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function SidebySideSurveyMetaAiAnalyticsData(properties) {
                     if (properties)
@@ -5226,6 +5506,9 @@ $root.AICommon = (function() {
                         $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.encode(message.responseEvent, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
                     if (message.abandonEvent != null && Object.hasOwnProperty.call(message, "abandonEvent"))
                         $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.encode(message.abandonEvent, writer.uint32(/* id 9, wireType 2 =*/74).fork()).ldelim();
+                    if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                        for (var i = 0; i < message.$unknowns.length; ++i)
+                            writer.raw(message.$unknowns[i]);
                     return writer;
                 };
 
@@ -5253,60 +5536,93 @@ $root.AICommon = (function() {
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                SidebySideSurveyMetaAiAnalyticsData.decode = function decode(reader, length, error, long) {
+                SidebySideSurveyMetaAiAnalyticsData.decode = function decode(reader, length, _end, _depth, _target) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $Reader.recursionLimit)
-                        throw Error("maximum nesting depth exceeded");
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData();
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $Reader.recursionLimit)
+                        throw Error("max depth exceeded");
+                    var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData();
                     while (reader.pos < end) {
-                        var tag = reader.uint32();
-                        if (tag === error)
-                            break;
-                        switch (tag >>> 3) {
-                        case 1: {
-                                message.surveyId = reader.uint32();
-                                break;
-                            }
-                        case 2: {
-                                message.primaryResponseId = reader.string();
-                                break;
-                            }
-                        case 3: {
-                                message.testArmName = reader.string();
-                                break;
-                            }
-                        case 4: {
-                                message.timestampMsString = reader.string();
-                                break;
-                            }
-                        case 5: {
-                                message.ctaImpressionEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.decode(reader, reader.uint32(), undefined, long + 1);
-                                break;
-                            }
-                        case 6: {
-                                message.ctaClickEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.decode(reader, reader.uint32(), undefined, long + 1);
-                                break;
-                            }
-                        case 7: {
-                                message.cardImpressionEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.decode(reader, reader.uint32(), undefined, long + 1);
-                                break;
-                            }
-                        case 8: {
-                                message.responseEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.decode(reader, reader.uint32(), undefined, long + 1);
-                                break;
-                            }
-                        case 9: {
-                                message.abandonEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.decode(reader, reader.uint32(), undefined, long + 1);
-                                break;
-                            }
-                        default:
-                            reader.skipType(tag & 7, long);
+                        var start = reader.pos;
+                        var tag = reader.tag();
+                        if (tag === _end) {
+                            _end = undefined;
                             break;
                         }
+                        var wireType = tag & 7;
+                        switch (tag >>>= 3) {
+                        case 1: {
+                                if (wireType !== 0)
+                                    break;
+                                message.surveyId = reader.uint32();
+                                message._surveyId = "surveyId";
+                                continue;
+                            }
+                        case 2: {
+                                if (wireType !== 2)
+                                    break;
+                                message.primaryResponseId = reader.string();
+                                message._primaryResponseId = "primaryResponseId";
+                                continue;
+                            }
+                        case 3: {
+                                if (wireType !== 2)
+                                    break;
+                                message.testArmName = reader.string();
+                                message._testArmName = "testArmName";
+                                continue;
+                            }
+                        case 4: {
+                                if (wireType !== 2)
+                                    break;
+                                message.timestampMsString = reader.string();
+                                message._timestampMsString = "timestampMsString";
+                                continue;
+                            }
+                        case 5: {
+                                if (wireType !== 2)
+                                    break;
+                                message.ctaImpressionEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.decode(reader, reader.uint32(), undefined, _depth + 1, message.ctaImpressionEvent);
+                                message._ctaImpressionEvent = "ctaImpressionEvent";
+                                continue;
+                            }
+                        case 6: {
+                                if (wireType !== 2)
+                                    break;
+                                message.ctaClickEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.decode(reader, reader.uint32(), undefined, _depth + 1, message.ctaClickEvent);
+                                message._ctaClickEvent = "ctaClickEvent";
+                                continue;
+                            }
+                        case 7: {
+                                if (wireType !== 2)
+                                    break;
+                                message.cardImpressionEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.decode(reader, reader.uint32(), undefined, _depth + 1, message.cardImpressionEvent);
+                                message._cardImpressionEvent = "cardImpressionEvent";
+                                continue;
+                            }
+                        case 8: {
+                                if (wireType !== 2)
+                                    break;
+                                message.responseEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.decode(reader, reader.uint32(), undefined, _depth + 1, message.responseEvent);
+                                message._responseEvent = "responseEvent";
+                                continue;
+                            }
+                        case 9: {
+                                if (wireType !== 2)
+                                    break;
+                                message.abandonEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.decode(reader, reader.uint32(), undefined, _depth + 1, message.abandonEvent);
+                                message._abandonEvent = "abandonEvent";
+                                continue;
+                            }
+                        }
+                        reader.skipType(wireType, _depth, tag);
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                    if (_end !== undefined)
+                        throw Error("missing end group");
                     return message;
                 };
 
@@ -5334,13 +5650,13 @@ $root.AICommon = (function() {
                  * @param {Object.<string,*>} message Plain object to verify
                  * @returns {string|null} `null` if valid, otherwise the reason why it is not
                  */
-                SidebySideSurveyMetaAiAnalyticsData.verify = function verify(message, long) {
+                SidebySideSurveyMetaAiAnalyticsData.verify = function verify(message, _depth) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $util.recursionLimit)
-                        return "maximum nesting depth exceeded";
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        return "max depth exceeded";
                     var properties = {};
                     if (message.surveyId != null && message.hasOwnProperty("surveyId")) {
                         properties._surveyId = 1;
@@ -5365,7 +5681,7 @@ $root.AICommon = (function() {
                     if (message.ctaImpressionEvent != null && message.hasOwnProperty("ctaImpressionEvent")) {
                         properties._ctaImpressionEvent = 1;
                         {
-                            var error = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.verify(message.ctaImpressionEvent, long + 1);
+                            var error = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.verify(message.ctaImpressionEvent, _depth + 1);
                             if (error)
                                 return "ctaImpressionEvent." + error;
                         }
@@ -5373,7 +5689,7 @@ $root.AICommon = (function() {
                     if (message.ctaClickEvent != null && message.hasOwnProperty("ctaClickEvent")) {
                         properties._ctaClickEvent = 1;
                         {
-                            var error = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.verify(message.ctaClickEvent, long + 1);
+                            var error = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.verify(message.ctaClickEvent, _depth + 1);
                             if (error)
                                 return "ctaClickEvent." + error;
                         }
@@ -5381,7 +5697,7 @@ $root.AICommon = (function() {
                     if (message.cardImpressionEvent != null && message.hasOwnProperty("cardImpressionEvent")) {
                         properties._cardImpressionEvent = 1;
                         {
-                            var error = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.verify(message.cardImpressionEvent, long + 1);
+                            var error = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.verify(message.cardImpressionEvent, _depth + 1);
                             if (error)
                                 return "cardImpressionEvent." + error;
                         }
@@ -5389,7 +5705,7 @@ $root.AICommon = (function() {
                     if (message.responseEvent != null && message.hasOwnProperty("responseEvent")) {
                         properties._responseEvent = 1;
                         {
-                            var error = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.verify(message.responseEvent, long + 1);
+                            var error = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.verify(message.responseEvent, _depth + 1);
                             if (error)
                                 return "responseEvent." + error;
                         }
@@ -5397,7 +5713,7 @@ $root.AICommon = (function() {
                     if (message.abandonEvent != null && message.hasOwnProperty("abandonEvent")) {
                         properties._abandonEvent = 1;
                         {
-                            var error = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.verify(message.abandonEvent, long + 1);
+                            var error = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.verify(message.abandonEvent, _depth + 1);
                             if (error)
                                 return "abandonEvent." + error;
                         }
@@ -5413,13 +5729,13 @@ $root.AICommon = (function() {
                  * @param {Object.<string,*>} object Plain object
                  * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData} SidebySideSurveyMetaAiAnalyticsData
                  */
-                SidebySideSurveyMetaAiAnalyticsData.fromObject = function fromObject(object, long) {
+                SidebySideSurveyMetaAiAnalyticsData.fromObject = function fromObject(object, _depth) {
                     if (object instanceof $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData)
                         return object;
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $util.recursionLimit)
-                        throw Error("maximum nesting depth exceeded");
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw Error("max depth exceeded");
                     var message = new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData();
                     if (object.surveyId != null)
                         message.surveyId = object.surveyId >>> 0;
@@ -5432,27 +5748,27 @@ $root.AICommon = (function() {
                     if (object.ctaImpressionEvent != null) {
                         if (typeof object.ctaImpressionEvent !== "object")
                             throw TypeError(".AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ctaImpressionEvent: object expected");
-                        message.ctaImpressionEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.fromObject(object.ctaImpressionEvent, long + 1);
+                        message.ctaImpressionEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.fromObject(object.ctaImpressionEvent, _depth + 1);
                     }
                     if (object.ctaClickEvent != null) {
                         if (typeof object.ctaClickEvent !== "object")
                             throw TypeError(".AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ctaClickEvent: object expected");
-                        message.ctaClickEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.fromObject(object.ctaClickEvent, long + 1);
+                        message.ctaClickEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.fromObject(object.ctaClickEvent, _depth + 1);
                     }
                     if (object.cardImpressionEvent != null) {
                         if (typeof object.cardImpressionEvent !== "object")
                             throw TypeError(".AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.cardImpressionEvent: object expected");
-                        message.cardImpressionEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.fromObject(object.cardImpressionEvent, long + 1);
+                        message.cardImpressionEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.fromObject(object.cardImpressionEvent, _depth + 1);
                     }
                     if (object.responseEvent != null) {
                         if (typeof object.responseEvent !== "object")
                             throw TypeError(".AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.responseEvent: object expected");
-                        message.responseEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.fromObject(object.responseEvent, long + 1);
+                        message.responseEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.fromObject(object.responseEvent, _depth + 1);
                     }
                     if (object.abandonEvent != null) {
                         if (typeof object.abandonEvent !== "object")
                             throw TypeError(".AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.abandonEvent: object expected");
-                        message.abandonEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.fromObject(object.abandonEvent, long + 1);
+                        message.abandonEvent = $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.fromObject(object.abandonEvent, _depth + 1);
                     }
                     return message;
                 };
@@ -5530,18 +5846,17 @@ $root.AICommon = (function() {
                 };
 
                 /**
-                 * Gets the default type url for SidebySideSurveyMetaAiAnalyticsData
+                 * Gets the type url for SidebySideSurveyMetaAiAnalyticsData
                  * @function getTypeUrl
                  * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
                  * @static
-                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-                 * @returns {string} The default type url
+                 * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+                 * @returns {string} The type url
                  */
-                SidebySideSurveyMetaAiAnalyticsData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                    if (typeUrlPrefix === undefined) {
-                        typeUrlPrefix = "type.googleapis.com";
-                    }
-                    return typeUrlPrefix + "/AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData";
+                SidebySideSurveyMetaAiAnalyticsData.getTypeUrl = function getTypeUrl(prefix) {
+                    if (prefix === undefined)
+                        prefix = "type.googleapis.com";
+                    return prefix + "/AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData";
                 };
 
                 SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData = (function() {
@@ -5551,6 +5866,7 @@ $root.AICommon = (function() {
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
                      * @interface ISideBySideSurveyAbandonEventData
                      * @property {string|null} [abandonDwellTimeMsString] SideBySideSurveyAbandonEventData abandonDwellTimeMsString
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                      */
 
                     /**
@@ -5560,6 +5876,7 @@ $root.AICommon = (function() {
                      * @implements ISideBySideSurveyAbandonEventData
                      * @constructor
                      * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyAbandonEventData=} [properties] Properties to set
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                      */
                     function SideBySideSurveyAbandonEventData(properties) {
                         if (properties)
@@ -5611,6 +5928,9 @@ $root.AICommon = (function() {
                             writer = $Writer.create();
                         if (message.abandonDwellTimeMsString != null && Object.hasOwnProperty.call(message, "abandonDwellTimeMsString"))
                             writer.uint32(/* id 1, wireType 2 =*/10).string(message.abandonDwellTimeMsString);
+                        if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                            for (var i = 0; i < message.$unknowns.length; ++i)
+                                writer.raw(message.$unknowns[i]);
                         return writer;
                     };
 
@@ -5638,28 +5958,37 @@ $root.AICommon = (function() {
                      * @throws {Error} If the payload is not a reader or valid buffer
                      * @throws {$protobuf.util.ProtocolError} If required fields are missing
                      */
-                    SideBySideSurveyAbandonEventData.decode = function decode(reader, length, error, long) {
+                    SideBySideSurveyAbandonEventData.decode = function decode(reader, length, _end, _depth, _target) {
                         if (!(reader instanceof $Reader))
                             reader = $Reader.create(reader);
-                        if (long === undefined)
-                            long = 0;
-                        if (long > $Reader.recursionLimit)
-                            throw Error("maximum nesting depth exceeded");
-                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData();
+                        if (_depth === undefined)
+                            _depth = 0;
+                        if (_depth > $Reader.recursionLimit)
+                            throw Error("max depth exceeded");
+                        var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData();
                         while (reader.pos < end) {
-                            var tag = reader.uint32();
-                            if (tag === error)
-                                break;
-                            switch (tag >>> 3) {
-                            case 1: {
-                                    message.abandonDwellTimeMsString = reader.string();
-                                    break;
-                                }
-                            default:
-                                reader.skipType(tag & 7, long);
+                            var start = reader.pos;
+                            var tag = reader.tag();
+                            if (tag === _end) {
+                                _end = undefined;
                                 break;
                             }
+                            var wireType = tag & 7;
+                            switch (tag >>>= 3) {
+                            case 1: {
+                                    if (wireType !== 2)
+                                        break;
+                                    message.abandonDwellTimeMsString = reader.string();
+                                    message._abandonDwellTimeMsString = "abandonDwellTimeMsString";
+                                    continue;
+                                }
+                            }
+                            reader.skipType(wireType, _depth, tag);
+                            $util.makeProp(message, "$unknowns", false);
+                            (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                         }
+                        if (_end !== undefined)
+                            throw Error("missing end group");
                         return message;
                     };
 
@@ -5687,13 +6016,13 @@ $root.AICommon = (function() {
                      * @param {Object.<string,*>} message Plain object to verify
                      * @returns {string|null} `null` if valid, otherwise the reason why it is not
                      */
-                    SideBySideSurveyAbandonEventData.verify = function verify(message, long) {
+                    SideBySideSurveyAbandonEventData.verify = function verify(message, _depth) {
                         if (typeof message !== "object" || message === null)
                             return "object expected";
-                        if (long === undefined)
-                            long = 0;
-                        if (long > $util.recursionLimit)
-                            return "maximum nesting depth exceeded";
+                        if (_depth === undefined)
+                            _depth = 0;
+                        if (_depth > $util.recursionLimit)
+                            return "max depth exceeded";
                         var properties = {};
                         if (message.abandonDwellTimeMsString != null && message.hasOwnProperty("abandonDwellTimeMsString")) {
                             properties._abandonDwellTimeMsString = 1;
@@ -5711,13 +6040,13 @@ $root.AICommon = (function() {
                      * @param {Object.<string,*>} object Plain object
                      * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData} SideBySideSurveyAbandonEventData
                      */
-                    SideBySideSurveyAbandonEventData.fromObject = function fromObject(object, long) {
+                    SideBySideSurveyAbandonEventData.fromObject = function fromObject(object, _depth) {
                         if (object instanceof $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData)
                             return object;
-                        if (long === undefined)
-                            long = 0;
-                        if (long > $util.recursionLimit)
-                            throw Error("maximum nesting depth exceeded");
+                        if (_depth === undefined)
+                            _depth = 0;
+                        if (_depth > $util.recursionLimit)
+                            throw Error("max depth exceeded");
                         var message = new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData();
                         if (object.abandonDwellTimeMsString != null)
                             message.abandonDwellTimeMsString = String(object.abandonDwellTimeMsString);
@@ -5757,18 +6086,17 @@ $root.AICommon = (function() {
                     };
 
                     /**
-                     * Gets the default type url for SideBySideSurveyAbandonEventData
+                     * Gets the type url for SideBySideSurveyAbandonEventData
                      * @function getTypeUrl
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData
                      * @static
-                     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-                     * @returns {string} The default type url
+                     * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+                     * @returns {string} The type url
                      */
-                    SideBySideSurveyAbandonEventData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                        if (typeUrlPrefix === undefined) {
-                            typeUrlPrefix = "type.googleapis.com";
-                        }
-                        return typeUrlPrefix + "/AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData";
+                    SideBySideSurveyAbandonEventData.getTypeUrl = function getTypeUrl(prefix) {
+                        if (prefix === undefined)
+                            prefix = "type.googleapis.com";
+                        return prefix + "/AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData";
                     };
 
                     return SideBySideSurveyAbandonEventData;
@@ -5782,6 +6110,7 @@ $root.AICommon = (function() {
                      * @interface ISideBySideSurveyCTAClickEventData
                      * @property {boolean|null} [isSurveyExpired] SideBySideSurveyCTAClickEventData isSurveyExpired
                      * @property {string|null} [clickDwellTimeMsString] SideBySideSurveyCTAClickEventData clickDwellTimeMsString
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                      */
 
                     /**
@@ -5791,6 +6120,7 @@ $root.AICommon = (function() {
                      * @implements ISideBySideSurveyCTAClickEventData
                      * @constructor
                      * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCTAClickEventData=} [properties] Properties to set
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                      */
                     function SideBySideSurveyCTAClickEventData(properties) {
                         if (properties)
@@ -5858,6 +6188,9 @@ $root.AICommon = (function() {
                             writer.uint32(/* id 1, wireType 0 =*/8).bool(message.isSurveyExpired);
                         if (message.clickDwellTimeMsString != null && Object.hasOwnProperty.call(message, "clickDwellTimeMsString"))
                             writer.uint32(/* id 2, wireType 2 =*/18).string(message.clickDwellTimeMsString);
+                        if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                            for (var i = 0; i < message.$unknowns.length; ++i)
+                                writer.raw(message.$unknowns[i]);
                         return writer;
                     };
 
@@ -5885,32 +6218,44 @@ $root.AICommon = (function() {
                      * @throws {Error} If the payload is not a reader or valid buffer
                      * @throws {$protobuf.util.ProtocolError} If required fields are missing
                      */
-                    SideBySideSurveyCTAClickEventData.decode = function decode(reader, length, error, long) {
+                    SideBySideSurveyCTAClickEventData.decode = function decode(reader, length, _end, _depth, _target) {
                         if (!(reader instanceof $Reader))
                             reader = $Reader.create(reader);
-                        if (long === undefined)
-                            long = 0;
-                        if (long > $Reader.recursionLimit)
-                            throw Error("maximum nesting depth exceeded");
-                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData();
+                        if (_depth === undefined)
+                            _depth = 0;
+                        if (_depth > $Reader.recursionLimit)
+                            throw Error("max depth exceeded");
+                        var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData();
                         while (reader.pos < end) {
-                            var tag = reader.uint32();
-                            if (tag === error)
-                                break;
-                            switch (tag >>> 3) {
-                            case 1: {
-                                    message.isSurveyExpired = reader.bool();
-                                    break;
-                                }
-                            case 2: {
-                                    message.clickDwellTimeMsString = reader.string();
-                                    break;
-                                }
-                            default:
-                                reader.skipType(tag & 7, long);
+                            var start = reader.pos;
+                            var tag = reader.tag();
+                            if (tag === _end) {
+                                _end = undefined;
                                 break;
                             }
+                            var wireType = tag & 7;
+                            switch (tag >>>= 3) {
+                            case 1: {
+                                    if (wireType !== 0)
+                                        break;
+                                    message.isSurveyExpired = reader.bool();
+                                    message._isSurveyExpired = "isSurveyExpired";
+                                    continue;
+                                }
+                            case 2: {
+                                    if (wireType !== 2)
+                                        break;
+                                    message.clickDwellTimeMsString = reader.string();
+                                    message._clickDwellTimeMsString = "clickDwellTimeMsString";
+                                    continue;
+                                }
+                            }
+                            reader.skipType(wireType, _depth, tag);
+                            $util.makeProp(message, "$unknowns", false);
+                            (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                         }
+                        if (_end !== undefined)
+                            throw Error("missing end group");
                         return message;
                     };
 
@@ -5938,13 +6283,13 @@ $root.AICommon = (function() {
                      * @param {Object.<string,*>} message Plain object to verify
                      * @returns {string|null} `null` if valid, otherwise the reason why it is not
                      */
-                    SideBySideSurveyCTAClickEventData.verify = function verify(message, long) {
+                    SideBySideSurveyCTAClickEventData.verify = function verify(message, _depth) {
                         if (typeof message !== "object" || message === null)
                             return "object expected";
-                        if (long === undefined)
-                            long = 0;
-                        if (long > $util.recursionLimit)
-                            return "maximum nesting depth exceeded";
+                        if (_depth === undefined)
+                            _depth = 0;
+                        if (_depth > $util.recursionLimit)
+                            return "max depth exceeded";
                         var properties = {};
                         if (message.isSurveyExpired != null && message.hasOwnProperty("isSurveyExpired")) {
                             properties._isSurveyExpired = 1;
@@ -5967,13 +6312,13 @@ $root.AICommon = (function() {
                      * @param {Object.<string,*>} object Plain object
                      * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData} SideBySideSurveyCTAClickEventData
                      */
-                    SideBySideSurveyCTAClickEventData.fromObject = function fromObject(object, long) {
+                    SideBySideSurveyCTAClickEventData.fromObject = function fromObject(object, _depth) {
                         if (object instanceof $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData)
                             return object;
-                        if (long === undefined)
-                            long = 0;
-                        if (long > $util.recursionLimit)
-                            throw Error("maximum nesting depth exceeded");
+                        if (_depth === undefined)
+                            _depth = 0;
+                        if (_depth > $util.recursionLimit)
+                            throw Error("max depth exceeded");
                         var message = new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData();
                         if (object.isSurveyExpired != null)
                             message.isSurveyExpired = Boolean(object.isSurveyExpired);
@@ -6020,18 +6365,17 @@ $root.AICommon = (function() {
                     };
 
                     /**
-                     * Gets the default type url for SideBySideSurveyCTAClickEventData
+                     * Gets the type url for SideBySideSurveyCTAClickEventData
                      * @function getTypeUrl
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData
                      * @static
-                     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-                     * @returns {string} The default type url
+                     * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+                     * @returns {string} The type url
                      */
-                    SideBySideSurveyCTAClickEventData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                        if (typeUrlPrefix === undefined) {
-                            typeUrlPrefix = "type.googleapis.com";
-                        }
-                        return typeUrlPrefix + "/AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData";
+                    SideBySideSurveyCTAClickEventData.getTypeUrl = function getTypeUrl(prefix) {
+                        if (prefix === undefined)
+                            prefix = "type.googleapis.com";
+                        return prefix + "/AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData";
                     };
 
                     return SideBySideSurveyCTAClickEventData;
@@ -6044,6 +6388,7 @@ $root.AICommon = (function() {
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
                      * @interface ISideBySideSurveyCTAImpressionEventData
                      * @property {boolean|null} [isSurveyExpired] SideBySideSurveyCTAImpressionEventData isSurveyExpired
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                      */
 
                     /**
@@ -6053,6 +6398,7 @@ $root.AICommon = (function() {
                      * @implements ISideBySideSurveyCTAImpressionEventData
                      * @constructor
                      * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCTAImpressionEventData=} [properties] Properties to set
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                      */
                     function SideBySideSurveyCTAImpressionEventData(properties) {
                         if (properties)
@@ -6104,6 +6450,9 @@ $root.AICommon = (function() {
                             writer = $Writer.create();
                         if (message.isSurveyExpired != null && Object.hasOwnProperty.call(message, "isSurveyExpired"))
                             writer.uint32(/* id 1, wireType 0 =*/8).bool(message.isSurveyExpired);
+                        if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                            for (var i = 0; i < message.$unknowns.length; ++i)
+                                writer.raw(message.$unknowns[i]);
                         return writer;
                     };
 
@@ -6131,28 +6480,37 @@ $root.AICommon = (function() {
                      * @throws {Error} If the payload is not a reader or valid buffer
                      * @throws {$protobuf.util.ProtocolError} If required fields are missing
                      */
-                    SideBySideSurveyCTAImpressionEventData.decode = function decode(reader, length, error, long) {
+                    SideBySideSurveyCTAImpressionEventData.decode = function decode(reader, length, _end, _depth, _target) {
                         if (!(reader instanceof $Reader))
                             reader = $Reader.create(reader);
-                        if (long === undefined)
-                            long = 0;
-                        if (long > $Reader.recursionLimit)
-                            throw Error("maximum nesting depth exceeded");
-                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData();
+                        if (_depth === undefined)
+                            _depth = 0;
+                        if (_depth > $Reader.recursionLimit)
+                            throw Error("max depth exceeded");
+                        var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData();
                         while (reader.pos < end) {
-                            var tag = reader.uint32();
-                            if (tag === error)
-                                break;
-                            switch (tag >>> 3) {
-                            case 1: {
-                                    message.isSurveyExpired = reader.bool();
-                                    break;
-                                }
-                            default:
-                                reader.skipType(tag & 7, long);
+                            var start = reader.pos;
+                            var tag = reader.tag();
+                            if (tag === _end) {
+                                _end = undefined;
                                 break;
                             }
+                            var wireType = tag & 7;
+                            switch (tag >>>= 3) {
+                            case 1: {
+                                    if (wireType !== 0)
+                                        break;
+                                    message.isSurveyExpired = reader.bool();
+                                    message._isSurveyExpired = "isSurveyExpired";
+                                    continue;
+                                }
+                            }
+                            reader.skipType(wireType, _depth, tag);
+                            $util.makeProp(message, "$unknowns", false);
+                            (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                         }
+                        if (_end !== undefined)
+                            throw Error("missing end group");
                         return message;
                     };
 
@@ -6180,13 +6538,13 @@ $root.AICommon = (function() {
                      * @param {Object.<string,*>} message Plain object to verify
                      * @returns {string|null} `null` if valid, otherwise the reason why it is not
                      */
-                    SideBySideSurveyCTAImpressionEventData.verify = function verify(message, long) {
+                    SideBySideSurveyCTAImpressionEventData.verify = function verify(message, _depth) {
                         if (typeof message !== "object" || message === null)
                             return "object expected";
-                        if (long === undefined)
-                            long = 0;
-                        if (long > $util.recursionLimit)
-                            return "maximum nesting depth exceeded";
+                        if (_depth === undefined)
+                            _depth = 0;
+                        if (_depth > $util.recursionLimit)
+                            return "max depth exceeded";
                         var properties = {};
                         if (message.isSurveyExpired != null && message.hasOwnProperty("isSurveyExpired")) {
                             properties._isSurveyExpired = 1;
@@ -6204,13 +6562,13 @@ $root.AICommon = (function() {
                      * @param {Object.<string,*>} object Plain object
                      * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData} SideBySideSurveyCTAImpressionEventData
                      */
-                    SideBySideSurveyCTAImpressionEventData.fromObject = function fromObject(object, long) {
+                    SideBySideSurveyCTAImpressionEventData.fromObject = function fromObject(object, _depth) {
                         if (object instanceof $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData)
                             return object;
-                        if (long === undefined)
-                            long = 0;
-                        if (long > $util.recursionLimit)
-                            throw Error("maximum nesting depth exceeded");
+                        if (_depth === undefined)
+                            _depth = 0;
+                        if (_depth > $util.recursionLimit)
+                            throw Error("max depth exceeded");
                         var message = new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData();
                         if (object.isSurveyExpired != null)
                             message.isSurveyExpired = Boolean(object.isSurveyExpired);
@@ -6250,18 +6608,17 @@ $root.AICommon = (function() {
                     };
 
                     /**
-                     * Gets the default type url for SideBySideSurveyCTAImpressionEventData
+                     * Gets the type url for SideBySideSurveyCTAImpressionEventData
                      * @function getTypeUrl
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData
                      * @static
-                     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-                     * @returns {string} The default type url
+                     * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+                     * @returns {string} The type url
                      */
-                    SideBySideSurveyCTAImpressionEventData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                        if (typeUrlPrefix === undefined) {
-                            typeUrlPrefix = "type.googleapis.com";
-                        }
-                        return typeUrlPrefix + "/AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData";
+                    SideBySideSurveyCTAImpressionEventData.getTypeUrl = function getTypeUrl(prefix) {
+                        if (prefix === undefined)
+                            prefix = "type.googleapis.com";
+                        return prefix + "/AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData";
                     };
 
                     return SideBySideSurveyCTAImpressionEventData;
@@ -6273,6 +6630,7 @@ $root.AICommon = (function() {
                      * Properties of a SideBySideSurveyCardImpressionEventData.
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
                      * @interface ISideBySideSurveyCardImpressionEventData
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                      */
 
                     /**
@@ -6282,6 +6640,7 @@ $root.AICommon = (function() {
                      * @implements ISideBySideSurveyCardImpressionEventData
                      * @constructor
                      * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCardImpressionEventData=} [properties] Properties to set
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                      */
                     function SideBySideSurveyCardImpressionEventData(properties) {
                         if (properties)
@@ -6314,6 +6673,9 @@ $root.AICommon = (function() {
                     SideBySideSurveyCardImpressionEventData.encode = function encode(message, writer) {
                         if (!writer)
                             writer = $Writer.create();
+                        if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                            for (var i = 0; i < message.$unknowns.length; ++i)
+                                writer.raw(message.$unknowns[i]);
                         return writer;
                     };
 
@@ -6341,24 +6703,27 @@ $root.AICommon = (function() {
                      * @throws {Error} If the payload is not a reader or valid buffer
                      * @throws {$protobuf.util.ProtocolError} If required fields are missing
                      */
-                    SideBySideSurveyCardImpressionEventData.decode = function decode(reader, length, error, long) {
+                    SideBySideSurveyCardImpressionEventData.decode = function decode(reader, length, _end, _depth, _target) {
                         if (!(reader instanceof $Reader))
                             reader = $Reader.create(reader);
-                        if (long === undefined)
-                            long = 0;
-                        if (long > $Reader.recursionLimit)
-                            throw Error("maximum nesting depth exceeded");
-                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData();
+                        if (_depth === undefined)
+                            _depth = 0;
+                        if (_depth > $Reader.recursionLimit)
+                            throw Error("max depth exceeded");
+                        var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData();
                         while (reader.pos < end) {
-                            var tag = reader.uint32();
-                            if (tag === error)
-                                break;
-                            switch (tag >>> 3) {
-                            default:
-                                reader.skipType(tag & 7, long);
+                            var start = reader.pos;
+                            var tag = reader.tag();
+                            if (tag === _end) {
+                                _end = undefined;
                                 break;
                             }
+                            reader.skipType(tag & 7, _depth, tag);
+                            $util.makeProp(message, "$unknowns", false);
+                            (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                         }
+                        if (_end !== undefined)
+                            throw Error("missing end group");
                         return message;
                     };
 
@@ -6386,13 +6751,13 @@ $root.AICommon = (function() {
                      * @param {Object.<string,*>} message Plain object to verify
                      * @returns {string|null} `null` if valid, otherwise the reason why it is not
                      */
-                    SideBySideSurveyCardImpressionEventData.verify = function verify(message, long) {
+                    SideBySideSurveyCardImpressionEventData.verify = function verify(message, _depth) {
                         if (typeof message !== "object" || message === null)
                             return "object expected";
-                        if (long === undefined)
-                            long = 0;
-                        if (long > $util.recursionLimit)
-                            return "maximum nesting depth exceeded";
+                        if (_depth === undefined)
+                            _depth = 0;
+                        if (_depth > $util.recursionLimit)
+                            return "max depth exceeded";
                         return null;
                     };
 
@@ -6404,13 +6769,13 @@ $root.AICommon = (function() {
                      * @param {Object.<string,*>} object Plain object
                      * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData} SideBySideSurveyCardImpressionEventData
                      */
-                    SideBySideSurveyCardImpressionEventData.fromObject = function fromObject(object, long) {
+                    SideBySideSurveyCardImpressionEventData.fromObject = function fromObject(object, _depth) {
                         if (object instanceof $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData)
                             return object;
-                        if (long === undefined)
-                            long = 0;
-                        if (long > $util.recursionLimit)
-                            throw Error("maximum nesting depth exceeded");
+                        if (_depth === undefined)
+                            _depth = 0;
+                        if (_depth > $util.recursionLimit)
+                            throw Error("max depth exceeded");
                         return new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData();
                     };
 
@@ -6439,18 +6804,17 @@ $root.AICommon = (function() {
                     };
 
                     /**
-                     * Gets the default type url for SideBySideSurveyCardImpressionEventData
+                     * Gets the type url for SideBySideSurveyCardImpressionEventData
                      * @function getTypeUrl
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData
                      * @static
-                     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-                     * @returns {string} The default type url
+                     * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+                     * @returns {string} The type url
                      */
-                    SideBySideSurveyCardImpressionEventData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                        if (typeUrlPrefix === undefined) {
-                            typeUrlPrefix = "type.googleapis.com";
-                        }
-                        return typeUrlPrefix + "/AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData";
+                    SideBySideSurveyCardImpressionEventData.getTypeUrl = function getTypeUrl(prefix) {
+                        if (prefix === undefined)
+                            prefix = "type.googleapis.com";
+                        return prefix + "/AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData";
                     };
 
                     return SideBySideSurveyCardImpressionEventData;
@@ -6464,6 +6828,7 @@ $root.AICommon = (function() {
                      * @interface ISideBySideSurveyResponseEventData
                      * @property {string|null} [responseDwellTimeMsString] SideBySideSurveyResponseEventData responseDwellTimeMsString
                      * @property {string|null} [selectedResponseId] SideBySideSurveyResponseEventData selectedResponseId
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                      */
 
                     /**
@@ -6473,6 +6838,7 @@ $root.AICommon = (function() {
                      * @implements ISideBySideSurveyResponseEventData
                      * @constructor
                      * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyResponseEventData=} [properties] Properties to set
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                      */
                     function SideBySideSurveyResponseEventData(properties) {
                         if (properties)
@@ -6540,6 +6906,9 @@ $root.AICommon = (function() {
                             writer.uint32(/* id 1, wireType 2 =*/10).string(message.responseDwellTimeMsString);
                         if (message.selectedResponseId != null && Object.hasOwnProperty.call(message, "selectedResponseId"))
                             writer.uint32(/* id 2, wireType 2 =*/18).string(message.selectedResponseId);
+                        if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                            for (var i = 0; i < message.$unknowns.length; ++i)
+                                writer.raw(message.$unknowns[i]);
                         return writer;
                     };
 
@@ -6567,32 +6936,44 @@ $root.AICommon = (function() {
                      * @throws {Error} If the payload is not a reader or valid buffer
                      * @throws {$protobuf.util.ProtocolError} If required fields are missing
                      */
-                    SideBySideSurveyResponseEventData.decode = function decode(reader, length, error, long) {
+                    SideBySideSurveyResponseEventData.decode = function decode(reader, length, _end, _depth, _target) {
                         if (!(reader instanceof $Reader))
                             reader = $Reader.create(reader);
-                        if (long === undefined)
-                            long = 0;
-                        if (long > $Reader.recursionLimit)
-                            throw Error("maximum nesting depth exceeded");
-                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData();
+                        if (_depth === undefined)
+                            _depth = 0;
+                        if (_depth > $Reader.recursionLimit)
+                            throw Error("max depth exceeded");
+                        var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData();
                         while (reader.pos < end) {
-                            var tag = reader.uint32();
-                            if (tag === error)
-                                break;
-                            switch (tag >>> 3) {
-                            case 1: {
-                                    message.responseDwellTimeMsString = reader.string();
-                                    break;
-                                }
-                            case 2: {
-                                    message.selectedResponseId = reader.string();
-                                    break;
-                                }
-                            default:
-                                reader.skipType(tag & 7, long);
+                            var start = reader.pos;
+                            var tag = reader.tag();
+                            if (tag === _end) {
+                                _end = undefined;
                                 break;
                             }
+                            var wireType = tag & 7;
+                            switch (tag >>>= 3) {
+                            case 1: {
+                                    if (wireType !== 2)
+                                        break;
+                                    message.responseDwellTimeMsString = reader.string();
+                                    message._responseDwellTimeMsString = "responseDwellTimeMsString";
+                                    continue;
+                                }
+                            case 2: {
+                                    if (wireType !== 2)
+                                        break;
+                                    message.selectedResponseId = reader.string();
+                                    message._selectedResponseId = "selectedResponseId";
+                                    continue;
+                                }
+                            }
+                            reader.skipType(wireType, _depth, tag);
+                            $util.makeProp(message, "$unknowns", false);
+                            (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                         }
+                        if (_end !== undefined)
+                            throw Error("missing end group");
                         return message;
                     };
 
@@ -6620,13 +7001,13 @@ $root.AICommon = (function() {
                      * @param {Object.<string,*>} message Plain object to verify
                      * @returns {string|null} `null` if valid, otherwise the reason why it is not
                      */
-                    SideBySideSurveyResponseEventData.verify = function verify(message, long) {
+                    SideBySideSurveyResponseEventData.verify = function verify(message, _depth) {
                         if (typeof message !== "object" || message === null)
                             return "object expected";
-                        if (long === undefined)
-                            long = 0;
-                        if (long > $util.recursionLimit)
-                            return "maximum nesting depth exceeded";
+                        if (_depth === undefined)
+                            _depth = 0;
+                        if (_depth > $util.recursionLimit)
+                            return "max depth exceeded";
                         var properties = {};
                         if (message.responseDwellTimeMsString != null && message.hasOwnProperty("responseDwellTimeMsString")) {
                             properties._responseDwellTimeMsString = 1;
@@ -6649,13 +7030,13 @@ $root.AICommon = (function() {
                      * @param {Object.<string,*>} object Plain object
                      * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData} SideBySideSurveyResponseEventData
                      */
-                    SideBySideSurveyResponseEventData.fromObject = function fromObject(object, long) {
+                    SideBySideSurveyResponseEventData.fromObject = function fromObject(object, _depth) {
                         if (object instanceof $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData)
                             return object;
-                        if (long === undefined)
-                            long = 0;
-                        if (long > $util.recursionLimit)
-                            throw Error("maximum nesting depth exceeded");
+                        if (_depth === undefined)
+                            _depth = 0;
+                        if (_depth > $util.recursionLimit)
+                            throw Error("max depth exceeded");
                         var message = new $root.AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData();
                         if (object.responseDwellTimeMsString != null)
                             message.responseDwellTimeMsString = String(object.responseDwellTimeMsString);
@@ -6702,18 +7083,17 @@ $root.AICommon = (function() {
                     };
 
                     /**
-                     * Gets the default type url for SideBySideSurveyResponseEventData
+                     * Gets the type url for SideBySideSurveyResponseEventData
                      * @function getTypeUrl
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData
                      * @static
-                     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-                     * @returns {string} The default type url
+                     * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+                     * @returns {string} The type url
                      */
-                    SideBySideSurveyResponseEventData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                        if (typeUrlPrefix === undefined) {
-                            typeUrlPrefix = "type.googleapis.com";
-                        }
-                        return typeUrlPrefix + "/AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData";
+                    SideBySideSurveyResponseEventData.getTypeUrl = function getTypeUrl(prefix) {
+                        if (prefix === undefined)
+                            prefix = "type.googleapis.com";
+                        return prefix + "/AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData";
                     };
 
                     return SideBySideSurveyResponseEventData;
@@ -6735,6 +7115,7 @@ $root.AICommon = (function() {
          * @memberof AICommon
          * @interface IBotGroupParticipantMetadata
          * @property {string|null} [botFbid] BotGroupParticipantMetadata botFbid
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -6744,6 +7125,7 @@ $root.AICommon = (function() {
          * @implements IBotGroupParticipantMetadata
          * @constructor
          * @param {AICommon.IBotGroupParticipantMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotGroupParticipantMetadata(properties) {
             if (properties)
@@ -6795,6 +7177,9 @@ $root.AICommon = (function() {
                 writer = $Writer.create();
             if (message.botFbid != null && Object.hasOwnProperty.call(message, "botFbid"))
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.botFbid);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -6822,28 +7207,37 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotGroupParticipantMetadata.decode = function decode(reader, length, error, long) {
+        BotGroupParticipantMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotGroupParticipantMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotGroupParticipantMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.botFbid = reader.string();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.botFbid = reader.string();
+                        message._botFbid = "botFbid";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -6871,13 +7265,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotGroupParticipantMetadata.verify = function verify(message, long) {
+        BotGroupParticipantMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.botFbid != null && message.hasOwnProperty("botFbid")) {
                 properties._botFbid = 1;
@@ -6895,13 +7289,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotGroupParticipantMetadata} BotGroupParticipantMetadata
          */
-        BotGroupParticipantMetadata.fromObject = function fromObject(object, long) {
+        BotGroupParticipantMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotGroupParticipantMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotGroupParticipantMetadata();
             if (object.botFbid != null)
                 message.botFbid = String(object.botFbid);
@@ -6941,18 +7335,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotGroupParticipantMetadata
+         * Gets the type url for BotGroupParticipantMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotGroupParticipantMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotGroupParticipantMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotGroupParticipantMetadata";
+        BotGroupParticipantMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotGroupParticipantMetadata";
         };
 
         return BotGroupParticipantMetadata;
@@ -6966,6 +7359,7 @@ $root.AICommon = (function() {
          * @interface IBotRenderingConfigMetadata
          * @property {string|null} [bloksVersioningId] BotRenderingConfigMetadata bloksVersioningId
          * @property {number|null} [pixelDensity] BotRenderingConfigMetadata pixelDensity
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -6975,6 +7369,7 @@ $root.AICommon = (function() {
          * @implements IBotRenderingConfigMetadata
          * @constructor
          * @param {AICommon.IBotRenderingConfigMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotRenderingConfigMetadata(properties) {
             if (properties)
@@ -7042,6 +7437,9 @@ $root.AICommon = (function() {
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.bloksVersioningId);
             if (message.pixelDensity != null && Object.hasOwnProperty.call(message, "pixelDensity"))
                 writer.uint32(/* id 2, wireType 1 =*/17).double(message.pixelDensity);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -7069,32 +7467,44 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotRenderingConfigMetadata.decode = function decode(reader, length, error, long) {
+        BotRenderingConfigMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotRenderingConfigMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotRenderingConfigMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.bloksVersioningId = reader.string();
-                        break;
-                    }
-                case 2: {
-                        message.pixelDensity = reader.double();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.bloksVersioningId = reader.string();
+                        message._bloksVersioningId = "bloksVersioningId";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 1)
+                            break;
+                        message.pixelDensity = reader.double();
+                        message._pixelDensity = "pixelDensity";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -7122,13 +7532,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotRenderingConfigMetadata.verify = function verify(message, long) {
+        BotRenderingConfigMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.bloksVersioningId != null && message.hasOwnProperty("bloksVersioningId")) {
                 properties._bloksVersioningId = 1;
@@ -7151,13 +7561,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotRenderingConfigMetadata} BotRenderingConfigMetadata
          */
-        BotRenderingConfigMetadata.fromObject = function fromObject(object, long) {
+        BotRenderingConfigMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotRenderingConfigMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotRenderingConfigMetadata();
             if (object.bloksVersioningId != null)
                 message.bloksVersioningId = String(object.bloksVersioningId);
@@ -7204,18 +7614,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotRenderingConfigMetadata
+         * Gets the type url for BotRenderingConfigMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotRenderingConfigMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotRenderingConfigMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotRenderingConfigMetadata";
+        BotRenderingConfigMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotRenderingConfigMetadata";
         };
 
         return BotRenderingConfigMetadata;
@@ -7228,6 +7637,7 @@ $root.AICommon = (function() {
          * @memberof AICommon
          * @interface IBotGroupMetadata
          * @property {Array.<AICommon.IBotGroupParticipantMetadata>|null} [participantsMetadata] BotGroupMetadata participantsMetadata
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -7237,6 +7647,7 @@ $root.AICommon = (function() {
          * @implements IBotGroupMetadata
          * @constructor
          * @param {AICommon.IBotGroupMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotGroupMetadata(properties) {
             this.participantsMetadata = [];
@@ -7281,6 +7692,9 @@ $root.AICommon = (function() {
             if (message.participantsMetadata != null && message.participantsMetadata.length)
                 for (var i = 0; i < message.participantsMetadata.length; ++i)
                     $root.AICommon.BotGroupParticipantMetadata.encode(message.participantsMetadata[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -7308,30 +7722,38 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotGroupMetadata.decode = function decode(reader, length, error, long) {
+        BotGroupMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotGroupMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotGroupMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        if (!(message.participantsMetadata && message.participantsMetadata.length))
-                            message.participantsMetadata = [];
-                        message.participantsMetadata.push($root.AICommon.BotGroupParticipantMetadata.decode(reader, reader.uint32(), undefined, long + 1));
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.participantsMetadata && message.participantsMetadata.length))
+                            message.participantsMetadata = [];
+                        message.participantsMetadata.push($root.AICommon.BotGroupParticipantMetadata.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -7359,18 +7781,18 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotGroupMetadata.verify = function verify(message, long) {
+        BotGroupMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             if (message.participantsMetadata != null && message.hasOwnProperty("participantsMetadata")) {
                 if (!Array.isArray(message.participantsMetadata))
                     return "participantsMetadata: array expected";
                 for (var i = 0; i < message.participantsMetadata.length; ++i) {
-                    var error = $root.AICommon.BotGroupParticipantMetadata.verify(message.participantsMetadata[i], long + 1);
+                    var error = $root.AICommon.BotGroupParticipantMetadata.verify(message.participantsMetadata[i], _depth + 1);
                     if (error)
                         return "participantsMetadata." + error;
                 }
@@ -7386,22 +7808,22 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotGroupMetadata} BotGroupMetadata
          */
-        BotGroupMetadata.fromObject = function fromObject(object, long) {
+        BotGroupMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotGroupMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotGroupMetadata();
             if (object.participantsMetadata) {
                 if (!Array.isArray(object.participantsMetadata))
                     throw TypeError(".AICommon.BotGroupMetadata.participantsMetadata: array expected");
-                message.participantsMetadata = [];
+                message.participantsMetadata = Array(object.participantsMetadata.length);
                 for (var i = 0; i < object.participantsMetadata.length; ++i) {
                     if (typeof object.participantsMetadata[i] !== "object")
                         throw TypeError(".AICommon.BotGroupMetadata.participantsMetadata: object expected");
-                    message.participantsMetadata[i] = $root.AICommon.BotGroupParticipantMetadata.fromObject(object.participantsMetadata[i], long + 1);
+                    message.participantsMetadata[i] = $root.AICommon.BotGroupParticipantMetadata.fromObject(object.participantsMetadata[i], _depth + 1);
                 }
             }
             return message;
@@ -7423,7 +7845,7 @@ $root.AICommon = (function() {
             if (options.arrays || options.defaults)
                 object.participantsMetadata = [];
             if (message.participantsMetadata && message.participantsMetadata.length) {
-                object.participantsMetadata = [];
+                object.participantsMetadata = Array(message.participantsMetadata.length);
                 for (var j = 0; j < message.participantsMetadata.length; ++j)
                     object.participantsMetadata[j] = $root.AICommon.BotGroupParticipantMetadata.toObject(message.participantsMetadata[j], options);
             }
@@ -7442,18 +7864,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotGroupMetadata
+         * Gets the type url for BotGroupMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotGroupMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotGroupMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotGroupMetadata";
+        BotGroupMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotGroupMetadata";
         };
 
         return BotGroupMetadata;
@@ -7466,6 +7887,7 @@ $root.AICommon = (function() {
          * @memberof AICommon
          * @interface IAISubscriptionUpsellMetadata
          * @property {AICommon.AISubscriptionRequestType|null} [requestType] AISubscriptionUpsellMetadata requestType
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -7475,6 +7897,7 @@ $root.AICommon = (function() {
          * @implements IAISubscriptionUpsellMetadata
          * @constructor
          * @param {AICommon.IAISubscriptionUpsellMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AISubscriptionUpsellMetadata(properties) {
             if (properties)
@@ -7526,6 +7949,9 @@ $root.AICommon = (function() {
                 writer = $Writer.create();
             if (message.requestType != null && Object.hasOwnProperty.call(message, "requestType"))
                 writer.uint32(/* id 1, wireType 0 =*/8).int32(message.requestType);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -7553,28 +7979,37 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        AISubscriptionUpsellMetadata.decode = function decode(reader, length, error, long) {
+        AISubscriptionUpsellMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.AISubscriptionUpsellMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.AISubscriptionUpsellMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.requestType = reader.int32();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.requestType = reader.int32();
+                        message._requestType = "requestType";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -7602,13 +8037,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        AISubscriptionUpsellMetadata.verify = function verify(message, long) {
+        AISubscriptionUpsellMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.requestType != null && message.hasOwnProperty("requestType")) {
                 properties._requestType = 1;
@@ -7633,13 +8068,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.AISubscriptionUpsellMetadata} AISubscriptionUpsellMetadata
          */
-        AISubscriptionUpsellMetadata.fromObject = function fromObject(object, long) {
+        AISubscriptionUpsellMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.AISubscriptionUpsellMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.AISubscriptionUpsellMetadata();
             switch (object.requestType) {
             default:
@@ -7701,18 +8136,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for AISubscriptionUpsellMetadata
+         * Gets the type url for AISubscriptionUpsellMetadata
          * @function getTypeUrl
          * @memberof AICommon.AISubscriptionUpsellMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        AISubscriptionUpsellMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.AISubscriptionUpsellMetadata";
+        AISubscriptionUpsellMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.AISubscriptionUpsellMetadata";
         };
 
         return AISubscriptionUpsellMetadata;
@@ -7765,6 +8199,7 @@ $root.AICommon = (function() {
          * @property {AICommon.IBotResolvedToolCallMetadata|null} [resolvedToolCallMetadata] BotMetadata resolvedToolCallMetadata
          * @property {AICommon.IAISubscriptionUpsellMetadata|null} [subscriptionUpsellMetadata] BotMetadata subscriptionUpsellMetadata
          * @property {Uint8Array|null} [internalMetadata] BotMetadata internalMetadata
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -7774,6 +8209,7 @@ $root.AICommon = (function() {
          * @implements IBotMetadata
          * @constructor
          * @param {AICommon.IBotMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotMetadata(properties) {
             if (properties)
@@ -8465,6 +8901,9 @@ $root.AICommon = (function() {
                 $root.AICommon.AISubscriptionUpsellMetadata.encode(message.subscriptionUpsellMetadata, writer.uint32(/* id 41, wireType 2 =*/330).fork()).ldelim();
             if (message.internalMetadata != null && Object.hasOwnProperty.call(message, "internalMetadata"))
                 writer.uint32(/* id 999, wireType 2 =*/7994).bytes(message.internalMetadata);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -8492,188 +8931,317 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotMetadata.decode = function decode(reader, length, error, long) {
+        BotMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 2: {
-                        message.personaId = reader.string();
-                        break;
-                    }
-                case 3: {
-                        message.pluginMetadata = $root.AICommon.BotPluginMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 4: {
-                        message.suggestedPromptMetadata = $root.AICommon.BotSuggestedPromptMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 5: {
-                        message.invokerJid = reader.string();
-                        break;
-                    }
-                case 6: {
-                        message.sessionMetadata = $root.AICommon.BotSessionMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 7: {
-                        message.memuMetadata = $root.AICommon.BotMemuMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 8: {
-                        message.timezone = reader.string();
-                        break;
-                    }
-                case 9: {
-                        message.reminderMetadata = $root.AICommon.BotReminderMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 10: {
-                        message.modelMetadata = $root.AICommon.BotModelMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 11: {
-                        message.messageDisclaimerText = reader.string();
-                        break;
-                    }
-                case 12: {
-                        message.progressIndicatorMetadata = $root.AICommon.BotProgressIndicatorMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 13: {
-                        message.capabilityMetadata = $root.AICommon.BotCapabilityMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 14: {
-                        message.imagineMetadata = $root.AICommon.BotImagineMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 15: {
-                        message.memoryMetadata = $root.AICommon.BotMemoryMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 16: {
-                        message.renderingMetadata = $root.AICommon.BotRenderingMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 17: {
-                        message.botMetricsMetadata = $root.AICommon.BotMetricsMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 18: {
-                        message.botLinkedAccountsMetadata = $root.AICommon.BotLinkedAccountsMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 19: {
-                        message.richResponseSourcesMetadata = $root.AICommon.BotSourcesMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 20: {
-                        message.aiConversationContext = reader.bytes();
-                        break;
-                    }
-                case 21: {
-                        message.botPromotionMessageMetadata = $root.AICommon.BotPromotionMessageMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 22: {
-                        message.botModeSelectionMetadata = $root.AICommon.BotModeSelectionMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 23: {
-                        message.botQuotaMetadata = $root.AICommon.BotQuotaMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 24: {
-                        message.botAgeCollectionMetadata = $root.AICommon.BotAgeCollectionMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 25: {
-                        message.conversationStarterPromptId = reader.string();
-                        break;
-                    }
-                case 26: {
-                        message.botResponseId = reader.string();
-                        break;
-                    }
-                case 27: {
-                        message.verificationMetadata = $root.AICommon.BotSignatureVerificationMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 28: {
-                        message.unifiedResponseMutation = $root.AICommon.BotUnifiedResponseMutation.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 29: {
-                        message.botMessageOriginMetadata = $root.AICommon.BotMessageOriginMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 30: {
-                        message.inThreadSurveyMetadata = $root.AICommon.InThreadSurveyMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 31: {
-                        message.botThreadInfo = $root.AICommon.AIThreadInfo.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 32: {
-                        message.regenerateMetadata = $root.AICommon.AIRegenerateMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 33: {
-                        message.sessionTransparencyMetadata = $root.AICommon.SessionTransparencyMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 34: {
-                        message.botDocumentMessageMetadata = $root.AICommon.BotDocumentMessageMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 35: {
-                        message.botGroupMetadata = $root.AICommon.BotGroupMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 36: {
-                        message.botRenderingConfigMetadata = $root.AICommon.BotRenderingConfigMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 37: {
-                        message.botInfrastructureDiagnostics = $root.AICommon.BotInfrastructureDiagnostics.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 38: {
-                        message.aiMediaCollectionMetadata = $root.AICommon.AIMediaCollectionMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 39: {
-                        message.commandMetadata = $root.AICommon.BotCommandMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 40: {
-                        message.resolvedToolCallMetadata = $root.AICommon.BotResolvedToolCallMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 41: {
-                        message.subscriptionUpsellMetadata = $root.AICommon.AISubscriptionUpsellMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 999: {
-                        message.internalMetadata = reader.bytes();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.personaId = reader.string();
+                        message._personaId = "personaId";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.pluginMetadata = $root.AICommon.BotPluginMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.pluginMetadata);
+                        message._pluginMetadata = "pluginMetadata";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 2)
+                            break;
+                        message.suggestedPromptMetadata = $root.AICommon.BotSuggestedPromptMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.suggestedPromptMetadata);
+                        message._suggestedPromptMetadata = "suggestedPromptMetadata";
+                        continue;
+                    }
+                case 5: {
+                        if (wireType !== 2)
+                            break;
+                        message.invokerJid = reader.string();
+                        message._invokerJid = "invokerJid";
+                        continue;
+                    }
+                case 6: {
+                        if (wireType !== 2)
+                            break;
+                        message.sessionMetadata = $root.AICommon.BotSessionMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.sessionMetadata);
+                        message._sessionMetadata = "sessionMetadata";
+                        continue;
+                    }
+                case 7: {
+                        if (wireType !== 2)
+                            break;
+                        message.memuMetadata = $root.AICommon.BotMemuMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.memuMetadata);
+                        message._memuMetadata = "memuMetadata";
+                        continue;
+                    }
+                case 8: {
+                        if (wireType !== 2)
+                            break;
+                        message.timezone = reader.string();
+                        message._timezone = "timezone";
+                        continue;
+                    }
+                case 9: {
+                        if (wireType !== 2)
+                            break;
+                        message.reminderMetadata = $root.AICommon.BotReminderMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.reminderMetadata);
+                        message._reminderMetadata = "reminderMetadata";
+                        continue;
+                    }
+                case 10: {
+                        if (wireType !== 2)
+                            break;
+                        message.modelMetadata = $root.AICommon.BotModelMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.modelMetadata);
+                        message._modelMetadata = "modelMetadata";
+                        continue;
+                    }
+                case 11: {
+                        if (wireType !== 2)
+                            break;
+                        message.messageDisclaimerText = reader.string();
+                        message._messageDisclaimerText = "messageDisclaimerText";
+                        continue;
+                    }
+                case 12: {
+                        if (wireType !== 2)
+                            break;
+                        message.progressIndicatorMetadata = $root.AICommon.BotProgressIndicatorMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.progressIndicatorMetadata);
+                        message._progressIndicatorMetadata = "progressIndicatorMetadata";
+                        continue;
+                    }
+                case 13: {
+                        if (wireType !== 2)
+                            break;
+                        message.capabilityMetadata = $root.AICommon.BotCapabilityMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.capabilityMetadata);
+                        message._capabilityMetadata = "capabilityMetadata";
+                        continue;
+                    }
+                case 14: {
+                        if (wireType !== 2)
+                            break;
+                        message.imagineMetadata = $root.AICommon.BotImagineMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.imagineMetadata);
+                        message._imagineMetadata = "imagineMetadata";
+                        continue;
+                    }
+                case 15: {
+                        if (wireType !== 2)
+                            break;
+                        message.memoryMetadata = $root.AICommon.BotMemoryMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.memoryMetadata);
+                        message._memoryMetadata = "memoryMetadata";
+                        continue;
+                    }
+                case 16: {
+                        if (wireType !== 2)
+                            break;
+                        message.renderingMetadata = $root.AICommon.BotRenderingMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.renderingMetadata);
+                        message._renderingMetadata = "renderingMetadata";
+                        continue;
+                    }
+                case 17: {
+                        if (wireType !== 2)
+                            break;
+                        message.botMetricsMetadata = $root.AICommon.BotMetricsMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.botMetricsMetadata);
+                        message._botMetricsMetadata = "botMetricsMetadata";
+                        continue;
+                    }
+                case 18: {
+                        if (wireType !== 2)
+                            break;
+                        message.botLinkedAccountsMetadata = $root.AICommon.BotLinkedAccountsMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.botLinkedAccountsMetadata);
+                        message._botLinkedAccountsMetadata = "botLinkedAccountsMetadata";
+                        continue;
+                    }
+                case 19: {
+                        if (wireType !== 2)
+                            break;
+                        message.richResponseSourcesMetadata = $root.AICommon.BotSourcesMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.richResponseSourcesMetadata);
+                        message._richResponseSourcesMetadata = "richResponseSourcesMetadata";
+                        continue;
+                    }
+                case 20: {
+                        if (wireType !== 2)
+                            break;
+                        message.aiConversationContext = reader.bytes();
+                        message._aiConversationContext = "aiConversationContext";
+                        continue;
+                    }
+                case 21: {
+                        if (wireType !== 2)
+                            break;
+                        message.botPromotionMessageMetadata = $root.AICommon.BotPromotionMessageMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.botPromotionMessageMetadata);
+                        message._botPromotionMessageMetadata = "botPromotionMessageMetadata";
+                        continue;
+                    }
+                case 22: {
+                        if (wireType !== 2)
+                            break;
+                        message.botModeSelectionMetadata = $root.AICommon.BotModeSelectionMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.botModeSelectionMetadata);
+                        message._botModeSelectionMetadata = "botModeSelectionMetadata";
+                        continue;
+                    }
+                case 23: {
+                        if (wireType !== 2)
+                            break;
+                        message.botQuotaMetadata = $root.AICommon.BotQuotaMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.botQuotaMetadata);
+                        message._botQuotaMetadata = "botQuotaMetadata";
+                        continue;
+                    }
+                case 24: {
+                        if (wireType !== 2)
+                            break;
+                        message.botAgeCollectionMetadata = $root.AICommon.BotAgeCollectionMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.botAgeCollectionMetadata);
+                        message._botAgeCollectionMetadata = "botAgeCollectionMetadata";
+                        continue;
+                    }
+                case 25: {
+                        if (wireType !== 2)
+                            break;
+                        message.conversationStarterPromptId = reader.string();
+                        message._conversationStarterPromptId = "conversationStarterPromptId";
+                        continue;
+                    }
+                case 26: {
+                        if (wireType !== 2)
+                            break;
+                        message.botResponseId = reader.string();
+                        message._botResponseId = "botResponseId";
+                        continue;
+                    }
+                case 27: {
+                        if (wireType !== 2)
+                            break;
+                        message.verificationMetadata = $root.AICommon.BotSignatureVerificationMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.verificationMetadata);
+                        message._verificationMetadata = "verificationMetadata";
+                        continue;
+                    }
+                case 28: {
+                        if (wireType !== 2)
+                            break;
+                        message.unifiedResponseMutation = $root.AICommon.BotUnifiedResponseMutation.decode(reader, reader.uint32(), undefined, _depth + 1, message.unifiedResponseMutation);
+                        message._unifiedResponseMutation = "unifiedResponseMutation";
+                        continue;
+                    }
+                case 29: {
+                        if (wireType !== 2)
+                            break;
+                        message.botMessageOriginMetadata = $root.AICommon.BotMessageOriginMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.botMessageOriginMetadata);
+                        message._botMessageOriginMetadata = "botMessageOriginMetadata";
+                        continue;
+                    }
+                case 30: {
+                        if (wireType !== 2)
+                            break;
+                        message.inThreadSurveyMetadata = $root.AICommon.InThreadSurveyMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.inThreadSurveyMetadata);
+                        message._inThreadSurveyMetadata = "inThreadSurveyMetadata";
+                        continue;
+                    }
+                case 31: {
+                        if (wireType !== 2)
+                            break;
+                        message.botThreadInfo = $root.AICommon.AIThreadInfo.decode(reader, reader.uint32(), undefined, _depth + 1, message.botThreadInfo);
+                        message._botThreadInfo = "botThreadInfo";
+                        continue;
+                    }
+                case 32: {
+                        if (wireType !== 2)
+                            break;
+                        message.regenerateMetadata = $root.AICommon.AIRegenerateMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.regenerateMetadata);
+                        message._regenerateMetadata = "regenerateMetadata";
+                        continue;
+                    }
+                case 33: {
+                        if (wireType !== 2)
+                            break;
+                        message.sessionTransparencyMetadata = $root.AICommon.SessionTransparencyMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.sessionTransparencyMetadata);
+                        message._sessionTransparencyMetadata = "sessionTransparencyMetadata";
+                        continue;
+                    }
+                case 34: {
+                        if (wireType !== 2)
+                            break;
+                        message.botDocumentMessageMetadata = $root.AICommon.BotDocumentMessageMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.botDocumentMessageMetadata);
+                        message._botDocumentMessageMetadata = "botDocumentMessageMetadata";
+                        continue;
+                    }
+                case 35: {
+                        if (wireType !== 2)
+                            break;
+                        message.botGroupMetadata = $root.AICommon.BotGroupMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.botGroupMetadata);
+                        message._botGroupMetadata = "botGroupMetadata";
+                        continue;
+                    }
+                case 36: {
+                        if (wireType !== 2)
+                            break;
+                        message.botRenderingConfigMetadata = $root.AICommon.BotRenderingConfigMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.botRenderingConfigMetadata);
+                        message._botRenderingConfigMetadata = "botRenderingConfigMetadata";
+                        continue;
+                    }
+                case 37: {
+                        if (wireType !== 2)
+                            break;
+                        message.botInfrastructureDiagnostics = $root.AICommon.BotInfrastructureDiagnostics.decode(reader, reader.uint32(), undefined, _depth + 1, message.botInfrastructureDiagnostics);
+                        message._botInfrastructureDiagnostics = "botInfrastructureDiagnostics";
+                        continue;
+                    }
+                case 38: {
+                        if (wireType !== 2)
+                            break;
+                        message.aiMediaCollectionMetadata = $root.AICommon.AIMediaCollectionMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.aiMediaCollectionMetadata);
+                        message._aiMediaCollectionMetadata = "aiMediaCollectionMetadata";
+                        continue;
+                    }
+                case 39: {
+                        if (wireType !== 2)
+                            break;
+                        message.commandMetadata = $root.AICommon.BotCommandMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.commandMetadata);
+                        message._commandMetadata = "commandMetadata";
+                        continue;
+                    }
+                case 40: {
+                        if (wireType !== 2)
+                            break;
+                        message.resolvedToolCallMetadata = $root.AICommon.BotResolvedToolCallMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.resolvedToolCallMetadata);
+                        message._resolvedToolCallMetadata = "resolvedToolCallMetadata";
+                        continue;
+                    }
+                case 41: {
+                        if (wireType !== 2)
+                            break;
+                        message.subscriptionUpsellMetadata = $root.AICommon.AISubscriptionUpsellMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.subscriptionUpsellMetadata);
+                        message._subscriptionUpsellMetadata = "subscriptionUpsellMetadata";
+                        continue;
+                    }
+                case 999: {
+                        if (wireType !== 2)
+                            break;
+                        message.internalMetadata = reader.bytes();
+                        message._internalMetadata = "internalMetadata";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -8701,13 +9269,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotMetadata.verify = function verify(message, long) {
+        BotMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.personaId != null && message.hasOwnProperty("personaId")) {
                 properties._personaId = 1;
@@ -8717,7 +9285,7 @@ $root.AICommon = (function() {
             if (message.pluginMetadata != null && message.hasOwnProperty("pluginMetadata")) {
                 properties._pluginMetadata = 1;
                 {
-                    var error = $root.AICommon.BotPluginMetadata.verify(message.pluginMetadata, long + 1);
+                    var error = $root.AICommon.BotPluginMetadata.verify(message.pluginMetadata, _depth + 1);
                     if (error)
                         return "pluginMetadata." + error;
                 }
@@ -8725,7 +9293,7 @@ $root.AICommon = (function() {
             if (message.suggestedPromptMetadata != null && message.hasOwnProperty("suggestedPromptMetadata")) {
                 properties._suggestedPromptMetadata = 1;
                 {
-                    var error = $root.AICommon.BotSuggestedPromptMetadata.verify(message.suggestedPromptMetadata, long + 1);
+                    var error = $root.AICommon.BotSuggestedPromptMetadata.verify(message.suggestedPromptMetadata, _depth + 1);
                     if (error)
                         return "suggestedPromptMetadata." + error;
                 }
@@ -8738,7 +9306,7 @@ $root.AICommon = (function() {
             if (message.sessionMetadata != null && message.hasOwnProperty("sessionMetadata")) {
                 properties._sessionMetadata = 1;
                 {
-                    var error = $root.AICommon.BotSessionMetadata.verify(message.sessionMetadata, long + 1);
+                    var error = $root.AICommon.BotSessionMetadata.verify(message.sessionMetadata, _depth + 1);
                     if (error)
                         return "sessionMetadata." + error;
                 }
@@ -8746,7 +9314,7 @@ $root.AICommon = (function() {
             if (message.memuMetadata != null && message.hasOwnProperty("memuMetadata")) {
                 properties._memuMetadata = 1;
                 {
-                    var error = $root.AICommon.BotMemuMetadata.verify(message.memuMetadata, long + 1);
+                    var error = $root.AICommon.BotMemuMetadata.verify(message.memuMetadata, _depth + 1);
                     if (error)
                         return "memuMetadata." + error;
                 }
@@ -8759,7 +9327,7 @@ $root.AICommon = (function() {
             if (message.reminderMetadata != null && message.hasOwnProperty("reminderMetadata")) {
                 properties._reminderMetadata = 1;
                 {
-                    var error = $root.AICommon.BotReminderMetadata.verify(message.reminderMetadata, long + 1);
+                    var error = $root.AICommon.BotReminderMetadata.verify(message.reminderMetadata, _depth + 1);
                     if (error)
                         return "reminderMetadata." + error;
                 }
@@ -8767,7 +9335,7 @@ $root.AICommon = (function() {
             if (message.modelMetadata != null && message.hasOwnProperty("modelMetadata")) {
                 properties._modelMetadata = 1;
                 {
-                    var error = $root.AICommon.BotModelMetadata.verify(message.modelMetadata, long + 1);
+                    var error = $root.AICommon.BotModelMetadata.verify(message.modelMetadata, _depth + 1);
                     if (error)
                         return "modelMetadata." + error;
                 }
@@ -8780,7 +9348,7 @@ $root.AICommon = (function() {
             if (message.progressIndicatorMetadata != null && message.hasOwnProperty("progressIndicatorMetadata")) {
                 properties._progressIndicatorMetadata = 1;
                 {
-                    var error = $root.AICommon.BotProgressIndicatorMetadata.verify(message.progressIndicatorMetadata, long + 1);
+                    var error = $root.AICommon.BotProgressIndicatorMetadata.verify(message.progressIndicatorMetadata, _depth + 1);
                     if (error)
                         return "progressIndicatorMetadata." + error;
                 }
@@ -8788,7 +9356,7 @@ $root.AICommon = (function() {
             if (message.capabilityMetadata != null && message.hasOwnProperty("capabilityMetadata")) {
                 properties._capabilityMetadata = 1;
                 {
-                    var error = $root.AICommon.BotCapabilityMetadata.verify(message.capabilityMetadata, long + 1);
+                    var error = $root.AICommon.BotCapabilityMetadata.verify(message.capabilityMetadata, _depth + 1);
                     if (error)
                         return "capabilityMetadata." + error;
                 }
@@ -8796,7 +9364,7 @@ $root.AICommon = (function() {
             if (message.imagineMetadata != null && message.hasOwnProperty("imagineMetadata")) {
                 properties._imagineMetadata = 1;
                 {
-                    var error = $root.AICommon.BotImagineMetadata.verify(message.imagineMetadata, long + 1);
+                    var error = $root.AICommon.BotImagineMetadata.verify(message.imagineMetadata, _depth + 1);
                     if (error)
                         return "imagineMetadata." + error;
                 }
@@ -8804,7 +9372,7 @@ $root.AICommon = (function() {
             if (message.memoryMetadata != null && message.hasOwnProperty("memoryMetadata")) {
                 properties._memoryMetadata = 1;
                 {
-                    var error = $root.AICommon.BotMemoryMetadata.verify(message.memoryMetadata, long + 1);
+                    var error = $root.AICommon.BotMemoryMetadata.verify(message.memoryMetadata, _depth + 1);
                     if (error)
                         return "memoryMetadata." + error;
                 }
@@ -8812,7 +9380,7 @@ $root.AICommon = (function() {
             if (message.renderingMetadata != null && message.hasOwnProperty("renderingMetadata")) {
                 properties._renderingMetadata = 1;
                 {
-                    var error = $root.AICommon.BotRenderingMetadata.verify(message.renderingMetadata, long + 1);
+                    var error = $root.AICommon.BotRenderingMetadata.verify(message.renderingMetadata, _depth + 1);
                     if (error)
                         return "renderingMetadata." + error;
                 }
@@ -8820,7 +9388,7 @@ $root.AICommon = (function() {
             if (message.botMetricsMetadata != null && message.hasOwnProperty("botMetricsMetadata")) {
                 properties._botMetricsMetadata = 1;
                 {
-                    var error = $root.AICommon.BotMetricsMetadata.verify(message.botMetricsMetadata, long + 1);
+                    var error = $root.AICommon.BotMetricsMetadata.verify(message.botMetricsMetadata, _depth + 1);
                     if (error)
                         return "botMetricsMetadata." + error;
                 }
@@ -8828,7 +9396,7 @@ $root.AICommon = (function() {
             if (message.botLinkedAccountsMetadata != null && message.hasOwnProperty("botLinkedAccountsMetadata")) {
                 properties._botLinkedAccountsMetadata = 1;
                 {
-                    var error = $root.AICommon.BotLinkedAccountsMetadata.verify(message.botLinkedAccountsMetadata, long + 1);
+                    var error = $root.AICommon.BotLinkedAccountsMetadata.verify(message.botLinkedAccountsMetadata, _depth + 1);
                     if (error)
                         return "botLinkedAccountsMetadata." + error;
                 }
@@ -8836,7 +9404,7 @@ $root.AICommon = (function() {
             if (message.richResponseSourcesMetadata != null && message.hasOwnProperty("richResponseSourcesMetadata")) {
                 properties._richResponseSourcesMetadata = 1;
                 {
-                    var error = $root.AICommon.BotSourcesMetadata.verify(message.richResponseSourcesMetadata, long + 1);
+                    var error = $root.AICommon.BotSourcesMetadata.verify(message.richResponseSourcesMetadata, _depth + 1);
                     if (error)
                         return "richResponseSourcesMetadata." + error;
                 }
@@ -8849,7 +9417,7 @@ $root.AICommon = (function() {
             if (message.botPromotionMessageMetadata != null && message.hasOwnProperty("botPromotionMessageMetadata")) {
                 properties._botPromotionMessageMetadata = 1;
                 {
-                    var error = $root.AICommon.BotPromotionMessageMetadata.verify(message.botPromotionMessageMetadata, long + 1);
+                    var error = $root.AICommon.BotPromotionMessageMetadata.verify(message.botPromotionMessageMetadata, _depth + 1);
                     if (error)
                         return "botPromotionMessageMetadata." + error;
                 }
@@ -8857,7 +9425,7 @@ $root.AICommon = (function() {
             if (message.botModeSelectionMetadata != null && message.hasOwnProperty("botModeSelectionMetadata")) {
                 properties._botModeSelectionMetadata = 1;
                 {
-                    var error = $root.AICommon.BotModeSelectionMetadata.verify(message.botModeSelectionMetadata, long + 1);
+                    var error = $root.AICommon.BotModeSelectionMetadata.verify(message.botModeSelectionMetadata, _depth + 1);
                     if (error)
                         return "botModeSelectionMetadata." + error;
                 }
@@ -8865,7 +9433,7 @@ $root.AICommon = (function() {
             if (message.botQuotaMetadata != null && message.hasOwnProperty("botQuotaMetadata")) {
                 properties._botQuotaMetadata = 1;
                 {
-                    var error = $root.AICommon.BotQuotaMetadata.verify(message.botQuotaMetadata, long + 1);
+                    var error = $root.AICommon.BotQuotaMetadata.verify(message.botQuotaMetadata, _depth + 1);
                     if (error)
                         return "botQuotaMetadata." + error;
                 }
@@ -8873,7 +9441,7 @@ $root.AICommon = (function() {
             if (message.botAgeCollectionMetadata != null && message.hasOwnProperty("botAgeCollectionMetadata")) {
                 properties._botAgeCollectionMetadata = 1;
                 {
-                    var error = $root.AICommon.BotAgeCollectionMetadata.verify(message.botAgeCollectionMetadata, long + 1);
+                    var error = $root.AICommon.BotAgeCollectionMetadata.verify(message.botAgeCollectionMetadata, _depth + 1);
                     if (error)
                         return "botAgeCollectionMetadata." + error;
                 }
@@ -8891,7 +9459,7 @@ $root.AICommon = (function() {
             if (message.verificationMetadata != null && message.hasOwnProperty("verificationMetadata")) {
                 properties._verificationMetadata = 1;
                 {
-                    var error = $root.AICommon.BotSignatureVerificationMetadata.verify(message.verificationMetadata, long + 1);
+                    var error = $root.AICommon.BotSignatureVerificationMetadata.verify(message.verificationMetadata, _depth + 1);
                     if (error)
                         return "verificationMetadata." + error;
                 }
@@ -8899,7 +9467,7 @@ $root.AICommon = (function() {
             if (message.unifiedResponseMutation != null && message.hasOwnProperty("unifiedResponseMutation")) {
                 properties._unifiedResponseMutation = 1;
                 {
-                    var error = $root.AICommon.BotUnifiedResponseMutation.verify(message.unifiedResponseMutation, long + 1);
+                    var error = $root.AICommon.BotUnifiedResponseMutation.verify(message.unifiedResponseMutation, _depth + 1);
                     if (error)
                         return "unifiedResponseMutation." + error;
                 }
@@ -8907,7 +9475,7 @@ $root.AICommon = (function() {
             if (message.botMessageOriginMetadata != null && message.hasOwnProperty("botMessageOriginMetadata")) {
                 properties._botMessageOriginMetadata = 1;
                 {
-                    var error = $root.AICommon.BotMessageOriginMetadata.verify(message.botMessageOriginMetadata, long + 1);
+                    var error = $root.AICommon.BotMessageOriginMetadata.verify(message.botMessageOriginMetadata, _depth + 1);
                     if (error)
                         return "botMessageOriginMetadata." + error;
                 }
@@ -8915,7 +9483,7 @@ $root.AICommon = (function() {
             if (message.inThreadSurveyMetadata != null && message.hasOwnProperty("inThreadSurveyMetadata")) {
                 properties._inThreadSurveyMetadata = 1;
                 {
-                    var error = $root.AICommon.InThreadSurveyMetadata.verify(message.inThreadSurveyMetadata, long + 1);
+                    var error = $root.AICommon.InThreadSurveyMetadata.verify(message.inThreadSurveyMetadata, _depth + 1);
                     if (error)
                         return "inThreadSurveyMetadata." + error;
                 }
@@ -8923,7 +9491,7 @@ $root.AICommon = (function() {
             if (message.botThreadInfo != null && message.hasOwnProperty("botThreadInfo")) {
                 properties._botThreadInfo = 1;
                 {
-                    var error = $root.AICommon.AIThreadInfo.verify(message.botThreadInfo, long + 1);
+                    var error = $root.AICommon.AIThreadInfo.verify(message.botThreadInfo, _depth + 1);
                     if (error)
                         return "botThreadInfo." + error;
                 }
@@ -8931,7 +9499,7 @@ $root.AICommon = (function() {
             if (message.regenerateMetadata != null && message.hasOwnProperty("regenerateMetadata")) {
                 properties._regenerateMetadata = 1;
                 {
-                    var error = $root.AICommon.AIRegenerateMetadata.verify(message.regenerateMetadata, long + 1);
+                    var error = $root.AICommon.AIRegenerateMetadata.verify(message.regenerateMetadata, _depth + 1);
                     if (error)
                         return "regenerateMetadata." + error;
                 }
@@ -8939,7 +9507,7 @@ $root.AICommon = (function() {
             if (message.sessionTransparencyMetadata != null && message.hasOwnProperty("sessionTransparencyMetadata")) {
                 properties._sessionTransparencyMetadata = 1;
                 {
-                    var error = $root.AICommon.SessionTransparencyMetadata.verify(message.sessionTransparencyMetadata, long + 1);
+                    var error = $root.AICommon.SessionTransparencyMetadata.verify(message.sessionTransparencyMetadata, _depth + 1);
                     if (error)
                         return "sessionTransparencyMetadata." + error;
                 }
@@ -8947,7 +9515,7 @@ $root.AICommon = (function() {
             if (message.botDocumentMessageMetadata != null && message.hasOwnProperty("botDocumentMessageMetadata")) {
                 properties._botDocumentMessageMetadata = 1;
                 {
-                    var error = $root.AICommon.BotDocumentMessageMetadata.verify(message.botDocumentMessageMetadata, long + 1);
+                    var error = $root.AICommon.BotDocumentMessageMetadata.verify(message.botDocumentMessageMetadata, _depth + 1);
                     if (error)
                         return "botDocumentMessageMetadata." + error;
                 }
@@ -8955,7 +9523,7 @@ $root.AICommon = (function() {
             if (message.botGroupMetadata != null && message.hasOwnProperty("botGroupMetadata")) {
                 properties._botGroupMetadata = 1;
                 {
-                    var error = $root.AICommon.BotGroupMetadata.verify(message.botGroupMetadata, long + 1);
+                    var error = $root.AICommon.BotGroupMetadata.verify(message.botGroupMetadata, _depth + 1);
                     if (error)
                         return "botGroupMetadata." + error;
                 }
@@ -8963,7 +9531,7 @@ $root.AICommon = (function() {
             if (message.botRenderingConfigMetadata != null && message.hasOwnProperty("botRenderingConfigMetadata")) {
                 properties._botRenderingConfigMetadata = 1;
                 {
-                    var error = $root.AICommon.BotRenderingConfigMetadata.verify(message.botRenderingConfigMetadata, long + 1);
+                    var error = $root.AICommon.BotRenderingConfigMetadata.verify(message.botRenderingConfigMetadata, _depth + 1);
                     if (error)
                         return "botRenderingConfigMetadata." + error;
                 }
@@ -8971,7 +9539,7 @@ $root.AICommon = (function() {
             if (message.botInfrastructureDiagnostics != null && message.hasOwnProperty("botInfrastructureDiagnostics")) {
                 properties._botInfrastructureDiagnostics = 1;
                 {
-                    var error = $root.AICommon.BotInfrastructureDiagnostics.verify(message.botInfrastructureDiagnostics, long + 1);
+                    var error = $root.AICommon.BotInfrastructureDiagnostics.verify(message.botInfrastructureDiagnostics, _depth + 1);
                     if (error)
                         return "botInfrastructureDiagnostics." + error;
                 }
@@ -8979,7 +9547,7 @@ $root.AICommon = (function() {
             if (message.aiMediaCollectionMetadata != null && message.hasOwnProperty("aiMediaCollectionMetadata")) {
                 properties._aiMediaCollectionMetadata = 1;
                 {
-                    var error = $root.AICommon.AIMediaCollectionMetadata.verify(message.aiMediaCollectionMetadata, long + 1);
+                    var error = $root.AICommon.AIMediaCollectionMetadata.verify(message.aiMediaCollectionMetadata, _depth + 1);
                     if (error)
                         return "aiMediaCollectionMetadata." + error;
                 }
@@ -8987,7 +9555,7 @@ $root.AICommon = (function() {
             if (message.commandMetadata != null && message.hasOwnProperty("commandMetadata")) {
                 properties._commandMetadata = 1;
                 {
-                    var error = $root.AICommon.BotCommandMetadata.verify(message.commandMetadata, long + 1);
+                    var error = $root.AICommon.BotCommandMetadata.verify(message.commandMetadata, _depth + 1);
                     if (error)
                         return "commandMetadata." + error;
                 }
@@ -8995,7 +9563,7 @@ $root.AICommon = (function() {
             if (message.resolvedToolCallMetadata != null && message.hasOwnProperty("resolvedToolCallMetadata")) {
                 properties._resolvedToolCallMetadata = 1;
                 {
-                    var error = $root.AICommon.BotResolvedToolCallMetadata.verify(message.resolvedToolCallMetadata, long + 1);
+                    var error = $root.AICommon.BotResolvedToolCallMetadata.verify(message.resolvedToolCallMetadata, _depth + 1);
                     if (error)
                         return "resolvedToolCallMetadata." + error;
                 }
@@ -9003,7 +9571,7 @@ $root.AICommon = (function() {
             if (message.subscriptionUpsellMetadata != null && message.hasOwnProperty("subscriptionUpsellMetadata")) {
                 properties._subscriptionUpsellMetadata = 1;
                 {
-                    var error = $root.AICommon.AISubscriptionUpsellMetadata.verify(message.subscriptionUpsellMetadata, long + 1);
+                    var error = $root.AICommon.AISubscriptionUpsellMetadata.verify(message.subscriptionUpsellMetadata, _depth + 1);
                     if (error)
                         return "subscriptionUpsellMetadata." + error;
                 }
@@ -9024,91 +9592,91 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotMetadata} BotMetadata
          */
-        BotMetadata.fromObject = function fromObject(object, long) {
+        BotMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotMetadata();
             if (object.personaId != null)
                 message.personaId = String(object.personaId);
             if (object.pluginMetadata != null) {
                 if (typeof object.pluginMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.pluginMetadata: object expected");
-                message.pluginMetadata = $root.AICommon.BotPluginMetadata.fromObject(object.pluginMetadata, long + 1);
+                message.pluginMetadata = $root.AICommon.BotPluginMetadata.fromObject(object.pluginMetadata, _depth + 1);
             }
             if (object.suggestedPromptMetadata != null) {
                 if (typeof object.suggestedPromptMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.suggestedPromptMetadata: object expected");
-                message.suggestedPromptMetadata = $root.AICommon.BotSuggestedPromptMetadata.fromObject(object.suggestedPromptMetadata, long + 1);
+                message.suggestedPromptMetadata = $root.AICommon.BotSuggestedPromptMetadata.fromObject(object.suggestedPromptMetadata, _depth + 1);
             }
             if (object.invokerJid != null)
                 message.invokerJid = String(object.invokerJid);
             if (object.sessionMetadata != null) {
                 if (typeof object.sessionMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.sessionMetadata: object expected");
-                message.sessionMetadata = $root.AICommon.BotSessionMetadata.fromObject(object.sessionMetadata, long + 1);
+                message.sessionMetadata = $root.AICommon.BotSessionMetadata.fromObject(object.sessionMetadata, _depth + 1);
             }
             if (object.memuMetadata != null) {
                 if (typeof object.memuMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.memuMetadata: object expected");
-                message.memuMetadata = $root.AICommon.BotMemuMetadata.fromObject(object.memuMetadata, long + 1);
+                message.memuMetadata = $root.AICommon.BotMemuMetadata.fromObject(object.memuMetadata, _depth + 1);
             }
             if (object.timezone != null)
                 message.timezone = String(object.timezone);
             if (object.reminderMetadata != null) {
                 if (typeof object.reminderMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.reminderMetadata: object expected");
-                message.reminderMetadata = $root.AICommon.BotReminderMetadata.fromObject(object.reminderMetadata, long + 1);
+                message.reminderMetadata = $root.AICommon.BotReminderMetadata.fromObject(object.reminderMetadata, _depth + 1);
             }
             if (object.modelMetadata != null) {
                 if (typeof object.modelMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.modelMetadata: object expected");
-                message.modelMetadata = $root.AICommon.BotModelMetadata.fromObject(object.modelMetadata, long + 1);
+                message.modelMetadata = $root.AICommon.BotModelMetadata.fromObject(object.modelMetadata, _depth + 1);
             }
             if (object.messageDisclaimerText != null)
                 message.messageDisclaimerText = String(object.messageDisclaimerText);
             if (object.progressIndicatorMetadata != null) {
                 if (typeof object.progressIndicatorMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.progressIndicatorMetadata: object expected");
-                message.progressIndicatorMetadata = $root.AICommon.BotProgressIndicatorMetadata.fromObject(object.progressIndicatorMetadata, long + 1);
+                message.progressIndicatorMetadata = $root.AICommon.BotProgressIndicatorMetadata.fromObject(object.progressIndicatorMetadata, _depth + 1);
             }
             if (object.capabilityMetadata != null) {
                 if (typeof object.capabilityMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.capabilityMetadata: object expected");
-                message.capabilityMetadata = $root.AICommon.BotCapabilityMetadata.fromObject(object.capabilityMetadata, long + 1);
+                message.capabilityMetadata = $root.AICommon.BotCapabilityMetadata.fromObject(object.capabilityMetadata, _depth + 1);
             }
             if (object.imagineMetadata != null) {
                 if (typeof object.imagineMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.imagineMetadata: object expected");
-                message.imagineMetadata = $root.AICommon.BotImagineMetadata.fromObject(object.imagineMetadata, long + 1);
+                message.imagineMetadata = $root.AICommon.BotImagineMetadata.fromObject(object.imagineMetadata, _depth + 1);
             }
             if (object.memoryMetadata != null) {
                 if (typeof object.memoryMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.memoryMetadata: object expected");
-                message.memoryMetadata = $root.AICommon.BotMemoryMetadata.fromObject(object.memoryMetadata, long + 1);
+                message.memoryMetadata = $root.AICommon.BotMemoryMetadata.fromObject(object.memoryMetadata, _depth + 1);
             }
             if (object.renderingMetadata != null) {
                 if (typeof object.renderingMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.renderingMetadata: object expected");
-                message.renderingMetadata = $root.AICommon.BotRenderingMetadata.fromObject(object.renderingMetadata, long + 1);
+                message.renderingMetadata = $root.AICommon.BotRenderingMetadata.fromObject(object.renderingMetadata, _depth + 1);
             }
             if (object.botMetricsMetadata != null) {
                 if (typeof object.botMetricsMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.botMetricsMetadata: object expected");
-                message.botMetricsMetadata = $root.AICommon.BotMetricsMetadata.fromObject(object.botMetricsMetadata, long + 1);
+                message.botMetricsMetadata = $root.AICommon.BotMetricsMetadata.fromObject(object.botMetricsMetadata, _depth + 1);
             }
             if (object.botLinkedAccountsMetadata != null) {
                 if (typeof object.botLinkedAccountsMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.botLinkedAccountsMetadata: object expected");
-                message.botLinkedAccountsMetadata = $root.AICommon.BotLinkedAccountsMetadata.fromObject(object.botLinkedAccountsMetadata, long + 1);
+                message.botLinkedAccountsMetadata = $root.AICommon.BotLinkedAccountsMetadata.fromObject(object.botLinkedAccountsMetadata, _depth + 1);
             }
             if (object.richResponseSourcesMetadata != null) {
                 if (typeof object.richResponseSourcesMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.richResponseSourcesMetadata: object expected");
-                message.richResponseSourcesMetadata = $root.AICommon.BotSourcesMetadata.fromObject(object.richResponseSourcesMetadata, long + 1);
+                message.richResponseSourcesMetadata = $root.AICommon.BotSourcesMetadata.fromObject(object.richResponseSourcesMetadata, _depth + 1);
             }
             if (object.aiConversationContext != null)
                 if (typeof object.aiConversationContext === "string")
@@ -9118,22 +9686,22 @@ $root.AICommon = (function() {
             if (object.botPromotionMessageMetadata != null) {
                 if (typeof object.botPromotionMessageMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.botPromotionMessageMetadata: object expected");
-                message.botPromotionMessageMetadata = $root.AICommon.BotPromotionMessageMetadata.fromObject(object.botPromotionMessageMetadata, long + 1);
+                message.botPromotionMessageMetadata = $root.AICommon.BotPromotionMessageMetadata.fromObject(object.botPromotionMessageMetadata, _depth + 1);
             }
             if (object.botModeSelectionMetadata != null) {
                 if (typeof object.botModeSelectionMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.botModeSelectionMetadata: object expected");
-                message.botModeSelectionMetadata = $root.AICommon.BotModeSelectionMetadata.fromObject(object.botModeSelectionMetadata, long + 1);
+                message.botModeSelectionMetadata = $root.AICommon.BotModeSelectionMetadata.fromObject(object.botModeSelectionMetadata, _depth + 1);
             }
             if (object.botQuotaMetadata != null) {
                 if (typeof object.botQuotaMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.botQuotaMetadata: object expected");
-                message.botQuotaMetadata = $root.AICommon.BotQuotaMetadata.fromObject(object.botQuotaMetadata, long + 1);
+                message.botQuotaMetadata = $root.AICommon.BotQuotaMetadata.fromObject(object.botQuotaMetadata, _depth + 1);
             }
             if (object.botAgeCollectionMetadata != null) {
                 if (typeof object.botAgeCollectionMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.botAgeCollectionMetadata: object expected");
-                message.botAgeCollectionMetadata = $root.AICommon.BotAgeCollectionMetadata.fromObject(object.botAgeCollectionMetadata, long + 1);
+                message.botAgeCollectionMetadata = $root.AICommon.BotAgeCollectionMetadata.fromObject(object.botAgeCollectionMetadata, _depth + 1);
             }
             if (object.conversationStarterPromptId != null)
                 message.conversationStarterPromptId = String(object.conversationStarterPromptId);
@@ -9142,77 +9710,77 @@ $root.AICommon = (function() {
             if (object.verificationMetadata != null) {
                 if (typeof object.verificationMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.verificationMetadata: object expected");
-                message.verificationMetadata = $root.AICommon.BotSignatureVerificationMetadata.fromObject(object.verificationMetadata, long + 1);
+                message.verificationMetadata = $root.AICommon.BotSignatureVerificationMetadata.fromObject(object.verificationMetadata, _depth + 1);
             }
             if (object.unifiedResponseMutation != null) {
                 if (typeof object.unifiedResponseMutation !== "object")
                     throw TypeError(".AICommon.BotMetadata.unifiedResponseMutation: object expected");
-                message.unifiedResponseMutation = $root.AICommon.BotUnifiedResponseMutation.fromObject(object.unifiedResponseMutation, long + 1);
+                message.unifiedResponseMutation = $root.AICommon.BotUnifiedResponseMutation.fromObject(object.unifiedResponseMutation, _depth + 1);
             }
             if (object.botMessageOriginMetadata != null) {
                 if (typeof object.botMessageOriginMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.botMessageOriginMetadata: object expected");
-                message.botMessageOriginMetadata = $root.AICommon.BotMessageOriginMetadata.fromObject(object.botMessageOriginMetadata, long + 1);
+                message.botMessageOriginMetadata = $root.AICommon.BotMessageOriginMetadata.fromObject(object.botMessageOriginMetadata, _depth + 1);
             }
             if (object.inThreadSurveyMetadata != null) {
                 if (typeof object.inThreadSurveyMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.inThreadSurveyMetadata: object expected");
-                message.inThreadSurveyMetadata = $root.AICommon.InThreadSurveyMetadata.fromObject(object.inThreadSurveyMetadata, long + 1);
+                message.inThreadSurveyMetadata = $root.AICommon.InThreadSurveyMetadata.fromObject(object.inThreadSurveyMetadata, _depth + 1);
             }
             if (object.botThreadInfo != null) {
                 if (typeof object.botThreadInfo !== "object")
                     throw TypeError(".AICommon.BotMetadata.botThreadInfo: object expected");
-                message.botThreadInfo = $root.AICommon.AIThreadInfo.fromObject(object.botThreadInfo, long + 1);
+                message.botThreadInfo = $root.AICommon.AIThreadInfo.fromObject(object.botThreadInfo, _depth + 1);
             }
             if (object.regenerateMetadata != null) {
                 if (typeof object.regenerateMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.regenerateMetadata: object expected");
-                message.regenerateMetadata = $root.AICommon.AIRegenerateMetadata.fromObject(object.regenerateMetadata, long + 1);
+                message.regenerateMetadata = $root.AICommon.AIRegenerateMetadata.fromObject(object.regenerateMetadata, _depth + 1);
             }
             if (object.sessionTransparencyMetadata != null) {
                 if (typeof object.sessionTransparencyMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.sessionTransparencyMetadata: object expected");
-                message.sessionTransparencyMetadata = $root.AICommon.SessionTransparencyMetadata.fromObject(object.sessionTransparencyMetadata, long + 1);
+                message.sessionTransparencyMetadata = $root.AICommon.SessionTransparencyMetadata.fromObject(object.sessionTransparencyMetadata, _depth + 1);
             }
             if (object.botDocumentMessageMetadata != null) {
                 if (typeof object.botDocumentMessageMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.botDocumentMessageMetadata: object expected");
-                message.botDocumentMessageMetadata = $root.AICommon.BotDocumentMessageMetadata.fromObject(object.botDocumentMessageMetadata, long + 1);
+                message.botDocumentMessageMetadata = $root.AICommon.BotDocumentMessageMetadata.fromObject(object.botDocumentMessageMetadata, _depth + 1);
             }
             if (object.botGroupMetadata != null) {
                 if (typeof object.botGroupMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.botGroupMetadata: object expected");
-                message.botGroupMetadata = $root.AICommon.BotGroupMetadata.fromObject(object.botGroupMetadata, long + 1);
+                message.botGroupMetadata = $root.AICommon.BotGroupMetadata.fromObject(object.botGroupMetadata, _depth + 1);
             }
             if (object.botRenderingConfigMetadata != null) {
                 if (typeof object.botRenderingConfigMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.botRenderingConfigMetadata: object expected");
-                message.botRenderingConfigMetadata = $root.AICommon.BotRenderingConfigMetadata.fromObject(object.botRenderingConfigMetadata, long + 1);
+                message.botRenderingConfigMetadata = $root.AICommon.BotRenderingConfigMetadata.fromObject(object.botRenderingConfigMetadata, _depth + 1);
             }
             if (object.botInfrastructureDiagnostics != null) {
                 if (typeof object.botInfrastructureDiagnostics !== "object")
                     throw TypeError(".AICommon.BotMetadata.botInfrastructureDiagnostics: object expected");
-                message.botInfrastructureDiagnostics = $root.AICommon.BotInfrastructureDiagnostics.fromObject(object.botInfrastructureDiagnostics, long + 1);
+                message.botInfrastructureDiagnostics = $root.AICommon.BotInfrastructureDiagnostics.fromObject(object.botInfrastructureDiagnostics, _depth + 1);
             }
             if (object.aiMediaCollectionMetadata != null) {
                 if (typeof object.aiMediaCollectionMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.aiMediaCollectionMetadata: object expected");
-                message.aiMediaCollectionMetadata = $root.AICommon.AIMediaCollectionMetadata.fromObject(object.aiMediaCollectionMetadata, long + 1);
+                message.aiMediaCollectionMetadata = $root.AICommon.AIMediaCollectionMetadata.fromObject(object.aiMediaCollectionMetadata, _depth + 1);
             }
             if (object.commandMetadata != null) {
                 if (typeof object.commandMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.commandMetadata: object expected");
-                message.commandMetadata = $root.AICommon.BotCommandMetadata.fromObject(object.commandMetadata, long + 1);
+                message.commandMetadata = $root.AICommon.BotCommandMetadata.fromObject(object.commandMetadata, _depth + 1);
             }
             if (object.resolvedToolCallMetadata != null) {
                 if (typeof object.resolvedToolCallMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.resolvedToolCallMetadata: object expected");
-                message.resolvedToolCallMetadata = $root.AICommon.BotResolvedToolCallMetadata.fromObject(object.resolvedToolCallMetadata, long + 1);
+                message.resolvedToolCallMetadata = $root.AICommon.BotResolvedToolCallMetadata.fromObject(object.resolvedToolCallMetadata, _depth + 1);
             }
             if (object.subscriptionUpsellMetadata != null) {
                 if (typeof object.subscriptionUpsellMetadata !== "object")
                     throw TypeError(".AICommon.BotMetadata.subscriptionUpsellMetadata: object expected");
-                message.subscriptionUpsellMetadata = $root.AICommon.AISubscriptionUpsellMetadata.fromObject(object.subscriptionUpsellMetadata, long + 1);
+                message.subscriptionUpsellMetadata = $root.AICommon.AISubscriptionUpsellMetadata.fromObject(object.subscriptionUpsellMetadata, _depth + 1);
             }
             if (object.internalMetadata != null)
                 if (typeof object.internalMetadata === "string")
@@ -9455,18 +10023,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotMetadata
+         * Gets the type url for BotMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotMetadata";
+        BotMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotMetadata";
         };
 
         return BotMetadata;
@@ -9480,6 +10047,7 @@ $root.AICommon = (function() {
          * @interface IBotResolvedToolCallMetadata
          * @property {string|null} [toolCallId] BotResolvedToolCallMetadata toolCallId
          * @property {string|null} [resolutionDataSerialized] BotResolvedToolCallMetadata resolutionDataSerialized
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -9489,6 +10057,7 @@ $root.AICommon = (function() {
          * @implements IBotResolvedToolCallMetadata
          * @constructor
          * @param {AICommon.IBotResolvedToolCallMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotResolvedToolCallMetadata(properties) {
             if (properties)
@@ -9556,6 +10125,9 @@ $root.AICommon = (function() {
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.toolCallId);
             if (message.resolutionDataSerialized != null && Object.hasOwnProperty.call(message, "resolutionDataSerialized"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.resolutionDataSerialized);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -9583,32 +10155,44 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotResolvedToolCallMetadata.decode = function decode(reader, length, error, long) {
+        BotResolvedToolCallMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotResolvedToolCallMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotResolvedToolCallMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.toolCallId = reader.string();
-                        break;
-                    }
-                case 2: {
-                        message.resolutionDataSerialized = reader.string();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.toolCallId = reader.string();
+                        message._toolCallId = "toolCallId";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.resolutionDataSerialized = reader.string();
+                        message._resolutionDataSerialized = "resolutionDataSerialized";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -9636,13 +10220,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotResolvedToolCallMetadata.verify = function verify(message, long) {
+        BotResolvedToolCallMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.toolCallId != null && message.hasOwnProperty("toolCallId")) {
                 properties._toolCallId = 1;
@@ -9665,13 +10249,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotResolvedToolCallMetadata} BotResolvedToolCallMetadata
          */
-        BotResolvedToolCallMetadata.fromObject = function fromObject(object, long) {
+        BotResolvedToolCallMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotResolvedToolCallMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotResolvedToolCallMetadata();
             if (object.toolCallId != null)
                 message.toolCallId = String(object.toolCallId);
@@ -9718,18 +10302,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotResolvedToolCallMetadata
+         * Gets the type url for BotResolvedToolCallMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotResolvedToolCallMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotResolvedToolCallMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotResolvedToolCallMetadata";
+        BotResolvedToolCallMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotResolvedToolCallMetadata";
         };
 
         return BotResolvedToolCallMetadata;
@@ -9744,6 +10327,7 @@ $root.AICommon = (function() {
          * @property {string|null} [commandName] BotCommandMetadata commandName
          * @property {string|null} [commandDescription] BotCommandMetadata commandDescription
          * @property {string|null} [commandPrompt] BotCommandMetadata commandPrompt
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -9753,6 +10337,7 @@ $root.AICommon = (function() {
          * @implements IBotCommandMetadata
          * @constructor
          * @param {AICommon.IBotCommandMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotCommandMetadata(properties) {
             if (properties)
@@ -9836,6 +10421,9 @@ $root.AICommon = (function() {
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.commandDescription);
             if (message.commandPrompt != null && Object.hasOwnProperty.call(message, "commandPrompt"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.commandPrompt);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -9863,36 +10451,51 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotCommandMetadata.decode = function decode(reader, length, error, long) {
+        BotCommandMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotCommandMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotCommandMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.commandName = reader.string();
-                        break;
-                    }
-                case 2: {
-                        message.commandDescription = reader.string();
-                        break;
-                    }
-                case 3: {
-                        message.commandPrompt = reader.string();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.commandName = reader.string();
+                        message._commandName = "commandName";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.commandDescription = reader.string();
+                        message._commandDescription = "commandDescription";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.commandPrompt = reader.string();
+                        message._commandPrompt = "commandPrompt";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -9920,13 +10523,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotCommandMetadata.verify = function verify(message, long) {
+        BotCommandMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.commandName != null && message.hasOwnProperty("commandName")) {
                 properties._commandName = 1;
@@ -9954,13 +10557,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotCommandMetadata} BotCommandMetadata
          */
-        BotCommandMetadata.fromObject = function fromObject(object, long) {
+        BotCommandMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotCommandMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotCommandMetadata();
             if (object.commandName != null)
                 message.commandName = String(object.commandName);
@@ -10014,18 +10617,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotCommandMetadata
+         * Gets the type url for BotCommandMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotCommandMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotCommandMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotCommandMetadata";
+        BotCommandMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotCommandMetadata";
         };
 
         return BotCommandMetadata;
@@ -10040,6 +10642,7 @@ $root.AICommon = (function() {
          * @property {string|null} [collectionId] AIMediaCollectionMessage collectionId
          * @property {number|null} [expectedMediaCount] AIMediaCollectionMessage expectedMediaCount
          * @property {boolean|null} [hasGlobalCaption] AIMediaCollectionMessage hasGlobalCaption
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -10049,6 +10652,7 @@ $root.AICommon = (function() {
          * @implements IAIMediaCollectionMessage
          * @constructor
          * @param {AICommon.IAIMediaCollectionMessage=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIMediaCollectionMessage(properties) {
             if (properties)
@@ -10132,6 +10736,9 @@ $root.AICommon = (function() {
                 writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.expectedMediaCount);
             if (message.hasGlobalCaption != null && Object.hasOwnProperty.call(message, "hasGlobalCaption"))
                 writer.uint32(/* id 3, wireType 0 =*/24).bool(message.hasGlobalCaption);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -10159,36 +10766,51 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        AIMediaCollectionMessage.decode = function decode(reader, length, error, long) {
+        AIMediaCollectionMessage.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.AIMediaCollectionMessage();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.AIMediaCollectionMessage();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.collectionId = reader.string();
-                        break;
-                    }
-                case 2: {
-                        message.expectedMediaCount = reader.uint32();
-                        break;
-                    }
-                case 3: {
-                        message.hasGlobalCaption = reader.bool();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.collectionId = reader.string();
+                        message._collectionId = "collectionId";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 0)
+                            break;
+                        message.expectedMediaCount = reader.uint32();
+                        message._expectedMediaCount = "expectedMediaCount";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 0)
+                            break;
+                        message.hasGlobalCaption = reader.bool();
+                        message._hasGlobalCaption = "hasGlobalCaption";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -10216,13 +10838,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        AIMediaCollectionMessage.verify = function verify(message, long) {
+        AIMediaCollectionMessage.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.collectionId != null && message.hasOwnProperty("collectionId")) {
                 properties._collectionId = 1;
@@ -10250,13 +10872,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.AIMediaCollectionMessage} AIMediaCollectionMessage
          */
-        AIMediaCollectionMessage.fromObject = function fromObject(object, long) {
+        AIMediaCollectionMessage.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.AIMediaCollectionMessage)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.AIMediaCollectionMessage();
             if (object.collectionId != null)
                 message.collectionId = String(object.collectionId);
@@ -10310,18 +10932,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for AIMediaCollectionMessage
+         * Gets the type url for AIMediaCollectionMessage
          * @function getTypeUrl
          * @memberof AICommon.AIMediaCollectionMessage
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        AIMediaCollectionMessage.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.AIMediaCollectionMessage";
+        AIMediaCollectionMessage.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.AIMediaCollectionMessage";
         };
 
         return AIMediaCollectionMessage;
@@ -10335,6 +10956,7 @@ $root.AICommon = (function() {
          * @interface IAIMediaCollectionMetadata
          * @property {string|null} [collectionId] AIMediaCollectionMetadata collectionId
          * @property {number|null} [uploadOrderIndex] AIMediaCollectionMetadata uploadOrderIndex
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -10344,6 +10966,7 @@ $root.AICommon = (function() {
          * @implements IAIMediaCollectionMetadata
          * @constructor
          * @param {AICommon.IAIMediaCollectionMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIMediaCollectionMetadata(properties) {
             if (properties)
@@ -10411,6 +11034,9 @@ $root.AICommon = (function() {
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.collectionId);
             if (message.uploadOrderIndex != null && Object.hasOwnProperty.call(message, "uploadOrderIndex"))
                 writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.uploadOrderIndex);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -10438,32 +11064,44 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        AIMediaCollectionMetadata.decode = function decode(reader, length, error, long) {
+        AIMediaCollectionMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.AIMediaCollectionMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.AIMediaCollectionMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.collectionId = reader.string();
-                        break;
-                    }
-                case 2: {
-                        message.uploadOrderIndex = reader.uint32();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.collectionId = reader.string();
+                        message._collectionId = "collectionId";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 0)
+                            break;
+                        message.uploadOrderIndex = reader.uint32();
+                        message._uploadOrderIndex = "uploadOrderIndex";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -10491,13 +11129,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        AIMediaCollectionMetadata.verify = function verify(message, long) {
+        AIMediaCollectionMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.collectionId != null && message.hasOwnProperty("collectionId")) {
                 properties._collectionId = 1;
@@ -10520,13 +11158,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.AIMediaCollectionMetadata} AIMediaCollectionMetadata
          */
-        AIMediaCollectionMetadata.fromObject = function fromObject(object, long) {
+        AIMediaCollectionMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.AIMediaCollectionMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.AIMediaCollectionMetadata();
             if (object.collectionId != null)
                 message.collectionId = String(object.collectionId);
@@ -10573,18 +11211,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for AIMediaCollectionMetadata
+         * Gets the type url for AIMediaCollectionMetadata
          * @function getTypeUrl
          * @memberof AICommon.AIMediaCollectionMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        AIMediaCollectionMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.AIMediaCollectionMetadata";
+        AIMediaCollectionMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.AIMediaCollectionMetadata";
         };
 
         return AIMediaCollectionMetadata;
@@ -10598,6 +11235,7 @@ $root.AICommon = (function() {
          * @interface IAIThreadInfo
          * @property {AICommon.AIThreadInfo.IAIThreadServerInfo|null} [serverInfo] AIThreadInfo serverInfo
          * @property {AICommon.AIThreadInfo.IAIThreadClientInfo|null} [clientInfo] AIThreadInfo clientInfo
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -10607,6 +11245,7 @@ $root.AICommon = (function() {
          * @implements IAIThreadInfo
          * @constructor
          * @param {AICommon.IAIThreadInfo=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIThreadInfo(properties) {
             if (properties)
@@ -10674,6 +11313,9 @@ $root.AICommon = (function() {
                 $root.AICommon.AIThreadInfo.AIThreadServerInfo.encode(message.serverInfo, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
             if (message.clientInfo != null && Object.hasOwnProperty.call(message, "clientInfo"))
                 $root.AICommon.AIThreadInfo.AIThreadClientInfo.encode(message.clientInfo, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -10701,32 +11343,44 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        AIThreadInfo.decode = function decode(reader, length, error, long) {
+        AIThreadInfo.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.AIThreadInfo();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.AIThreadInfo();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.serverInfo = $root.AICommon.AIThreadInfo.AIThreadServerInfo.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 2: {
-                        message.clientInfo = $root.AICommon.AIThreadInfo.AIThreadClientInfo.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.serverInfo = $root.AICommon.AIThreadInfo.AIThreadServerInfo.decode(reader, reader.uint32(), undefined, _depth + 1, message.serverInfo);
+                        message._serverInfo = "serverInfo";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.clientInfo = $root.AICommon.AIThreadInfo.AIThreadClientInfo.decode(reader, reader.uint32(), undefined, _depth + 1, message.clientInfo);
+                        message._clientInfo = "clientInfo";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -10754,18 +11408,18 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        AIThreadInfo.verify = function verify(message, long) {
+        AIThreadInfo.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.serverInfo != null && message.hasOwnProperty("serverInfo")) {
                 properties._serverInfo = 1;
                 {
-                    var error = $root.AICommon.AIThreadInfo.AIThreadServerInfo.verify(message.serverInfo, long + 1);
+                    var error = $root.AICommon.AIThreadInfo.AIThreadServerInfo.verify(message.serverInfo, _depth + 1);
                     if (error)
                         return "serverInfo." + error;
                 }
@@ -10773,7 +11427,7 @@ $root.AICommon = (function() {
             if (message.clientInfo != null && message.hasOwnProperty("clientInfo")) {
                 properties._clientInfo = 1;
                 {
-                    var error = $root.AICommon.AIThreadInfo.AIThreadClientInfo.verify(message.clientInfo, long + 1);
+                    var error = $root.AICommon.AIThreadInfo.AIThreadClientInfo.verify(message.clientInfo, _depth + 1);
                     if (error)
                         return "clientInfo." + error;
                 }
@@ -10789,23 +11443,23 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.AIThreadInfo} AIThreadInfo
          */
-        AIThreadInfo.fromObject = function fromObject(object, long) {
+        AIThreadInfo.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.AIThreadInfo)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.AIThreadInfo();
             if (object.serverInfo != null) {
                 if (typeof object.serverInfo !== "object")
                     throw TypeError(".AICommon.AIThreadInfo.serverInfo: object expected");
-                message.serverInfo = $root.AICommon.AIThreadInfo.AIThreadServerInfo.fromObject(object.serverInfo, long + 1);
+                message.serverInfo = $root.AICommon.AIThreadInfo.AIThreadServerInfo.fromObject(object.serverInfo, _depth + 1);
             }
             if (object.clientInfo != null) {
                 if (typeof object.clientInfo !== "object")
                     throw TypeError(".AICommon.AIThreadInfo.clientInfo: object expected");
-                message.clientInfo = $root.AICommon.AIThreadInfo.AIThreadClientInfo.fromObject(object.clientInfo, long + 1);
+                message.clientInfo = $root.AICommon.AIThreadInfo.AIThreadClientInfo.fromObject(object.clientInfo, _depth + 1);
             }
             return message;
         };
@@ -10848,18 +11502,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for AIThreadInfo
+         * Gets the type url for AIThreadInfo
          * @function getTypeUrl
          * @memberof AICommon.AIThreadInfo
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        AIThreadInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.AIThreadInfo";
+        AIThreadInfo.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.AIThreadInfo";
         };
 
         AIThreadInfo.AIThreadClientInfo = (function() {
@@ -10870,6 +11523,7 @@ $root.AICommon = (function() {
              * @interface IAIThreadClientInfo
              * @property {AICommon.AIThreadInfo.AIThreadClientInfo.AIThreadType|null} [type] AIThreadClientInfo type
              * @property {string|null} [sourceChatJid] AIThreadClientInfo sourceChatJid
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -10879,6 +11533,7 @@ $root.AICommon = (function() {
              * @implements IAIThreadClientInfo
              * @constructor
              * @param {AICommon.AIThreadInfo.IAIThreadClientInfo=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AIThreadClientInfo(properties) {
                 if (properties)
@@ -10946,6 +11601,9 @@ $root.AICommon = (function() {
                     writer.uint32(/* id 1, wireType 0 =*/8).int32(message.type);
                 if (message.sourceChatJid != null && Object.hasOwnProperty.call(message, "sourceChatJid"))
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.sourceChatJid);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -10973,32 +11631,44 @@ $root.AICommon = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            AIThreadClientInfo.decode = function decode(reader, length, error, long) {
+            AIThreadClientInfo.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.AIThreadInfo.AIThreadClientInfo();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.AIThreadInfo.AIThreadClientInfo();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.type = reader.int32();
-                            break;
-                        }
-                    case 2: {
-                            message.sourceChatJid = reader.string();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.type = reader.int32();
+                            message._type = "type";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.sourceChatJid = reader.string();
+                            message._sourceChatJid = "sourceChatJid";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -11026,13 +11696,13 @@ $root.AICommon = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            AIThreadClientInfo.verify = function verify(message, long) {
+            AIThreadClientInfo.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.type != null && message.hasOwnProperty("type")) {
                     properties._type = 1;
@@ -11062,13 +11732,13 @@ $root.AICommon = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {AICommon.AIThreadInfo.AIThreadClientInfo} AIThreadClientInfo
              */
-            AIThreadClientInfo.fromObject = function fromObject(object, long) {
+            AIThreadClientInfo.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.AICommon.AIThreadInfo.AIThreadClientInfo)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.AICommon.AIThreadInfo.AIThreadClientInfo();
                 switch (object.type) {
                 default:
@@ -11137,18 +11807,17 @@ $root.AICommon = (function() {
             };
 
             /**
-             * Gets the default type url for AIThreadClientInfo
+             * Gets the type url for AIThreadClientInfo
              * @function getTypeUrl
              * @memberof AICommon.AIThreadInfo.AIThreadClientInfo
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            AIThreadClientInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/AICommon.AIThreadInfo.AIThreadClientInfo";
+            AIThreadClientInfo.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/AICommon.AIThreadInfo.AIThreadClientInfo";
             };
 
             /**
@@ -11179,6 +11848,7 @@ $root.AICommon = (function() {
              * @memberof AICommon.AIThreadInfo
              * @interface IAIThreadServerInfo
              * @property {string|null} [title] AIThreadServerInfo title
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -11188,6 +11858,7 @@ $root.AICommon = (function() {
              * @implements IAIThreadServerInfo
              * @constructor
              * @param {AICommon.AIThreadInfo.IAIThreadServerInfo=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AIThreadServerInfo(properties) {
                 if (properties)
@@ -11239,6 +11910,9 @@ $root.AICommon = (function() {
                     writer = $Writer.create();
                 if (message.title != null && Object.hasOwnProperty.call(message, "title"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.title);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -11266,28 +11940,37 @@ $root.AICommon = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            AIThreadServerInfo.decode = function decode(reader, length, error, long) {
+            AIThreadServerInfo.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.AIThreadInfo.AIThreadServerInfo();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.AIThreadInfo.AIThreadServerInfo();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.title = reader.string();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.title = reader.string();
+                            message._title = "title";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -11315,13 +11998,13 @@ $root.AICommon = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            AIThreadServerInfo.verify = function verify(message, long) {
+            AIThreadServerInfo.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.title != null && message.hasOwnProperty("title")) {
                     properties._title = 1;
@@ -11339,13 +12022,13 @@ $root.AICommon = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {AICommon.AIThreadInfo.AIThreadServerInfo} AIThreadServerInfo
              */
-            AIThreadServerInfo.fromObject = function fromObject(object, long) {
+            AIThreadServerInfo.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.AICommon.AIThreadInfo.AIThreadServerInfo)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.AICommon.AIThreadInfo.AIThreadServerInfo();
                 if (object.title != null)
                     message.title = String(object.title);
@@ -11385,18 +12068,17 @@ $root.AICommon = (function() {
             };
 
             /**
-             * Gets the default type url for AIThreadServerInfo
+             * Gets the type url for AIThreadServerInfo
              * @function getTypeUrl
              * @memberof AICommon.AIThreadInfo.AIThreadServerInfo
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            AIThreadServerInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/AICommon.AIThreadInfo.AIThreadServerInfo";
+            AIThreadServerInfo.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/AICommon.AIThreadInfo.AIThreadServerInfo";
             };
 
             return AIThreadServerInfo;
@@ -11413,6 +12095,7 @@ $root.AICommon = (function() {
          * @interface IBotUnifiedResponseMutation
          * @property {AICommon.BotUnifiedResponseMutation.ISideBySideMetadata|null} [sbsMetadata] BotUnifiedResponseMutation sbsMetadata
          * @property {Array.<AICommon.BotUnifiedResponseMutation.IMediaDetailsMetadata>|null} [mediaDetailsMetadataList] BotUnifiedResponseMutation mediaDetailsMetadataList
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -11422,6 +12105,7 @@ $root.AICommon = (function() {
          * @implements IBotUnifiedResponseMutation
          * @constructor
          * @param {AICommon.IBotUnifiedResponseMutation=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotUnifiedResponseMutation(properties) {
             this.mediaDetailsMetadataList = [];
@@ -11485,6 +12169,9 @@ $root.AICommon = (function() {
             if (message.mediaDetailsMetadataList != null && message.mediaDetailsMetadataList.length)
                 for (var i = 0; i < message.mediaDetailsMetadataList.length; ++i)
                     $root.AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.encode(message.mediaDetailsMetadataList[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -11512,34 +12199,45 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotUnifiedResponseMutation.decode = function decode(reader, length, error, long) {
+        BotUnifiedResponseMutation.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotUnifiedResponseMutation();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotUnifiedResponseMutation();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.sbsMetadata = $root.AICommon.BotUnifiedResponseMutation.SideBySideMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 2: {
-                        if (!(message.mediaDetailsMetadataList && message.mediaDetailsMetadataList.length))
-                            message.mediaDetailsMetadataList = [];
-                        message.mediaDetailsMetadataList.push($root.AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.decode(reader, reader.uint32(), undefined, long + 1));
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.sbsMetadata = $root.AICommon.BotUnifiedResponseMutation.SideBySideMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.sbsMetadata);
+                        message._sbsMetadata = "sbsMetadata";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.mediaDetailsMetadataList && message.mediaDetailsMetadataList.length))
+                            message.mediaDetailsMetadataList = [];
+                        message.mediaDetailsMetadataList.push($root.AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -11567,18 +12265,18 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotUnifiedResponseMutation.verify = function verify(message, long) {
+        BotUnifiedResponseMutation.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.sbsMetadata != null && message.hasOwnProperty("sbsMetadata")) {
                 properties._sbsMetadata = 1;
                 {
-                    var error = $root.AICommon.BotUnifiedResponseMutation.SideBySideMetadata.verify(message.sbsMetadata, long + 1);
+                    var error = $root.AICommon.BotUnifiedResponseMutation.SideBySideMetadata.verify(message.sbsMetadata, _depth + 1);
                     if (error)
                         return "sbsMetadata." + error;
                 }
@@ -11587,7 +12285,7 @@ $root.AICommon = (function() {
                 if (!Array.isArray(message.mediaDetailsMetadataList))
                     return "mediaDetailsMetadataList: array expected";
                 for (var i = 0; i < message.mediaDetailsMetadataList.length; ++i) {
-                    var error = $root.AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.verify(message.mediaDetailsMetadataList[i], long + 1);
+                    var error = $root.AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.verify(message.mediaDetailsMetadataList[i], _depth + 1);
                     if (error)
                         return "mediaDetailsMetadataList." + error;
                 }
@@ -11603,27 +12301,27 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotUnifiedResponseMutation} BotUnifiedResponseMutation
          */
-        BotUnifiedResponseMutation.fromObject = function fromObject(object, long) {
+        BotUnifiedResponseMutation.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotUnifiedResponseMutation)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotUnifiedResponseMutation();
             if (object.sbsMetadata != null) {
                 if (typeof object.sbsMetadata !== "object")
                     throw TypeError(".AICommon.BotUnifiedResponseMutation.sbsMetadata: object expected");
-                message.sbsMetadata = $root.AICommon.BotUnifiedResponseMutation.SideBySideMetadata.fromObject(object.sbsMetadata, long + 1);
+                message.sbsMetadata = $root.AICommon.BotUnifiedResponseMutation.SideBySideMetadata.fromObject(object.sbsMetadata, _depth + 1);
             }
             if (object.mediaDetailsMetadataList) {
                 if (!Array.isArray(object.mediaDetailsMetadataList))
                     throw TypeError(".AICommon.BotUnifiedResponseMutation.mediaDetailsMetadataList: array expected");
-                message.mediaDetailsMetadataList = [];
+                message.mediaDetailsMetadataList = Array(object.mediaDetailsMetadataList.length);
                 for (var i = 0; i < object.mediaDetailsMetadataList.length; ++i) {
                     if (typeof object.mediaDetailsMetadataList[i] !== "object")
                         throw TypeError(".AICommon.BotUnifiedResponseMutation.mediaDetailsMetadataList: object expected");
-                    message.mediaDetailsMetadataList[i] = $root.AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.fromObject(object.mediaDetailsMetadataList[i], long + 1);
+                    message.mediaDetailsMetadataList[i] = $root.AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.fromObject(object.mediaDetailsMetadataList[i], _depth + 1);
                 }
             }
             return message;
@@ -11650,7 +12348,7 @@ $root.AICommon = (function() {
                     object._sbsMetadata = "sbsMetadata";
             }
             if (message.mediaDetailsMetadataList && message.mediaDetailsMetadataList.length) {
-                object.mediaDetailsMetadataList = [];
+                object.mediaDetailsMetadataList = Array(message.mediaDetailsMetadataList.length);
                 for (var j = 0; j < message.mediaDetailsMetadataList.length; ++j)
                     object.mediaDetailsMetadataList[j] = $root.AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.toObject(message.mediaDetailsMetadataList[j], options);
             }
@@ -11669,18 +12367,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotUnifiedResponseMutation
+         * Gets the type url for BotUnifiedResponseMutation
          * @function getTypeUrl
          * @memberof AICommon.BotUnifiedResponseMutation
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotUnifiedResponseMutation.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotUnifiedResponseMutation";
+        BotUnifiedResponseMutation.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotUnifiedResponseMutation";
         };
 
         BotUnifiedResponseMutation.MediaDetailsMetadata = (function() {
@@ -11692,6 +12389,7 @@ $root.AICommon = (function() {
              * @property {string|null} [id] MediaDetailsMetadata id
              * @property {AICommon.IBotMediaMetadata|null} [highResMedia] MediaDetailsMetadata highResMedia
              * @property {AICommon.IBotMediaMetadata|null} [previewMedia] MediaDetailsMetadata previewMedia
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -11701,6 +12399,7 @@ $root.AICommon = (function() {
              * @implements IMediaDetailsMetadata
              * @constructor
              * @param {AICommon.BotUnifiedResponseMutation.IMediaDetailsMetadata=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function MediaDetailsMetadata(properties) {
                 if (properties)
@@ -11784,6 +12483,9 @@ $root.AICommon = (function() {
                     $root.AICommon.BotMediaMetadata.encode(message.highResMedia, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
                 if (message.previewMedia != null && Object.hasOwnProperty.call(message, "previewMedia"))
                     $root.AICommon.BotMediaMetadata.encode(message.previewMedia, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -11811,36 +12513,51 @@ $root.AICommon = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            MediaDetailsMetadata.decode = function decode(reader, length, error, long) {
+            MediaDetailsMetadata.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.id = reader.string();
-                            break;
-                        }
-                    case 2: {
-                            message.highResMedia = $root.AICommon.BotMediaMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                            break;
-                        }
-                    case 3: {
-                            message.previewMedia = $root.AICommon.BotMediaMetadata.decode(reader, reader.uint32(), undefined, long + 1);
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.id = reader.string();
+                            message._id = "id";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.highResMedia = $root.AICommon.BotMediaMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.highResMedia);
+                            message._highResMedia = "highResMedia";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 2)
+                                break;
+                            message.previewMedia = $root.AICommon.BotMediaMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.previewMedia);
+                            message._previewMedia = "previewMedia";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -11868,13 +12585,13 @@ $root.AICommon = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            MediaDetailsMetadata.verify = function verify(message, long) {
+            MediaDetailsMetadata.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.id != null && message.hasOwnProperty("id")) {
                     properties._id = 1;
@@ -11884,7 +12601,7 @@ $root.AICommon = (function() {
                 if (message.highResMedia != null && message.hasOwnProperty("highResMedia")) {
                     properties._highResMedia = 1;
                     {
-                        var error = $root.AICommon.BotMediaMetadata.verify(message.highResMedia, long + 1);
+                        var error = $root.AICommon.BotMediaMetadata.verify(message.highResMedia, _depth + 1);
                         if (error)
                             return "highResMedia." + error;
                     }
@@ -11892,7 +12609,7 @@ $root.AICommon = (function() {
                 if (message.previewMedia != null && message.hasOwnProperty("previewMedia")) {
                     properties._previewMedia = 1;
                     {
-                        var error = $root.AICommon.BotMediaMetadata.verify(message.previewMedia, long + 1);
+                        var error = $root.AICommon.BotMediaMetadata.verify(message.previewMedia, _depth + 1);
                         if (error)
                             return "previewMedia." + error;
                     }
@@ -11908,25 +12625,25 @@ $root.AICommon = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata} MediaDetailsMetadata
              */
-            MediaDetailsMetadata.fromObject = function fromObject(object, long) {
+            MediaDetailsMetadata.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata();
                 if (object.id != null)
                     message.id = String(object.id);
                 if (object.highResMedia != null) {
                     if (typeof object.highResMedia !== "object")
                         throw TypeError(".AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.highResMedia: object expected");
-                    message.highResMedia = $root.AICommon.BotMediaMetadata.fromObject(object.highResMedia, long + 1);
+                    message.highResMedia = $root.AICommon.BotMediaMetadata.fromObject(object.highResMedia, _depth + 1);
                 }
                 if (object.previewMedia != null) {
                     if (typeof object.previewMedia !== "object")
                         throw TypeError(".AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.previewMedia: object expected");
-                    message.previewMedia = $root.AICommon.BotMediaMetadata.fromObject(object.previewMedia, long + 1);
+                    message.previewMedia = $root.AICommon.BotMediaMetadata.fromObject(object.previewMedia, _depth + 1);
                 }
                 return message;
             };
@@ -11974,18 +12691,17 @@ $root.AICommon = (function() {
             };
 
             /**
-             * Gets the default type url for MediaDetailsMetadata
+             * Gets the type url for MediaDetailsMetadata
              * @function getTypeUrl
              * @memberof AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            MediaDetailsMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata";
+            MediaDetailsMetadata.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata";
             };
 
             return MediaDetailsMetadata;
@@ -11999,6 +12715,7 @@ $root.AICommon = (function() {
              * @interface ISideBySideMetadata
              * @property {string|null} [primaryResponseId] SideBySideMetadata primaryResponseId
              * @property {boolean|null} [surveyCtaHasRendered] SideBySideMetadata surveyCtaHasRendered
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -12008,6 +12725,7 @@ $root.AICommon = (function() {
              * @implements ISideBySideMetadata
              * @constructor
              * @param {AICommon.BotUnifiedResponseMutation.ISideBySideMetadata=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function SideBySideMetadata(properties) {
                 if (properties)
@@ -12075,6 +12793,9 @@ $root.AICommon = (function() {
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.primaryResponseId);
                 if (message.surveyCtaHasRendered != null && Object.hasOwnProperty.call(message, "surveyCtaHasRendered"))
                     writer.uint32(/* id 2, wireType 0 =*/16).bool(message.surveyCtaHasRendered);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -12102,32 +12823,44 @@ $root.AICommon = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SideBySideMetadata.decode = function decode(reader, length, error, long) {
+            SideBySideMetadata.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotUnifiedResponseMutation.SideBySideMetadata();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotUnifiedResponseMutation.SideBySideMetadata();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.primaryResponseId = reader.string();
-                            break;
-                        }
-                    case 2: {
-                            message.surveyCtaHasRendered = reader.bool();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.primaryResponseId = reader.string();
+                            message._primaryResponseId = "primaryResponseId";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 0)
+                                break;
+                            message.surveyCtaHasRendered = reader.bool();
+                            message._surveyCtaHasRendered = "surveyCtaHasRendered";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -12155,13 +12888,13 @@ $root.AICommon = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            SideBySideMetadata.verify = function verify(message, long) {
+            SideBySideMetadata.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.primaryResponseId != null && message.hasOwnProperty("primaryResponseId")) {
                     properties._primaryResponseId = 1;
@@ -12184,13 +12917,13 @@ $root.AICommon = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {AICommon.BotUnifiedResponseMutation.SideBySideMetadata} SideBySideMetadata
              */
-            SideBySideMetadata.fromObject = function fromObject(object, long) {
+            SideBySideMetadata.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.AICommon.BotUnifiedResponseMutation.SideBySideMetadata)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.AICommon.BotUnifiedResponseMutation.SideBySideMetadata();
                 if (object.primaryResponseId != null)
                     message.primaryResponseId = String(object.primaryResponseId);
@@ -12237,18 +12970,17 @@ $root.AICommon = (function() {
             };
 
             /**
-             * Gets the default type url for SideBySideMetadata
+             * Gets the type url for SideBySideMetadata
              * @function getTypeUrl
              * @memberof AICommon.BotUnifiedResponseMutation.SideBySideMetadata
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            SideBySideMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/AICommon.BotUnifiedResponseMutation.SideBySideMetadata";
+            SideBySideMetadata.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/AICommon.BotUnifiedResponseMutation.SideBySideMetadata";
             };
 
             return SideBySideMetadata;
@@ -12264,6 +12996,7 @@ $root.AICommon = (function() {
          * @memberof AICommon
          * @interface IBotMessageOrigin
          * @property {AICommon.BotMessageOrigin.BotMessageOriginType|null} [type] BotMessageOrigin type
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -12273,6 +13006,7 @@ $root.AICommon = (function() {
          * @implements IBotMessageOrigin
          * @constructor
          * @param {AICommon.IBotMessageOrigin=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotMessageOrigin(properties) {
             if (properties)
@@ -12324,6 +13058,9 @@ $root.AICommon = (function() {
                 writer = $Writer.create();
             if (message.type != null && Object.hasOwnProperty.call(message, "type"))
                 writer.uint32(/* id 1, wireType 0 =*/8).int32(message.type);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -12351,28 +13088,37 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotMessageOrigin.decode = function decode(reader, length, error, long) {
+        BotMessageOrigin.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotMessageOrigin();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotMessageOrigin();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.type = reader.int32();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.type = reader.int32();
+                        message._type = "type";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -12400,13 +13146,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotMessageOrigin.verify = function verify(message, long) {
+        BotMessageOrigin.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.type != null && message.hasOwnProperty("type")) {
                 properties._type = 1;
@@ -12428,13 +13174,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotMessageOrigin} BotMessageOrigin
          */
-        BotMessageOrigin.fromObject = function fromObject(object, long) {
+        BotMessageOrigin.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotMessageOrigin)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotMessageOrigin();
             switch (object.type) {
             default:
@@ -12484,18 +13230,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotMessageOrigin
+         * Gets the type url for BotMessageOrigin
          * @function getTypeUrl
          * @memberof AICommon.BotMessageOrigin
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotMessageOrigin.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotMessageOrigin";
+        BotMessageOrigin.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotMessageOrigin";
         };
 
         /**
@@ -12520,6 +13265,7 @@ $root.AICommon = (function() {
          * @memberof AICommon
          * @interface IBotMessageOriginMetadata
          * @property {Array.<AICommon.IBotMessageOrigin>|null} [origins] BotMessageOriginMetadata origins
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -12529,6 +13275,7 @@ $root.AICommon = (function() {
          * @implements IBotMessageOriginMetadata
          * @constructor
          * @param {AICommon.IBotMessageOriginMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotMessageOriginMetadata(properties) {
             this.origins = [];
@@ -12573,6 +13320,9 @@ $root.AICommon = (function() {
             if (message.origins != null && message.origins.length)
                 for (var i = 0; i < message.origins.length; ++i)
                     $root.AICommon.BotMessageOrigin.encode(message.origins[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -12600,30 +13350,38 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotMessageOriginMetadata.decode = function decode(reader, length, error, long) {
+        BotMessageOriginMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotMessageOriginMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotMessageOriginMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        if (!(message.origins && message.origins.length))
-                            message.origins = [];
-                        message.origins.push($root.AICommon.BotMessageOrigin.decode(reader, reader.uint32(), undefined, long + 1));
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.origins && message.origins.length))
+                            message.origins = [];
+                        message.origins.push($root.AICommon.BotMessageOrigin.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -12651,18 +13409,18 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotMessageOriginMetadata.verify = function verify(message, long) {
+        BotMessageOriginMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             if (message.origins != null && message.hasOwnProperty("origins")) {
                 if (!Array.isArray(message.origins))
                     return "origins: array expected";
                 for (var i = 0; i < message.origins.length; ++i) {
-                    var error = $root.AICommon.BotMessageOrigin.verify(message.origins[i], long + 1);
+                    var error = $root.AICommon.BotMessageOrigin.verify(message.origins[i], _depth + 1);
                     if (error)
                         return "origins." + error;
                 }
@@ -12678,22 +13436,22 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotMessageOriginMetadata} BotMessageOriginMetadata
          */
-        BotMessageOriginMetadata.fromObject = function fromObject(object, long) {
+        BotMessageOriginMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotMessageOriginMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotMessageOriginMetadata();
             if (object.origins) {
                 if (!Array.isArray(object.origins))
                     throw TypeError(".AICommon.BotMessageOriginMetadata.origins: array expected");
-                message.origins = [];
+                message.origins = Array(object.origins.length);
                 for (var i = 0; i < object.origins.length; ++i) {
                     if (typeof object.origins[i] !== "object")
                         throw TypeError(".AICommon.BotMessageOriginMetadata.origins: object expected");
-                    message.origins[i] = $root.AICommon.BotMessageOrigin.fromObject(object.origins[i], long + 1);
+                    message.origins[i] = $root.AICommon.BotMessageOrigin.fromObject(object.origins[i], _depth + 1);
                 }
             }
             return message;
@@ -12715,7 +13473,7 @@ $root.AICommon = (function() {
             if (options.arrays || options.defaults)
                 object.origins = [];
             if (message.origins && message.origins.length) {
-                object.origins = [];
+                object.origins = Array(message.origins.length);
                 for (var j = 0; j < message.origins.length; ++j)
                     object.origins[j] = $root.AICommon.BotMessageOrigin.toObject(message.origins[j], options);
             }
@@ -12734,18 +13492,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotMessageOriginMetadata
+         * Gets the type url for BotMessageOriginMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotMessageOriginMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotMessageOriginMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotMessageOriginMetadata";
+        BotMessageOriginMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotMessageOriginMetadata";
         };
 
         return BotMessageOriginMetadata;
@@ -12775,6 +13532,7 @@ $root.AICommon = (function() {
          * @property {Array.<AICommon.InThreadSurveyMetadata.IInThreadSurveyPrivacyStatementPart>|null} [privacyStatementParts] InThreadSurveyMetadata privacyStatementParts
          * @property {string|null} [feedbackToastText] InThreadSurveyMetadata feedbackToastText
          * @property {number|null} [startQuestionIndex] InThreadSurveyMetadata startQuestionIndex
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -12784,6 +13542,7 @@ $root.AICommon = (function() {
          * @implements IInThreadSurveyMetadata
          * @constructor
          * @param {AICommon.IInThreadSurveyMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function InThreadSurveyMetadata(properties) {
             this.questions = [];
@@ -13099,6 +13858,9 @@ $root.AICommon = (function() {
                 writer.uint32(/* id 17, wireType 2 =*/138).string(message.feedbackToastText);
             if (message.startQuestionIndex != null && Object.hasOwnProperty.call(message, "startQuestionIndex"))
                 writer.uint32(/* id 18, wireType 0 =*/144).int32(message.startQuestionIndex);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -13126,100 +13888,158 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        InThreadSurveyMetadata.decode = function decode(reader, length, error, long) {
+        InThreadSurveyMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.InThreadSurveyMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.InThreadSurveyMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.tessaSessionId = reader.string();
-                        break;
-                    }
-                case 2: {
-                        message.simonSessionId = reader.string();
-                        break;
-                    }
-                case 3: {
-                        message.simonSurveyId = reader.string();
-                        break;
-                    }
-                case 4: {
-                        message.tessaRootId = reader.string();
-                        break;
-                    }
-                case 5: {
-                        message.requestId = reader.string();
-                        break;
-                    }
-                case 6: {
-                        message.tessaEvent = reader.string();
-                        break;
-                    }
-                case 7: {
-                        message.invitationHeaderText = reader.string();
-                        break;
-                    }
-                case 8: {
-                        message.invitationBodyText = reader.string();
-                        break;
-                    }
-                case 9: {
-                        message.invitationCtaText = reader.string();
-                        break;
-                    }
-                case 10: {
-                        message.invitationCtaUrl = reader.string();
-                        break;
-                    }
-                case 11: {
-                        message.surveyTitle = reader.string();
-                        break;
-                    }
-                case 12: {
-                        if (!(message.questions && message.questions.length))
-                            message.questions = [];
-                        message.questions.push($root.AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.decode(reader, reader.uint32(), undefined, long + 1));
-                        break;
-                    }
-                case 13: {
-                        message.surveyContinueButtonText = reader.string();
-                        break;
-                    }
-                case 14: {
-                        message.surveySubmitButtonText = reader.string();
-                        break;
-                    }
-                case 15: {
-                        message.privacyStatementFull = reader.string();
-                        break;
-                    }
-                case 16: {
-                        if (!(message.privacyStatementParts && message.privacyStatementParts.length))
-                            message.privacyStatementParts = [];
-                        message.privacyStatementParts.push($root.AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.decode(reader, reader.uint32(), undefined, long + 1));
-                        break;
-                    }
-                case 17: {
-                        message.feedbackToastText = reader.string();
-                        break;
-                    }
-                case 18: {
-                        message.startQuestionIndex = reader.int32();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.tessaSessionId = reader.string();
+                        message._tessaSessionId = "tessaSessionId";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.simonSessionId = reader.string();
+                        message._simonSessionId = "simonSessionId";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.simonSurveyId = reader.string();
+                        message._simonSurveyId = "simonSurveyId";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 2)
+                            break;
+                        message.tessaRootId = reader.string();
+                        message._tessaRootId = "tessaRootId";
+                        continue;
+                    }
+                case 5: {
+                        if (wireType !== 2)
+                            break;
+                        message.requestId = reader.string();
+                        message._requestId = "requestId";
+                        continue;
+                    }
+                case 6: {
+                        if (wireType !== 2)
+                            break;
+                        message.tessaEvent = reader.string();
+                        message._tessaEvent = "tessaEvent";
+                        continue;
+                    }
+                case 7: {
+                        if (wireType !== 2)
+                            break;
+                        message.invitationHeaderText = reader.string();
+                        message._invitationHeaderText = "invitationHeaderText";
+                        continue;
+                    }
+                case 8: {
+                        if (wireType !== 2)
+                            break;
+                        message.invitationBodyText = reader.string();
+                        message._invitationBodyText = "invitationBodyText";
+                        continue;
+                    }
+                case 9: {
+                        if (wireType !== 2)
+                            break;
+                        message.invitationCtaText = reader.string();
+                        message._invitationCtaText = "invitationCtaText";
+                        continue;
+                    }
+                case 10: {
+                        if (wireType !== 2)
+                            break;
+                        message.invitationCtaUrl = reader.string();
+                        message._invitationCtaUrl = "invitationCtaUrl";
+                        continue;
+                    }
+                case 11: {
+                        if (wireType !== 2)
+                            break;
+                        message.surveyTitle = reader.string();
+                        message._surveyTitle = "surveyTitle";
+                        continue;
+                    }
+                case 12: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.questions && message.questions.length))
+                            message.questions = [];
+                        message.questions.push($root.AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                case 13: {
+                        if (wireType !== 2)
+                            break;
+                        message.surveyContinueButtonText = reader.string();
+                        message._surveyContinueButtonText = "surveyContinueButtonText";
+                        continue;
+                    }
+                case 14: {
+                        if (wireType !== 2)
+                            break;
+                        message.surveySubmitButtonText = reader.string();
+                        message._surveySubmitButtonText = "surveySubmitButtonText";
+                        continue;
+                    }
+                case 15: {
+                        if (wireType !== 2)
+                            break;
+                        message.privacyStatementFull = reader.string();
+                        message._privacyStatementFull = "privacyStatementFull";
+                        continue;
+                    }
+                case 16: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.privacyStatementParts && message.privacyStatementParts.length))
+                            message.privacyStatementParts = [];
+                        message.privacyStatementParts.push($root.AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                case 17: {
+                        if (wireType !== 2)
+                            break;
+                        message.feedbackToastText = reader.string();
+                        message._feedbackToastText = "feedbackToastText";
+                        continue;
+                    }
+                case 18: {
+                        if (wireType !== 0)
+                            break;
+                        message.startQuestionIndex = reader.int32();
+                        message._startQuestionIndex = "startQuestionIndex";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -13247,13 +14067,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        InThreadSurveyMetadata.verify = function verify(message, long) {
+        InThreadSurveyMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.tessaSessionId != null && message.hasOwnProperty("tessaSessionId")) {
                 properties._tessaSessionId = 1;
@@ -13314,7 +14134,7 @@ $root.AICommon = (function() {
                 if (!Array.isArray(message.questions))
                     return "questions: array expected";
                 for (var i = 0; i < message.questions.length; ++i) {
-                    var error = $root.AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.verify(message.questions[i], long + 1);
+                    var error = $root.AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.verify(message.questions[i], _depth + 1);
                     if (error)
                         return "questions." + error;
                 }
@@ -13338,7 +14158,7 @@ $root.AICommon = (function() {
                 if (!Array.isArray(message.privacyStatementParts))
                     return "privacyStatementParts: array expected";
                 for (var i = 0; i < message.privacyStatementParts.length; ++i) {
-                    var error = $root.AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.verify(message.privacyStatementParts[i], long + 1);
+                    var error = $root.AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.verify(message.privacyStatementParts[i], _depth + 1);
                     if (error)
                         return "privacyStatementParts." + error;
                 }
@@ -13364,13 +14184,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.InThreadSurveyMetadata} InThreadSurveyMetadata
          */
-        InThreadSurveyMetadata.fromObject = function fromObject(object, long) {
+        InThreadSurveyMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.InThreadSurveyMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.InThreadSurveyMetadata();
             if (object.tessaSessionId != null)
                 message.tessaSessionId = String(object.tessaSessionId);
@@ -13397,11 +14217,11 @@ $root.AICommon = (function() {
             if (object.questions) {
                 if (!Array.isArray(object.questions))
                     throw TypeError(".AICommon.InThreadSurveyMetadata.questions: array expected");
-                message.questions = [];
+                message.questions = Array(object.questions.length);
                 for (var i = 0; i < object.questions.length; ++i) {
                     if (typeof object.questions[i] !== "object")
                         throw TypeError(".AICommon.InThreadSurveyMetadata.questions: object expected");
-                    message.questions[i] = $root.AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.fromObject(object.questions[i], long + 1);
+                    message.questions[i] = $root.AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.fromObject(object.questions[i], _depth + 1);
                 }
             }
             if (object.surveyContinueButtonText != null)
@@ -13413,11 +14233,11 @@ $root.AICommon = (function() {
             if (object.privacyStatementParts) {
                 if (!Array.isArray(object.privacyStatementParts))
                     throw TypeError(".AICommon.InThreadSurveyMetadata.privacyStatementParts: array expected");
-                message.privacyStatementParts = [];
+                message.privacyStatementParts = Array(object.privacyStatementParts.length);
                 for (var i = 0; i < object.privacyStatementParts.length; ++i) {
                     if (typeof object.privacyStatementParts[i] !== "object")
                         throw TypeError(".AICommon.InThreadSurveyMetadata.privacyStatementParts: object expected");
-                    message.privacyStatementParts[i] = $root.AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.fromObject(object.privacyStatementParts[i], long + 1);
+                    message.privacyStatementParts[i] = $root.AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.fromObject(object.privacyStatementParts[i], _depth + 1);
                 }
             }
             if (object.feedbackToastText != null)
@@ -13500,7 +14320,7 @@ $root.AICommon = (function() {
                     object._surveyTitle = "surveyTitle";
             }
             if (message.questions && message.questions.length) {
-                object.questions = [];
+                object.questions = Array(message.questions.length);
                 for (var j = 0; j < message.questions.length; ++j)
                     object.questions[j] = $root.AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.toObject(message.questions[j], options);
             }
@@ -13520,7 +14340,7 @@ $root.AICommon = (function() {
                     object._privacyStatementFull = "privacyStatementFull";
             }
             if (message.privacyStatementParts && message.privacyStatementParts.length) {
-                object.privacyStatementParts = [];
+                object.privacyStatementParts = Array(message.privacyStatementParts.length);
                 for (var j = 0; j < message.privacyStatementParts.length; ++j)
                     object.privacyStatementParts[j] = $root.AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.toObject(message.privacyStatementParts[j], options);
             }
@@ -13549,18 +14369,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for InThreadSurveyMetadata
+         * Gets the type url for InThreadSurveyMetadata
          * @function getTypeUrl
          * @memberof AICommon.InThreadSurveyMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        InThreadSurveyMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.InThreadSurveyMetadata";
+        InThreadSurveyMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.InThreadSurveyMetadata";
         };
 
         InThreadSurveyMetadata.InThreadSurveyOption = (function() {
@@ -13572,6 +14391,7 @@ $root.AICommon = (function() {
              * @property {string|null} [stringValue] InThreadSurveyOption stringValue
              * @property {number|null} [numericValue] InThreadSurveyOption numericValue
              * @property {string|null} [textTranslated] InThreadSurveyOption textTranslated
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -13581,6 +14401,7 @@ $root.AICommon = (function() {
              * @implements IInThreadSurveyOption
              * @constructor
              * @param {AICommon.InThreadSurveyMetadata.IInThreadSurveyOption=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function InThreadSurveyOption(properties) {
                 if (properties)
@@ -13664,6 +14485,9 @@ $root.AICommon = (function() {
                     writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.numericValue);
                 if (message.textTranslated != null && Object.hasOwnProperty.call(message, "textTranslated"))
                     writer.uint32(/* id 3, wireType 2 =*/26).string(message.textTranslated);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -13691,36 +14515,51 @@ $root.AICommon = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            InThreadSurveyOption.decode = function decode(reader, length, error, long) {
+            InThreadSurveyOption.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.InThreadSurveyMetadata.InThreadSurveyOption();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.InThreadSurveyMetadata.InThreadSurveyOption();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.stringValue = reader.string();
-                            break;
-                        }
-                    case 2: {
-                            message.numericValue = reader.uint32();
-                            break;
-                        }
-                    case 3: {
-                            message.textTranslated = reader.string();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.stringValue = reader.string();
+                            message._stringValue = "stringValue";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 0)
+                                break;
+                            message.numericValue = reader.uint32();
+                            message._numericValue = "numericValue";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 2)
+                                break;
+                            message.textTranslated = reader.string();
+                            message._textTranslated = "textTranslated";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -13748,13 +14587,13 @@ $root.AICommon = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            InThreadSurveyOption.verify = function verify(message, long) {
+            InThreadSurveyOption.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.stringValue != null && message.hasOwnProperty("stringValue")) {
                     properties._stringValue = 1;
@@ -13782,13 +14621,13 @@ $root.AICommon = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {AICommon.InThreadSurveyMetadata.InThreadSurveyOption} InThreadSurveyOption
              */
-            InThreadSurveyOption.fromObject = function fromObject(object, long) {
+            InThreadSurveyOption.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.AICommon.InThreadSurveyMetadata.InThreadSurveyOption)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.AICommon.InThreadSurveyMetadata.InThreadSurveyOption();
                 if (object.stringValue != null)
                     message.stringValue = String(object.stringValue);
@@ -13842,18 +14681,17 @@ $root.AICommon = (function() {
             };
 
             /**
-             * Gets the default type url for InThreadSurveyOption
+             * Gets the type url for InThreadSurveyOption
              * @function getTypeUrl
              * @memberof AICommon.InThreadSurveyMetadata.InThreadSurveyOption
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            InThreadSurveyOption.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/AICommon.InThreadSurveyMetadata.InThreadSurveyOption";
+            InThreadSurveyOption.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/AICommon.InThreadSurveyMetadata.InThreadSurveyOption";
             };
 
             return InThreadSurveyOption;
@@ -13867,6 +14705,7 @@ $root.AICommon = (function() {
              * @interface IInThreadSurveyPrivacyStatementPart
              * @property {string|null} [text] InThreadSurveyPrivacyStatementPart text
              * @property {string|null} [url] InThreadSurveyPrivacyStatementPart url
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -13876,6 +14715,7 @@ $root.AICommon = (function() {
              * @implements IInThreadSurveyPrivacyStatementPart
              * @constructor
              * @param {AICommon.InThreadSurveyMetadata.IInThreadSurveyPrivacyStatementPart=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function InThreadSurveyPrivacyStatementPart(properties) {
                 if (properties)
@@ -13943,6 +14783,9 @@ $root.AICommon = (function() {
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.text);
                 if (message.url != null && Object.hasOwnProperty.call(message, "url"))
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.url);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -13970,32 +14813,44 @@ $root.AICommon = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            InThreadSurveyPrivacyStatementPart.decode = function decode(reader, length, error, long) {
+            InThreadSurveyPrivacyStatementPart.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.text = reader.string();
-                            break;
-                        }
-                    case 2: {
-                            message.url = reader.string();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.text = reader.string();
+                            message._text = "text";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.url = reader.string();
+                            message._url = "url";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -14023,13 +14878,13 @@ $root.AICommon = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            InThreadSurveyPrivacyStatementPart.verify = function verify(message, long) {
+            InThreadSurveyPrivacyStatementPart.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.text != null && message.hasOwnProperty("text")) {
                     properties._text = 1;
@@ -14052,13 +14907,13 @@ $root.AICommon = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart} InThreadSurveyPrivacyStatementPart
              */
-            InThreadSurveyPrivacyStatementPart.fromObject = function fromObject(object, long) {
+            InThreadSurveyPrivacyStatementPart.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart();
                 if (object.text != null)
                     message.text = String(object.text);
@@ -14105,18 +14960,17 @@ $root.AICommon = (function() {
             };
 
             /**
-             * Gets the default type url for InThreadSurveyPrivacyStatementPart
+             * Gets the type url for InThreadSurveyPrivacyStatementPart
              * @function getTypeUrl
              * @memberof AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            InThreadSurveyPrivacyStatementPart.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart";
+            InThreadSurveyPrivacyStatementPart.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart";
             };
 
             return InThreadSurveyPrivacyStatementPart;
@@ -14131,6 +14985,7 @@ $root.AICommon = (function() {
              * @property {string|null} [questionText] InThreadSurveyQuestion questionText
              * @property {string|null} [questionId] InThreadSurveyQuestion questionId
              * @property {Array.<AICommon.InThreadSurveyMetadata.IInThreadSurveyOption>|null} [questionOptions] InThreadSurveyQuestion questionOptions
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -14140,6 +14995,7 @@ $root.AICommon = (function() {
              * @implements IInThreadSurveyQuestion
              * @constructor
              * @param {AICommon.InThreadSurveyMetadata.IInThreadSurveyQuestion=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function InThreadSurveyQuestion(properties) {
                 this.questionOptions = [];
@@ -14219,6 +15075,9 @@ $root.AICommon = (function() {
                 if (message.questionOptions != null && message.questionOptions.length)
                     for (var i = 0; i < message.questionOptions.length; ++i)
                         $root.AICommon.InThreadSurveyMetadata.InThreadSurveyOption.encode(message.questionOptions[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -14246,38 +15105,52 @@ $root.AICommon = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            InThreadSurveyQuestion.decode = function decode(reader, length, error, long) {
+            InThreadSurveyQuestion.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.questionText = reader.string();
-                            break;
-                        }
-                    case 2: {
-                            message.questionId = reader.string();
-                            break;
-                        }
-                    case 3: {
-                            if (!(message.questionOptions && message.questionOptions.length))
-                                message.questionOptions = [];
-                            message.questionOptions.push($root.AICommon.InThreadSurveyMetadata.InThreadSurveyOption.decode(reader, reader.uint32(), undefined, long + 1));
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.questionText = reader.string();
+                            message._questionText = "questionText";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.questionId = reader.string();
+                            message._questionId = "questionId";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 2)
+                                break;
+                            if (!(message.questionOptions && message.questionOptions.length))
+                                message.questionOptions = [];
+                            message.questionOptions.push($root.AICommon.InThreadSurveyMetadata.InThreadSurveyOption.decode(reader, reader.uint32(), undefined, _depth + 1));
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -14305,13 +15178,13 @@ $root.AICommon = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            InThreadSurveyQuestion.verify = function verify(message, long) {
+            InThreadSurveyQuestion.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.questionText != null && message.hasOwnProperty("questionText")) {
                     properties._questionText = 1;
@@ -14327,7 +15200,7 @@ $root.AICommon = (function() {
                     if (!Array.isArray(message.questionOptions))
                         return "questionOptions: array expected";
                     for (var i = 0; i < message.questionOptions.length; ++i) {
-                        var error = $root.AICommon.InThreadSurveyMetadata.InThreadSurveyOption.verify(message.questionOptions[i], long + 1);
+                        var error = $root.AICommon.InThreadSurveyMetadata.InThreadSurveyOption.verify(message.questionOptions[i], _depth + 1);
                         if (error)
                             return "questionOptions." + error;
                     }
@@ -14343,13 +15216,13 @@ $root.AICommon = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion} InThreadSurveyQuestion
              */
-            InThreadSurveyQuestion.fromObject = function fromObject(object, long) {
+            InThreadSurveyQuestion.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion();
                 if (object.questionText != null)
                     message.questionText = String(object.questionText);
@@ -14358,11 +15231,11 @@ $root.AICommon = (function() {
                 if (object.questionOptions) {
                     if (!Array.isArray(object.questionOptions))
                         throw TypeError(".AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.questionOptions: array expected");
-                    message.questionOptions = [];
+                    message.questionOptions = Array(object.questionOptions.length);
                     for (var i = 0; i < object.questionOptions.length; ++i) {
                         if (typeof object.questionOptions[i] !== "object")
                             throw TypeError(".AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.questionOptions: object expected");
-                        message.questionOptions[i] = $root.AICommon.InThreadSurveyMetadata.InThreadSurveyOption.fromObject(object.questionOptions[i], long + 1);
+                        message.questionOptions[i] = $root.AICommon.InThreadSurveyMetadata.InThreadSurveyOption.fromObject(object.questionOptions[i], _depth + 1);
                     }
                 }
                 return message;
@@ -14394,7 +15267,7 @@ $root.AICommon = (function() {
                         object._questionId = "questionId";
                 }
                 if (message.questionOptions && message.questionOptions.length) {
-                    object.questionOptions = [];
+                    object.questionOptions = Array(message.questionOptions.length);
                     for (var j = 0; j < message.questionOptions.length; ++j)
                         object.questionOptions[j] = $root.AICommon.InThreadSurveyMetadata.InThreadSurveyOption.toObject(message.questionOptions[j], options);
                 }
@@ -14413,18 +15286,17 @@ $root.AICommon = (function() {
             };
 
             /**
-             * Gets the default type url for InThreadSurveyQuestion
+             * Gets the type url for InThreadSurveyQuestion
              * @function getTypeUrl
              * @memberof AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            InThreadSurveyQuestion.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion";
+            InThreadSurveyQuestion.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion";
             };
 
             return InThreadSurveyQuestion;
@@ -14440,6 +15312,7 @@ $root.AICommon = (function() {
          * @memberof AICommon
          * @interface IBotSourcesMetadata
          * @property {Array.<AICommon.BotSourcesMetadata.IBotSourceItem>|null} [sources] BotSourcesMetadata sources
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -14449,6 +15322,7 @@ $root.AICommon = (function() {
          * @implements IBotSourcesMetadata
          * @constructor
          * @param {AICommon.IBotSourcesMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotSourcesMetadata(properties) {
             this.sources = [];
@@ -14493,6 +15367,9 @@ $root.AICommon = (function() {
             if (message.sources != null && message.sources.length)
                 for (var i = 0; i < message.sources.length; ++i)
                     $root.AICommon.BotSourcesMetadata.BotSourceItem.encode(message.sources[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -14520,30 +15397,38 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotSourcesMetadata.decode = function decode(reader, length, error, long) {
+        BotSourcesMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotSourcesMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotSourcesMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        if (!(message.sources && message.sources.length))
-                            message.sources = [];
-                        message.sources.push($root.AICommon.BotSourcesMetadata.BotSourceItem.decode(reader, reader.uint32(), undefined, long + 1));
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.sources && message.sources.length))
+                            message.sources = [];
+                        message.sources.push($root.AICommon.BotSourcesMetadata.BotSourceItem.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -14571,18 +15456,18 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotSourcesMetadata.verify = function verify(message, long) {
+        BotSourcesMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             if (message.sources != null && message.hasOwnProperty("sources")) {
                 if (!Array.isArray(message.sources))
                     return "sources: array expected";
                 for (var i = 0; i < message.sources.length; ++i) {
-                    var error = $root.AICommon.BotSourcesMetadata.BotSourceItem.verify(message.sources[i], long + 1);
+                    var error = $root.AICommon.BotSourcesMetadata.BotSourceItem.verify(message.sources[i], _depth + 1);
                     if (error)
                         return "sources." + error;
                 }
@@ -14598,22 +15483,22 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotSourcesMetadata} BotSourcesMetadata
          */
-        BotSourcesMetadata.fromObject = function fromObject(object, long) {
+        BotSourcesMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotSourcesMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotSourcesMetadata();
             if (object.sources) {
                 if (!Array.isArray(object.sources))
                     throw TypeError(".AICommon.BotSourcesMetadata.sources: array expected");
-                message.sources = [];
+                message.sources = Array(object.sources.length);
                 for (var i = 0; i < object.sources.length; ++i) {
                     if (typeof object.sources[i] !== "object")
                         throw TypeError(".AICommon.BotSourcesMetadata.sources: object expected");
-                    message.sources[i] = $root.AICommon.BotSourcesMetadata.BotSourceItem.fromObject(object.sources[i], long + 1);
+                    message.sources[i] = $root.AICommon.BotSourcesMetadata.BotSourceItem.fromObject(object.sources[i], _depth + 1);
                 }
             }
             return message;
@@ -14635,7 +15520,7 @@ $root.AICommon = (function() {
             if (options.arrays || options.defaults)
                 object.sources = [];
             if (message.sources && message.sources.length) {
-                object.sources = [];
+                object.sources = Array(message.sources.length);
                 for (var j = 0; j < message.sources.length; ++j)
                     object.sources[j] = $root.AICommon.BotSourcesMetadata.BotSourceItem.toObject(message.sources[j], options);
             }
@@ -14654,18 +15539,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotSourcesMetadata
+         * Gets the type url for BotSourcesMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotSourcesMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotSourcesMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotSourcesMetadata";
+        BotSourcesMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotSourcesMetadata";
         };
 
         BotSourcesMetadata.BotSourceItem = (function() {
@@ -14681,6 +15565,7 @@ $root.AICommon = (function() {
              * @property {string|null} [faviconCdnUrl] BotSourceItem faviconCdnUrl
              * @property {number|null} [citationNumber] BotSourceItem citationNumber
              * @property {string|null} [sourceTitle] BotSourceItem sourceTitle
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -14690,6 +15575,7 @@ $root.AICommon = (function() {
              * @implements IBotSourceItem
              * @constructor
              * @param {AICommon.BotSourcesMetadata.IBotSourceItem=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function BotSourceItem(properties) {
                 if (properties)
@@ -14837,6 +15723,9 @@ $root.AICommon = (function() {
                     writer.uint32(/* id 6, wireType 0 =*/48).uint32(message.citationNumber);
                 if (message.sourceTitle != null && Object.hasOwnProperty.call(message, "sourceTitle"))
                     writer.uint32(/* id 7, wireType 2 =*/58).string(message.sourceTitle);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -14864,52 +15753,79 @@ $root.AICommon = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            BotSourceItem.decode = function decode(reader, length, error, long) {
+            BotSourceItem.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotSourcesMetadata.BotSourceItem();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotSourcesMetadata.BotSourceItem();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.provider = reader.int32();
-                            break;
-                        }
-                    case 2: {
-                            message.thumbnailCdnUrl = reader.string();
-                            break;
-                        }
-                    case 3: {
-                            message.sourceProviderUrl = reader.string();
-                            break;
-                        }
-                    case 4: {
-                            message.sourceQuery = reader.string();
-                            break;
-                        }
-                    case 5: {
-                            message.faviconCdnUrl = reader.string();
-                            break;
-                        }
-                    case 6: {
-                            message.citationNumber = reader.uint32();
-                            break;
-                        }
-                    case 7: {
-                            message.sourceTitle = reader.string();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.provider = reader.int32();
+                            message._provider = "provider";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.thumbnailCdnUrl = reader.string();
+                            message._thumbnailCdnUrl = "thumbnailCdnUrl";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 2)
+                                break;
+                            message.sourceProviderUrl = reader.string();
+                            message._sourceProviderUrl = "sourceProviderUrl";
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 2)
+                                break;
+                            message.sourceQuery = reader.string();
+                            message._sourceQuery = "sourceQuery";
+                            continue;
+                        }
+                    case 5: {
+                            if (wireType !== 2)
+                                break;
+                            message.faviconCdnUrl = reader.string();
+                            message._faviconCdnUrl = "faviconCdnUrl";
+                            continue;
+                        }
+                    case 6: {
+                            if (wireType !== 0)
+                                break;
+                            message.citationNumber = reader.uint32();
+                            message._citationNumber = "citationNumber";
+                            continue;
+                        }
+                    case 7: {
+                            if (wireType !== 2)
+                                break;
+                            message.sourceTitle = reader.string();
+                            message._sourceTitle = "sourceTitle";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -14937,13 +15853,13 @@ $root.AICommon = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            BotSourceItem.verify = function verify(message, long) {
+            BotSourceItem.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.provider != null && message.hasOwnProperty("provider")) {
                     properties._provider = 1;
@@ -14999,13 +15915,13 @@ $root.AICommon = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {AICommon.BotSourcesMetadata.BotSourceItem} BotSourceItem
              */
-            BotSourceItem.fromObject = function fromObject(object, long) {
+            BotSourceItem.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.AICommon.BotSourcesMetadata.BotSourceItem)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.AICommon.BotSourcesMetadata.BotSourceItem();
                 switch (object.provider) {
                 default:
@@ -15113,18 +16029,17 @@ $root.AICommon = (function() {
             };
 
             /**
-             * Gets the default type url for BotSourceItem
+             * Gets the type url for BotSourceItem
              * @function getTypeUrl
              * @memberof AICommon.BotSourcesMetadata.BotSourceItem
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            BotSourceItem.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/AICommon.BotSourcesMetadata.BotSourceItem";
+            BotSourceItem.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/AICommon.BotSourcesMetadata.BotSourceItem";
             };
 
             /**
@@ -15162,6 +16077,7 @@ $root.AICommon = (function() {
          * @property {boolean|null} [ageCollectionEligible] BotAgeCollectionMetadata ageCollectionEligible
          * @property {boolean|null} [shouldTriggerAgeCollectionOnClient] BotAgeCollectionMetadata shouldTriggerAgeCollectionOnClient
          * @property {AICommon.BotAgeCollectionMetadata.AgeCollectionType|null} [ageCollectionType] BotAgeCollectionMetadata ageCollectionType
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -15171,6 +16087,7 @@ $root.AICommon = (function() {
          * @implements IBotAgeCollectionMetadata
          * @constructor
          * @param {AICommon.IBotAgeCollectionMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotAgeCollectionMetadata(properties) {
             if (properties)
@@ -15254,6 +16171,9 @@ $root.AICommon = (function() {
                 writer.uint32(/* id 2, wireType 0 =*/16).bool(message.shouldTriggerAgeCollectionOnClient);
             if (message.ageCollectionType != null && Object.hasOwnProperty.call(message, "ageCollectionType"))
                 writer.uint32(/* id 3, wireType 0 =*/24).int32(message.ageCollectionType);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -15281,36 +16201,51 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotAgeCollectionMetadata.decode = function decode(reader, length, error, long) {
+        BotAgeCollectionMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotAgeCollectionMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotAgeCollectionMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.ageCollectionEligible = reader.bool();
-                        break;
-                    }
-                case 2: {
-                        message.shouldTriggerAgeCollectionOnClient = reader.bool();
-                        break;
-                    }
-                case 3: {
-                        message.ageCollectionType = reader.int32();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.ageCollectionEligible = reader.bool();
+                        message._ageCollectionEligible = "ageCollectionEligible";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 0)
+                            break;
+                        message.shouldTriggerAgeCollectionOnClient = reader.bool();
+                        message._shouldTriggerAgeCollectionOnClient = "shouldTriggerAgeCollectionOnClient";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 0)
+                            break;
+                        message.ageCollectionType = reader.int32();
+                        message._ageCollectionType = "ageCollectionType";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -15338,13 +16273,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotAgeCollectionMetadata.verify = function verify(message, long) {
+        BotAgeCollectionMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.ageCollectionEligible != null && message.hasOwnProperty("ageCollectionEligible")) {
                 properties._ageCollectionEligible = 1;
@@ -15377,13 +16312,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotAgeCollectionMetadata} BotAgeCollectionMetadata
          */
-        BotAgeCollectionMetadata.fromObject = function fromObject(object, long) {
+        BotAgeCollectionMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotAgeCollectionMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotAgeCollectionMetadata();
             if (object.ageCollectionEligible != null)
                 message.ageCollectionEligible = Boolean(object.ageCollectionEligible);
@@ -15451,18 +16386,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotAgeCollectionMetadata
+         * Gets the type url for BotAgeCollectionMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotAgeCollectionMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotAgeCollectionMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotAgeCollectionMetadata";
+        BotAgeCollectionMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotAgeCollectionMetadata";
         };
 
         /**
@@ -15490,6 +16424,7 @@ $root.AICommon = (function() {
          * @interface IBotImagineMetadata
          * @property {AICommon.BotImagineMetadata.ImagineType|null} [imagineType] BotImagineMetadata imagineType
          * @property {string|null} [shortPrompt] BotImagineMetadata shortPrompt
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -15499,6 +16434,7 @@ $root.AICommon = (function() {
          * @implements IBotImagineMetadata
          * @constructor
          * @param {AICommon.IBotImagineMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotImagineMetadata(properties) {
             if (properties)
@@ -15566,6 +16502,9 @@ $root.AICommon = (function() {
                 writer.uint32(/* id 1, wireType 0 =*/8).int32(message.imagineType);
             if (message.shortPrompt != null && Object.hasOwnProperty.call(message, "shortPrompt"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.shortPrompt);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -15593,32 +16532,44 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotImagineMetadata.decode = function decode(reader, length, error, long) {
+        BotImagineMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotImagineMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotImagineMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.imagineType = reader.int32();
-                        break;
-                    }
-                case 2: {
-                        message.shortPrompt = reader.string();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.imagineType = reader.int32();
+                        message._imagineType = "imagineType";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.shortPrompt = reader.string();
+                        message._shortPrompt = "shortPrompt";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -15646,13 +16597,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotImagineMetadata.verify = function verify(message, long) {
+        BotImagineMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.imagineType != null && message.hasOwnProperty("imagineType")) {
                 properties._imagineType = 1;
@@ -15683,13 +16634,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotImagineMetadata} BotImagineMetadata
          */
-        BotImagineMetadata.fromObject = function fromObject(object, long) {
+        BotImagineMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotImagineMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotImagineMetadata();
             switch (object.imagineType) {
             default:
@@ -15762,18 +16713,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotImagineMetadata
+         * Gets the type url for BotImagineMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotImagineMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotImagineMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotImagineMetadata";
+        BotImagineMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotImagineMetadata";
         };
 
         /**
@@ -15806,6 +16756,7 @@ $root.AICommon = (function() {
          * @memberof AICommon
          * @interface IBotQuotaMetadata
          * @property {Array.<AICommon.BotQuotaMetadata.IBotFeatureQuotaMetadata>|null} [botFeatureQuotaMetadata] BotQuotaMetadata botFeatureQuotaMetadata
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -15815,6 +16766,7 @@ $root.AICommon = (function() {
          * @implements IBotQuotaMetadata
          * @constructor
          * @param {AICommon.IBotQuotaMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotQuotaMetadata(properties) {
             this.botFeatureQuotaMetadata = [];
@@ -15859,6 +16811,9 @@ $root.AICommon = (function() {
             if (message.botFeatureQuotaMetadata != null && message.botFeatureQuotaMetadata.length)
                 for (var i = 0; i < message.botFeatureQuotaMetadata.length; ++i)
                     $root.AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.encode(message.botFeatureQuotaMetadata[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -15886,30 +16841,38 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotQuotaMetadata.decode = function decode(reader, length, error, long) {
+        BotQuotaMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotQuotaMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotQuotaMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        if (!(message.botFeatureQuotaMetadata && message.botFeatureQuotaMetadata.length))
-                            message.botFeatureQuotaMetadata = [];
-                        message.botFeatureQuotaMetadata.push($root.AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.decode(reader, reader.uint32(), undefined, long + 1));
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.botFeatureQuotaMetadata && message.botFeatureQuotaMetadata.length))
+                            message.botFeatureQuotaMetadata = [];
+                        message.botFeatureQuotaMetadata.push($root.AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -15937,18 +16900,18 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotQuotaMetadata.verify = function verify(message, long) {
+        BotQuotaMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             if (message.botFeatureQuotaMetadata != null && message.hasOwnProperty("botFeatureQuotaMetadata")) {
                 if (!Array.isArray(message.botFeatureQuotaMetadata))
                     return "botFeatureQuotaMetadata: array expected";
                 for (var i = 0; i < message.botFeatureQuotaMetadata.length; ++i) {
-                    var error = $root.AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.verify(message.botFeatureQuotaMetadata[i], long + 1);
+                    var error = $root.AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.verify(message.botFeatureQuotaMetadata[i], _depth + 1);
                     if (error)
                         return "botFeatureQuotaMetadata." + error;
                 }
@@ -15964,22 +16927,22 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotQuotaMetadata} BotQuotaMetadata
          */
-        BotQuotaMetadata.fromObject = function fromObject(object, long) {
+        BotQuotaMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotQuotaMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotQuotaMetadata();
             if (object.botFeatureQuotaMetadata) {
                 if (!Array.isArray(object.botFeatureQuotaMetadata))
                     throw TypeError(".AICommon.BotQuotaMetadata.botFeatureQuotaMetadata: array expected");
-                message.botFeatureQuotaMetadata = [];
+                message.botFeatureQuotaMetadata = Array(object.botFeatureQuotaMetadata.length);
                 for (var i = 0; i < object.botFeatureQuotaMetadata.length; ++i) {
                     if (typeof object.botFeatureQuotaMetadata[i] !== "object")
                         throw TypeError(".AICommon.BotQuotaMetadata.botFeatureQuotaMetadata: object expected");
-                    message.botFeatureQuotaMetadata[i] = $root.AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.fromObject(object.botFeatureQuotaMetadata[i], long + 1);
+                    message.botFeatureQuotaMetadata[i] = $root.AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.fromObject(object.botFeatureQuotaMetadata[i], _depth + 1);
                 }
             }
             return message;
@@ -16001,7 +16964,7 @@ $root.AICommon = (function() {
             if (options.arrays || options.defaults)
                 object.botFeatureQuotaMetadata = [];
             if (message.botFeatureQuotaMetadata && message.botFeatureQuotaMetadata.length) {
-                object.botFeatureQuotaMetadata = [];
+                object.botFeatureQuotaMetadata = Array(message.botFeatureQuotaMetadata.length);
                 for (var j = 0; j < message.botFeatureQuotaMetadata.length; ++j)
                     object.botFeatureQuotaMetadata[j] = $root.AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.toObject(message.botFeatureQuotaMetadata[j], options);
             }
@@ -16020,18 +16983,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotQuotaMetadata
+         * Gets the type url for BotQuotaMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotQuotaMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotQuotaMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotQuotaMetadata";
+        BotQuotaMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotQuotaMetadata";
         };
 
         BotQuotaMetadata.BotFeatureQuotaMetadata = (function() {
@@ -16043,6 +17005,7 @@ $root.AICommon = (function() {
              * @property {AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.BotFeatureType|null} [featureType] BotFeatureQuotaMetadata featureType
              * @property {number|null} [remainingQuota] BotFeatureQuotaMetadata remainingQuota
              * @property {number|Long|null} [expirationTimestamp] BotFeatureQuotaMetadata expirationTimestamp
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -16052,6 +17015,7 @@ $root.AICommon = (function() {
              * @implements IBotFeatureQuotaMetadata
              * @constructor
              * @param {AICommon.BotQuotaMetadata.IBotFeatureQuotaMetadata=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function BotFeatureQuotaMetadata(properties) {
                 if (properties)
@@ -16135,6 +17099,9 @@ $root.AICommon = (function() {
                     writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.remainingQuota);
                 if (message.expirationTimestamp != null && Object.hasOwnProperty.call(message, "expirationTimestamp"))
                     writer.uint32(/* id 3, wireType 0 =*/24).uint64(message.expirationTimestamp);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -16162,36 +17129,51 @@ $root.AICommon = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            BotFeatureQuotaMetadata.decode = function decode(reader, length, error, long) {
+            BotFeatureQuotaMetadata.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.featureType = reader.int32();
-                            break;
-                        }
-                    case 2: {
-                            message.remainingQuota = reader.uint32();
-                            break;
-                        }
-                    case 3: {
-                            message.expirationTimestamp = reader.uint64();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 0)
+                                break;
+                            message.featureType = reader.int32();
+                            message._featureType = "featureType";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 0)
+                                break;
+                            message.remainingQuota = reader.uint32();
+                            message._remainingQuota = "remainingQuota";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 0)
+                                break;
+                            message.expirationTimestamp = reader.uint64();
+                            message._expirationTimestamp = "expirationTimestamp";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -16219,13 +17201,13 @@ $root.AICommon = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            BotFeatureQuotaMetadata.verify = function verify(message, long) {
+            BotFeatureQuotaMetadata.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.featureType != null && message.hasOwnProperty("featureType")) {
                     properties._featureType = 1;
@@ -16258,13 +17240,13 @@ $root.AICommon = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata} BotFeatureQuotaMetadata
              */
-            BotFeatureQuotaMetadata.fromObject = function fromObject(object, long) {
+            BotFeatureQuotaMetadata.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata();
                 switch (object.featureType) {
                 default:
@@ -16342,18 +17324,17 @@ $root.AICommon = (function() {
             };
 
             /**
-             * Gets the default type url for BotFeatureQuotaMetadata
+             * Gets the type url for BotFeatureQuotaMetadata
              * @function getTypeUrl
              * @memberof AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            BotFeatureQuotaMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata";
+            BotFeatureQuotaMetadata.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata";
             };
 
             /**
@@ -16384,6 +17365,7 @@ $root.AICommon = (function() {
          * @interface IBotModeSelectionMetadata
          * @property {Array.<AICommon.BotModeSelectionMetadata.BotUserSelectionMode>|null} [mode] BotModeSelectionMetadata mode
          * @property {Array.<number>|null} [overrideMode] BotModeSelectionMetadata overrideMode
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -16393,6 +17375,7 @@ $root.AICommon = (function() {
          * @implements IBotModeSelectionMetadata
          * @constructor
          * @param {AICommon.IBotModeSelectionMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotModeSelectionMetadata(properties) {
             this.mode = [];
@@ -16455,6 +17438,9 @@ $root.AICommon = (function() {
                     writer.uint32(message.overrideMode[i]);
                 writer.ldelim();
             }
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -16482,46 +17468,62 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotModeSelectionMetadata.decode = function decode(reader, length, error, long) {
+        BotModeSelectionMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotModeSelectionMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotModeSelectionMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
-                switch (tag >>> 3) {
+                }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
                 case 1: {
-                        if (!(message.mode && message.mode.length))
-                            message.mode = [];
-                        if ((tag & 7) === 2) {
+                        if (wireType === 2) {
+                            if (!(message.mode && message.mode.length))
+                                message.mode = [];
                             var end2 = reader.uint32() + reader.pos;
                             while (reader.pos < end2)
                                 message.mode.push(reader.int32());
-                        } else
-                            message.mode.push(reader.int32());
-                        break;
+                            continue;
+                        }
+                        if (wireType !== 0)
+                            break;
+                        if (!(message.mode && message.mode.length))
+                            message.mode = [];
+                        message.mode.push(reader.int32());
+                        continue;
                     }
                 case 2: {
-                        if (!(message.overrideMode && message.overrideMode.length))
-                            message.overrideMode = [];
-                        if ((tag & 7) === 2) {
+                        if (wireType === 2) {
+                            if (!(message.overrideMode && message.overrideMode.length))
+                                message.overrideMode = [];
                             var end2 = reader.uint32() + reader.pos;
                             while (reader.pos < end2)
                                 message.overrideMode.push(reader.uint32());
-                        } else
-                            message.overrideMode.push(reader.uint32());
-                        break;
+                            continue;
+                        }
+                        if (wireType !== 0)
+                            break;
+                        if (!(message.overrideMode && message.overrideMode.length))
+                            message.overrideMode = [];
+                        message.overrideMode.push(reader.uint32());
+                        continue;
                     }
-                default:
-                    reader.skipType(tag & 7, long);
-                    break;
                 }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -16549,13 +17551,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotModeSelectionMetadata.verify = function verify(message, long) {
+        BotModeSelectionMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             if (message.mode != null && message.hasOwnProperty("mode")) {
                 if (!Array.isArray(message.mode))
                     return "mode: array expected";
@@ -16586,18 +17588,18 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotModeSelectionMetadata} BotModeSelectionMetadata
          */
-        BotModeSelectionMetadata.fromObject = function fromObject(object, long) {
+        BotModeSelectionMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotModeSelectionMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotModeSelectionMetadata();
             if (object.mode) {
                 if (!Array.isArray(object.mode))
                     throw TypeError(".AICommon.BotModeSelectionMetadata.mode: array expected");
-                message.mode = [];
+                message.mode = Array(object.mode.length);
                 for (var i = 0; i < object.mode.length; ++i)
                     switch (object.mode[i]) {
                     default:
@@ -16618,7 +17620,7 @@ $root.AICommon = (function() {
             if (object.overrideMode) {
                 if (!Array.isArray(object.overrideMode))
                     throw TypeError(".AICommon.BotModeSelectionMetadata.overrideMode: array expected");
-                message.overrideMode = [];
+                message.overrideMode = Array(object.overrideMode.length);
                 for (var i = 0; i < object.overrideMode.length; ++i)
                     message.overrideMode[i] = object.overrideMode[i] >>> 0;
             }
@@ -16643,12 +17645,12 @@ $root.AICommon = (function() {
                 object.overrideMode = [];
             }
             if (message.mode && message.mode.length) {
-                object.mode = [];
+                object.mode = Array(message.mode.length);
                 for (var j = 0; j < message.mode.length; ++j)
                     object.mode[j] = options.enums === String ? $root.AICommon.BotModeSelectionMetadata.BotUserSelectionMode[message.mode[j]] === undefined ? message.mode[j] : $root.AICommon.BotModeSelectionMetadata.BotUserSelectionMode[message.mode[j]] : message.mode[j];
             }
             if (message.overrideMode && message.overrideMode.length) {
-                object.overrideMode = [];
+                object.overrideMode = Array(message.overrideMode.length);
                 for (var j = 0; j < message.overrideMode.length; ++j)
                     object.overrideMode[j] = message.overrideMode[j];
             }
@@ -16667,18 +17669,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotModeSelectionMetadata
+         * Gets the type url for BotModeSelectionMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotModeSelectionMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotModeSelectionMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotModeSelectionMetadata";
+        BotModeSelectionMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotModeSelectionMetadata";
         };
 
         /**
@@ -16705,6 +17706,7 @@ $root.AICommon = (function() {
          * @memberof AICommon
          * @interface IBotCapabilityMetadata
          * @property {Array.<AICommon.BotCapabilityMetadata.BotCapabilityType>|null} [capabilities] BotCapabilityMetadata capabilities
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -16714,6 +17716,7 @@ $root.AICommon = (function() {
          * @implements IBotCapabilityMetadata
          * @constructor
          * @param {AICommon.IBotCapabilityMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotCapabilityMetadata(properties) {
             this.capabilities = [];
@@ -16761,6 +17764,9 @@ $root.AICommon = (function() {
                     writer.int32(message.capabilities[i]);
                 writer.ldelim();
             }
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -16788,35 +17794,46 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotCapabilityMetadata.decode = function decode(reader, length, error, long) {
+        BotCapabilityMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotCapabilityMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotCapabilityMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
-                switch (tag >>> 3) {
+                }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
                 case 1: {
-                        if (!(message.capabilities && message.capabilities.length))
-                            message.capabilities = [];
-                        if ((tag & 7) === 2) {
+                        if (wireType === 2) {
+                            if (!(message.capabilities && message.capabilities.length))
+                                message.capabilities = [];
                             var end2 = reader.uint32() + reader.pos;
                             while (reader.pos < end2)
                                 message.capabilities.push(reader.int32());
-                        } else
-                            message.capabilities.push(reader.int32());
-                        break;
+                            continue;
+                        }
+                        if (wireType !== 0)
+                            break;
+                        if (!(message.capabilities && message.capabilities.length))
+                            message.capabilities = [];
+                        message.capabilities.push(reader.int32());
+                        continue;
                     }
-                default:
-                    reader.skipType(tag & 7, long);
-                    break;
                 }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -16844,13 +17861,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotCapabilityMetadata.verify = function verify(message, long) {
+        BotCapabilityMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             if (message.capabilities != null && message.hasOwnProperty("capabilities")) {
                 if (!Array.isArray(message.capabilities))
                     return "capabilities: array expected";
@@ -16934,18 +17951,18 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotCapabilityMetadata} BotCapabilityMetadata
          */
-        BotCapabilityMetadata.fromObject = function fromObject(object, long) {
+        BotCapabilityMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotCapabilityMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotCapabilityMetadata();
             if (object.capabilities) {
                 if (!Array.isArray(object.capabilities))
                     throw TypeError(".AICommon.BotCapabilityMetadata.capabilities: array expected");
-                message.capabilities = [];
+                message.capabilities = Array(object.capabilities.length);
                 for (var i = 0; i < object.capabilities.length; ++i)
                     switch (object.capabilities[i]) {
                     default:
@@ -17222,7 +18239,7 @@ $root.AICommon = (function() {
             if (options.arrays || options.defaults)
                 object.capabilities = [];
             if (message.capabilities && message.capabilities.length) {
-                object.capabilities = [];
+                object.capabilities = Array(message.capabilities.length);
                 for (var j = 0; j < message.capabilities.length; ++j)
                     object.capabilities[j] = options.enums === String ? $root.AICommon.BotCapabilityMetadata.BotCapabilityType[message.capabilities[j]] === undefined ? message.capabilities[j] : $root.AICommon.BotCapabilityMetadata.BotCapabilityType[message.capabilities[j]] : message.capabilities[j];
             }
@@ -17241,18 +18258,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotCapabilityMetadata
+         * Gets the type url for BotCapabilityMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotCapabilityMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotCapabilityMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotCapabilityMetadata";
+        BotCapabilityMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotCapabilityMetadata";
         };
 
         /**
@@ -17401,6 +18417,7 @@ $root.AICommon = (function() {
          * @property {string|null} [progressDescription] BotProgressIndicatorMetadata progressDescription
          * @property {Array.<AICommon.BotProgressIndicatorMetadata.IBotPlanningStepMetadata>|null} [stepsMetadata] BotProgressIndicatorMetadata stepsMetadata
          * @property {number|Long|null} [estimatedCompletionTime] BotProgressIndicatorMetadata estimatedCompletionTime
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -17410,6 +18427,7 @@ $root.AICommon = (function() {
          * @implements IBotProgressIndicatorMetadata
          * @constructor
          * @param {AICommon.IBotProgressIndicatorMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotProgressIndicatorMetadata(properties) {
             this.stepsMetadata = [];
@@ -17489,6 +18507,9 @@ $root.AICommon = (function() {
                     $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.encode(message.stepsMetadata[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
             if (message.estimatedCompletionTime != null && Object.hasOwnProperty.call(message, "estimatedCompletionTime"))
                 writer.uint32(/* id 3, wireType 0 =*/24).int64(message.estimatedCompletionTime);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -17516,38 +18537,52 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotProgressIndicatorMetadata.decode = function decode(reader, length, error, long) {
+        BotProgressIndicatorMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotProgressIndicatorMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotProgressIndicatorMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.progressDescription = reader.string();
-                        break;
-                    }
-                case 2: {
-                        if (!(message.stepsMetadata && message.stepsMetadata.length))
-                            message.stepsMetadata = [];
-                        message.stepsMetadata.push($root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.decode(reader, reader.uint32(), undefined, long + 1));
-                        break;
-                    }
-                case 3: {
-                        message.estimatedCompletionTime = reader.int64();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.progressDescription = reader.string();
+                        message._progressDescription = "progressDescription";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.stepsMetadata && message.stepsMetadata.length))
+                            message.stepsMetadata = [];
+                        message.stepsMetadata.push($root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 0)
+                            break;
+                        message.estimatedCompletionTime = reader.int64();
+                        message._estimatedCompletionTime = "estimatedCompletionTime";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -17575,13 +18610,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotProgressIndicatorMetadata.verify = function verify(message, long) {
+        BotProgressIndicatorMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.progressDescription != null && message.hasOwnProperty("progressDescription")) {
                 properties._progressDescription = 1;
@@ -17592,7 +18627,7 @@ $root.AICommon = (function() {
                 if (!Array.isArray(message.stepsMetadata))
                     return "stepsMetadata: array expected";
                 for (var i = 0; i < message.stepsMetadata.length; ++i) {
-                    var error = $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.verify(message.stepsMetadata[i], long + 1);
+                    var error = $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.verify(message.stepsMetadata[i], _depth + 1);
                     if (error)
                         return "stepsMetadata." + error;
                 }
@@ -17613,24 +18648,24 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotProgressIndicatorMetadata} BotProgressIndicatorMetadata
          */
-        BotProgressIndicatorMetadata.fromObject = function fromObject(object, long) {
+        BotProgressIndicatorMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotProgressIndicatorMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotProgressIndicatorMetadata();
             if (object.progressDescription != null)
                 message.progressDescription = String(object.progressDescription);
             if (object.stepsMetadata) {
                 if (!Array.isArray(object.stepsMetadata))
                     throw TypeError(".AICommon.BotProgressIndicatorMetadata.stepsMetadata: array expected");
-                message.stepsMetadata = [];
+                message.stepsMetadata = Array(object.stepsMetadata.length);
                 for (var i = 0; i < object.stepsMetadata.length; ++i) {
                     if (typeof object.stepsMetadata[i] !== "object")
                         throw TypeError(".AICommon.BotProgressIndicatorMetadata.stepsMetadata: object expected");
-                    message.stepsMetadata[i] = $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.fromObject(object.stepsMetadata[i], long + 1);
+                    message.stepsMetadata[i] = $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.fromObject(object.stepsMetadata[i], _depth + 1);
                 }
             }
             if (object.estimatedCompletionTime != null)
@@ -17666,7 +18701,7 @@ $root.AICommon = (function() {
                     object._progressDescription = "progressDescription";
             }
             if (message.stepsMetadata && message.stepsMetadata.length) {
-                object.stepsMetadata = [];
+                object.stepsMetadata = Array(message.stepsMetadata.length);
                 for (var j = 0; j < message.stepsMetadata.length; ++j)
                     object.stepsMetadata[j] = $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.toObject(message.stepsMetadata[j], options);
             }
@@ -17693,18 +18728,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotProgressIndicatorMetadata
+         * Gets the type url for BotProgressIndicatorMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotProgressIndicatorMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotProgressIndicatorMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotProgressIndicatorMetadata";
+        BotProgressIndicatorMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotProgressIndicatorMetadata";
         };
 
         BotProgressIndicatorMetadata.BotPlanningStepMetadata = (function() {
@@ -17720,6 +18754,7 @@ $root.AICommon = (function() {
              * @property {boolean|null} [isReasoning] BotPlanningStepMetadata isReasoning
              * @property {boolean|null} [isEnhancedSearch] BotPlanningStepMetadata isEnhancedSearch
              * @property {Array.<AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningStepSectionMetadata>|null} [sections] BotPlanningStepMetadata sections
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -17729,6 +18764,7 @@ $root.AICommon = (function() {
              * @implements IBotPlanningStepMetadata
              * @constructor
              * @param {AICommon.BotProgressIndicatorMetadata.IBotPlanningStepMetadata=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function BotPlanningStepMetadata(properties) {
                 this.sourcesMetadata = [];
@@ -17868,6 +18904,9 @@ $root.AICommon = (function() {
                 if (message.sections != null && message.sections.length)
                     for (var i = 0; i < message.sections.length; ++i)
                         $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.encode(message.sections[i], writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -17895,56 +18934,81 @@ $root.AICommon = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            BotPlanningStepMetadata.decode = function decode(reader, length, error, long) {
+            BotPlanningStepMetadata.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.statusTitle = reader.string();
-                            break;
-                        }
-                    case 2: {
-                            message.statusBody = reader.string();
-                            break;
-                        }
-                    case 3: {
-                            if (!(message.sourcesMetadata && message.sourcesMetadata.length))
-                                message.sourcesMetadata = [];
-                            message.sourcesMetadata.push($root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.decode(reader, reader.uint32(), undefined, long + 1));
-                            break;
-                        }
-                    case 4: {
-                            message.status = reader.int32();
-                            break;
-                        }
-                    case 5: {
-                            message.isReasoning = reader.bool();
-                            break;
-                        }
-                    case 6: {
-                            message.isEnhancedSearch = reader.bool();
-                            break;
-                        }
-                    case 7: {
-                            if (!(message.sections && message.sections.length))
-                                message.sections = [];
-                            message.sections.push($root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.decode(reader, reader.uint32(), undefined, long + 1));
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7, long);
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
                     }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.statusTitle = reader.string();
+                            message._statusTitle = "statusTitle";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.statusBody = reader.string();
+                            message._statusBody = "statusBody";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 2)
+                                break;
+                            if (!(message.sourcesMetadata && message.sourcesMetadata.length))
+                                message.sourcesMetadata = [];
+                            message.sourcesMetadata.push($root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.decode(reader, reader.uint32(), undefined, _depth + 1));
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 0)
+                                break;
+                            message.status = reader.int32();
+                            message._status = "status";
+                            continue;
+                        }
+                    case 5: {
+                            if (wireType !== 0)
+                                break;
+                            message.isReasoning = reader.bool();
+                            message._isReasoning = "isReasoning";
+                            continue;
+                        }
+                    case 6: {
+                            if (wireType !== 0)
+                                break;
+                            message.isEnhancedSearch = reader.bool();
+                            message._isEnhancedSearch = "isEnhancedSearch";
+                            continue;
+                        }
+                    case 7: {
+                            if (wireType !== 2)
+                                break;
+                            if (!(message.sections && message.sections.length))
+                                message.sections = [];
+                            message.sections.push($root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.decode(reader, reader.uint32(), undefined, _depth + 1));
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -17972,13 +19036,13 @@ $root.AICommon = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            BotPlanningStepMetadata.verify = function verify(message, long) {
+            BotPlanningStepMetadata.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.statusTitle != null && message.hasOwnProperty("statusTitle")) {
                     properties._statusTitle = 1;
@@ -17994,7 +19058,7 @@ $root.AICommon = (function() {
                     if (!Array.isArray(message.sourcesMetadata))
                         return "sourcesMetadata: array expected";
                     for (var i = 0; i < message.sourcesMetadata.length; ++i) {
-                        var error = $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.verify(message.sourcesMetadata[i], long + 1);
+                        var error = $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.verify(message.sourcesMetadata[i], _depth + 1);
                         if (error)
                             return "sourcesMetadata." + error;
                     }
@@ -18025,7 +19089,7 @@ $root.AICommon = (function() {
                     if (!Array.isArray(message.sections))
                         return "sections: array expected";
                     for (var i = 0; i < message.sections.length; ++i) {
-                        var error = $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.verify(message.sections[i], long + 1);
+                        var error = $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.verify(message.sections[i], _depth + 1);
                         if (error)
                             return "sections." + error;
                     }
@@ -18041,13 +19105,13 @@ $root.AICommon = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata} BotPlanningStepMetadata
              */
-            BotPlanningStepMetadata.fromObject = function fromObject(object, long) {
+            BotPlanningStepMetadata.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata();
                 if (object.statusTitle != null)
                     message.statusTitle = String(object.statusTitle);
@@ -18056,11 +19120,11 @@ $root.AICommon = (function() {
                 if (object.sourcesMetadata) {
                     if (!Array.isArray(object.sourcesMetadata))
                         throw TypeError(".AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.sourcesMetadata: array expected");
-                    message.sourcesMetadata = [];
+                    message.sourcesMetadata = Array(object.sourcesMetadata.length);
                     for (var i = 0; i < object.sourcesMetadata.length; ++i) {
                         if (typeof object.sourcesMetadata[i] !== "object")
                             throw TypeError(".AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.sourcesMetadata: object expected");
-                        message.sourcesMetadata[i] = $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.fromObject(object.sourcesMetadata[i], long + 1);
+                        message.sourcesMetadata[i] = $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.fromObject(object.sourcesMetadata[i], _depth + 1);
                     }
                 }
                 switch (object.status) {
@@ -18094,11 +19158,11 @@ $root.AICommon = (function() {
                 if (object.sections) {
                     if (!Array.isArray(object.sections))
                         throw TypeError(".AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.sections: array expected");
-                    message.sections = [];
+                    message.sections = Array(object.sections.length);
                     for (var i = 0; i < object.sections.length; ++i) {
                         if (typeof object.sections[i] !== "object")
                             throw TypeError(".AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.sections: object expected");
-                        message.sections[i] = $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.fromObject(object.sections[i], long + 1);
+                        message.sections[i] = $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.fromObject(object.sections[i], _depth + 1);
                     }
                 }
                 return message;
@@ -18132,7 +19196,7 @@ $root.AICommon = (function() {
                         object._statusBody = "statusBody";
                 }
                 if (message.sourcesMetadata && message.sourcesMetadata.length) {
-                    object.sourcesMetadata = [];
+                    object.sourcesMetadata = Array(message.sourcesMetadata.length);
                     for (var j = 0; j < message.sourcesMetadata.length; ++j)
                         object.sourcesMetadata[j] = $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.toObject(message.sourcesMetadata[j], options);
                 }
@@ -18152,7 +19216,7 @@ $root.AICommon = (function() {
                         object._isEnhancedSearch = "isEnhancedSearch";
                 }
                 if (message.sections && message.sections.length) {
-                    object.sections = [];
+                    object.sections = Array(message.sections.length);
                     for (var j = 0; j < message.sections.length; ++j)
                         object.sections[j] = $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.toObject(message.sections[j], options);
                 }
@@ -18171,18 +19235,17 @@ $root.AICommon = (function() {
             };
 
             /**
-             * Gets the default type url for BotPlanningStepMetadata
+             * Gets the type url for BotPlanningStepMetadata
              * @function getTypeUrl
              * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            BotPlanningStepMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata";
+            BotPlanningStepMetadata.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata";
             };
 
             BotPlanningStepMetadata.BotPlanningSearchSourceMetadata = (function() {
@@ -18195,6 +19258,7 @@ $root.AICommon = (function() {
                  * @property {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotSearchSourceProvider|null} [provider] BotPlanningSearchSourceMetadata provider
                  * @property {string|null} [sourceUrl] BotPlanningSearchSourceMetadata sourceUrl
                  * @property {string|null} [favIconUrl] BotPlanningSearchSourceMetadata favIconUrl
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
 
                 /**
@@ -18204,6 +19268,7 @@ $root.AICommon = (function() {
                  * @implements IBotPlanningSearchSourceMetadata
                  * @constructor
                  * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningSearchSourceMetadata=} [properties] Properties to set
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function BotPlanningSearchSourceMetadata(properties) {
                     if (properties)
@@ -18303,6 +19368,9 @@ $root.AICommon = (function() {
                         writer.uint32(/* id 3, wireType 2 =*/26).string(message.sourceUrl);
                     if (message.favIconUrl != null && Object.hasOwnProperty.call(message, "favIconUrl"))
                         writer.uint32(/* id 4, wireType 2 =*/34).string(message.favIconUrl);
+                    if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                        for (var i = 0; i < message.$unknowns.length; ++i)
+                            writer.raw(message.$unknowns[i]);
                     return writer;
                 };
 
@@ -18330,40 +19398,58 @@ $root.AICommon = (function() {
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                BotPlanningSearchSourceMetadata.decode = function decode(reader, length, error, long) {
+                BotPlanningSearchSourceMetadata.decode = function decode(reader, length, _end, _depth, _target) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $Reader.recursionLimit)
-                        throw Error("maximum nesting depth exceeded");
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata();
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $Reader.recursionLimit)
+                        throw Error("max depth exceeded");
+                    var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata();
                     while (reader.pos < end) {
-                        var tag = reader.uint32();
-                        if (tag === error)
-                            break;
-                        switch (tag >>> 3) {
-                        case 1: {
-                                message.title = reader.string();
-                                break;
-                            }
-                        case 2: {
-                                message.provider = reader.int32();
-                                break;
-                            }
-                        case 3: {
-                                message.sourceUrl = reader.string();
-                                break;
-                            }
-                        case 4: {
-                                message.favIconUrl = reader.string();
-                                break;
-                            }
-                        default:
-                            reader.skipType(tag & 7, long);
+                        var start = reader.pos;
+                        var tag = reader.tag();
+                        if (tag === _end) {
+                            _end = undefined;
                             break;
                         }
+                        var wireType = tag & 7;
+                        switch (tag >>>= 3) {
+                        case 1: {
+                                if (wireType !== 2)
+                                    break;
+                                message.title = reader.string();
+                                message._title = "title";
+                                continue;
+                            }
+                        case 2: {
+                                if (wireType !== 0)
+                                    break;
+                                message.provider = reader.int32();
+                                message._provider = "provider";
+                                continue;
+                            }
+                        case 3: {
+                                if (wireType !== 2)
+                                    break;
+                                message.sourceUrl = reader.string();
+                                message._sourceUrl = "sourceUrl";
+                                continue;
+                            }
+                        case 4: {
+                                if (wireType !== 2)
+                                    break;
+                                message.favIconUrl = reader.string();
+                                message._favIconUrl = "favIconUrl";
+                                continue;
+                            }
+                        }
+                        reader.skipType(wireType, _depth, tag);
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                    if (_end !== undefined)
+                        throw Error("missing end group");
                     return message;
                 };
 
@@ -18391,13 +19477,13 @@ $root.AICommon = (function() {
                  * @param {Object.<string,*>} message Plain object to verify
                  * @returns {string|null} `null` if valid, otherwise the reason why it is not
                  */
-                BotPlanningSearchSourceMetadata.verify = function verify(message, long) {
+                BotPlanningSearchSourceMetadata.verify = function verify(message, _depth) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $util.recursionLimit)
-                        return "maximum nesting depth exceeded";
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        return "max depth exceeded";
                     var properties = {};
                     if (message.title != null && message.hasOwnProperty("title")) {
                         properties._title = 1;
@@ -18437,13 +19523,13 @@ $root.AICommon = (function() {
                  * @param {Object.<string,*>} object Plain object
                  * @returns {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata} BotPlanningSearchSourceMetadata
                  */
-                BotPlanningSearchSourceMetadata.fromObject = function fromObject(object, long) {
+                BotPlanningSearchSourceMetadata.fromObject = function fromObject(object, _depth) {
                     if (object instanceof $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata)
                         return object;
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $util.recursionLimit)
-                        throw Error("maximum nesting depth exceeded");
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw Error("max depth exceeded");
                     var message = new $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata();
                     if (object.title != null)
                         message.title = String(object.title);
@@ -18526,18 +19612,17 @@ $root.AICommon = (function() {
                 };
 
                 /**
-                 * Gets the default type url for BotPlanningSearchSourceMetadata
+                 * Gets the type url for BotPlanningSearchSourceMetadata
                  * @function getTypeUrl
                  * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata
                  * @static
-                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-                 * @returns {string} The default type url
+                 * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+                 * @returns {string} The type url
                  */
-                BotPlanningSearchSourceMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                    if (typeUrlPrefix === undefined) {
-                        typeUrlPrefix = "type.googleapis.com";
-                    }
-                    return typeUrlPrefix + "/AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata";
+                BotPlanningSearchSourceMetadata.getTypeUrl = function getTypeUrl(prefix) {
+                    if (prefix === undefined)
+                        prefix = "type.googleapis.com";
+                    return prefix + "/AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata";
                 };
 
                 return BotPlanningSearchSourceMetadata;
@@ -18552,6 +19637,7 @@ $root.AICommon = (function() {
                  * @property {string|null} [sourceTitle] BotPlanningSearchSourcesMetadata sourceTitle
                  * @property {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.BotPlanningSearchSourceProvider|null} [provider] BotPlanningSearchSourcesMetadata provider
                  * @property {string|null} [sourceUrl] BotPlanningSearchSourcesMetadata sourceUrl
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
 
                 /**
@@ -18561,6 +19647,7 @@ $root.AICommon = (function() {
                  * @implements IBotPlanningSearchSourcesMetadata
                  * @constructor
                  * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningSearchSourcesMetadata=} [properties] Properties to set
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function BotPlanningSearchSourcesMetadata(properties) {
                     if (properties)
@@ -18644,6 +19731,9 @@ $root.AICommon = (function() {
                         writer.uint32(/* id 2, wireType 0 =*/16).int32(message.provider);
                     if (message.sourceUrl != null && Object.hasOwnProperty.call(message, "sourceUrl"))
                         writer.uint32(/* id 3, wireType 2 =*/26).string(message.sourceUrl);
+                    if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                        for (var i = 0; i < message.$unknowns.length; ++i)
+                            writer.raw(message.$unknowns[i]);
                     return writer;
                 };
 
@@ -18671,36 +19761,51 @@ $root.AICommon = (function() {
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                BotPlanningSearchSourcesMetadata.decode = function decode(reader, length, error, long) {
+                BotPlanningSearchSourcesMetadata.decode = function decode(reader, length, _end, _depth, _target) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $Reader.recursionLimit)
-                        throw Error("maximum nesting depth exceeded");
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata();
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $Reader.recursionLimit)
+                        throw Error("max depth exceeded");
+                    var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata();
                     while (reader.pos < end) {
-                        var tag = reader.uint32();
-                        if (tag === error)
-                            break;
-                        switch (tag >>> 3) {
-                        case 1: {
-                                message.sourceTitle = reader.string();
-                                break;
-                            }
-                        case 2: {
-                                message.provider = reader.int32();
-                                break;
-                            }
-                        case 3: {
-                                message.sourceUrl = reader.string();
-                                break;
-                            }
-                        default:
-                            reader.skipType(tag & 7, long);
+                        var start = reader.pos;
+                        var tag = reader.tag();
+                        if (tag === _end) {
+                            _end = undefined;
                             break;
                         }
+                        var wireType = tag & 7;
+                        switch (tag >>>= 3) {
+                        case 1: {
+                                if (wireType !== 2)
+                                    break;
+                                message.sourceTitle = reader.string();
+                                message._sourceTitle = "sourceTitle";
+                                continue;
+                            }
+                        case 2: {
+                                if (wireType !== 0)
+                                    break;
+                                message.provider = reader.int32();
+                                message._provider = "provider";
+                                continue;
+                            }
+                        case 3: {
+                                if (wireType !== 2)
+                                    break;
+                                message.sourceUrl = reader.string();
+                                message._sourceUrl = "sourceUrl";
+                                continue;
+                            }
+                        }
+                        reader.skipType(wireType, _depth, tag);
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                    if (_end !== undefined)
+                        throw Error("missing end group");
                     return message;
                 };
 
@@ -18728,13 +19833,13 @@ $root.AICommon = (function() {
                  * @param {Object.<string,*>} message Plain object to verify
                  * @returns {string|null} `null` if valid, otherwise the reason why it is not
                  */
-                BotPlanningSearchSourcesMetadata.verify = function verify(message, long) {
+                BotPlanningSearchSourcesMetadata.verify = function verify(message, _depth) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $util.recursionLimit)
-                        return "maximum nesting depth exceeded";
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        return "max depth exceeded";
                     var properties = {};
                     if (message.sourceTitle != null && message.hasOwnProperty("sourceTitle")) {
                         properties._sourceTitle = 1;
@@ -18769,13 +19874,13 @@ $root.AICommon = (function() {
                  * @param {Object.<string,*>} object Plain object
                  * @returns {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata} BotPlanningSearchSourcesMetadata
                  */
-                BotPlanningSearchSourcesMetadata.fromObject = function fromObject(object, long) {
+                BotPlanningSearchSourcesMetadata.fromObject = function fromObject(object, _depth) {
                     if (object instanceof $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata)
                         return object;
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $util.recursionLimit)
-                        throw Error("maximum nesting depth exceeded");
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw Error("max depth exceeded");
                     var message = new $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata();
                     if (object.sourceTitle != null)
                         message.sourceTitle = String(object.sourceTitle);
@@ -18851,18 +19956,17 @@ $root.AICommon = (function() {
                 };
 
                 /**
-                 * Gets the default type url for BotPlanningSearchSourcesMetadata
+                 * Gets the type url for BotPlanningSearchSourcesMetadata
                  * @function getTypeUrl
                  * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata
                  * @static
-                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-                 * @returns {string} The default type url
+                 * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+                 * @returns {string} The type url
                  */
-                BotPlanningSearchSourcesMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                    if (typeUrlPrefix === undefined) {
-                        typeUrlPrefix = "type.googleapis.com";
-                    }
-                    return typeUrlPrefix + "/AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata";
+                BotPlanningSearchSourcesMetadata.getTypeUrl = function getTypeUrl(prefix) {
+                    if (prefix === undefined)
+                        prefix = "type.googleapis.com";
+                    return prefix + "/AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata";
                 };
 
                 /**
@@ -18895,6 +19999,7 @@ $root.AICommon = (function() {
                  * @property {string|null} [sectionTitle] BotPlanningStepSectionMetadata sectionTitle
                  * @property {string|null} [sectionBody] BotPlanningStepSectionMetadata sectionBody
                  * @property {Array.<AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningSearchSourceMetadata>|null} [sourcesMetadata] BotPlanningStepSectionMetadata sourcesMetadata
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
 
                 /**
@@ -18904,6 +20009,7 @@ $root.AICommon = (function() {
                  * @implements IBotPlanningStepSectionMetadata
                  * @constructor
                  * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningStepSectionMetadata=} [properties] Properties to set
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function BotPlanningStepSectionMetadata(properties) {
                     this.sourcesMetadata = [];
@@ -18983,6 +20089,9 @@ $root.AICommon = (function() {
                     if (message.sourcesMetadata != null && message.sourcesMetadata.length)
                         for (var i = 0; i < message.sourcesMetadata.length; ++i)
                             $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.encode(message.sourcesMetadata[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                    if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                        for (var i = 0; i < message.$unknowns.length; ++i)
+                            writer.raw(message.$unknowns[i]);
                     return writer;
                 };
 
@@ -19010,38 +20119,52 @@ $root.AICommon = (function() {
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                BotPlanningStepSectionMetadata.decode = function decode(reader, length, error, long) {
+                BotPlanningStepSectionMetadata.decode = function decode(reader, length, _end, _depth, _target) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $Reader.recursionLimit)
-                        throw Error("maximum nesting depth exceeded");
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata();
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $Reader.recursionLimit)
+                        throw Error("max depth exceeded");
+                    var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata();
                     while (reader.pos < end) {
-                        var tag = reader.uint32();
-                        if (tag === error)
-                            break;
-                        switch (tag >>> 3) {
-                        case 1: {
-                                message.sectionTitle = reader.string();
-                                break;
-                            }
-                        case 2: {
-                                message.sectionBody = reader.string();
-                                break;
-                            }
-                        case 3: {
-                                if (!(message.sourcesMetadata && message.sourcesMetadata.length))
-                                    message.sourcesMetadata = [];
-                                message.sourcesMetadata.push($root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.decode(reader, reader.uint32(), undefined, long + 1));
-                                break;
-                            }
-                        default:
-                            reader.skipType(tag & 7, long);
+                        var start = reader.pos;
+                        var tag = reader.tag();
+                        if (tag === _end) {
+                            _end = undefined;
                             break;
                         }
+                        var wireType = tag & 7;
+                        switch (tag >>>= 3) {
+                        case 1: {
+                                if (wireType !== 2)
+                                    break;
+                                message.sectionTitle = reader.string();
+                                message._sectionTitle = "sectionTitle";
+                                continue;
+                            }
+                        case 2: {
+                                if (wireType !== 2)
+                                    break;
+                                message.sectionBody = reader.string();
+                                message._sectionBody = "sectionBody";
+                                continue;
+                            }
+                        case 3: {
+                                if (wireType !== 2)
+                                    break;
+                                if (!(message.sourcesMetadata && message.sourcesMetadata.length))
+                                    message.sourcesMetadata = [];
+                                message.sourcesMetadata.push($root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.decode(reader, reader.uint32(), undefined, _depth + 1));
+                                continue;
+                            }
+                        }
+                        reader.skipType(wireType, _depth, tag);
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                    if (_end !== undefined)
+                        throw Error("missing end group");
                     return message;
                 };
 
@@ -19069,13 +20192,13 @@ $root.AICommon = (function() {
                  * @param {Object.<string,*>} message Plain object to verify
                  * @returns {string|null} `null` if valid, otherwise the reason why it is not
                  */
-                BotPlanningStepSectionMetadata.verify = function verify(message, long) {
+                BotPlanningStepSectionMetadata.verify = function verify(message, _depth) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $util.recursionLimit)
-                        return "maximum nesting depth exceeded";
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        return "max depth exceeded";
                     var properties = {};
                     if (message.sectionTitle != null && message.hasOwnProperty("sectionTitle")) {
                         properties._sectionTitle = 1;
@@ -19091,7 +20214,7 @@ $root.AICommon = (function() {
                         if (!Array.isArray(message.sourcesMetadata))
                             return "sourcesMetadata: array expected";
                         for (var i = 0; i < message.sourcesMetadata.length; ++i) {
-                            var error = $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.verify(message.sourcesMetadata[i], long + 1);
+                            var error = $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.verify(message.sourcesMetadata[i], _depth + 1);
                             if (error)
                                 return "sourcesMetadata." + error;
                         }
@@ -19107,13 +20230,13 @@ $root.AICommon = (function() {
                  * @param {Object.<string,*>} object Plain object
                  * @returns {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata} BotPlanningStepSectionMetadata
                  */
-                BotPlanningStepSectionMetadata.fromObject = function fromObject(object, long) {
+                BotPlanningStepSectionMetadata.fromObject = function fromObject(object, _depth) {
                     if (object instanceof $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata)
                         return object;
-                    if (long === undefined)
-                        long = 0;
-                    if (long > $util.recursionLimit)
-                        throw Error("maximum nesting depth exceeded");
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw Error("max depth exceeded");
                     var message = new $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata();
                     if (object.sectionTitle != null)
                         message.sectionTitle = String(object.sectionTitle);
@@ -19122,11 +20245,11 @@ $root.AICommon = (function() {
                     if (object.sourcesMetadata) {
                         if (!Array.isArray(object.sourcesMetadata))
                             throw TypeError(".AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.sourcesMetadata: array expected");
-                        message.sourcesMetadata = [];
+                        message.sourcesMetadata = Array(object.sourcesMetadata.length);
                         for (var i = 0; i < object.sourcesMetadata.length; ++i) {
                             if (typeof object.sourcesMetadata[i] !== "object")
                                 throw TypeError(".AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.sourcesMetadata: object expected");
-                            message.sourcesMetadata[i] = $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.fromObject(object.sourcesMetadata[i], long + 1);
+                            message.sourcesMetadata[i] = $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.fromObject(object.sourcesMetadata[i], _depth + 1);
                         }
                     }
                     return message;
@@ -19158,7 +20281,7 @@ $root.AICommon = (function() {
                             object._sectionBody = "sectionBody";
                     }
                     if (message.sourcesMetadata && message.sourcesMetadata.length) {
-                        object.sourcesMetadata = [];
+                        object.sourcesMetadata = Array(message.sourcesMetadata.length);
                         for (var j = 0; j < message.sourcesMetadata.length; ++j)
                             object.sourcesMetadata[j] = $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.toObject(message.sourcesMetadata[j], options);
                     }
@@ -19177,18 +20300,17 @@ $root.AICommon = (function() {
                 };
 
                 /**
-                 * Gets the default type url for BotPlanningStepSectionMetadata
+                 * Gets the type url for BotPlanningStepSectionMetadata
                  * @function getTypeUrl
                  * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata
                  * @static
-                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-                 * @returns {string} The default type url
+                 * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+                 * @returns {string} The type url
                  */
-                BotPlanningStepSectionMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                    if (typeUrlPrefix === undefined) {
-                        typeUrlPrefix = "type.googleapis.com";
-                    }
-                    return typeUrlPrefix + "/AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata";
+                BotPlanningStepSectionMetadata.getTypeUrl = function getTypeUrl(prefix) {
+                    if (prefix === undefined)
+                        prefix = "type.googleapis.com";
+                    return prefix + "/AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata";
                 };
 
                 return BotPlanningStepSectionMetadata;
@@ -19245,6 +20367,7 @@ $root.AICommon = (function() {
          * @property {AICommon.BotModelMetadata.ModelType|null} [modelType] BotModelMetadata modelType
          * @property {AICommon.BotModelMetadata.PremiumModelStatus|null} [premiumModelStatus] BotModelMetadata premiumModelStatus
          * @property {string|null} [modelNameOverride] BotModelMetadata modelNameOverride
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -19254,6 +20377,7 @@ $root.AICommon = (function() {
          * @implements IBotModelMetadata
          * @constructor
          * @param {AICommon.IBotModelMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotModelMetadata(properties) {
             if (properties)
@@ -19337,6 +20461,9 @@ $root.AICommon = (function() {
                 writer.uint32(/* id 2, wireType 0 =*/16).int32(message.premiumModelStatus);
             if (message.modelNameOverride != null && Object.hasOwnProperty.call(message, "modelNameOverride"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.modelNameOverride);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -19364,36 +20491,51 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotModelMetadata.decode = function decode(reader, length, error, long) {
+        BotModelMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotModelMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotModelMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.modelType = reader.int32();
-                        break;
-                    }
-                case 2: {
-                        message.premiumModelStatus = reader.int32();
-                        break;
-                    }
-                case 3: {
-                        message.modelNameOverride = reader.string();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.modelType = reader.int32();
+                        message._modelType = "modelType";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 0)
+                            break;
+                        message.premiumModelStatus = reader.int32();
+                        message._premiumModelStatus = "premiumModelStatus";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.modelNameOverride = reader.string();
+                        message._modelNameOverride = "modelNameOverride";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -19421,13 +20563,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotModelMetadata.verify = function verify(message, long) {
+        BotModelMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.modelType != null && message.hasOwnProperty("modelType")) {
                 properties._modelType = 1;
@@ -19467,13 +20609,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotModelMetadata} BotModelMetadata
          */
-        BotModelMetadata.fromObject = function fromObject(object, long) {
+        BotModelMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotModelMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotModelMetadata();
             switch (object.modelType) {
             default:
@@ -19563,18 +20705,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotModelMetadata
+         * Gets the type url for BotModelMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotModelMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotModelMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotModelMetadata";
+        BotModelMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotModelMetadata";
         };
 
         /**
@@ -19623,6 +20764,7 @@ $root.AICommon = (function() {
          * @property {string|null} [name] BotReminderMetadata name
          * @property {number|Long|null} [nextTriggerTimestamp] BotReminderMetadata nextTriggerTimestamp
          * @property {AICommon.BotReminderMetadata.ReminderFrequency|null} [frequency] BotReminderMetadata frequency
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -19632,6 +20774,7 @@ $root.AICommon = (function() {
          * @implements IBotReminderMetadata
          * @constructor
          * @param {AICommon.IBotReminderMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotReminderMetadata(properties) {
             if (properties)
@@ -19747,6 +20890,9 @@ $root.AICommon = (function() {
                 writer.uint32(/* id 4, wireType 0 =*/32).uint64(message.nextTriggerTimestamp);
             if (message.frequency != null && Object.hasOwnProperty.call(message, "frequency"))
                 writer.uint32(/* id 5, wireType 0 =*/40).int32(message.frequency);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -19774,44 +20920,65 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotReminderMetadata.decode = function decode(reader, length, error, long) {
+        BotReminderMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotReminderMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotReminderMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.requestMessageKey = $root.Protocol.MessageKey.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 2: {
-                        message.action = reader.int32();
-                        break;
-                    }
-                case 3: {
-                        message.name = reader.string();
-                        break;
-                    }
-                case 4: {
-                        message.nextTriggerTimestamp = reader.uint64();
-                        break;
-                    }
-                case 5: {
-                        message.frequency = reader.int32();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.requestMessageKey = $root.Protocol.MessageKey.decode(reader, reader.uint32(), undefined, _depth + 1, message.requestMessageKey);
+                        message._requestMessageKey = "requestMessageKey";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 0)
+                            break;
+                        message.action = reader.int32();
+                        message._action = "action";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.name = reader.string();
+                        message._name = "name";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 0)
+                            break;
+                        message.nextTriggerTimestamp = reader.uint64();
+                        message._nextTriggerTimestamp = "nextTriggerTimestamp";
+                        continue;
+                    }
+                case 5: {
+                        if (wireType !== 0)
+                            break;
+                        message.frequency = reader.int32();
+                        message._frequency = "frequency";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -19839,18 +21006,18 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotReminderMetadata.verify = function verify(message, long) {
+        BotReminderMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.requestMessageKey != null && message.hasOwnProperty("requestMessageKey")) {
                 properties._requestMessageKey = 1;
                 {
-                    var error = $root.Protocol.MessageKey.verify(message.requestMessageKey, long + 1);
+                    var error = $root.Protocol.MessageKey.verify(message.requestMessageKey, _depth + 1);
                     if (error)
                         return "requestMessageKey." + error;
                 }
@@ -19901,18 +21068,18 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotReminderMetadata} BotReminderMetadata
          */
-        BotReminderMetadata.fromObject = function fromObject(object, long) {
+        BotReminderMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotReminderMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotReminderMetadata();
             if (object.requestMessageKey != null) {
                 if (typeof object.requestMessageKey !== "object")
                     throw TypeError(".AICommon.BotReminderMetadata.requestMessageKey: object expected");
-                message.requestMessageKey = $root.Protocol.MessageKey.fromObject(object.requestMessageKey, long + 1);
+                message.requestMessageKey = $root.Protocol.MessageKey.fromObject(object.requestMessageKey, _depth + 1);
             }
             switch (object.action) {
             default:
@@ -20036,18 +21203,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotReminderMetadata
+         * Gets the type url for BotReminderMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotReminderMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotReminderMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotReminderMetadata";
+        BotReminderMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotReminderMetadata";
         };
 
         /**
@@ -20098,6 +21264,7 @@ $root.AICommon = (function() {
          * @memberof AICommon
          * @interface IBotMemuMetadata
          * @property {Array.<AICommon.IBotMediaMetadata>|null} [faceImages] BotMemuMetadata faceImages
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -20107,6 +21274,7 @@ $root.AICommon = (function() {
          * @implements IBotMemuMetadata
          * @constructor
          * @param {AICommon.IBotMemuMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotMemuMetadata(properties) {
             this.faceImages = [];
@@ -20151,6 +21319,9 @@ $root.AICommon = (function() {
             if (message.faceImages != null && message.faceImages.length)
                 for (var i = 0; i < message.faceImages.length; ++i)
                     $root.AICommon.BotMediaMetadata.encode(message.faceImages[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -20178,30 +21349,38 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotMemuMetadata.decode = function decode(reader, length, error, long) {
+        BotMemuMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotMemuMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotMemuMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        if (!(message.faceImages && message.faceImages.length))
-                            message.faceImages = [];
-                        message.faceImages.push($root.AICommon.BotMediaMetadata.decode(reader, reader.uint32(), undefined, long + 1));
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.faceImages && message.faceImages.length))
+                            message.faceImages = [];
+                        message.faceImages.push($root.AICommon.BotMediaMetadata.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -20229,18 +21408,18 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotMemuMetadata.verify = function verify(message, long) {
+        BotMemuMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             if (message.faceImages != null && message.hasOwnProperty("faceImages")) {
                 if (!Array.isArray(message.faceImages))
                     return "faceImages: array expected";
                 for (var i = 0; i < message.faceImages.length; ++i) {
-                    var error = $root.AICommon.BotMediaMetadata.verify(message.faceImages[i], long + 1);
+                    var error = $root.AICommon.BotMediaMetadata.verify(message.faceImages[i], _depth + 1);
                     if (error)
                         return "faceImages." + error;
                 }
@@ -20256,22 +21435,22 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotMemuMetadata} BotMemuMetadata
          */
-        BotMemuMetadata.fromObject = function fromObject(object, long) {
+        BotMemuMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotMemuMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotMemuMetadata();
             if (object.faceImages) {
                 if (!Array.isArray(object.faceImages))
                     throw TypeError(".AICommon.BotMemuMetadata.faceImages: array expected");
-                message.faceImages = [];
+                message.faceImages = Array(object.faceImages.length);
                 for (var i = 0; i < object.faceImages.length; ++i) {
                     if (typeof object.faceImages[i] !== "object")
                         throw TypeError(".AICommon.BotMemuMetadata.faceImages: object expected");
-                    message.faceImages[i] = $root.AICommon.BotMediaMetadata.fromObject(object.faceImages[i], long + 1);
+                    message.faceImages[i] = $root.AICommon.BotMediaMetadata.fromObject(object.faceImages[i], _depth + 1);
                 }
             }
             return message;
@@ -20293,7 +21472,7 @@ $root.AICommon = (function() {
             if (options.arrays || options.defaults)
                 object.faceImages = [];
             if (message.faceImages && message.faceImages.length) {
-                object.faceImages = [];
+                object.faceImages = Array(message.faceImages.length);
                 for (var j = 0; j < message.faceImages.length; ++j)
                     object.faceImages[j] = $root.AICommon.BotMediaMetadata.toObject(message.faceImages[j], options);
             }
@@ -20312,18 +21491,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotMemuMetadata
+         * Gets the type url for BotMemuMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotMemuMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotMemuMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotMemuMetadata";
+        BotMemuMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotMemuMetadata";
         };
 
         return BotMemuMetadata;
@@ -20342,6 +21520,7 @@ $root.AICommon = (function() {
          * @property {number|Long|null} [mediaKeyTimestamp] BotMediaMetadata mediaKeyTimestamp
          * @property {string|null} [mimetype] BotMediaMetadata mimetype
          * @property {AICommon.BotMediaMetadata.OrientationType|null} [orientationType] BotMediaMetadata orientationType
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -20351,6 +21530,7 @@ $root.AICommon = (function() {
          * @implements IBotMediaMetadata
          * @constructor
          * @param {AICommon.IBotMediaMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotMediaMetadata(properties) {
             if (properties)
@@ -20498,6 +21678,9 @@ $root.AICommon = (function() {
                 writer.uint32(/* id 6, wireType 2 =*/50).string(message.mimetype);
             if (message.orientationType != null && Object.hasOwnProperty.call(message, "orientationType"))
                 writer.uint32(/* id 7, wireType 0 =*/56).int32(message.orientationType);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -20525,52 +21708,79 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotMediaMetadata.decode = function decode(reader, length, error, long) {
+        BotMediaMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotMediaMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotMediaMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.fileSha256 = reader.string();
-                        break;
-                    }
-                case 2: {
-                        message.mediaKey = reader.string();
-                        break;
-                    }
-                case 3: {
-                        message.fileEncSha256 = reader.string();
-                        break;
-                    }
-                case 4: {
-                        message.directPath = reader.string();
-                        break;
-                    }
-                case 5: {
-                        message.mediaKeyTimestamp = reader.int64();
-                        break;
-                    }
-                case 6: {
-                        message.mimetype = reader.string();
-                        break;
-                    }
-                case 7: {
-                        message.orientationType = reader.int32();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.fileSha256 = reader.string();
+                        message._fileSha256 = "fileSha256";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.mediaKey = reader.string();
+                        message._mediaKey = "mediaKey";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.fileEncSha256 = reader.string();
+                        message._fileEncSha256 = "fileEncSha256";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 2)
+                            break;
+                        message.directPath = reader.string();
+                        message._directPath = "directPath";
+                        continue;
+                    }
+                case 5: {
+                        if (wireType !== 0)
+                            break;
+                        message.mediaKeyTimestamp = reader.int64();
+                        message._mediaKeyTimestamp = "mediaKeyTimestamp";
+                        continue;
+                    }
+                case 6: {
+                        if (wireType !== 2)
+                            break;
+                        message.mimetype = reader.string();
+                        message._mimetype = "mimetype";
+                        continue;
+                    }
+                case 7: {
+                        if (wireType !== 0)
+                            break;
+                        message.orientationType = reader.int32();
+                        message._orientationType = "orientationType";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -20598,13 +21808,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotMediaMetadata.verify = function verify(message, long) {
+        BotMediaMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.fileSha256 != null && message.hasOwnProperty("fileSha256")) {
                 properties._fileSha256 = 1;
@@ -20658,13 +21868,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotMediaMetadata} BotMediaMetadata
          */
-        BotMediaMetadata.fromObject = function fromObject(object, long) {
+        BotMediaMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotMediaMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotMediaMetadata();
             if (object.fileSha256 != null)
                 message.fileSha256 = String(object.fileSha256);
@@ -20774,18 +21984,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotMediaMetadata
+         * Gets the type url for BotMediaMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotMediaMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotMediaMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotMediaMetadata";
+        BotMediaMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotMediaMetadata";
         };
 
         /**
@@ -20815,6 +22024,7 @@ $root.AICommon = (function() {
          * @interface IBotSessionMetadata
          * @property {string|null} [sessionId] BotSessionMetadata sessionId
          * @property {AICommon.BotSessionSource|null} [sessionSource] BotSessionMetadata sessionSource
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -20824,6 +22034,7 @@ $root.AICommon = (function() {
          * @implements IBotSessionMetadata
          * @constructor
          * @param {AICommon.IBotSessionMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotSessionMetadata(properties) {
             if (properties)
@@ -20891,6 +22102,9 @@ $root.AICommon = (function() {
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.sessionId);
             if (message.sessionSource != null && Object.hasOwnProperty.call(message, "sessionSource"))
                 writer.uint32(/* id 2, wireType 0 =*/16).int32(message.sessionSource);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -20918,32 +22132,44 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotSessionMetadata.decode = function decode(reader, length, error, long) {
+        BotSessionMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotSessionMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotSessionMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.sessionId = reader.string();
-                        break;
-                    }
-                case 2: {
-                        message.sessionSource = reader.int32();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.sessionId = reader.string();
+                        message._sessionId = "sessionId";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 0)
+                            break;
+                        message.sessionSource = reader.int32();
+                        message._sessionSource = "sessionSource";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -20971,13 +22197,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotSessionMetadata.verify = function verify(message, long) {
+        BotSessionMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.sessionId != null && message.hasOwnProperty("sessionId")) {
                 properties._sessionId = 1;
@@ -21011,13 +22237,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotSessionMetadata} BotSessionMetadata
          */
-        BotSessionMetadata.fromObject = function fromObject(object, long) {
+        BotSessionMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotSessionMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotSessionMetadata();
             if (object.sessionId != null)
                 message.sessionId = String(object.sessionId);
@@ -21102,18 +22328,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotSessionMetadata
+         * Gets the type url for BotSessionMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotSessionMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotSessionMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotSessionMetadata";
+        BotSessionMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotSessionMetadata";
         };
 
         return BotSessionMetadata;
@@ -21128,6 +22353,7 @@ $root.AICommon = (function() {
          * @property {string|null} [destinationId] BotMetricsMetadata destinationId
          * @property {AICommon.BotMetricsEntryPoint|null} [destinationEntryPoint] BotMetricsMetadata destinationEntryPoint
          * @property {AICommon.BotMetricsThreadEntryPoint|null} [threadOrigin] BotMetricsMetadata threadOrigin
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -21137,6 +22363,7 @@ $root.AICommon = (function() {
          * @implements IBotMetricsMetadata
          * @constructor
          * @param {AICommon.IBotMetricsMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotMetricsMetadata(properties) {
             if (properties)
@@ -21220,6 +22447,9 @@ $root.AICommon = (function() {
                 writer.uint32(/* id 2, wireType 0 =*/16).int32(message.destinationEntryPoint);
             if (message.threadOrigin != null && Object.hasOwnProperty.call(message, "threadOrigin"))
                 writer.uint32(/* id 3, wireType 0 =*/24).int32(message.threadOrigin);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -21247,36 +22477,51 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotMetricsMetadata.decode = function decode(reader, length, error, long) {
+        BotMetricsMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotMetricsMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotMetricsMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.destinationId = reader.string();
-                        break;
-                    }
-                case 2: {
-                        message.destinationEntryPoint = reader.int32();
-                        break;
-                    }
-                case 3: {
-                        message.threadOrigin = reader.int32();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.destinationId = reader.string();
+                        message._destinationId = "destinationId";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 0)
+                            break;
+                        message.destinationEntryPoint = reader.int32();
+                        message._destinationEntryPoint = "destinationEntryPoint";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 0)
+                            break;
+                        message.threadOrigin = reader.int32();
+                        message._threadOrigin = "threadOrigin";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -21304,13 +22549,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotMetricsMetadata.verify = function verify(message, long) {
+        BotMetricsMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.destinationId != null && message.hasOwnProperty("destinationId")) {
                 properties._destinationId = 1;
@@ -21397,13 +22642,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotMetricsMetadata} BotMetricsMetadata
          */
-        BotMetricsMetadata.fromObject = function fromObject(object, long) {
+        BotMetricsMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotMetricsMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotMetricsMetadata();
             if (object.destinationId != null)
                 message.destinationId = String(object.destinationId);
@@ -21681,18 +22926,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotMetricsMetadata
+         * Gets the type url for BotMetricsMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotMetricsMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotMetricsMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotMetricsMetadata";
+        BotMetricsMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotMetricsMetadata";
         };
 
         return BotMetricsMetadata;
@@ -21705,6 +22949,7 @@ $root.AICommon = (function() {
          * @memberof AICommon
          * @interface IBotRenderingMetadata
          * @property {Array.<AICommon.BotRenderingMetadata.IKeyword>|null} [keywords] BotRenderingMetadata keywords
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -21714,6 +22959,7 @@ $root.AICommon = (function() {
          * @implements IBotRenderingMetadata
          * @constructor
          * @param {AICommon.IBotRenderingMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotRenderingMetadata(properties) {
             this.keywords = [];
@@ -21758,6 +23004,9 @@ $root.AICommon = (function() {
             if (message.keywords != null && message.keywords.length)
                 for (var i = 0; i < message.keywords.length; ++i)
                     $root.AICommon.BotRenderingMetadata.Keyword.encode(message.keywords[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -21785,30 +23034,38 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotRenderingMetadata.decode = function decode(reader, length, error, long) {
+        BotRenderingMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotRenderingMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotRenderingMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        if (!(message.keywords && message.keywords.length))
-                            message.keywords = [];
-                        message.keywords.push($root.AICommon.BotRenderingMetadata.Keyword.decode(reader, reader.uint32(), undefined, long + 1));
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.keywords && message.keywords.length))
+                            message.keywords = [];
+                        message.keywords.push($root.AICommon.BotRenderingMetadata.Keyword.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -21836,18 +23093,18 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotRenderingMetadata.verify = function verify(message, long) {
+        BotRenderingMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             if (message.keywords != null && message.hasOwnProperty("keywords")) {
                 if (!Array.isArray(message.keywords))
                     return "keywords: array expected";
                 for (var i = 0; i < message.keywords.length; ++i) {
-                    var error = $root.AICommon.BotRenderingMetadata.Keyword.verify(message.keywords[i], long + 1);
+                    var error = $root.AICommon.BotRenderingMetadata.Keyword.verify(message.keywords[i], _depth + 1);
                     if (error)
                         return "keywords." + error;
                 }
@@ -21863,22 +23120,22 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotRenderingMetadata} BotRenderingMetadata
          */
-        BotRenderingMetadata.fromObject = function fromObject(object, long) {
+        BotRenderingMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotRenderingMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotRenderingMetadata();
             if (object.keywords) {
                 if (!Array.isArray(object.keywords))
                     throw TypeError(".AICommon.BotRenderingMetadata.keywords: array expected");
-                message.keywords = [];
+                message.keywords = Array(object.keywords.length);
                 for (var i = 0; i < object.keywords.length; ++i) {
                     if (typeof object.keywords[i] !== "object")
                         throw TypeError(".AICommon.BotRenderingMetadata.keywords: object expected");
-                    message.keywords[i] = $root.AICommon.BotRenderingMetadata.Keyword.fromObject(object.keywords[i], long + 1);
+                    message.keywords[i] = $root.AICommon.BotRenderingMetadata.Keyword.fromObject(object.keywords[i], _depth + 1);
                 }
             }
             return message;
@@ -21900,7 +23157,7 @@ $root.AICommon = (function() {
             if (options.arrays || options.defaults)
                 object.keywords = [];
             if (message.keywords && message.keywords.length) {
-                object.keywords = [];
+                object.keywords = Array(message.keywords.length);
                 for (var j = 0; j < message.keywords.length; ++j)
                     object.keywords[j] = $root.AICommon.BotRenderingMetadata.Keyword.toObject(message.keywords[j], options);
             }
@@ -21919,18 +23176,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotRenderingMetadata
+         * Gets the type url for BotRenderingMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotRenderingMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotRenderingMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotRenderingMetadata";
+        BotRenderingMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotRenderingMetadata";
         };
 
         BotRenderingMetadata.Keyword = (function() {
@@ -21941,6 +23197,7 @@ $root.AICommon = (function() {
              * @interface IKeyword
              * @property {string|null} [value] Keyword value
              * @property {Array.<string>|null} [associatedPrompts] Keyword associatedPrompts
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
@@ -21950,6 +23207,7 @@ $root.AICommon = (function() {
              * @implements IKeyword
              * @constructor
              * @param {AICommon.BotRenderingMetadata.IKeyword=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function Keyword(properties) {
                 this.associatedPrompts = [];
@@ -22013,6 +23271,9 @@ $root.AICommon = (function() {
                 if (message.associatedPrompts != null && message.associatedPrompts.length)
                     for (var i = 0; i < message.associatedPrompts.length; ++i)
                         writer.uint32(/* id 2, wireType 2 =*/18).string(message.associatedPrompts[i]);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
                 return writer;
             };
 
@@ -22040,34 +23301,45 @@ $root.AICommon = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Keyword.decode = function decode(reader, length, error, long) {
+            Keyword.decode = function decode(reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (long === undefined)
-                    long = 0;
-                if (long > $Reader.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotRenderingMetadata.Keyword();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotRenderingMetadata.Keyword();
                 while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
                         break;
-                    switch (tag >>> 3) {
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
                     case 1: {
+                            if (wireType !== 2)
+                                break;
                             message.value = reader.string();
-                            break;
+                            message._value = "value";
+                            continue;
                         }
                     case 2: {
+                            if (wireType !== 2)
+                                break;
                             if (!(message.associatedPrompts && message.associatedPrompts.length))
                                 message.associatedPrompts = [];
                             message.associatedPrompts.push(reader.string());
-                            break;
+                            continue;
                         }
-                    default:
-                        reader.skipType(tag & 7, long);
-                        break;
                     }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+                if (_end !== undefined)
+                    throw Error("missing end group");
                 return message;
             };
 
@@ -22095,13 +23367,13 @@ $root.AICommon = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            Keyword.verify = function verify(message, long) {
+            Keyword.verify = function verify(message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    return "maximum nesting depth exceeded";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
                 var properties = {};
                 if (message.value != null && message.hasOwnProperty("value")) {
                     properties._value = 1;
@@ -22126,20 +23398,20 @@ $root.AICommon = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {AICommon.BotRenderingMetadata.Keyword} Keyword
              */
-            Keyword.fromObject = function fromObject(object, long) {
+            Keyword.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.AICommon.BotRenderingMetadata.Keyword)
                     return object;
-                if (long === undefined)
-                    long = 0;
-                if (long > $util.recursionLimit)
-                    throw Error("maximum nesting depth exceeded");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var message = new $root.AICommon.BotRenderingMetadata.Keyword();
                 if (object.value != null)
                     message.value = String(object.value);
                 if (object.associatedPrompts) {
                     if (!Array.isArray(object.associatedPrompts))
                         throw TypeError(".AICommon.BotRenderingMetadata.Keyword.associatedPrompts: array expected");
-                    message.associatedPrompts = [];
+                    message.associatedPrompts = Array(object.associatedPrompts.length);
                     for (var i = 0; i < object.associatedPrompts.length; ++i)
                         message.associatedPrompts[i] = String(object.associatedPrompts[i]);
                 }
@@ -22167,7 +23439,7 @@ $root.AICommon = (function() {
                         object._value = "value";
                 }
                 if (message.associatedPrompts && message.associatedPrompts.length) {
-                    object.associatedPrompts = [];
+                    object.associatedPrompts = Array(message.associatedPrompts.length);
                     for (var j = 0; j < message.associatedPrompts.length; ++j)
                         object.associatedPrompts[j] = message.associatedPrompts[j];
                 }
@@ -22186,18 +23458,17 @@ $root.AICommon = (function() {
             };
 
             /**
-             * Gets the default type url for Keyword
+             * Gets the type url for Keyword
              * @function getTypeUrl
              * @memberof AICommon.BotRenderingMetadata.Keyword
              * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
              */
-            Keyword.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/AICommon.BotRenderingMetadata.Keyword";
+            Keyword.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/AICommon.BotRenderingMetadata.Keyword";
             };
 
             return Keyword;
@@ -22214,6 +23485,7 @@ $root.AICommon = (function() {
          * @interface IBotPromotionMessageMetadata
          * @property {AICommon.BotPromotionMessageMetadata.BotPromotionType|null} [promotionType] BotPromotionMessageMetadata promotionType
          * @property {string|null} [buttonTitle] BotPromotionMessageMetadata buttonTitle
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -22223,6 +23495,7 @@ $root.AICommon = (function() {
          * @implements IBotPromotionMessageMetadata
          * @constructor
          * @param {AICommon.IBotPromotionMessageMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotPromotionMessageMetadata(properties) {
             if (properties)
@@ -22290,6 +23563,9 @@ $root.AICommon = (function() {
                 writer.uint32(/* id 1, wireType 0 =*/8).int32(message.promotionType);
             if (message.buttonTitle != null && Object.hasOwnProperty.call(message, "buttonTitle"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.buttonTitle);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -22317,32 +23593,44 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotPromotionMessageMetadata.decode = function decode(reader, length, error, long) {
+        BotPromotionMessageMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotPromotionMessageMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotPromotionMessageMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.promotionType = reader.int32();
-                        break;
-                    }
-                case 2: {
-                        message.buttonTitle = reader.string();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.promotionType = reader.int32();
+                        message._promotionType = "promotionType";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.buttonTitle = reader.string();
+                        message._buttonTitle = "buttonTitle";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -22370,13 +23658,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotPromotionMessageMetadata.verify = function verify(message, long) {
+        BotPromotionMessageMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.promotionType != null && message.hasOwnProperty("promotionType")) {
                 properties._promotionType = 1;
@@ -22405,13 +23693,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotPromotionMessageMetadata} BotPromotionMessageMetadata
          */
-        BotPromotionMessageMetadata.fromObject = function fromObject(object, long) {
+        BotPromotionMessageMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotPromotionMessageMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotPromotionMessageMetadata();
             switch (object.promotionType) {
             default:
@@ -22476,18 +23764,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotPromotionMessageMetadata
+         * Gets the type url for BotPromotionMessageMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotPromotionMessageMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotPromotionMessageMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotPromotionMessageMetadata";
+        BotPromotionMessageMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotPromotionMessageMetadata";
         };
 
         /**
@@ -22519,6 +23806,7 @@ $root.AICommon = (function() {
          * @property {AICommon.BotSignatureVerificationUseCaseProof.BotSignatureUseCase|null} [useCase] BotSignatureVerificationUseCaseProof useCase
          * @property {Uint8Array|null} [signature] BotSignatureVerificationUseCaseProof signature
          * @property {Array.<Uint8Array>|null} [certificateChain] BotSignatureVerificationUseCaseProof certificateChain
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -22528,6 +23816,7 @@ $root.AICommon = (function() {
          * @implements IBotSignatureVerificationUseCaseProof
          * @constructor
          * @param {AICommon.IBotSignatureVerificationUseCaseProof=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotSignatureVerificationUseCaseProof(properties) {
             this.certificateChain = [];
@@ -22623,6 +23912,9 @@ $root.AICommon = (function() {
             if (message.certificateChain != null && message.certificateChain.length)
                 for (var i = 0; i < message.certificateChain.length; ++i)
                     writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.certificateChain[i]);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -22650,42 +23942,59 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotSignatureVerificationUseCaseProof.decode = function decode(reader, length, error, long) {
+        BotSignatureVerificationUseCaseProof.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotSignatureVerificationUseCaseProof();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotSignatureVerificationUseCaseProof();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
-                switch (tag >>> 3) {
+                }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
                 case 1: {
+                        if (wireType !== 0)
+                            break;
                         message.version = reader.int32();
-                        break;
+                        message._version = "version";
+                        continue;
                     }
                 case 2: {
+                        if (wireType !== 0)
+                            break;
                         message.useCase = reader.int32();
-                        break;
+                        message._useCase = "useCase";
+                        continue;
                     }
                 case 3: {
+                        if (wireType !== 2)
+                            break;
                         message.signature = reader.bytes();
-                        break;
+                        message._signature = "signature";
+                        continue;
                     }
                 case 4: {
+                        if (wireType !== 2)
+                            break;
                         if (!(message.certificateChain && message.certificateChain.length))
                             message.certificateChain = [];
                         message.certificateChain.push(reader.bytes());
-                        break;
+                        continue;
                     }
-                default:
-                    reader.skipType(tag & 7, long);
-                    break;
                 }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -22713,13 +24022,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotSignatureVerificationUseCaseProof.verify = function verify(message, long) {
+        BotSignatureVerificationUseCaseProof.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.version != null && message.hasOwnProperty("version")) {
                 properties._version = 1;
@@ -22760,13 +24069,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotSignatureVerificationUseCaseProof} BotSignatureVerificationUseCaseProof
          */
-        BotSignatureVerificationUseCaseProof.fromObject = function fromObject(object, long) {
+        BotSignatureVerificationUseCaseProof.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotSignatureVerificationUseCaseProof)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotSignatureVerificationUseCaseProof();
             if (object.version != null)
                 message.version = object.version | 0;
@@ -22798,7 +24107,7 @@ $root.AICommon = (function() {
             if (object.certificateChain) {
                 if (!Array.isArray(object.certificateChain))
                     throw TypeError(".AICommon.BotSignatureVerificationUseCaseProof.certificateChain: array expected");
-                message.certificateChain = [];
+                message.certificateChain = Array(object.certificateChain.length);
                 for (var i = 0; i < object.certificateChain.length; ++i)
                     if (typeof object.certificateChain[i] === "string")
                         $util.base64.decode(object.certificateChain[i], message.certificateChain[i] = $util.newBuffer($util.base64.length(object.certificateChain[i])), 0);
@@ -22839,7 +24148,7 @@ $root.AICommon = (function() {
                     object._signature = "signature";
             }
             if (message.certificateChain && message.certificateChain.length) {
-                object.certificateChain = [];
+                object.certificateChain = Array(message.certificateChain.length);
                 for (var j = 0; j < message.certificateChain.length; ++j)
                     object.certificateChain[j] = options.bytes === String ? $util.base64.encode(message.certificateChain[j], 0, message.certificateChain[j].length) : options.bytes === Array ? Array.prototype.slice.call(message.certificateChain[j]) : message.certificateChain[j];
             }
@@ -22858,18 +24167,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotSignatureVerificationUseCaseProof
+         * Gets the type url for BotSignatureVerificationUseCaseProof
          * @function getTypeUrl
          * @memberof AICommon.BotSignatureVerificationUseCaseProof
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotSignatureVerificationUseCaseProof.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotSignatureVerificationUseCaseProof";
+        BotSignatureVerificationUseCaseProof.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotSignatureVerificationUseCaseProof";
         };
 
         /**
@@ -22898,6 +24206,7 @@ $root.AICommon = (function() {
          * @memberof AICommon
          * @interface IBotSignatureVerificationMetadata
          * @property {Array.<AICommon.IBotSignatureVerificationUseCaseProof>|null} [proofs] BotSignatureVerificationMetadata proofs
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -22907,6 +24216,7 @@ $root.AICommon = (function() {
          * @implements IBotSignatureVerificationMetadata
          * @constructor
          * @param {AICommon.IBotSignatureVerificationMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotSignatureVerificationMetadata(properties) {
             this.proofs = [];
@@ -22951,6 +24261,9 @@ $root.AICommon = (function() {
             if (message.proofs != null && message.proofs.length)
                 for (var i = 0; i < message.proofs.length; ++i)
                     $root.AICommon.BotSignatureVerificationUseCaseProof.encode(message.proofs[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -22978,30 +24291,38 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotSignatureVerificationMetadata.decode = function decode(reader, length, error, long) {
+        BotSignatureVerificationMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotSignatureVerificationMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotSignatureVerificationMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        if (!(message.proofs && message.proofs.length))
-                            message.proofs = [];
-                        message.proofs.push($root.AICommon.BotSignatureVerificationUseCaseProof.decode(reader, reader.uint32(), undefined, long + 1));
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.proofs && message.proofs.length))
+                            message.proofs = [];
+                        message.proofs.push($root.AICommon.BotSignatureVerificationUseCaseProof.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -23029,18 +24350,18 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotSignatureVerificationMetadata.verify = function verify(message, long) {
+        BotSignatureVerificationMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             if (message.proofs != null && message.hasOwnProperty("proofs")) {
                 if (!Array.isArray(message.proofs))
                     return "proofs: array expected";
                 for (var i = 0; i < message.proofs.length; ++i) {
-                    var error = $root.AICommon.BotSignatureVerificationUseCaseProof.verify(message.proofs[i], long + 1);
+                    var error = $root.AICommon.BotSignatureVerificationUseCaseProof.verify(message.proofs[i], _depth + 1);
                     if (error)
                         return "proofs." + error;
                 }
@@ -23056,22 +24377,22 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotSignatureVerificationMetadata} BotSignatureVerificationMetadata
          */
-        BotSignatureVerificationMetadata.fromObject = function fromObject(object, long) {
+        BotSignatureVerificationMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotSignatureVerificationMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotSignatureVerificationMetadata();
             if (object.proofs) {
                 if (!Array.isArray(object.proofs))
                     throw TypeError(".AICommon.BotSignatureVerificationMetadata.proofs: array expected");
-                message.proofs = [];
+                message.proofs = Array(object.proofs.length);
                 for (var i = 0; i < object.proofs.length; ++i) {
                     if (typeof object.proofs[i] !== "object")
                         throw TypeError(".AICommon.BotSignatureVerificationMetadata.proofs: object expected");
-                    message.proofs[i] = $root.AICommon.BotSignatureVerificationUseCaseProof.fromObject(object.proofs[i], long + 1);
+                    message.proofs[i] = $root.AICommon.BotSignatureVerificationUseCaseProof.fromObject(object.proofs[i], _depth + 1);
                 }
             }
             return message;
@@ -23093,7 +24414,7 @@ $root.AICommon = (function() {
             if (options.arrays || options.defaults)
                 object.proofs = [];
             if (message.proofs && message.proofs.length) {
-                object.proofs = [];
+                object.proofs = Array(message.proofs.length);
                 for (var j = 0; j < message.proofs.length; ++j)
                     object.proofs[j] = $root.AICommon.BotSignatureVerificationUseCaseProof.toObject(message.proofs[j], options);
             }
@@ -23112,18 +24433,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotSignatureVerificationMetadata
+         * Gets the type url for BotSignatureVerificationMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotSignatureVerificationMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotSignatureVerificationMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotSignatureVerificationMetadata";
+        BotSignatureVerificationMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotSignatureVerificationMetadata";
         };
 
         return BotSignatureVerificationMetadata;
@@ -23137,6 +24457,7 @@ $root.AICommon = (function() {
          * @interface IBotMemoryFact
          * @property {string|null} [fact] BotMemoryFact fact
          * @property {string|null} [factId] BotMemoryFact factId
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -23146,6 +24467,7 @@ $root.AICommon = (function() {
          * @implements IBotMemoryFact
          * @constructor
          * @param {AICommon.IBotMemoryFact=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotMemoryFact(properties) {
             if (properties)
@@ -23213,6 +24535,9 @@ $root.AICommon = (function() {
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.fact);
             if (message.factId != null && Object.hasOwnProperty.call(message, "factId"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.factId);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -23240,32 +24565,44 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotMemoryFact.decode = function decode(reader, length, error, long) {
+        BotMemoryFact.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotMemoryFact();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotMemoryFact();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.fact = reader.string();
-                        break;
-                    }
-                case 2: {
-                        message.factId = reader.string();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.fact = reader.string();
+                        message._fact = "fact";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.factId = reader.string();
+                        message._factId = "factId";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -23293,13 +24630,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotMemoryFact.verify = function verify(message, long) {
+        BotMemoryFact.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.fact != null && message.hasOwnProperty("fact")) {
                 properties._fact = 1;
@@ -23322,13 +24659,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotMemoryFact} BotMemoryFact
          */
-        BotMemoryFact.fromObject = function fromObject(object, long) {
+        BotMemoryFact.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotMemoryFact)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotMemoryFact();
             if (object.fact != null)
                 message.fact = String(object.fact);
@@ -23375,18 +24712,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotMemoryFact
+         * Gets the type url for BotMemoryFact
          * @function getTypeUrl
          * @memberof AICommon.BotMemoryFact
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotMemoryFact.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotMemoryFact";
+        BotMemoryFact.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotMemoryFact";
         };
 
         return BotMemoryFact;
@@ -23401,6 +24737,7 @@ $root.AICommon = (function() {
          * @property {Array.<AICommon.IBotMemoryFact>|null} [addedFacts] BotMemoryMetadata addedFacts
          * @property {Array.<AICommon.IBotMemoryFact>|null} [removedFacts] BotMemoryMetadata removedFacts
          * @property {string|null} [disclaimer] BotMemoryMetadata disclaimer
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -23410,6 +24747,7 @@ $root.AICommon = (function() {
          * @implements IBotMemoryMetadata
          * @constructor
          * @param {AICommon.IBotMemoryMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotMemoryMetadata(properties) {
             this.addedFacts = [];
@@ -23485,6 +24823,9 @@ $root.AICommon = (function() {
                     $root.AICommon.BotMemoryFact.encode(message.removedFacts[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
             if (message.disclaimer != null && Object.hasOwnProperty.call(message, "disclaimer"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.disclaimer);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -23512,40 +24853,53 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotMemoryMetadata.decode = function decode(reader, length, error, long) {
+        BotMemoryMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotMemoryMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotMemoryMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        if (!(message.addedFacts && message.addedFacts.length))
-                            message.addedFacts = [];
-                        message.addedFacts.push($root.AICommon.BotMemoryFact.decode(reader, reader.uint32(), undefined, long + 1));
-                        break;
-                    }
-                case 2: {
-                        if (!(message.removedFacts && message.removedFacts.length))
-                            message.removedFacts = [];
-                        message.removedFacts.push($root.AICommon.BotMemoryFact.decode(reader, reader.uint32(), undefined, long + 1));
-                        break;
-                    }
-                case 3: {
-                        message.disclaimer = reader.string();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.addedFacts && message.addedFacts.length))
+                            message.addedFacts = [];
+                        message.addedFacts.push($root.AICommon.BotMemoryFact.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.removedFacts && message.removedFacts.length))
+                            message.removedFacts = [];
+                        message.removedFacts.push($root.AICommon.BotMemoryFact.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.disclaimer = reader.string();
+                        message._disclaimer = "disclaimer";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -23573,19 +24927,19 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotMemoryMetadata.verify = function verify(message, long) {
+        BotMemoryMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.addedFacts != null && message.hasOwnProperty("addedFacts")) {
                 if (!Array.isArray(message.addedFacts))
                     return "addedFacts: array expected";
                 for (var i = 0; i < message.addedFacts.length; ++i) {
-                    var error = $root.AICommon.BotMemoryFact.verify(message.addedFacts[i], long + 1);
+                    var error = $root.AICommon.BotMemoryFact.verify(message.addedFacts[i], _depth + 1);
                     if (error)
                         return "addedFacts." + error;
                 }
@@ -23594,7 +24948,7 @@ $root.AICommon = (function() {
                 if (!Array.isArray(message.removedFacts))
                     return "removedFacts: array expected";
                 for (var i = 0; i < message.removedFacts.length; ++i) {
-                    var error = $root.AICommon.BotMemoryFact.verify(message.removedFacts[i], long + 1);
+                    var error = $root.AICommon.BotMemoryFact.verify(message.removedFacts[i], _depth + 1);
                     if (error)
                         return "removedFacts." + error;
                 }
@@ -23615,32 +24969,32 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotMemoryMetadata} BotMemoryMetadata
          */
-        BotMemoryMetadata.fromObject = function fromObject(object, long) {
+        BotMemoryMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotMemoryMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotMemoryMetadata();
             if (object.addedFacts) {
                 if (!Array.isArray(object.addedFacts))
                     throw TypeError(".AICommon.BotMemoryMetadata.addedFacts: array expected");
-                message.addedFacts = [];
+                message.addedFacts = Array(object.addedFacts.length);
                 for (var i = 0; i < object.addedFacts.length; ++i) {
                     if (typeof object.addedFacts[i] !== "object")
                         throw TypeError(".AICommon.BotMemoryMetadata.addedFacts: object expected");
-                    message.addedFacts[i] = $root.AICommon.BotMemoryFact.fromObject(object.addedFacts[i], long + 1);
+                    message.addedFacts[i] = $root.AICommon.BotMemoryFact.fromObject(object.addedFacts[i], _depth + 1);
                 }
             }
             if (object.removedFacts) {
                 if (!Array.isArray(object.removedFacts))
                     throw TypeError(".AICommon.BotMemoryMetadata.removedFacts: array expected");
-                message.removedFacts = [];
+                message.removedFacts = Array(object.removedFacts.length);
                 for (var i = 0; i < object.removedFacts.length; ++i) {
                     if (typeof object.removedFacts[i] !== "object")
                         throw TypeError(".AICommon.BotMemoryMetadata.removedFacts: object expected");
-                    message.removedFacts[i] = $root.AICommon.BotMemoryFact.fromObject(object.removedFacts[i], long + 1);
+                    message.removedFacts[i] = $root.AICommon.BotMemoryFact.fromObject(object.removedFacts[i], _depth + 1);
                 }
             }
             if (object.disclaimer != null)
@@ -23666,12 +25020,12 @@ $root.AICommon = (function() {
                 object.removedFacts = [];
             }
             if (message.addedFacts && message.addedFacts.length) {
-                object.addedFacts = [];
+                object.addedFacts = Array(message.addedFacts.length);
                 for (var j = 0; j < message.addedFacts.length; ++j)
                     object.addedFacts[j] = $root.AICommon.BotMemoryFact.toObject(message.addedFacts[j], options);
             }
             if (message.removedFacts && message.removedFacts.length) {
-                object.removedFacts = [];
+                object.removedFacts = Array(message.removedFacts.length);
                 for (var j = 0; j < message.removedFacts.length; ++j)
                     object.removedFacts[j] = $root.AICommon.BotMemoryFact.toObject(message.removedFacts[j], options);
             }
@@ -23695,18 +25049,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotMemoryMetadata
+         * Gets the type url for BotMemoryMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotMemoryMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotMemoryMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotMemoryMetadata";
+        BotMemoryMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotMemoryMetadata";
         };
 
         return BotMemoryMetadata;
@@ -23719,6 +25072,7 @@ $root.AICommon = (function() {
          * @memberof AICommon
          * @interface IBotLinkedAccount
          * @property {AICommon.BotLinkedAccount.BotLinkedAccountType|null} [type] BotLinkedAccount type
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -23728,6 +25082,7 @@ $root.AICommon = (function() {
          * @implements IBotLinkedAccount
          * @constructor
          * @param {AICommon.IBotLinkedAccount=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotLinkedAccount(properties) {
             if (properties)
@@ -23779,6 +25134,9 @@ $root.AICommon = (function() {
                 writer = $Writer.create();
             if (message.type != null && Object.hasOwnProperty.call(message, "type"))
                 writer.uint32(/* id 1, wireType 0 =*/8).int32(message.type);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -23806,28 +25164,37 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotLinkedAccount.decode = function decode(reader, length, error, long) {
+        BotLinkedAccount.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotLinkedAccount();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotLinkedAccount();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.type = reader.int32();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.type = reader.int32();
+                        message._type = "type";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -23855,13 +25222,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotLinkedAccount.verify = function verify(message, long) {
+        BotLinkedAccount.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.type != null && message.hasOwnProperty("type")) {
                 properties._type = 1;
@@ -23883,13 +25250,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotLinkedAccount} BotLinkedAccount
          */
-        BotLinkedAccount.fromObject = function fromObject(object, long) {
+        BotLinkedAccount.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotLinkedAccount)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotLinkedAccount();
             switch (object.type) {
             default:
@@ -23939,18 +25306,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotLinkedAccount
+         * Gets the type url for BotLinkedAccount
          * @function getTypeUrl
          * @memberof AICommon.BotLinkedAccount
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotLinkedAccount.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotLinkedAccount";
+        BotLinkedAccount.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotLinkedAccount";
         };
 
         /**
@@ -23977,6 +25343,7 @@ $root.AICommon = (function() {
          * @property {Array.<AICommon.IBotLinkedAccount>|null} [accounts] BotLinkedAccountsMetadata accounts
          * @property {Uint8Array|null} [acAuthTokens] BotLinkedAccountsMetadata acAuthTokens
          * @property {number|null} [acErrorCode] BotLinkedAccountsMetadata acErrorCode
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -23986,6 +25353,7 @@ $root.AICommon = (function() {
          * @implements IBotLinkedAccountsMetadata
          * @constructor
          * @param {AICommon.IBotLinkedAccountsMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotLinkedAccountsMetadata(properties) {
             this.accounts = [];
@@ -24065,6 +25433,9 @@ $root.AICommon = (function() {
                 writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.acAuthTokens);
             if (message.acErrorCode != null && Object.hasOwnProperty.call(message, "acErrorCode"))
                 writer.uint32(/* id 3, wireType 0 =*/24).int32(message.acErrorCode);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -24092,38 +25463,52 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotLinkedAccountsMetadata.decode = function decode(reader, length, error, long) {
+        BotLinkedAccountsMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotLinkedAccountsMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotLinkedAccountsMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        if (!(message.accounts && message.accounts.length))
-                            message.accounts = [];
-                        message.accounts.push($root.AICommon.BotLinkedAccount.decode(reader, reader.uint32(), undefined, long + 1));
-                        break;
-                    }
-                case 2: {
-                        message.acAuthTokens = reader.bytes();
-                        break;
-                    }
-                case 3: {
-                        message.acErrorCode = reader.int32();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.accounts && message.accounts.length))
+                            message.accounts = [];
+                        message.accounts.push($root.AICommon.BotLinkedAccount.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.acAuthTokens = reader.bytes();
+                        message._acAuthTokens = "acAuthTokens";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 0)
+                            break;
+                        message.acErrorCode = reader.int32();
+                        message._acErrorCode = "acErrorCode";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -24151,19 +25536,19 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotLinkedAccountsMetadata.verify = function verify(message, long) {
+        BotLinkedAccountsMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.accounts != null && message.hasOwnProperty("accounts")) {
                 if (!Array.isArray(message.accounts))
                     return "accounts: array expected";
                 for (var i = 0; i < message.accounts.length; ++i) {
-                    var error = $root.AICommon.BotLinkedAccount.verify(message.accounts[i], long + 1);
+                    var error = $root.AICommon.BotLinkedAccount.verify(message.accounts[i], _depth + 1);
                     if (error)
                         return "accounts." + error;
                 }
@@ -24189,22 +25574,22 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotLinkedAccountsMetadata} BotLinkedAccountsMetadata
          */
-        BotLinkedAccountsMetadata.fromObject = function fromObject(object, long) {
+        BotLinkedAccountsMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotLinkedAccountsMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotLinkedAccountsMetadata();
             if (object.accounts) {
                 if (!Array.isArray(object.accounts))
                     throw TypeError(".AICommon.BotLinkedAccountsMetadata.accounts: array expected");
-                message.accounts = [];
+                message.accounts = Array(object.accounts.length);
                 for (var i = 0; i < object.accounts.length; ++i) {
                     if (typeof object.accounts[i] !== "object")
                         throw TypeError(".AICommon.BotLinkedAccountsMetadata.accounts: object expected");
-                    message.accounts[i] = $root.AICommon.BotLinkedAccount.fromObject(object.accounts[i], long + 1);
+                    message.accounts[i] = $root.AICommon.BotLinkedAccount.fromObject(object.accounts[i], _depth + 1);
                 }
             }
             if (object.acAuthTokens != null)
@@ -24233,7 +25618,7 @@ $root.AICommon = (function() {
             if (options.arrays || options.defaults)
                 object.accounts = [];
             if (message.accounts && message.accounts.length) {
-                object.accounts = [];
+                object.accounts = Array(message.accounts.length);
                 for (var j = 0; j < message.accounts.length; ++j)
                     object.accounts[j] = $root.AICommon.BotLinkedAccount.toObject(message.accounts[j], options);
             }
@@ -24262,18 +25647,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotLinkedAccountsMetadata
+         * Gets the type url for BotLinkedAccountsMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotLinkedAccountsMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotLinkedAccountsMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotLinkedAccountsMetadata";
+        BotLinkedAccountsMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotLinkedAccountsMetadata";
         };
 
         return BotLinkedAccountsMetadata;
@@ -24287,6 +25671,7 @@ $root.AICommon = (function() {
          * @interface IBotPromptSuggestion
          * @property {string|null} [prompt] BotPromptSuggestion prompt
          * @property {string|null} [promptId] BotPromptSuggestion promptId
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -24296,6 +25681,7 @@ $root.AICommon = (function() {
          * @implements IBotPromptSuggestion
          * @constructor
          * @param {AICommon.IBotPromptSuggestion=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotPromptSuggestion(properties) {
             if (properties)
@@ -24363,6 +25749,9 @@ $root.AICommon = (function() {
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.prompt);
             if (message.promptId != null && Object.hasOwnProperty.call(message, "promptId"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.promptId);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -24390,32 +25779,44 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotPromptSuggestion.decode = function decode(reader, length, error, long) {
+        BotPromptSuggestion.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotPromptSuggestion();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotPromptSuggestion();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.prompt = reader.string();
-                        break;
-                    }
-                case 2: {
-                        message.promptId = reader.string();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.prompt = reader.string();
+                        message._prompt = "prompt";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 2)
+                            break;
+                        message.promptId = reader.string();
+                        message._promptId = "promptId";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -24443,13 +25844,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotPromptSuggestion.verify = function verify(message, long) {
+        BotPromptSuggestion.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.prompt != null && message.hasOwnProperty("prompt")) {
                 properties._prompt = 1;
@@ -24472,13 +25873,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotPromptSuggestion} BotPromptSuggestion
          */
-        BotPromptSuggestion.fromObject = function fromObject(object, long) {
+        BotPromptSuggestion.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotPromptSuggestion)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotPromptSuggestion();
             if (object.prompt != null)
                 message.prompt = String(object.prompt);
@@ -24525,18 +25926,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotPromptSuggestion
+         * Gets the type url for BotPromptSuggestion
          * @function getTypeUrl
          * @memberof AICommon.BotPromptSuggestion
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotPromptSuggestion.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotPromptSuggestion";
+        BotPromptSuggestion.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotPromptSuggestion";
         };
 
         return BotPromptSuggestion;
@@ -24549,6 +25949,7 @@ $root.AICommon = (function() {
          * @memberof AICommon
          * @interface IBotPromptSuggestions
          * @property {Array.<AICommon.IBotPromptSuggestion>|null} [suggestions] BotPromptSuggestions suggestions
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -24558,6 +25959,7 @@ $root.AICommon = (function() {
          * @implements IBotPromptSuggestions
          * @constructor
          * @param {AICommon.IBotPromptSuggestions=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotPromptSuggestions(properties) {
             this.suggestions = [];
@@ -24602,6 +26004,9 @@ $root.AICommon = (function() {
             if (message.suggestions != null && message.suggestions.length)
                 for (var i = 0; i < message.suggestions.length; ++i)
                     $root.AICommon.BotPromptSuggestion.encode(message.suggestions[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -24629,30 +26034,38 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotPromptSuggestions.decode = function decode(reader, length, error, long) {
+        BotPromptSuggestions.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotPromptSuggestions();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotPromptSuggestions();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        if (!(message.suggestions && message.suggestions.length))
-                            message.suggestions = [];
-                        message.suggestions.push($root.AICommon.BotPromptSuggestion.decode(reader, reader.uint32(), undefined, long + 1));
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.suggestions && message.suggestions.length))
+                            message.suggestions = [];
+                        message.suggestions.push($root.AICommon.BotPromptSuggestion.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -24680,18 +26093,18 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotPromptSuggestions.verify = function verify(message, long) {
+        BotPromptSuggestions.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             if (message.suggestions != null && message.hasOwnProperty("suggestions")) {
                 if (!Array.isArray(message.suggestions))
                     return "suggestions: array expected";
                 for (var i = 0; i < message.suggestions.length; ++i) {
-                    var error = $root.AICommon.BotPromptSuggestion.verify(message.suggestions[i], long + 1);
+                    var error = $root.AICommon.BotPromptSuggestion.verify(message.suggestions[i], _depth + 1);
                     if (error)
                         return "suggestions." + error;
                 }
@@ -24707,22 +26120,22 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotPromptSuggestions} BotPromptSuggestions
          */
-        BotPromptSuggestions.fromObject = function fromObject(object, long) {
+        BotPromptSuggestions.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotPromptSuggestions)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotPromptSuggestions();
             if (object.suggestions) {
                 if (!Array.isArray(object.suggestions))
                     throw TypeError(".AICommon.BotPromptSuggestions.suggestions: array expected");
-                message.suggestions = [];
+                message.suggestions = Array(object.suggestions.length);
                 for (var i = 0; i < object.suggestions.length; ++i) {
                     if (typeof object.suggestions[i] !== "object")
                         throw TypeError(".AICommon.BotPromptSuggestions.suggestions: object expected");
-                    message.suggestions[i] = $root.AICommon.BotPromptSuggestion.fromObject(object.suggestions[i], long + 1);
+                    message.suggestions[i] = $root.AICommon.BotPromptSuggestion.fromObject(object.suggestions[i], _depth + 1);
                 }
             }
             return message;
@@ -24744,7 +26157,7 @@ $root.AICommon = (function() {
             if (options.arrays || options.defaults)
                 object.suggestions = [];
             if (message.suggestions && message.suggestions.length) {
-                object.suggestions = [];
+                object.suggestions = Array(message.suggestions.length);
                 for (var j = 0; j < message.suggestions.length; ++j)
                     object.suggestions[j] = $root.AICommon.BotPromptSuggestion.toObject(message.suggestions[j], options);
             }
@@ -24763,18 +26176,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotPromptSuggestions
+         * Gets the type url for BotPromptSuggestions
          * @function getTypeUrl
          * @memberof AICommon.BotPromptSuggestions
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotPromptSuggestions.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotPromptSuggestions";
+        BotPromptSuggestions.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotPromptSuggestions";
         };
 
         return BotPromptSuggestions;
@@ -24790,6 +26202,7 @@ $root.AICommon = (function() {
          * @property {number|null} [selectedPromptIndex] BotSuggestedPromptMetadata selectedPromptIndex
          * @property {AICommon.IBotPromptSuggestions|null} [promptSuggestions] BotSuggestedPromptMetadata promptSuggestions
          * @property {string|null} [selectedPromptId] BotSuggestedPromptMetadata selectedPromptId
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -24799,6 +26212,7 @@ $root.AICommon = (function() {
          * @implements IBotSuggestedPromptMetadata
          * @constructor
          * @param {AICommon.IBotSuggestedPromptMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotSuggestedPromptMetadata(properties) {
             this.suggestedPrompts = [];
@@ -24894,6 +26308,9 @@ $root.AICommon = (function() {
                 $root.AICommon.BotPromptSuggestions.encode(message.promptSuggestions, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
             if (message.selectedPromptId != null && Object.hasOwnProperty.call(message, "selectedPromptId"))
                 writer.uint32(/* id 4, wireType 2 =*/34).string(message.selectedPromptId);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -24921,42 +26338,59 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotSuggestedPromptMetadata.decode = function decode(reader, length, error, long) {
+        BotSuggestedPromptMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotSuggestedPromptMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotSuggestedPromptMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
-                switch (tag >>> 3) {
+                }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
                 case 1: {
+                        if (wireType !== 2)
+                            break;
                         if (!(message.suggestedPrompts && message.suggestedPrompts.length))
                             message.suggestedPrompts = [];
                         message.suggestedPrompts.push(reader.string());
-                        break;
+                        continue;
                     }
                 case 2: {
+                        if (wireType !== 0)
+                            break;
                         message.selectedPromptIndex = reader.uint32();
-                        break;
+                        message._selectedPromptIndex = "selectedPromptIndex";
+                        continue;
                     }
                 case 3: {
-                        message.promptSuggestions = $root.AICommon.BotPromptSuggestions.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
+                        if (wireType !== 2)
+                            break;
+                        message.promptSuggestions = $root.AICommon.BotPromptSuggestions.decode(reader, reader.uint32(), undefined, _depth + 1, message.promptSuggestions);
+                        message._promptSuggestions = "promptSuggestions";
+                        continue;
                     }
                 case 4: {
+                        if (wireType !== 2)
+                            break;
                         message.selectedPromptId = reader.string();
-                        break;
+                        message._selectedPromptId = "selectedPromptId";
+                        continue;
                     }
-                default:
-                    reader.skipType(tag & 7, long);
-                    break;
                 }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -24984,13 +26418,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotSuggestedPromptMetadata.verify = function verify(message, long) {
+        BotSuggestedPromptMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.suggestedPrompts != null && message.hasOwnProperty("suggestedPrompts")) {
                 if (!Array.isArray(message.suggestedPrompts))
@@ -25007,7 +26441,7 @@ $root.AICommon = (function() {
             if (message.promptSuggestions != null && message.hasOwnProperty("promptSuggestions")) {
                 properties._promptSuggestions = 1;
                 {
-                    var error = $root.AICommon.BotPromptSuggestions.verify(message.promptSuggestions, long + 1);
+                    var error = $root.AICommon.BotPromptSuggestions.verify(message.promptSuggestions, _depth + 1);
                     if (error)
                         return "promptSuggestions." + error;
                 }
@@ -25028,18 +26462,18 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotSuggestedPromptMetadata} BotSuggestedPromptMetadata
          */
-        BotSuggestedPromptMetadata.fromObject = function fromObject(object, long) {
+        BotSuggestedPromptMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotSuggestedPromptMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotSuggestedPromptMetadata();
             if (object.suggestedPrompts) {
                 if (!Array.isArray(object.suggestedPrompts))
                     throw TypeError(".AICommon.BotSuggestedPromptMetadata.suggestedPrompts: array expected");
-                message.suggestedPrompts = [];
+                message.suggestedPrompts = Array(object.suggestedPrompts.length);
                 for (var i = 0; i < object.suggestedPrompts.length; ++i)
                     message.suggestedPrompts[i] = String(object.suggestedPrompts[i]);
             }
@@ -25048,7 +26482,7 @@ $root.AICommon = (function() {
             if (object.promptSuggestions != null) {
                 if (typeof object.promptSuggestions !== "object")
                     throw TypeError(".AICommon.BotSuggestedPromptMetadata.promptSuggestions: object expected");
-                message.promptSuggestions = $root.AICommon.BotPromptSuggestions.fromObject(object.promptSuggestions, long + 1);
+                message.promptSuggestions = $root.AICommon.BotPromptSuggestions.fromObject(object.promptSuggestions, _depth + 1);
             }
             if (object.selectedPromptId != null)
                 message.selectedPromptId = String(object.selectedPromptId);
@@ -25071,7 +26505,7 @@ $root.AICommon = (function() {
             if (options.arrays || options.defaults)
                 object.suggestedPrompts = [];
             if (message.suggestedPrompts && message.suggestedPrompts.length) {
-                object.suggestedPrompts = [];
+                object.suggestedPrompts = Array(message.suggestedPrompts.length);
                 for (var j = 0; j < message.suggestedPrompts.length; ++j)
                     object.suggestedPrompts[j] = message.suggestedPrompts[j];
             }
@@ -25105,18 +26539,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotSuggestedPromptMetadata
+         * Gets the type url for BotSuggestedPromptMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotSuggestedPromptMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotSuggestedPromptMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotSuggestedPromptMetadata";
+        BotSuggestedPromptMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotSuggestedPromptMetadata";
         };
 
         return BotSuggestedPromptMetadata;
@@ -25140,6 +26573,7 @@ $root.AICommon = (function() {
          * @property {AICommon.BotPluginMetadata.PluginType|null} [deprecatedField] BotPluginMetadata deprecatedField
          * @property {AICommon.BotPluginMetadata.PluginType|null} [parentPluginType] BotPluginMetadata parentPluginType
          * @property {string|null} [faviconCdnUrl] BotPluginMetadata faviconCdnUrl
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -25149,6 +26583,7 @@ $root.AICommon = (function() {
          * @implements IBotPluginMetadata
          * @constructor
          * @param {AICommon.IBotPluginMetadata=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotPluginMetadata(properties) {
             if (properties)
@@ -25376,6 +26811,9 @@ $root.AICommon = (function() {
                 writer.uint32(/* id 12, wireType 0 =*/96).int32(message.parentPluginType);
             if (message.faviconCdnUrl != null && Object.hasOwnProperty.call(message, "faviconCdnUrl"))
                 writer.uint32(/* id 13, wireType 2 =*/106).string(message.faviconCdnUrl);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -25403,72 +26841,114 @@ $root.AICommon = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BotPluginMetadata.decode = function decode(reader, length, error, long) {
+        BotPluginMetadata.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.AICommon.BotPluginMetadata();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.AICommon.BotPluginMetadata();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.provider = reader.int32();
-                        break;
-                    }
-                case 2: {
-                        message.pluginType = reader.int32();
-                        break;
-                    }
-                case 3: {
-                        message.thumbnailCdnUrl = reader.string();
-                        break;
-                    }
-                case 4: {
-                        message.profilePhotoCdnUrl = reader.string();
-                        break;
-                    }
-                case 5: {
-                        message.searchProviderUrl = reader.string();
-                        break;
-                    }
-                case 6: {
-                        message.referenceIndex = reader.uint32();
-                        break;
-                    }
-                case 7: {
-                        message.expectedLinksCount = reader.uint32();
-                        break;
-                    }
-                case 9: {
-                        message.searchQuery = reader.string();
-                        break;
-                    }
-                case 10: {
-                        message.parentPluginMessageKey = $root.Protocol.MessageKey.decode(reader, reader.uint32(), undefined, long + 1);
-                        break;
-                    }
-                case 11: {
-                        message.deprecatedField = reader.int32();
-                        break;
-                    }
-                case 12: {
-                        message.parentPluginType = reader.int32();
-                        break;
-                    }
-                case 13: {
-                        message.faviconCdnUrl = reader.string();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.provider = reader.int32();
+                        message._provider = "provider";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 0)
+                            break;
+                        message.pluginType = reader.int32();
+                        message._pluginType = "pluginType";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.thumbnailCdnUrl = reader.string();
+                        message._thumbnailCdnUrl = "thumbnailCdnUrl";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 2)
+                            break;
+                        message.profilePhotoCdnUrl = reader.string();
+                        message._profilePhotoCdnUrl = "profilePhotoCdnUrl";
+                        continue;
+                    }
+                case 5: {
+                        if (wireType !== 2)
+                            break;
+                        message.searchProviderUrl = reader.string();
+                        message._searchProviderUrl = "searchProviderUrl";
+                        continue;
+                    }
+                case 6: {
+                        if (wireType !== 0)
+                            break;
+                        message.referenceIndex = reader.uint32();
+                        message._referenceIndex = "referenceIndex";
+                        continue;
+                    }
+                case 7: {
+                        if (wireType !== 0)
+                            break;
+                        message.expectedLinksCount = reader.uint32();
+                        message._expectedLinksCount = "expectedLinksCount";
+                        continue;
+                    }
+                case 9: {
+                        if (wireType !== 2)
+                            break;
+                        message.searchQuery = reader.string();
+                        message._searchQuery = "searchQuery";
+                        continue;
+                    }
+                case 10: {
+                        if (wireType !== 2)
+                            break;
+                        message.parentPluginMessageKey = $root.Protocol.MessageKey.decode(reader, reader.uint32(), undefined, _depth + 1, message.parentPluginMessageKey);
+                        message._parentPluginMessageKey = "parentPluginMessageKey";
+                        continue;
+                    }
+                case 11: {
+                        if (wireType !== 0)
+                            break;
+                        message.deprecatedField = reader.int32();
+                        message._deprecatedField = "deprecatedField";
+                        continue;
+                    }
+                case 12: {
+                        if (wireType !== 0)
+                            break;
+                        message.parentPluginType = reader.int32();
+                        message._parentPluginType = "parentPluginType";
+                        continue;
+                    }
+                case 13: {
+                        if (wireType !== 2)
+                            break;
+                        message.faviconCdnUrl = reader.string();
+                        message._faviconCdnUrl = "faviconCdnUrl";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -25496,13 +26976,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BotPluginMetadata.verify = function verify(message, long) {
+        BotPluginMetadata.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.provider != null && message.hasOwnProperty("provider")) {
                 properties._provider = 1;
@@ -25560,7 +27040,7 @@ $root.AICommon = (function() {
             if (message.parentPluginMessageKey != null && message.hasOwnProperty("parentPluginMessageKey")) {
                 properties._parentPluginMessageKey = 1;
                 {
-                    var error = $root.Protocol.MessageKey.verify(message.parentPluginMessageKey, long + 1);
+                    var error = $root.Protocol.MessageKey.verify(message.parentPluginMessageKey, _depth + 1);
                     if (error)
                         return "parentPluginMessageKey." + error;
                 }
@@ -25603,13 +27083,13 @@ $root.AICommon = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {AICommon.BotPluginMetadata} BotPluginMetadata
          */
-        BotPluginMetadata.fromObject = function fromObject(object, long) {
+        BotPluginMetadata.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.AICommon.BotPluginMetadata)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.AICommon.BotPluginMetadata();
             switch (object.provider) {
             default:
@@ -25670,7 +27150,7 @@ $root.AICommon = (function() {
             if (object.parentPluginMessageKey != null) {
                 if (typeof object.parentPluginMessageKey !== "object")
                     throw TypeError(".AICommon.BotPluginMetadata.parentPluginMessageKey: object expected");
-                message.parentPluginMessageKey = $root.Protocol.MessageKey.fromObject(object.parentPluginMessageKey, long + 1);
+                message.parentPluginMessageKey = $root.Protocol.MessageKey.fromObject(object.parentPluginMessageKey, _depth + 1);
             }
             switch (object.deprecatedField) {
             default:
@@ -25805,18 +27285,17 @@ $root.AICommon = (function() {
         };
 
         /**
-         * Gets the default type url for BotPluginMetadata
+         * Gets the type url for BotPluginMetadata
          * @function getTypeUrl
          * @memberof AICommon.BotPluginMetadata
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        BotPluginMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/AICommon.BotPluginMetadata";
+        BotPluginMetadata.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/AICommon.BotPluginMetadata";
         };
 
         /**
@@ -26062,6 +27541,7 @@ $root.Protocol = (function() {
          * @property {Protocol.LimitSharing.TriggerType|null} [trigger] LimitSharing trigger
          * @property {number|Long|null} [limitSharingSettingTimestamp] LimitSharing limitSharingSettingTimestamp
          * @property {boolean|null} [initiatedByMe] LimitSharing initiatedByMe
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -26071,6 +27551,7 @@ $root.Protocol = (function() {
          * @implements ILimitSharing
          * @constructor
          * @param {Protocol.ILimitSharing=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function LimitSharing(properties) {
             if (properties)
@@ -26170,6 +27651,9 @@ $root.Protocol = (function() {
                 writer.uint32(/* id 3, wireType 0 =*/24).int64(message.limitSharingSettingTimestamp);
             if (message.initiatedByMe != null && Object.hasOwnProperty.call(message, "initiatedByMe"))
                 writer.uint32(/* id 4, wireType 0 =*/32).bool(message.initiatedByMe);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -26197,40 +27681,58 @@ $root.Protocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        LimitSharing.decode = function decode(reader, length, error, long) {
+        LimitSharing.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Protocol.LimitSharing();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Protocol.LimitSharing();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.sharingLimited = reader.bool();
-                        break;
-                    }
-                case 2: {
-                        message.trigger = reader.int32();
-                        break;
-                    }
-                case 3: {
-                        message.limitSharingSettingTimestamp = reader.int64();
-                        break;
-                    }
-                case 4: {
-                        message.initiatedByMe = reader.bool();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.sharingLimited = reader.bool();
+                        message._sharingLimited = "sharingLimited";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 0)
+                            break;
+                        message.trigger = reader.int32();
+                        message._trigger = "trigger";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 0)
+                            break;
+                        message.limitSharingSettingTimestamp = reader.int64();
+                        message._limitSharingSettingTimestamp = "limitSharingSettingTimestamp";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 0)
+                            break;
+                        message.initiatedByMe = reader.bool();
+                        message._initiatedByMe = "initiatedByMe";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -26258,13 +27760,13 @@ $root.Protocol = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        LimitSharing.verify = function verify(message, long) {
+        LimitSharing.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.sharingLimited != null && message.hasOwnProperty("sharingLimited")) {
                 properties._sharingLimited = 1;
@@ -26304,13 +27806,13 @@ $root.Protocol = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Protocol.LimitSharing} LimitSharing
          */
-        LimitSharing.fromObject = function fromObject(object, long) {
+        LimitSharing.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Protocol.LimitSharing)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.Protocol.LimitSharing();
             if (object.sharingLimited != null)
                 message.sharingLimited = Boolean(object.sharingLimited);
@@ -26403,18 +27905,17 @@ $root.Protocol = (function() {
         };
 
         /**
-         * Gets the default type url for LimitSharing
+         * Gets the type url for LimitSharing
          * @function getTypeUrl
          * @memberof Protocol.LimitSharing
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        LimitSharing.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/Protocol.LimitSharing";
+        LimitSharing.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/Protocol.LimitSharing";
         };
 
         /**
@@ -26448,6 +27949,7 @@ $root.Protocol = (function() {
          * @property {boolean|null} [fromMe] MessageKey fromMe
          * @property {string|null} [id] MessageKey id
          * @property {string|null} [participant] MessageKey participant
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -26457,6 +27959,7 @@ $root.Protocol = (function() {
          * @implements IMessageKey
          * @constructor
          * @param {Protocol.IMessageKey=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function MessageKey(properties) {
             if (properties)
@@ -26556,6 +28059,9 @@ $root.Protocol = (function() {
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.id);
             if (message.participant != null && Object.hasOwnProperty.call(message, "participant"))
                 writer.uint32(/* id 4, wireType 2 =*/34).string(message.participant);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -26583,40 +28089,58 @@ $root.Protocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        MessageKey.decode = function decode(reader, length, error, long) {
+        MessageKey.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Protocol.MessageKey();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Protocol.MessageKey();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.remoteJid = reader.string();
-                        break;
-                    }
-                case 2: {
-                        message.fromMe = reader.bool();
-                        break;
-                    }
-                case 3: {
-                        message.id = reader.string();
-                        break;
-                    }
-                case 4: {
-                        message.participant = reader.string();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        message.remoteJid = reader.string();
+                        message._remoteJid = "remoteJid";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 0)
+                            break;
+                        message.fromMe = reader.bool();
+                        message._fromMe = "fromMe";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 2)
+                            break;
+                        message.id = reader.string();
+                        message._id = "id";
+                        continue;
+                    }
+                case 4: {
+                        if (wireType !== 2)
+                            break;
+                        message.participant = reader.string();
+                        message._participant = "participant";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -26644,13 +28168,13 @@ $root.Protocol = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        MessageKey.verify = function verify(message, long) {
+        MessageKey.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.remoteJid != null && message.hasOwnProperty("remoteJid")) {
                 properties._remoteJid = 1;
@@ -26683,13 +28207,13 @@ $root.Protocol = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Protocol.MessageKey} MessageKey
          */
-        MessageKey.fromObject = function fromObject(object, long) {
+        MessageKey.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Protocol.MessageKey)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.Protocol.MessageKey();
             if (object.remoteJid != null)
                 message.remoteJid = String(object.remoteJid);
@@ -26750,18 +28274,17 @@ $root.Protocol = (function() {
         };
 
         /**
-         * Gets the default type url for MessageKey
+         * Gets the type url for MessageKey
          * @function getTypeUrl
          * @memberof Protocol.MessageKey
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        MessageKey.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/Protocol.MessageKey";
+        MessageKey.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/Protocol.MessageKey";
         };
 
         return MessageKey;

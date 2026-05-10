@@ -1,4 +1,4 @@
-/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars*/
+/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
 "use strict";
 
 var $protobuf = require("protobufjs/minimal");
@@ -26,6 +26,7 @@ $root.LidMigrationSyncPayload = (function() {
          * @interface ILIDMigrationMappingSyncPayload
          * @property {Array.<LidMigrationSyncPayload.ILIDMigrationMapping>|null} [pnToLidMappings] LIDMigrationMappingSyncPayload pnToLidMappings
          * @property {number|Long|null} [chatDbMigrationTimestamp] LIDMigrationMappingSyncPayload chatDbMigrationTimestamp
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -35,6 +36,7 @@ $root.LidMigrationSyncPayload = (function() {
          * @implements ILIDMigrationMappingSyncPayload
          * @constructor
          * @param {LidMigrationSyncPayload.ILIDMigrationMappingSyncPayload=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function LIDMigrationMappingSyncPayload(properties) {
             this.pnToLidMappings = [];
@@ -98,6 +100,9 @@ $root.LidMigrationSyncPayload = (function() {
                     $root.LidMigrationSyncPayload.LIDMigrationMapping.encode(message.pnToLidMappings[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
             if (message.chatDbMigrationTimestamp != null && Object.hasOwnProperty.call(message, "chatDbMigrationTimestamp"))
                 writer.uint32(/* id 2, wireType 0 =*/16).uint64(message.chatDbMigrationTimestamp);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -125,34 +130,45 @@ $root.LidMigrationSyncPayload = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        LIDMigrationMappingSyncPayload.decode = function decode(reader, length, error, long) {
+        LIDMigrationMappingSyncPayload.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.LidMigrationSyncPayload.LIDMigrationMappingSyncPayload();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.LidMigrationSyncPayload.LIDMigrationMappingSyncPayload();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        if (!(message.pnToLidMappings && message.pnToLidMappings.length))
-                            message.pnToLidMappings = [];
-                        message.pnToLidMappings.push($root.LidMigrationSyncPayload.LIDMigrationMapping.decode(reader, reader.uint32(), undefined, long + 1));
-                        break;
-                    }
-                case 2: {
-                        message.chatDbMigrationTimestamp = reader.uint64();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 2)
+                            break;
+                        if (!(message.pnToLidMappings && message.pnToLidMappings.length))
+                            message.pnToLidMappings = [];
+                        message.pnToLidMappings.push($root.LidMigrationSyncPayload.LIDMigrationMapping.decode(reader, reader.uint32(), undefined, _depth + 1));
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 0)
+                            break;
+                        message.chatDbMigrationTimestamp = reader.uint64();
+                        message._chatDbMigrationTimestamp = "chatDbMigrationTimestamp";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -180,19 +196,19 @@ $root.LidMigrationSyncPayload = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        LIDMigrationMappingSyncPayload.verify = function verify(message, long) {
+        LIDMigrationMappingSyncPayload.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.pnToLidMappings != null && message.hasOwnProperty("pnToLidMappings")) {
                 if (!Array.isArray(message.pnToLidMappings))
                     return "pnToLidMappings: array expected";
                 for (var i = 0; i < message.pnToLidMappings.length; ++i) {
-                    var error = $root.LidMigrationSyncPayload.LIDMigrationMapping.verify(message.pnToLidMappings[i], long + 1);
+                    var error = $root.LidMigrationSyncPayload.LIDMigrationMapping.verify(message.pnToLidMappings[i], _depth + 1);
                     if (error)
                         return "pnToLidMappings." + error;
                 }
@@ -213,22 +229,22 @@ $root.LidMigrationSyncPayload = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {LidMigrationSyncPayload.LIDMigrationMappingSyncPayload} LIDMigrationMappingSyncPayload
          */
-        LIDMigrationMappingSyncPayload.fromObject = function fromObject(object, long) {
+        LIDMigrationMappingSyncPayload.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.LidMigrationSyncPayload.LIDMigrationMappingSyncPayload)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.LidMigrationSyncPayload.LIDMigrationMappingSyncPayload();
             if (object.pnToLidMappings) {
                 if (!Array.isArray(object.pnToLidMappings))
                     throw TypeError(".LidMigrationSyncPayload.LIDMigrationMappingSyncPayload.pnToLidMappings: array expected");
-                message.pnToLidMappings = [];
+                message.pnToLidMappings = Array(object.pnToLidMappings.length);
                 for (var i = 0; i < object.pnToLidMappings.length; ++i) {
                     if (typeof object.pnToLidMappings[i] !== "object")
                         throw TypeError(".LidMigrationSyncPayload.LIDMigrationMappingSyncPayload.pnToLidMappings: object expected");
-                    message.pnToLidMappings[i] = $root.LidMigrationSyncPayload.LIDMigrationMapping.fromObject(object.pnToLidMappings[i], long + 1);
+                    message.pnToLidMappings[i] = $root.LidMigrationSyncPayload.LIDMigrationMapping.fromObject(object.pnToLidMappings[i], _depth + 1);
                 }
             }
             if (object.chatDbMigrationTimestamp != null)
@@ -259,7 +275,7 @@ $root.LidMigrationSyncPayload = (function() {
             if (options.arrays || options.defaults)
                 object.pnToLidMappings = [];
             if (message.pnToLidMappings && message.pnToLidMappings.length) {
-                object.pnToLidMappings = [];
+                object.pnToLidMappings = Array(message.pnToLidMappings.length);
                 for (var j = 0; j < message.pnToLidMappings.length; ++j)
                     object.pnToLidMappings[j] = $root.LidMigrationSyncPayload.LIDMigrationMapping.toObject(message.pnToLidMappings[j], options);
             }
@@ -286,18 +302,17 @@ $root.LidMigrationSyncPayload = (function() {
         };
 
         /**
-         * Gets the default type url for LIDMigrationMappingSyncPayload
+         * Gets the type url for LIDMigrationMappingSyncPayload
          * @function getTypeUrl
          * @memberof LidMigrationSyncPayload.LIDMigrationMappingSyncPayload
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        LIDMigrationMappingSyncPayload.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/LidMigrationSyncPayload.LIDMigrationMappingSyncPayload";
+        LIDMigrationMappingSyncPayload.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/LidMigrationSyncPayload.LIDMigrationMappingSyncPayload";
         };
 
         return LIDMigrationMappingSyncPayload;
@@ -312,6 +327,7 @@ $root.LidMigrationSyncPayload = (function() {
          * @property {number|Long|null} [pn] LIDMigrationMapping pn
          * @property {number|Long|null} [assignedLid] LIDMigrationMapping assignedLid
          * @property {number|Long|null} [latestLid] LIDMigrationMapping latestLid
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
@@ -321,6 +337,7 @@ $root.LidMigrationSyncPayload = (function() {
          * @implements ILIDMigrationMapping
          * @constructor
          * @param {LidMigrationSyncPayload.ILIDMigrationMapping=} [properties] Properties to set
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function LIDMigrationMapping(properties) {
             if (properties)
@@ -404,6 +421,9 @@ $root.LidMigrationSyncPayload = (function() {
                 writer.uint32(/* id 2, wireType 0 =*/16).uint64(message.assignedLid);
             if (message.latestLid != null && Object.hasOwnProperty.call(message, "latestLid"))
                 writer.uint32(/* id 3, wireType 0 =*/24).uint64(message.latestLid);
+            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                for (var i = 0; i < message.$unknowns.length; ++i)
+                    writer.raw(message.$unknowns[i]);
             return writer;
         };
 
@@ -431,36 +451,51 @@ $root.LidMigrationSyncPayload = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        LIDMigrationMapping.decode = function decode(reader, length, error, long) {
+        LIDMigrationMapping.decode = function decode(reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (long === undefined)
-                long = 0;
-            if (long > $Reader.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.LidMigrationSyncPayload.LIDMigrationMapping();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $Reader.recursionLimit)
+                throw Error("max depth exceeded");
+            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.LidMigrationSyncPayload.LIDMigrationMapping();
             while (reader.pos < end) {
-                var tag = reader.uint32();
-                if (tag === error)
-                    break;
-                switch (tag >>> 3) {
-                case 1: {
-                        message.pn = reader.uint64();
-                        break;
-                    }
-                case 2: {
-                        message.assignedLid = reader.uint64();
-                        break;
-                    }
-                case 3: {
-                        message.latestLid = reader.uint64();
-                        break;
-                    }
-                default:
-                    reader.skipType(tag & 7, long);
+                var start = reader.pos;
+                var tag = reader.tag();
+                if (tag === _end) {
+                    _end = undefined;
                     break;
                 }
+                var wireType = tag & 7;
+                switch (tag >>>= 3) {
+                case 1: {
+                        if (wireType !== 0)
+                            break;
+                        message.pn = reader.uint64();
+                        message._pn = "pn";
+                        continue;
+                    }
+                case 2: {
+                        if (wireType !== 0)
+                            break;
+                        message.assignedLid = reader.uint64();
+                        message._assignedLid = "assignedLid";
+                        continue;
+                    }
+                case 3: {
+                        if (wireType !== 0)
+                            break;
+                        message.latestLid = reader.uint64();
+                        message._latestLid = "latestLid";
+                        continue;
+                    }
+                }
+                reader.skipType(wireType, _depth, tag);
+                $util.makeProp(message, "$unknowns", false);
+                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
             }
+            if (_end !== undefined)
+                throw Error("missing end group");
             return message;
         };
 
@@ -488,13 +523,13 @@ $root.LidMigrationSyncPayload = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        LIDMigrationMapping.verify = function verify(message, long) {
+        LIDMigrationMapping.verify = function verify(message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                return "maximum nesting depth exceeded";
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                return "max depth exceeded";
             var properties = {};
             if (message.pn != null && message.hasOwnProperty("pn")) {
                 properties._pn = 1;
@@ -522,13 +557,13 @@ $root.LidMigrationSyncPayload = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {LidMigrationSyncPayload.LIDMigrationMapping} LIDMigrationMapping
          */
-        LIDMigrationMapping.fromObject = function fromObject(object, long) {
+        LIDMigrationMapping.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.LidMigrationSyncPayload.LIDMigrationMapping)
                 return object;
-            if (long === undefined)
-                long = 0;
-            if (long > $util.recursionLimit)
-                throw Error("maximum nesting depth exceeded");
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var message = new $root.LidMigrationSyncPayload.LIDMigrationMapping();
             if (object.pn != null)
                 if ($util.Long)
@@ -612,18 +647,17 @@ $root.LidMigrationSyncPayload = (function() {
         };
 
         /**
-         * Gets the default type url for LIDMigrationMapping
+         * Gets the type url for LIDMigrationMapping
          * @function getTypeUrl
          * @memberof LidMigrationSyncPayload.LIDMigrationMapping
          * @static
-         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns {string} The default type url
+         * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+         * @returns {string} The type url
          */
-        LIDMigrationMapping.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-            if (typeUrlPrefix === undefined) {
-                typeUrlPrefix = "type.googleapis.com";
-            }
-            return typeUrlPrefix + "/LidMigrationSyncPayload.LIDMigrationMapping";
+        LIDMigrationMapping.getTypeUrl = function getTypeUrl(prefix) {
+            if (prefix === undefined)
+                prefix = "type.googleapis.com";
+            return prefix + "/LidMigrationSyncPayload.LIDMigrationMapping";
         };
 
         return LIDMigrationMapping;
