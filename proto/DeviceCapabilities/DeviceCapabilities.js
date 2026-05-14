@@ -22,24 +22,35 @@ $root.DeviceCapabilities = (function() {
 
         /**
          * Properties of a DeviceCapabilities.
+         * @typedef {Object} DeviceCapabilities.DeviceCapabilities.$Properties
+         * @property {DeviceCapabilities.DeviceCapabilities.ChatLockSupportLevel|null} [chatLockSupportLevel] DeviceCapabilities chatLockSupportLevel
+         * @property {DeviceCapabilities.DeviceCapabilities.LIDMigration.$Properties|null} [lidMigration] DeviceCapabilities lidMigration
+         * @property {DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Properties|null} [businessBroadcast] DeviceCapabilities businessBroadcast
+         * @property {DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Properties|null} [userHasAvatar] DeviceCapabilities userHasAvatar
+         * @property {DeviceCapabilities.DeviceCapabilities.MemberNameTagPrimarySupport|null} [memberNameTagPrimarySupport] DeviceCapabilities memberNameTagPrimarySupport
+         * @property {DeviceCapabilities.DeviceCapabilities.AiThread.$Properties|null} [aiThread] DeviceCapabilities aiThread
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a DeviceCapabilities.
          * @memberof DeviceCapabilities
          * @interface IDeviceCapabilities
-         * @property {DeviceCapabilities.DeviceCapabilities.ChatLockSupportLevel|null} [chatLockSupportLevel] DeviceCapabilities chatLockSupportLevel
-         * @property {DeviceCapabilities.DeviceCapabilities.ILIDMigration|null} [lidMigration] DeviceCapabilities lidMigration
-         * @property {DeviceCapabilities.DeviceCapabilities.IBusinessBroadcast|null} [businessBroadcast] DeviceCapabilities businessBroadcast
-         * @property {DeviceCapabilities.DeviceCapabilities.IUserHasAvatar|null} [userHasAvatar] DeviceCapabilities userHasAvatar
-         * @property {DeviceCapabilities.DeviceCapabilities.MemberNameTagPrimarySupport|null} [memberNameTagPrimarySupport] DeviceCapabilities memberNameTagPrimarySupport
-         * @property {DeviceCapabilities.DeviceCapabilities.IAiThread|null} [aiThread] DeviceCapabilities aiThread
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments DeviceCapabilities.DeviceCapabilities.$Properties
+         * @deprecated Use DeviceCapabilities.DeviceCapabilities.$Properties instead.
+         */
+
+        /**
+         * Shape of a DeviceCapabilities.
+         * @typedef {DeviceCapabilities.DeviceCapabilities.$Properties} DeviceCapabilities.DeviceCapabilities.$Shape
          */
 
         /**
          * Constructs a new DeviceCapabilities.
          * @memberof DeviceCapabilities
          * @classdesc Represents a DeviceCapabilities.
-         * @implements IDeviceCapabilities
          * @constructor
-         * @param {DeviceCapabilities.IDeviceCapabilities=} [properties] Properties to set
+         * @param {DeviceCapabilities.DeviceCapabilities.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function DeviceCapabilities(properties) {
@@ -59,7 +70,7 @@ $root.DeviceCapabilities = (function() {
 
         /**
          * DeviceCapabilities lidMigration.
-         * @member {DeviceCapabilities.DeviceCapabilities.ILIDMigration|null|undefined} lidMigration
+         * @member {DeviceCapabilities.DeviceCapabilities.LIDMigration.$Properties|null|undefined} lidMigration
          * @memberof DeviceCapabilities.DeviceCapabilities
          * @instance
          */
@@ -67,7 +78,7 @@ $root.DeviceCapabilities = (function() {
 
         /**
          * DeviceCapabilities businessBroadcast.
-         * @member {DeviceCapabilities.DeviceCapabilities.IBusinessBroadcast|null|undefined} businessBroadcast
+         * @member {DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Properties|null|undefined} businessBroadcast
          * @memberof DeviceCapabilities.DeviceCapabilities
          * @instance
          */
@@ -75,7 +86,7 @@ $root.DeviceCapabilities = (function() {
 
         /**
          * DeviceCapabilities userHasAvatar.
-         * @member {DeviceCapabilities.DeviceCapabilities.IUserHasAvatar|null|undefined} userHasAvatar
+         * @member {DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Properties|null|undefined} userHasAvatar
          * @memberof DeviceCapabilities.DeviceCapabilities
          * @instance
          */
@@ -91,7 +102,7 @@ $root.DeviceCapabilities = (function() {
 
         /**
          * DeviceCapabilities aiThread.
-         * @member {DeviceCapabilities.DeviceCapabilities.IAiThread|null|undefined} aiThread
+         * @member {DeviceCapabilities.DeviceCapabilities.AiThread.$Properties|null|undefined} aiThread
          * @memberof DeviceCapabilities.DeviceCapabilities
          * @instance
          */
@@ -141,8 +152,12 @@ $root.DeviceCapabilities = (function() {
          * @function create
          * @memberof DeviceCapabilities.DeviceCapabilities
          * @static
-         * @param {DeviceCapabilities.IDeviceCapabilities=} [properties] Properties to set
+         * @param {DeviceCapabilities.DeviceCapabilities.$Properties=} [properties] Properties to set
          * @returns {DeviceCapabilities.DeviceCapabilities} DeviceCapabilities instance
+         * @type {{
+         *   (properties: DeviceCapabilities.DeviceCapabilities.$Shape): DeviceCapabilities.DeviceCapabilities & DeviceCapabilities.DeviceCapabilities.$Shape;
+         *   (properties?: DeviceCapabilities.DeviceCapabilities.$Properties): DeviceCapabilities.DeviceCapabilities;
+         * }}
          */
         DeviceCapabilities.create = function create(properties) {
             return new DeviceCapabilities(properties);
@@ -153,7 +168,7 @@ $root.DeviceCapabilities = (function() {
          * @function encode
          * @memberof DeviceCapabilities.DeviceCapabilities
          * @static
-         * @param {DeviceCapabilities.IDeviceCapabilities} message DeviceCapabilities message or plain object to encode
+         * @param {DeviceCapabilities.DeviceCapabilities.$Properties} message DeviceCapabilities message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -183,7 +198,7 @@ $root.DeviceCapabilities = (function() {
          * @function encodeDelimited
          * @memberof DeviceCapabilities.DeviceCapabilities
          * @static
-         * @param {DeviceCapabilities.IDeviceCapabilities} message DeviceCapabilities message or plain object to encode
+         * @param {DeviceCapabilities.DeviceCapabilities.$Properties} message DeviceCapabilities message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -198,7 +213,7 @@ $root.DeviceCapabilities = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {DeviceCapabilities.DeviceCapabilities} DeviceCapabilities
+         * @returns {DeviceCapabilities.DeviceCapabilities & DeviceCapabilities.DeviceCapabilities.$Shape} DeviceCapabilities
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -277,7 +292,7 @@ $root.DeviceCapabilities = (function() {
          * @memberof DeviceCapabilities.DeviceCapabilities
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {DeviceCapabilities.DeviceCapabilities} DeviceCapabilities
+         * @returns {DeviceCapabilities.DeviceCapabilities & DeviceCapabilities.DeviceCapabilities.$Shape} DeviceCapabilities
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -514,19 +529,30 @@ $root.DeviceCapabilities = (function() {
 
             /**
              * Properties of an AiThread.
-             * @memberof DeviceCapabilities.DeviceCapabilities
-             * @interface IAiThread
+             * @typedef {Object} DeviceCapabilities.DeviceCapabilities.AiThread.$Properties
              * @property {DeviceCapabilities.DeviceCapabilities.AiThread.SupportLevel|null} [supportLevel] AiThread supportLevel
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of an AiThread.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @interface IAiThread
+             * @augments DeviceCapabilities.DeviceCapabilities.AiThread.$Properties
+             * @deprecated Use DeviceCapabilities.DeviceCapabilities.AiThread.$Properties instead.
+             */
+
+            /**
+             * Shape of an AiThread.
+             * @typedef {DeviceCapabilities.DeviceCapabilities.AiThread.$Properties} DeviceCapabilities.DeviceCapabilities.AiThread.$Shape
              */
 
             /**
              * Constructs a new AiThread.
              * @memberof DeviceCapabilities.DeviceCapabilities
              * @classdesc Represents an AiThread.
-             * @implements IAiThread
              * @constructor
-             * @param {DeviceCapabilities.DeviceCapabilities.IAiThread=} [properties] Properties to set
+             * @param {DeviceCapabilities.DeviceCapabilities.AiThread.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AiThread(properties) {
@@ -558,8 +584,12 @@ $root.DeviceCapabilities = (function() {
              * @function create
              * @memberof DeviceCapabilities.DeviceCapabilities.AiThread
              * @static
-             * @param {DeviceCapabilities.DeviceCapabilities.IAiThread=} [properties] Properties to set
+             * @param {DeviceCapabilities.DeviceCapabilities.AiThread.$Properties=} [properties] Properties to set
              * @returns {DeviceCapabilities.DeviceCapabilities.AiThread} AiThread instance
+             * @type {{
+             *   (properties: DeviceCapabilities.DeviceCapabilities.AiThread.$Shape): DeviceCapabilities.DeviceCapabilities.AiThread & DeviceCapabilities.DeviceCapabilities.AiThread.$Shape;
+             *   (properties?: DeviceCapabilities.DeviceCapabilities.AiThread.$Properties): DeviceCapabilities.DeviceCapabilities.AiThread;
+             * }}
              */
             AiThread.create = function create(properties) {
                 return new AiThread(properties);
@@ -570,7 +600,7 @@ $root.DeviceCapabilities = (function() {
              * @function encode
              * @memberof DeviceCapabilities.DeviceCapabilities.AiThread
              * @static
-             * @param {DeviceCapabilities.DeviceCapabilities.IAiThread} message AiThread message or plain object to encode
+             * @param {DeviceCapabilities.DeviceCapabilities.AiThread.$Properties} message AiThread message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -590,7 +620,7 @@ $root.DeviceCapabilities = (function() {
              * @function encodeDelimited
              * @memberof DeviceCapabilities.DeviceCapabilities.AiThread
              * @static
-             * @param {DeviceCapabilities.DeviceCapabilities.IAiThread} message AiThread message or plain object to encode
+             * @param {DeviceCapabilities.DeviceCapabilities.AiThread.$Properties} message AiThread message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -605,7 +635,7 @@ $root.DeviceCapabilities = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {DeviceCapabilities.DeviceCapabilities.AiThread} AiThread
+             * @returns {DeviceCapabilities.DeviceCapabilities.AiThread & DeviceCapabilities.DeviceCapabilities.AiThread.$Shape} AiThread
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -649,7 +679,7 @@ $root.DeviceCapabilities = (function() {
              * @memberof DeviceCapabilities.DeviceCapabilities.AiThread
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {DeviceCapabilities.DeviceCapabilities.AiThread} AiThread
+             * @returns {DeviceCapabilities.DeviceCapabilities.AiThread & DeviceCapabilities.DeviceCapabilities.AiThread.$Shape} AiThread
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -797,8 +827,7 @@ $root.DeviceCapabilities = (function() {
 
             /**
              * Properties of a BusinessBroadcast.
-             * @memberof DeviceCapabilities.DeviceCapabilities
-             * @interface IBusinessBroadcast
+             * @typedef {Object} DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Properties
              * @property {boolean|null} [importListEnabled] BusinessBroadcast importListEnabled
              * @property {boolean|null} [companionSupportEnabled] BusinessBroadcast companionSupportEnabled
              * @property {boolean|null} [campaignSyncEnabled] BusinessBroadcast campaignSyncEnabled
@@ -808,12 +837,24 @@ $root.DeviceCapabilities = (function() {
              */
 
             /**
+             * Properties of a BusinessBroadcast.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @interface IBusinessBroadcast
+             * @augments DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Properties
+             * @deprecated Use DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Properties instead.
+             */
+
+            /**
+             * Shape of a BusinessBroadcast.
+             * @typedef {DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Properties} DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Shape
+             */
+
+            /**
              * Constructs a new BusinessBroadcast.
              * @memberof DeviceCapabilities.DeviceCapabilities
              * @classdesc Represents a BusinessBroadcast.
-             * @implements IBusinessBroadcast
              * @constructor
-             * @param {DeviceCapabilities.DeviceCapabilities.IBusinessBroadcast=} [properties] Properties to set
+             * @param {DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function BusinessBroadcast(properties) {
@@ -901,8 +942,12 @@ $root.DeviceCapabilities = (function() {
              * @function create
              * @memberof DeviceCapabilities.DeviceCapabilities.BusinessBroadcast
              * @static
-             * @param {DeviceCapabilities.DeviceCapabilities.IBusinessBroadcast=} [properties] Properties to set
+             * @param {DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Properties=} [properties] Properties to set
              * @returns {DeviceCapabilities.DeviceCapabilities.BusinessBroadcast} BusinessBroadcast instance
+             * @type {{
+             *   (properties: DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Shape): DeviceCapabilities.DeviceCapabilities.BusinessBroadcast & DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Shape;
+             *   (properties?: DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Properties): DeviceCapabilities.DeviceCapabilities.BusinessBroadcast;
+             * }}
              */
             BusinessBroadcast.create = function create(properties) {
                 return new BusinessBroadcast(properties);
@@ -913,7 +958,7 @@ $root.DeviceCapabilities = (function() {
              * @function encode
              * @memberof DeviceCapabilities.DeviceCapabilities.BusinessBroadcast
              * @static
-             * @param {DeviceCapabilities.DeviceCapabilities.IBusinessBroadcast} message BusinessBroadcast message or plain object to encode
+             * @param {DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Properties} message BusinessBroadcast message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -941,7 +986,7 @@ $root.DeviceCapabilities = (function() {
              * @function encodeDelimited
              * @memberof DeviceCapabilities.DeviceCapabilities.BusinessBroadcast
              * @static
-             * @param {DeviceCapabilities.DeviceCapabilities.IBusinessBroadcast} message BusinessBroadcast message or plain object to encode
+             * @param {DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Properties} message BusinessBroadcast message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -956,7 +1001,7 @@ $root.DeviceCapabilities = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {DeviceCapabilities.DeviceCapabilities.BusinessBroadcast} BusinessBroadcast
+             * @returns {DeviceCapabilities.DeviceCapabilities.BusinessBroadcast & DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Shape} BusinessBroadcast
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -1028,7 +1073,7 @@ $root.DeviceCapabilities = (function() {
              * @memberof DeviceCapabilities.DeviceCapabilities.BusinessBroadcast
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {DeviceCapabilities.DeviceCapabilities.BusinessBroadcast} BusinessBroadcast
+             * @returns {DeviceCapabilities.DeviceCapabilities.BusinessBroadcast & DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Shape} BusinessBroadcast
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -1200,19 +1245,30 @@ $root.DeviceCapabilities = (function() {
 
             /**
              * Properties of a LIDMigration.
-             * @memberof DeviceCapabilities.DeviceCapabilities
-             * @interface ILIDMigration
+             * @typedef {Object} DeviceCapabilities.DeviceCapabilities.LIDMigration.$Properties
              * @property {number|Long|null} [chatDbMigrationTimestamp] LIDMigration chatDbMigrationTimestamp
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a LIDMigration.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @interface ILIDMigration
+             * @augments DeviceCapabilities.DeviceCapabilities.LIDMigration.$Properties
+             * @deprecated Use DeviceCapabilities.DeviceCapabilities.LIDMigration.$Properties instead.
+             */
+
+            /**
+             * Shape of a LIDMigration.
+             * @typedef {DeviceCapabilities.DeviceCapabilities.LIDMigration.$Properties} DeviceCapabilities.DeviceCapabilities.LIDMigration.$Shape
              */
 
             /**
              * Constructs a new LIDMigration.
              * @memberof DeviceCapabilities.DeviceCapabilities
              * @classdesc Represents a LIDMigration.
-             * @implements ILIDMigration
              * @constructor
-             * @param {DeviceCapabilities.DeviceCapabilities.ILIDMigration=} [properties] Properties to set
+             * @param {DeviceCapabilities.DeviceCapabilities.LIDMigration.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function LIDMigration(properties) {
@@ -1244,8 +1300,12 @@ $root.DeviceCapabilities = (function() {
              * @function create
              * @memberof DeviceCapabilities.DeviceCapabilities.LIDMigration
              * @static
-             * @param {DeviceCapabilities.DeviceCapabilities.ILIDMigration=} [properties] Properties to set
+             * @param {DeviceCapabilities.DeviceCapabilities.LIDMigration.$Properties=} [properties] Properties to set
              * @returns {DeviceCapabilities.DeviceCapabilities.LIDMigration} LIDMigration instance
+             * @type {{
+             *   (properties: DeviceCapabilities.DeviceCapabilities.LIDMigration.$Shape): DeviceCapabilities.DeviceCapabilities.LIDMigration & DeviceCapabilities.DeviceCapabilities.LIDMigration.$Shape;
+             *   (properties?: DeviceCapabilities.DeviceCapabilities.LIDMigration.$Properties): DeviceCapabilities.DeviceCapabilities.LIDMigration;
+             * }}
              */
             LIDMigration.create = function create(properties) {
                 return new LIDMigration(properties);
@@ -1256,7 +1316,7 @@ $root.DeviceCapabilities = (function() {
              * @function encode
              * @memberof DeviceCapabilities.DeviceCapabilities.LIDMigration
              * @static
-             * @param {DeviceCapabilities.DeviceCapabilities.ILIDMigration} message LIDMigration message or plain object to encode
+             * @param {DeviceCapabilities.DeviceCapabilities.LIDMigration.$Properties} message LIDMigration message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -1276,7 +1336,7 @@ $root.DeviceCapabilities = (function() {
              * @function encodeDelimited
              * @memberof DeviceCapabilities.DeviceCapabilities.LIDMigration
              * @static
-             * @param {DeviceCapabilities.DeviceCapabilities.ILIDMigration} message LIDMigration message or plain object to encode
+             * @param {DeviceCapabilities.DeviceCapabilities.LIDMigration.$Properties} message LIDMigration message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -1291,7 +1351,7 @@ $root.DeviceCapabilities = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {DeviceCapabilities.DeviceCapabilities.LIDMigration} LIDMigration
+             * @returns {DeviceCapabilities.DeviceCapabilities.LIDMigration & DeviceCapabilities.DeviceCapabilities.LIDMigration.$Shape} LIDMigration
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -1335,7 +1395,7 @@ $root.DeviceCapabilities = (function() {
              * @memberof DeviceCapabilities.DeviceCapabilities.LIDMigration
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {DeviceCapabilities.DeviceCapabilities.LIDMigration} LIDMigration
+             * @returns {DeviceCapabilities.DeviceCapabilities.LIDMigration & DeviceCapabilities.DeviceCapabilities.LIDMigration.$Shape} LIDMigration
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -1469,19 +1529,30 @@ $root.DeviceCapabilities = (function() {
 
             /**
              * Properties of a UserHasAvatar.
-             * @memberof DeviceCapabilities.DeviceCapabilities
-             * @interface IUserHasAvatar
+             * @typedef {Object} DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Properties
              * @property {boolean|null} [userHasAvatar] UserHasAvatar userHasAvatar
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a UserHasAvatar.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @interface IUserHasAvatar
+             * @augments DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Properties
+             * @deprecated Use DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Properties instead.
+             */
+
+            /**
+             * Shape of a UserHasAvatar.
+             * @typedef {DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Properties} DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Shape
              */
 
             /**
              * Constructs a new UserHasAvatar.
              * @memberof DeviceCapabilities.DeviceCapabilities
              * @classdesc Represents a UserHasAvatar.
-             * @implements IUserHasAvatar
              * @constructor
-             * @param {DeviceCapabilities.DeviceCapabilities.IUserHasAvatar=} [properties] Properties to set
+             * @param {DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function UserHasAvatar(properties) {
@@ -1513,8 +1584,12 @@ $root.DeviceCapabilities = (function() {
              * @function create
              * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
              * @static
-             * @param {DeviceCapabilities.DeviceCapabilities.IUserHasAvatar=} [properties] Properties to set
+             * @param {DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Properties=} [properties] Properties to set
              * @returns {DeviceCapabilities.DeviceCapabilities.UserHasAvatar} UserHasAvatar instance
+             * @type {{
+             *   (properties: DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Shape): DeviceCapabilities.DeviceCapabilities.UserHasAvatar & DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Shape;
+             *   (properties?: DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Properties): DeviceCapabilities.DeviceCapabilities.UserHasAvatar;
+             * }}
              */
             UserHasAvatar.create = function create(properties) {
                 return new UserHasAvatar(properties);
@@ -1525,7 +1600,7 @@ $root.DeviceCapabilities = (function() {
              * @function encode
              * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
              * @static
-             * @param {DeviceCapabilities.DeviceCapabilities.IUserHasAvatar} message UserHasAvatar message or plain object to encode
+             * @param {DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Properties} message UserHasAvatar message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -1545,7 +1620,7 @@ $root.DeviceCapabilities = (function() {
              * @function encodeDelimited
              * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
              * @static
-             * @param {DeviceCapabilities.DeviceCapabilities.IUserHasAvatar} message UserHasAvatar message or plain object to encode
+             * @param {DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Properties} message UserHasAvatar message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -1560,7 +1635,7 @@ $root.DeviceCapabilities = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {DeviceCapabilities.DeviceCapabilities.UserHasAvatar} UserHasAvatar
+             * @returns {DeviceCapabilities.DeviceCapabilities.UserHasAvatar & DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Shape} UserHasAvatar
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -1604,7 +1679,7 @@ $root.DeviceCapabilities = (function() {
              * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {DeviceCapabilities.DeviceCapabilities.UserHasAvatar} UserHasAvatar
+             * @returns {DeviceCapabilities.DeviceCapabilities.UserHasAvatar & DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Shape} UserHasAvatar
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */

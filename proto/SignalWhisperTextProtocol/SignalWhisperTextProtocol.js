@@ -22,20 +22,31 @@ $root.SignalWhisperTextProtocol = (function() {
 
         /**
          * Properties of a DeviceConsistencyCodeMessage.
-         * @memberof SignalWhisperTextProtocol
-         * @interface IDeviceConsistencyCodeMessage
+         * @typedef {Object} SignalWhisperTextProtocol.DeviceConsistencyCodeMessage.$Properties
          * @property {number|null} [generation] DeviceConsistencyCodeMessage generation
          * @property {Uint8Array|null} [signature] DeviceConsistencyCodeMessage signature
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
+         * Properties of a DeviceConsistencyCodeMessage.
+         * @memberof SignalWhisperTextProtocol
+         * @interface IDeviceConsistencyCodeMessage
+         * @augments SignalWhisperTextProtocol.DeviceConsistencyCodeMessage.$Properties
+         * @deprecated Use SignalWhisperTextProtocol.DeviceConsistencyCodeMessage.$Properties instead.
+         */
+
+        /**
+         * Shape of a DeviceConsistencyCodeMessage.
+         * @typedef {SignalWhisperTextProtocol.DeviceConsistencyCodeMessage.$Properties} SignalWhisperTextProtocol.DeviceConsistencyCodeMessage.$Shape
+         */
+
+        /**
          * Constructs a new DeviceConsistencyCodeMessage.
          * @memberof SignalWhisperTextProtocol
          * @classdesc Represents a DeviceConsistencyCodeMessage.
-         * @implements IDeviceConsistencyCodeMessage
          * @constructor
-         * @param {SignalWhisperTextProtocol.IDeviceConsistencyCodeMessage=} [properties] Properties to set
+         * @param {SignalWhisperTextProtocol.DeviceConsistencyCodeMessage.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function DeviceConsistencyCodeMessage(properties) {
@@ -81,8 +92,12 @@ $root.SignalWhisperTextProtocol = (function() {
          * @function create
          * @memberof SignalWhisperTextProtocol.DeviceConsistencyCodeMessage
          * @static
-         * @param {SignalWhisperTextProtocol.IDeviceConsistencyCodeMessage=} [properties] Properties to set
+         * @param {SignalWhisperTextProtocol.DeviceConsistencyCodeMessage.$Properties=} [properties] Properties to set
          * @returns {SignalWhisperTextProtocol.DeviceConsistencyCodeMessage} DeviceConsistencyCodeMessage instance
+         * @type {{
+         *   (properties: SignalWhisperTextProtocol.DeviceConsistencyCodeMessage.$Shape): SignalWhisperTextProtocol.DeviceConsistencyCodeMessage & SignalWhisperTextProtocol.DeviceConsistencyCodeMessage.$Shape;
+         *   (properties?: SignalWhisperTextProtocol.DeviceConsistencyCodeMessage.$Properties): SignalWhisperTextProtocol.DeviceConsistencyCodeMessage;
+         * }}
          */
         DeviceConsistencyCodeMessage.create = function create(properties) {
             return new DeviceConsistencyCodeMessage(properties);
@@ -93,7 +108,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @function encode
          * @memberof SignalWhisperTextProtocol.DeviceConsistencyCodeMessage
          * @static
-         * @param {SignalWhisperTextProtocol.IDeviceConsistencyCodeMessage} message DeviceConsistencyCodeMessage message or plain object to encode
+         * @param {SignalWhisperTextProtocol.DeviceConsistencyCodeMessage.$Properties} message DeviceConsistencyCodeMessage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -115,7 +130,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @function encodeDelimited
          * @memberof SignalWhisperTextProtocol.DeviceConsistencyCodeMessage
          * @static
-         * @param {SignalWhisperTextProtocol.IDeviceConsistencyCodeMessage} message DeviceConsistencyCodeMessage message or plain object to encode
+         * @param {SignalWhisperTextProtocol.DeviceConsistencyCodeMessage.$Properties} message DeviceConsistencyCodeMessage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -130,7 +145,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {SignalWhisperTextProtocol.DeviceConsistencyCodeMessage} DeviceConsistencyCodeMessage
+         * @returns {SignalWhisperTextProtocol.DeviceConsistencyCodeMessage & SignalWhisperTextProtocol.DeviceConsistencyCodeMessage.$Shape} DeviceConsistencyCodeMessage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -181,7 +196,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @memberof SignalWhisperTextProtocol.DeviceConsistencyCodeMessage
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {SignalWhisperTextProtocol.DeviceConsistencyCodeMessage} DeviceConsistencyCodeMessage
+         * @returns {SignalWhisperTextProtocol.DeviceConsistencyCodeMessage & SignalWhisperTextProtocol.DeviceConsistencyCodeMessage.$Shape} DeviceConsistencyCodeMessage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -304,8 +319,7 @@ $root.SignalWhisperTextProtocol = (function() {
 
         /**
          * Properties of a SenderKeyDistributionMessage.
-         * @memberof SignalWhisperTextProtocol
-         * @interface ISenderKeyDistributionMessage
+         * @typedef {Object} SignalWhisperTextProtocol.SenderKeyDistributionMessage.$Properties
          * @property {number|null} [id] SenderKeyDistributionMessage id
          * @property {number|null} [iteration] SenderKeyDistributionMessage iteration
          * @property {Uint8Array|null} [chainKey] SenderKeyDistributionMessage chainKey
@@ -314,12 +328,24 @@ $root.SignalWhisperTextProtocol = (function() {
          */
 
         /**
+         * Properties of a SenderKeyDistributionMessage.
+         * @memberof SignalWhisperTextProtocol
+         * @interface ISenderKeyDistributionMessage
+         * @augments SignalWhisperTextProtocol.SenderKeyDistributionMessage.$Properties
+         * @deprecated Use SignalWhisperTextProtocol.SenderKeyDistributionMessage.$Properties instead.
+         */
+
+        /**
+         * Shape of a SenderKeyDistributionMessage.
+         * @typedef {SignalWhisperTextProtocol.SenderKeyDistributionMessage.$Properties} SignalWhisperTextProtocol.SenderKeyDistributionMessage.$Shape
+         */
+
+        /**
          * Constructs a new SenderKeyDistributionMessage.
          * @memberof SignalWhisperTextProtocol
          * @classdesc Represents a SenderKeyDistributionMessage.
-         * @implements ISenderKeyDistributionMessage
          * @constructor
-         * @param {SignalWhisperTextProtocol.ISenderKeyDistributionMessage=} [properties] Properties to set
+         * @param {SignalWhisperTextProtocol.SenderKeyDistributionMessage.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SenderKeyDistributionMessage(properties) {
@@ -393,8 +419,12 @@ $root.SignalWhisperTextProtocol = (function() {
          * @function create
          * @memberof SignalWhisperTextProtocol.SenderKeyDistributionMessage
          * @static
-         * @param {SignalWhisperTextProtocol.ISenderKeyDistributionMessage=} [properties] Properties to set
+         * @param {SignalWhisperTextProtocol.SenderKeyDistributionMessage.$Properties=} [properties] Properties to set
          * @returns {SignalWhisperTextProtocol.SenderKeyDistributionMessage} SenderKeyDistributionMessage instance
+         * @type {{
+         *   (properties: SignalWhisperTextProtocol.SenderKeyDistributionMessage.$Shape): SignalWhisperTextProtocol.SenderKeyDistributionMessage & SignalWhisperTextProtocol.SenderKeyDistributionMessage.$Shape;
+         *   (properties?: SignalWhisperTextProtocol.SenderKeyDistributionMessage.$Properties): SignalWhisperTextProtocol.SenderKeyDistributionMessage;
+         * }}
          */
         SenderKeyDistributionMessage.create = function create(properties) {
             return new SenderKeyDistributionMessage(properties);
@@ -405,7 +435,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @function encode
          * @memberof SignalWhisperTextProtocol.SenderKeyDistributionMessage
          * @static
-         * @param {SignalWhisperTextProtocol.ISenderKeyDistributionMessage} message SenderKeyDistributionMessage message or plain object to encode
+         * @param {SignalWhisperTextProtocol.SenderKeyDistributionMessage.$Properties} message SenderKeyDistributionMessage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -431,7 +461,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @function encodeDelimited
          * @memberof SignalWhisperTextProtocol.SenderKeyDistributionMessage
          * @static
-         * @param {SignalWhisperTextProtocol.ISenderKeyDistributionMessage} message SenderKeyDistributionMessage message or plain object to encode
+         * @param {SignalWhisperTextProtocol.SenderKeyDistributionMessage.$Properties} message SenderKeyDistributionMessage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -446,7 +476,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {SignalWhisperTextProtocol.SenderKeyDistributionMessage} SenderKeyDistributionMessage
+         * @returns {SignalWhisperTextProtocol.SenderKeyDistributionMessage & SignalWhisperTextProtocol.SenderKeyDistributionMessage.$Shape} SenderKeyDistributionMessage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -511,7 +541,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @memberof SignalWhisperTextProtocol.SenderKeyDistributionMessage
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {SignalWhisperTextProtocol.SenderKeyDistributionMessage} SenderKeyDistributionMessage
+         * @returns {SignalWhisperTextProtocol.SenderKeyDistributionMessage & SignalWhisperTextProtocol.SenderKeyDistributionMessage.$Shape} SenderKeyDistributionMessage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -661,8 +691,7 @@ $root.SignalWhisperTextProtocol = (function() {
 
         /**
          * Properties of a SenderKeyMessage.
-         * @memberof SignalWhisperTextProtocol
-         * @interface ISenderKeyMessage
+         * @typedef {Object} SignalWhisperTextProtocol.SenderKeyMessage.$Properties
          * @property {number|null} [id] SenderKeyMessage id
          * @property {number|null} [iteration] SenderKeyMessage iteration
          * @property {Uint8Array|null} [ciphertext] SenderKeyMessage ciphertext
@@ -670,12 +699,24 @@ $root.SignalWhisperTextProtocol = (function() {
          */
 
         /**
+         * Properties of a SenderKeyMessage.
+         * @memberof SignalWhisperTextProtocol
+         * @interface ISenderKeyMessage
+         * @augments SignalWhisperTextProtocol.SenderKeyMessage.$Properties
+         * @deprecated Use SignalWhisperTextProtocol.SenderKeyMessage.$Properties instead.
+         */
+
+        /**
+         * Shape of a SenderKeyMessage.
+         * @typedef {SignalWhisperTextProtocol.SenderKeyMessage.$Properties} SignalWhisperTextProtocol.SenderKeyMessage.$Shape
+         */
+
+        /**
          * Constructs a new SenderKeyMessage.
          * @memberof SignalWhisperTextProtocol
          * @classdesc Represents a SenderKeyMessage.
-         * @implements ISenderKeyMessage
          * @constructor
-         * @param {SignalWhisperTextProtocol.ISenderKeyMessage=} [properties] Properties to set
+         * @param {SignalWhisperTextProtocol.SenderKeyMessage.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SenderKeyMessage(properties) {
@@ -735,8 +776,12 @@ $root.SignalWhisperTextProtocol = (function() {
          * @function create
          * @memberof SignalWhisperTextProtocol.SenderKeyMessage
          * @static
-         * @param {SignalWhisperTextProtocol.ISenderKeyMessage=} [properties] Properties to set
+         * @param {SignalWhisperTextProtocol.SenderKeyMessage.$Properties=} [properties] Properties to set
          * @returns {SignalWhisperTextProtocol.SenderKeyMessage} SenderKeyMessage instance
+         * @type {{
+         *   (properties: SignalWhisperTextProtocol.SenderKeyMessage.$Shape): SignalWhisperTextProtocol.SenderKeyMessage & SignalWhisperTextProtocol.SenderKeyMessage.$Shape;
+         *   (properties?: SignalWhisperTextProtocol.SenderKeyMessage.$Properties): SignalWhisperTextProtocol.SenderKeyMessage;
+         * }}
          */
         SenderKeyMessage.create = function create(properties) {
             return new SenderKeyMessage(properties);
@@ -747,7 +792,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @function encode
          * @memberof SignalWhisperTextProtocol.SenderKeyMessage
          * @static
-         * @param {SignalWhisperTextProtocol.ISenderKeyMessage} message SenderKeyMessage message or plain object to encode
+         * @param {SignalWhisperTextProtocol.SenderKeyMessage.$Properties} message SenderKeyMessage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -771,7 +816,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @function encodeDelimited
          * @memberof SignalWhisperTextProtocol.SenderKeyMessage
          * @static
-         * @param {SignalWhisperTextProtocol.ISenderKeyMessage} message SenderKeyMessage message or plain object to encode
+         * @param {SignalWhisperTextProtocol.SenderKeyMessage.$Properties} message SenderKeyMessage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -786,7 +831,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {SignalWhisperTextProtocol.SenderKeyMessage} SenderKeyMessage
+         * @returns {SignalWhisperTextProtocol.SenderKeyMessage & SignalWhisperTextProtocol.SenderKeyMessage.$Shape} SenderKeyMessage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -844,7 +889,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @memberof SignalWhisperTextProtocol.SenderKeyMessage
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {SignalWhisperTextProtocol.SenderKeyMessage} SenderKeyMessage
+         * @returns {SignalWhisperTextProtocol.SenderKeyMessage & SignalWhisperTextProtocol.SenderKeyMessage.$Shape} SenderKeyMessage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -979,8 +1024,7 @@ $root.SignalWhisperTextProtocol = (function() {
 
         /**
          * Properties of a KeyExchangeMessage.
-         * @memberof SignalWhisperTextProtocol
-         * @interface IKeyExchangeMessage
+         * @typedef {Object} SignalWhisperTextProtocol.KeyExchangeMessage.$Properties
          * @property {number|null} [id] KeyExchangeMessage id
          * @property {Uint8Array|null} [baseKey] KeyExchangeMessage baseKey
          * @property {Uint8Array|null} [ratchetKey] KeyExchangeMessage ratchetKey
@@ -990,12 +1034,24 @@ $root.SignalWhisperTextProtocol = (function() {
          */
 
         /**
+         * Properties of a KeyExchangeMessage.
+         * @memberof SignalWhisperTextProtocol
+         * @interface IKeyExchangeMessage
+         * @augments SignalWhisperTextProtocol.KeyExchangeMessage.$Properties
+         * @deprecated Use SignalWhisperTextProtocol.KeyExchangeMessage.$Properties instead.
+         */
+
+        /**
+         * Shape of a KeyExchangeMessage.
+         * @typedef {SignalWhisperTextProtocol.KeyExchangeMessage.$Properties} SignalWhisperTextProtocol.KeyExchangeMessage.$Shape
+         */
+
+        /**
          * Constructs a new KeyExchangeMessage.
          * @memberof SignalWhisperTextProtocol
          * @classdesc Represents a KeyExchangeMessage.
-         * @implements IKeyExchangeMessage
          * @constructor
-         * @param {SignalWhisperTextProtocol.IKeyExchangeMessage=} [properties] Properties to set
+         * @param {SignalWhisperTextProtocol.KeyExchangeMessage.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function KeyExchangeMessage(properties) {
@@ -1083,8 +1139,12 @@ $root.SignalWhisperTextProtocol = (function() {
          * @function create
          * @memberof SignalWhisperTextProtocol.KeyExchangeMessage
          * @static
-         * @param {SignalWhisperTextProtocol.IKeyExchangeMessage=} [properties] Properties to set
+         * @param {SignalWhisperTextProtocol.KeyExchangeMessage.$Properties=} [properties] Properties to set
          * @returns {SignalWhisperTextProtocol.KeyExchangeMessage} KeyExchangeMessage instance
+         * @type {{
+         *   (properties: SignalWhisperTextProtocol.KeyExchangeMessage.$Shape): SignalWhisperTextProtocol.KeyExchangeMessage & SignalWhisperTextProtocol.KeyExchangeMessage.$Shape;
+         *   (properties?: SignalWhisperTextProtocol.KeyExchangeMessage.$Properties): SignalWhisperTextProtocol.KeyExchangeMessage;
+         * }}
          */
         KeyExchangeMessage.create = function create(properties) {
             return new KeyExchangeMessage(properties);
@@ -1095,7 +1155,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @function encode
          * @memberof SignalWhisperTextProtocol.KeyExchangeMessage
          * @static
-         * @param {SignalWhisperTextProtocol.IKeyExchangeMessage} message KeyExchangeMessage message or plain object to encode
+         * @param {SignalWhisperTextProtocol.KeyExchangeMessage.$Properties} message KeyExchangeMessage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1123,7 +1183,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @function encodeDelimited
          * @memberof SignalWhisperTextProtocol.KeyExchangeMessage
          * @static
-         * @param {SignalWhisperTextProtocol.IKeyExchangeMessage} message KeyExchangeMessage message or plain object to encode
+         * @param {SignalWhisperTextProtocol.KeyExchangeMessage.$Properties} message KeyExchangeMessage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1138,7 +1198,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {SignalWhisperTextProtocol.KeyExchangeMessage} KeyExchangeMessage
+         * @returns {SignalWhisperTextProtocol.KeyExchangeMessage & SignalWhisperTextProtocol.KeyExchangeMessage.$Shape} KeyExchangeMessage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1210,7 +1270,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @memberof SignalWhisperTextProtocol.KeyExchangeMessage
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {SignalWhisperTextProtocol.KeyExchangeMessage} KeyExchangeMessage
+         * @returns {SignalWhisperTextProtocol.KeyExchangeMessage & SignalWhisperTextProtocol.KeyExchangeMessage.$Shape} KeyExchangeMessage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1378,8 +1438,7 @@ $root.SignalWhisperTextProtocol = (function() {
 
         /**
          * Properties of a PreKeySignalMessage.
-         * @memberof SignalWhisperTextProtocol
-         * @interface IPreKeySignalMessage
+         * @typedef {Object} SignalWhisperTextProtocol.PreKeySignalMessage.$Properties
          * @property {number|null} [registrationId] PreKeySignalMessage registrationId
          * @property {number|null} [preKeyId] PreKeySignalMessage preKeyId
          * @property {number|null} [signedPreKeyId] PreKeySignalMessage signedPreKeyId
@@ -1390,12 +1449,24 @@ $root.SignalWhisperTextProtocol = (function() {
          */
 
         /**
+         * Properties of a PreKeySignalMessage.
+         * @memberof SignalWhisperTextProtocol
+         * @interface IPreKeySignalMessage
+         * @augments SignalWhisperTextProtocol.PreKeySignalMessage.$Properties
+         * @deprecated Use SignalWhisperTextProtocol.PreKeySignalMessage.$Properties instead.
+         */
+
+        /**
+         * Shape of a PreKeySignalMessage.
+         * @typedef {SignalWhisperTextProtocol.PreKeySignalMessage.$Properties} SignalWhisperTextProtocol.PreKeySignalMessage.$Shape
+         */
+
+        /**
          * Constructs a new PreKeySignalMessage.
          * @memberof SignalWhisperTextProtocol
          * @classdesc Represents a PreKeySignalMessage.
-         * @implements IPreKeySignalMessage
          * @constructor
-         * @param {SignalWhisperTextProtocol.IPreKeySignalMessage=} [properties] Properties to set
+         * @param {SignalWhisperTextProtocol.PreKeySignalMessage.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function PreKeySignalMessage(properties) {
@@ -1497,8 +1568,12 @@ $root.SignalWhisperTextProtocol = (function() {
          * @function create
          * @memberof SignalWhisperTextProtocol.PreKeySignalMessage
          * @static
-         * @param {SignalWhisperTextProtocol.IPreKeySignalMessage=} [properties] Properties to set
+         * @param {SignalWhisperTextProtocol.PreKeySignalMessage.$Properties=} [properties] Properties to set
          * @returns {SignalWhisperTextProtocol.PreKeySignalMessage} PreKeySignalMessage instance
+         * @type {{
+         *   (properties: SignalWhisperTextProtocol.PreKeySignalMessage.$Shape): SignalWhisperTextProtocol.PreKeySignalMessage & SignalWhisperTextProtocol.PreKeySignalMessage.$Shape;
+         *   (properties?: SignalWhisperTextProtocol.PreKeySignalMessage.$Properties): SignalWhisperTextProtocol.PreKeySignalMessage;
+         * }}
          */
         PreKeySignalMessage.create = function create(properties) {
             return new PreKeySignalMessage(properties);
@@ -1509,7 +1584,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @function encode
          * @memberof SignalWhisperTextProtocol.PreKeySignalMessage
          * @static
-         * @param {SignalWhisperTextProtocol.IPreKeySignalMessage} message PreKeySignalMessage message or plain object to encode
+         * @param {SignalWhisperTextProtocol.PreKeySignalMessage.$Properties} message PreKeySignalMessage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1539,7 +1614,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @function encodeDelimited
          * @memberof SignalWhisperTextProtocol.PreKeySignalMessage
          * @static
-         * @param {SignalWhisperTextProtocol.IPreKeySignalMessage} message PreKeySignalMessage message or plain object to encode
+         * @param {SignalWhisperTextProtocol.PreKeySignalMessage.$Properties} message PreKeySignalMessage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1554,7 +1629,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {SignalWhisperTextProtocol.PreKeySignalMessage} PreKeySignalMessage
+         * @returns {SignalWhisperTextProtocol.PreKeySignalMessage & SignalWhisperTextProtocol.PreKeySignalMessage.$Shape} PreKeySignalMessage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1633,7 +1708,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @memberof SignalWhisperTextProtocol.PreKeySignalMessage
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {SignalWhisperTextProtocol.PreKeySignalMessage} PreKeySignalMessage
+         * @returns {SignalWhisperTextProtocol.PreKeySignalMessage & SignalWhisperTextProtocol.PreKeySignalMessage.$Shape} PreKeySignalMessage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1810,8 +1885,7 @@ $root.SignalWhisperTextProtocol = (function() {
 
         /**
          * Properties of a SignalMessage.
-         * @memberof SignalWhisperTextProtocol
-         * @interface ISignalMessage
+         * @typedef {Object} SignalWhisperTextProtocol.SignalMessage.$Properties
          * @property {Uint8Array|null} [ratchetKey] SignalMessage ratchetKey
          * @property {number|null} [counter] SignalMessage counter
          * @property {number|null} [previousCounter] SignalMessage previousCounter
@@ -1820,12 +1894,24 @@ $root.SignalWhisperTextProtocol = (function() {
          */
 
         /**
+         * Properties of a SignalMessage.
+         * @memberof SignalWhisperTextProtocol
+         * @interface ISignalMessage
+         * @augments SignalWhisperTextProtocol.SignalMessage.$Properties
+         * @deprecated Use SignalWhisperTextProtocol.SignalMessage.$Properties instead.
+         */
+
+        /**
+         * Shape of a SignalMessage.
+         * @typedef {SignalWhisperTextProtocol.SignalMessage.$Properties} SignalWhisperTextProtocol.SignalMessage.$Shape
+         */
+
+        /**
          * Constructs a new SignalMessage.
          * @memberof SignalWhisperTextProtocol
          * @classdesc Represents a SignalMessage.
-         * @implements ISignalMessage
          * @constructor
-         * @param {SignalWhisperTextProtocol.ISignalMessage=} [properties] Properties to set
+         * @param {SignalWhisperTextProtocol.SignalMessage.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SignalMessage(properties) {
@@ -1899,8 +1985,12 @@ $root.SignalWhisperTextProtocol = (function() {
          * @function create
          * @memberof SignalWhisperTextProtocol.SignalMessage
          * @static
-         * @param {SignalWhisperTextProtocol.ISignalMessage=} [properties] Properties to set
+         * @param {SignalWhisperTextProtocol.SignalMessage.$Properties=} [properties] Properties to set
          * @returns {SignalWhisperTextProtocol.SignalMessage} SignalMessage instance
+         * @type {{
+         *   (properties: SignalWhisperTextProtocol.SignalMessage.$Shape): SignalWhisperTextProtocol.SignalMessage & SignalWhisperTextProtocol.SignalMessage.$Shape;
+         *   (properties?: SignalWhisperTextProtocol.SignalMessage.$Properties): SignalWhisperTextProtocol.SignalMessage;
+         * }}
          */
         SignalMessage.create = function create(properties) {
             return new SignalMessage(properties);
@@ -1911,7 +2001,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @function encode
          * @memberof SignalWhisperTextProtocol.SignalMessage
          * @static
-         * @param {SignalWhisperTextProtocol.ISignalMessage} message SignalMessage message or plain object to encode
+         * @param {SignalWhisperTextProtocol.SignalMessage.$Properties} message SignalMessage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1937,7 +2027,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @function encodeDelimited
          * @memberof SignalWhisperTextProtocol.SignalMessage
          * @static
-         * @param {SignalWhisperTextProtocol.ISignalMessage} message SignalMessage message or plain object to encode
+         * @param {SignalWhisperTextProtocol.SignalMessage.$Properties} message SignalMessage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1952,7 +2042,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {SignalWhisperTextProtocol.SignalMessage} SignalMessage
+         * @returns {SignalWhisperTextProtocol.SignalMessage & SignalWhisperTextProtocol.SignalMessage.$Shape} SignalMessage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2017,7 +2107,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @memberof SignalWhisperTextProtocol.SignalMessage
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {SignalWhisperTextProtocol.SignalMessage} SignalMessage
+         * @returns {SignalWhisperTextProtocol.SignalMessage & SignalWhisperTextProtocol.SignalMessage.$Shape} SignalMessage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */

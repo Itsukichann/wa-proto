@@ -22,20 +22,31 @@ $root.Cert = (function() {
 
         /**
          * Properties of a CertChain.
+         * @typedef {Object} Cert.CertChain.$Properties
+         * @property {Cert.CertChain.NoiseCertificate.$Properties|null} [leaf] CertChain leaf
+         * @property {Cert.CertChain.NoiseCertificate.$Properties|null} [intermediate] CertChain intermediate
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a CertChain.
          * @memberof Cert
          * @interface ICertChain
-         * @property {Cert.CertChain.INoiseCertificate|null} [leaf] CertChain leaf
-         * @property {Cert.CertChain.INoiseCertificate|null} [intermediate] CertChain intermediate
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments Cert.CertChain.$Properties
+         * @deprecated Use Cert.CertChain.$Properties instead.
+         */
+
+        /**
+         * Shape of a CertChain.
+         * @typedef {Cert.CertChain.$Properties} Cert.CertChain.$Shape
          */
 
         /**
          * Constructs a new CertChain.
          * @memberof Cert
          * @classdesc Represents a CertChain.
-         * @implements ICertChain
          * @constructor
-         * @param {Cert.ICertChain=} [properties] Properties to set
+         * @param {Cert.CertChain.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function CertChain(properties) {
@@ -47,7 +58,7 @@ $root.Cert = (function() {
 
         /**
          * CertChain leaf.
-         * @member {Cert.CertChain.INoiseCertificate|null|undefined} leaf
+         * @member {Cert.CertChain.NoiseCertificate.$Properties|null|undefined} leaf
          * @memberof Cert.CertChain
          * @instance
          */
@@ -55,7 +66,7 @@ $root.Cert = (function() {
 
         /**
          * CertChain intermediate.
-         * @member {Cert.CertChain.INoiseCertificate|null|undefined} intermediate
+         * @member {Cert.CertChain.NoiseCertificate.$Properties|null|undefined} intermediate
          * @memberof Cert.CertChain
          * @instance
          */
@@ -81,8 +92,12 @@ $root.Cert = (function() {
          * @function create
          * @memberof Cert.CertChain
          * @static
-         * @param {Cert.ICertChain=} [properties] Properties to set
+         * @param {Cert.CertChain.$Properties=} [properties] Properties to set
          * @returns {Cert.CertChain} CertChain instance
+         * @type {{
+         *   (properties: Cert.CertChain.$Shape): Cert.CertChain & Cert.CertChain.$Shape;
+         *   (properties?: Cert.CertChain.$Properties): Cert.CertChain;
+         * }}
          */
         CertChain.create = function create(properties) {
             return new CertChain(properties);
@@ -93,7 +108,7 @@ $root.Cert = (function() {
          * @function encode
          * @memberof Cert.CertChain
          * @static
-         * @param {Cert.ICertChain} message CertChain message or plain object to encode
+         * @param {Cert.CertChain.$Properties} message CertChain message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -115,7 +130,7 @@ $root.Cert = (function() {
          * @function encodeDelimited
          * @memberof Cert.CertChain
          * @static
-         * @param {Cert.ICertChain} message CertChain message or plain object to encode
+         * @param {Cert.CertChain.$Properties} message CertChain message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -130,7 +145,7 @@ $root.Cert = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {Cert.CertChain} CertChain
+         * @returns {Cert.CertChain & Cert.CertChain.$Shape} CertChain
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -181,7 +196,7 @@ $root.Cert = (function() {
          * @memberof Cert.CertChain
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {Cert.CertChain} CertChain
+         * @returns {Cert.CertChain & Cert.CertChain.$Shape} CertChain
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -310,20 +325,31 @@ $root.Cert = (function() {
 
             /**
              * Properties of a NoiseCertificate.
-             * @memberof Cert.CertChain
-             * @interface INoiseCertificate
+             * @typedef {Object} Cert.CertChain.NoiseCertificate.$Properties
              * @property {Uint8Array|null} [details] NoiseCertificate details
              * @property {Uint8Array|null} [signature] NoiseCertificate signature
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
+             * Properties of a NoiseCertificate.
+             * @memberof Cert.CertChain
+             * @interface INoiseCertificate
+             * @augments Cert.CertChain.NoiseCertificate.$Properties
+             * @deprecated Use Cert.CertChain.NoiseCertificate.$Properties instead.
+             */
+
+            /**
+             * Shape of a NoiseCertificate.
+             * @typedef {Cert.CertChain.NoiseCertificate.$Properties} Cert.CertChain.NoiseCertificate.$Shape
+             */
+
+            /**
              * Constructs a new NoiseCertificate.
              * @memberof Cert.CertChain
              * @classdesc Represents a NoiseCertificate.
-             * @implements INoiseCertificate
              * @constructor
-             * @param {Cert.CertChain.INoiseCertificate=} [properties] Properties to set
+             * @param {Cert.CertChain.NoiseCertificate.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function NoiseCertificate(properties) {
@@ -369,8 +395,12 @@ $root.Cert = (function() {
              * @function create
              * @memberof Cert.CertChain.NoiseCertificate
              * @static
-             * @param {Cert.CertChain.INoiseCertificate=} [properties] Properties to set
+             * @param {Cert.CertChain.NoiseCertificate.$Properties=} [properties] Properties to set
              * @returns {Cert.CertChain.NoiseCertificate} NoiseCertificate instance
+             * @type {{
+             *   (properties: Cert.CertChain.NoiseCertificate.$Shape): Cert.CertChain.NoiseCertificate & Cert.CertChain.NoiseCertificate.$Shape;
+             *   (properties?: Cert.CertChain.NoiseCertificate.$Properties): Cert.CertChain.NoiseCertificate;
+             * }}
              */
             NoiseCertificate.create = function create(properties) {
                 return new NoiseCertificate(properties);
@@ -381,7 +411,7 @@ $root.Cert = (function() {
              * @function encode
              * @memberof Cert.CertChain.NoiseCertificate
              * @static
-             * @param {Cert.CertChain.INoiseCertificate} message NoiseCertificate message or plain object to encode
+             * @param {Cert.CertChain.NoiseCertificate.$Properties} message NoiseCertificate message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -403,7 +433,7 @@ $root.Cert = (function() {
              * @function encodeDelimited
              * @memberof Cert.CertChain.NoiseCertificate
              * @static
-             * @param {Cert.CertChain.INoiseCertificate} message NoiseCertificate message or plain object to encode
+             * @param {Cert.CertChain.NoiseCertificate.$Properties} message NoiseCertificate message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -418,7 +448,7 @@ $root.Cert = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {Cert.CertChain.NoiseCertificate} NoiseCertificate
+             * @returns {Cert.CertChain.NoiseCertificate & Cert.CertChain.NoiseCertificate.$Shape} NoiseCertificate
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -469,7 +499,7 @@ $root.Cert = (function() {
              * @memberof Cert.CertChain.NoiseCertificate
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {Cert.CertChain.NoiseCertificate} NoiseCertificate
+             * @returns {Cert.CertChain.NoiseCertificate & Cert.CertChain.NoiseCertificate.$Shape} NoiseCertificate
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -592,8 +622,7 @@ $root.Cert = (function() {
 
                 /**
                  * Properties of a Details.
-                 * @memberof Cert.CertChain.NoiseCertificate
-                 * @interface IDetails
+                 * @typedef {Object} Cert.CertChain.NoiseCertificate.Details.$Properties
                  * @property {number|null} [serial] Details serial
                  * @property {number|null} [issuerSerial] Details issuerSerial
                  * @property {Uint8Array|null} [key] Details key
@@ -603,12 +632,24 @@ $root.Cert = (function() {
                  */
 
                 /**
+                 * Properties of a Details.
+                 * @memberof Cert.CertChain.NoiseCertificate
+                 * @interface IDetails
+                 * @augments Cert.CertChain.NoiseCertificate.Details.$Properties
+                 * @deprecated Use Cert.CertChain.NoiseCertificate.Details.$Properties instead.
+                 */
+
+                /**
+                 * Shape of a Details.
+                 * @typedef {Cert.CertChain.NoiseCertificate.Details.$Properties} Cert.CertChain.NoiseCertificate.Details.$Shape
+                 */
+
+                /**
                  * Constructs a new Details.
                  * @memberof Cert.CertChain.NoiseCertificate
                  * @classdesc Represents a Details.
-                 * @implements IDetails
                  * @constructor
-                 * @param {Cert.CertChain.NoiseCertificate.IDetails=} [properties] Properties to set
+                 * @param {Cert.CertChain.NoiseCertificate.Details.$Properties=} [properties] Properties to set
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function Details(properties) {
@@ -696,8 +737,12 @@ $root.Cert = (function() {
                  * @function create
                  * @memberof Cert.CertChain.NoiseCertificate.Details
                  * @static
-                 * @param {Cert.CertChain.NoiseCertificate.IDetails=} [properties] Properties to set
+                 * @param {Cert.CertChain.NoiseCertificate.Details.$Properties=} [properties] Properties to set
                  * @returns {Cert.CertChain.NoiseCertificate.Details} Details instance
+                 * @type {{
+                 *   (properties: Cert.CertChain.NoiseCertificate.Details.$Shape): Cert.CertChain.NoiseCertificate.Details & Cert.CertChain.NoiseCertificate.Details.$Shape;
+                 *   (properties?: Cert.CertChain.NoiseCertificate.Details.$Properties): Cert.CertChain.NoiseCertificate.Details;
+                 * }}
                  */
                 Details.create = function create(properties) {
                     return new Details(properties);
@@ -708,7 +753,7 @@ $root.Cert = (function() {
                  * @function encode
                  * @memberof Cert.CertChain.NoiseCertificate.Details
                  * @static
-                 * @param {Cert.CertChain.NoiseCertificate.IDetails} message Details message or plain object to encode
+                 * @param {Cert.CertChain.NoiseCertificate.Details.$Properties} message Details message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -736,7 +781,7 @@ $root.Cert = (function() {
                  * @function encodeDelimited
                  * @memberof Cert.CertChain.NoiseCertificate.Details
                  * @static
-                 * @param {Cert.CertChain.NoiseCertificate.IDetails} message Details message or plain object to encode
+                 * @param {Cert.CertChain.NoiseCertificate.Details.$Properties} message Details message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -751,7 +796,7 @@ $root.Cert = (function() {
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                  * @param {number} [length] Message length if known beforehand
-                 * @returns {Cert.CertChain.NoiseCertificate.Details} Details
+                 * @returns {Cert.CertChain.NoiseCertificate.Details & Cert.CertChain.NoiseCertificate.Details.$Shape} Details
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -823,7 +868,7 @@ $root.Cert = (function() {
                  * @memberof Cert.CertChain.NoiseCertificate.Details
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {Cert.CertChain.NoiseCertificate.Details} Details
+                 * @returns {Cert.CertChain.NoiseCertificate.Details & Cert.CertChain.NoiseCertificate.Details.$Shape} Details
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -1008,20 +1053,31 @@ $root.Cert = (function() {
 
         /**
          * Properties of a NoiseCertificate.
-         * @memberof Cert
-         * @interface INoiseCertificate
+         * @typedef {Object} Cert.NoiseCertificate.$Properties
          * @property {Uint8Array|null} [details] NoiseCertificate details
          * @property {Uint8Array|null} [signature] NoiseCertificate signature
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
+         * Properties of a NoiseCertificate.
+         * @memberof Cert
+         * @interface INoiseCertificate
+         * @augments Cert.NoiseCertificate.$Properties
+         * @deprecated Use Cert.NoiseCertificate.$Properties instead.
+         */
+
+        /**
+         * Shape of a NoiseCertificate.
+         * @typedef {Cert.NoiseCertificate.$Properties} Cert.NoiseCertificate.$Shape
+         */
+
+        /**
          * Constructs a new NoiseCertificate.
          * @memberof Cert
          * @classdesc Represents a NoiseCertificate.
-         * @implements INoiseCertificate
          * @constructor
-         * @param {Cert.INoiseCertificate=} [properties] Properties to set
+         * @param {Cert.NoiseCertificate.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function NoiseCertificate(properties) {
@@ -1067,8 +1123,12 @@ $root.Cert = (function() {
          * @function create
          * @memberof Cert.NoiseCertificate
          * @static
-         * @param {Cert.INoiseCertificate=} [properties] Properties to set
+         * @param {Cert.NoiseCertificate.$Properties=} [properties] Properties to set
          * @returns {Cert.NoiseCertificate} NoiseCertificate instance
+         * @type {{
+         *   (properties: Cert.NoiseCertificate.$Shape): Cert.NoiseCertificate & Cert.NoiseCertificate.$Shape;
+         *   (properties?: Cert.NoiseCertificate.$Properties): Cert.NoiseCertificate;
+         * }}
          */
         NoiseCertificate.create = function create(properties) {
             return new NoiseCertificate(properties);
@@ -1079,7 +1139,7 @@ $root.Cert = (function() {
          * @function encode
          * @memberof Cert.NoiseCertificate
          * @static
-         * @param {Cert.INoiseCertificate} message NoiseCertificate message or plain object to encode
+         * @param {Cert.NoiseCertificate.$Properties} message NoiseCertificate message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1101,7 +1161,7 @@ $root.Cert = (function() {
          * @function encodeDelimited
          * @memberof Cert.NoiseCertificate
          * @static
-         * @param {Cert.INoiseCertificate} message NoiseCertificate message or plain object to encode
+         * @param {Cert.NoiseCertificate.$Properties} message NoiseCertificate message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1116,7 +1176,7 @@ $root.Cert = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {Cert.NoiseCertificate} NoiseCertificate
+         * @returns {Cert.NoiseCertificate & Cert.NoiseCertificate.$Shape} NoiseCertificate
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1167,7 +1227,7 @@ $root.Cert = (function() {
          * @memberof Cert.NoiseCertificate
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {Cert.NoiseCertificate} NoiseCertificate
+         * @returns {Cert.NoiseCertificate & Cert.NoiseCertificate.$Shape} NoiseCertificate
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1290,8 +1350,7 @@ $root.Cert = (function() {
 
             /**
              * Properties of a Details.
-             * @memberof Cert.NoiseCertificate
-             * @interface IDetails
+             * @typedef {Object} Cert.NoiseCertificate.Details.$Properties
              * @property {number|null} [serial] Details serial
              * @property {string|null} [issuer] Details issuer
              * @property {number|Long|null} [expires] Details expires
@@ -1301,12 +1360,24 @@ $root.Cert = (function() {
              */
 
             /**
+             * Properties of a Details.
+             * @memberof Cert.NoiseCertificate
+             * @interface IDetails
+             * @augments Cert.NoiseCertificate.Details.$Properties
+             * @deprecated Use Cert.NoiseCertificate.Details.$Properties instead.
+             */
+
+            /**
+             * Shape of a Details.
+             * @typedef {Cert.NoiseCertificate.Details.$Properties} Cert.NoiseCertificate.Details.$Shape
+             */
+
+            /**
              * Constructs a new Details.
              * @memberof Cert.NoiseCertificate
              * @classdesc Represents a Details.
-             * @implements IDetails
              * @constructor
-             * @param {Cert.NoiseCertificate.IDetails=} [properties] Properties to set
+             * @param {Cert.NoiseCertificate.Details.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function Details(properties) {
@@ -1394,8 +1465,12 @@ $root.Cert = (function() {
              * @function create
              * @memberof Cert.NoiseCertificate.Details
              * @static
-             * @param {Cert.NoiseCertificate.IDetails=} [properties] Properties to set
+             * @param {Cert.NoiseCertificate.Details.$Properties=} [properties] Properties to set
              * @returns {Cert.NoiseCertificate.Details} Details instance
+             * @type {{
+             *   (properties: Cert.NoiseCertificate.Details.$Shape): Cert.NoiseCertificate.Details & Cert.NoiseCertificate.Details.$Shape;
+             *   (properties?: Cert.NoiseCertificate.Details.$Properties): Cert.NoiseCertificate.Details;
+             * }}
              */
             Details.create = function create(properties) {
                 return new Details(properties);
@@ -1406,7 +1481,7 @@ $root.Cert = (function() {
              * @function encode
              * @memberof Cert.NoiseCertificate.Details
              * @static
-             * @param {Cert.NoiseCertificate.IDetails} message Details message or plain object to encode
+             * @param {Cert.NoiseCertificate.Details.$Properties} message Details message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -1434,7 +1509,7 @@ $root.Cert = (function() {
              * @function encodeDelimited
              * @memberof Cert.NoiseCertificate.Details
              * @static
-             * @param {Cert.NoiseCertificate.IDetails} message Details message or plain object to encode
+             * @param {Cert.NoiseCertificate.Details.$Properties} message Details message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -1449,7 +1524,7 @@ $root.Cert = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {Cert.NoiseCertificate.Details} Details
+             * @returns {Cert.NoiseCertificate.Details & Cert.NoiseCertificate.Details.$Shape} Details
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -1521,7 +1596,7 @@ $root.Cert = (function() {
              * @memberof Cert.NoiseCertificate.Details
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {Cert.NoiseCertificate.Details} Details
+             * @returns {Cert.NoiseCertificate.Details & Cert.NoiseCertificate.Details.$Shape} Details
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */

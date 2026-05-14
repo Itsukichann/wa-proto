@@ -22,10 +22,9 @@ $root.VnameCert = (function() {
 
         /**
          * Properties of a BizIdentityInfo.
-         * @memberof VnameCert
-         * @interface IBizIdentityInfo
+         * @typedef {Object} VnameCert.BizIdentityInfo.$Properties
          * @property {VnameCert.BizIdentityInfo.VerifiedLevelValue|null} [vlevel] BizIdentityInfo vlevel
-         * @property {VnameCert.IVerifiedNameCertificate|null} [vnameCert] BizIdentityInfo vnameCert
+         * @property {VnameCert.VerifiedNameCertificate.$Properties|null} [vnameCert] BizIdentityInfo vnameCert
          * @property {boolean|null} [signed] BizIdentityInfo signed
          * @property {boolean|null} [revoked] BizIdentityInfo revoked
          * @property {VnameCert.BizIdentityInfo.HostStorageType|null} [hostStorage] BizIdentityInfo hostStorage
@@ -36,12 +35,24 @@ $root.VnameCert = (function() {
          */
 
         /**
+         * Properties of a BizIdentityInfo.
+         * @memberof VnameCert
+         * @interface IBizIdentityInfo
+         * @augments VnameCert.BizIdentityInfo.$Properties
+         * @deprecated Use VnameCert.BizIdentityInfo.$Properties instead.
+         */
+
+        /**
+         * Shape of a BizIdentityInfo.
+         * @typedef {VnameCert.BizIdentityInfo.$Properties} VnameCert.BizIdentityInfo.$Shape
+         */
+
+        /**
          * Constructs a new BizIdentityInfo.
          * @memberof VnameCert
          * @classdesc Represents a BizIdentityInfo.
-         * @implements IBizIdentityInfo
          * @constructor
-         * @param {VnameCert.IBizIdentityInfo=} [properties] Properties to set
+         * @param {VnameCert.BizIdentityInfo.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BizIdentityInfo(properties) {
@@ -61,7 +72,7 @@ $root.VnameCert = (function() {
 
         /**
          * BizIdentityInfo vnameCert.
-         * @member {VnameCert.IVerifiedNameCertificate|null|undefined} vnameCert
+         * @member {VnameCert.VerifiedNameCertificate.$Properties|null|undefined} vnameCert
          * @memberof VnameCert.BizIdentityInfo
          * @instance
          */
@@ -171,8 +182,12 @@ $root.VnameCert = (function() {
          * @function create
          * @memberof VnameCert.BizIdentityInfo
          * @static
-         * @param {VnameCert.IBizIdentityInfo=} [properties] Properties to set
+         * @param {VnameCert.BizIdentityInfo.$Properties=} [properties] Properties to set
          * @returns {VnameCert.BizIdentityInfo} BizIdentityInfo instance
+         * @type {{
+         *   (properties: VnameCert.BizIdentityInfo.$Shape): VnameCert.BizIdentityInfo & VnameCert.BizIdentityInfo.$Shape;
+         *   (properties?: VnameCert.BizIdentityInfo.$Properties): VnameCert.BizIdentityInfo;
+         * }}
          */
         BizIdentityInfo.create = function create(properties) {
             return new BizIdentityInfo(properties);
@@ -183,7 +198,7 @@ $root.VnameCert = (function() {
          * @function encode
          * @memberof VnameCert.BizIdentityInfo
          * @static
-         * @param {VnameCert.IBizIdentityInfo} message BizIdentityInfo message or plain object to encode
+         * @param {VnameCert.BizIdentityInfo.$Properties} message BizIdentityInfo message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -217,7 +232,7 @@ $root.VnameCert = (function() {
          * @function encodeDelimited
          * @memberof VnameCert.BizIdentityInfo
          * @static
-         * @param {VnameCert.IBizIdentityInfo} message BizIdentityInfo message or plain object to encode
+         * @param {VnameCert.BizIdentityInfo.$Properties} message BizIdentityInfo message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -232,7 +247,7 @@ $root.VnameCert = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {VnameCert.BizIdentityInfo} BizIdentityInfo
+         * @returns {VnameCert.BizIdentityInfo & VnameCert.BizIdentityInfo.$Shape} BizIdentityInfo
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -325,7 +340,7 @@ $root.VnameCert = (function() {
          * @memberof VnameCert.BizIdentityInfo
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {VnameCert.BizIdentityInfo} BizIdentityInfo
+         * @returns {VnameCert.BizIdentityInfo & VnameCert.BizIdentityInfo.$Shape} BizIdentityInfo
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -649,8 +664,7 @@ $root.VnameCert = (function() {
 
         /**
          * Properties of a BizAccountLinkInfo.
-         * @memberof VnameCert
-         * @interface IBizAccountLinkInfo
+         * @typedef {Object} VnameCert.BizAccountLinkInfo.$Properties
          * @property {number|Long|null} [whatsappBizAcctFbid] BizAccountLinkInfo whatsappBizAcctFbid
          * @property {string|null} [whatsappAcctNumber] BizAccountLinkInfo whatsappAcctNumber
          * @property {number|Long|null} [issueTime] BizAccountLinkInfo issueTime
@@ -660,12 +674,24 @@ $root.VnameCert = (function() {
          */
 
         /**
+         * Properties of a BizAccountLinkInfo.
+         * @memberof VnameCert
+         * @interface IBizAccountLinkInfo
+         * @augments VnameCert.BizAccountLinkInfo.$Properties
+         * @deprecated Use VnameCert.BizAccountLinkInfo.$Properties instead.
+         */
+
+        /**
+         * Shape of a BizAccountLinkInfo.
+         * @typedef {VnameCert.BizAccountLinkInfo.$Properties} VnameCert.BizAccountLinkInfo.$Shape
+         */
+
+        /**
          * Constructs a new BizAccountLinkInfo.
          * @memberof VnameCert
          * @classdesc Represents a BizAccountLinkInfo.
-         * @implements IBizAccountLinkInfo
          * @constructor
-         * @param {VnameCert.IBizAccountLinkInfo=} [properties] Properties to set
+         * @param {VnameCert.BizAccountLinkInfo.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BizAccountLinkInfo(properties) {
@@ -753,8 +779,12 @@ $root.VnameCert = (function() {
          * @function create
          * @memberof VnameCert.BizAccountLinkInfo
          * @static
-         * @param {VnameCert.IBizAccountLinkInfo=} [properties] Properties to set
+         * @param {VnameCert.BizAccountLinkInfo.$Properties=} [properties] Properties to set
          * @returns {VnameCert.BizAccountLinkInfo} BizAccountLinkInfo instance
+         * @type {{
+         *   (properties: VnameCert.BizAccountLinkInfo.$Shape): VnameCert.BizAccountLinkInfo & VnameCert.BizAccountLinkInfo.$Shape;
+         *   (properties?: VnameCert.BizAccountLinkInfo.$Properties): VnameCert.BizAccountLinkInfo;
+         * }}
          */
         BizAccountLinkInfo.create = function create(properties) {
             return new BizAccountLinkInfo(properties);
@@ -765,7 +795,7 @@ $root.VnameCert = (function() {
          * @function encode
          * @memberof VnameCert.BizAccountLinkInfo
          * @static
-         * @param {VnameCert.IBizAccountLinkInfo} message BizAccountLinkInfo message or plain object to encode
+         * @param {VnameCert.BizAccountLinkInfo.$Properties} message BizAccountLinkInfo message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -793,7 +823,7 @@ $root.VnameCert = (function() {
          * @function encodeDelimited
          * @memberof VnameCert.BizAccountLinkInfo
          * @static
-         * @param {VnameCert.IBizAccountLinkInfo} message BizAccountLinkInfo message or plain object to encode
+         * @param {VnameCert.BizAccountLinkInfo.$Properties} message BizAccountLinkInfo message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -808,7 +838,7 @@ $root.VnameCert = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {VnameCert.BizAccountLinkInfo} BizAccountLinkInfo
+         * @returns {VnameCert.BizAccountLinkInfo & VnameCert.BizAccountLinkInfo.$Shape} BizAccountLinkInfo
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -880,7 +910,7 @@ $root.VnameCert = (function() {
          * @memberof VnameCert.BizAccountLinkInfo
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {VnameCert.BizAccountLinkInfo} BizAccountLinkInfo
+         * @returns {VnameCert.BizAccountLinkInfo & VnameCert.BizAccountLinkInfo.$Shape} BizAccountLinkInfo
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1115,20 +1145,31 @@ $root.VnameCert = (function() {
 
         /**
          * Properties of a BizAccountPayload.
-         * @memberof VnameCert
-         * @interface IBizAccountPayload
-         * @property {VnameCert.IVerifiedNameCertificate|null} [vnameCert] BizAccountPayload vnameCert
+         * @typedef {Object} VnameCert.BizAccountPayload.$Properties
+         * @property {VnameCert.VerifiedNameCertificate.$Properties|null} [vnameCert] BizAccountPayload vnameCert
          * @property {Uint8Array|null} [bizAcctLinkInfo] BizAccountPayload bizAcctLinkInfo
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a BizAccountPayload.
+         * @memberof VnameCert
+         * @interface IBizAccountPayload
+         * @augments VnameCert.BizAccountPayload.$Properties
+         * @deprecated Use VnameCert.BizAccountPayload.$Properties instead.
+         */
+
+        /**
+         * Shape of a BizAccountPayload.
+         * @typedef {VnameCert.BizAccountPayload.$Properties} VnameCert.BizAccountPayload.$Shape
          */
 
         /**
          * Constructs a new BizAccountPayload.
          * @memberof VnameCert
          * @classdesc Represents a BizAccountPayload.
-         * @implements IBizAccountPayload
          * @constructor
-         * @param {VnameCert.IBizAccountPayload=} [properties] Properties to set
+         * @param {VnameCert.BizAccountPayload.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BizAccountPayload(properties) {
@@ -1140,7 +1181,7 @@ $root.VnameCert = (function() {
 
         /**
          * BizAccountPayload vnameCert.
-         * @member {VnameCert.IVerifiedNameCertificate|null|undefined} vnameCert
+         * @member {VnameCert.VerifiedNameCertificate.$Properties|null|undefined} vnameCert
          * @memberof VnameCert.BizAccountPayload
          * @instance
          */
@@ -1174,8 +1215,12 @@ $root.VnameCert = (function() {
          * @function create
          * @memberof VnameCert.BizAccountPayload
          * @static
-         * @param {VnameCert.IBizAccountPayload=} [properties] Properties to set
+         * @param {VnameCert.BizAccountPayload.$Properties=} [properties] Properties to set
          * @returns {VnameCert.BizAccountPayload} BizAccountPayload instance
+         * @type {{
+         *   (properties: VnameCert.BizAccountPayload.$Shape): VnameCert.BizAccountPayload & VnameCert.BizAccountPayload.$Shape;
+         *   (properties?: VnameCert.BizAccountPayload.$Properties): VnameCert.BizAccountPayload;
+         * }}
          */
         BizAccountPayload.create = function create(properties) {
             return new BizAccountPayload(properties);
@@ -1186,7 +1231,7 @@ $root.VnameCert = (function() {
          * @function encode
          * @memberof VnameCert.BizAccountPayload
          * @static
-         * @param {VnameCert.IBizAccountPayload} message BizAccountPayload message or plain object to encode
+         * @param {VnameCert.BizAccountPayload.$Properties} message BizAccountPayload message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1208,7 +1253,7 @@ $root.VnameCert = (function() {
          * @function encodeDelimited
          * @memberof VnameCert.BizAccountPayload
          * @static
-         * @param {VnameCert.IBizAccountPayload} message BizAccountPayload message or plain object to encode
+         * @param {VnameCert.BizAccountPayload.$Properties} message BizAccountPayload message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1223,7 +1268,7 @@ $root.VnameCert = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {VnameCert.BizAccountPayload} BizAccountPayload
+         * @returns {VnameCert.BizAccountPayload & VnameCert.BizAccountPayload.$Shape} BizAccountPayload
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1274,7 +1319,7 @@ $root.VnameCert = (function() {
          * @memberof VnameCert.BizAccountPayload
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {VnameCert.BizAccountPayload} BizAccountPayload
+         * @returns {VnameCert.BizAccountPayload & VnameCert.BizAccountPayload.$Shape} BizAccountPayload
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1403,8 +1448,7 @@ $root.VnameCert = (function() {
 
         /**
          * Properties of a VerifiedNameCertificate.
-         * @memberof VnameCert
-         * @interface IVerifiedNameCertificate
+         * @typedef {Object} VnameCert.VerifiedNameCertificate.$Properties
          * @property {Uint8Array|null} [details] VerifiedNameCertificate details
          * @property {Uint8Array|null} [signature] VerifiedNameCertificate signature
          * @property {Uint8Array|null} [serverSignature] VerifiedNameCertificate serverSignature
@@ -1412,12 +1456,24 @@ $root.VnameCert = (function() {
          */
 
         /**
+         * Properties of a VerifiedNameCertificate.
+         * @memberof VnameCert
+         * @interface IVerifiedNameCertificate
+         * @augments VnameCert.VerifiedNameCertificate.$Properties
+         * @deprecated Use VnameCert.VerifiedNameCertificate.$Properties instead.
+         */
+
+        /**
+         * Shape of a VerifiedNameCertificate.
+         * @typedef {VnameCert.VerifiedNameCertificate.$Properties} VnameCert.VerifiedNameCertificate.$Shape
+         */
+
+        /**
          * Constructs a new VerifiedNameCertificate.
          * @memberof VnameCert
          * @classdesc Represents a VerifiedNameCertificate.
-         * @implements IVerifiedNameCertificate
          * @constructor
-         * @param {VnameCert.IVerifiedNameCertificate=} [properties] Properties to set
+         * @param {VnameCert.VerifiedNameCertificate.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function VerifiedNameCertificate(properties) {
@@ -1477,8 +1533,12 @@ $root.VnameCert = (function() {
          * @function create
          * @memberof VnameCert.VerifiedNameCertificate
          * @static
-         * @param {VnameCert.IVerifiedNameCertificate=} [properties] Properties to set
+         * @param {VnameCert.VerifiedNameCertificate.$Properties=} [properties] Properties to set
          * @returns {VnameCert.VerifiedNameCertificate} VerifiedNameCertificate instance
+         * @type {{
+         *   (properties: VnameCert.VerifiedNameCertificate.$Shape): VnameCert.VerifiedNameCertificate & VnameCert.VerifiedNameCertificate.$Shape;
+         *   (properties?: VnameCert.VerifiedNameCertificate.$Properties): VnameCert.VerifiedNameCertificate;
+         * }}
          */
         VerifiedNameCertificate.create = function create(properties) {
             return new VerifiedNameCertificate(properties);
@@ -1489,7 +1549,7 @@ $root.VnameCert = (function() {
          * @function encode
          * @memberof VnameCert.VerifiedNameCertificate
          * @static
-         * @param {VnameCert.IVerifiedNameCertificate} message VerifiedNameCertificate message or plain object to encode
+         * @param {VnameCert.VerifiedNameCertificate.$Properties} message VerifiedNameCertificate message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1513,7 +1573,7 @@ $root.VnameCert = (function() {
          * @function encodeDelimited
          * @memberof VnameCert.VerifiedNameCertificate
          * @static
-         * @param {VnameCert.IVerifiedNameCertificate} message VerifiedNameCertificate message or plain object to encode
+         * @param {VnameCert.VerifiedNameCertificate.$Properties} message VerifiedNameCertificate message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1528,7 +1588,7 @@ $root.VnameCert = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {VnameCert.VerifiedNameCertificate} VerifiedNameCertificate
+         * @returns {VnameCert.VerifiedNameCertificate & VnameCert.VerifiedNameCertificate.$Shape} VerifiedNameCertificate
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1586,7 +1646,7 @@ $root.VnameCert = (function() {
          * @memberof VnameCert.VerifiedNameCertificate
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {VnameCert.VerifiedNameCertificate} VerifiedNameCertificate
+         * @returns {VnameCert.VerifiedNameCertificate & VnameCert.VerifiedNameCertificate.$Shape} VerifiedNameCertificate
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1724,23 +1784,34 @@ $root.VnameCert = (function() {
 
             /**
              * Properties of a Details.
-             * @memberof VnameCert.VerifiedNameCertificate
-             * @interface IDetails
+             * @typedef {Object} VnameCert.VerifiedNameCertificate.Details.$Properties
              * @property {number|Long|null} [serial] Details serial
              * @property {string|null} [issuer] Details issuer
              * @property {string|null} [verifiedName] Details verifiedName
-             * @property {Array.<VnameCert.ILocalizedName>|null} [localizedNames] Details localizedNames
+             * @property {Array.<VnameCert.LocalizedName.$Properties>|null} [localizedNames] Details localizedNames
              * @property {number|Long|null} [issueTime] Details issueTime
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a Details.
+             * @memberof VnameCert.VerifiedNameCertificate
+             * @interface IDetails
+             * @augments VnameCert.VerifiedNameCertificate.Details.$Properties
+             * @deprecated Use VnameCert.VerifiedNameCertificate.Details.$Properties instead.
+             */
+
+            /**
+             * Shape of a Details.
+             * @typedef {VnameCert.VerifiedNameCertificate.Details.$Properties} VnameCert.VerifiedNameCertificate.Details.$Shape
              */
 
             /**
              * Constructs a new Details.
              * @memberof VnameCert.VerifiedNameCertificate
              * @classdesc Represents a Details.
-             * @implements IDetails
              * @constructor
-             * @param {VnameCert.VerifiedNameCertificate.IDetails=} [properties] Properties to set
+             * @param {VnameCert.VerifiedNameCertificate.Details.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function Details(properties) {
@@ -1777,7 +1848,7 @@ $root.VnameCert = (function() {
 
             /**
              * Details localizedNames.
-             * @member {Array.<VnameCert.ILocalizedName>} localizedNames
+             * @member {Array.<VnameCert.LocalizedName.$Properties>} localizedNames
              * @memberof VnameCert.VerifiedNameCertificate.Details
              * @instance
              */
@@ -1823,8 +1894,12 @@ $root.VnameCert = (function() {
              * @function create
              * @memberof VnameCert.VerifiedNameCertificate.Details
              * @static
-             * @param {VnameCert.VerifiedNameCertificate.IDetails=} [properties] Properties to set
+             * @param {VnameCert.VerifiedNameCertificate.Details.$Properties=} [properties] Properties to set
              * @returns {VnameCert.VerifiedNameCertificate.Details} Details instance
+             * @type {{
+             *   (properties: VnameCert.VerifiedNameCertificate.Details.$Shape): VnameCert.VerifiedNameCertificate.Details & VnameCert.VerifiedNameCertificate.Details.$Shape;
+             *   (properties?: VnameCert.VerifiedNameCertificate.Details.$Properties): VnameCert.VerifiedNameCertificate.Details;
+             * }}
              */
             Details.create = function create(properties) {
                 return new Details(properties);
@@ -1835,7 +1910,7 @@ $root.VnameCert = (function() {
              * @function encode
              * @memberof VnameCert.VerifiedNameCertificate.Details
              * @static
-             * @param {VnameCert.VerifiedNameCertificate.IDetails} message Details message or plain object to encode
+             * @param {VnameCert.VerifiedNameCertificate.Details.$Properties} message Details message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -1864,7 +1939,7 @@ $root.VnameCert = (function() {
              * @function encodeDelimited
              * @memberof VnameCert.VerifiedNameCertificate.Details
              * @static
-             * @param {VnameCert.VerifiedNameCertificate.IDetails} message Details message or plain object to encode
+             * @param {VnameCert.VerifiedNameCertificate.Details.$Properties} message Details message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -1879,7 +1954,7 @@ $root.VnameCert = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {VnameCert.VerifiedNameCertificate.Details} Details
+             * @returns {VnameCert.VerifiedNameCertificate.Details & VnameCert.VerifiedNameCertificate.Details.$Shape} Details
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -1952,7 +2027,7 @@ $root.VnameCert = (function() {
              * @memberof VnameCert.VerifiedNameCertificate.Details
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {VnameCert.VerifiedNameCertificate.Details} Details
+             * @returns {VnameCert.VerifiedNameCertificate.Details & VnameCert.VerifiedNameCertificate.Details.$Shape} Details
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -2145,8 +2220,7 @@ $root.VnameCert = (function() {
 
         /**
          * Properties of a LocalizedName.
-         * @memberof VnameCert
-         * @interface ILocalizedName
+         * @typedef {Object} VnameCert.LocalizedName.$Properties
          * @property {string|null} [lg] LocalizedName lg
          * @property {string|null} [lc] LocalizedName lc
          * @property {string|null} [verifiedName] LocalizedName verifiedName
@@ -2154,12 +2228,24 @@ $root.VnameCert = (function() {
          */
 
         /**
+         * Properties of a LocalizedName.
+         * @memberof VnameCert
+         * @interface ILocalizedName
+         * @augments VnameCert.LocalizedName.$Properties
+         * @deprecated Use VnameCert.LocalizedName.$Properties instead.
+         */
+
+        /**
+         * Shape of a LocalizedName.
+         * @typedef {VnameCert.LocalizedName.$Properties} VnameCert.LocalizedName.$Shape
+         */
+
+        /**
          * Constructs a new LocalizedName.
          * @memberof VnameCert
          * @classdesc Represents a LocalizedName.
-         * @implements ILocalizedName
          * @constructor
-         * @param {VnameCert.ILocalizedName=} [properties] Properties to set
+         * @param {VnameCert.LocalizedName.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function LocalizedName(properties) {
@@ -2219,8 +2305,12 @@ $root.VnameCert = (function() {
          * @function create
          * @memberof VnameCert.LocalizedName
          * @static
-         * @param {VnameCert.ILocalizedName=} [properties] Properties to set
+         * @param {VnameCert.LocalizedName.$Properties=} [properties] Properties to set
          * @returns {VnameCert.LocalizedName} LocalizedName instance
+         * @type {{
+         *   (properties: VnameCert.LocalizedName.$Shape): VnameCert.LocalizedName & VnameCert.LocalizedName.$Shape;
+         *   (properties?: VnameCert.LocalizedName.$Properties): VnameCert.LocalizedName;
+         * }}
          */
         LocalizedName.create = function create(properties) {
             return new LocalizedName(properties);
@@ -2231,7 +2321,7 @@ $root.VnameCert = (function() {
          * @function encode
          * @memberof VnameCert.LocalizedName
          * @static
-         * @param {VnameCert.ILocalizedName} message LocalizedName message or plain object to encode
+         * @param {VnameCert.LocalizedName.$Properties} message LocalizedName message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2255,7 +2345,7 @@ $root.VnameCert = (function() {
          * @function encodeDelimited
          * @memberof VnameCert.LocalizedName
          * @static
-         * @param {VnameCert.ILocalizedName} message LocalizedName message or plain object to encode
+         * @param {VnameCert.LocalizedName.$Properties} message LocalizedName message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2270,7 +2360,7 @@ $root.VnameCert = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {VnameCert.LocalizedName} LocalizedName
+         * @returns {VnameCert.LocalizedName & VnameCert.LocalizedName.$Shape} LocalizedName
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2328,7 +2418,7 @@ $root.VnameCert = (function() {
          * @memberof VnameCert.LocalizedName
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {VnameCert.LocalizedName} LocalizedName
+         * @returns {VnameCert.LocalizedName & VnameCert.LocalizedName.$Shape} LocalizedName
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */

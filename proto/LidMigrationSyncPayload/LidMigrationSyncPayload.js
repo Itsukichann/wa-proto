@@ -22,20 +22,31 @@ $root.LidMigrationSyncPayload = (function() {
 
         /**
          * Properties of a LIDMigrationMappingSyncPayload.
-         * @memberof LidMigrationSyncPayload
-         * @interface ILIDMigrationMappingSyncPayload
-         * @property {Array.<LidMigrationSyncPayload.ILIDMigrationMapping>|null} [pnToLidMappings] LIDMigrationMappingSyncPayload pnToLidMappings
+         * @typedef {Object} LidMigrationSyncPayload.LIDMigrationMappingSyncPayload.$Properties
+         * @property {Array.<LidMigrationSyncPayload.LIDMigrationMapping.$Properties>|null} [pnToLidMappings] LIDMigrationMappingSyncPayload pnToLidMappings
          * @property {number|Long|null} [chatDbMigrationTimestamp] LIDMigrationMappingSyncPayload chatDbMigrationTimestamp
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a LIDMigrationMappingSyncPayload.
+         * @memberof LidMigrationSyncPayload
+         * @interface ILIDMigrationMappingSyncPayload
+         * @augments LidMigrationSyncPayload.LIDMigrationMappingSyncPayload.$Properties
+         * @deprecated Use LidMigrationSyncPayload.LIDMigrationMappingSyncPayload.$Properties instead.
+         */
+
+        /**
+         * Shape of a LIDMigrationMappingSyncPayload.
+         * @typedef {LidMigrationSyncPayload.LIDMigrationMappingSyncPayload.$Properties} LidMigrationSyncPayload.LIDMigrationMappingSyncPayload.$Shape
          */
 
         /**
          * Constructs a new LIDMigrationMappingSyncPayload.
          * @memberof LidMigrationSyncPayload
          * @classdesc Represents a LIDMigrationMappingSyncPayload.
-         * @implements ILIDMigrationMappingSyncPayload
          * @constructor
-         * @param {LidMigrationSyncPayload.ILIDMigrationMappingSyncPayload=} [properties] Properties to set
+         * @param {LidMigrationSyncPayload.LIDMigrationMappingSyncPayload.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function LIDMigrationMappingSyncPayload(properties) {
@@ -48,7 +59,7 @@ $root.LidMigrationSyncPayload = (function() {
 
         /**
          * LIDMigrationMappingSyncPayload pnToLidMappings.
-         * @member {Array.<LidMigrationSyncPayload.ILIDMigrationMapping>} pnToLidMappings
+         * @member {Array.<LidMigrationSyncPayload.LIDMigrationMapping.$Properties>} pnToLidMappings
          * @memberof LidMigrationSyncPayload.LIDMigrationMappingSyncPayload
          * @instance
          */
@@ -76,8 +87,12 @@ $root.LidMigrationSyncPayload = (function() {
          * @function create
          * @memberof LidMigrationSyncPayload.LIDMigrationMappingSyncPayload
          * @static
-         * @param {LidMigrationSyncPayload.ILIDMigrationMappingSyncPayload=} [properties] Properties to set
+         * @param {LidMigrationSyncPayload.LIDMigrationMappingSyncPayload.$Properties=} [properties] Properties to set
          * @returns {LidMigrationSyncPayload.LIDMigrationMappingSyncPayload} LIDMigrationMappingSyncPayload instance
+         * @type {{
+         *   (properties: LidMigrationSyncPayload.LIDMigrationMappingSyncPayload.$Shape): LidMigrationSyncPayload.LIDMigrationMappingSyncPayload & LidMigrationSyncPayload.LIDMigrationMappingSyncPayload.$Shape;
+         *   (properties?: LidMigrationSyncPayload.LIDMigrationMappingSyncPayload.$Properties): LidMigrationSyncPayload.LIDMigrationMappingSyncPayload;
+         * }}
          */
         LIDMigrationMappingSyncPayload.create = function create(properties) {
             return new LIDMigrationMappingSyncPayload(properties);
@@ -88,7 +103,7 @@ $root.LidMigrationSyncPayload = (function() {
          * @function encode
          * @memberof LidMigrationSyncPayload.LIDMigrationMappingSyncPayload
          * @static
-         * @param {LidMigrationSyncPayload.ILIDMigrationMappingSyncPayload} message LIDMigrationMappingSyncPayload message or plain object to encode
+         * @param {LidMigrationSyncPayload.LIDMigrationMappingSyncPayload.$Properties} message LIDMigrationMappingSyncPayload message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -111,7 +126,7 @@ $root.LidMigrationSyncPayload = (function() {
          * @function encodeDelimited
          * @memberof LidMigrationSyncPayload.LIDMigrationMappingSyncPayload
          * @static
-         * @param {LidMigrationSyncPayload.ILIDMigrationMappingSyncPayload} message LIDMigrationMappingSyncPayload message or plain object to encode
+         * @param {LidMigrationSyncPayload.LIDMigrationMappingSyncPayload.$Properties} message LIDMigrationMappingSyncPayload message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -126,7 +141,7 @@ $root.LidMigrationSyncPayload = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {LidMigrationSyncPayload.LIDMigrationMappingSyncPayload} LIDMigrationMappingSyncPayload
+         * @returns {LidMigrationSyncPayload.LIDMigrationMappingSyncPayload & LidMigrationSyncPayload.LIDMigrationMappingSyncPayload.$Shape} LIDMigrationMappingSyncPayload
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -178,7 +193,7 @@ $root.LidMigrationSyncPayload = (function() {
          * @memberof LidMigrationSyncPayload.LIDMigrationMappingSyncPayload
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {LidMigrationSyncPayload.LIDMigrationMappingSyncPayload} LIDMigrationMappingSyncPayload
+         * @returns {LidMigrationSyncPayload.LIDMigrationMappingSyncPayload & LidMigrationSyncPayload.LIDMigrationMappingSyncPayload.$Shape} LIDMigrationMappingSyncPayload
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -322,8 +337,7 @@ $root.LidMigrationSyncPayload = (function() {
 
         /**
          * Properties of a LIDMigrationMapping.
-         * @memberof LidMigrationSyncPayload
-         * @interface ILIDMigrationMapping
+         * @typedef {Object} LidMigrationSyncPayload.LIDMigrationMapping.$Properties
          * @property {number|Long|null} [pn] LIDMigrationMapping pn
          * @property {number|Long|null} [assignedLid] LIDMigrationMapping assignedLid
          * @property {number|Long|null} [latestLid] LIDMigrationMapping latestLid
@@ -331,12 +345,24 @@ $root.LidMigrationSyncPayload = (function() {
          */
 
         /**
+         * Properties of a LIDMigrationMapping.
+         * @memberof LidMigrationSyncPayload
+         * @interface ILIDMigrationMapping
+         * @augments LidMigrationSyncPayload.LIDMigrationMapping.$Properties
+         * @deprecated Use LidMigrationSyncPayload.LIDMigrationMapping.$Properties instead.
+         */
+
+        /**
+         * Shape of a LIDMigrationMapping.
+         * @typedef {LidMigrationSyncPayload.LIDMigrationMapping.$Properties} LidMigrationSyncPayload.LIDMigrationMapping.$Shape
+         */
+
+        /**
          * Constructs a new LIDMigrationMapping.
          * @memberof LidMigrationSyncPayload
          * @classdesc Represents a LIDMigrationMapping.
-         * @implements ILIDMigrationMapping
          * @constructor
-         * @param {LidMigrationSyncPayload.ILIDMigrationMapping=} [properties] Properties to set
+         * @param {LidMigrationSyncPayload.LIDMigrationMapping.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function LIDMigrationMapping(properties) {
@@ -396,8 +422,12 @@ $root.LidMigrationSyncPayload = (function() {
          * @function create
          * @memberof LidMigrationSyncPayload.LIDMigrationMapping
          * @static
-         * @param {LidMigrationSyncPayload.ILIDMigrationMapping=} [properties] Properties to set
+         * @param {LidMigrationSyncPayload.LIDMigrationMapping.$Properties=} [properties] Properties to set
          * @returns {LidMigrationSyncPayload.LIDMigrationMapping} LIDMigrationMapping instance
+         * @type {{
+         *   (properties: LidMigrationSyncPayload.LIDMigrationMapping.$Shape): LidMigrationSyncPayload.LIDMigrationMapping & LidMigrationSyncPayload.LIDMigrationMapping.$Shape;
+         *   (properties?: LidMigrationSyncPayload.LIDMigrationMapping.$Properties): LidMigrationSyncPayload.LIDMigrationMapping;
+         * }}
          */
         LIDMigrationMapping.create = function create(properties) {
             return new LIDMigrationMapping(properties);
@@ -408,7 +438,7 @@ $root.LidMigrationSyncPayload = (function() {
          * @function encode
          * @memberof LidMigrationSyncPayload.LIDMigrationMapping
          * @static
-         * @param {LidMigrationSyncPayload.ILIDMigrationMapping} message LIDMigrationMapping message or plain object to encode
+         * @param {LidMigrationSyncPayload.LIDMigrationMapping.$Properties} message LIDMigrationMapping message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -432,7 +462,7 @@ $root.LidMigrationSyncPayload = (function() {
          * @function encodeDelimited
          * @memberof LidMigrationSyncPayload.LIDMigrationMapping
          * @static
-         * @param {LidMigrationSyncPayload.ILIDMigrationMapping} message LIDMigrationMapping message or plain object to encode
+         * @param {LidMigrationSyncPayload.LIDMigrationMapping.$Properties} message LIDMigrationMapping message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -447,7 +477,7 @@ $root.LidMigrationSyncPayload = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {LidMigrationSyncPayload.LIDMigrationMapping} LIDMigrationMapping
+         * @returns {LidMigrationSyncPayload.LIDMigrationMapping & LidMigrationSyncPayload.LIDMigrationMapping.$Shape} LIDMigrationMapping
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -505,7 +535,7 @@ $root.LidMigrationSyncPayload = (function() {
          * @memberof LidMigrationSyncPayload.LIDMigrationMapping
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {LidMigrationSyncPayload.LIDMigrationMapping} LIDMigrationMapping
+         * @returns {LidMigrationSyncPayload.LIDMigrationMapping & LidMigrationSyncPayload.LIDMigrationMapping.$Shape} LIDMigrationMapping
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */

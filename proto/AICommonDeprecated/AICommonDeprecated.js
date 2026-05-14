@@ -22,28 +22,51 @@ $root.AICommonDeprecated = (function() {
 
         /**
          * Properties of a AIRichResponseSubMessage.
+         * @typedef {Object} AICommonDeprecated.AIRichResponseSubMessage.$Properties
+         * @property {AICommonDeprecated.AIRichResponseSubMessageType|null} [messageType] AIRichResponseSubMessage messageType
+         * @property {AICommonDeprecated.AIRichResponseGridImageMetadata.$Properties|null} [gridImageMetadata] AIRichResponseSubMessage gridImageMetadata
+         * @property {string|null} [messageText] AIRichResponseSubMessage messageText
+         * @property {AICommonDeprecated.AIRichResponseInlineImageMetadata.$Properties|null} [imageMetadata] AIRichResponseSubMessage imageMetadata
+         * @property {AICommonDeprecated.AIRichResponseCodeMetadata.$Properties|null} [codeMetadata] AIRichResponseSubMessage codeMetadata
+         * @property {AICommonDeprecated.AIRichResponseTableMetadata.$Properties|null} [tableMetadata] AIRichResponseSubMessage tableMetadata
+         * @property {AICommonDeprecated.AIRichResponseDynamicMetadata.$Properties|null} [dynamicMetadata] AIRichResponseSubMessage dynamicMetadata
+         * @property {AICommonDeprecated.AIRichResponseLatexMetadata.$Properties|null} [latexMetadata] AIRichResponseSubMessage latexMetadata
+         * @property {AICommonDeprecated.AIRichResponseMapMetadata.$Properties|null} [mapMetadata] AIRichResponseSubMessage mapMetadata
+         * @property {AICommonDeprecated.AIRichResponseContentItemsMetadata.$Properties|null} [contentItemsMetadata] AIRichResponseSubMessage contentItemsMetadata
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a AIRichResponseSubMessage.
          * @memberof AICommonDeprecated
          * @interface IAIRichResponseSubMessage
-         * @property {AICommonDeprecated.AIRichResponseSubMessageType|null} [messageType] AIRichResponseSubMessage messageType
-         * @property {AICommonDeprecated.IAIRichResponseGridImageMetadata|null} [gridImageMetadata] AIRichResponseSubMessage gridImageMetadata
-         * @property {string|null} [messageText] AIRichResponseSubMessage messageText
-         * @property {AICommonDeprecated.IAIRichResponseInlineImageMetadata|null} [imageMetadata] AIRichResponseSubMessage imageMetadata
-         * @property {AICommonDeprecated.IAIRichResponseCodeMetadata|null} [codeMetadata] AIRichResponseSubMessage codeMetadata
-         * @property {AICommonDeprecated.IAIRichResponseTableMetadata|null} [tableMetadata] AIRichResponseSubMessage tableMetadata
-         * @property {AICommonDeprecated.IAIRichResponseDynamicMetadata|null} [dynamicMetadata] AIRichResponseSubMessage dynamicMetadata
-         * @property {AICommonDeprecated.IAIRichResponseLatexMetadata|null} [latexMetadata] AIRichResponseSubMessage latexMetadata
-         * @property {AICommonDeprecated.IAIRichResponseMapMetadata|null} [mapMetadata] AIRichResponseSubMessage mapMetadata
-         * @property {AICommonDeprecated.IAIRichResponseContentItemsMetadata|null} [contentItemsMetadata] AIRichResponseSubMessage contentItemsMetadata
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments AICommonDeprecated.AIRichResponseSubMessage.$Properties
+         * @deprecated Use AICommonDeprecated.AIRichResponseSubMessage.$Properties instead.
+         */
+
+        /**
+         * Shape of a AIRichResponseSubMessage.
+         * @typedef {{
+         *   messageType?: AICommonDeprecated.AIRichResponseSubMessageType|null;
+         *   gridImageMetadata?: AICommonDeprecated.AIRichResponseGridImageMetadata.$Shape|null;
+         *   messageText?: string|null;
+         *   imageMetadata?: AICommonDeprecated.AIRichResponseInlineImageMetadata.$Shape|null;
+         *   codeMetadata?: AICommonDeprecated.AIRichResponseCodeMetadata.$Shape|null;
+         *   tableMetadata?: AICommonDeprecated.AIRichResponseTableMetadata.$Shape|null;
+         *   dynamicMetadata?: AICommonDeprecated.AIRichResponseDynamicMetadata.$Shape|null;
+         *   latexMetadata?: AICommonDeprecated.AIRichResponseLatexMetadata.$Shape|null;
+         *   mapMetadata?: AICommonDeprecated.AIRichResponseMapMetadata.$Shape|null;
+         *   contentItemsMetadata?: AICommonDeprecated.AIRichResponseContentItemsMetadata.$Shape|null;
+         *   $unknowns?: Array.<Uint8Array>;
+         * }} AICommonDeprecated.AIRichResponseSubMessage.$Shape
          */
 
         /**
          * Constructs a new AIRichResponseSubMessage.
          * @memberof AICommonDeprecated
          * @classdesc Represents a AIRichResponseSubMessage.
-         * @implements IAIRichResponseSubMessage
          * @constructor
-         * @param {AICommonDeprecated.IAIRichResponseSubMessage=} [properties] Properties to set
+         * @param {AICommonDeprecated.AIRichResponseSubMessage.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIRichResponseSubMessage(properties) {
@@ -63,7 +86,7 @@ $root.AICommonDeprecated = (function() {
 
         /**
          * AIRichResponseSubMessage gridImageMetadata.
-         * @member {AICommonDeprecated.IAIRichResponseGridImageMetadata|null|undefined} gridImageMetadata
+         * @member {AICommonDeprecated.AIRichResponseGridImageMetadata.$Properties|null|undefined} gridImageMetadata
          * @memberof AICommonDeprecated.AIRichResponseSubMessage
          * @instance
          */
@@ -79,7 +102,7 @@ $root.AICommonDeprecated = (function() {
 
         /**
          * AIRichResponseSubMessage imageMetadata.
-         * @member {AICommonDeprecated.IAIRichResponseInlineImageMetadata|null|undefined} imageMetadata
+         * @member {AICommonDeprecated.AIRichResponseInlineImageMetadata.$Properties|null|undefined} imageMetadata
          * @memberof AICommonDeprecated.AIRichResponseSubMessage
          * @instance
          */
@@ -87,7 +110,7 @@ $root.AICommonDeprecated = (function() {
 
         /**
          * AIRichResponseSubMessage codeMetadata.
-         * @member {AICommonDeprecated.IAIRichResponseCodeMetadata|null|undefined} codeMetadata
+         * @member {AICommonDeprecated.AIRichResponseCodeMetadata.$Properties|null|undefined} codeMetadata
          * @memberof AICommonDeprecated.AIRichResponseSubMessage
          * @instance
          */
@@ -95,7 +118,7 @@ $root.AICommonDeprecated = (function() {
 
         /**
          * AIRichResponseSubMessage tableMetadata.
-         * @member {AICommonDeprecated.IAIRichResponseTableMetadata|null|undefined} tableMetadata
+         * @member {AICommonDeprecated.AIRichResponseTableMetadata.$Properties|null|undefined} tableMetadata
          * @memberof AICommonDeprecated.AIRichResponseSubMessage
          * @instance
          */
@@ -103,7 +126,7 @@ $root.AICommonDeprecated = (function() {
 
         /**
          * AIRichResponseSubMessage dynamicMetadata.
-         * @member {AICommonDeprecated.IAIRichResponseDynamicMetadata|null|undefined} dynamicMetadata
+         * @member {AICommonDeprecated.AIRichResponseDynamicMetadata.$Properties|null|undefined} dynamicMetadata
          * @memberof AICommonDeprecated.AIRichResponseSubMessage
          * @instance
          */
@@ -111,7 +134,7 @@ $root.AICommonDeprecated = (function() {
 
         /**
          * AIRichResponseSubMessage latexMetadata.
-         * @member {AICommonDeprecated.IAIRichResponseLatexMetadata|null|undefined} latexMetadata
+         * @member {AICommonDeprecated.AIRichResponseLatexMetadata.$Properties|null|undefined} latexMetadata
          * @memberof AICommonDeprecated.AIRichResponseSubMessage
          * @instance
          */
@@ -119,7 +142,7 @@ $root.AICommonDeprecated = (function() {
 
         /**
          * AIRichResponseSubMessage mapMetadata.
-         * @member {AICommonDeprecated.IAIRichResponseMapMetadata|null|undefined} mapMetadata
+         * @member {AICommonDeprecated.AIRichResponseMapMetadata.$Properties|null|undefined} mapMetadata
          * @memberof AICommonDeprecated.AIRichResponseSubMessage
          * @instance
          */
@@ -127,7 +150,7 @@ $root.AICommonDeprecated = (function() {
 
         /**
          * AIRichResponseSubMessage contentItemsMetadata.
-         * @member {AICommonDeprecated.IAIRichResponseContentItemsMetadata|null|undefined} contentItemsMetadata
+         * @member {AICommonDeprecated.AIRichResponseContentItemsMetadata.$Properties|null|undefined} contentItemsMetadata
          * @memberof AICommonDeprecated.AIRichResponseSubMessage
          * @instance
          */
@@ -201,8 +224,12 @@ $root.AICommonDeprecated = (function() {
          * @function create
          * @memberof AICommonDeprecated.AIRichResponseSubMessage
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseSubMessage=} [properties] Properties to set
+         * @param {AICommonDeprecated.AIRichResponseSubMessage.$Properties=} [properties] Properties to set
          * @returns {AICommonDeprecated.AIRichResponseSubMessage} AIRichResponseSubMessage instance
+         * @type {{
+         *   (properties: AICommonDeprecated.AIRichResponseSubMessage.$Shape): AICommonDeprecated.AIRichResponseSubMessage & AICommonDeprecated.AIRichResponseSubMessage.$Shape;
+         *   (properties?: AICommonDeprecated.AIRichResponseSubMessage.$Properties): AICommonDeprecated.AIRichResponseSubMessage;
+         * }}
          */
         AIRichResponseSubMessage.create = function create(properties) {
             return new AIRichResponseSubMessage(properties);
@@ -213,7 +240,7 @@ $root.AICommonDeprecated = (function() {
          * @function encode
          * @memberof AICommonDeprecated.AIRichResponseSubMessage
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseSubMessage} message AIRichResponseSubMessage message or plain object to encode
+         * @param {AICommonDeprecated.AIRichResponseSubMessage.$Properties} message AIRichResponseSubMessage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -251,7 +278,7 @@ $root.AICommonDeprecated = (function() {
          * @function encodeDelimited
          * @memberof AICommonDeprecated.AIRichResponseSubMessage
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseSubMessage} message AIRichResponseSubMessage message or plain object to encode
+         * @param {AICommonDeprecated.AIRichResponseSubMessage.$Properties} message AIRichResponseSubMessage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -266,7 +293,7 @@ $root.AICommonDeprecated = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommonDeprecated.AIRichResponseSubMessage} AIRichResponseSubMessage
+         * @returns {AICommonDeprecated.AIRichResponseSubMessage & AICommonDeprecated.AIRichResponseSubMessage.$Shape} AIRichResponseSubMessage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -373,7 +400,7 @@ $root.AICommonDeprecated = (function() {
          * @memberof AICommonDeprecated.AIRichResponseSubMessage
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommonDeprecated.AIRichResponseSubMessage} AIRichResponseSubMessage
+         * @returns {AICommonDeprecated.AIRichResponseSubMessage & AICommonDeprecated.AIRichResponseSubMessage.$Shape} AIRichResponseSubMessage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -696,20 +723,35 @@ $root.AICommonDeprecated = (function() {
 
         /**
          * Properties of a AIRichResponseContentItemsMetadata.
-         * @memberof AICommonDeprecated
-         * @interface IAIRichResponseContentItemsMetadata
-         * @property {Array.<AICommonDeprecated.AIRichResponseContentItemsMetadata.IAIRichResponseContentItemMetadata>|null} [itemsMetadata] AIRichResponseContentItemsMetadata itemsMetadata
+         * @typedef {Object} AICommonDeprecated.AIRichResponseContentItemsMetadata.$Properties
+         * @property {Array.<AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.$Properties>|null} [itemsMetadata] AIRichResponseContentItemsMetadata itemsMetadata
          * @property {AICommonDeprecated.AIRichResponseContentItemsMetadata.ContentType|null} [contentType] AIRichResponseContentItemsMetadata contentType
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a AIRichResponseContentItemsMetadata.
+         * @memberof AICommonDeprecated
+         * @interface IAIRichResponseContentItemsMetadata
+         * @augments AICommonDeprecated.AIRichResponseContentItemsMetadata.$Properties
+         * @deprecated Use AICommonDeprecated.AIRichResponseContentItemsMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a AIRichResponseContentItemsMetadata.
+         * @typedef {{
+         *   itemsMetadata?: Array.<AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.$Shape>|null;
+         *   contentType?: AICommonDeprecated.AIRichResponseContentItemsMetadata.ContentType|null;
+         *   $unknowns?: Array.<Uint8Array>;
+         * }} AICommonDeprecated.AIRichResponseContentItemsMetadata.$Shape
          */
 
         /**
          * Constructs a new AIRichResponseContentItemsMetadata.
          * @memberof AICommonDeprecated
          * @classdesc Represents a AIRichResponseContentItemsMetadata.
-         * @implements IAIRichResponseContentItemsMetadata
          * @constructor
-         * @param {AICommonDeprecated.IAIRichResponseContentItemsMetadata=} [properties] Properties to set
+         * @param {AICommonDeprecated.AIRichResponseContentItemsMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIRichResponseContentItemsMetadata(properties) {
@@ -722,7 +764,7 @@ $root.AICommonDeprecated = (function() {
 
         /**
          * AIRichResponseContentItemsMetadata itemsMetadata.
-         * @member {Array.<AICommonDeprecated.AIRichResponseContentItemsMetadata.IAIRichResponseContentItemMetadata>} itemsMetadata
+         * @member {Array.<AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.$Properties>} itemsMetadata
          * @memberof AICommonDeprecated.AIRichResponseContentItemsMetadata
          * @instance
          */
@@ -750,8 +792,12 @@ $root.AICommonDeprecated = (function() {
          * @function create
          * @memberof AICommonDeprecated.AIRichResponseContentItemsMetadata
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseContentItemsMetadata=} [properties] Properties to set
+         * @param {AICommonDeprecated.AIRichResponseContentItemsMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommonDeprecated.AIRichResponseContentItemsMetadata} AIRichResponseContentItemsMetadata instance
+         * @type {{
+         *   (properties: AICommonDeprecated.AIRichResponseContentItemsMetadata.$Shape): AICommonDeprecated.AIRichResponseContentItemsMetadata & AICommonDeprecated.AIRichResponseContentItemsMetadata.$Shape;
+         *   (properties?: AICommonDeprecated.AIRichResponseContentItemsMetadata.$Properties): AICommonDeprecated.AIRichResponseContentItemsMetadata;
+         * }}
          */
         AIRichResponseContentItemsMetadata.create = function create(properties) {
             return new AIRichResponseContentItemsMetadata(properties);
@@ -762,7 +808,7 @@ $root.AICommonDeprecated = (function() {
          * @function encode
          * @memberof AICommonDeprecated.AIRichResponseContentItemsMetadata
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseContentItemsMetadata} message AIRichResponseContentItemsMetadata message or plain object to encode
+         * @param {AICommonDeprecated.AIRichResponseContentItemsMetadata.$Properties} message AIRichResponseContentItemsMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -785,7 +831,7 @@ $root.AICommonDeprecated = (function() {
          * @function encodeDelimited
          * @memberof AICommonDeprecated.AIRichResponseContentItemsMetadata
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseContentItemsMetadata} message AIRichResponseContentItemsMetadata message or plain object to encode
+         * @param {AICommonDeprecated.AIRichResponseContentItemsMetadata.$Properties} message AIRichResponseContentItemsMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -800,7 +846,7 @@ $root.AICommonDeprecated = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommonDeprecated.AIRichResponseContentItemsMetadata} AIRichResponseContentItemsMetadata
+         * @returns {AICommonDeprecated.AIRichResponseContentItemsMetadata & AICommonDeprecated.AIRichResponseContentItemsMetadata.$Shape} AIRichResponseContentItemsMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -852,7 +898,7 @@ $root.AICommonDeprecated = (function() {
          * @memberof AICommonDeprecated.AIRichResponseContentItemsMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommonDeprecated.AIRichResponseContentItemsMetadata} AIRichResponseContentItemsMetadata
+         * @returns {AICommonDeprecated.AIRichResponseContentItemsMetadata & AICommonDeprecated.AIRichResponseContentItemsMetadata.$Shape} AIRichResponseContentItemsMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1002,19 +1048,36 @@ $root.AICommonDeprecated = (function() {
 
             /**
              * Properties of a AIRichResponseContentItemMetadata.
+             * @typedef {Object} AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.$Properties
+             * @property {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.$Properties|null} [reelItem] AIRichResponseContentItemMetadata reelItem
+             * @property {"reelItem"} [aIRichResponseContentItem] AIRichResponseContentItemMetadata aIRichResponseContentItem
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a AIRichResponseContentItemMetadata.
              * @memberof AICommonDeprecated.AIRichResponseContentItemsMetadata
              * @interface IAIRichResponseContentItemMetadata
-             * @property {AICommonDeprecated.AIRichResponseContentItemsMetadata.IAIRichResponseReelItem|null} [reelItem] AIRichResponseContentItemMetadata reelItem
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @augments AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.$Properties
+             * @deprecated Use AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.$Properties instead.
+             */
+
+            /**
+             * Narrowed shape of a AIRichResponseContentItemMetadata.
+             * @typedef {{
+             *   reelItem?: AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.$Shape|null;
+             *   $unknowns?: Array.<Uint8Array>;
+             * } & (
+             *   ({ aIRichResponseContentItem?: undefined; reelItem?: null }|{ aIRichResponseContentItem?: "reelItem"; reelItem: AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.$Shape })
+             * )} AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.$Shape
              */
 
             /**
              * Constructs a new AIRichResponseContentItemMetadata.
              * @memberof AICommonDeprecated.AIRichResponseContentItemsMetadata
              * @classdesc Represents a AIRichResponseContentItemMetadata.
-             * @implements IAIRichResponseContentItemMetadata
              * @constructor
-             * @param {AICommonDeprecated.AIRichResponseContentItemsMetadata.IAIRichResponseContentItemMetadata=} [properties] Properties to set
+             * @param {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AIRichResponseContentItemMetadata(properties) {
@@ -1026,7 +1089,7 @@ $root.AICommonDeprecated = (function() {
 
             /**
              * AIRichResponseContentItemMetadata reelItem.
-             * @member {AICommonDeprecated.AIRichResponseContentItemsMetadata.IAIRichResponseReelItem|null|undefined} reelItem
+             * @member {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.$Properties|null|undefined} reelItem
              * @memberof AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata
              * @instance
              */
@@ -1051,8 +1114,12 @@ $root.AICommonDeprecated = (function() {
              * @function create
              * @memberof AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata
              * @static
-             * @param {AICommonDeprecated.AIRichResponseContentItemsMetadata.IAIRichResponseContentItemMetadata=} [properties] Properties to set
+             * @param {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.$Properties=} [properties] Properties to set
              * @returns {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata} AIRichResponseContentItemMetadata instance
+             * @type {{
+             *   (properties: AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.$Shape): AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata & AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.$Shape;
+             *   (properties?: AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.$Properties): AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata;
+             * }}
              */
             AIRichResponseContentItemMetadata.create = function create(properties) {
                 return new AIRichResponseContentItemMetadata(properties);
@@ -1063,7 +1130,7 @@ $root.AICommonDeprecated = (function() {
              * @function encode
              * @memberof AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata
              * @static
-             * @param {AICommonDeprecated.AIRichResponseContentItemsMetadata.IAIRichResponseContentItemMetadata} message AIRichResponseContentItemMetadata message or plain object to encode
+             * @param {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.$Properties} message AIRichResponseContentItemMetadata message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -1083,7 +1150,7 @@ $root.AICommonDeprecated = (function() {
              * @function encodeDelimited
              * @memberof AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata
              * @static
-             * @param {AICommonDeprecated.AIRichResponseContentItemsMetadata.IAIRichResponseContentItemMetadata} message AIRichResponseContentItemMetadata message or plain object to encode
+             * @param {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.$Properties} message AIRichResponseContentItemMetadata message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -1098,7 +1165,7 @@ $root.AICommonDeprecated = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata} AIRichResponseContentItemMetadata
+             * @returns {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata & AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.$Shape} AIRichResponseContentItemMetadata
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -1142,7 +1209,7 @@ $root.AICommonDeprecated = (function() {
              * @memberof AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata} AIRichResponseContentItemMetadata
+             * @returns {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata & AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.$Shape} AIRichResponseContentItemMetadata
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -1256,8 +1323,7 @@ $root.AICommonDeprecated = (function() {
 
             /**
              * Properties of a AIRichResponseReelItem.
-             * @memberof AICommonDeprecated.AIRichResponseContentItemsMetadata
-             * @interface IAIRichResponseReelItem
+             * @typedef {Object} AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.$Properties
              * @property {string|null} [title] AIRichResponseReelItem title
              * @property {string|null} [profileIconUrl] AIRichResponseReelItem profileIconUrl
              * @property {string|null} [thumbnailUrl] AIRichResponseReelItem thumbnailUrl
@@ -1266,12 +1332,24 @@ $root.AICommonDeprecated = (function() {
              */
 
             /**
+             * Properties of a AIRichResponseReelItem.
+             * @memberof AICommonDeprecated.AIRichResponseContentItemsMetadata
+             * @interface IAIRichResponseReelItem
+             * @augments AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.$Properties
+             * @deprecated Use AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.$Properties instead.
+             */
+
+            /**
+             * Shape of a AIRichResponseReelItem.
+             * @typedef {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.$Properties} AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.$Shape
+             */
+
+            /**
              * Constructs a new AIRichResponseReelItem.
              * @memberof AICommonDeprecated.AIRichResponseContentItemsMetadata
              * @classdesc Represents a AIRichResponseReelItem.
-             * @implements IAIRichResponseReelItem
              * @constructor
-             * @param {AICommonDeprecated.AIRichResponseContentItemsMetadata.IAIRichResponseReelItem=} [properties] Properties to set
+             * @param {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AIRichResponseReelItem(properties) {
@@ -1345,8 +1423,12 @@ $root.AICommonDeprecated = (function() {
              * @function create
              * @memberof AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem
              * @static
-             * @param {AICommonDeprecated.AIRichResponseContentItemsMetadata.IAIRichResponseReelItem=} [properties] Properties to set
+             * @param {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.$Properties=} [properties] Properties to set
              * @returns {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem} AIRichResponseReelItem instance
+             * @type {{
+             *   (properties: AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.$Shape): AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem & AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.$Shape;
+             *   (properties?: AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.$Properties): AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem;
+             * }}
              */
             AIRichResponseReelItem.create = function create(properties) {
                 return new AIRichResponseReelItem(properties);
@@ -1357,7 +1439,7 @@ $root.AICommonDeprecated = (function() {
              * @function encode
              * @memberof AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem
              * @static
-             * @param {AICommonDeprecated.AIRichResponseContentItemsMetadata.IAIRichResponseReelItem} message AIRichResponseReelItem message or plain object to encode
+             * @param {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.$Properties} message AIRichResponseReelItem message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -1383,7 +1465,7 @@ $root.AICommonDeprecated = (function() {
              * @function encodeDelimited
              * @memberof AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem
              * @static
-             * @param {AICommonDeprecated.AIRichResponseContentItemsMetadata.IAIRichResponseReelItem} message AIRichResponseReelItem message or plain object to encode
+             * @param {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.$Properties} message AIRichResponseReelItem message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -1398,7 +1480,7 @@ $root.AICommonDeprecated = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem} AIRichResponseReelItem
+             * @returns {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem & AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.$Shape} AIRichResponseReelItem
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -1463,7 +1545,7 @@ $root.AICommonDeprecated = (function() {
              * @memberof AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem} AIRichResponseReelItem
+             * @returns {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem & AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.$Shape} AIRichResponseReelItem
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -1624,24 +1706,35 @@ $root.AICommonDeprecated = (function() {
 
         /**
          * Properties of a AIRichResponseMapMetadata.
-         * @memberof AICommonDeprecated
-         * @interface IAIRichResponseMapMetadata
+         * @typedef {Object} AICommonDeprecated.AIRichResponseMapMetadata.$Properties
          * @property {number|null} [centerLatitude] AIRichResponseMapMetadata centerLatitude
          * @property {number|null} [centerLongitude] AIRichResponseMapMetadata centerLongitude
          * @property {number|null} [latitudeDelta] AIRichResponseMapMetadata latitudeDelta
          * @property {number|null} [longitudeDelta] AIRichResponseMapMetadata longitudeDelta
-         * @property {Array.<AICommonDeprecated.AIRichResponseMapMetadata.IAIRichResponseMapAnnotation>|null} [annotations] AIRichResponseMapMetadata annotations
+         * @property {Array.<AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.$Properties>|null} [annotations] AIRichResponseMapMetadata annotations
          * @property {boolean|null} [showInfoList] AIRichResponseMapMetadata showInfoList
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a AIRichResponseMapMetadata.
+         * @memberof AICommonDeprecated
+         * @interface IAIRichResponseMapMetadata
+         * @augments AICommonDeprecated.AIRichResponseMapMetadata.$Properties
+         * @deprecated Use AICommonDeprecated.AIRichResponseMapMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a AIRichResponseMapMetadata.
+         * @typedef {AICommonDeprecated.AIRichResponseMapMetadata.$Properties} AICommonDeprecated.AIRichResponseMapMetadata.$Shape
          */
 
         /**
          * Constructs a new AIRichResponseMapMetadata.
          * @memberof AICommonDeprecated
          * @classdesc Represents a AIRichResponseMapMetadata.
-         * @implements IAIRichResponseMapMetadata
          * @constructor
-         * @param {AICommonDeprecated.IAIRichResponseMapMetadata=} [properties] Properties to set
+         * @param {AICommonDeprecated.AIRichResponseMapMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIRichResponseMapMetadata(properties) {
@@ -1686,7 +1779,7 @@ $root.AICommonDeprecated = (function() {
 
         /**
          * AIRichResponseMapMetadata annotations.
-         * @member {Array.<AICommonDeprecated.AIRichResponseMapMetadata.IAIRichResponseMapAnnotation>} annotations
+         * @member {Array.<AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.$Properties>} annotations
          * @memberof AICommonDeprecated.AIRichResponseMapMetadata
          * @instance
          */
@@ -1738,8 +1831,12 @@ $root.AICommonDeprecated = (function() {
          * @function create
          * @memberof AICommonDeprecated.AIRichResponseMapMetadata
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseMapMetadata=} [properties] Properties to set
+         * @param {AICommonDeprecated.AIRichResponseMapMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommonDeprecated.AIRichResponseMapMetadata} AIRichResponseMapMetadata instance
+         * @type {{
+         *   (properties: AICommonDeprecated.AIRichResponseMapMetadata.$Shape): AICommonDeprecated.AIRichResponseMapMetadata & AICommonDeprecated.AIRichResponseMapMetadata.$Shape;
+         *   (properties?: AICommonDeprecated.AIRichResponseMapMetadata.$Properties): AICommonDeprecated.AIRichResponseMapMetadata;
+         * }}
          */
         AIRichResponseMapMetadata.create = function create(properties) {
             return new AIRichResponseMapMetadata(properties);
@@ -1750,7 +1847,7 @@ $root.AICommonDeprecated = (function() {
          * @function encode
          * @memberof AICommonDeprecated.AIRichResponseMapMetadata
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseMapMetadata} message AIRichResponseMapMetadata message or plain object to encode
+         * @param {AICommonDeprecated.AIRichResponseMapMetadata.$Properties} message AIRichResponseMapMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1781,7 +1878,7 @@ $root.AICommonDeprecated = (function() {
          * @function encodeDelimited
          * @memberof AICommonDeprecated.AIRichResponseMapMetadata
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseMapMetadata} message AIRichResponseMapMetadata message or plain object to encode
+         * @param {AICommonDeprecated.AIRichResponseMapMetadata.$Properties} message AIRichResponseMapMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1796,7 +1893,7 @@ $root.AICommonDeprecated = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommonDeprecated.AIRichResponseMapMetadata} AIRichResponseMapMetadata
+         * @returns {AICommonDeprecated.AIRichResponseMapMetadata & AICommonDeprecated.AIRichResponseMapMetadata.$Shape} AIRichResponseMapMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1876,7 +1973,7 @@ $root.AICommonDeprecated = (function() {
          * @memberof AICommonDeprecated.AIRichResponseMapMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommonDeprecated.AIRichResponseMapMetadata} AIRichResponseMapMetadata
+         * @returns {AICommonDeprecated.AIRichResponseMapMetadata & AICommonDeprecated.AIRichResponseMapMetadata.$Shape} AIRichResponseMapMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2055,8 +2152,7 @@ $root.AICommonDeprecated = (function() {
 
             /**
              * Properties of a AIRichResponseMapAnnotation.
-             * @memberof AICommonDeprecated.AIRichResponseMapMetadata
-             * @interface IAIRichResponseMapAnnotation
+             * @typedef {Object} AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.$Properties
              * @property {number|null} [annotationNumber] AIRichResponseMapAnnotation annotationNumber
              * @property {number|null} [latitude] AIRichResponseMapAnnotation latitude
              * @property {number|null} [longitude] AIRichResponseMapAnnotation longitude
@@ -2066,12 +2162,24 @@ $root.AICommonDeprecated = (function() {
              */
 
             /**
+             * Properties of a AIRichResponseMapAnnotation.
+             * @memberof AICommonDeprecated.AIRichResponseMapMetadata
+             * @interface IAIRichResponseMapAnnotation
+             * @augments AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.$Properties
+             * @deprecated Use AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.$Properties instead.
+             */
+
+            /**
+             * Shape of a AIRichResponseMapAnnotation.
+             * @typedef {AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.$Properties} AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.$Shape
+             */
+
+            /**
              * Constructs a new AIRichResponseMapAnnotation.
              * @memberof AICommonDeprecated.AIRichResponseMapMetadata
              * @classdesc Represents a AIRichResponseMapAnnotation.
-             * @implements IAIRichResponseMapAnnotation
              * @constructor
-             * @param {AICommonDeprecated.AIRichResponseMapMetadata.IAIRichResponseMapAnnotation=} [properties] Properties to set
+             * @param {AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AIRichResponseMapAnnotation(properties) {
@@ -2159,8 +2267,12 @@ $root.AICommonDeprecated = (function() {
              * @function create
              * @memberof AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation
              * @static
-             * @param {AICommonDeprecated.AIRichResponseMapMetadata.IAIRichResponseMapAnnotation=} [properties] Properties to set
+             * @param {AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.$Properties=} [properties] Properties to set
              * @returns {AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation} AIRichResponseMapAnnotation instance
+             * @type {{
+             *   (properties: AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.$Shape): AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation & AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.$Shape;
+             *   (properties?: AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.$Properties): AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation;
+             * }}
              */
             AIRichResponseMapAnnotation.create = function create(properties) {
                 return new AIRichResponseMapAnnotation(properties);
@@ -2171,7 +2283,7 @@ $root.AICommonDeprecated = (function() {
              * @function encode
              * @memberof AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation
              * @static
-             * @param {AICommonDeprecated.AIRichResponseMapMetadata.IAIRichResponseMapAnnotation} message AIRichResponseMapAnnotation message or plain object to encode
+             * @param {AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.$Properties} message AIRichResponseMapAnnotation message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -2199,7 +2311,7 @@ $root.AICommonDeprecated = (function() {
              * @function encodeDelimited
              * @memberof AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation
              * @static
-             * @param {AICommonDeprecated.AIRichResponseMapMetadata.IAIRichResponseMapAnnotation} message AIRichResponseMapAnnotation message or plain object to encode
+             * @param {AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.$Properties} message AIRichResponseMapAnnotation message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -2214,7 +2326,7 @@ $root.AICommonDeprecated = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation} AIRichResponseMapAnnotation
+             * @returns {AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation & AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.$Shape} AIRichResponseMapAnnotation
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -2286,7 +2398,7 @@ $root.AICommonDeprecated = (function() {
              * @memberof AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation} AIRichResponseMapAnnotation
+             * @returns {AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation & AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.$Shape} AIRichResponseMapAnnotation
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -2445,20 +2557,31 @@ $root.AICommonDeprecated = (function() {
 
         /**
          * Properties of a AIRichResponseLatexMetadata.
+         * @typedef {Object} AICommonDeprecated.AIRichResponseLatexMetadata.$Properties
+         * @property {string|null} [text] AIRichResponseLatexMetadata text
+         * @property {Array.<AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.$Properties>|null} [expressions] AIRichResponseLatexMetadata expressions
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a AIRichResponseLatexMetadata.
          * @memberof AICommonDeprecated
          * @interface IAIRichResponseLatexMetadata
-         * @property {string|null} [text] AIRichResponseLatexMetadata text
-         * @property {Array.<AICommonDeprecated.AIRichResponseLatexMetadata.IAIRichResponseLatexExpression>|null} [expressions] AIRichResponseLatexMetadata expressions
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments AICommonDeprecated.AIRichResponseLatexMetadata.$Properties
+         * @deprecated Use AICommonDeprecated.AIRichResponseLatexMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a AIRichResponseLatexMetadata.
+         * @typedef {AICommonDeprecated.AIRichResponseLatexMetadata.$Properties} AICommonDeprecated.AIRichResponseLatexMetadata.$Shape
          */
 
         /**
          * Constructs a new AIRichResponseLatexMetadata.
          * @memberof AICommonDeprecated
          * @classdesc Represents a AIRichResponseLatexMetadata.
-         * @implements IAIRichResponseLatexMetadata
          * @constructor
-         * @param {AICommonDeprecated.IAIRichResponseLatexMetadata=} [properties] Properties to set
+         * @param {AICommonDeprecated.AIRichResponseLatexMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIRichResponseLatexMetadata(properties) {
@@ -2479,7 +2602,7 @@ $root.AICommonDeprecated = (function() {
 
         /**
          * AIRichResponseLatexMetadata expressions.
-         * @member {Array.<AICommonDeprecated.AIRichResponseLatexMetadata.IAIRichResponseLatexExpression>} expressions
+         * @member {Array.<AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.$Properties>} expressions
          * @memberof AICommonDeprecated.AIRichResponseLatexMetadata
          * @instance
          */
@@ -2499,8 +2622,12 @@ $root.AICommonDeprecated = (function() {
          * @function create
          * @memberof AICommonDeprecated.AIRichResponseLatexMetadata
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseLatexMetadata=} [properties] Properties to set
+         * @param {AICommonDeprecated.AIRichResponseLatexMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommonDeprecated.AIRichResponseLatexMetadata} AIRichResponseLatexMetadata instance
+         * @type {{
+         *   (properties: AICommonDeprecated.AIRichResponseLatexMetadata.$Shape): AICommonDeprecated.AIRichResponseLatexMetadata & AICommonDeprecated.AIRichResponseLatexMetadata.$Shape;
+         *   (properties?: AICommonDeprecated.AIRichResponseLatexMetadata.$Properties): AICommonDeprecated.AIRichResponseLatexMetadata;
+         * }}
          */
         AIRichResponseLatexMetadata.create = function create(properties) {
             return new AIRichResponseLatexMetadata(properties);
@@ -2511,7 +2638,7 @@ $root.AICommonDeprecated = (function() {
          * @function encode
          * @memberof AICommonDeprecated.AIRichResponseLatexMetadata
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseLatexMetadata} message AIRichResponseLatexMetadata message or plain object to encode
+         * @param {AICommonDeprecated.AIRichResponseLatexMetadata.$Properties} message AIRichResponseLatexMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2534,7 +2661,7 @@ $root.AICommonDeprecated = (function() {
          * @function encodeDelimited
          * @memberof AICommonDeprecated.AIRichResponseLatexMetadata
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseLatexMetadata} message AIRichResponseLatexMetadata message or plain object to encode
+         * @param {AICommonDeprecated.AIRichResponseLatexMetadata.$Properties} message AIRichResponseLatexMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2549,7 +2676,7 @@ $root.AICommonDeprecated = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommonDeprecated.AIRichResponseLatexMetadata} AIRichResponseLatexMetadata
+         * @returns {AICommonDeprecated.AIRichResponseLatexMetadata & AICommonDeprecated.AIRichResponseLatexMetadata.$Shape} AIRichResponseLatexMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2601,7 +2728,7 @@ $root.AICommonDeprecated = (function() {
          * @memberof AICommonDeprecated.AIRichResponseLatexMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommonDeprecated.AIRichResponseLatexMetadata} AIRichResponseLatexMetadata
+         * @returns {AICommonDeprecated.AIRichResponseLatexMetadata & AICommonDeprecated.AIRichResponseLatexMetadata.$Shape} AIRichResponseLatexMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2732,8 +2859,7 @@ $root.AICommonDeprecated = (function() {
 
             /**
              * Properties of a AIRichResponseLatexExpression.
-             * @memberof AICommonDeprecated.AIRichResponseLatexMetadata
-             * @interface IAIRichResponseLatexExpression
+             * @typedef {Object} AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.$Properties
              * @property {string|null} [latexExpression] AIRichResponseLatexExpression latexExpression
              * @property {string|null} [url] AIRichResponseLatexExpression url
              * @property {number|null} [width] AIRichResponseLatexExpression width
@@ -2747,12 +2873,24 @@ $root.AICommonDeprecated = (function() {
              */
 
             /**
+             * Properties of a AIRichResponseLatexExpression.
+             * @memberof AICommonDeprecated.AIRichResponseLatexMetadata
+             * @interface IAIRichResponseLatexExpression
+             * @augments AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.$Properties
+             * @deprecated Use AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.$Properties instead.
+             */
+
+            /**
+             * Shape of a AIRichResponseLatexExpression.
+             * @typedef {AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.$Properties} AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.$Shape
+             */
+
+            /**
              * Constructs a new AIRichResponseLatexExpression.
              * @memberof AICommonDeprecated.AIRichResponseLatexMetadata
              * @classdesc Represents a AIRichResponseLatexExpression.
-             * @implements IAIRichResponseLatexExpression
              * @constructor
-             * @param {AICommonDeprecated.AIRichResponseLatexMetadata.IAIRichResponseLatexExpression=} [properties] Properties to set
+             * @param {AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AIRichResponseLatexExpression(properties) {
@@ -2896,8 +3034,12 @@ $root.AICommonDeprecated = (function() {
              * @function create
              * @memberof AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression
              * @static
-             * @param {AICommonDeprecated.AIRichResponseLatexMetadata.IAIRichResponseLatexExpression=} [properties] Properties to set
+             * @param {AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.$Properties=} [properties] Properties to set
              * @returns {AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression} AIRichResponseLatexExpression instance
+             * @type {{
+             *   (properties: AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.$Shape): AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression & AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.$Shape;
+             *   (properties?: AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.$Properties): AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression;
+             * }}
              */
             AIRichResponseLatexExpression.create = function create(properties) {
                 return new AIRichResponseLatexExpression(properties);
@@ -2908,7 +3050,7 @@ $root.AICommonDeprecated = (function() {
              * @function encode
              * @memberof AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression
              * @static
-             * @param {AICommonDeprecated.AIRichResponseLatexMetadata.IAIRichResponseLatexExpression} message AIRichResponseLatexExpression message or plain object to encode
+             * @param {AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.$Properties} message AIRichResponseLatexExpression message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -2944,7 +3086,7 @@ $root.AICommonDeprecated = (function() {
              * @function encodeDelimited
              * @memberof AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression
              * @static
-             * @param {AICommonDeprecated.AIRichResponseLatexMetadata.IAIRichResponseLatexExpression} message AIRichResponseLatexExpression message or plain object to encode
+             * @param {AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.$Properties} message AIRichResponseLatexExpression message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -2959,7 +3101,7 @@ $root.AICommonDeprecated = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression} AIRichResponseLatexExpression
+             * @returns {AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression & AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.$Shape} AIRichResponseLatexExpression
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -3059,7 +3201,7 @@ $root.AICommonDeprecated = (function() {
              * @memberof AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression} AIRichResponseLatexExpression
+             * @returns {AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression & AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.$Shape} AIRichResponseLatexExpression
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -3266,8 +3408,7 @@ $root.AICommonDeprecated = (function() {
 
         /**
          * Properties of a AIRichResponseDynamicMetadata.
-         * @memberof AICommonDeprecated
-         * @interface IAIRichResponseDynamicMetadata
+         * @typedef {Object} AICommonDeprecated.AIRichResponseDynamicMetadata.$Properties
          * @property {AICommonDeprecated.AIRichResponseDynamicMetadata.AIRichResponseDynamicMetadataType|null} [type] AIRichResponseDynamicMetadata type
          * @property {number|Long|null} [version] AIRichResponseDynamicMetadata version
          * @property {string|null} [url] AIRichResponseDynamicMetadata url
@@ -3276,12 +3417,24 @@ $root.AICommonDeprecated = (function() {
          */
 
         /**
+         * Properties of a AIRichResponseDynamicMetadata.
+         * @memberof AICommonDeprecated
+         * @interface IAIRichResponseDynamicMetadata
+         * @augments AICommonDeprecated.AIRichResponseDynamicMetadata.$Properties
+         * @deprecated Use AICommonDeprecated.AIRichResponseDynamicMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a AIRichResponseDynamicMetadata.
+         * @typedef {AICommonDeprecated.AIRichResponseDynamicMetadata.$Properties} AICommonDeprecated.AIRichResponseDynamicMetadata.$Shape
+         */
+
+        /**
          * Constructs a new AIRichResponseDynamicMetadata.
          * @memberof AICommonDeprecated
          * @classdesc Represents a AIRichResponseDynamicMetadata.
-         * @implements IAIRichResponseDynamicMetadata
          * @constructor
-         * @param {AICommonDeprecated.IAIRichResponseDynamicMetadata=} [properties] Properties to set
+         * @param {AICommonDeprecated.AIRichResponseDynamicMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIRichResponseDynamicMetadata(properties) {
@@ -3355,8 +3508,12 @@ $root.AICommonDeprecated = (function() {
          * @function create
          * @memberof AICommonDeprecated.AIRichResponseDynamicMetadata
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseDynamicMetadata=} [properties] Properties to set
+         * @param {AICommonDeprecated.AIRichResponseDynamicMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommonDeprecated.AIRichResponseDynamicMetadata} AIRichResponseDynamicMetadata instance
+         * @type {{
+         *   (properties: AICommonDeprecated.AIRichResponseDynamicMetadata.$Shape): AICommonDeprecated.AIRichResponseDynamicMetadata & AICommonDeprecated.AIRichResponseDynamicMetadata.$Shape;
+         *   (properties?: AICommonDeprecated.AIRichResponseDynamicMetadata.$Properties): AICommonDeprecated.AIRichResponseDynamicMetadata;
+         * }}
          */
         AIRichResponseDynamicMetadata.create = function create(properties) {
             return new AIRichResponseDynamicMetadata(properties);
@@ -3367,7 +3524,7 @@ $root.AICommonDeprecated = (function() {
          * @function encode
          * @memberof AICommonDeprecated.AIRichResponseDynamicMetadata
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseDynamicMetadata} message AIRichResponseDynamicMetadata message or plain object to encode
+         * @param {AICommonDeprecated.AIRichResponseDynamicMetadata.$Properties} message AIRichResponseDynamicMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3393,7 +3550,7 @@ $root.AICommonDeprecated = (function() {
          * @function encodeDelimited
          * @memberof AICommonDeprecated.AIRichResponseDynamicMetadata
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseDynamicMetadata} message AIRichResponseDynamicMetadata message or plain object to encode
+         * @param {AICommonDeprecated.AIRichResponseDynamicMetadata.$Properties} message AIRichResponseDynamicMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3408,7 +3565,7 @@ $root.AICommonDeprecated = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommonDeprecated.AIRichResponseDynamicMetadata} AIRichResponseDynamicMetadata
+         * @returns {AICommonDeprecated.AIRichResponseDynamicMetadata & AICommonDeprecated.AIRichResponseDynamicMetadata.$Shape} AIRichResponseDynamicMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -3473,7 +3630,7 @@ $root.AICommonDeprecated = (function() {
          * @memberof AICommonDeprecated.AIRichResponseDynamicMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommonDeprecated.AIRichResponseDynamicMetadata} AIRichResponseDynamicMetadata
+         * @returns {AICommonDeprecated.AIRichResponseDynamicMetadata & AICommonDeprecated.AIRichResponseDynamicMetadata.$Shape} AIRichResponseDynamicMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -3667,20 +3824,31 @@ $root.AICommonDeprecated = (function() {
 
         /**
          * Properties of a AIRichResponseTableMetadata.
-         * @memberof AICommonDeprecated
-         * @interface IAIRichResponseTableMetadata
-         * @property {Array.<AICommonDeprecated.AIRichResponseTableMetadata.IAIRichResponseTableRow>|null} [rows] AIRichResponseTableMetadata rows
+         * @typedef {Object} AICommonDeprecated.AIRichResponseTableMetadata.$Properties
+         * @property {Array.<AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.$Properties>|null} [rows] AIRichResponseTableMetadata rows
          * @property {string|null} [title] AIRichResponseTableMetadata title
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a AIRichResponseTableMetadata.
+         * @memberof AICommonDeprecated
+         * @interface IAIRichResponseTableMetadata
+         * @augments AICommonDeprecated.AIRichResponseTableMetadata.$Properties
+         * @deprecated Use AICommonDeprecated.AIRichResponseTableMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a AIRichResponseTableMetadata.
+         * @typedef {AICommonDeprecated.AIRichResponseTableMetadata.$Properties} AICommonDeprecated.AIRichResponseTableMetadata.$Shape
          */
 
         /**
          * Constructs a new AIRichResponseTableMetadata.
          * @memberof AICommonDeprecated
          * @classdesc Represents a AIRichResponseTableMetadata.
-         * @implements IAIRichResponseTableMetadata
          * @constructor
-         * @param {AICommonDeprecated.IAIRichResponseTableMetadata=} [properties] Properties to set
+         * @param {AICommonDeprecated.AIRichResponseTableMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIRichResponseTableMetadata(properties) {
@@ -3693,7 +3861,7 @@ $root.AICommonDeprecated = (function() {
 
         /**
          * AIRichResponseTableMetadata rows.
-         * @member {Array.<AICommonDeprecated.AIRichResponseTableMetadata.IAIRichResponseTableRow>} rows
+         * @member {Array.<AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.$Properties>} rows
          * @memberof AICommonDeprecated.AIRichResponseTableMetadata
          * @instance
          */
@@ -3721,8 +3889,12 @@ $root.AICommonDeprecated = (function() {
          * @function create
          * @memberof AICommonDeprecated.AIRichResponseTableMetadata
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseTableMetadata=} [properties] Properties to set
+         * @param {AICommonDeprecated.AIRichResponseTableMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommonDeprecated.AIRichResponseTableMetadata} AIRichResponseTableMetadata instance
+         * @type {{
+         *   (properties: AICommonDeprecated.AIRichResponseTableMetadata.$Shape): AICommonDeprecated.AIRichResponseTableMetadata & AICommonDeprecated.AIRichResponseTableMetadata.$Shape;
+         *   (properties?: AICommonDeprecated.AIRichResponseTableMetadata.$Properties): AICommonDeprecated.AIRichResponseTableMetadata;
+         * }}
          */
         AIRichResponseTableMetadata.create = function create(properties) {
             return new AIRichResponseTableMetadata(properties);
@@ -3733,7 +3905,7 @@ $root.AICommonDeprecated = (function() {
          * @function encode
          * @memberof AICommonDeprecated.AIRichResponseTableMetadata
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseTableMetadata} message AIRichResponseTableMetadata message or plain object to encode
+         * @param {AICommonDeprecated.AIRichResponseTableMetadata.$Properties} message AIRichResponseTableMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3756,7 +3928,7 @@ $root.AICommonDeprecated = (function() {
          * @function encodeDelimited
          * @memberof AICommonDeprecated.AIRichResponseTableMetadata
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseTableMetadata} message AIRichResponseTableMetadata message or plain object to encode
+         * @param {AICommonDeprecated.AIRichResponseTableMetadata.$Properties} message AIRichResponseTableMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3771,7 +3943,7 @@ $root.AICommonDeprecated = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommonDeprecated.AIRichResponseTableMetadata} AIRichResponseTableMetadata
+         * @returns {AICommonDeprecated.AIRichResponseTableMetadata & AICommonDeprecated.AIRichResponseTableMetadata.$Shape} AIRichResponseTableMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -3823,7 +3995,7 @@ $root.AICommonDeprecated = (function() {
          * @memberof AICommonDeprecated.AIRichResponseTableMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommonDeprecated.AIRichResponseTableMetadata} AIRichResponseTableMetadata
+         * @returns {AICommonDeprecated.AIRichResponseTableMetadata & AICommonDeprecated.AIRichResponseTableMetadata.$Shape} AIRichResponseTableMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -3954,20 +4126,31 @@ $root.AICommonDeprecated = (function() {
 
             /**
              * Properties of a AIRichResponseTableRow.
-             * @memberof AICommonDeprecated.AIRichResponseTableMetadata
-             * @interface IAIRichResponseTableRow
+             * @typedef {Object} AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.$Properties
              * @property {Array.<string>|null} [items] AIRichResponseTableRow items
              * @property {boolean|null} [isHeading] AIRichResponseTableRow isHeading
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
+             * Properties of a AIRichResponseTableRow.
+             * @memberof AICommonDeprecated.AIRichResponseTableMetadata
+             * @interface IAIRichResponseTableRow
+             * @augments AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.$Properties
+             * @deprecated Use AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.$Properties instead.
+             */
+
+            /**
+             * Shape of a AIRichResponseTableRow.
+             * @typedef {AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.$Properties} AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.$Shape
+             */
+
+            /**
              * Constructs a new AIRichResponseTableRow.
              * @memberof AICommonDeprecated.AIRichResponseTableMetadata
              * @classdesc Represents a AIRichResponseTableRow.
-             * @implements IAIRichResponseTableRow
              * @constructor
-             * @param {AICommonDeprecated.AIRichResponseTableMetadata.IAIRichResponseTableRow=} [properties] Properties to set
+             * @param {AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AIRichResponseTableRow(properties) {
@@ -4008,8 +4191,12 @@ $root.AICommonDeprecated = (function() {
              * @function create
              * @memberof AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow
              * @static
-             * @param {AICommonDeprecated.AIRichResponseTableMetadata.IAIRichResponseTableRow=} [properties] Properties to set
+             * @param {AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.$Properties=} [properties] Properties to set
              * @returns {AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow} AIRichResponseTableRow instance
+             * @type {{
+             *   (properties: AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.$Shape): AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow & AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.$Shape;
+             *   (properties?: AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.$Properties): AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow;
+             * }}
              */
             AIRichResponseTableRow.create = function create(properties) {
                 return new AIRichResponseTableRow(properties);
@@ -4020,7 +4207,7 @@ $root.AICommonDeprecated = (function() {
              * @function encode
              * @memberof AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow
              * @static
-             * @param {AICommonDeprecated.AIRichResponseTableMetadata.IAIRichResponseTableRow} message AIRichResponseTableRow message or plain object to encode
+             * @param {AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.$Properties} message AIRichResponseTableRow message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -4043,7 +4230,7 @@ $root.AICommonDeprecated = (function() {
              * @function encodeDelimited
              * @memberof AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow
              * @static
-             * @param {AICommonDeprecated.AIRichResponseTableMetadata.IAIRichResponseTableRow} message AIRichResponseTableRow message or plain object to encode
+             * @param {AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.$Properties} message AIRichResponseTableRow message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -4058,7 +4245,7 @@ $root.AICommonDeprecated = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow} AIRichResponseTableRow
+             * @returns {AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow & AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.$Shape} AIRichResponseTableRow
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -4110,7 +4297,7 @@ $root.AICommonDeprecated = (function() {
              * @memberof AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow} AIRichResponseTableRow
+             * @returns {AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow & AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.$Shape} AIRichResponseTableRow
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -4242,20 +4429,31 @@ $root.AICommonDeprecated = (function() {
 
         /**
          * Properties of a AIRichResponseCodeMetadata.
+         * @typedef {Object} AICommonDeprecated.AIRichResponseCodeMetadata.$Properties
+         * @property {string|null} [codeLanguage] AIRichResponseCodeMetadata codeLanguage
+         * @property {Array.<AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.$Properties>|null} [codeBlocks] AIRichResponseCodeMetadata codeBlocks
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a AIRichResponseCodeMetadata.
          * @memberof AICommonDeprecated
          * @interface IAIRichResponseCodeMetadata
-         * @property {string|null} [codeLanguage] AIRichResponseCodeMetadata codeLanguage
-         * @property {Array.<AICommonDeprecated.AIRichResponseCodeMetadata.IAIRichResponseCodeBlock>|null} [codeBlocks] AIRichResponseCodeMetadata codeBlocks
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments AICommonDeprecated.AIRichResponseCodeMetadata.$Properties
+         * @deprecated Use AICommonDeprecated.AIRichResponseCodeMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a AIRichResponseCodeMetadata.
+         * @typedef {AICommonDeprecated.AIRichResponseCodeMetadata.$Properties} AICommonDeprecated.AIRichResponseCodeMetadata.$Shape
          */
 
         /**
          * Constructs a new AIRichResponseCodeMetadata.
          * @memberof AICommonDeprecated
          * @classdesc Represents a AIRichResponseCodeMetadata.
-         * @implements IAIRichResponseCodeMetadata
          * @constructor
-         * @param {AICommonDeprecated.IAIRichResponseCodeMetadata=} [properties] Properties to set
+         * @param {AICommonDeprecated.AIRichResponseCodeMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIRichResponseCodeMetadata(properties) {
@@ -4276,7 +4474,7 @@ $root.AICommonDeprecated = (function() {
 
         /**
          * AIRichResponseCodeMetadata codeBlocks.
-         * @member {Array.<AICommonDeprecated.AIRichResponseCodeMetadata.IAIRichResponseCodeBlock>} codeBlocks
+         * @member {Array.<AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.$Properties>} codeBlocks
          * @memberof AICommonDeprecated.AIRichResponseCodeMetadata
          * @instance
          */
@@ -4296,8 +4494,12 @@ $root.AICommonDeprecated = (function() {
          * @function create
          * @memberof AICommonDeprecated.AIRichResponseCodeMetadata
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseCodeMetadata=} [properties] Properties to set
+         * @param {AICommonDeprecated.AIRichResponseCodeMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommonDeprecated.AIRichResponseCodeMetadata} AIRichResponseCodeMetadata instance
+         * @type {{
+         *   (properties: AICommonDeprecated.AIRichResponseCodeMetadata.$Shape): AICommonDeprecated.AIRichResponseCodeMetadata & AICommonDeprecated.AIRichResponseCodeMetadata.$Shape;
+         *   (properties?: AICommonDeprecated.AIRichResponseCodeMetadata.$Properties): AICommonDeprecated.AIRichResponseCodeMetadata;
+         * }}
          */
         AIRichResponseCodeMetadata.create = function create(properties) {
             return new AIRichResponseCodeMetadata(properties);
@@ -4308,7 +4510,7 @@ $root.AICommonDeprecated = (function() {
          * @function encode
          * @memberof AICommonDeprecated.AIRichResponseCodeMetadata
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseCodeMetadata} message AIRichResponseCodeMetadata message or plain object to encode
+         * @param {AICommonDeprecated.AIRichResponseCodeMetadata.$Properties} message AIRichResponseCodeMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -4331,7 +4533,7 @@ $root.AICommonDeprecated = (function() {
          * @function encodeDelimited
          * @memberof AICommonDeprecated.AIRichResponseCodeMetadata
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseCodeMetadata} message AIRichResponseCodeMetadata message or plain object to encode
+         * @param {AICommonDeprecated.AIRichResponseCodeMetadata.$Properties} message AIRichResponseCodeMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -4346,7 +4548,7 @@ $root.AICommonDeprecated = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommonDeprecated.AIRichResponseCodeMetadata} AIRichResponseCodeMetadata
+         * @returns {AICommonDeprecated.AIRichResponseCodeMetadata & AICommonDeprecated.AIRichResponseCodeMetadata.$Shape} AIRichResponseCodeMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -4398,7 +4600,7 @@ $root.AICommonDeprecated = (function() {
          * @memberof AICommonDeprecated.AIRichResponseCodeMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommonDeprecated.AIRichResponseCodeMetadata} AIRichResponseCodeMetadata
+         * @returns {AICommonDeprecated.AIRichResponseCodeMetadata & AICommonDeprecated.AIRichResponseCodeMetadata.$Shape} AIRichResponseCodeMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -4529,20 +4731,31 @@ $root.AICommonDeprecated = (function() {
 
             /**
              * Properties of a AIRichResponseCodeBlock.
-             * @memberof AICommonDeprecated.AIRichResponseCodeMetadata
-             * @interface IAIRichResponseCodeBlock
+             * @typedef {Object} AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.$Properties
              * @property {AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeHighlightType|null} [highlightType] AIRichResponseCodeBlock highlightType
              * @property {string|null} [codeContent] AIRichResponseCodeBlock codeContent
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
+             * Properties of a AIRichResponseCodeBlock.
+             * @memberof AICommonDeprecated.AIRichResponseCodeMetadata
+             * @interface IAIRichResponseCodeBlock
+             * @augments AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.$Properties
+             * @deprecated Use AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.$Properties instead.
+             */
+
+            /**
+             * Shape of a AIRichResponseCodeBlock.
+             * @typedef {AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.$Properties} AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.$Shape
+             */
+
+            /**
              * Constructs a new AIRichResponseCodeBlock.
              * @memberof AICommonDeprecated.AIRichResponseCodeMetadata
              * @classdesc Represents a AIRichResponseCodeBlock.
-             * @implements IAIRichResponseCodeBlock
              * @constructor
-             * @param {AICommonDeprecated.AIRichResponseCodeMetadata.IAIRichResponseCodeBlock=} [properties] Properties to set
+             * @param {AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AIRichResponseCodeBlock(properties) {
@@ -4588,8 +4801,12 @@ $root.AICommonDeprecated = (function() {
              * @function create
              * @memberof AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock
              * @static
-             * @param {AICommonDeprecated.AIRichResponseCodeMetadata.IAIRichResponseCodeBlock=} [properties] Properties to set
+             * @param {AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.$Properties=} [properties] Properties to set
              * @returns {AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock} AIRichResponseCodeBlock instance
+             * @type {{
+             *   (properties: AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.$Shape): AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock & AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.$Shape;
+             *   (properties?: AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.$Properties): AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock;
+             * }}
              */
             AIRichResponseCodeBlock.create = function create(properties) {
                 return new AIRichResponseCodeBlock(properties);
@@ -4600,7 +4817,7 @@ $root.AICommonDeprecated = (function() {
              * @function encode
              * @memberof AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock
              * @static
-             * @param {AICommonDeprecated.AIRichResponseCodeMetadata.IAIRichResponseCodeBlock} message AIRichResponseCodeBlock message or plain object to encode
+             * @param {AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.$Properties} message AIRichResponseCodeBlock message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -4622,7 +4839,7 @@ $root.AICommonDeprecated = (function() {
              * @function encodeDelimited
              * @memberof AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock
              * @static
-             * @param {AICommonDeprecated.AIRichResponseCodeMetadata.IAIRichResponseCodeBlock} message AIRichResponseCodeBlock message or plain object to encode
+             * @param {AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.$Properties} message AIRichResponseCodeBlock message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -4637,7 +4854,7 @@ $root.AICommonDeprecated = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock} AIRichResponseCodeBlock
+             * @returns {AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock & AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.$Shape} AIRichResponseCodeBlock
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -4688,7 +4905,7 @@ $root.AICommonDeprecated = (function() {
              * @memberof AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock} AIRichResponseCodeBlock
+             * @returns {AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock & AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.$Shape} AIRichResponseCodeBlock
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -4872,9 +5089,8 @@ $root.AICommonDeprecated = (function() {
 
         /**
          * Properties of a AIRichResponseInlineImageMetadata.
-         * @memberof AICommonDeprecated
-         * @interface IAIRichResponseInlineImageMetadata
-         * @property {AICommonDeprecated.IAIRichResponseImageURL|null} [imageUrl] AIRichResponseInlineImageMetadata imageUrl
+         * @typedef {Object} AICommonDeprecated.AIRichResponseInlineImageMetadata.$Properties
+         * @property {AICommonDeprecated.AIRichResponseImageURL.$Properties|null} [imageUrl] AIRichResponseInlineImageMetadata imageUrl
          * @property {string|null} [imageText] AIRichResponseInlineImageMetadata imageText
          * @property {AICommonDeprecated.AIRichResponseInlineImageMetadata.AIRichResponseImageAlignment|null} [alignment] AIRichResponseInlineImageMetadata alignment
          * @property {string|null} [tapLinkUrl] AIRichResponseInlineImageMetadata tapLinkUrl
@@ -4882,12 +5098,24 @@ $root.AICommonDeprecated = (function() {
          */
 
         /**
+         * Properties of a AIRichResponseInlineImageMetadata.
+         * @memberof AICommonDeprecated
+         * @interface IAIRichResponseInlineImageMetadata
+         * @augments AICommonDeprecated.AIRichResponseInlineImageMetadata.$Properties
+         * @deprecated Use AICommonDeprecated.AIRichResponseInlineImageMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a AIRichResponseInlineImageMetadata.
+         * @typedef {AICommonDeprecated.AIRichResponseInlineImageMetadata.$Properties} AICommonDeprecated.AIRichResponseInlineImageMetadata.$Shape
+         */
+
+        /**
          * Constructs a new AIRichResponseInlineImageMetadata.
          * @memberof AICommonDeprecated
          * @classdesc Represents a AIRichResponseInlineImageMetadata.
-         * @implements IAIRichResponseInlineImageMetadata
          * @constructor
-         * @param {AICommonDeprecated.IAIRichResponseInlineImageMetadata=} [properties] Properties to set
+         * @param {AICommonDeprecated.AIRichResponseInlineImageMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIRichResponseInlineImageMetadata(properties) {
@@ -4899,7 +5127,7 @@ $root.AICommonDeprecated = (function() {
 
         /**
          * AIRichResponseInlineImageMetadata imageUrl.
-         * @member {AICommonDeprecated.IAIRichResponseImageURL|null|undefined} imageUrl
+         * @member {AICommonDeprecated.AIRichResponseImageURL.$Properties|null|undefined} imageUrl
          * @memberof AICommonDeprecated.AIRichResponseInlineImageMetadata
          * @instance
          */
@@ -4961,8 +5189,12 @@ $root.AICommonDeprecated = (function() {
          * @function create
          * @memberof AICommonDeprecated.AIRichResponseInlineImageMetadata
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseInlineImageMetadata=} [properties] Properties to set
+         * @param {AICommonDeprecated.AIRichResponseInlineImageMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommonDeprecated.AIRichResponseInlineImageMetadata} AIRichResponseInlineImageMetadata instance
+         * @type {{
+         *   (properties: AICommonDeprecated.AIRichResponseInlineImageMetadata.$Shape): AICommonDeprecated.AIRichResponseInlineImageMetadata & AICommonDeprecated.AIRichResponseInlineImageMetadata.$Shape;
+         *   (properties?: AICommonDeprecated.AIRichResponseInlineImageMetadata.$Properties): AICommonDeprecated.AIRichResponseInlineImageMetadata;
+         * }}
          */
         AIRichResponseInlineImageMetadata.create = function create(properties) {
             return new AIRichResponseInlineImageMetadata(properties);
@@ -4973,7 +5205,7 @@ $root.AICommonDeprecated = (function() {
          * @function encode
          * @memberof AICommonDeprecated.AIRichResponseInlineImageMetadata
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseInlineImageMetadata} message AIRichResponseInlineImageMetadata message or plain object to encode
+         * @param {AICommonDeprecated.AIRichResponseInlineImageMetadata.$Properties} message AIRichResponseInlineImageMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -4999,7 +5231,7 @@ $root.AICommonDeprecated = (function() {
          * @function encodeDelimited
          * @memberof AICommonDeprecated.AIRichResponseInlineImageMetadata
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseInlineImageMetadata} message AIRichResponseInlineImageMetadata message or plain object to encode
+         * @param {AICommonDeprecated.AIRichResponseInlineImageMetadata.$Properties} message AIRichResponseInlineImageMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -5014,7 +5246,7 @@ $root.AICommonDeprecated = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommonDeprecated.AIRichResponseInlineImageMetadata} AIRichResponseInlineImageMetadata
+         * @returns {AICommonDeprecated.AIRichResponseInlineImageMetadata & AICommonDeprecated.AIRichResponseInlineImageMetadata.$Shape} AIRichResponseInlineImageMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -5079,7 +5311,7 @@ $root.AICommonDeprecated = (function() {
          * @memberof AICommonDeprecated.AIRichResponseInlineImageMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommonDeprecated.AIRichResponseInlineImageMetadata} AIRichResponseInlineImageMetadata
+         * @returns {AICommonDeprecated.AIRichResponseInlineImageMetadata & AICommonDeprecated.AIRichResponseInlineImageMetadata.$Shape} AIRichResponseInlineImageMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -5269,20 +5501,31 @@ $root.AICommonDeprecated = (function() {
 
         /**
          * Properties of a AIRichResponseGridImageMetadata.
+         * @typedef {Object} AICommonDeprecated.AIRichResponseGridImageMetadata.$Properties
+         * @property {AICommonDeprecated.AIRichResponseImageURL.$Properties|null} [gridImageUrl] AIRichResponseGridImageMetadata gridImageUrl
+         * @property {Array.<AICommonDeprecated.AIRichResponseImageURL.$Properties>|null} [imageUrls] AIRichResponseGridImageMetadata imageUrls
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a AIRichResponseGridImageMetadata.
          * @memberof AICommonDeprecated
          * @interface IAIRichResponseGridImageMetadata
-         * @property {AICommonDeprecated.IAIRichResponseImageURL|null} [gridImageUrl] AIRichResponseGridImageMetadata gridImageUrl
-         * @property {Array.<AICommonDeprecated.IAIRichResponseImageURL>|null} [imageUrls] AIRichResponseGridImageMetadata imageUrls
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments AICommonDeprecated.AIRichResponseGridImageMetadata.$Properties
+         * @deprecated Use AICommonDeprecated.AIRichResponseGridImageMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a AIRichResponseGridImageMetadata.
+         * @typedef {AICommonDeprecated.AIRichResponseGridImageMetadata.$Properties} AICommonDeprecated.AIRichResponseGridImageMetadata.$Shape
          */
 
         /**
          * Constructs a new AIRichResponseGridImageMetadata.
          * @memberof AICommonDeprecated
          * @classdesc Represents a AIRichResponseGridImageMetadata.
-         * @implements IAIRichResponseGridImageMetadata
          * @constructor
-         * @param {AICommonDeprecated.IAIRichResponseGridImageMetadata=} [properties] Properties to set
+         * @param {AICommonDeprecated.AIRichResponseGridImageMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIRichResponseGridImageMetadata(properties) {
@@ -5295,7 +5538,7 @@ $root.AICommonDeprecated = (function() {
 
         /**
          * AIRichResponseGridImageMetadata gridImageUrl.
-         * @member {AICommonDeprecated.IAIRichResponseImageURL|null|undefined} gridImageUrl
+         * @member {AICommonDeprecated.AIRichResponseImageURL.$Properties|null|undefined} gridImageUrl
          * @memberof AICommonDeprecated.AIRichResponseGridImageMetadata
          * @instance
          */
@@ -5303,7 +5546,7 @@ $root.AICommonDeprecated = (function() {
 
         /**
          * AIRichResponseGridImageMetadata imageUrls.
-         * @member {Array.<AICommonDeprecated.IAIRichResponseImageURL>} imageUrls
+         * @member {Array.<AICommonDeprecated.AIRichResponseImageURL.$Properties>} imageUrls
          * @memberof AICommonDeprecated.AIRichResponseGridImageMetadata
          * @instance
          */
@@ -5323,8 +5566,12 @@ $root.AICommonDeprecated = (function() {
          * @function create
          * @memberof AICommonDeprecated.AIRichResponseGridImageMetadata
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseGridImageMetadata=} [properties] Properties to set
+         * @param {AICommonDeprecated.AIRichResponseGridImageMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommonDeprecated.AIRichResponseGridImageMetadata} AIRichResponseGridImageMetadata instance
+         * @type {{
+         *   (properties: AICommonDeprecated.AIRichResponseGridImageMetadata.$Shape): AICommonDeprecated.AIRichResponseGridImageMetadata & AICommonDeprecated.AIRichResponseGridImageMetadata.$Shape;
+         *   (properties?: AICommonDeprecated.AIRichResponseGridImageMetadata.$Properties): AICommonDeprecated.AIRichResponseGridImageMetadata;
+         * }}
          */
         AIRichResponseGridImageMetadata.create = function create(properties) {
             return new AIRichResponseGridImageMetadata(properties);
@@ -5335,7 +5582,7 @@ $root.AICommonDeprecated = (function() {
          * @function encode
          * @memberof AICommonDeprecated.AIRichResponseGridImageMetadata
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseGridImageMetadata} message AIRichResponseGridImageMetadata message or plain object to encode
+         * @param {AICommonDeprecated.AIRichResponseGridImageMetadata.$Properties} message AIRichResponseGridImageMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -5358,7 +5605,7 @@ $root.AICommonDeprecated = (function() {
          * @function encodeDelimited
          * @memberof AICommonDeprecated.AIRichResponseGridImageMetadata
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseGridImageMetadata} message AIRichResponseGridImageMetadata message or plain object to encode
+         * @param {AICommonDeprecated.AIRichResponseGridImageMetadata.$Properties} message AIRichResponseGridImageMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -5373,7 +5620,7 @@ $root.AICommonDeprecated = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommonDeprecated.AIRichResponseGridImageMetadata} AIRichResponseGridImageMetadata
+         * @returns {AICommonDeprecated.AIRichResponseGridImageMetadata & AICommonDeprecated.AIRichResponseGridImageMetadata.$Shape} AIRichResponseGridImageMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -5425,7 +5672,7 @@ $root.AICommonDeprecated = (function() {
          * @memberof AICommonDeprecated.AIRichResponseGridImageMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommonDeprecated.AIRichResponseGridImageMetadata} AIRichResponseGridImageMetadata
+         * @returns {AICommonDeprecated.AIRichResponseGridImageMetadata & AICommonDeprecated.AIRichResponseGridImageMetadata.$Shape} AIRichResponseGridImageMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -5565,8 +5812,7 @@ $root.AICommonDeprecated = (function() {
 
         /**
          * Properties of a AIRichResponseImageURL.
-         * @memberof AICommonDeprecated
-         * @interface IAIRichResponseImageURL
+         * @typedef {Object} AICommonDeprecated.AIRichResponseImageURL.$Properties
          * @property {string|null} [imagePreviewUrl] AIRichResponseImageURL imagePreviewUrl
          * @property {string|null} [imageHighResUrl] AIRichResponseImageURL imageHighResUrl
          * @property {string|null} [sourceUrl] AIRichResponseImageURL sourceUrl
@@ -5574,12 +5820,24 @@ $root.AICommonDeprecated = (function() {
          */
 
         /**
+         * Properties of a AIRichResponseImageURL.
+         * @memberof AICommonDeprecated
+         * @interface IAIRichResponseImageURL
+         * @augments AICommonDeprecated.AIRichResponseImageURL.$Properties
+         * @deprecated Use AICommonDeprecated.AIRichResponseImageURL.$Properties instead.
+         */
+
+        /**
+         * Shape of a AIRichResponseImageURL.
+         * @typedef {AICommonDeprecated.AIRichResponseImageURL.$Properties} AICommonDeprecated.AIRichResponseImageURL.$Shape
+         */
+
+        /**
          * Constructs a new AIRichResponseImageURL.
          * @memberof AICommonDeprecated
          * @classdesc Represents a AIRichResponseImageURL.
-         * @implements IAIRichResponseImageURL
          * @constructor
-         * @param {AICommonDeprecated.IAIRichResponseImageURL=} [properties] Properties to set
+         * @param {AICommonDeprecated.AIRichResponseImageURL.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIRichResponseImageURL(properties) {
@@ -5639,8 +5897,12 @@ $root.AICommonDeprecated = (function() {
          * @function create
          * @memberof AICommonDeprecated.AIRichResponseImageURL
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseImageURL=} [properties] Properties to set
+         * @param {AICommonDeprecated.AIRichResponseImageURL.$Properties=} [properties] Properties to set
          * @returns {AICommonDeprecated.AIRichResponseImageURL} AIRichResponseImageURL instance
+         * @type {{
+         *   (properties: AICommonDeprecated.AIRichResponseImageURL.$Shape): AICommonDeprecated.AIRichResponseImageURL & AICommonDeprecated.AIRichResponseImageURL.$Shape;
+         *   (properties?: AICommonDeprecated.AIRichResponseImageURL.$Properties): AICommonDeprecated.AIRichResponseImageURL;
+         * }}
          */
         AIRichResponseImageURL.create = function create(properties) {
             return new AIRichResponseImageURL(properties);
@@ -5651,7 +5913,7 @@ $root.AICommonDeprecated = (function() {
          * @function encode
          * @memberof AICommonDeprecated.AIRichResponseImageURL
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseImageURL} message AIRichResponseImageURL message or plain object to encode
+         * @param {AICommonDeprecated.AIRichResponseImageURL.$Properties} message AIRichResponseImageURL message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -5675,7 +5937,7 @@ $root.AICommonDeprecated = (function() {
          * @function encodeDelimited
          * @memberof AICommonDeprecated.AIRichResponseImageURL
          * @static
-         * @param {AICommonDeprecated.IAIRichResponseImageURL} message AIRichResponseImageURL message or plain object to encode
+         * @param {AICommonDeprecated.AIRichResponseImageURL.$Properties} message AIRichResponseImageURL message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -5690,7 +5952,7 @@ $root.AICommonDeprecated = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommonDeprecated.AIRichResponseImageURL} AIRichResponseImageURL
+         * @returns {AICommonDeprecated.AIRichResponseImageURL & AICommonDeprecated.AIRichResponseImageURL.$Shape} AIRichResponseImageURL
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -5748,7 +6010,7 @@ $root.AICommonDeprecated = (function() {
          * @memberof AICommonDeprecated.AIRichResponseImageURL
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommonDeprecated.AIRichResponseImageURL} AIRichResponseImageURL
+         * @returns {AICommonDeprecated.AIRichResponseImageURL & AICommonDeprecated.AIRichResponseImageURL.$Shape} AIRichResponseImageURL
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -5936,26 +6198,50 @@ $root.StatusAttributions = (function() {
 
         /**
          * Properties of a StatusAttribution.
-         * @memberof StatusAttributions
-         * @interface IStatusAttribution
+         * @typedef {Object} StatusAttributions.StatusAttribution.$Properties
          * @property {StatusAttributions.StatusAttribution.Type|null} [type] StatusAttribution type
          * @property {string|null} [actionUrl] StatusAttribution actionUrl
-         * @property {StatusAttributions.StatusAttribution.IStatusReshare|null} [statusReshare] StatusAttribution statusReshare
-         * @property {StatusAttributions.StatusAttribution.IExternalShare|null} [externalShare] StatusAttribution externalShare
-         * @property {StatusAttributions.StatusAttribution.IMusic|null} [music] StatusAttribution music
-         * @property {StatusAttributions.StatusAttribution.IGroupStatus|null} [groupStatus] StatusAttribution groupStatus
-         * @property {StatusAttributions.StatusAttribution.IRLAttribution|null} [rlAttribution] StatusAttribution rlAttribution
-         * @property {StatusAttributions.StatusAttribution.IAiCreatedAttribution|null} [aiCreatedAttribution] StatusAttribution aiCreatedAttribution
+         * @property {StatusAttributions.StatusAttribution.StatusReshare.$Properties|null} [statusReshare] StatusAttribution statusReshare
+         * @property {StatusAttributions.StatusAttribution.ExternalShare.$Properties|null} [externalShare] StatusAttribution externalShare
+         * @property {StatusAttributions.StatusAttribution.Music.$Properties|null} [music] StatusAttribution music
+         * @property {StatusAttributions.StatusAttribution.GroupStatus.$Properties|null} [groupStatus] StatusAttribution groupStatus
+         * @property {StatusAttributions.StatusAttribution.RLAttribution.$Properties|null} [rlAttribution] StatusAttribution rlAttribution
+         * @property {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties|null} [aiCreatedAttribution] StatusAttribution aiCreatedAttribution
+         * @property {"statusReshare"|"externalShare"|"music"|"groupStatus"|"rlAttribution"|"aiCreatedAttribution"} [attributionData] StatusAttribution attributionData
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a StatusAttribution.
+         * @memberof StatusAttributions
+         * @interface IStatusAttribution
+         * @augments StatusAttributions.StatusAttribution.$Properties
+         * @deprecated Use StatusAttributions.StatusAttribution.$Properties instead.
+         */
+
+        /**
+         * Narrowed shape of a StatusAttribution.
+         * @typedef {{
+         *   type?: StatusAttributions.StatusAttribution.Type|null;
+         *   actionUrl?: string|null;
+         *   statusReshare?: StatusAttributions.StatusAttribution.StatusReshare.$Shape|null;
+         *   externalShare?: StatusAttributions.StatusAttribution.ExternalShare.$Shape|null;
+         *   music?: StatusAttributions.StatusAttribution.Music.$Shape|null;
+         *   groupStatus?: StatusAttributions.StatusAttribution.GroupStatus.$Shape|null;
+         *   rlAttribution?: StatusAttributions.StatusAttribution.RLAttribution.$Shape|null;
+         *   aiCreatedAttribution?: StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape|null;
+         *   $unknowns?: Array.<Uint8Array>;
+         * } & (
+         *   ({ attributionData?: undefined; statusReshare?: null; externalShare?: null; music?: null; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution?: null }|{ attributionData?: "statusReshare"; statusReshare: StatusAttributions.StatusAttribution.StatusReshare.$Shape; externalShare?: null; music?: null; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution?: null }|{ attributionData?: "externalShare"; statusReshare?: null; externalShare: StatusAttributions.StatusAttribution.ExternalShare.$Shape; music?: null; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution?: null }|{ attributionData?: "music"; statusReshare?: null; externalShare?: null; music: StatusAttributions.StatusAttribution.Music.$Shape; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution?: null }|{ attributionData?: "groupStatus"; statusReshare?: null; externalShare?: null; music?: null; groupStatus: StatusAttributions.StatusAttribution.GroupStatus.$Shape; rlAttribution?: null; aiCreatedAttribution?: null }|{ attributionData?: "rlAttribution"; statusReshare?: null; externalShare?: null; music?: null; groupStatus?: null; rlAttribution: StatusAttributions.StatusAttribution.RLAttribution.$Shape; aiCreatedAttribution?: null }|{ attributionData?: "aiCreatedAttribution"; statusReshare?: null; externalShare?: null; music?: null; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution: StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape })
+         * )} StatusAttributions.StatusAttribution.$Shape
          */
 
         /**
          * Constructs a new StatusAttribution.
          * @memberof StatusAttributions
          * @classdesc Represents a StatusAttribution.
-         * @implements IStatusAttribution
          * @constructor
-         * @param {StatusAttributions.IStatusAttribution=} [properties] Properties to set
+         * @param {StatusAttributions.StatusAttribution.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function StatusAttribution(properties) {
@@ -5983,7 +6269,7 @@ $root.StatusAttributions = (function() {
 
         /**
          * StatusAttribution statusReshare.
-         * @member {StatusAttributions.StatusAttribution.IStatusReshare|null|undefined} statusReshare
+         * @member {StatusAttributions.StatusAttribution.StatusReshare.$Properties|null|undefined} statusReshare
          * @memberof StatusAttributions.StatusAttribution
          * @instance
          */
@@ -5991,7 +6277,7 @@ $root.StatusAttributions = (function() {
 
         /**
          * StatusAttribution externalShare.
-         * @member {StatusAttributions.StatusAttribution.IExternalShare|null|undefined} externalShare
+         * @member {StatusAttributions.StatusAttribution.ExternalShare.$Properties|null|undefined} externalShare
          * @memberof StatusAttributions.StatusAttribution
          * @instance
          */
@@ -5999,7 +6285,7 @@ $root.StatusAttributions = (function() {
 
         /**
          * StatusAttribution music.
-         * @member {StatusAttributions.StatusAttribution.IMusic|null|undefined} music
+         * @member {StatusAttributions.StatusAttribution.Music.$Properties|null|undefined} music
          * @memberof StatusAttributions.StatusAttribution
          * @instance
          */
@@ -6007,7 +6293,7 @@ $root.StatusAttributions = (function() {
 
         /**
          * StatusAttribution groupStatus.
-         * @member {StatusAttributions.StatusAttribution.IGroupStatus|null|undefined} groupStatus
+         * @member {StatusAttributions.StatusAttribution.GroupStatus.$Properties|null|undefined} groupStatus
          * @memberof StatusAttributions.StatusAttribution
          * @instance
          */
@@ -6015,7 +6301,7 @@ $root.StatusAttributions = (function() {
 
         /**
          * StatusAttribution rlAttribution.
-         * @member {StatusAttributions.StatusAttribution.IRLAttribution|null|undefined} rlAttribution
+         * @member {StatusAttributions.StatusAttribution.RLAttribution.$Properties|null|undefined} rlAttribution
          * @memberof StatusAttributions.StatusAttribution
          * @instance
          */
@@ -6023,7 +6309,7 @@ $root.StatusAttributions = (function() {
 
         /**
          * StatusAttribution aiCreatedAttribution.
-         * @member {StatusAttributions.StatusAttribution.IAiCreatedAttribution|null|undefined} aiCreatedAttribution
+         * @member {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties|null|undefined} aiCreatedAttribution
          * @memberof StatusAttributions.StatusAttribution
          * @instance
          */
@@ -6060,8 +6346,12 @@ $root.StatusAttributions = (function() {
          * @function create
          * @memberof StatusAttributions.StatusAttribution
          * @static
-         * @param {StatusAttributions.IStatusAttribution=} [properties] Properties to set
+         * @param {StatusAttributions.StatusAttribution.$Properties=} [properties] Properties to set
          * @returns {StatusAttributions.StatusAttribution} StatusAttribution instance
+         * @type {{
+         *   (properties: StatusAttributions.StatusAttribution.$Shape): StatusAttributions.StatusAttribution & StatusAttributions.StatusAttribution.$Shape;
+         *   (properties?: StatusAttributions.StatusAttribution.$Properties): StatusAttributions.StatusAttribution;
+         * }}
          */
         StatusAttribution.create = function create(properties) {
             return new StatusAttribution(properties);
@@ -6072,7 +6362,7 @@ $root.StatusAttributions = (function() {
          * @function encode
          * @memberof StatusAttributions.StatusAttribution
          * @static
-         * @param {StatusAttributions.IStatusAttribution} message StatusAttribution message or plain object to encode
+         * @param {StatusAttributions.StatusAttribution.$Properties} message StatusAttribution message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -6106,7 +6396,7 @@ $root.StatusAttributions = (function() {
          * @function encodeDelimited
          * @memberof StatusAttributions.StatusAttribution
          * @static
-         * @param {StatusAttributions.IStatusAttribution} message StatusAttribution message or plain object to encode
+         * @param {StatusAttributions.StatusAttribution.$Properties} message StatusAttribution message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -6121,7 +6411,7 @@ $root.StatusAttributions = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {StatusAttributions.StatusAttribution} StatusAttribution
+         * @returns {StatusAttributions.StatusAttribution & StatusAttributions.StatusAttribution.$Shape} StatusAttribution
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -6214,7 +6504,7 @@ $root.StatusAttributions = (function() {
          * @memberof StatusAttributions.StatusAttribution
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {StatusAttributions.StatusAttribution} StatusAttribution
+         * @returns {StatusAttributions.StatusAttribution & StatusAttributions.StatusAttribution.$Shape} StatusAttribution
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -6518,19 +6808,30 @@ $root.StatusAttributions = (function() {
 
             /**
              * Properties of an AiCreatedAttribution.
-             * @memberof StatusAttributions.StatusAttribution
-             * @interface IAiCreatedAttribution
+             * @typedef {Object} StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties
              * @property {StatusAttributions.StatusAttribution.AiCreatedAttribution.Source|null} [source] AiCreatedAttribution source
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of an AiCreatedAttribution.
+             * @memberof StatusAttributions.StatusAttribution
+             * @interface IAiCreatedAttribution
+             * @augments StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties
+             * @deprecated Use StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties instead.
+             */
+
+            /**
+             * Shape of an AiCreatedAttribution.
+             * @typedef {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties} StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape
              */
 
             /**
              * Constructs a new AiCreatedAttribution.
              * @memberof StatusAttributions.StatusAttribution
              * @classdesc Represents an AiCreatedAttribution.
-             * @implements IAiCreatedAttribution
              * @constructor
-             * @param {StatusAttributions.StatusAttribution.IAiCreatedAttribution=} [properties] Properties to set
+             * @param {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AiCreatedAttribution(properties) {
@@ -6562,8 +6863,12 @@ $root.StatusAttributions = (function() {
              * @function create
              * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
              * @static
-             * @param {StatusAttributions.StatusAttribution.IAiCreatedAttribution=} [properties] Properties to set
+             * @param {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties=} [properties] Properties to set
              * @returns {StatusAttributions.StatusAttribution.AiCreatedAttribution} AiCreatedAttribution instance
+             * @type {{
+             *   (properties: StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape): StatusAttributions.StatusAttribution.AiCreatedAttribution & StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape;
+             *   (properties?: StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties): StatusAttributions.StatusAttribution.AiCreatedAttribution;
+             * }}
              */
             AiCreatedAttribution.create = function create(properties) {
                 return new AiCreatedAttribution(properties);
@@ -6574,7 +6879,7 @@ $root.StatusAttributions = (function() {
              * @function encode
              * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
              * @static
-             * @param {StatusAttributions.StatusAttribution.IAiCreatedAttribution} message AiCreatedAttribution message or plain object to encode
+             * @param {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties} message AiCreatedAttribution message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -6594,7 +6899,7 @@ $root.StatusAttributions = (function() {
              * @function encodeDelimited
              * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
              * @static
-             * @param {StatusAttributions.StatusAttribution.IAiCreatedAttribution} message AiCreatedAttribution message or plain object to encode
+             * @param {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties} message AiCreatedAttribution message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -6609,7 +6914,7 @@ $root.StatusAttributions = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {StatusAttributions.StatusAttribution.AiCreatedAttribution} AiCreatedAttribution
+             * @returns {StatusAttributions.StatusAttribution.AiCreatedAttribution & StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape} AiCreatedAttribution
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -6653,7 +6958,7 @@ $root.StatusAttributions = (function() {
              * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {StatusAttributions.StatusAttribution.AiCreatedAttribution} AiCreatedAttribution
+             * @returns {StatusAttributions.StatusAttribution.AiCreatedAttribution & StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape} AiCreatedAttribution
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -6794,8 +7099,7 @@ $root.StatusAttributions = (function() {
 
             /**
              * Properties of an ExternalShare.
-             * @memberof StatusAttributions.StatusAttribution
-             * @interface IExternalShare
+             * @typedef {Object} StatusAttributions.StatusAttribution.ExternalShare.$Properties
              * @property {string|null} [actionUrl] ExternalShare actionUrl
              * @property {StatusAttributions.StatusAttribution.ExternalShare.Source|null} [source] ExternalShare source
              * @property {number|null} [duration] ExternalShare duration
@@ -6804,12 +7108,24 @@ $root.StatusAttributions = (function() {
              */
 
             /**
+             * Properties of an ExternalShare.
+             * @memberof StatusAttributions.StatusAttribution
+             * @interface IExternalShare
+             * @augments StatusAttributions.StatusAttribution.ExternalShare.$Properties
+             * @deprecated Use StatusAttributions.StatusAttribution.ExternalShare.$Properties instead.
+             */
+
+            /**
+             * Shape of an ExternalShare.
+             * @typedef {StatusAttributions.StatusAttribution.ExternalShare.$Properties} StatusAttributions.StatusAttribution.ExternalShare.$Shape
+             */
+
+            /**
              * Constructs a new ExternalShare.
              * @memberof StatusAttributions.StatusAttribution
              * @classdesc Represents an ExternalShare.
-             * @implements IExternalShare
              * @constructor
-             * @param {StatusAttributions.StatusAttribution.IExternalShare=} [properties] Properties to set
+             * @param {StatusAttributions.StatusAttribution.ExternalShare.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function ExternalShare(properties) {
@@ -6883,8 +7199,12 @@ $root.StatusAttributions = (function() {
              * @function create
              * @memberof StatusAttributions.StatusAttribution.ExternalShare
              * @static
-             * @param {StatusAttributions.StatusAttribution.IExternalShare=} [properties] Properties to set
+             * @param {StatusAttributions.StatusAttribution.ExternalShare.$Properties=} [properties] Properties to set
              * @returns {StatusAttributions.StatusAttribution.ExternalShare} ExternalShare instance
+             * @type {{
+             *   (properties: StatusAttributions.StatusAttribution.ExternalShare.$Shape): StatusAttributions.StatusAttribution.ExternalShare & StatusAttributions.StatusAttribution.ExternalShare.$Shape;
+             *   (properties?: StatusAttributions.StatusAttribution.ExternalShare.$Properties): StatusAttributions.StatusAttribution.ExternalShare;
+             * }}
              */
             ExternalShare.create = function create(properties) {
                 return new ExternalShare(properties);
@@ -6895,7 +7215,7 @@ $root.StatusAttributions = (function() {
              * @function encode
              * @memberof StatusAttributions.StatusAttribution.ExternalShare
              * @static
-             * @param {StatusAttributions.StatusAttribution.IExternalShare} message ExternalShare message or plain object to encode
+             * @param {StatusAttributions.StatusAttribution.ExternalShare.$Properties} message ExternalShare message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -6921,7 +7241,7 @@ $root.StatusAttributions = (function() {
              * @function encodeDelimited
              * @memberof StatusAttributions.StatusAttribution.ExternalShare
              * @static
-             * @param {StatusAttributions.StatusAttribution.IExternalShare} message ExternalShare message or plain object to encode
+             * @param {StatusAttributions.StatusAttribution.ExternalShare.$Properties} message ExternalShare message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -6936,7 +7256,7 @@ $root.StatusAttributions = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {StatusAttributions.StatusAttribution.ExternalShare} ExternalShare
+             * @returns {StatusAttributions.StatusAttribution.ExternalShare & StatusAttributions.StatusAttribution.ExternalShare.$Shape} ExternalShare
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -7001,7 +7321,7 @@ $root.StatusAttributions = (function() {
              * @memberof StatusAttributions.StatusAttribution.ExternalShare
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {StatusAttributions.StatusAttribution.ExternalShare} ExternalShare
+             * @returns {StatusAttributions.StatusAttribution.ExternalShare & StatusAttributions.StatusAttribution.ExternalShare.$Shape} ExternalShare
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -7255,19 +7575,30 @@ $root.StatusAttributions = (function() {
 
             /**
              * Properties of a GroupStatus.
-             * @memberof StatusAttributions.StatusAttribution
-             * @interface IGroupStatus
+             * @typedef {Object} StatusAttributions.StatusAttribution.GroupStatus.$Properties
              * @property {string|null} [authorJid] GroupStatus authorJid
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a GroupStatus.
+             * @memberof StatusAttributions.StatusAttribution
+             * @interface IGroupStatus
+             * @augments StatusAttributions.StatusAttribution.GroupStatus.$Properties
+             * @deprecated Use StatusAttributions.StatusAttribution.GroupStatus.$Properties instead.
+             */
+
+            /**
+             * Shape of a GroupStatus.
+             * @typedef {StatusAttributions.StatusAttribution.GroupStatus.$Properties} StatusAttributions.StatusAttribution.GroupStatus.$Shape
              */
 
             /**
              * Constructs a new GroupStatus.
              * @memberof StatusAttributions.StatusAttribution
              * @classdesc Represents a GroupStatus.
-             * @implements IGroupStatus
              * @constructor
-             * @param {StatusAttributions.StatusAttribution.IGroupStatus=} [properties] Properties to set
+             * @param {StatusAttributions.StatusAttribution.GroupStatus.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function GroupStatus(properties) {
@@ -7299,8 +7630,12 @@ $root.StatusAttributions = (function() {
              * @function create
              * @memberof StatusAttributions.StatusAttribution.GroupStatus
              * @static
-             * @param {StatusAttributions.StatusAttribution.IGroupStatus=} [properties] Properties to set
+             * @param {StatusAttributions.StatusAttribution.GroupStatus.$Properties=} [properties] Properties to set
              * @returns {StatusAttributions.StatusAttribution.GroupStatus} GroupStatus instance
+             * @type {{
+             *   (properties: StatusAttributions.StatusAttribution.GroupStatus.$Shape): StatusAttributions.StatusAttribution.GroupStatus & StatusAttributions.StatusAttribution.GroupStatus.$Shape;
+             *   (properties?: StatusAttributions.StatusAttribution.GroupStatus.$Properties): StatusAttributions.StatusAttribution.GroupStatus;
+             * }}
              */
             GroupStatus.create = function create(properties) {
                 return new GroupStatus(properties);
@@ -7311,7 +7646,7 @@ $root.StatusAttributions = (function() {
              * @function encode
              * @memberof StatusAttributions.StatusAttribution.GroupStatus
              * @static
-             * @param {StatusAttributions.StatusAttribution.IGroupStatus} message GroupStatus message or plain object to encode
+             * @param {StatusAttributions.StatusAttribution.GroupStatus.$Properties} message GroupStatus message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -7331,7 +7666,7 @@ $root.StatusAttributions = (function() {
              * @function encodeDelimited
              * @memberof StatusAttributions.StatusAttribution.GroupStatus
              * @static
-             * @param {StatusAttributions.StatusAttribution.IGroupStatus} message GroupStatus message or plain object to encode
+             * @param {StatusAttributions.StatusAttribution.GroupStatus.$Properties} message GroupStatus message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -7346,7 +7681,7 @@ $root.StatusAttributions = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {StatusAttributions.StatusAttribution.GroupStatus} GroupStatus
+             * @returns {StatusAttributions.StatusAttribution.GroupStatus & StatusAttributions.StatusAttribution.GroupStatus.$Shape} GroupStatus
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -7390,7 +7725,7 @@ $root.StatusAttributions = (function() {
              * @memberof StatusAttributions.StatusAttribution.GroupStatus
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {StatusAttributions.StatusAttribution.GroupStatus} GroupStatus
+             * @returns {StatusAttributions.StatusAttribution.GroupStatus & StatusAttributions.StatusAttribution.GroupStatus.$Shape} GroupStatus
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -7498,8 +7833,7 @@ $root.StatusAttributions = (function() {
 
             /**
              * Properties of a Music.
-             * @memberof StatusAttributions.StatusAttribution
-             * @interface IMusic
+             * @typedef {Object} StatusAttributions.StatusAttribution.Music.$Properties
              * @property {string|null} [authorName] Music authorName
              * @property {string|null} [songId] Music songId
              * @property {string|null} [title] Music title
@@ -7510,12 +7844,24 @@ $root.StatusAttributions = (function() {
              */
 
             /**
+             * Properties of a Music.
+             * @memberof StatusAttributions.StatusAttribution
+             * @interface IMusic
+             * @augments StatusAttributions.StatusAttribution.Music.$Properties
+             * @deprecated Use StatusAttributions.StatusAttribution.Music.$Properties instead.
+             */
+
+            /**
+             * Shape of a Music.
+             * @typedef {StatusAttributions.StatusAttribution.Music.$Properties} StatusAttributions.StatusAttribution.Music.$Shape
+             */
+
+            /**
              * Constructs a new Music.
              * @memberof StatusAttributions.StatusAttribution
              * @classdesc Represents a Music.
-             * @implements IMusic
              * @constructor
-             * @param {StatusAttributions.StatusAttribution.IMusic=} [properties] Properties to set
+             * @param {StatusAttributions.StatusAttribution.Music.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function Music(properties) {
@@ -7617,8 +7963,12 @@ $root.StatusAttributions = (function() {
              * @function create
              * @memberof StatusAttributions.StatusAttribution.Music
              * @static
-             * @param {StatusAttributions.StatusAttribution.IMusic=} [properties] Properties to set
+             * @param {StatusAttributions.StatusAttribution.Music.$Properties=} [properties] Properties to set
              * @returns {StatusAttributions.StatusAttribution.Music} Music instance
+             * @type {{
+             *   (properties: StatusAttributions.StatusAttribution.Music.$Shape): StatusAttributions.StatusAttribution.Music & StatusAttributions.StatusAttribution.Music.$Shape;
+             *   (properties?: StatusAttributions.StatusAttribution.Music.$Properties): StatusAttributions.StatusAttribution.Music;
+             * }}
              */
             Music.create = function create(properties) {
                 return new Music(properties);
@@ -7629,7 +7979,7 @@ $root.StatusAttributions = (function() {
              * @function encode
              * @memberof StatusAttributions.StatusAttribution.Music
              * @static
-             * @param {StatusAttributions.StatusAttribution.IMusic} message Music message or plain object to encode
+             * @param {StatusAttributions.StatusAttribution.Music.$Properties} message Music message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -7659,7 +8009,7 @@ $root.StatusAttributions = (function() {
              * @function encodeDelimited
              * @memberof StatusAttributions.StatusAttribution.Music
              * @static
-             * @param {StatusAttributions.StatusAttribution.IMusic} message Music message or plain object to encode
+             * @param {StatusAttributions.StatusAttribution.Music.$Properties} message Music message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -7674,7 +8024,7 @@ $root.StatusAttributions = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {StatusAttributions.StatusAttribution.Music} Music
+             * @returns {StatusAttributions.StatusAttribution.Music & StatusAttributions.StatusAttribution.Music.$Shape} Music
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -7753,7 +8103,7 @@ $root.StatusAttributions = (function() {
              * @memberof StatusAttributions.StatusAttribution.Music
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {StatusAttributions.StatusAttribution.Music} Music
+             * @returns {StatusAttributions.StatusAttribution.Music & StatusAttributions.StatusAttribution.Music.$Shape} Music
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -7921,19 +8271,30 @@ $root.StatusAttributions = (function() {
 
             /**
              * Properties of a RLAttribution.
-             * @memberof StatusAttributions.StatusAttribution
-             * @interface IRLAttribution
+             * @typedef {Object} StatusAttributions.StatusAttribution.RLAttribution.$Properties
              * @property {StatusAttributions.StatusAttribution.RLAttribution.Source|null} [source] RLAttribution source
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a RLAttribution.
+             * @memberof StatusAttributions.StatusAttribution
+             * @interface IRLAttribution
+             * @augments StatusAttributions.StatusAttribution.RLAttribution.$Properties
+             * @deprecated Use StatusAttributions.StatusAttribution.RLAttribution.$Properties instead.
+             */
+
+            /**
+             * Shape of a RLAttribution.
+             * @typedef {StatusAttributions.StatusAttribution.RLAttribution.$Properties} StatusAttributions.StatusAttribution.RLAttribution.$Shape
              */
 
             /**
              * Constructs a new RLAttribution.
              * @memberof StatusAttributions.StatusAttribution
              * @classdesc Represents a RLAttribution.
-             * @implements IRLAttribution
              * @constructor
-             * @param {StatusAttributions.StatusAttribution.IRLAttribution=} [properties] Properties to set
+             * @param {StatusAttributions.StatusAttribution.RLAttribution.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function RLAttribution(properties) {
@@ -7965,8 +8326,12 @@ $root.StatusAttributions = (function() {
              * @function create
              * @memberof StatusAttributions.StatusAttribution.RLAttribution
              * @static
-             * @param {StatusAttributions.StatusAttribution.IRLAttribution=} [properties] Properties to set
+             * @param {StatusAttributions.StatusAttribution.RLAttribution.$Properties=} [properties] Properties to set
              * @returns {StatusAttributions.StatusAttribution.RLAttribution} RLAttribution instance
+             * @type {{
+             *   (properties: StatusAttributions.StatusAttribution.RLAttribution.$Shape): StatusAttributions.StatusAttribution.RLAttribution & StatusAttributions.StatusAttribution.RLAttribution.$Shape;
+             *   (properties?: StatusAttributions.StatusAttribution.RLAttribution.$Properties): StatusAttributions.StatusAttribution.RLAttribution;
+             * }}
              */
             RLAttribution.create = function create(properties) {
                 return new RLAttribution(properties);
@@ -7977,7 +8342,7 @@ $root.StatusAttributions = (function() {
              * @function encode
              * @memberof StatusAttributions.StatusAttribution.RLAttribution
              * @static
-             * @param {StatusAttributions.StatusAttribution.IRLAttribution} message RLAttribution message or plain object to encode
+             * @param {StatusAttributions.StatusAttribution.RLAttribution.$Properties} message RLAttribution message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -7997,7 +8362,7 @@ $root.StatusAttributions = (function() {
              * @function encodeDelimited
              * @memberof StatusAttributions.StatusAttribution.RLAttribution
              * @static
-             * @param {StatusAttributions.StatusAttribution.IRLAttribution} message RLAttribution message or plain object to encode
+             * @param {StatusAttributions.StatusAttribution.RLAttribution.$Properties} message RLAttribution message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -8012,7 +8377,7 @@ $root.StatusAttributions = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {StatusAttributions.StatusAttribution.RLAttribution} RLAttribution
+             * @returns {StatusAttributions.StatusAttribution.RLAttribution & StatusAttributions.StatusAttribution.RLAttribution.$Shape} RLAttribution
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -8056,7 +8421,7 @@ $root.StatusAttributions = (function() {
              * @memberof StatusAttributions.StatusAttribution.RLAttribution
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {StatusAttributions.StatusAttribution.RLAttribution} RLAttribution
+             * @returns {StatusAttributions.StatusAttribution.RLAttribution & StatusAttributions.StatusAttribution.RLAttribution.$Shape} RLAttribution
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -8211,20 +8576,31 @@ $root.StatusAttributions = (function() {
 
             /**
              * Properties of a StatusReshare.
+             * @typedef {Object} StatusAttributions.StatusAttribution.StatusReshare.$Properties
+             * @property {StatusAttributions.StatusAttribution.StatusReshare.Source|null} [source] StatusReshare source
+             * @property {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties|null} [metadata] StatusReshare metadata
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a StatusReshare.
              * @memberof StatusAttributions.StatusAttribution
              * @interface IStatusReshare
-             * @property {StatusAttributions.StatusAttribution.StatusReshare.Source|null} [source] StatusReshare source
-             * @property {StatusAttributions.StatusAttribution.StatusReshare.IMetadata|null} [metadata] StatusReshare metadata
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @augments StatusAttributions.StatusAttribution.StatusReshare.$Properties
+             * @deprecated Use StatusAttributions.StatusAttribution.StatusReshare.$Properties instead.
+             */
+
+            /**
+             * Shape of a StatusReshare.
+             * @typedef {StatusAttributions.StatusAttribution.StatusReshare.$Properties} StatusAttributions.StatusAttribution.StatusReshare.$Shape
              */
 
             /**
              * Constructs a new StatusReshare.
              * @memberof StatusAttributions.StatusAttribution
              * @classdesc Represents a StatusReshare.
-             * @implements IStatusReshare
              * @constructor
-             * @param {StatusAttributions.StatusAttribution.IStatusReshare=} [properties] Properties to set
+             * @param {StatusAttributions.StatusAttribution.StatusReshare.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function StatusReshare(properties) {
@@ -8244,7 +8620,7 @@ $root.StatusAttributions = (function() {
 
             /**
              * StatusReshare metadata.
-             * @member {StatusAttributions.StatusAttribution.StatusReshare.IMetadata|null|undefined} metadata
+             * @member {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties|null|undefined} metadata
              * @memberof StatusAttributions.StatusAttribution.StatusReshare
              * @instance
              */
@@ -8270,8 +8646,12 @@ $root.StatusAttributions = (function() {
              * @function create
              * @memberof StatusAttributions.StatusAttribution.StatusReshare
              * @static
-             * @param {StatusAttributions.StatusAttribution.IStatusReshare=} [properties] Properties to set
+             * @param {StatusAttributions.StatusAttribution.StatusReshare.$Properties=} [properties] Properties to set
              * @returns {StatusAttributions.StatusAttribution.StatusReshare} StatusReshare instance
+             * @type {{
+             *   (properties: StatusAttributions.StatusAttribution.StatusReshare.$Shape): StatusAttributions.StatusAttribution.StatusReshare & StatusAttributions.StatusAttribution.StatusReshare.$Shape;
+             *   (properties?: StatusAttributions.StatusAttribution.StatusReshare.$Properties): StatusAttributions.StatusAttribution.StatusReshare;
+             * }}
              */
             StatusReshare.create = function create(properties) {
                 return new StatusReshare(properties);
@@ -8282,7 +8662,7 @@ $root.StatusAttributions = (function() {
              * @function encode
              * @memberof StatusAttributions.StatusAttribution.StatusReshare
              * @static
-             * @param {StatusAttributions.StatusAttribution.IStatusReshare} message StatusReshare message or plain object to encode
+             * @param {StatusAttributions.StatusAttribution.StatusReshare.$Properties} message StatusReshare message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -8304,7 +8684,7 @@ $root.StatusAttributions = (function() {
              * @function encodeDelimited
              * @memberof StatusAttributions.StatusAttribution.StatusReshare
              * @static
-             * @param {StatusAttributions.StatusAttribution.IStatusReshare} message StatusReshare message or plain object to encode
+             * @param {StatusAttributions.StatusAttribution.StatusReshare.$Properties} message StatusReshare message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -8319,7 +8699,7 @@ $root.StatusAttributions = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {StatusAttributions.StatusAttribution.StatusReshare} StatusReshare
+             * @returns {StatusAttributions.StatusAttribution.StatusReshare & StatusAttributions.StatusAttribution.StatusReshare.$Shape} StatusReshare
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -8370,7 +8750,7 @@ $root.StatusAttributions = (function() {
              * @memberof StatusAttributions.StatusAttribution.StatusReshare
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {StatusAttributions.StatusAttribution.StatusReshare} StatusReshare
+             * @returns {StatusAttributions.StatusAttribution.StatusReshare & StatusAttributions.StatusAttribution.StatusReshare.$Shape} StatusReshare
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -8527,8 +8907,7 @@ $root.StatusAttributions = (function() {
 
                 /**
                  * Properties of a Metadata.
-                 * @memberof StatusAttributions.StatusAttribution.StatusReshare
-                 * @interface IMetadata
+                 * @typedef {Object} StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties
                  * @property {number|null} [duration] Metadata duration
                  * @property {string|null} [channelJid] Metadata channelJid
                  * @property {number|null} [channelMessageId] Metadata channelMessageId
@@ -8537,12 +8916,24 @@ $root.StatusAttributions = (function() {
                  */
 
                 /**
+                 * Properties of a Metadata.
+                 * @memberof StatusAttributions.StatusAttribution.StatusReshare
+                 * @interface IMetadata
+                 * @augments StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties
+                 * @deprecated Use StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties instead.
+                 */
+
+                /**
+                 * Shape of a Metadata.
+                 * @typedef {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties} StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Shape
+                 */
+
+                /**
                  * Constructs a new Metadata.
                  * @memberof StatusAttributions.StatusAttribution.StatusReshare
                  * @classdesc Represents a Metadata.
-                 * @implements IMetadata
                  * @constructor
-                 * @param {StatusAttributions.StatusAttribution.StatusReshare.IMetadata=} [properties] Properties to set
+                 * @param {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties=} [properties] Properties to set
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function Metadata(properties) {
@@ -8616,8 +9007,12 @@ $root.StatusAttributions = (function() {
                  * @function create
                  * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
                  * @static
-                 * @param {StatusAttributions.StatusAttribution.StatusReshare.IMetadata=} [properties] Properties to set
+                 * @param {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties=} [properties] Properties to set
                  * @returns {StatusAttributions.StatusAttribution.StatusReshare.Metadata} Metadata instance
+                 * @type {{
+                 *   (properties: StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Shape): StatusAttributions.StatusAttribution.StatusReshare.Metadata & StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Shape;
+                 *   (properties?: StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties): StatusAttributions.StatusAttribution.StatusReshare.Metadata;
+                 * }}
                  */
                 Metadata.create = function create(properties) {
                     return new Metadata(properties);
@@ -8628,7 +9023,7 @@ $root.StatusAttributions = (function() {
                  * @function encode
                  * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
                  * @static
-                 * @param {StatusAttributions.StatusAttribution.StatusReshare.IMetadata} message Metadata message or plain object to encode
+                 * @param {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties} message Metadata message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -8654,7 +9049,7 @@ $root.StatusAttributions = (function() {
                  * @function encodeDelimited
                  * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
                  * @static
-                 * @param {StatusAttributions.StatusAttribution.StatusReshare.IMetadata} message Metadata message or plain object to encode
+                 * @param {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties} message Metadata message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -8669,7 +9064,7 @@ $root.StatusAttributions = (function() {
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                  * @param {number} [length] Message length if known beforehand
-                 * @returns {StatusAttributions.StatusAttribution.StatusReshare.Metadata} Metadata
+                 * @returns {StatusAttributions.StatusAttribution.StatusReshare.Metadata & StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Shape} Metadata
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -8734,7 +9129,7 @@ $root.StatusAttributions = (function() {
                  * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {StatusAttributions.StatusAttribution.StatusReshare.Metadata} Metadata
+                 * @returns {StatusAttributions.StatusAttribution.StatusReshare.Metadata & StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Shape} Metadata
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */

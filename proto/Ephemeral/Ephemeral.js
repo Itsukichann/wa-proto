@@ -22,20 +22,31 @@ $root.Ephemeral = (function() {
 
         /**
          * Properties of an EphemeralSetting.
-         * @memberof Ephemeral
-         * @interface IEphemeralSetting
+         * @typedef {Object} Ephemeral.EphemeralSetting.$Properties
          * @property {number|null} [duration] EphemeralSetting duration
          * @property {number|Long|null} [timestamp] EphemeralSetting timestamp
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
+         * Properties of an EphemeralSetting.
+         * @memberof Ephemeral
+         * @interface IEphemeralSetting
+         * @augments Ephemeral.EphemeralSetting.$Properties
+         * @deprecated Use Ephemeral.EphemeralSetting.$Properties instead.
+         */
+
+        /**
+         * Shape of an EphemeralSetting.
+         * @typedef {Ephemeral.EphemeralSetting.$Properties} Ephemeral.EphemeralSetting.$Shape
+         */
+
+        /**
          * Constructs a new EphemeralSetting.
          * @memberof Ephemeral
          * @classdesc Represents an EphemeralSetting.
-         * @implements IEphemeralSetting
          * @constructor
-         * @param {Ephemeral.IEphemeralSetting=} [properties] Properties to set
+         * @param {Ephemeral.EphemeralSetting.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function EphemeralSetting(properties) {
@@ -81,8 +92,12 @@ $root.Ephemeral = (function() {
          * @function create
          * @memberof Ephemeral.EphemeralSetting
          * @static
-         * @param {Ephemeral.IEphemeralSetting=} [properties] Properties to set
+         * @param {Ephemeral.EphemeralSetting.$Properties=} [properties] Properties to set
          * @returns {Ephemeral.EphemeralSetting} EphemeralSetting instance
+         * @type {{
+         *   (properties: Ephemeral.EphemeralSetting.$Shape): Ephemeral.EphemeralSetting & Ephemeral.EphemeralSetting.$Shape;
+         *   (properties?: Ephemeral.EphemeralSetting.$Properties): Ephemeral.EphemeralSetting;
+         * }}
          */
         EphemeralSetting.create = function create(properties) {
             return new EphemeralSetting(properties);
@@ -93,7 +108,7 @@ $root.Ephemeral = (function() {
          * @function encode
          * @memberof Ephemeral.EphemeralSetting
          * @static
-         * @param {Ephemeral.IEphemeralSetting} message EphemeralSetting message or plain object to encode
+         * @param {Ephemeral.EphemeralSetting.$Properties} message EphemeralSetting message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -115,7 +130,7 @@ $root.Ephemeral = (function() {
          * @function encodeDelimited
          * @memberof Ephemeral.EphemeralSetting
          * @static
-         * @param {Ephemeral.IEphemeralSetting} message EphemeralSetting message or plain object to encode
+         * @param {Ephemeral.EphemeralSetting.$Properties} message EphemeralSetting message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -130,7 +145,7 @@ $root.Ephemeral = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {Ephemeral.EphemeralSetting} EphemeralSetting
+         * @returns {Ephemeral.EphemeralSetting & Ephemeral.EphemeralSetting.$Shape} EphemeralSetting
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -181,7 +196,7 @@ $root.Ephemeral = (function() {
          * @memberof Ephemeral.EphemeralSetting
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {Ephemeral.EphemeralSetting} EphemeralSetting
+         * @returns {Ephemeral.EphemeralSetting & Ephemeral.EphemeralSetting.$Shape} EphemeralSetting
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */

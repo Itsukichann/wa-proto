@@ -22,23 +22,34 @@ $root.Reporting = (function() {
 
         /**
          * Properties of a Field.
-         * @memberof Reporting
-         * @interface IField
+         * @typedef {Object} Reporting.Field.$Properties
          * @property {number|null} [minVersion] Field minVersion
          * @property {number|null} [maxVersion] Field maxVersion
          * @property {number|null} [notReportableMinVersion] Field notReportableMinVersion
          * @property {boolean|null} [isMessage] Field isMessage
-         * @property {Object.<string,Reporting.IField>|null} [subfield] Field subfield
+         * @property {Object.<string,Reporting.Field.$Properties>|null} [subfield] Field subfield
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a Field.
+         * @memberof Reporting
+         * @interface IField
+         * @augments Reporting.Field.$Properties
+         * @deprecated Use Reporting.Field.$Properties instead.
+         */
+
+        /**
+         * Shape of a Field.
+         * @typedef {Reporting.Field.$Properties} Reporting.Field.$Shape
          */
 
         /**
          * Constructs a new Field.
          * @memberof Reporting
          * @classdesc Represents a Field.
-         * @implements IField
          * @constructor
-         * @param {Reporting.IField=} [properties] Properties to set
+         * @param {Reporting.Field.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function Field(properties) {
@@ -83,7 +94,7 @@ $root.Reporting = (function() {
 
         /**
          * Field subfield.
-         * @member {Object.<string,Reporting.IField>} subfield
+         * @member {Object.<string,Reporting.Field.$Properties>} subfield
          * @memberof Reporting.Field
          * @instance
          */
@@ -121,8 +132,12 @@ $root.Reporting = (function() {
          * @function create
          * @memberof Reporting.Field
          * @static
-         * @param {Reporting.IField=} [properties] Properties to set
+         * @param {Reporting.Field.$Properties=} [properties] Properties to set
          * @returns {Reporting.Field} Field instance
+         * @type {{
+         *   (properties: Reporting.Field.$Shape): Reporting.Field & Reporting.Field.$Shape;
+         *   (properties?: Reporting.Field.$Properties): Reporting.Field;
+         * }}
          */
         Field.create = function create(properties) {
             return new Field(properties);
@@ -133,7 +148,7 @@ $root.Reporting = (function() {
          * @function encode
          * @memberof Reporting.Field
          * @static
-         * @param {Reporting.IField} message Field message or plain object to encode
+         * @param {Reporting.Field.$Properties} message Field message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -164,7 +179,7 @@ $root.Reporting = (function() {
          * @function encodeDelimited
          * @memberof Reporting.Field
          * @static
-         * @param {Reporting.IField} message Field message or plain object to encode
+         * @param {Reporting.Field.$Properties} message Field message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -179,7 +194,7 @@ $root.Reporting = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {Reporting.Field} Field
+         * @returns {Reporting.Field & Reporting.Field.$Shape} Field
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -272,7 +287,7 @@ $root.Reporting = (function() {
          * @memberof Reporting.Field
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {Reporting.Field} Field
+         * @returns {Reporting.Field & Reporting.Field.$Shape} Field
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -453,20 +468,31 @@ $root.Reporting = (function() {
 
         /**
          * Properties of a Config.
-         * @memberof Reporting
-         * @interface IConfig
-         * @property {Object.<string,Reporting.IField>|null} [field] Config field
+         * @typedef {Object} Reporting.Config.$Properties
+         * @property {Object.<string,Reporting.Field.$Properties>|null} [field] Config field
          * @property {number|null} [version] Config version
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a Config.
+         * @memberof Reporting
+         * @interface IConfig
+         * @augments Reporting.Config.$Properties
+         * @deprecated Use Reporting.Config.$Properties instead.
+         */
+
+        /**
+         * Shape of a Config.
+         * @typedef {Reporting.Config.$Properties} Reporting.Config.$Shape
          */
 
         /**
          * Constructs a new Config.
          * @memberof Reporting
          * @classdesc Represents a Config.
-         * @implements IConfig
          * @constructor
-         * @param {Reporting.IConfig=} [properties] Properties to set
+         * @param {Reporting.Config.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function Config(properties) {
@@ -479,7 +505,7 @@ $root.Reporting = (function() {
 
         /**
          * Config field.
-         * @member {Object.<string,Reporting.IField>} field
+         * @member {Object.<string,Reporting.Field.$Properties>} field
          * @memberof Reporting.Config
          * @instance
          */
@@ -507,8 +533,12 @@ $root.Reporting = (function() {
          * @function create
          * @memberof Reporting.Config
          * @static
-         * @param {Reporting.IConfig=} [properties] Properties to set
+         * @param {Reporting.Config.$Properties=} [properties] Properties to set
          * @returns {Reporting.Config} Config instance
+         * @type {{
+         *   (properties: Reporting.Config.$Shape): Reporting.Config & Reporting.Config.$Shape;
+         *   (properties?: Reporting.Config.$Properties): Reporting.Config;
+         * }}
          */
         Config.create = function create(properties) {
             return new Config(properties);
@@ -519,7 +549,7 @@ $root.Reporting = (function() {
          * @function encode
          * @memberof Reporting.Config
          * @static
-         * @param {Reporting.IConfig} message Config message or plain object to encode
+         * @param {Reporting.Config.$Properties} message Config message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -544,7 +574,7 @@ $root.Reporting = (function() {
          * @function encodeDelimited
          * @memberof Reporting.Config
          * @static
-         * @param {Reporting.IConfig} message Config message or plain object to encode
+         * @param {Reporting.Config.$Properties} message Config message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -559,7 +589,7 @@ $root.Reporting = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {Reporting.Config} Config
+         * @returns {Reporting.Config & Reporting.Config.$Shape} Config
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -631,7 +661,7 @@ $root.Reporting = (function() {
          * @memberof Reporting.Config
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {Reporting.Config} Config
+         * @returns {Reporting.Config & Reporting.Config.$Shape} Config
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -776,8 +806,7 @@ $root.Reporting = (function() {
 
         /**
          * Properties of a Reportable.
-         * @memberof Reporting
-         * @interface IReportable
+         * @typedef {Object} Reporting.Reportable.$Properties
          * @property {number|null} [minVersion] Reportable minVersion
          * @property {number|null} [maxVersion] Reportable maxVersion
          * @property {number|null} [notReportableMinVersion] Reportable notReportableMinVersion
@@ -786,12 +815,24 @@ $root.Reporting = (function() {
          */
 
         /**
+         * Properties of a Reportable.
+         * @memberof Reporting
+         * @interface IReportable
+         * @augments Reporting.Reportable.$Properties
+         * @deprecated Use Reporting.Reportable.$Properties instead.
+         */
+
+        /**
+         * Shape of a Reportable.
+         * @typedef {Reporting.Reportable.$Properties} Reporting.Reportable.$Shape
+         */
+
+        /**
          * Constructs a new Reportable.
          * @memberof Reporting
          * @classdesc Represents a Reportable.
-         * @implements IReportable
          * @constructor
-         * @param {Reporting.IReportable=} [properties] Properties to set
+         * @param {Reporting.Reportable.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function Reportable(properties) {
@@ -865,8 +906,12 @@ $root.Reporting = (function() {
          * @function create
          * @memberof Reporting.Reportable
          * @static
-         * @param {Reporting.IReportable=} [properties] Properties to set
+         * @param {Reporting.Reportable.$Properties=} [properties] Properties to set
          * @returns {Reporting.Reportable} Reportable instance
+         * @type {{
+         *   (properties: Reporting.Reportable.$Shape): Reporting.Reportable & Reporting.Reportable.$Shape;
+         *   (properties?: Reporting.Reportable.$Properties): Reporting.Reportable;
+         * }}
          */
         Reportable.create = function create(properties) {
             return new Reportable(properties);
@@ -877,7 +922,7 @@ $root.Reporting = (function() {
          * @function encode
          * @memberof Reporting.Reportable
          * @static
-         * @param {Reporting.IReportable} message Reportable message or plain object to encode
+         * @param {Reporting.Reportable.$Properties} message Reportable message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -903,7 +948,7 @@ $root.Reporting = (function() {
          * @function encodeDelimited
          * @memberof Reporting.Reportable
          * @static
-         * @param {Reporting.IReportable} message Reportable message or plain object to encode
+         * @param {Reporting.Reportable.$Properties} message Reportable message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -918,7 +963,7 @@ $root.Reporting = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {Reporting.Reportable} Reportable
+         * @returns {Reporting.Reportable & Reporting.Reportable.$Shape} Reportable
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -983,7 +1028,7 @@ $root.Reporting = (function() {
          * @memberof Reporting.Reportable
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {Reporting.Reportable} Reportable
+         * @returns {Reporting.Reportable & Reporting.Reportable.$Shape} Reportable
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */

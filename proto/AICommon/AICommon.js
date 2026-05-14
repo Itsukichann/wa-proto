@@ -22,19 +22,30 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotAgentDeepLinkMetadata.
-         * @memberof AICommon
-         * @interface IBotAgentDeepLinkMetadata
+         * @typedef {Object} AICommon.BotAgentDeepLinkMetadata.$Properties
          * @property {string|null} [token] BotAgentDeepLinkMetadata token
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a BotAgentDeepLinkMetadata.
+         * @memberof AICommon
+         * @interface IBotAgentDeepLinkMetadata
+         * @augments AICommon.BotAgentDeepLinkMetadata.$Properties
+         * @deprecated Use AICommon.BotAgentDeepLinkMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotAgentDeepLinkMetadata.
+         * @typedef {AICommon.BotAgentDeepLinkMetadata.$Properties} AICommon.BotAgentDeepLinkMetadata.$Shape
          */
 
         /**
          * Constructs a new BotAgentDeepLinkMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotAgentDeepLinkMetadata.
-         * @implements IBotAgentDeepLinkMetadata
          * @constructor
-         * @param {AICommon.IBotAgentDeepLinkMetadata=} [properties] Properties to set
+         * @param {AICommon.BotAgentDeepLinkMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotAgentDeepLinkMetadata(properties) {
@@ -66,8 +77,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotAgentDeepLinkMetadata
          * @static
-         * @param {AICommon.IBotAgentDeepLinkMetadata=} [properties] Properties to set
+         * @param {AICommon.BotAgentDeepLinkMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotAgentDeepLinkMetadata} BotAgentDeepLinkMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotAgentDeepLinkMetadata.$Shape): AICommon.BotAgentDeepLinkMetadata & AICommon.BotAgentDeepLinkMetadata.$Shape;
+         *   (properties?: AICommon.BotAgentDeepLinkMetadata.$Properties): AICommon.BotAgentDeepLinkMetadata;
+         * }}
          */
         BotAgentDeepLinkMetadata.create = function create(properties) {
             return new BotAgentDeepLinkMetadata(properties);
@@ -78,7 +93,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotAgentDeepLinkMetadata
          * @static
-         * @param {AICommon.IBotAgentDeepLinkMetadata} message BotAgentDeepLinkMetadata message or plain object to encode
+         * @param {AICommon.BotAgentDeepLinkMetadata.$Properties} message BotAgentDeepLinkMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -98,7 +113,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotAgentDeepLinkMetadata
          * @static
-         * @param {AICommon.IBotAgentDeepLinkMetadata} message BotAgentDeepLinkMetadata message or plain object to encode
+         * @param {AICommon.BotAgentDeepLinkMetadata.$Properties} message BotAgentDeepLinkMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -113,7 +128,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotAgentDeepLinkMetadata} BotAgentDeepLinkMetadata
+         * @returns {AICommon.BotAgentDeepLinkMetadata & AICommon.BotAgentDeepLinkMetadata.$Shape} BotAgentDeepLinkMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -157,7 +172,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotAgentDeepLinkMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotAgentDeepLinkMetadata} BotAgentDeepLinkMetadata
+         * @returns {AICommon.BotAgentDeepLinkMetadata & AICommon.BotAgentDeepLinkMetadata.$Shape} BotAgentDeepLinkMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -265,19 +280,30 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotAgentMetadata.
+         * @typedef {Object} AICommon.BotAgentMetadata.$Properties
+         * @property {AICommon.BotAgentDeepLinkMetadata.$Properties|null} [deepLinkMetadata] BotAgentMetadata deepLinkMetadata
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a BotAgentMetadata.
          * @memberof AICommon
          * @interface IBotAgentMetadata
-         * @property {AICommon.IBotAgentDeepLinkMetadata|null} [deepLinkMetadata] BotAgentMetadata deepLinkMetadata
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments AICommon.BotAgentMetadata.$Properties
+         * @deprecated Use AICommon.BotAgentMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotAgentMetadata.
+         * @typedef {AICommon.BotAgentMetadata.$Properties} AICommon.BotAgentMetadata.$Shape
          */
 
         /**
          * Constructs a new BotAgentMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotAgentMetadata.
-         * @implements IBotAgentMetadata
          * @constructor
-         * @param {AICommon.IBotAgentMetadata=} [properties] Properties to set
+         * @param {AICommon.BotAgentMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotAgentMetadata(properties) {
@@ -289,7 +315,7 @@ $root.AICommon = (function() {
 
         /**
          * BotAgentMetadata deepLinkMetadata.
-         * @member {AICommon.IBotAgentDeepLinkMetadata|null|undefined} deepLinkMetadata
+         * @member {AICommon.BotAgentDeepLinkMetadata.$Properties|null|undefined} deepLinkMetadata
          * @memberof AICommon.BotAgentMetadata
          * @instance
          */
@@ -309,8 +335,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotAgentMetadata
          * @static
-         * @param {AICommon.IBotAgentMetadata=} [properties] Properties to set
+         * @param {AICommon.BotAgentMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotAgentMetadata} BotAgentMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotAgentMetadata.$Shape): AICommon.BotAgentMetadata & AICommon.BotAgentMetadata.$Shape;
+         *   (properties?: AICommon.BotAgentMetadata.$Properties): AICommon.BotAgentMetadata;
+         * }}
          */
         BotAgentMetadata.create = function create(properties) {
             return new BotAgentMetadata(properties);
@@ -321,7 +351,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotAgentMetadata
          * @static
-         * @param {AICommon.IBotAgentMetadata} message BotAgentMetadata message or plain object to encode
+         * @param {AICommon.BotAgentMetadata.$Properties} message BotAgentMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -341,7 +371,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotAgentMetadata
          * @static
-         * @param {AICommon.IBotAgentMetadata} message BotAgentMetadata message or plain object to encode
+         * @param {AICommon.BotAgentMetadata.$Properties} message BotAgentMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -356,7 +386,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotAgentMetadata} BotAgentMetadata
+         * @returns {AICommon.BotAgentMetadata & AICommon.BotAgentMetadata.$Shape} BotAgentMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -400,7 +430,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotAgentMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotAgentMetadata} BotAgentMetadata
+         * @returns {AICommon.BotAgentMetadata & AICommon.BotAgentMetadata.$Shape} BotAgentMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -514,8 +544,7 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotInfrastructureDiagnostics.
-         * @memberof AICommon
-         * @interface IBotInfrastructureDiagnostics
+         * @typedef {Object} AICommon.BotInfrastructureDiagnostics.$Properties
          * @property {AICommon.BotInfrastructureDiagnostics.BotBackend|null} [botBackend] BotInfrastructureDiagnostics botBackend
          * @property {Array.<string>|null} [toolsUsed] BotInfrastructureDiagnostics toolsUsed
          * @property {boolean|null} [isThinking] BotInfrastructureDiagnostics isThinking
@@ -523,12 +552,24 @@ $root.AICommon = (function() {
          */
 
         /**
+         * Properties of a BotInfrastructureDiagnostics.
+         * @memberof AICommon
+         * @interface IBotInfrastructureDiagnostics
+         * @augments AICommon.BotInfrastructureDiagnostics.$Properties
+         * @deprecated Use AICommon.BotInfrastructureDiagnostics.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotInfrastructureDiagnostics.
+         * @typedef {AICommon.BotInfrastructureDiagnostics.$Properties} AICommon.BotInfrastructureDiagnostics.$Shape
+         */
+
+        /**
          * Constructs a new BotInfrastructureDiagnostics.
          * @memberof AICommon
          * @classdesc Represents a BotInfrastructureDiagnostics.
-         * @implements IBotInfrastructureDiagnostics
          * @constructor
-         * @param {AICommon.IBotInfrastructureDiagnostics=} [properties] Properties to set
+         * @param {AICommon.BotInfrastructureDiagnostics.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotInfrastructureDiagnostics(properties) {
@@ -583,8 +624,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotInfrastructureDiagnostics
          * @static
-         * @param {AICommon.IBotInfrastructureDiagnostics=} [properties] Properties to set
+         * @param {AICommon.BotInfrastructureDiagnostics.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotInfrastructureDiagnostics} BotInfrastructureDiagnostics instance
+         * @type {{
+         *   (properties: AICommon.BotInfrastructureDiagnostics.$Shape): AICommon.BotInfrastructureDiagnostics & AICommon.BotInfrastructureDiagnostics.$Shape;
+         *   (properties?: AICommon.BotInfrastructureDiagnostics.$Properties): AICommon.BotInfrastructureDiagnostics;
+         * }}
          */
         BotInfrastructureDiagnostics.create = function create(properties) {
             return new BotInfrastructureDiagnostics(properties);
@@ -595,7 +640,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotInfrastructureDiagnostics
          * @static
-         * @param {AICommon.IBotInfrastructureDiagnostics} message BotInfrastructureDiagnostics message or plain object to encode
+         * @param {AICommon.BotInfrastructureDiagnostics.$Properties} message BotInfrastructureDiagnostics message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -620,7 +665,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotInfrastructureDiagnostics
          * @static
-         * @param {AICommon.IBotInfrastructureDiagnostics} message BotInfrastructureDiagnostics message or plain object to encode
+         * @param {AICommon.BotInfrastructureDiagnostics.$Properties} message BotInfrastructureDiagnostics message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -635,7 +680,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotInfrastructureDiagnostics} BotInfrastructureDiagnostics
+         * @returns {AICommon.BotInfrastructureDiagnostics & AICommon.BotInfrastructureDiagnostics.$Shape} BotInfrastructureDiagnostics
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -694,7 +739,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotInfrastructureDiagnostics
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotInfrastructureDiagnostics} BotInfrastructureDiagnostics
+         * @returns {AICommon.BotInfrastructureDiagnostics & AICommon.BotInfrastructureDiagnostics.$Shape} BotInfrastructureDiagnostics
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -868,21 +913,32 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a AIHomeState.
+         * @typedef {Object} AICommon.AIHomeState.$Properties
+         * @property {number|Long|null} [lastFetchTime] AIHomeState lastFetchTime
+         * @property {Array.<AICommon.AIHomeState.AIHomeOption.$Properties>|null} [capabilityOptions] AIHomeState capabilityOptions
+         * @property {Array.<AICommon.AIHomeState.AIHomeOption.$Properties>|null} [conversationOptions] AIHomeState conversationOptions
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a AIHomeState.
          * @memberof AICommon
          * @interface IAIHomeState
-         * @property {number|Long|null} [lastFetchTime] AIHomeState lastFetchTime
-         * @property {Array.<AICommon.AIHomeState.IAIHomeOption>|null} [capabilityOptions] AIHomeState capabilityOptions
-         * @property {Array.<AICommon.AIHomeState.IAIHomeOption>|null} [conversationOptions] AIHomeState conversationOptions
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments AICommon.AIHomeState.$Properties
+         * @deprecated Use AICommon.AIHomeState.$Properties instead.
+         */
+
+        /**
+         * Shape of a AIHomeState.
+         * @typedef {AICommon.AIHomeState.$Properties} AICommon.AIHomeState.$Shape
          */
 
         /**
          * Constructs a new AIHomeState.
          * @memberof AICommon
          * @classdesc Represents a AIHomeState.
-         * @implements IAIHomeState
          * @constructor
-         * @param {AICommon.IAIHomeState=} [properties] Properties to set
+         * @param {AICommon.AIHomeState.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIHomeState(properties) {
@@ -904,7 +960,7 @@ $root.AICommon = (function() {
 
         /**
          * AIHomeState capabilityOptions.
-         * @member {Array.<AICommon.AIHomeState.IAIHomeOption>} capabilityOptions
+         * @member {Array.<AICommon.AIHomeState.AIHomeOption.$Properties>} capabilityOptions
          * @memberof AICommon.AIHomeState
          * @instance
          */
@@ -912,7 +968,7 @@ $root.AICommon = (function() {
 
         /**
          * AIHomeState conversationOptions.
-         * @member {Array.<AICommon.AIHomeState.IAIHomeOption>} conversationOptions
+         * @member {Array.<AICommon.AIHomeState.AIHomeOption.$Properties>} conversationOptions
          * @memberof AICommon.AIHomeState
          * @instance
          */
@@ -932,8 +988,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.AIHomeState
          * @static
-         * @param {AICommon.IAIHomeState=} [properties] Properties to set
+         * @param {AICommon.AIHomeState.$Properties=} [properties] Properties to set
          * @returns {AICommon.AIHomeState} AIHomeState instance
+         * @type {{
+         *   (properties: AICommon.AIHomeState.$Shape): AICommon.AIHomeState & AICommon.AIHomeState.$Shape;
+         *   (properties?: AICommon.AIHomeState.$Properties): AICommon.AIHomeState;
+         * }}
          */
         AIHomeState.create = function create(properties) {
             return new AIHomeState(properties);
@@ -944,7 +1004,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.AIHomeState
          * @static
-         * @param {AICommon.IAIHomeState} message AIHomeState message or plain object to encode
+         * @param {AICommon.AIHomeState.$Properties} message AIHomeState message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -970,7 +1030,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.AIHomeState
          * @static
-         * @param {AICommon.IAIHomeState} message AIHomeState message or plain object to encode
+         * @param {AICommon.AIHomeState.$Properties} message AIHomeState message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -985,7 +1045,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.AIHomeState} AIHomeState
+         * @returns {AICommon.AIHomeState & AICommon.AIHomeState.$Shape} AIHomeState
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1045,7 +1105,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.AIHomeState
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.AIHomeState} AIHomeState
+         * @returns {AICommon.AIHomeState & AICommon.AIHomeState.$Shape} AIHomeState
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1212,8 +1272,7 @@ $root.AICommon = (function() {
 
             /**
              * Properties of a AIHomeOption.
-             * @memberof AICommon.AIHomeState
-             * @interface IAIHomeOption
+             * @typedef {Object} AICommon.AIHomeState.AIHomeOption.$Properties
              * @property {AICommon.AIHomeState.AIHomeOption.AIHomeActionType|null} [type] AIHomeOption type
              * @property {string|null} [title] AIHomeOption title
              * @property {string|null} [promptText] AIHomeOption promptText
@@ -1226,12 +1285,24 @@ $root.AICommon = (function() {
              */
 
             /**
+             * Properties of a AIHomeOption.
+             * @memberof AICommon.AIHomeState
+             * @interface IAIHomeOption
+             * @augments AICommon.AIHomeState.AIHomeOption.$Properties
+             * @deprecated Use AICommon.AIHomeState.AIHomeOption.$Properties instead.
+             */
+
+            /**
+             * Shape of a AIHomeOption.
+             * @typedef {AICommon.AIHomeState.AIHomeOption.$Properties} AICommon.AIHomeState.AIHomeOption.$Shape
+             */
+
+            /**
              * Constructs a new AIHomeOption.
              * @memberof AICommon.AIHomeState
              * @classdesc Represents a AIHomeOption.
-             * @implements IAIHomeOption
              * @constructor
-             * @param {AICommon.AIHomeState.IAIHomeOption=} [properties] Properties to set
+             * @param {AICommon.AIHomeState.AIHomeOption.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AIHomeOption(properties) {
@@ -1361,8 +1432,12 @@ $root.AICommon = (function() {
              * @function create
              * @memberof AICommon.AIHomeState.AIHomeOption
              * @static
-             * @param {AICommon.AIHomeState.IAIHomeOption=} [properties] Properties to set
+             * @param {AICommon.AIHomeState.AIHomeOption.$Properties=} [properties] Properties to set
              * @returns {AICommon.AIHomeState.AIHomeOption} AIHomeOption instance
+             * @type {{
+             *   (properties: AICommon.AIHomeState.AIHomeOption.$Shape): AICommon.AIHomeState.AIHomeOption & AICommon.AIHomeState.AIHomeOption.$Shape;
+             *   (properties?: AICommon.AIHomeState.AIHomeOption.$Properties): AICommon.AIHomeState.AIHomeOption;
+             * }}
              */
             AIHomeOption.create = function create(properties) {
                 return new AIHomeOption(properties);
@@ -1373,7 +1448,7 @@ $root.AICommon = (function() {
              * @function encode
              * @memberof AICommon.AIHomeState.AIHomeOption
              * @static
-             * @param {AICommon.AIHomeState.IAIHomeOption} message AIHomeOption message or plain object to encode
+             * @param {AICommon.AIHomeState.AIHomeOption.$Properties} message AIHomeOption message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -1407,7 +1482,7 @@ $root.AICommon = (function() {
              * @function encodeDelimited
              * @memberof AICommon.AIHomeState.AIHomeOption
              * @static
-             * @param {AICommon.AIHomeState.IAIHomeOption} message AIHomeOption message or plain object to encode
+             * @param {AICommon.AIHomeState.AIHomeOption.$Properties} message AIHomeOption message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -1422,7 +1497,7 @@ $root.AICommon = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {AICommon.AIHomeState.AIHomeOption} AIHomeOption
+             * @returns {AICommon.AIHomeState.AIHomeOption & AICommon.AIHomeState.AIHomeOption.$Shape} AIHomeOption
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -1515,7 +1590,7 @@ $root.AICommon = (function() {
              * @memberof AICommon.AIHomeState.AIHomeOption
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {AICommon.AIHomeState.AIHomeOption} AIHomeOption
+             * @returns {AICommon.AIHomeState.AIHomeOption & AICommon.AIHomeState.AIHomeOption.$Shape} AIHomeOption
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -1771,19 +1846,30 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotDocumentMessageMetadata.
-         * @memberof AICommon
-         * @interface IBotDocumentMessageMetadata
+         * @typedef {Object} AICommon.BotDocumentMessageMetadata.$Properties
          * @property {AICommon.BotDocumentMessageMetadata.DocumentPluginType|null} [pluginType] BotDocumentMessageMetadata pluginType
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a BotDocumentMessageMetadata.
+         * @memberof AICommon
+         * @interface IBotDocumentMessageMetadata
+         * @augments AICommon.BotDocumentMessageMetadata.$Properties
+         * @deprecated Use AICommon.BotDocumentMessageMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotDocumentMessageMetadata.
+         * @typedef {AICommon.BotDocumentMessageMetadata.$Properties} AICommon.BotDocumentMessageMetadata.$Shape
          */
 
         /**
          * Constructs a new BotDocumentMessageMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotDocumentMessageMetadata.
-         * @implements IBotDocumentMessageMetadata
          * @constructor
-         * @param {AICommon.IBotDocumentMessageMetadata=} [properties] Properties to set
+         * @param {AICommon.BotDocumentMessageMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotDocumentMessageMetadata(properties) {
@@ -1815,8 +1901,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotDocumentMessageMetadata
          * @static
-         * @param {AICommon.IBotDocumentMessageMetadata=} [properties] Properties to set
+         * @param {AICommon.BotDocumentMessageMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotDocumentMessageMetadata} BotDocumentMessageMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotDocumentMessageMetadata.$Shape): AICommon.BotDocumentMessageMetadata & AICommon.BotDocumentMessageMetadata.$Shape;
+         *   (properties?: AICommon.BotDocumentMessageMetadata.$Properties): AICommon.BotDocumentMessageMetadata;
+         * }}
          */
         BotDocumentMessageMetadata.create = function create(properties) {
             return new BotDocumentMessageMetadata(properties);
@@ -1827,7 +1917,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotDocumentMessageMetadata
          * @static
-         * @param {AICommon.IBotDocumentMessageMetadata} message BotDocumentMessageMetadata message or plain object to encode
+         * @param {AICommon.BotDocumentMessageMetadata.$Properties} message BotDocumentMessageMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1847,7 +1937,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotDocumentMessageMetadata
          * @static
-         * @param {AICommon.IBotDocumentMessageMetadata} message BotDocumentMessageMetadata message or plain object to encode
+         * @param {AICommon.BotDocumentMessageMetadata.$Properties} message BotDocumentMessageMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1862,7 +1952,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotDocumentMessageMetadata} BotDocumentMessageMetadata
+         * @returns {AICommon.BotDocumentMessageMetadata & AICommon.BotDocumentMessageMetadata.$Shape} BotDocumentMessageMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1906,7 +1996,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotDocumentMessageMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotDocumentMessageMetadata} BotDocumentMessageMetadata
+         * @returns {AICommon.BotDocumentMessageMetadata & AICommon.BotDocumentMessageMetadata.$Shape} BotDocumentMessageMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2047,8 +2137,7 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a SessionTransparencyMetadata.
-         * @memberof AICommon
-         * @interface ISessionTransparencyMetadata
+         * @typedef {Object} AICommon.SessionTransparencyMetadata.$Properties
          * @property {string|null} [disclaimerText] SessionTransparencyMetadata disclaimerText
          * @property {string|null} [hcaId] SessionTransparencyMetadata hcaId
          * @property {AICommon.SessionTransparencyType|null} [sessionTransparencyType] SessionTransparencyMetadata sessionTransparencyType
@@ -2056,12 +2145,24 @@ $root.AICommon = (function() {
          */
 
         /**
+         * Properties of a SessionTransparencyMetadata.
+         * @memberof AICommon
+         * @interface ISessionTransparencyMetadata
+         * @augments AICommon.SessionTransparencyMetadata.$Properties
+         * @deprecated Use AICommon.SessionTransparencyMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a SessionTransparencyMetadata.
+         * @typedef {AICommon.SessionTransparencyMetadata.$Properties} AICommon.SessionTransparencyMetadata.$Shape
+         */
+
+        /**
          * Constructs a new SessionTransparencyMetadata.
          * @memberof AICommon
          * @classdesc Represents a SessionTransparencyMetadata.
-         * @implements ISessionTransparencyMetadata
          * @constructor
-         * @param {AICommon.ISessionTransparencyMetadata=} [properties] Properties to set
+         * @param {AICommon.SessionTransparencyMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SessionTransparencyMetadata(properties) {
@@ -2121,8 +2222,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.SessionTransparencyMetadata
          * @static
-         * @param {AICommon.ISessionTransparencyMetadata=} [properties] Properties to set
+         * @param {AICommon.SessionTransparencyMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.SessionTransparencyMetadata} SessionTransparencyMetadata instance
+         * @type {{
+         *   (properties: AICommon.SessionTransparencyMetadata.$Shape): AICommon.SessionTransparencyMetadata & AICommon.SessionTransparencyMetadata.$Shape;
+         *   (properties?: AICommon.SessionTransparencyMetadata.$Properties): AICommon.SessionTransparencyMetadata;
+         * }}
          */
         SessionTransparencyMetadata.create = function create(properties) {
             return new SessionTransparencyMetadata(properties);
@@ -2133,7 +2238,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.SessionTransparencyMetadata
          * @static
-         * @param {AICommon.ISessionTransparencyMetadata} message SessionTransparencyMetadata message or plain object to encode
+         * @param {AICommon.SessionTransparencyMetadata.$Properties} message SessionTransparencyMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2157,7 +2262,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.SessionTransparencyMetadata
          * @static
-         * @param {AICommon.ISessionTransparencyMetadata} message SessionTransparencyMetadata message or plain object to encode
+         * @param {AICommon.SessionTransparencyMetadata.$Properties} message SessionTransparencyMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2172,7 +2277,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.SessionTransparencyMetadata} SessionTransparencyMetadata
+         * @returns {AICommon.SessionTransparencyMetadata & AICommon.SessionTransparencyMetadata.$Shape} SessionTransparencyMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2230,7 +2335,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.SessionTransparencyMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.SessionTransparencyMetadata} SessionTransparencyMetadata
+         * @returns {AICommon.SessionTransparencyMetadata & AICommon.SessionTransparencyMetadata.$Shape} SessionTransparencyMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2381,20 +2486,31 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a AIRegenerateMetadata.
-         * @memberof AICommon
-         * @interface IAIRegenerateMetadata
-         * @property {Protocol.IMessageKey|null} [messageKey] AIRegenerateMetadata messageKey
+         * @typedef {Object} AICommon.AIRegenerateMetadata.$Properties
+         * @property {Protocol.MessageKey.$Properties|null} [messageKey] AIRegenerateMetadata messageKey
          * @property {number|Long|null} [responseTimestampMs] AIRegenerateMetadata responseTimestampMs
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a AIRegenerateMetadata.
+         * @memberof AICommon
+         * @interface IAIRegenerateMetadata
+         * @augments AICommon.AIRegenerateMetadata.$Properties
+         * @deprecated Use AICommon.AIRegenerateMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a AIRegenerateMetadata.
+         * @typedef {AICommon.AIRegenerateMetadata.$Properties} AICommon.AIRegenerateMetadata.$Shape
          */
 
         /**
          * Constructs a new AIRegenerateMetadata.
          * @memberof AICommon
          * @classdesc Represents a AIRegenerateMetadata.
-         * @implements IAIRegenerateMetadata
          * @constructor
-         * @param {AICommon.IAIRegenerateMetadata=} [properties] Properties to set
+         * @param {AICommon.AIRegenerateMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIRegenerateMetadata(properties) {
@@ -2406,7 +2522,7 @@ $root.AICommon = (function() {
 
         /**
          * AIRegenerateMetadata messageKey.
-         * @member {Protocol.IMessageKey|null|undefined} messageKey
+         * @member {Protocol.MessageKey.$Properties|null|undefined} messageKey
          * @memberof AICommon.AIRegenerateMetadata
          * @instance
          */
@@ -2440,8 +2556,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.AIRegenerateMetadata
          * @static
-         * @param {AICommon.IAIRegenerateMetadata=} [properties] Properties to set
+         * @param {AICommon.AIRegenerateMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.AIRegenerateMetadata} AIRegenerateMetadata instance
+         * @type {{
+         *   (properties: AICommon.AIRegenerateMetadata.$Shape): AICommon.AIRegenerateMetadata & AICommon.AIRegenerateMetadata.$Shape;
+         *   (properties?: AICommon.AIRegenerateMetadata.$Properties): AICommon.AIRegenerateMetadata;
+         * }}
          */
         AIRegenerateMetadata.create = function create(properties) {
             return new AIRegenerateMetadata(properties);
@@ -2452,7 +2572,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.AIRegenerateMetadata
          * @static
-         * @param {AICommon.IAIRegenerateMetadata} message AIRegenerateMetadata message or plain object to encode
+         * @param {AICommon.AIRegenerateMetadata.$Properties} message AIRegenerateMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2474,7 +2594,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.AIRegenerateMetadata
          * @static
-         * @param {AICommon.IAIRegenerateMetadata} message AIRegenerateMetadata message or plain object to encode
+         * @param {AICommon.AIRegenerateMetadata.$Properties} message AIRegenerateMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2489,7 +2609,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.AIRegenerateMetadata} AIRegenerateMetadata
+         * @returns {AICommon.AIRegenerateMetadata & AICommon.AIRegenerateMetadata.$Shape} AIRegenerateMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2540,7 +2660,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.AIRegenerateMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.AIRegenerateMetadata} AIRegenerateMetadata
+         * @returns {AICommon.AIRegenerateMetadata & AICommon.AIRegenerateMetadata.$Shape} AIRegenerateMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2676,19 +2796,30 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a AIRichResponseUnifiedResponse.
-         * @memberof AICommon
-         * @interface IAIRichResponseUnifiedResponse
+         * @typedef {Object} AICommon.AIRichResponseUnifiedResponse.$Properties
          * @property {Uint8Array|null} [data] AIRichResponseUnifiedResponse data
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a AIRichResponseUnifiedResponse.
+         * @memberof AICommon
+         * @interface IAIRichResponseUnifiedResponse
+         * @augments AICommon.AIRichResponseUnifiedResponse.$Properties
+         * @deprecated Use AICommon.AIRichResponseUnifiedResponse.$Properties instead.
+         */
+
+        /**
+         * Shape of a AIRichResponseUnifiedResponse.
+         * @typedef {AICommon.AIRichResponseUnifiedResponse.$Properties} AICommon.AIRichResponseUnifiedResponse.$Shape
          */
 
         /**
          * Constructs a new AIRichResponseUnifiedResponse.
          * @memberof AICommon
          * @classdesc Represents a AIRichResponseUnifiedResponse.
-         * @implements IAIRichResponseUnifiedResponse
          * @constructor
-         * @param {AICommon.IAIRichResponseUnifiedResponse=} [properties] Properties to set
+         * @param {AICommon.AIRichResponseUnifiedResponse.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIRichResponseUnifiedResponse(properties) {
@@ -2720,8 +2851,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.AIRichResponseUnifiedResponse
          * @static
-         * @param {AICommon.IAIRichResponseUnifiedResponse=} [properties] Properties to set
+         * @param {AICommon.AIRichResponseUnifiedResponse.$Properties=} [properties] Properties to set
          * @returns {AICommon.AIRichResponseUnifiedResponse} AIRichResponseUnifiedResponse instance
+         * @type {{
+         *   (properties: AICommon.AIRichResponseUnifiedResponse.$Shape): AICommon.AIRichResponseUnifiedResponse & AICommon.AIRichResponseUnifiedResponse.$Shape;
+         *   (properties?: AICommon.AIRichResponseUnifiedResponse.$Properties): AICommon.AIRichResponseUnifiedResponse;
+         * }}
          */
         AIRichResponseUnifiedResponse.create = function create(properties) {
             return new AIRichResponseUnifiedResponse(properties);
@@ -2732,7 +2867,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.AIRichResponseUnifiedResponse
          * @static
-         * @param {AICommon.IAIRichResponseUnifiedResponse} message AIRichResponseUnifiedResponse message or plain object to encode
+         * @param {AICommon.AIRichResponseUnifiedResponse.$Properties} message AIRichResponseUnifiedResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2752,7 +2887,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.AIRichResponseUnifiedResponse
          * @static
-         * @param {AICommon.IAIRichResponseUnifiedResponse} message AIRichResponseUnifiedResponse message or plain object to encode
+         * @param {AICommon.AIRichResponseUnifiedResponse.$Properties} message AIRichResponseUnifiedResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2767,7 +2902,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.AIRichResponseUnifiedResponse} AIRichResponseUnifiedResponse
+         * @returns {AICommon.AIRichResponseUnifiedResponse & AICommon.AIRichResponseUnifiedResponse.$Shape} AIRichResponseUnifiedResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2811,7 +2946,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.AIRichResponseUnifiedResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.AIRichResponseUnifiedResponse} AIRichResponseUnifiedResponse
+         * @returns {AICommon.AIRichResponseUnifiedResponse & AICommon.AIRichResponseUnifiedResponse.$Shape} AIRichResponseUnifiedResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2922,20 +3057,31 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotMessageSharingInfo.
-         * @memberof AICommon
-         * @interface IBotMessageSharingInfo
+         * @typedef {Object} AICommon.BotMessageSharingInfo.$Properties
          * @property {AICommon.BotMetricsEntryPoint|null} [botEntryPointOrigin] BotMessageSharingInfo botEntryPointOrigin
          * @property {number|null} [forwardScore] BotMessageSharingInfo forwardScore
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
+         * Properties of a BotMessageSharingInfo.
+         * @memberof AICommon
+         * @interface IBotMessageSharingInfo
+         * @augments AICommon.BotMessageSharingInfo.$Properties
+         * @deprecated Use AICommon.BotMessageSharingInfo.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotMessageSharingInfo.
+         * @typedef {AICommon.BotMessageSharingInfo.$Properties} AICommon.BotMessageSharingInfo.$Shape
+         */
+
+        /**
          * Constructs a new BotMessageSharingInfo.
          * @memberof AICommon
          * @classdesc Represents a BotMessageSharingInfo.
-         * @implements IBotMessageSharingInfo
          * @constructor
-         * @param {AICommon.IBotMessageSharingInfo=} [properties] Properties to set
+         * @param {AICommon.BotMessageSharingInfo.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotMessageSharingInfo(properties) {
@@ -2981,8 +3127,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotMessageSharingInfo
          * @static
-         * @param {AICommon.IBotMessageSharingInfo=} [properties] Properties to set
+         * @param {AICommon.BotMessageSharingInfo.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotMessageSharingInfo} BotMessageSharingInfo instance
+         * @type {{
+         *   (properties: AICommon.BotMessageSharingInfo.$Shape): AICommon.BotMessageSharingInfo & AICommon.BotMessageSharingInfo.$Shape;
+         *   (properties?: AICommon.BotMessageSharingInfo.$Properties): AICommon.BotMessageSharingInfo;
+         * }}
          */
         BotMessageSharingInfo.create = function create(properties) {
             return new BotMessageSharingInfo(properties);
@@ -2993,7 +3143,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotMessageSharingInfo
          * @static
-         * @param {AICommon.IBotMessageSharingInfo} message BotMessageSharingInfo message or plain object to encode
+         * @param {AICommon.BotMessageSharingInfo.$Properties} message BotMessageSharingInfo message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3015,7 +3165,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotMessageSharingInfo
          * @static
-         * @param {AICommon.IBotMessageSharingInfo} message BotMessageSharingInfo message or plain object to encode
+         * @param {AICommon.BotMessageSharingInfo.$Properties} message BotMessageSharingInfo message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3030,7 +3180,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotMessageSharingInfo} BotMessageSharingInfo
+         * @returns {AICommon.BotMessageSharingInfo & AICommon.BotMessageSharingInfo.$Shape} BotMessageSharingInfo
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -3081,7 +3231,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotMessageSharingInfo
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotMessageSharingInfo} BotMessageSharingInfo
+         * @returns {AICommon.BotMessageSharingInfo & AICommon.BotMessageSharingInfo.$Shape} BotMessageSharingInfo
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -3450,8 +3600,7 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a ForwardedAIBotMessageInfo.
-         * @memberof AICommon
-         * @interface IForwardedAIBotMessageInfo
+         * @typedef {Object} AICommon.ForwardedAIBotMessageInfo.$Properties
          * @property {string|null} [botName] ForwardedAIBotMessageInfo botName
          * @property {string|null} [botJid] ForwardedAIBotMessageInfo botJid
          * @property {string|null} [creatorName] ForwardedAIBotMessageInfo creatorName
@@ -3459,12 +3608,24 @@ $root.AICommon = (function() {
          */
 
         /**
+         * Properties of a ForwardedAIBotMessageInfo.
+         * @memberof AICommon
+         * @interface IForwardedAIBotMessageInfo
+         * @augments AICommon.ForwardedAIBotMessageInfo.$Properties
+         * @deprecated Use AICommon.ForwardedAIBotMessageInfo.$Properties instead.
+         */
+
+        /**
+         * Shape of a ForwardedAIBotMessageInfo.
+         * @typedef {AICommon.ForwardedAIBotMessageInfo.$Properties} AICommon.ForwardedAIBotMessageInfo.$Shape
+         */
+
+        /**
          * Constructs a new ForwardedAIBotMessageInfo.
          * @memberof AICommon
          * @classdesc Represents a ForwardedAIBotMessageInfo.
-         * @implements IForwardedAIBotMessageInfo
          * @constructor
-         * @param {AICommon.IForwardedAIBotMessageInfo=} [properties] Properties to set
+         * @param {AICommon.ForwardedAIBotMessageInfo.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function ForwardedAIBotMessageInfo(properties) {
@@ -3524,8 +3685,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.ForwardedAIBotMessageInfo
          * @static
-         * @param {AICommon.IForwardedAIBotMessageInfo=} [properties] Properties to set
+         * @param {AICommon.ForwardedAIBotMessageInfo.$Properties=} [properties] Properties to set
          * @returns {AICommon.ForwardedAIBotMessageInfo} ForwardedAIBotMessageInfo instance
+         * @type {{
+         *   (properties: AICommon.ForwardedAIBotMessageInfo.$Shape): AICommon.ForwardedAIBotMessageInfo & AICommon.ForwardedAIBotMessageInfo.$Shape;
+         *   (properties?: AICommon.ForwardedAIBotMessageInfo.$Properties): AICommon.ForwardedAIBotMessageInfo;
+         * }}
          */
         ForwardedAIBotMessageInfo.create = function create(properties) {
             return new ForwardedAIBotMessageInfo(properties);
@@ -3536,7 +3701,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.ForwardedAIBotMessageInfo
          * @static
-         * @param {AICommon.IForwardedAIBotMessageInfo} message ForwardedAIBotMessageInfo message or plain object to encode
+         * @param {AICommon.ForwardedAIBotMessageInfo.$Properties} message ForwardedAIBotMessageInfo message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3560,7 +3725,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.ForwardedAIBotMessageInfo
          * @static
-         * @param {AICommon.IForwardedAIBotMessageInfo} message ForwardedAIBotMessageInfo message or plain object to encode
+         * @param {AICommon.ForwardedAIBotMessageInfo.$Properties} message ForwardedAIBotMessageInfo message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3575,7 +3740,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.ForwardedAIBotMessageInfo} ForwardedAIBotMessageInfo
+         * @returns {AICommon.ForwardedAIBotMessageInfo & AICommon.ForwardedAIBotMessageInfo.$Shape} ForwardedAIBotMessageInfo
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -3633,7 +3798,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.ForwardedAIBotMessageInfo
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.ForwardedAIBotMessageInfo} ForwardedAIBotMessageInfo
+         * @returns {AICommon.ForwardedAIBotMessageInfo & AICommon.ForwardedAIBotMessageInfo.$Shape} ForwardedAIBotMessageInfo
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -3765,25 +3930,36 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotFeedbackMessage.
-         * @memberof AICommon
-         * @interface IBotFeedbackMessage
-         * @property {Protocol.IMessageKey|null} [messageKey] BotFeedbackMessage messageKey
+         * @typedef {Object} AICommon.BotFeedbackMessage.$Properties
+         * @property {Protocol.MessageKey.$Properties|null} [messageKey] BotFeedbackMessage messageKey
          * @property {AICommon.BotFeedbackMessage.BotFeedbackKind|null} [kind] BotFeedbackMessage kind
          * @property {string|null} [text] BotFeedbackMessage text
          * @property {number|Long|null} [kindNegative] BotFeedbackMessage kindNegative
          * @property {number|Long|null} [kindPositive] BotFeedbackMessage kindPositive
          * @property {AICommon.BotFeedbackMessage.ReportKind|null} [kindReport] BotFeedbackMessage kindReport
-         * @property {AICommon.BotFeedbackMessage.ISideBySideSurveyMetadata|null} [sideBySideSurveyMetadata] BotFeedbackMessage sideBySideSurveyMetadata
+         * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.$Properties|null} [sideBySideSurveyMetadata] BotFeedbackMessage sideBySideSurveyMetadata
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a BotFeedbackMessage.
+         * @memberof AICommon
+         * @interface IBotFeedbackMessage
+         * @augments AICommon.BotFeedbackMessage.$Properties
+         * @deprecated Use AICommon.BotFeedbackMessage.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotFeedbackMessage.
+         * @typedef {AICommon.BotFeedbackMessage.$Properties} AICommon.BotFeedbackMessage.$Shape
          */
 
         /**
          * Constructs a new BotFeedbackMessage.
          * @memberof AICommon
          * @classdesc Represents a BotFeedbackMessage.
-         * @implements IBotFeedbackMessage
          * @constructor
-         * @param {AICommon.IBotFeedbackMessage=} [properties] Properties to set
+         * @param {AICommon.BotFeedbackMessage.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotFeedbackMessage(properties) {
@@ -3795,7 +3971,7 @@ $root.AICommon = (function() {
 
         /**
          * BotFeedbackMessage messageKey.
-         * @member {Protocol.IMessageKey|null|undefined} messageKey
+         * @member {Protocol.MessageKey.$Properties|null|undefined} messageKey
          * @memberof AICommon.BotFeedbackMessage
          * @instance
          */
@@ -3843,7 +4019,7 @@ $root.AICommon = (function() {
 
         /**
          * BotFeedbackMessage sideBySideSurveyMetadata.
-         * @member {AICommon.BotFeedbackMessage.ISideBySideSurveyMetadata|null|undefined} sideBySideSurveyMetadata
+         * @member {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.$Properties|null|undefined} sideBySideSurveyMetadata
          * @memberof AICommon.BotFeedbackMessage
          * @instance
          */
@@ -3899,8 +4075,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotFeedbackMessage
          * @static
-         * @param {AICommon.IBotFeedbackMessage=} [properties] Properties to set
+         * @param {AICommon.BotFeedbackMessage.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotFeedbackMessage} BotFeedbackMessage instance
+         * @type {{
+         *   (properties: AICommon.BotFeedbackMessage.$Shape): AICommon.BotFeedbackMessage & AICommon.BotFeedbackMessage.$Shape;
+         *   (properties?: AICommon.BotFeedbackMessage.$Properties): AICommon.BotFeedbackMessage;
+         * }}
          */
         BotFeedbackMessage.create = function create(properties) {
             return new BotFeedbackMessage(properties);
@@ -3911,7 +4091,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotFeedbackMessage
          * @static
-         * @param {AICommon.IBotFeedbackMessage} message BotFeedbackMessage message or plain object to encode
+         * @param {AICommon.BotFeedbackMessage.$Properties} message BotFeedbackMessage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3943,7 +4123,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotFeedbackMessage
          * @static
-         * @param {AICommon.IBotFeedbackMessage} message BotFeedbackMessage message or plain object to encode
+         * @param {AICommon.BotFeedbackMessage.$Properties} message BotFeedbackMessage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3958,7 +4138,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotFeedbackMessage} BotFeedbackMessage
+         * @returns {AICommon.BotFeedbackMessage & AICommon.BotFeedbackMessage.$Shape} BotFeedbackMessage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -4044,7 +4224,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotFeedbackMessage
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotFeedbackMessage} BotFeedbackMessage
+         * @returns {AICommon.BotFeedbackMessage & AICommon.BotFeedbackMessage.$Shape} BotFeedbackMessage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -4450,8 +4630,7 @@ $root.AICommon = (function() {
 
             /**
              * Properties of a SideBySideSurveyMetadata.
-             * @memberof AICommon.BotFeedbackMessage
-             * @interface ISideBySideSurveyMetadata
+             * @typedef {Object} AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.$Properties
              * @property {string|null} [selectedRequestId] SideBySideSurveyMetadata selectedRequestId
              * @property {number|null} [surveyId] SideBySideSurveyMetadata surveyId
              * @property {string|null} [simonSessionFbid] SideBySideSurveyMetadata simonSessionFbid
@@ -4459,18 +4638,30 @@ $root.AICommon = (function() {
              * @property {string|null} [responseTimestampMsString] SideBySideSurveyMetadata responseTimestampMsString
              * @property {boolean|null} [isSelectedResponsePrimary] SideBySideSurveyMetadata isSelectedResponsePrimary
              * @property {string|null} [messageIdToEdit] SideBySideSurveyMetadata messageIdToEdit
-             * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.ISideBySideSurveyAnalyticsData|null} [analyticsData] SideBySideSurveyMetadata analyticsData
-             * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.ISidebySideSurveyMetaAiAnalyticsData|null} [metaAiAnalyticsData] SideBySideSurveyMetadata metaAiAnalyticsData
+             * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.$Properties|null} [analyticsData] SideBySideSurveyMetadata analyticsData
+             * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.$Properties|null} [metaAiAnalyticsData] SideBySideSurveyMetadata metaAiAnalyticsData
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a SideBySideSurveyMetadata.
+             * @memberof AICommon.BotFeedbackMessage
+             * @interface ISideBySideSurveyMetadata
+             * @augments AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.$Properties
+             * @deprecated Use AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.$Properties instead.
+             */
+
+            /**
+             * Shape of a SideBySideSurveyMetadata.
+             * @typedef {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.$Properties} AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.$Shape
              */
 
             /**
              * Constructs a new SideBySideSurveyMetadata.
              * @memberof AICommon.BotFeedbackMessage
              * @classdesc Represents a SideBySideSurveyMetadata.
-             * @implements ISideBySideSurveyMetadata
              * @constructor
-             * @param {AICommon.BotFeedbackMessage.ISideBySideSurveyMetadata=} [properties] Properties to set
+             * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function SideBySideSurveyMetadata(properties) {
@@ -4538,7 +4729,7 @@ $root.AICommon = (function() {
 
             /**
              * SideBySideSurveyMetadata analyticsData.
-             * @member {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.ISideBySideSurveyAnalyticsData|null|undefined} analyticsData
+             * @member {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.$Properties|null|undefined} analyticsData
              * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata
              * @instance
              */
@@ -4546,7 +4737,7 @@ $root.AICommon = (function() {
 
             /**
              * SideBySideSurveyMetadata metaAiAnalyticsData.
-             * @member {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.ISidebySideSurveyMetaAiAnalyticsData|null|undefined} metaAiAnalyticsData
+             * @member {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.$Properties|null|undefined} metaAiAnalyticsData
              * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata
              * @instance
              */
@@ -4614,8 +4805,12 @@ $root.AICommon = (function() {
              * @function create
              * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata
              * @static
-             * @param {AICommon.BotFeedbackMessage.ISideBySideSurveyMetadata=} [properties] Properties to set
+             * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.$Properties=} [properties] Properties to set
              * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata} SideBySideSurveyMetadata instance
+             * @type {{
+             *   (properties: AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.$Shape): AICommon.BotFeedbackMessage.SideBySideSurveyMetadata & AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.$Shape;
+             *   (properties?: AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.$Properties): AICommon.BotFeedbackMessage.SideBySideSurveyMetadata;
+             * }}
              */
             SideBySideSurveyMetadata.create = function create(properties) {
                 return new SideBySideSurveyMetadata(properties);
@@ -4626,7 +4821,7 @@ $root.AICommon = (function() {
              * @function encode
              * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata
              * @static
-             * @param {AICommon.BotFeedbackMessage.ISideBySideSurveyMetadata} message SideBySideSurveyMetadata message or plain object to encode
+             * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.$Properties} message SideBySideSurveyMetadata message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -4662,7 +4857,7 @@ $root.AICommon = (function() {
              * @function encodeDelimited
              * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata
              * @static
-             * @param {AICommon.BotFeedbackMessage.ISideBySideSurveyMetadata} message SideBySideSurveyMetadata message or plain object to encode
+             * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.$Properties} message SideBySideSurveyMetadata message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -4677,7 +4872,7 @@ $root.AICommon = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata} SideBySideSurveyMetadata
+             * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata & AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.$Shape} SideBySideSurveyMetadata
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -4777,7 +4972,7 @@ $root.AICommon = (function() {
              * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata} SideBySideSurveyMetadata
+             * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata & AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.$Shape} SideBySideSurveyMetadata
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -4990,8 +5185,7 @@ $root.AICommon = (function() {
 
                 /**
                  * Properties of a SideBySideSurveyAnalyticsData.
-                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata
-                 * @interface ISideBySideSurveyAnalyticsData
+                 * @typedef {Object} AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.$Properties
                  * @property {string|null} [tessaEvent] SideBySideSurveyAnalyticsData tessaEvent
                  * @property {string|null} [tessaSessionFbid] SideBySideSurveyAnalyticsData tessaSessionFbid
                  * @property {string|null} [simonSessionFbid] SideBySideSurveyAnalyticsData simonSessionFbid
@@ -4999,12 +5193,24 @@ $root.AICommon = (function() {
                  */
 
                 /**
+                 * Properties of a SideBySideSurveyAnalyticsData.
+                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata
+                 * @interface ISideBySideSurveyAnalyticsData
+                 * @augments AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.$Properties
+                 * @deprecated Use AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.$Properties instead.
+                 */
+
+                /**
+                 * Shape of a SideBySideSurveyAnalyticsData.
+                 * @typedef {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.$Properties} AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.$Shape
+                 */
+
+                /**
                  * Constructs a new SideBySideSurveyAnalyticsData.
                  * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata
                  * @classdesc Represents a SideBySideSurveyAnalyticsData.
-                 * @implements ISideBySideSurveyAnalyticsData
                  * @constructor
-                 * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.ISideBySideSurveyAnalyticsData=} [properties] Properties to set
+                 * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.$Properties=} [properties] Properties to set
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function SideBySideSurveyAnalyticsData(properties) {
@@ -5064,8 +5270,12 @@ $root.AICommon = (function() {
                  * @function create
                  * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData
                  * @static
-                 * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.ISideBySideSurveyAnalyticsData=} [properties] Properties to set
+                 * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.$Properties=} [properties] Properties to set
                  * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData} SideBySideSurveyAnalyticsData instance
+                 * @type {{
+                 *   (properties: AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.$Shape): AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData & AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.$Shape;
+                 *   (properties?: AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.$Properties): AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData;
+                 * }}
                  */
                 SideBySideSurveyAnalyticsData.create = function create(properties) {
                     return new SideBySideSurveyAnalyticsData(properties);
@@ -5076,7 +5286,7 @@ $root.AICommon = (function() {
                  * @function encode
                  * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData
                  * @static
-                 * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.ISideBySideSurveyAnalyticsData} message SideBySideSurveyAnalyticsData message or plain object to encode
+                 * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.$Properties} message SideBySideSurveyAnalyticsData message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -5100,7 +5310,7 @@ $root.AICommon = (function() {
                  * @function encodeDelimited
                  * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData
                  * @static
-                 * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.ISideBySideSurveyAnalyticsData} message SideBySideSurveyAnalyticsData message or plain object to encode
+                 * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.$Properties} message SideBySideSurveyAnalyticsData message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -5115,7 +5325,7 @@ $root.AICommon = (function() {
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                  * @param {number} [length] Message length if known beforehand
-                 * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData} SideBySideSurveyAnalyticsData
+                 * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData & AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.$Shape} SideBySideSurveyAnalyticsData
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -5173,7 +5383,7 @@ $root.AICommon = (function() {
                  * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData} SideBySideSurveyAnalyticsData
+                 * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData & AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.$Shape} SideBySideSurveyAnalyticsData
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -5305,27 +5515,38 @@ $root.AICommon = (function() {
 
                 /**
                  * Properties of a SidebySideSurveyMetaAiAnalyticsData.
-                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata
-                 * @interface ISidebySideSurveyMetaAiAnalyticsData
+                 * @typedef {Object} AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.$Properties
                  * @property {number|null} [surveyId] SidebySideSurveyMetaAiAnalyticsData surveyId
                  * @property {string|null} [primaryResponseId] SidebySideSurveyMetaAiAnalyticsData primaryResponseId
                  * @property {string|null} [testArmName] SidebySideSurveyMetaAiAnalyticsData testArmName
                  * @property {string|null} [timestampMsString] SidebySideSurveyMetaAiAnalyticsData timestampMsString
-                 * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCTAImpressionEventData|null} [ctaImpressionEvent] SidebySideSurveyMetaAiAnalyticsData ctaImpressionEvent
-                 * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCTAClickEventData|null} [ctaClickEvent] SidebySideSurveyMetaAiAnalyticsData ctaClickEvent
-                 * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCardImpressionEventData|null} [cardImpressionEvent] SidebySideSurveyMetaAiAnalyticsData cardImpressionEvent
-                 * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyResponseEventData|null} [responseEvent] SidebySideSurveyMetaAiAnalyticsData responseEvent
-                 * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyAbandonEventData|null} [abandonEvent] SidebySideSurveyMetaAiAnalyticsData abandonEvent
+                 * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.$Properties|null} [ctaImpressionEvent] SidebySideSurveyMetaAiAnalyticsData ctaImpressionEvent
+                 * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.$Properties|null} [ctaClickEvent] SidebySideSurveyMetaAiAnalyticsData ctaClickEvent
+                 * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.$Properties|null} [cardImpressionEvent] SidebySideSurveyMetaAiAnalyticsData cardImpressionEvent
+                 * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.$Properties|null} [responseEvent] SidebySideSurveyMetaAiAnalyticsData responseEvent
+                 * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.$Properties|null} [abandonEvent] SidebySideSurveyMetaAiAnalyticsData abandonEvent
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 */
+
+                /**
+                 * Properties of a SidebySideSurveyMetaAiAnalyticsData.
+                 * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata
+                 * @interface ISidebySideSurveyMetaAiAnalyticsData
+                 * @augments AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.$Properties
+                 * @deprecated Use AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.$Properties instead.
+                 */
+
+                /**
+                 * Shape of a SidebySideSurveyMetaAiAnalyticsData.
+                 * @typedef {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.$Properties} AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.$Shape
                  */
 
                 /**
                  * Constructs a new SidebySideSurveyMetaAiAnalyticsData.
                  * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata
                  * @classdesc Represents a SidebySideSurveyMetaAiAnalyticsData.
-                 * @implements ISidebySideSurveyMetaAiAnalyticsData
                  * @constructor
-                 * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.ISidebySideSurveyMetaAiAnalyticsData=} [properties] Properties to set
+                 * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.$Properties=} [properties] Properties to set
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function SidebySideSurveyMetaAiAnalyticsData(properties) {
@@ -5369,7 +5590,7 @@ $root.AICommon = (function() {
 
                 /**
                  * SidebySideSurveyMetaAiAnalyticsData ctaImpressionEvent.
-                 * @member {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCTAImpressionEventData|null|undefined} ctaImpressionEvent
+                 * @member {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.$Properties|null|undefined} ctaImpressionEvent
                  * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
                  * @instance
                  */
@@ -5377,7 +5598,7 @@ $root.AICommon = (function() {
 
                 /**
                  * SidebySideSurveyMetaAiAnalyticsData ctaClickEvent.
-                 * @member {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCTAClickEventData|null|undefined} ctaClickEvent
+                 * @member {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.$Properties|null|undefined} ctaClickEvent
                  * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
                  * @instance
                  */
@@ -5385,7 +5606,7 @@ $root.AICommon = (function() {
 
                 /**
                  * SidebySideSurveyMetaAiAnalyticsData cardImpressionEvent.
-                 * @member {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCardImpressionEventData|null|undefined} cardImpressionEvent
+                 * @member {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.$Properties|null|undefined} cardImpressionEvent
                  * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
                  * @instance
                  */
@@ -5393,7 +5614,7 @@ $root.AICommon = (function() {
 
                 /**
                  * SidebySideSurveyMetaAiAnalyticsData responseEvent.
-                 * @member {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyResponseEventData|null|undefined} responseEvent
+                 * @member {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.$Properties|null|undefined} responseEvent
                  * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
                  * @instance
                  */
@@ -5401,7 +5622,7 @@ $root.AICommon = (function() {
 
                 /**
                  * SidebySideSurveyMetaAiAnalyticsData abandonEvent.
-                 * @member {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyAbandonEventData|null|undefined} abandonEvent
+                 * @member {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.$Properties|null|undefined} abandonEvent
                  * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
                  * @instance
                  */
@@ -5469,8 +5690,12 @@ $root.AICommon = (function() {
                  * @function create
                  * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
                  * @static
-                 * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.ISidebySideSurveyMetaAiAnalyticsData=} [properties] Properties to set
+                 * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.$Properties=} [properties] Properties to set
                  * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData} SidebySideSurveyMetaAiAnalyticsData instance
+                 * @type {{
+                 *   (properties: AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.$Shape): AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData & AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.$Shape;
+                 *   (properties?: AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.$Properties): AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData;
+                 * }}
                  */
                 SidebySideSurveyMetaAiAnalyticsData.create = function create(properties) {
                     return new SidebySideSurveyMetaAiAnalyticsData(properties);
@@ -5481,7 +5706,7 @@ $root.AICommon = (function() {
                  * @function encode
                  * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
                  * @static
-                 * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.ISidebySideSurveyMetaAiAnalyticsData} message SidebySideSurveyMetaAiAnalyticsData message or plain object to encode
+                 * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.$Properties} message SidebySideSurveyMetaAiAnalyticsData message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -5517,7 +5742,7 @@ $root.AICommon = (function() {
                  * @function encodeDelimited
                  * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
                  * @static
-                 * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.ISidebySideSurveyMetaAiAnalyticsData} message SidebySideSurveyMetaAiAnalyticsData message or plain object to encode
+                 * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.$Properties} message SidebySideSurveyMetaAiAnalyticsData message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -5532,7 +5757,7 @@ $root.AICommon = (function() {
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                  * @param {number} [length] Message length if known beforehand
-                 * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData} SidebySideSurveyMetaAiAnalyticsData
+                 * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData & AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.$Shape} SidebySideSurveyMetaAiAnalyticsData
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -5632,7 +5857,7 @@ $root.AICommon = (function() {
                  * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData} SidebySideSurveyMetaAiAnalyticsData
+                 * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData & AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.$Shape} SidebySideSurveyMetaAiAnalyticsData
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -5863,19 +6088,30 @@ $root.AICommon = (function() {
 
                     /**
                      * Properties of a SideBySideSurveyAbandonEventData.
-                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
-                     * @interface ISideBySideSurveyAbandonEventData
+                     * @typedef {Object} AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.$Properties
                      * @property {string|null} [abandonDwellTimeMsString] SideBySideSurveyAbandonEventData abandonDwellTimeMsString
                      * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     */
+
+                    /**
+                     * Properties of a SideBySideSurveyAbandonEventData.
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                     * @interface ISideBySideSurveyAbandonEventData
+                     * @augments AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.$Properties
+                     * @deprecated Use AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.$Properties instead.
+                     */
+
+                    /**
+                     * Shape of a SideBySideSurveyAbandonEventData.
+                     * @typedef {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.$Properties} AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.$Shape
                      */
 
                     /**
                      * Constructs a new SideBySideSurveyAbandonEventData.
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
                      * @classdesc Represents a SideBySideSurveyAbandonEventData.
-                     * @implements ISideBySideSurveyAbandonEventData
                      * @constructor
-                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyAbandonEventData=} [properties] Properties to set
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.$Properties=} [properties] Properties to set
                      * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                      */
                     function SideBySideSurveyAbandonEventData(properties) {
@@ -5907,8 +6143,12 @@ $root.AICommon = (function() {
                      * @function create
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData
                      * @static
-                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyAbandonEventData=} [properties] Properties to set
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.$Properties=} [properties] Properties to set
                      * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData} SideBySideSurveyAbandonEventData instance
+                     * @type {{
+                     *   (properties: AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.$Shape): AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData & AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.$Shape;
+                     *   (properties?: AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.$Properties): AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData;
+                     * }}
                      */
                     SideBySideSurveyAbandonEventData.create = function create(properties) {
                         return new SideBySideSurveyAbandonEventData(properties);
@@ -5919,7 +6159,7 @@ $root.AICommon = (function() {
                      * @function encode
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData
                      * @static
-                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyAbandonEventData} message SideBySideSurveyAbandonEventData message or plain object to encode
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.$Properties} message SideBySideSurveyAbandonEventData message or plain object to encode
                      * @param {$protobuf.Writer} [writer] Writer to encode to
                      * @returns {$protobuf.Writer} Writer
                      */
@@ -5939,7 +6179,7 @@ $root.AICommon = (function() {
                      * @function encodeDelimited
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData
                      * @static
-                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyAbandonEventData} message SideBySideSurveyAbandonEventData message or plain object to encode
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.$Properties} message SideBySideSurveyAbandonEventData message or plain object to encode
                      * @param {$protobuf.Writer} [writer] Writer to encode to
                      * @returns {$protobuf.Writer} Writer
                      */
@@ -5954,7 +6194,7 @@ $root.AICommon = (function() {
                      * @static
                      * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                      * @param {number} [length] Message length if known beforehand
-                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData} SideBySideSurveyAbandonEventData
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData & AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.$Shape} SideBySideSurveyAbandonEventData
                      * @throws {Error} If the payload is not a reader or valid buffer
                      * @throws {$protobuf.util.ProtocolError} If required fields are missing
                      */
@@ -5998,7 +6238,7 @@ $root.AICommon = (function() {
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData
                      * @static
                      * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData} SideBySideSurveyAbandonEventData
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData & AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.$Shape} SideBySideSurveyAbandonEventData
                      * @throws {Error} If the payload is not a reader or valid buffer
                      * @throws {$protobuf.util.ProtocolError} If required fields are missing
                      */
@@ -6106,20 +6346,31 @@ $root.AICommon = (function() {
 
                     /**
                      * Properties of a SideBySideSurveyCTAClickEventData.
-                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
-                     * @interface ISideBySideSurveyCTAClickEventData
+                     * @typedef {Object} AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.$Properties
                      * @property {boolean|null} [isSurveyExpired] SideBySideSurveyCTAClickEventData isSurveyExpired
                      * @property {string|null} [clickDwellTimeMsString] SideBySideSurveyCTAClickEventData clickDwellTimeMsString
                      * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                      */
 
                     /**
+                     * Properties of a SideBySideSurveyCTAClickEventData.
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                     * @interface ISideBySideSurveyCTAClickEventData
+                     * @augments AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.$Properties
+                     * @deprecated Use AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.$Properties instead.
+                     */
+
+                    /**
+                     * Shape of a SideBySideSurveyCTAClickEventData.
+                     * @typedef {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.$Properties} AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.$Shape
+                     */
+
+                    /**
                      * Constructs a new SideBySideSurveyCTAClickEventData.
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
                      * @classdesc Represents a SideBySideSurveyCTAClickEventData.
-                     * @implements ISideBySideSurveyCTAClickEventData
                      * @constructor
-                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCTAClickEventData=} [properties] Properties to set
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.$Properties=} [properties] Properties to set
                      * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                      */
                     function SideBySideSurveyCTAClickEventData(properties) {
@@ -6165,8 +6416,12 @@ $root.AICommon = (function() {
                      * @function create
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData
                      * @static
-                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCTAClickEventData=} [properties] Properties to set
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.$Properties=} [properties] Properties to set
                      * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData} SideBySideSurveyCTAClickEventData instance
+                     * @type {{
+                     *   (properties: AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.$Shape): AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData & AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.$Shape;
+                     *   (properties?: AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.$Properties): AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData;
+                     * }}
                      */
                     SideBySideSurveyCTAClickEventData.create = function create(properties) {
                         return new SideBySideSurveyCTAClickEventData(properties);
@@ -6177,7 +6432,7 @@ $root.AICommon = (function() {
                      * @function encode
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData
                      * @static
-                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCTAClickEventData} message SideBySideSurveyCTAClickEventData message or plain object to encode
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.$Properties} message SideBySideSurveyCTAClickEventData message or plain object to encode
                      * @param {$protobuf.Writer} [writer] Writer to encode to
                      * @returns {$protobuf.Writer} Writer
                      */
@@ -6199,7 +6454,7 @@ $root.AICommon = (function() {
                      * @function encodeDelimited
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData
                      * @static
-                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCTAClickEventData} message SideBySideSurveyCTAClickEventData message or plain object to encode
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.$Properties} message SideBySideSurveyCTAClickEventData message or plain object to encode
                      * @param {$protobuf.Writer} [writer] Writer to encode to
                      * @returns {$protobuf.Writer} Writer
                      */
@@ -6214,7 +6469,7 @@ $root.AICommon = (function() {
                      * @static
                      * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                      * @param {number} [length] Message length if known beforehand
-                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData} SideBySideSurveyCTAClickEventData
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData & AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.$Shape} SideBySideSurveyCTAClickEventData
                      * @throws {Error} If the payload is not a reader or valid buffer
                      * @throws {$protobuf.util.ProtocolError} If required fields are missing
                      */
@@ -6265,7 +6520,7 @@ $root.AICommon = (function() {
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData
                      * @static
                      * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData} SideBySideSurveyCTAClickEventData
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData & AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.$Shape} SideBySideSurveyCTAClickEventData
                      * @throws {Error} If the payload is not a reader or valid buffer
                      * @throws {$protobuf.util.ProtocolError} If required fields are missing
                      */
@@ -6385,19 +6640,30 @@ $root.AICommon = (function() {
 
                     /**
                      * Properties of a SideBySideSurveyCTAImpressionEventData.
-                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
-                     * @interface ISideBySideSurveyCTAImpressionEventData
+                     * @typedef {Object} AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.$Properties
                      * @property {boolean|null} [isSurveyExpired] SideBySideSurveyCTAImpressionEventData isSurveyExpired
                      * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     */
+
+                    /**
+                     * Properties of a SideBySideSurveyCTAImpressionEventData.
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                     * @interface ISideBySideSurveyCTAImpressionEventData
+                     * @augments AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.$Properties
+                     * @deprecated Use AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.$Properties instead.
+                     */
+
+                    /**
+                     * Shape of a SideBySideSurveyCTAImpressionEventData.
+                     * @typedef {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.$Properties} AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.$Shape
                      */
 
                     /**
                      * Constructs a new SideBySideSurveyCTAImpressionEventData.
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
                      * @classdesc Represents a SideBySideSurveyCTAImpressionEventData.
-                     * @implements ISideBySideSurveyCTAImpressionEventData
                      * @constructor
-                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCTAImpressionEventData=} [properties] Properties to set
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.$Properties=} [properties] Properties to set
                      * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                      */
                     function SideBySideSurveyCTAImpressionEventData(properties) {
@@ -6429,8 +6695,12 @@ $root.AICommon = (function() {
                      * @function create
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData
                      * @static
-                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCTAImpressionEventData=} [properties] Properties to set
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.$Properties=} [properties] Properties to set
                      * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData} SideBySideSurveyCTAImpressionEventData instance
+                     * @type {{
+                     *   (properties: AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.$Shape): AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData & AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.$Shape;
+                     *   (properties?: AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.$Properties): AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData;
+                     * }}
                      */
                     SideBySideSurveyCTAImpressionEventData.create = function create(properties) {
                         return new SideBySideSurveyCTAImpressionEventData(properties);
@@ -6441,7 +6711,7 @@ $root.AICommon = (function() {
                      * @function encode
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData
                      * @static
-                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCTAImpressionEventData} message SideBySideSurveyCTAImpressionEventData message or plain object to encode
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.$Properties} message SideBySideSurveyCTAImpressionEventData message or plain object to encode
                      * @param {$protobuf.Writer} [writer] Writer to encode to
                      * @returns {$protobuf.Writer} Writer
                      */
@@ -6461,7 +6731,7 @@ $root.AICommon = (function() {
                      * @function encodeDelimited
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData
                      * @static
-                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCTAImpressionEventData} message SideBySideSurveyCTAImpressionEventData message or plain object to encode
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.$Properties} message SideBySideSurveyCTAImpressionEventData message or plain object to encode
                      * @param {$protobuf.Writer} [writer] Writer to encode to
                      * @returns {$protobuf.Writer} Writer
                      */
@@ -6476,7 +6746,7 @@ $root.AICommon = (function() {
                      * @static
                      * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                      * @param {number} [length] Message length if known beforehand
-                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData} SideBySideSurveyCTAImpressionEventData
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData & AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.$Shape} SideBySideSurveyCTAImpressionEventData
                      * @throws {Error} If the payload is not a reader or valid buffer
                      * @throws {$protobuf.util.ProtocolError} If required fields are missing
                      */
@@ -6520,7 +6790,7 @@ $root.AICommon = (function() {
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData
                      * @static
                      * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData} SideBySideSurveyCTAImpressionEventData
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData & AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.$Shape} SideBySideSurveyCTAImpressionEventData
                      * @throws {Error} If the payload is not a reader or valid buffer
                      * @throws {$protobuf.util.ProtocolError} If required fields are missing
                      */
@@ -6628,18 +6898,29 @@ $root.AICommon = (function() {
 
                     /**
                      * Properties of a SideBySideSurveyCardImpressionEventData.
+                     * @typedef {Object} AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.$Properties
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     */
+
+                    /**
+                     * Properties of a SideBySideSurveyCardImpressionEventData.
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
                      * @interface ISideBySideSurveyCardImpressionEventData
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @augments AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.$Properties
+                     * @deprecated Use AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.$Properties instead.
+                     */
+
+                    /**
+                     * Shape of a SideBySideSurveyCardImpressionEventData.
+                     * @typedef {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.$Properties} AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.$Shape
                      */
 
                     /**
                      * Constructs a new SideBySideSurveyCardImpressionEventData.
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
                      * @classdesc Represents a SideBySideSurveyCardImpressionEventData.
-                     * @implements ISideBySideSurveyCardImpressionEventData
                      * @constructor
-                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCardImpressionEventData=} [properties] Properties to set
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.$Properties=} [properties] Properties to set
                      * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                      */
                     function SideBySideSurveyCardImpressionEventData(properties) {
@@ -6654,8 +6935,12 @@ $root.AICommon = (function() {
                      * @function create
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData
                      * @static
-                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCardImpressionEventData=} [properties] Properties to set
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.$Properties=} [properties] Properties to set
                      * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData} SideBySideSurveyCardImpressionEventData instance
+                     * @type {{
+                     *   (properties: AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.$Shape): AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData & AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.$Shape;
+                     *   (properties?: AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.$Properties): AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData;
+                     * }}
                      */
                     SideBySideSurveyCardImpressionEventData.create = function create(properties) {
                         return new SideBySideSurveyCardImpressionEventData(properties);
@@ -6666,7 +6951,7 @@ $root.AICommon = (function() {
                      * @function encode
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData
                      * @static
-                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCardImpressionEventData} message SideBySideSurveyCardImpressionEventData message or plain object to encode
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.$Properties} message SideBySideSurveyCardImpressionEventData message or plain object to encode
                      * @param {$protobuf.Writer} [writer] Writer to encode to
                      * @returns {$protobuf.Writer} Writer
                      */
@@ -6684,7 +6969,7 @@ $root.AICommon = (function() {
                      * @function encodeDelimited
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData
                      * @static
-                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyCardImpressionEventData} message SideBySideSurveyCardImpressionEventData message or plain object to encode
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.$Properties} message SideBySideSurveyCardImpressionEventData message or plain object to encode
                      * @param {$protobuf.Writer} [writer] Writer to encode to
                      * @returns {$protobuf.Writer} Writer
                      */
@@ -6699,7 +6984,7 @@ $root.AICommon = (function() {
                      * @static
                      * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                      * @param {number} [length] Message length if known beforehand
-                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData} SideBySideSurveyCardImpressionEventData
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData & AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.$Shape} SideBySideSurveyCardImpressionEventData
                      * @throws {Error} If the payload is not a reader or valid buffer
                      * @throws {$protobuf.util.ProtocolError} If required fields are missing
                      */
@@ -6733,7 +7018,7 @@ $root.AICommon = (function() {
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData
                      * @static
                      * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData} SideBySideSurveyCardImpressionEventData
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData & AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.$Shape} SideBySideSurveyCardImpressionEventData
                      * @throws {Error} If the payload is not a reader or valid buffer
                      * @throws {$protobuf.util.ProtocolError} If required fields are missing
                      */
@@ -6824,20 +7109,31 @@ $root.AICommon = (function() {
 
                     /**
                      * Properties of a SideBySideSurveyResponseEventData.
-                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
-                     * @interface ISideBySideSurveyResponseEventData
+                     * @typedef {Object} AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.$Properties
                      * @property {string|null} [responseDwellTimeMsString] SideBySideSurveyResponseEventData responseDwellTimeMsString
                      * @property {string|null} [selectedResponseId] SideBySideSurveyResponseEventData selectedResponseId
                      * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                      */
 
                     /**
+                     * Properties of a SideBySideSurveyResponseEventData.
+                     * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
+                     * @interface ISideBySideSurveyResponseEventData
+                     * @augments AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.$Properties
+                     * @deprecated Use AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.$Properties instead.
+                     */
+
+                    /**
+                     * Shape of a SideBySideSurveyResponseEventData.
+                     * @typedef {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.$Properties} AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.$Shape
+                     */
+
+                    /**
                      * Constructs a new SideBySideSurveyResponseEventData.
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData
                      * @classdesc Represents a SideBySideSurveyResponseEventData.
-                     * @implements ISideBySideSurveyResponseEventData
                      * @constructor
-                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyResponseEventData=} [properties] Properties to set
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.$Properties=} [properties] Properties to set
                      * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                      */
                     function SideBySideSurveyResponseEventData(properties) {
@@ -6883,8 +7179,12 @@ $root.AICommon = (function() {
                      * @function create
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData
                      * @static
-                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyResponseEventData=} [properties] Properties to set
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.$Properties=} [properties] Properties to set
                      * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData} SideBySideSurveyResponseEventData instance
+                     * @type {{
+                     *   (properties: AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.$Shape): AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData & AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.$Shape;
+                     *   (properties?: AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.$Properties): AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData;
+                     * }}
                      */
                     SideBySideSurveyResponseEventData.create = function create(properties) {
                         return new SideBySideSurveyResponseEventData(properties);
@@ -6895,7 +7195,7 @@ $root.AICommon = (function() {
                      * @function encode
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData
                      * @static
-                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyResponseEventData} message SideBySideSurveyResponseEventData message or plain object to encode
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.$Properties} message SideBySideSurveyResponseEventData message or plain object to encode
                      * @param {$protobuf.Writer} [writer] Writer to encode to
                      * @returns {$protobuf.Writer} Writer
                      */
@@ -6917,7 +7217,7 @@ $root.AICommon = (function() {
                      * @function encodeDelimited
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData
                      * @static
-                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.ISideBySideSurveyResponseEventData} message SideBySideSurveyResponseEventData message or plain object to encode
+                     * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.$Properties} message SideBySideSurveyResponseEventData message or plain object to encode
                      * @param {$protobuf.Writer} [writer] Writer to encode to
                      * @returns {$protobuf.Writer} Writer
                      */
@@ -6932,7 +7232,7 @@ $root.AICommon = (function() {
                      * @static
                      * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                      * @param {number} [length] Message length if known beforehand
-                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData} SideBySideSurveyResponseEventData
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData & AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.$Shape} SideBySideSurveyResponseEventData
                      * @throws {Error} If the payload is not a reader or valid buffer
                      * @throws {$protobuf.util.ProtocolError} If required fields are missing
                      */
@@ -6983,7 +7283,7 @@ $root.AICommon = (function() {
                      * @memberof AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData
                      * @static
                      * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData} SideBySideSurveyResponseEventData
+                     * @returns {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData & AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.$Shape} SideBySideSurveyResponseEventData
                      * @throws {Error} If the payload is not a reader or valid buffer
                      * @throws {$protobuf.util.ProtocolError} If required fields are missing
                      */
@@ -7112,19 +7412,30 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotGroupParticipantMetadata.
-         * @memberof AICommon
-         * @interface IBotGroupParticipantMetadata
+         * @typedef {Object} AICommon.BotGroupParticipantMetadata.$Properties
          * @property {string|null} [botFbid] BotGroupParticipantMetadata botFbid
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a BotGroupParticipantMetadata.
+         * @memberof AICommon
+         * @interface IBotGroupParticipantMetadata
+         * @augments AICommon.BotGroupParticipantMetadata.$Properties
+         * @deprecated Use AICommon.BotGroupParticipantMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotGroupParticipantMetadata.
+         * @typedef {AICommon.BotGroupParticipantMetadata.$Properties} AICommon.BotGroupParticipantMetadata.$Shape
          */
 
         /**
          * Constructs a new BotGroupParticipantMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotGroupParticipantMetadata.
-         * @implements IBotGroupParticipantMetadata
          * @constructor
-         * @param {AICommon.IBotGroupParticipantMetadata=} [properties] Properties to set
+         * @param {AICommon.BotGroupParticipantMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotGroupParticipantMetadata(properties) {
@@ -7156,8 +7467,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotGroupParticipantMetadata
          * @static
-         * @param {AICommon.IBotGroupParticipantMetadata=} [properties] Properties to set
+         * @param {AICommon.BotGroupParticipantMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotGroupParticipantMetadata} BotGroupParticipantMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotGroupParticipantMetadata.$Shape): AICommon.BotGroupParticipantMetadata & AICommon.BotGroupParticipantMetadata.$Shape;
+         *   (properties?: AICommon.BotGroupParticipantMetadata.$Properties): AICommon.BotGroupParticipantMetadata;
+         * }}
          */
         BotGroupParticipantMetadata.create = function create(properties) {
             return new BotGroupParticipantMetadata(properties);
@@ -7168,7 +7483,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotGroupParticipantMetadata
          * @static
-         * @param {AICommon.IBotGroupParticipantMetadata} message BotGroupParticipantMetadata message or plain object to encode
+         * @param {AICommon.BotGroupParticipantMetadata.$Properties} message BotGroupParticipantMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -7188,7 +7503,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotGroupParticipantMetadata
          * @static
-         * @param {AICommon.IBotGroupParticipantMetadata} message BotGroupParticipantMetadata message or plain object to encode
+         * @param {AICommon.BotGroupParticipantMetadata.$Properties} message BotGroupParticipantMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -7203,7 +7518,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotGroupParticipantMetadata} BotGroupParticipantMetadata
+         * @returns {AICommon.BotGroupParticipantMetadata & AICommon.BotGroupParticipantMetadata.$Shape} BotGroupParticipantMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -7247,7 +7562,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotGroupParticipantMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotGroupParticipantMetadata} BotGroupParticipantMetadata
+         * @returns {AICommon.BotGroupParticipantMetadata & AICommon.BotGroupParticipantMetadata.$Shape} BotGroupParticipantMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -7355,20 +7670,31 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotRenderingConfigMetadata.
-         * @memberof AICommon
-         * @interface IBotRenderingConfigMetadata
+         * @typedef {Object} AICommon.BotRenderingConfigMetadata.$Properties
          * @property {string|null} [bloksVersioningId] BotRenderingConfigMetadata bloksVersioningId
          * @property {number|null} [pixelDensity] BotRenderingConfigMetadata pixelDensity
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
+         * Properties of a BotRenderingConfigMetadata.
+         * @memberof AICommon
+         * @interface IBotRenderingConfigMetadata
+         * @augments AICommon.BotRenderingConfigMetadata.$Properties
+         * @deprecated Use AICommon.BotRenderingConfigMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotRenderingConfigMetadata.
+         * @typedef {AICommon.BotRenderingConfigMetadata.$Properties} AICommon.BotRenderingConfigMetadata.$Shape
+         */
+
+        /**
          * Constructs a new BotRenderingConfigMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotRenderingConfigMetadata.
-         * @implements IBotRenderingConfigMetadata
          * @constructor
-         * @param {AICommon.IBotRenderingConfigMetadata=} [properties] Properties to set
+         * @param {AICommon.BotRenderingConfigMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotRenderingConfigMetadata(properties) {
@@ -7414,8 +7740,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotRenderingConfigMetadata
          * @static
-         * @param {AICommon.IBotRenderingConfigMetadata=} [properties] Properties to set
+         * @param {AICommon.BotRenderingConfigMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotRenderingConfigMetadata} BotRenderingConfigMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotRenderingConfigMetadata.$Shape): AICommon.BotRenderingConfigMetadata & AICommon.BotRenderingConfigMetadata.$Shape;
+         *   (properties?: AICommon.BotRenderingConfigMetadata.$Properties): AICommon.BotRenderingConfigMetadata;
+         * }}
          */
         BotRenderingConfigMetadata.create = function create(properties) {
             return new BotRenderingConfigMetadata(properties);
@@ -7426,7 +7756,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotRenderingConfigMetadata
          * @static
-         * @param {AICommon.IBotRenderingConfigMetadata} message BotRenderingConfigMetadata message or plain object to encode
+         * @param {AICommon.BotRenderingConfigMetadata.$Properties} message BotRenderingConfigMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -7448,7 +7778,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotRenderingConfigMetadata
          * @static
-         * @param {AICommon.IBotRenderingConfigMetadata} message BotRenderingConfigMetadata message or plain object to encode
+         * @param {AICommon.BotRenderingConfigMetadata.$Properties} message BotRenderingConfigMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -7463,7 +7793,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotRenderingConfigMetadata} BotRenderingConfigMetadata
+         * @returns {AICommon.BotRenderingConfigMetadata & AICommon.BotRenderingConfigMetadata.$Shape} BotRenderingConfigMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -7514,7 +7844,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotRenderingConfigMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotRenderingConfigMetadata} BotRenderingConfigMetadata
+         * @returns {AICommon.BotRenderingConfigMetadata & AICommon.BotRenderingConfigMetadata.$Shape} BotRenderingConfigMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -7634,19 +7964,30 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotGroupMetadata.
+         * @typedef {Object} AICommon.BotGroupMetadata.$Properties
+         * @property {Array.<AICommon.BotGroupParticipantMetadata.$Properties>|null} [participantsMetadata] BotGroupMetadata participantsMetadata
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a BotGroupMetadata.
          * @memberof AICommon
          * @interface IBotGroupMetadata
-         * @property {Array.<AICommon.IBotGroupParticipantMetadata>|null} [participantsMetadata] BotGroupMetadata participantsMetadata
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments AICommon.BotGroupMetadata.$Properties
+         * @deprecated Use AICommon.BotGroupMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotGroupMetadata.
+         * @typedef {AICommon.BotGroupMetadata.$Properties} AICommon.BotGroupMetadata.$Shape
          */
 
         /**
          * Constructs a new BotGroupMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotGroupMetadata.
-         * @implements IBotGroupMetadata
          * @constructor
-         * @param {AICommon.IBotGroupMetadata=} [properties] Properties to set
+         * @param {AICommon.BotGroupMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotGroupMetadata(properties) {
@@ -7659,7 +8000,7 @@ $root.AICommon = (function() {
 
         /**
          * BotGroupMetadata participantsMetadata.
-         * @member {Array.<AICommon.IBotGroupParticipantMetadata>} participantsMetadata
+         * @member {Array.<AICommon.BotGroupParticipantMetadata.$Properties>} participantsMetadata
          * @memberof AICommon.BotGroupMetadata
          * @instance
          */
@@ -7670,8 +8011,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotGroupMetadata
          * @static
-         * @param {AICommon.IBotGroupMetadata=} [properties] Properties to set
+         * @param {AICommon.BotGroupMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotGroupMetadata} BotGroupMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotGroupMetadata.$Shape): AICommon.BotGroupMetadata & AICommon.BotGroupMetadata.$Shape;
+         *   (properties?: AICommon.BotGroupMetadata.$Properties): AICommon.BotGroupMetadata;
+         * }}
          */
         BotGroupMetadata.create = function create(properties) {
             return new BotGroupMetadata(properties);
@@ -7682,7 +8027,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotGroupMetadata
          * @static
-         * @param {AICommon.IBotGroupMetadata} message BotGroupMetadata message or plain object to encode
+         * @param {AICommon.BotGroupMetadata.$Properties} message BotGroupMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -7703,7 +8048,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotGroupMetadata
          * @static
-         * @param {AICommon.IBotGroupMetadata} message BotGroupMetadata message or plain object to encode
+         * @param {AICommon.BotGroupMetadata.$Properties} message BotGroupMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -7718,7 +8063,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotGroupMetadata} BotGroupMetadata
+         * @returns {AICommon.BotGroupMetadata & AICommon.BotGroupMetadata.$Shape} BotGroupMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -7763,7 +8108,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotGroupMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotGroupMetadata} BotGroupMetadata
+         * @returns {AICommon.BotGroupMetadata & AICommon.BotGroupMetadata.$Shape} BotGroupMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -7884,19 +8229,30 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a AISubscriptionUpsellMetadata.
-         * @memberof AICommon
-         * @interface IAISubscriptionUpsellMetadata
+         * @typedef {Object} AICommon.AISubscriptionUpsellMetadata.$Properties
          * @property {AICommon.AISubscriptionRequestType|null} [requestType] AISubscriptionUpsellMetadata requestType
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a AISubscriptionUpsellMetadata.
+         * @memberof AICommon
+         * @interface IAISubscriptionUpsellMetadata
+         * @augments AICommon.AISubscriptionUpsellMetadata.$Properties
+         * @deprecated Use AICommon.AISubscriptionUpsellMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a AISubscriptionUpsellMetadata.
+         * @typedef {AICommon.AISubscriptionUpsellMetadata.$Properties} AICommon.AISubscriptionUpsellMetadata.$Shape
          */
 
         /**
          * Constructs a new AISubscriptionUpsellMetadata.
          * @memberof AICommon
          * @classdesc Represents a AISubscriptionUpsellMetadata.
-         * @implements IAISubscriptionUpsellMetadata
          * @constructor
-         * @param {AICommon.IAISubscriptionUpsellMetadata=} [properties] Properties to set
+         * @param {AICommon.AISubscriptionUpsellMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AISubscriptionUpsellMetadata(properties) {
@@ -7928,8 +8284,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.AISubscriptionUpsellMetadata
          * @static
-         * @param {AICommon.IAISubscriptionUpsellMetadata=} [properties] Properties to set
+         * @param {AICommon.AISubscriptionUpsellMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.AISubscriptionUpsellMetadata} AISubscriptionUpsellMetadata instance
+         * @type {{
+         *   (properties: AICommon.AISubscriptionUpsellMetadata.$Shape): AICommon.AISubscriptionUpsellMetadata & AICommon.AISubscriptionUpsellMetadata.$Shape;
+         *   (properties?: AICommon.AISubscriptionUpsellMetadata.$Properties): AICommon.AISubscriptionUpsellMetadata;
+         * }}
          */
         AISubscriptionUpsellMetadata.create = function create(properties) {
             return new AISubscriptionUpsellMetadata(properties);
@@ -7940,7 +8300,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.AISubscriptionUpsellMetadata
          * @static
-         * @param {AICommon.IAISubscriptionUpsellMetadata} message AISubscriptionUpsellMetadata message or plain object to encode
+         * @param {AICommon.AISubscriptionUpsellMetadata.$Properties} message AISubscriptionUpsellMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -7960,7 +8320,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.AISubscriptionUpsellMetadata
          * @static
-         * @param {AICommon.IAISubscriptionUpsellMetadata} message AISubscriptionUpsellMetadata message or plain object to encode
+         * @param {AICommon.AISubscriptionUpsellMetadata.$Properties} message AISubscriptionUpsellMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -7975,7 +8335,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.AISubscriptionUpsellMetadata} AISubscriptionUpsellMetadata
+         * @returns {AICommon.AISubscriptionUpsellMetadata & AICommon.AISubscriptionUpsellMetadata.$Shape} AISubscriptionUpsellMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -8019,7 +8379,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.AISubscriptionUpsellMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.AISubscriptionUpsellMetadata} AISubscriptionUpsellMetadata
+         * @returns {AICommon.AISubscriptionUpsellMetadata & AICommon.AISubscriptionUpsellMetadata.$Shape} AISubscriptionUpsellMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -8156,59 +8516,70 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotMetadata.
-         * @memberof AICommon
-         * @interface IBotMetadata
+         * @typedef {Object} AICommon.BotMetadata.$Properties
          * @property {string|null} [personaId] BotMetadata personaId
-         * @property {AICommon.IBotPluginMetadata|null} [pluginMetadata] BotMetadata pluginMetadata
-         * @property {AICommon.IBotSuggestedPromptMetadata|null} [suggestedPromptMetadata] BotMetadata suggestedPromptMetadata
+         * @property {AICommon.BotPluginMetadata.$Properties|null} [pluginMetadata] BotMetadata pluginMetadata
+         * @property {AICommon.BotSuggestedPromptMetadata.$Properties|null} [suggestedPromptMetadata] BotMetadata suggestedPromptMetadata
          * @property {string|null} [invokerJid] BotMetadata invokerJid
-         * @property {AICommon.IBotSessionMetadata|null} [sessionMetadata] BotMetadata sessionMetadata
-         * @property {AICommon.IBotMemuMetadata|null} [memuMetadata] BotMetadata memuMetadata
+         * @property {AICommon.BotSessionMetadata.$Properties|null} [sessionMetadata] BotMetadata sessionMetadata
+         * @property {AICommon.BotMemuMetadata.$Properties|null} [memuMetadata] BotMetadata memuMetadata
          * @property {string|null} [timezone] BotMetadata timezone
-         * @property {AICommon.IBotReminderMetadata|null} [reminderMetadata] BotMetadata reminderMetadata
-         * @property {AICommon.IBotModelMetadata|null} [modelMetadata] BotMetadata modelMetadata
+         * @property {AICommon.BotReminderMetadata.$Properties|null} [reminderMetadata] BotMetadata reminderMetadata
+         * @property {AICommon.BotModelMetadata.$Properties|null} [modelMetadata] BotMetadata modelMetadata
          * @property {string|null} [messageDisclaimerText] BotMetadata messageDisclaimerText
-         * @property {AICommon.IBotProgressIndicatorMetadata|null} [progressIndicatorMetadata] BotMetadata progressIndicatorMetadata
-         * @property {AICommon.IBotCapabilityMetadata|null} [capabilityMetadata] BotMetadata capabilityMetadata
-         * @property {AICommon.IBotImagineMetadata|null} [imagineMetadata] BotMetadata imagineMetadata
-         * @property {AICommon.IBotMemoryMetadata|null} [memoryMetadata] BotMetadata memoryMetadata
-         * @property {AICommon.IBotRenderingMetadata|null} [renderingMetadata] BotMetadata renderingMetadata
-         * @property {AICommon.IBotMetricsMetadata|null} [botMetricsMetadata] BotMetadata botMetricsMetadata
-         * @property {AICommon.IBotLinkedAccountsMetadata|null} [botLinkedAccountsMetadata] BotMetadata botLinkedAccountsMetadata
-         * @property {AICommon.IBotSourcesMetadata|null} [richResponseSourcesMetadata] BotMetadata richResponseSourcesMetadata
+         * @property {AICommon.BotProgressIndicatorMetadata.$Properties|null} [progressIndicatorMetadata] BotMetadata progressIndicatorMetadata
+         * @property {AICommon.BotCapabilityMetadata.$Properties|null} [capabilityMetadata] BotMetadata capabilityMetadata
+         * @property {AICommon.BotImagineMetadata.$Properties|null} [imagineMetadata] BotMetadata imagineMetadata
+         * @property {AICommon.BotMemoryMetadata.$Properties|null} [memoryMetadata] BotMetadata memoryMetadata
+         * @property {AICommon.BotRenderingMetadata.$Properties|null} [renderingMetadata] BotMetadata renderingMetadata
+         * @property {AICommon.BotMetricsMetadata.$Properties|null} [botMetricsMetadata] BotMetadata botMetricsMetadata
+         * @property {AICommon.BotLinkedAccountsMetadata.$Properties|null} [botLinkedAccountsMetadata] BotMetadata botLinkedAccountsMetadata
+         * @property {AICommon.BotSourcesMetadata.$Properties|null} [richResponseSourcesMetadata] BotMetadata richResponseSourcesMetadata
          * @property {Uint8Array|null} [aiConversationContext] BotMetadata aiConversationContext
-         * @property {AICommon.IBotPromotionMessageMetadata|null} [botPromotionMessageMetadata] BotMetadata botPromotionMessageMetadata
-         * @property {AICommon.IBotModeSelectionMetadata|null} [botModeSelectionMetadata] BotMetadata botModeSelectionMetadata
-         * @property {AICommon.IBotQuotaMetadata|null} [botQuotaMetadata] BotMetadata botQuotaMetadata
-         * @property {AICommon.IBotAgeCollectionMetadata|null} [botAgeCollectionMetadata] BotMetadata botAgeCollectionMetadata
+         * @property {AICommon.BotPromotionMessageMetadata.$Properties|null} [botPromotionMessageMetadata] BotMetadata botPromotionMessageMetadata
+         * @property {AICommon.BotModeSelectionMetadata.$Properties|null} [botModeSelectionMetadata] BotMetadata botModeSelectionMetadata
+         * @property {AICommon.BotQuotaMetadata.$Properties|null} [botQuotaMetadata] BotMetadata botQuotaMetadata
+         * @property {AICommon.BotAgeCollectionMetadata.$Properties|null} [botAgeCollectionMetadata] BotMetadata botAgeCollectionMetadata
          * @property {string|null} [conversationStarterPromptId] BotMetadata conversationStarterPromptId
          * @property {string|null} [botResponseId] BotMetadata botResponseId
-         * @property {AICommon.IBotSignatureVerificationMetadata|null} [verificationMetadata] BotMetadata verificationMetadata
-         * @property {AICommon.IBotUnifiedResponseMutation|null} [unifiedResponseMutation] BotMetadata unifiedResponseMutation
-         * @property {AICommon.IBotMessageOriginMetadata|null} [botMessageOriginMetadata] BotMetadata botMessageOriginMetadata
-         * @property {AICommon.IInThreadSurveyMetadata|null} [inThreadSurveyMetadata] BotMetadata inThreadSurveyMetadata
-         * @property {AICommon.IAIThreadInfo|null} [botThreadInfo] BotMetadata botThreadInfo
-         * @property {AICommon.IAIRegenerateMetadata|null} [regenerateMetadata] BotMetadata regenerateMetadata
-         * @property {AICommon.ISessionTransparencyMetadata|null} [sessionTransparencyMetadata] BotMetadata sessionTransparencyMetadata
-         * @property {AICommon.IBotDocumentMessageMetadata|null} [botDocumentMessageMetadata] BotMetadata botDocumentMessageMetadata
-         * @property {AICommon.IBotGroupMetadata|null} [botGroupMetadata] BotMetadata botGroupMetadata
-         * @property {AICommon.IBotRenderingConfigMetadata|null} [botRenderingConfigMetadata] BotMetadata botRenderingConfigMetadata
-         * @property {AICommon.IBotInfrastructureDiagnostics|null} [botInfrastructureDiagnostics] BotMetadata botInfrastructureDiagnostics
-         * @property {AICommon.IAIMediaCollectionMetadata|null} [aiMediaCollectionMetadata] BotMetadata aiMediaCollectionMetadata
-         * @property {AICommon.IBotCommandMetadata|null} [commandMetadata] BotMetadata commandMetadata
-         * @property {AICommon.IBotResolvedToolCallMetadata|null} [resolvedToolCallMetadata] BotMetadata resolvedToolCallMetadata
-         * @property {AICommon.IAISubscriptionUpsellMetadata|null} [subscriptionUpsellMetadata] BotMetadata subscriptionUpsellMetadata
+         * @property {AICommon.BotSignatureVerificationMetadata.$Properties|null} [verificationMetadata] BotMetadata verificationMetadata
+         * @property {AICommon.BotUnifiedResponseMutation.$Properties|null} [unifiedResponseMutation] BotMetadata unifiedResponseMutation
+         * @property {AICommon.BotMessageOriginMetadata.$Properties|null} [botMessageOriginMetadata] BotMetadata botMessageOriginMetadata
+         * @property {AICommon.InThreadSurveyMetadata.$Properties|null} [inThreadSurveyMetadata] BotMetadata inThreadSurveyMetadata
+         * @property {AICommon.AIThreadInfo.$Properties|null} [botThreadInfo] BotMetadata botThreadInfo
+         * @property {AICommon.AIRegenerateMetadata.$Properties|null} [regenerateMetadata] BotMetadata regenerateMetadata
+         * @property {AICommon.SessionTransparencyMetadata.$Properties|null} [sessionTransparencyMetadata] BotMetadata sessionTransparencyMetadata
+         * @property {AICommon.BotDocumentMessageMetadata.$Properties|null} [botDocumentMessageMetadata] BotMetadata botDocumentMessageMetadata
+         * @property {AICommon.BotGroupMetadata.$Properties|null} [botGroupMetadata] BotMetadata botGroupMetadata
+         * @property {AICommon.BotRenderingConfigMetadata.$Properties|null} [botRenderingConfigMetadata] BotMetadata botRenderingConfigMetadata
+         * @property {AICommon.BotInfrastructureDiagnostics.$Properties|null} [botInfrastructureDiagnostics] BotMetadata botInfrastructureDiagnostics
+         * @property {AICommon.AIMediaCollectionMetadata.$Properties|null} [aiMediaCollectionMetadata] BotMetadata aiMediaCollectionMetadata
+         * @property {AICommon.BotCommandMetadata.$Properties|null} [commandMetadata] BotMetadata commandMetadata
+         * @property {AICommon.BotResolvedToolCallMetadata.$Properties|null} [resolvedToolCallMetadata] BotMetadata resolvedToolCallMetadata
+         * @property {AICommon.AISubscriptionUpsellMetadata.$Properties|null} [subscriptionUpsellMetadata] BotMetadata subscriptionUpsellMetadata
          * @property {Uint8Array|null} [internalMetadata] BotMetadata internalMetadata
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a BotMetadata.
+         * @memberof AICommon
+         * @interface IBotMetadata
+         * @augments AICommon.BotMetadata.$Properties
+         * @deprecated Use AICommon.BotMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotMetadata.
+         * @typedef {AICommon.BotMetadata.$Properties} AICommon.BotMetadata.$Shape
          */
 
         /**
          * Constructs a new BotMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotMetadata.
-         * @implements IBotMetadata
          * @constructor
-         * @param {AICommon.IBotMetadata=} [properties] Properties to set
+         * @param {AICommon.BotMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotMetadata(properties) {
@@ -8228,7 +8599,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata pluginMetadata.
-         * @member {AICommon.IBotPluginMetadata|null|undefined} pluginMetadata
+         * @member {AICommon.BotPluginMetadata.$Properties|null|undefined} pluginMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8236,7 +8607,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata suggestedPromptMetadata.
-         * @member {AICommon.IBotSuggestedPromptMetadata|null|undefined} suggestedPromptMetadata
+         * @member {AICommon.BotSuggestedPromptMetadata.$Properties|null|undefined} suggestedPromptMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8252,7 +8623,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata sessionMetadata.
-         * @member {AICommon.IBotSessionMetadata|null|undefined} sessionMetadata
+         * @member {AICommon.BotSessionMetadata.$Properties|null|undefined} sessionMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8260,7 +8631,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata memuMetadata.
-         * @member {AICommon.IBotMemuMetadata|null|undefined} memuMetadata
+         * @member {AICommon.BotMemuMetadata.$Properties|null|undefined} memuMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8276,7 +8647,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata reminderMetadata.
-         * @member {AICommon.IBotReminderMetadata|null|undefined} reminderMetadata
+         * @member {AICommon.BotReminderMetadata.$Properties|null|undefined} reminderMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8284,7 +8655,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata modelMetadata.
-         * @member {AICommon.IBotModelMetadata|null|undefined} modelMetadata
+         * @member {AICommon.BotModelMetadata.$Properties|null|undefined} modelMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8300,7 +8671,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata progressIndicatorMetadata.
-         * @member {AICommon.IBotProgressIndicatorMetadata|null|undefined} progressIndicatorMetadata
+         * @member {AICommon.BotProgressIndicatorMetadata.$Properties|null|undefined} progressIndicatorMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8308,7 +8679,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata capabilityMetadata.
-         * @member {AICommon.IBotCapabilityMetadata|null|undefined} capabilityMetadata
+         * @member {AICommon.BotCapabilityMetadata.$Properties|null|undefined} capabilityMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8316,7 +8687,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata imagineMetadata.
-         * @member {AICommon.IBotImagineMetadata|null|undefined} imagineMetadata
+         * @member {AICommon.BotImagineMetadata.$Properties|null|undefined} imagineMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8324,7 +8695,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata memoryMetadata.
-         * @member {AICommon.IBotMemoryMetadata|null|undefined} memoryMetadata
+         * @member {AICommon.BotMemoryMetadata.$Properties|null|undefined} memoryMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8332,7 +8703,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata renderingMetadata.
-         * @member {AICommon.IBotRenderingMetadata|null|undefined} renderingMetadata
+         * @member {AICommon.BotRenderingMetadata.$Properties|null|undefined} renderingMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8340,7 +8711,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata botMetricsMetadata.
-         * @member {AICommon.IBotMetricsMetadata|null|undefined} botMetricsMetadata
+         * @member {AICommon.BotMetricsMetadata.$Properties|null|undefined} botMetricsMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8348,7 +8719,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata botLinkedAccountsMetadata.
-         * @member {AICommon.IBotLinkedAccountsMetadata|null|undefined} botLinkedAccountsMetadata
+         * @member {AICommon.BotLinkedAccountsMetadata.$Properties|null|undefined} botLinkedAccountsMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8356,7 +8727,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata richResponseSourcesMetadata.
-         * @member {AICommon.IBotSourcesMetadata|null|undefined} richResponseSourcesMetadata
+         * @member {AICommon.BotSourcesMetadata.$Properties|null|undefined} richResponseSourcesMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8372,7 +8743,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata botPromotionMessageMetadata.
-         * @member {AICommon.IBotPromotionMessageMetadata|null|undefined} botPromotionMessageMetadata
+         * @member {AICommon.BotPromotionMessageMetadata.$Properties|null|undefined} botPromotionMessageMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8380,7 +8751,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata botModeSelectionMetadata.
-         * @member {AICommon.IBotModeSelectionMetadata|null|undefined} botModeSelectionMetadata
+         * @member {AICommon.BotModeSelectionMetadata.$Properties|null|undefined} botModeSelectionMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8388,7 +8759,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata botQuotaMetadata.
-         * @member {AICommon.IBotQuotaMetadata|null|undefined} botQuotaMetadata
+         * @member {AICommon.BotQuotaMetadata.$Properties|null|undefined} botQuotaMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8396,7 +8767,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata botAgeCollectionMetadata.
-         * @member {AICommon.IBotAgeCollectionMetadata|null|undefined} botAgeCollectionMetadata
+         * @member {AICommon.BotAgeCollectionMetadata.$Properties|null|undefined} botAgeCollectionMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8420,7 +8791,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata verificationMetadata.
-         * @member {AICommon.IBotSignatureVerificationMetadata|null|undefined} verificationMetadata
+         * @member {AICommon.BotSignatureVerificationMetadata.$Properties|null|undefined} verificationMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8428,7 +8799,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata unifiedResponseMutation.
-         * @member {AICommon.IBotUnifiedResponseMutation|null|undefined} unifiedResponseMutation
+         * @member {AICommon.BotUnifiedResponseMutation.$Properties|null|undefined} unifiedResponseMutation
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8436,7 +8807,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata botMessageOriginMetadata.
-         * @member {AICommon.IBotMessageOriginMetadata|null|undefined} botMessageOriginMetadata
+         * @member {AICommon.BotMessageOriginMetadata.$Properties|null|undefined} botMessageOriginMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8444,7 +8815,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata inThreadSurveyMetadata.
-         * @member {AICommon.IInThreadSurveyMetadata|null|undefined} inThreadSurveyMetadata
+         * @member {AICommon.InThreadSurveyMetadata.$Properties|null|undefined} inThreadSurveyMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8452,7 +8823,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata botThreadInfo.
-         * @member {AICommon.IAIThreadInfo|null|undefined} botThreadInfo
+         * @member {AICommon.AIThreadInfo.$Properties|null|undefined} botThreadInfo
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8460,7 +8831,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata regenerateMetadata.
-         * @member {AICommon.IAIRegenerateMetadata|null|undefined} regenerateMetadata
+         * @member {AICommon.AIRegenerateMetadata.$Properties|null|undefined} regenerateMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8468,7 +8839,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata sessionTransparencyMetadata.
-         * @member {AICommon.ISessionTransparencyMetadata|null|undefined} sessionTransparencyMetadata
+         * @member {AICommon.SessionTransparencyMetadata.$Properties|null|undefined} sessionTransparencyMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8476,7 +8847,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata botDocumentMessageMetadata.
-         * @member {AICommon.IBotDocumentMessageMetadata|null|undefined} botDocumentMessageMetadata
+         * @member {AICommon.BotDocumentMessageMetadata.$Properties|null|undefined} botDocumentMessageMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8484,7 +8855,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata botGroupMetadata.
-         * @member {AICommon.IBotGroupMetadata|null|undefined} botGroupMetadata
+         * @member {AICommon.BotGroupMetadata.$Properties|null|undefined} botGroupMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8492,7 +8863,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata botRenderingConfigMetadata.
-         * @member {AICommon.IBotRenderingConfigMetadata|null|undefined} botRenderingConfigMetadata
+         * @member {AICommon.BotRenderingConfigMetadata.$Properties|null|undefined} botRenderingConfigMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8500,7 +8871,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata botInfrastructureDiagnostics.
-         * @member {AICommon.IBotInfrastructureDiagnostics|null|undefined} botInfrastructureDiagnostics
+         * @member {AICommon.BotInfrastructureDiagnostics.$Properties|null|undefined} botInfrastructureDiagnostics
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8508,7 +8879,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata aiMediaCollectionMetadata.
-         * @member {AICommon.IAIMediaCollectionMetadata|null|undefined} aiMediaCollectionMetadata
+         * @member {AICommon.AIMediaCollectionMetadata.$Properties|null|undefined} aiMediaCollectionMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8516,7 +8887,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata commandMetadata.
-         * @member {AICommon.IBotCommandMetadata|null|undefined} commandMetadata
+         * @member {AICommon.BotCommandMetadata.$Properties|null|undefined} commandMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8524,7 +8895,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata resolvedToolCallMetadata.
-         * @member {AICommon.IBotResolvedToolCallMetadata|null|undefined} resolvedToolCallMetadata
+         * @member {AICommon.BotResolvedToolCallMetadata.$Properties|null|undefined} resolvedToolCallMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8532,7 +8903,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMetadata subscriptionUpsellMetadata.
-         * @member {AICommon.IAISubscriptionUpsellMetadata|null|undefined} subscriptionUpsellMetadata
+         * @member {AICommon.AISubscriptionUpsellMetadata.$Properties|null|undefined} subscriptionUpsellMetadata
          * @memberof AICommon.BotMetadata
          * @instance
          */
@@ -8800,8 +9171,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotMetadata
          * @static
-         * @param {AICommon.IBotMetadata=} [properties] Properties to set
+         * @param {AICommon.BotMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotMetadata} BotMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotMetadata.$Shape): AICommon.BotMetadata & AICommon.BotMetadata.$Shape;
+         *   (properties?: AICommon.BotMetadata.$Properties): AICommon.BotMetadata;
+         * }}
          */
         BotMetadata.create = function create(properties) {
             return new BotMetadata(properties);
@@ -8812,7 +9187,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotMetadata
          * @static
-         * @param {AICommon.IBotMetadata} message BotMetadata message or plain object to encode
+         * @param {AICommon.BotMetadata.$Properties} message BotMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -8912,7 +9287,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotMetadata
          * @static
-         * @param {AICommon.IBotMetadata} message BotMetadata message or plain object to encode
+         * @param {AICommon.BotMetadata.$Properties} message BotMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -8927,7 +9302,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotMetadata} BotMetadata
+         * @returns {AICommon.BotMetadata & AICommon.BotMetadata.$Shape} BotMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -9251,7 +9626,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotMetadata} BotMetadata
+         * @returns {AICommon.BotMetadata & AICommon.BotMetadata.$Shape} BotMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -10043,20 +10418,31 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotResolvedToolCallMetadata.
-         * @memberof AICommon
-         * @interface IBotResolvedToolCallMetadata
+         * @typedef {Object} AICommon.BotResolvedToolCallMetadata.$Properties
          * @property {string|null} [toolCallId] BotResolvedToolCallMetadata toolCallId
          * @property {string|null} [resolutionDataSerialized] BotResolvedToolCallMetadata resolutionDataSerialized
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
+         * Properties of a BotResolvedToolCallMetadata.
+         * @memberof AICommon
+         * @interface IBotResolvedToolCallMetadata
+         * @augments AICommon.BotResolvedToolCallMetadata.$Properties
+         * @deprecated Use AICommon.BotResolvedToolCallMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotResolvedToolCallMetadata.
+         * @typedef {AICommon.BotResolvedToolCallMetadata.$Properties} AICommon.BotResolvedToolCallMetadata.$Shape
+         */
+
+        /**
          * Constructs a new BotResolvedToolCallMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotResolvedToolCallMetadata.
-         * @implements IBotResolvedToolCallMetadata
          * @constructor
-         * @param {AICommon.IBotResolvedToolCallMetadata=} [properties] Properties to set
+         * @param {AICommon.BotResolvedToolCallMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotResolvedToolCallMetadata(properties) {
@@ -10102,8 +10488,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotResolvedToolCallMetadata
          * @static
-         * @param {AICommon.IBotResolvedToolCallMetadata=} [properties] Properties to set
+         * @param {AICommon.BotResolvedToolCallMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotResolvedToolCallMetadata} BotResolvedToolCallMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotResolvedToolCallMetadata.$Shape): AICommon.BotResolvedToolCallMetadata & AICommon.BotResolvedToolCallMetadata.$Shape;
+         *   (properties?: AICommon.BotResolvedToolCallMetadata.$Properties): AICommon.BotResolvedToolCallMetadata;
+         * }}
          */
         BotResolvedToolCallMetadata.create = function create(properties) {
             return new BotResolvedToolCallMetadata(properties);
@@ -10114,7 +10504,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotResolvedToolCallMetadata
          * @static
-         * @param {AICommon.IBotResolvedToolCallMetadata} message BotResolvedToolCallMetadata message or plain object to encode
+         * @param {AICommon.BotResolvedToolCallMetadata.$Properties} message BotResolvedToolCallMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -10136,7 +10526,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotResolvedToolCallMetadata
          * @static
-         * @param {AICommon.IBotResolvedToolCallMetadata} message BotResolvedToolCallMetadata message or plain object to encode
+         * @param {AICommon.BotResolvedToolCallMetadata.$Properties} message BotResolvedToolCallMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -10151,7 +10541,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotResolvedToolCallMetadata} BotResolvedToolCallMetadata
+         * @returns {AICommon.BotResolvedToolCallMetadata & AICommon.BotResolvedToolCallMetadata.$Shape} BotResolvedToolCallMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -10202,7 +10592,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotResolvedToolCallMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotResolvedToolCallMetadata} BotResolvedToolCallMetadata
+         * @returns {AICommon.BotResolvedToolCallMetadata & AICommon.BotResolvedToolCallMetadata.$Shape} BotResolvedToolCallMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -10322,8 +10712,7 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotCommandMetadata.
-         * @memberof AICommon
-         * @interface IBotCommandMetadata
+         * @typedef {Object} AICommon.BotCommandMetadata.$Properties
          * @property {string|null} [commandName] BotCommandMetadata commandName
          * @property {string|null} [commandDescription] BotCommandMetadata commandDescription
          * @property {string|null} [commandPrompt] BotCommandMetadata commandPrompt
@@ -10331,12 +10720,24 @@ $root.AICommon = (function() {
          */
 
         /**
+         * Properties of a BotCommandMetadata.
+         * @memberof AICommon
+         * @interface IBotCommandMetadata
+         * @augments AICommon.BotCommandMetadata.$Properties
+         * @deprecated Use AICommon.BotCommandMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotCommandMetadata.
+         * @typedef {AICommon.BotCommandMetadata.$Properties} AICommon.BotCommandMetadata.$Shape
+         */
+
+        /**
          * Constructs a new BotCommandMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotCommandMetadata.
-         * @implements IBotCommandMetadata
          * @constructor
-         * @param {AICommon.IBotCommandMetadata=} [properties] Properties to set
+         * @param {AICommon.BotCommandMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotCommandMetadata(properties) {
@@ -10396,8 +10797,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotCommandMetadata
          * @static
-         * @param {AICommon.IBotCommandMetadata=} [properties] Properties to set
+         * @param {AICommon.BotCommandMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotCommandMetadata} BotCommandMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotCommandMetadata.$Shape): AICommon.BotCommandMetadata & AICommon.BotCommandMetadata.$Shape;
+         *   (properties?: AICommon.BotCommandMetadata.$Properties): AICommon.BotCommandMetadata;
+         * }}
          */
         BotCommandMetadata.create = function create(properties) {
             return new BotCommandMetadata(properties);
@@ -10408,7 +10813,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotCommandMetadata
          * @static
-         * @param {AICommon.IBotCommandMetadata} message BotCommandMetadata message or plain object to encode
+         * @param {AICommon.BotCommandMetadata.$Properties} message BotCommandMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -10432,7 +10837,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotCommandMetadata
          * @static
-         * @param {AICommon.IBotCommandMetadata} message BotCommandMetadata message or plain object to encode
+         * @param {AICommon.BotCommandMetadata.$Properties} message BotCommandMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -10447,7 +10852,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotCommandMetadata} BotCommandMetadata
+         * @returns {AICommon.BotCommandMetadata & AICommon.BotCommandMetadata.$Shape} BotCommandMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -10505,7 +10910,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotCommandMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotCommandMetadata} BotCommandMetadata
+         * @returns {AICommon.BotCommandMetadata & AICommon.BotCommandMetadata.$Shape} BotCommandMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -10637,8 +11042,7 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a AIMediaCollectionMessage.
-         * @memberof AICommon
-         * @interface IAIMediaCollectionMessage
+         * @typedef {Object} AICommon.AIMediaCollectionMessage.$Properties
          * @property {string|null} [collectionId] AIMediaCollectionMessage collectionId
          * @property {number|null} [expectedMediaCount] AIMediaCollectionMessage expectedMediaCount
          * @property {boolean|null} [hasGlobalCaption] AIMediaCollectionMessage hasGlobalCaption
@@ -10646,12 +11050,24 @@ $root.AICommon = (function() {
          */
 
         /**
+         * Properties of a AIMediaCollectionMessage.
+         * @memberof AICommon
+         * @interface IAIMediaCollectionMessage
+         * @augments AICommon.AIMediaCollectionMessage.$Properties
+         * @deprecated Use AICommon.AIMediaCollectionMessage.$Properties instead.
+         */
+
+        /**
+         * Shape of a AIMediaCollectionMessage.
+         * @typedef {AICommon.AIMediaCollectionMessage.$Properties} AICommon.AIMediaCollectionMessage.$Shape
+         */
+
+        /**
          * Constructs a new AIMediaCollectionMessage.
          * @memberof AICommon
          * @classdesc Represents a AIMediaCollectionMessage.
-         * @implements IAIMediaCollectionMessage
          * @constructor
-         * @param {AICommon.IAIMediaCollectionMessage=} [properties] Properties to set
+         * @param {AICommon.AIMediaCollectionMessage.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIMediaCollectionMessage(properties) {
@@ -10711,8 +11127,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.AIMediaCollectionMessage
          * @static
-         * @param {AICommon.IAIMediaCollectionMessage=} [properties] Properties to set
+         * @param {AICommon.AIMediaCollectionMessage.$Properties=} [properties] Properties to set
          * @returns {AICommon.AIMediaCollectionMessage} AIMediaCollectionMessage instance
+         * @type {{
+         *   (properties: AICommon.AIMediaCollectionMessage.$Shape): AICommon.AIMediaCollectionMessage & AICommon.AIMediaCollectionMessage.$Shape;
+         *   (properties?: AICommon.AIMediaCollectionMessage.$Properties): AICommon.AIMediaCollectionMessage;
+         * }}
          */
         AIMediaCollectionMessage.create = function create(properties) {
             return new AIMediaCollectionMessage(properties);
@@ -10723,7 +11143,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.AIMediaCollectionMessage
          * @static
-         * @param {AICommon.IAIMediaCollectionMessage} message AIMediaCollectionMessage message or plain object to encode
+         * @param {AICommon.AIMediaCollectionMessage.$Properties} message AIMediaCollectionMessage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -10747,7 +11167,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.AIMediaCollectionMessage
          * @static
-         * @param {AICommon.IAIMediaCollectionMessage} message AIMediaCollectionMessage message or plain object to encode
+         * @param {AICommon.AIMediaCollectionMessage.$Properties} message AIMediaCollectionMessage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -10762,7 +11182,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.AIMediaCollectionMessage} AIMediaCollectionMessage
+         * @returns {AICommon.AIMediaCollectionMessage & AICommon.AIMediaCollectionMessage.$Shape} AIMediaCollectionMessage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -10820,7 +11240,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.AIMediaCollectionMessage
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.AIMediaCollectionMessage} AIMediaCollectionMessage
+         * @returns {AICommon.AIMediaCollectionMessage & AICommon.AIMediaCollectionMessage.$Shape} AIMediaCollectionMessage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -10952,20 +11372,31 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a AIMediaCollectionMetadata.
-         * @memberof AICommon
-         * @interface IAIMediaCollectionMetadata
+         * @typedef {Object} AICommon.AIMediaCollectionMetadata.$Properties
          * @property {string|null} [collectionId] AIMediaCollectionMetadata collectionId
          * @property {number|null} [uploadOrderIndex] AIMediaCollectionMetadata uploadOrderIndex
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
+         * Properties of a AIMediaCollectionMetadata.
+         * @memberof AICommon
+         * @interface IAIMediaCollectionMetadata
+         * @augments AICommon.AIMediaCollectionMetadata.$Properties
+         * @deprecated Use AICommon.AIMediaCollectionMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a AIMediaCollectionMetadata.
+         * @typedef {AICommon.AIMediaCollectionMetadata.$Properties} AICommon.AIMediaCollectionMetadata.$Shape
+         */
+
+        /**
          * Constructs a new AIMediaCollectionMetadata.
          * @memberof AICommon
          * @classdesc Represents a AIMediaCollectionMetadata.
-         * @implements IAIMediaCollectionMetadata
          * @constructor
-         * @param {AICommon.IAIMediaCollectionMetadata=} [properties] Properties to set
+         * @param {AICommon.AIMediaCollectionMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIMediaCollectionMetadata(properties) {
@@ -11011,8 +11442,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.AIMediaCollectionMetadata
          * @static
-         * @param {AICommon.IAIMediaCollectionMetadata=} [properties] Properties to set
+         * @param {AICommon.AIMediaCollectionMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.AIMediaCollectionMetadata} AIMediaCollectionMetadata instance
+         * @type {{
+         *   (properties: AICommon.AIMediaCollectionMetadata.$Shape): AICommon.AIMediaCollectionMetadata & AICommon.AIMediaCollectionMetadata.$Shape;
+         *   (properties?: AICommon.AIMediaCollectionMetadata.$Properties): AICommon.AIMediaCollectionMetadata;
+         * }}
          */
         AIMediaCollectionMetadata.create = function create(properties) {
             return new AIMediaCollectionMetadata(properties);
@@ -11023,7 +11458,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.AIMediaCollectionMetadata
          * @static
-         * @param {AICommon.IAIMediaCollectionMetadata} message AIMediaCollectionMetadata message or plain object to encode
+         * @param {AICommon.AIMediaCollectionMetadata.$Properties} message AIMediaCollectionMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -11045,7 +11480,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.AIMediaCollectionMetadata
          * @static
-         * @param {AICommon.IAIMediaCollectionMetadata} message AIMediaCollectionMetadata message or plain object to encode
+         * @param {AICommon.AIMediaCollectionMetadata.$Properties} message AIMediaCollectionMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -11060,7 +11495,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.AIMediaCollectionMetadata} AIMediaCollectionMetadata
+         * @returns {AICommon.AIMediaCollectionMetadata & AICommon.AIMediaCollectionMetadata.$Shape} AIMediaCollectionMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -11111,7 +11546,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.AIMediaCollectionMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.AIMediaCollectionMetadata} AIMediaCollectionMetadata
+         * @returns {AICommon.AIMediaCollectionMetadata & AICommon.AIMediaCollectionMetadata.$Shape} AIMediaCollectionMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -11231,20 +11666,31 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a AIThreadInfo.
+         * @typedef {Object} AICommon.AIThreadInfo.$Properties
+         * @property {AICommon.AIThreadInfo.AIThreadServerInfo.$Properties|null} [serverInfo] AIThreadInfo serverInfo
+         * @property {AICommon.AIThreadInfo.AIThreadClientInfo.$Properties|null} [clientInfo] AIThreadInfo clientInfo
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a AIThreadInfo.
          * @memberof AICommon
          * @interface IAIThreadInfo
-         * @property {AICommon.AIThreadInfo.IAIThreadServerInfo|null} [serverInfo] AIThreadInfo serverInfo
-         * @property {AICommon.AIThreadInfo.IAIThreadClientInfo|null} [clientInfo] AIThreadInfo clientInfo
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments AICommon.AIThreadInfo.$Properties
+         * @deprecated Use AICommon.AIThreadInfo.$Properties instead.
+         */
+
+        /**
+         * Shape of a AIThreadInfo.
+         * @typedef {AICommon.AIThreadInfo.$Properties} AICommon.AIThreadInfo.$Shape
          */
 
         /**
          * Constructs a new AIThreadInfo.
          * @memberof AICommon
          * @classdesc Represents a AIThreadInfo.
-         * @implements IAIThreadInfo
          * @constructor
-         * @param {AICommon.IAIThreadInfo=} [properties] Properties to set
+         * @param {AICommon.AIThreadInfo.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function AIThreadInfo(properties) {
@@ -11256,7 +11702,7 @@ $root.AICommon = (function() {
 
         /**
          * AIThreadInfo serverInfo.
-         * @member {AICommon.AIThreadInfo.IAIThreadServerInfo|null|undefined} serverInfo
+         * @member {AICommon.AIThreadInfo.AIThreadServerInfo.$Properties|null|undefined} serverInfo
          * @memberof AICommon.AIThreadInfo
          * @instance
          */
@@ -11264,7 +11710,7 @@ $root.AICommon = (function() {
 
         /**
          * AIThreadInfo clientInfo.
-         * @member {AICommon.AIThreadInfo.IAIThreadClientInfo|null|undefined} clientInfo
+         * @member {AICommon.AIThreadInfo.AIThreadClientInfo.$Properties|null|undefined} clientInfo
          * @memberof AICommon.AIThreadInfo
          * @instance
          */
@@ -11290,8 +11736,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.AIThreadInfo
          * @static
-         * @param {AICommon.IAIThreadInfo=} [properties] Properties to set
+         * @param {AICommon.AIThreadInfo.$Properties=} [properties] Properties to set
          * @returns {AICommon.AIThreadInfo} AIThreadInfo instance
+         * @type {{
+         *   (properties: AICommon.AIThreadInfo.$Shape): AICommon.AIThreadInfo & AICommon.AIThreadInfo.$Shape;
+         *   (properties?: AICommon.AIThreadInfo.$Properties): AICommon.AIThreadInfo;
+         * }}
          */
         AIThreadInfo.create = function create(properties) {
             return new AIThreadInfo(properties);
@@ -11302,7 +11752,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.AIThreadInfo
          * @static
-         * @param {AICommon.IAIThreadInfo} message AIThreadInfo message or plain object to encode
+         * @param {AICommon.AIThreadInfo.$Properties} message AIThreadInfo message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -11324,7 +11774,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.AIThreadInfo
          * @static
-         * @param {AICommon.IAIThreadInfo} message AIThreadInfo message or plain object to encode
+         * @param {AICommon.AIThreadInfo.$Properties} message AIThreadInfo message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -11339,7 +11789,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.AIThreadInfo} AIThreadInfo
+         * @returns {AICommon.AIThreadInfo & AICommon.AIThreadInfo.$Shape} AIThreadInfo
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -11390,7 +11840,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.AIThreadInfo
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.AIThreadInfo} AIThreadInfo
+         * @returns {AICommon.AIThreadInfo & AICommon.AIThreadInfo.$Shape} AIThreadInfo
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -11519,20 +11969,31 @@ $root.AICommon = (function() {
 
             /**
              * Properties of a AIThreadClientInfo.
-             * @memberof AICommon.AIThreadInfo
-             * @interface IAIThreadClientInfo
+             * @typedef {Object} AICommon.AIThreadInfo.AIThreadClientInfo.$Properties
              * @property {AICommon.AIThreadInfo.AIThreadClientInfo.AIThreadType|null} [type] AIThreadClientInfo type
              * @property {string|null} [sourceChatJid] AIThreadClientInfo sourceChatJid
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
+             * Properties of a AIThreadClientInfo.
+             * @memberof AICommon.AIThreadInfo
+             * @interface IAIThreadClientInfo
+             * @augments AICommon.AIThreadInfo.AIThreadClientInfo.$Properties
+             * @deprecated Use AICommon.AIThreadInfo.AIThreadClientInfo.$Properties instead.
+             */
+
+            /**
+             * Shape of a AIThreadClientInfo.
+             * @typedef {AICommon.AIThreadInfo.AIThreadClientInfo.$Properties} AICommon.AIThreadInfo.AIThreadClientInfo.$Shape
+             */
+
+            /**
              * Constructs a new AIThreadClientInfo.
              * @memberof AICommon.AIThreadInfo
              * @classdesc Represents a AIThreadClientInfo.
-             * @implements IAIThreadClientInfo
              * @constructor
-             * @param {AICommon.AIThreadInfo.IAIThreadClientInfo=} [properties] Properties to set
+             * @param {AICommon.AIThreadInfo.AIThreadClientInfo.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AIThreadClientInfo(properties) {
@@ -11578,8 +12039,12 @@ $root.AICommon = (function() {
              * @function create
              * @memberof AICommon.AIThreadInfo.AIThreadClientInfo
              * @static
-             * @param {AICommon.AIThreadInfo.IAIThreadClientInfo=} [properties] Properties to set
+             * @param {AICommon.AIThreadInfo.AIThreadClientInfo.$Properties=} [properties] Properties to set
              * @returns {AICommon.AIThreadInfo.AIThreadClientInfo} AIThreadClientInfo instance
+             * @type {{
+             *   (properties: AICommon.AIThreadInfo.AIThreadClientInfo.$Shape): AICommon.AIThreadInfo.AIThreadClientInfo & AICommon.AIThreadInfo.AIThreadClientInfo.$Shape;
+             *   (properties?: AICommon.AIThreadInfo.AIThreadClientInfo.$Properties): AICommon.AIThreadInfo.AIThreadClientInfo;
+             * }}
              */
             AIThreadClientInfo.create = function create(properties) {
                 return new AIThreadClientInfo(properties);
@@ -11590,7 +12055,7 @@ $root.AICommon = (function() {
              * @function encode
              * @memberof AICommon.AIThreadInfo.AIThreadClientInfo
              * @static
-             * @param {AICommon.AIThreadInfo.IAIThreadClientInfo} message AIThreadClientInfo message or plain object to encode
+             * @param {AICommon.AIThreadInfo.AIThreadClientInfo.$Properties} message AIThreadClientInfo message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -11612,7 +12077,7 @@ $root.AICommon = (function() {
              * @function encodeDelimited
              * @memberof AICommon.AIThreadInfo.AIThreadClientInfo
              * @static
-             * @param {AICommon.AIThreadInfo.IAIThreadClientInfo} message AIThreadClientInfo message or plain object to encode
+             * @param {AICommon.AIThreadInfo.AIThreadClientInfo.$Properties} message AIThreadClientInfo message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -11627,7 +12092,7 @@ $root.AICommon = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {AICommon.AIThreadInfo.AIThreadClientInfo} AIThreadClientInfo
+             * @returns {AICommon.AIThreadInfo.AIThreadClientInfo & AICommon.AIThreadInfo.AIThreadClientInfo.$Shape} AIThreadClientInfo
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -11678,7 +12143,7 @@ $root.AICommon = (function() {
              * @memberof AICommon.AIThreadInfo.AIThreadClientInfo
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {AICommon.AIThreadInfo.AIThreadClientInfo} AIThreadClientInfo
+             * @returns {AICommon.AIThreadInfo.AIThreadClientInfo & AICommon.AIThreadInfo.AIThreadClientInfo.$Shape} AIThreadClientInfo
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -11845,19 +12310,30 @@ $root.AICommon = (function() {
 
             /**
              * Properties of a AIThreadServerInfo.
-             * @memberof AICommon.AIThreadInfo
-             * @interface IAIThreadServerInfo
+             * @typedef {Object} AICommon.AIThreadInfo.AIThreadServerInfo.$Properties
              * @property {string|null} [title] AIThreadServerInfo title
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a AIThreadServerInfo.
+             * @memberof AICommon.AIThreadInfo
+             * @interface IAIThreadServerInfo
+             * @augments AICommon.AIThreadInfo.AIThreadServerInfo.$Properties
+             * @deprecated Use AICommon.AIThreadInfo.AIThreadServerInfo.$Properties instead.
+             */
+
+            /**
+             * Shape of a AIThreadServerInfo.
+             * @typedef {AICommon.AIThreadInfo.AIThreadServerInfo.$Properties} AICommon.AIThreadInfo.AIThreadServerInfo.$Shape
              */
 
             /**
              * Constructs a new AIThreadServerInfo.
              * @memberof AICommon.AIThreadInfo
              * @classdesc Represents a AIThreadServerInfo.
-             * @implements IAIThreadServerInfo
              * @constructor
-             * @param {AICommon.AIThreadInfo.IAIThreadServerInfo=} [properties] Properties to set
+             * @param {AICommon.AIThreadInfo.AIThreadServerInfo.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AIThreadServerInfo(properties) {
@@ -11889,8 +12365,12 @@ $root.AICommon = (function() {
              * @function create
              * @memberof AICommon.AIThreadInfo.AIThreadServerInfo
              * @static
-             * @param {AICommon.AIThreadInfo.IAIThreadServerInfo=} [properties] Properties to set
+             * @param {AICommon.AIThreadInfo.AIThreadServerInfo.$Properties=} [properties] Properties to set
              * @returns {AICommon.AIThreadInfo.AIThreadServerInfo} AIThreadServerInfo instance
+             * @type {{
+             *   (properties: AICommon.AIThreadInfo.AIThreadServerInfo.$Shape): AICommon.AIThreadInfo.AIThreadServerInfo & AICommon.AIThreadInfo.AIThreadServerInfo.$Shape;
+             *   (properties?: AICommon.AIThreadInfo.AIThreadServerInfo.$Properties): AICommon.AIThreadInfo.AIThreadServerInfo;
+             * }}
              */
             AIThreadServerInfo.create = function create(properties) {
                 return new AIThreadServerInfo(properties);
@@ -11901,7 +12381,7 @@ $root.AICommon = (function() {
              * @function encode
              * @memberof AICommon.AIThreadInfo.AIThreadServerInfo
              * @static
-             * @param {AICommon.AIThreadInfo.IAIThreadServerInfo} message AIThreadServerInfo message or plain object to encode
+             * @param {AICommon.AIThreadInfo.AIThreadServerInfo.$Properties} message AIThreadServerInfo message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -11921,7 +12401,7 @@ $root.AICommon = (function() {
              * @function encodeDelimited
              * @memberof AICommon.AIThreadInfo.AIThreadServerInfo
              * @static
-             * @param {AICommon.AIThreadInfo.IAIThreadServerInfo} message AIThreadServerInfo message or plain object to encode
+             * @param {AICommon.AIThreadInfo.AIThreadServerInfo.$Properties} message AIThreadServerInfo message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -11936,7 +12416,7 @@ $root.AICommon = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {AICommon.AIThreadInfo.AIThreadServerInfo} AIThreadServerInfo
+             * @returns {AICommon.AIThreadInfo.AIThreadServerInfo & AICommon.AIThreadInfo.AIThreadServerInfo.$Shape} AIThreadServerInfo
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -11980,7 +12460,7 @@ $root.AICommon = (function() {
              * @memberof AICommon.AIThreadInfo.AIThreadServerInfo
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {AICommon.AIThreadInfo.AIThreadServerInfo} AIThreadServerInfo
+             * @returns {AICommon.AIThreadInfo.AIThreadServerInfo & AICommon.AIThreadInfo.AIThreadServerInfo.$Shape} AIThreadServerInfo
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -12091,20 +12571,31 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotUnifiedResponseMutation.
+         * @typedef {Object} AICommon.BotUnifiedResponseMutation.$Properties
+         * @property {AICommon.BotUnifiedResponseMutation.SideBySideMetadata.$Properties|null} [sbsMetadata] BotUnifiedResponseMutation sbsMetadata
+         * @property {Array.<AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.$Properties>|null} [mediaDetailsMetadataList] BotUnifiedResponseMutation mediaDetailsMetadataList
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a BotUnifiedResponseMutation.
          * @memberof AICommon
          * @interface IBotUnifiedResponseMutation
-         * @property {AICommon.BotUnifiedResponseMutation.ISideBySideMetadata|null} [sbsMetadata] BotUnifiedResponseMutation sbsMetadata
-         * @property {Array.<AICommon.BotUnifiedResponseMutation.IMediaDetailsMetadata>|null} [mediaDetailsMetadataList] BotUnifiedResponseMutation mediaDetailsMetadataList
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments AICommon.BotUnifiedResponseMutation.$Properties
+         * @deprecated Use AICommon.BotUnifiedResponseMutation.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotUnifiedResponseMutation.
+         * @typedef {AICommon.BotUnifiedResponseMutation.$Properties} AICommon.BotUnifiedResponseMutation.$Shape
          */
 
         /**
          * Constructs a new BotUnifiedResponseMutation.
          * @memberof AICommon
          * @classdesc Represents a BotUnifiedResponseMutation.
-         * @implements IBotUnifiedResponseMutation
          * @constructor
-         * @param {AICommon.IBotUnifiedResponseMutation=} [properties] Properties to set
+         * @param {AICommon.BotUnifiedResponseMutation.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotUnifiedResponseMutation(properties) {
@@ -12117,7 +12608,7 @@ $root.AICommon = (function() {
 
         /**
          * BotUnifiedResponseMutation sbsMetadata.
-         * @member {AICommon.BotUnifiedResponseMutation.ISideBySideMetadata|null|undefined} sbsMetadata
+         * @member {AICommon.BotUnifiedResponseMutation.SideBySideMetadata.$Properties|null|undefined} sbsMetadata
          * @memberof AICommon.BotUnifiedResponseMutation
          * @instance
          */
@@ -12125,7 +12616,7 @@ $root.AICommon = (function() {
 
         /**
          * BotUnifiedResponseMutation mediaDetailsMetadataList.
-         * @member {Array.<AICommon.BotUnifiedResponseMutation.IMediaDetailsMetadata>} mediaDetailsMetadataList
+         * @member {Array.<AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.$Properties>} mediaDetailsMetadataList
          * @memberof AICommon.BotUnifiedResponseMutation
          * @instance
          */
@@ -12145,8 +12636,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotUnifiedResponseMutation
          * @static
-         * @param {AICommon.IBotUnifiedResponseMutation=} [properties] Properties to set
+         * @param {AICommon.BotUnifiedResponseMutation.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotUnifiedResponseMutation} BotUnifiedResponseMutation instance
+         * @type {{
+         *   (properties: AICommon.BotUnifiedResponseMutation.$Shape): AICommon.BotUnifiedResponseMutation & AICommon.BotUnifiedResponseMutation.$Shape;
+         *   (properties?: AICommon.BotUnifiedResponseMutation.$Properties): AICommon.BotUnifiedResponseMutation;
+         * }}
          */
         BotUnifiedResponseMutation.create = function create(properties) {
             return new BotUnifiedResponseMutation(properties);
@@ -12157,7 +12652,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotUnifiedResponseMutation
          * @static
-         * @param {AICommon.IBotUnifiedResponseMutation} message BotUnifiedResponseMutation message or plain object to encode
+         * @param {AICommon.BotUnifiedResponseMutation.$Properties} message BotUnifiedResponseMutation message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -12180,7 +12675,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotUnifiedResponseMutation
          * @static
-         * @param {AICommon.IBotUnifiedResponseMutation} message BotUnifiedResponseMutation message or plain object to encode
+         * @param {AICommon.BotUnifiedResponseMutation.$Properties} message BotUnifiedResponseMutation message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -12195,7 +12690,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotUnifiedResponseMutation} BotUnifiedResponseMutation
+         * @returns {AICommon.BotUnifiedResponseMutation & AICommon.BotUnifiedResponseMutation.$Shape} BotUnifiedResponseMutation
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -12247,7 +12742,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotUnifiedResponseMutation
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotUnifiedResponseMutation} BotUnifiedResponseMutation
+         * @returns {AICommon.BotUnifiedResponseMutation & AICommon.BotUnifiedResponseMutation.$Shape} BotUnifiedResponseMutation
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -12384,21 +12879,32 @@ $root.AICommon = (function() {
 
             /**
              * Properties of a MediaDetailsMetadata.
+             * @typedef {Object} AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.$Properties
+             * @property {string|null} [id] MediaDetailsMetadata id
+             * @property {AICommon.BotMediaMetadata.$Properties|null} [highResMedia] MediaDetailsMetadata highResMedia
+             * @property {AICommon.BotMediaMetadata.$Properties|null} [previewMedia] MediaDetailsMetadata previewMedia
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a MediaDetailsMetadata.
              * @memberof AICommon.BotUnifiedResponseMutation
              * @interface IMediaDetailsMetadata
-             * @property {string|null} [id] MediaDetailsMetadata id
-             * @property {AICommon.IBotMediaMetadata|null} [highResMedia] MediaDetailsMetadata highResMedia
-             * @property {AICommon.IBotMediaMetadata|null} [previewMedia] MediaDetailsMetadata previewMedia
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @augments AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.$Properties
+             * @deprecated Use AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.$Properties instead.
+             */
+
+            /**
+             * Shape of a MediaDetailsMetadata.
+             * @typedef {AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.$Properties} AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.$Shape
              */
 
             /**
              * Constructs a new MediaDetailsMetadata.
              * @memberof AICommon.BotUnifiedResponseMutation
              * @classdesc Represents a MediaDetailsMetadata.
-             * @implements IMediaDetailsMetadata
              * @constructor
-             * @param {AICommon.BotUnifiedResponseMutation.IMediaDetailsMetadata=} [properties] Properties to set
+             * @param {AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function MediaDetailsMetadata(properties) {
@@ -12418,7 +12924,7 @@ $root.AICommon = (function() {
 
             /**
              * MediaDetailsMetadata highResMedia.
-             * @member {AICommon.IBotMediaMetadata|null|undefined} highResMedia
+             * @member {AICommon.BotMediaMetadata.$Properties|null|undefined} highResMedia
              * @memberof AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata
              * @instance
              */
@@ -12426,7 +12932,7 @@ $root.AICommon = (function() {
 
             /**
              * MediaDetailsMetadata previewMedia.
-             * @member {AICommon.IBotMediaMetadata|null|undefined} previewMedia
+             * @member {AICommon.BotMediaMetadata.$Properties|null|undefined} previewMedia
              * @memberof AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata
              * @instance
              */
@@ -12458,8 +12964,12 @@ $root.AICommon = (function() {
              * @function create
              * @memberof AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata
              * @static
-             * @param {AICommon.BotUnifiedResponseMutation.IMediaDetailsMetadata=} [properties] Properties to set
+             * @param {AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.$Properties=} [properties] Properties to set
              * @returns {AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata} MediaDetailsMetadata instance
+             * @type {{
+             *   (properties: AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.$Shape): AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata & AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.$Shape;
+             *   (properties?: AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.$Properties): AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata;
+             * }}
              */
             MediaDetailsMetadata.create = function create(properties) {
                 return new MediaDetailsMetadata(properties);
@@ -12470,7 +12980,7 @@ $root.AICommon = (function() {
              * @function encode
              * @memberof AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata
              * @static
-             * @param {AICommon.BotUnifiedResponseMutation.IMediaDetailsMetadata} message MediaDetailsMetadata message or plain object to encode
+             * @param {AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.$Properties} message MediaDetailsMetadata message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -12494,7 +13004,7 @@ $root.AICommon = (function() {
              * @function encodeDelimited
              * @memberof AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata
              * @static
-             * @param {AICommon.BotUnifiedResponseMutation.IMediaDetailsMetadata} message MediaDetailsMetadata message or plain object to encode
+             * @param {AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.$Properties} message MediaDetailsMetadata message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -12509,7 +13019,7 @@ $root.AICommon = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata} MediaDetailsMetadata
+             * @returns {AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata & AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.$Shape} MediaDetailsMetadata
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -12567,7 +13077,7 @@ $root.AICommon = (function() {
              * @memberof AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata} MediaDetailsMetadata
+             * @returns {AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata & AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.$Shape} MediaDetailsMetadata
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -12711,20 +13221,31 @@ $root.AICommon = (function() {
 
             /**
              * Properties of a SideBySideMetadata.
-             * @memberof AICommon.BotUnifiedResponseMutation
-             * @interface ISideBySideMetadata
+             * @typedef {Object} AICommon.BotUnifiedResponseMutation.SideBySideMetadata.$Properties
              * @property {string|null} [primaryResponseId] SideBySideMetadata primaryResponseId
              * @property {boolean|null} [surveyCtaHasRendered] SideBySideMetadata surveyCtaHasRendered
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
+             * Properties of a SideBySideMetadata.
+             * @memberof AICommon.BotUnifiedResponseMutation
+             * @interface ISideBySideMetadata
+             * @augments AICommon.BotUnifiedResponseMutation.SideBySideMetadata.$Properties
+             * @deprecated Use AICommon.BotUnifiedResponseMutation.SideBySideMetadata.$Properties instead.
+             */
+
+            /**
+             * Shape of a SideBySideMetadata.
+             * @typedef {AICommon.BotUnifiedResponseMutation.SideBySideMetadata.$Properties} AICommon.BotUnifiedResponseMutation.SideBySideMetadata.$Shape
+             */
+
+            /**
              * Constructs a new SideBySideMetadata.
              * @memberof AICommon.BotUnifiedResponseMutation
              * @classdesc Represents a SideBySideMetadata.
-             * @implements ISideBySideMetadata
              * @constructor
-             * @param {AICommon.BotUnifiedResponseMutation.ISideBySideMetadata=} [properties] Properties to set
+             * @param {AICommon.BotUnifiedResponseMutation.SideBySideMetadata.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function SideBySideMetadata(properties) {
@@ -12770,8 +13291,12 @@ $root.AICommon = (function() {
              * @function create
              * @memberof AICommon.BotUnifiedResponseMutation.SideBySideMetadata
              * @static
-             * @param {AICommon.BotUnifiedResponseMutation.ISideBySideMetadata=} [properties] Properties to set
+             * @param {AICommon.BotUnifiedResponseMutation.SideBySideMetadata.$Properties=} [properties] Properties to set
              * @returns {AICommon.BotUnifiedResponseMutation.SideBySideMetadata} SideBySideMetadata instance
+             * @type {{
+             *   (properties: AICommon.BotUnifiedResponseMutation.SideBySideMetadata.$Shape): AICommon.BotUnifiedResponseMutation.SideBySideMetadata & AICommon.BotUnifiedResponseMutation.SideBySideMetadata.$Shape;
+             *   (properties?: AICommon.BotUnifiedResponseMutation.SideBySideMetadata.$Properties): AICommon.BotUnifiedResponseMutation.SideBySideMetadata;
+             * }}
              */
             SideBySideMetadata.create = function create(properties) {
                 return new SideBySideMetadata(properties);
@@ -12782,7 +13307,7 @@ $root.AICommon = (function() {
              * @function encode
              * @memberof AICommon.BotUnifiedResponseMutation.SideBySideMetadata
              * @static
-             * @param {AICommon.BotUnifiedResponseMutation.ISideBySideMetadata} message SideBySideMetadata message or plain object to encode
+             * @param {AICommon.BotUnifiedResponseMutation.SideBySideMetadata.$Properties} message SideBySideMetadata message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -12804,7 +13329,7 @@ $root.AICommon = (function() {
              * @function encodeDelimited
              * @memberof AICommon.BotUnifiedResponseMutation.SideBySideMetadata
              * @static
-             * @param {AICommon.BotUnifiedResponseMutation.ISideBySideMetadata} message SideBySideMetadata message or plain object to encode
+             * @param {AICommon.BotUnifiedResponseMutation.SideBySideMetadata.$Properties} message SideBySideMetadata message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -12819,7 +13344,7 @@ $root.AICommon = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {AICommon.BotUnifiedResponseMutation.SideBySideMetadata} SideBySideMetadata
+             * @returns {AICommon.BotUnifiedResponseMutation.SideBySideMetadata & AICommon.BotUnifiedResponseMutation.SideBySideMetadata.$Shape} SideBySideMetadata
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -12870,7 +13395,7 @@ $root.AICommon = (function() {
              * @memberof AICommon.BotUnifiedResponseMutation.SideBySideMetadata
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {AICommon.BotUnifiedResponseMutation.SideBySideMetadata} SideBySideMetadata
+             * @returns {AICommon.BotUnifiedResponseMutation.SideBySideMetadata & AICommon.BotUnifiedResponseMutation.SideBySideMetadata.$Shape} SideBySideMetadata
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -12993,19 +13518,30 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotMessageOrigin.
-         * @memberof AICommon
-         * @interface IBotMessageOrigin
+         * @typedef {Object} AICommon.BotMessageOrigin.$Properties
          * @property {AICommon.BotMessageOrigin.BotMessageOriginType|null} [type] BotMessageOrigin type
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a BotMessageOrigin.
+         * @memberof AICommon
+         * @interface IBotMessageOrigin
+         * @augments AICommon.BotMessageOrigin.$Properties
+         * @deprecated Use AICommon.BotMessageOrigin.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotMessageOrigin.
+         * @typedef {AICommon.BotMessageOrigin.$Properties} AICommon.BotMessageOrigin.$Shape
          */
 
         /**
          * Constructs a new BotMessageOrigin.
          * @memberof AICommon
          * @classdesc Represents a BotMessageOrigin.
-         * @implements IBotMessageOrigin
          * @constructor
-         * @param {AICommon.IBotMessageOrigin=} [properties] Properties to set
+         * @param {AICommon.BotMessageOrigin.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotMessageOrigin(properties) {
@@ -13037,8 +13573,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotMessageOrigin
          * @static
-         * @param {AICommon.IBotMessageOrigin=} [properties] Properties to set
+         * @param {AICommon.BotMessageOrigin.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotMessageOrigin} BotMessageOrigin instance
+         * @type {{
+         *   (properties: AICommon.BotMessageOrigin.$Shape): AICommon.BotMessageOrigin & AICommon.BotMessageOrigin.$Shape;
+         *   (properties?: AICommon.BotMessageOrigin.$Properties): AICommon.BotMessageOrigin;
+         * }}
          */
         BotMessageOrigin.create = function create(properties) {
             return new BotMessageOrigin(properties);
@@ -13049,7 +13589,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotMessageOrigin
          * @static
-         * @param {AICommon.IBotMessageOrigin} message BotMessageOrigin message or plain object to encode
+         * @param {AICommon.BotMessageOrigin.$Properties} message BotMessageOrigin message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -13069,7 +13609,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotMessageOrigin
          * @static
-         * @param {AICommon.IBotMessageOrigin} message BotMessageOrigin message or plain object to encode
+         * @param {AICommon.BotMessageOrigin.$Properties} message BotMessageOrigin message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -13084,7 +13624,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotMessageOrigin} BotMessageOrigin
+         * @returns {AICommon.BotMessageOrigin & AICommon.BotMessageOrigin.$Shape} BotMessageOrigin
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -13128,7 +13668,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotMessageOrigin
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotMessageOrigin} BotMessageOrigin
+         * @returns {AICommon.BotMessageOrigin & AICommon.BotMessageOrigin.$Shape} BotMessageOrigin
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -13262,19 +13802,30 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotMessageOriginMetadata.
+         * @typedef {Object} AICommon.BotMessageOriginMetadata.$Properties
+         * @property {Array.<AICommon.BotMessageOrigin.$Properties>|null} [origins] BotMessageOriginMetadata origins
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a BotMessageOriginMetadata.
          * @memberof AICommon
          * @interface IBotMessageOriginMetadata
-         * @property {Array.<AICommon.IBotMessageOrigin>|null} [origins] BotMessageOriginMetadata origins
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments AICommon.BotMessageOriginMetadata.$Properties
+         * @deprecated Use AICommon.BotMessageOriginMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotMessageOriginMetadata.
+         * @typedef {AICommon.BotMessageOriginMetadata.$Properties} AICommon.BotMessageOriginMetadata.$Shape
          */
 
         /**
          * Constructs a new BotMessageOriginMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotMessageOriginMetadata.
-         * @implements IBotMessageOriginMetadata
          * @constructor
-         * @param {AICommon.IBotMessageOriginMetadata=} [properties] Properties to set
+         * @param {AICommon.BotMessageOriginMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotMessageOriginMetadata(properties) {
@@ -13287,7 +13838,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMessageOriginMetadata origins.
-         * @member {Array.<AICommon.IBotMessageOrigin>} origins
+         * @member {Array.<AICommon.BotMessageOrigin.$Properties>} origins
          * @memberof AICommon.BotMessageOriginMetadata
          * @instance
          */
@@ -13298,8 +13849,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotMessageOriginMetadata
          * @static
-         * @param {AICommon.IBotMessageOriginMetadata=} [properties] Properties to set
+         * @param {AICommon.BotMessageOriginMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotMessageOriginMetadata} BotMessageOriginMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotMessageOriginMetadata.$Shape): AICommon.BotMessageOriginMetadata & AICommon.BotMessageOriginMetadata.$Shape;
+         *   (properties?: AICommon.BotMessageOriginMetadata.$Properties): AICommon.BotMessageOriginMetadata;
+         * }}
          */
         BotMessageOriginMetadata.create = function create(properties) {
             return new BotMessageOriginMetadata(properties);
@@ -13310,7 +13865,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotMessageOriginMetadata
          * @static
-         * @param {AICommon.IBotMessageOriginMetadata} message BotMessageOriginMetadata message or plain object to encode
+         * @param {AICommon.BotMessageOriginMetadata.$Properties} message BotMessageOriginMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -13331,7 +13886,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotMessageOriginMetadata
          * @static
-         * @param {AICommon.IBotMessageOriginMetadata} message BotMessageOriginMetadata message or plain object to encode
+         * @param {AICommon.BotMessageOriginMetadata.$Properties} message BotMessageOriginMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -13346,7 +13901,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotMessageOriginMetadata} BotMessageOriginMetadata
+         * @returns {AICommon.BotMessageOriginMetadata & AICommon.BotMessageOriginMetadata.$Shape} BotMessageOriginMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -13391,7 +13946,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotMessageOriginMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotMessageOriginMetadata} BotMessageOriginMetadata
+         * @returns {AICommon.BotMessageOriginMetadata & AICommon.BotMessageOriginMetadata.$Shape} BotMessageOriginMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -13512,8 +14067,7 @@ $root.AICommon = (function() {
 
         /**
          * Properties of an InThreadSurveyMetadata.
-         * @memberof AICommon
-         * @interface IInThreadSurveyMetadata
+         * @typedef {Object} AICommon.InThreadSurveyMetadata.$Properties
          * @property {string|null} [tessaSessionId] InThreadSurveyMetadata tessaSessionId
          * @property {string|null} [simonSessionId] InThreadSurveyMetadata simonSessionId
          * @property {string|null} [simonSurveyId] InThreadSurveyMetadata simonSurveyId
@@ -13525,23 +14079,35 @@ $root.AICommon = (function() {
          * @property {string|null} [invitationCtaText] InThreadSurveyMetadata invitationCtaText
          * @property {string|null} [invitationCtaUrl] InThreadSurveyMetadata invitationCtaUrl
          * @property {string|null} [surveyTitle] InThreadSurveyMetadata surveyTitle
-         * @property {Array.<AICommon.InThreadSurveyMetadata.IInThreadSurveyQuestion>|null} [questions] InThreadSurveyMetadata questions
+         * @property {Array.<AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.$Properties>|null} [questions] InThreadSurveyMetadata questions
          * @property {string|null} [surveyContinueButtonText] InThreadSurveyMetadata surveyContinueButtonText
          * @property {string|null} [surveySubmitButtonText] InThreadSurveyMetadata surveySubmitButtonText
          * @property {string|null} [privacyStatementFull] InThreadSurveyMetadata privacyStatementFull
-         * @property {Array.<AICommon.InThreadSurveyMetadata.IInThreadSurveyPrivacyStatementPart>|null} [privacyStatementParts] InThreadSurveyMetadata privacyStatementParts
+         * @property {Array.<AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.$Properties>|null} [privacyStatementParts] InThreadSurveyMetadata privacyStatementParts
          * @property {string|null} [feedbackToastText] InThreadSurveyMetadata feedbackToastText
          * @property {number|null} [startQuestionIndex] InThreadSurveyMetadata startQuestionIndex
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
+         * Properties of an InThreadSurveyMetadata.
+         * @memberof AICommon
+         * @interface IInThreadSurveyMetadata
+         * @augments AICommon.InThreadSurveyMetadata.$Properties
+         * @deprecated Use AICommon.InThreadSurveyMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of an InThreadSurveyMetadata.
+         * @typedef {AICommon.InThreadSurveyMetadata.$Properties} AICommon.InThreadSurveyMetadata.$Shape
+         */
+
+        /**
          * Constructs a new InThreadSurveyMetadata.
          * @memberof AICommon
          * @classdesc Represents an InThreadSurveyMetadata.
-         * @implements IInThreadSurveyMetadata
          * @constructor
-         * @param {AICommon.IInThreadSurveyMetadata=} [properties] Properties to set
+         * @param {AICommon.InThreadSurveyMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function InThreadSurveyMetadata(properties) {
@@ -13643,7 +14209,7 @@ $root.AICommon = (function() {
 
         /**
          * InThreadSurveyMetadata questions.
-         * @member {Array.<AICommon.InThreadSurveyMetadata.IInThreadSurveyQuestion>} questions
+         * @member {Array.<AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.$Properties>} questions
          * @memberof AICommon.InThreadSurveyMetadata
          * @instance
          */
@@ -13675,7 +14241,7 @@ $root.AICommon = (function() {
 
         /**
          * InThreadSurveyMetadata privacyStatementParts.
-         * @member {Array.<AICommon.InThreadSurveyMetadata.IInThreadSurveyPrivacyStatementPart>} privacyStatementParts
+         * @member {Array.<AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.$Properties>} privacyStatementParts
          * @memberof AICommon.InThreadSurveyMetadata
          * @instance
          */
@@ -13801,8 +14367,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.InThreadSurveyMetadata
          * @static
-         * @param {AICommon.IInThreadSurveyMetadata=} [properties] Properties to set
+         * @param {AICommon.InThreadSurveyMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.InThreadSurveyMetadata} InThreadSurveyMetadata instance
+         * @type {{
+         *   (properties: AICommon.InThreadSurveyMetadata.$Shape): AICommon.InThreadSurveyMetadata & AICommon.InThreadSurveyMetadata.$Shape;
+         *   (properties?: AICommon.InThreadSurveyMetadata.$Properties): AICommon.InThreadSurveyMetadata;
+         * }}
          */
         InThreadSurveyMetadata.create = function create(properties) {
             return new InThreadSurveyMetadata(properties);
@@ -13813,7 +14383,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.InThreadSurveyMetadata
          * @static
-         * @param {AICommon.IInThreadSurveyMetadata} message InThreadSurveyMetadata message or plain object to encode
+         * @param {AICommon.InThreadSurveyMetadata.$Properties} message InThreadSurveyMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -13869,7 +14439,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.InThreadSurveyMetadata
          * @static
-         * @param {AICommon.IInThreadSurveyMetadata} message InThreadSurveyMetadata message or plain object to encode
+         * @param {AICommon.InThreadSurveyMetadata.$Properties} message InThreadSurveyMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -13884,7 +14454,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.InThreadSurveyMetadata} InThreadSurveyMetadata
+         * @returns {AICommon.InThreadSurveyMetadata & AICommon.InThreadSurveyMetadata.$Shape} InThreadSurveyMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -14049,7 +14619,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.InThreadSurveyMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.InThreadSurveyMetadata} InThreadSurveyMetadata
+         * @returns {AICommon.InThreadSurveyMetadata & AICommon.InThreadSurveyMetadata.$Shape} InThreadSurveyMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -14386,8 +14956,7 @@ $root.AICommon = (function() {
 
             /**
              * Properties of an InThreadSurveyOption.
-             * @memberof AICommon.InThreadSurveyMetadata
-             * @interface IInThreadSurveyOption
+             * @typedef {Object} AICommon.InThreadSurveyMetadata.InThreadSurveyOption.$Properties
              * @property {string|null} [stringValue] InThreadSurveyOption stringValue
              * @property {number|null} [numericValue] InThreadSurveyOption numericValue
              * @property {string|null} [textTranslated] InThreadSurveyOption textTranslated
@@ -14395,12 +14964,24 @@ $root.AICommon = (function() {
              */
 
             /**
+             * Properties of an InThreadSurveyOption.
+             * @memberof AICommon.InThreadSurveyMetadata
+             * @interface IInThreadSurveyOption
+             * @augments AICommon.InThreadSurveyMetadata.InThreadSurveyOption.$Properties
+             * @deprecated Use AICommon.InThreadSurveyMetadata.InThreadSurveyOption.$Properties instead.
+             */
+
+            /**
+             * Shape of an InThreadSurveyOption.
+             * @typedef {AICommon.InThreadSurveyMetadata.InThreadSurveyOption.$Properties} AICommon.InThreadSurveyMetadata.InThreadSurveyOption.$Shape
+             */
+
+            /**
              * Constructs a new InThreadSurveyOption.
              * @memberof AICommon.InThreadSurveyMetadata
              * @classdesc Represents an InThreadSurveyOption.
-             * @implements IInThreadSurveyOption
              * @constructor
-             * @param {AICommon.InThreadSurveyMetadata.IInThreadSurveyOption=} [properties] Properties to set
+             * @param {AICommon.InThreadSurveyMetadata.InThreadSurveyOption.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function InThreadSurveyOption(properties) {
@@ -14460,8 +15041,12 @@ $root.AICommon = (function() {
              * @function create
              * @memberof AICommon.InThreadSurveyMetadata.InThreadSurveyOption
              * @static
-             * @param {AICommon.InThreadSurveyMetadata.IInThreadSurveyOption=} [properties] Properties to set
+             * @param {AICommon.InThreadSurveyMetadata.InThreadSurveyOption.$Properties=} [properties] Properties to set
              * @returns {AICommon.InThreadSurveyMetadata.InThreadSurveyOption} InThreadSurveyOption instance
+             * @type {{
+             *   (properties: AICommon.InThreadSurveyMetadata.InThreadSurveyOption.$Shape): AICommon.InThreadSurveyMetadata.InThreadSurveyOption & AICommon.InThreadSurveyMetadata.InThreadSurveyOption.$Shape;
+             *   (properties?: AICommon.InThreadSurveyMetadata.InThreadSurveyOption.$Properties): AICommon.InThreadSurveyMetadata.InThreadSurveyOption;
+             * }}
              */
             InThreadSurveyOption.create = function create(properties) {
                 return new InThreadSurveyOption(properties);
@@ -14472,7 +15057,7 @@ $root.AICommon = (function() {
              * @function encode
              * @memberof AICommon.InThreadSurveyMetadata.InThreadSurveyOption
              * @static
-             * @param {AICommon.InThreadSurveyMetadata.IInThreadSurveyOption} message InThreadSurveyOption message or plain object to encode
+             * @param {AICommon.InThreadSurveyMetadata.InThreadSurveyOption.$Properties} message InThreadSurveyOption message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -14496,7 +15081,7 @@ $root.AICommon = (function() {
              * @function encodeDelimited
              * @memberof AICommon.InThreadSurveyMetadata.InThreadSurveyOption
              * @static
-             * @param {AICommon.InThreadSurveyMetadata.IInThreadSurveyOption} message InThreadSurveyOption message or plain object to encode
+             * @param {AICommon.InThreadSurveyMetadata.InThreadSurveyOption.$Properties} message InThreadSurveyOption message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -14511,7 +15096,7 @@ $root.AICommon = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {AICommon.InThreadSurveyMetadata.InThreadSurveyOption} InThreadSurveyOption
+             * @returns {AICommon.InThreadSurveyMetadata.InThreadSurveyOption & AICommon.InThreadSurveyMetadata.InThreadSurveyOption.$Shape} InThreadSurveyOption
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -14569,7 +15154,7 @@ $root.AICommon = (function() {
              * @memberof AICommon.InThreadSurveyMetadata.InThreadSurveyOption
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {AICommon.InThreadSurveyMetadata.InThreadSurveyOption} InThreadSurveyOption
+             * @returns {AICommon.InThreadSurveyMetadata.InThreadSurveyOption & AICommon.InThreadSurveyMetadata.InThreadSurveyOption.$Shape} InThreadSurveyOption
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -14701,20 +15286,31 @@ $root.AICommon = (function() {
 
             /**
              * Properties of an InThreadSurveyPrivacyStatementPart.
-             * @memberof AICommon.InThreadSurveyMetadata
-             * @interface IInThreadSurveyPrivacyStatementPart
+             * @typedef {Object} AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.$Properties
              * @property {string|null} [text] InThreadSurveyPrivacyStatementPart text
              * @property {string|null} [url] InThreadSurveyPrivacyStatementPart url
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
+             * Properties of an InThreadSurveyPrivacyStatementPart.
+             * @memberof AICommon.InThreadSurveyMetadata
+             * @interface IInThreadSurveyPrivacyStatementPart
+             * @augments AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.$Properties
+             * @deprecated Use AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.$Properties instead.
+             */
+
+            /**
+             * Shape of an InThreadSurveyPrivacyStatementPart.
+             * @typedef {AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.$Properties} AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.$Shape
+             */
+
+            /**
              * Constructs a new InThreadSurveyPrivacyStatementPart.
              * @memberof AICommon.InThreadSurveyMetadata
              * @classdesc Represents an InThreadSurveyPrivacyStatementPart.
-             * @implements IInThreadSurveyPrivacyStatementPart
              * @constructor
-             * @param {AICommon.InThreadSurveyMetadata.IInThreadSurveyPrivacyStatementPart=} [properties] Properties to set
+             * @param {AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function InThreadSurveyPrivacyStatementPart(properties) {
@@ -14760,8 +15356,12 @@ $root.AICommon = (function() {
              * @function create
              * @memberof AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart
              * @static
-             * @param {AICommon.InThreadSurveyMetadata.IInThreadSurveyPrivacyStatementPart=} [properties] Properties to set
+             * @param {AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.$Properties=} [properties] Properties to set
              * @returns {AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart} InThreadSurveyPrivacyStatementPart instance
+             * @type {{
+             *   (properties: AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.$Shape): AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart & AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.$Shape;
+             *   (properties?: AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.$Properties): AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart;
+             * }}
              */
             InThreadSurveyPrivacyStatementPart.create = function create(properties) {
                 return new InThreadSurveyPrivacyStatementPart(properties);
@@ -14772,7 +15372,7 @@ $root.AICommon = (function() {
              * @function encode
              * @memberof AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart
              * @static
-             * @param {AICommon.InThreadSurveyMetadata.IInThreadSurveyPrivacyStatementPart} message InThreadSurveyPrivacyStatementPart message or plain object to encode
+             * @param {AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.$Properties} message InThreadSurveyPrivacyStatementPart message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -14794,7 +15394,7 @@ $root.AICommon = (function() {
              * @function encodeDelimited
              * @memberof AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart
              * @static
-             * @param {AICommon.InThreadSurveyMetadata.IInThreadSurveyPrivacyStatementPart} message InThreadSurveyPrivacyStatementPart message or plain object to encode
+             * @param {AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.$Properties} message InThreadSurveyPrivacyStatementPart message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -14809,7 +15409,7 @@ $root.AICommon = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart} InThreadSurveyPrivacyStatementPart
+             * @returns {AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart & AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.$Shape} InThreadSurveyPrivacyStatementPart
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -14860,7 +15460,7 @@ $root.AICommon = (function() {
              * @memberof AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart} InThreadSurveyPrivacyStatementPart
+             * @returns {AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart & AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.$Shape} InThreadSurveyPrivacyStatementPart
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -14980,21 +15580,32 @@ $root.AICommon = (function() {
 
             /**
              * Properties of an InThreadSurveyQuestion.
-             * @memberof AICommon.InThreadSurveyMetadata
-             * @interface IInThreadSurveyQuestion
+             * @typedef {Object} AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.$Properties
              * @property {string|null} [questionText] InThreadSurveyQuestion questionText
              * @property {string|null} [questionId] InThreadSurveyQuestion questionId
-             * @property {Array.<AICommon.InThreadSurveyMetadata.IInThreadSurveyOption>|null} [questionOptions] InThreadSurveyQuestion questionOptions
+             * @property {Array.<AICommon.InThreadSurveyMetadata.InThreadSurveyOption.$Properties>|null} [questionOptions] InThreadSurveyQuestion questionOptions
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of an InThreadSurveyQuestion.
+             * @memberof AICommon.InThreadSurveyMetadata
+             * @interface IInThreadSurveyQuestion
+             * @augments AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.$Properties
+             * @deprecated Use AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.$Properties instead.
+             */
+
+            /**
+             * Shape of an InThreadSurveyQuestion.
+             * @typedef {AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.$Properties} AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.$Shape
              */
 
             /**
              * Constructs a new InThreadSurveyQuestion.
              * @memberof AICommon.InThreadSurveyMetadata
              * @classdesc Represents an InThreadSurveyQuestion.
-             * @implements IInThreadSurveyQuestion
              * @constructor
-             * @param {AICommon.InThreadSurveyMetadata.IInThreadSurveyQuestion=} [properties] Properties to set
+             * @param {AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function InThreadSurveyQuestion(properties) {
@@ -15023,7 +15634,7 @@ $root.AICommon = (function() {
 
             /**
              * InThreadSurveyQuestion questionOptions.
-             * @member {Array.<AICommon.InThreadSurveyMetadata.IInThreadSurveyOption>} questionOptions
+             * @member {Array.<AICommon.InThreadSurveyMetadata.InThreadSurveyOption.$Properties>} questionOptions
              * @memberof AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion
              * @instance
              */
@@ -15049,8 +15660,12 @@ $root.AICommon = (function() {
              * @function create
              * @memberof AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion
              * @static
-             * @param {AICommon.InThreadSurveyMetadata.IInThreadSurveyQuestion=} [properties] Properties to set
+             * @param {AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.$Properties=} [properties] Properties to set
              * @returns {AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion} InThreadSurveyQuestion instance
+             * @type {{
+             *   (properties: AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.$Shape): AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion & AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.$Shape;
+             *   (properties?: AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.$Properties): AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion;
+             * }}
              */
             InThreadSurveyQuestion.create = function create(properties) {
                 return new InThreadSurveyQuestion(properties);
@@ -15061,7 +15676,7 @@ $root.AICommon = (function() {
              * @function encode
              * @memberof AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion
              * @static
-             * @param {AICommon.InThreadSurveyMetadata.IInThreadSurveyQuestion} message InThreadSurveyQuestion message or plain object to encode
+             * @param {AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.$Properties} message InThreadSurveyQuestion message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -15086,7 +15701,7 @@ $root.AICommon = (function() {
              * @function encodeDelimited
              * @memberof AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion
              * @static
-             * @param {AICommon.InThreadSurveyMetadata.IInThreadSurveyQuestion} message InThreadSurveyQuestion message or plain object to encode
+             * @param {AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.$Properties} message InThreadSurveyQuestion message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -15101,7 +15716,7 @@ $root.AICommon = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion} InThreadSurveyQuestion
+             * @returns {AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion & AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.$Shape} InThreadSurveyQuestion
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -15160,7 +15775,7 @@ $root.AICommon = (function() {
              * @memberof AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion} InThreadSurveyQuestion
+             * @returns {AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion & AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.$Shape} InThreadSurveyQuestion
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -15309,19 +15924,30 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotSourcesMetadata.
+         * @typedef {Object} AICommon.BotSourcesMetadata.$Properties
+         * @property {Array.<AICommon.BotSourcesMetadata.BotSourceItem.$Properties>|null} [sources] BotSourcesMetadata sources
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a BotSourcesMetadata.
          * @memberof AICommon
          * @interface IBotSourcesMetadata
-         * @property {Array.<AICommon.BotSourcesMetadata.IBotSourceItem>|null} [sources] BotSourcesMetadata sources
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments AICommon.BotSourcesMetadata.$Properties
+         * @deprecated Use AICommon.BotSourcesMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotSourcesMetadata.
+         * @typedef {AICommon.BotSourcesMetadata.$Properties} AICommon.BotSourcesMetadata.$Shape
          */
 
         /**
          * Constructs a new BotSourcesMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotSourcesMetadata.
-         * @implements IBotSourcesMetadata
          * @constructor
-         * @param {AICommon.IBotSourcesMetadata=} [properties] Properties to set
+         * @param {AICommon.BotSourcesMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotSourcesMetadata(properties) {
@@ -15334,7 +15960,7 @@ $root.AICommon = (function() {
 
         /**
          * BotSourcesMetadata sources.
-         * @member {Array.<AICommon.BotSourcesMetadata.IBotSourceItem>} sources
+         * @member {Array.<AICommon.BotSourcesMetadata.BotSourceItem.$Properties>} sources
          * @memberof AICommon.BotSourcesMetadata
          * @instance
          */
@@ -15345,8 +15971,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotSourcesMetadata
          * @static
-         * @param {AICommon.IBotSourcesMetadata=} [properties] Properties to set
+         * @param {AICommon.BotSourcesMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotSourcesMetadata} BotSourcesMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotSourcesMetadata.$Shape): AICommon.BotSourcesMetadata & AICommon.BotSourcesMetadata.$Shape;
+         *   (properties?: AICommon.BotSourcesMetadata.$Properties): AICommon.BotSourcesMetadata;
+         * }}
          */
         BotSourcesMetadata.create = function create(properties) {
             return new BotSourcesMetadata(properties);
@@ -15357,7 +15987,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotSourcesMetadata
          * @static
-         * @param {AICommon.IBotSourcesMetadata} message BotSourcesMetadata message or plain object to encode
+         * @param {AICommon.BotSourcesMetadata.$Properties} message BotSourcesMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -15378,7 +16008,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotSourcesMetadata
          * @static
-         * @param {AICommon.IBotSourcesMetadata} message BotSourcesMetadata message or plain object to encode
+         * @param {AICommon.BotSourcesMetadata.$Properties} message BotSourcesMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -15393,7 +16023,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotSourcesMetadata} BotSourcesMetadata
+         * @returns {AICommon.BotSourcesMetadata & AICommon.BotSourcesMetadata.$Shape} BotSourcesMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -15438,7 +16068,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotSourcesMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotSourcesMetadata} BotSourcesMetadata
+         * @returns {AICommon.BotSourcesMetadata & AICommon.BotSourcesMetadata.$Shape} BotSourcesMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -15556,8 +16186,7 @@ $root.AICommon = (function() {
 
             /**
              * Properties of a BotSourceItem.
-             * @memberof AICommon.BotSourcesMetadata
-             * @interface IBotSourceItem
+             * @typedef {Object} AICommon.BotSourcesMetadata.BotSourceItem.$Properties
              * @property {AICommon.BotSourcesMetadata.BotSourceItem.SourceProvider|null} [provider] BotSourceItem provider
              * @property {string|null} [thumbnailCdnUrl] BotSourceItem thumbnailCdnUrl
              * @property {string|null} [sourceProviderUrl] BotSourceItem sourceProviderUrl
@@ -15569,12 +16198,24 @@ $root.AICommon = (function() {
              */
 
             /**
+             * Properties of a BotSourceItem.
+             * @memberof AICommon.BotSourcesMetadata
+             * @interface IBotSourceItem
+             * @augments AICommon.BotSourcesMetadata.BotSourceItem.$Properties
+             * @deprecated Use AICommon.BotSourcesMetadata.BotSourceItem.$Properties instead.
+             */
+
+            /**
+             * Shape of a BotSourceItem.
+             * @typedef {AICommon.BotSourcesMetadata.BotSourceItem.$Properties} AICommon.BotSourcesMetadata.BotSourceItem.$Shape
+             */
+
+            /**
              * Constructs a new BotSourceItem.
              * @memberof AICommon.BotSourcesMetadata
              * @classdesc Represents a BotSourceItem.
-             * @implements IBotSourceItem
              * @constructor
-             * @param {AICommon.BotSourcesMetadata.IBotSourceItem=} [properties] Properties to set
+             * @param {AICommon.BotSourcesMetadata.BotSourceItem.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function BotSourceItem(properties) {
@@ -15690,8 +16331,12 @@ $root.AICommon = (function() {
              * @function create
              * @memberof AICommon.BotSourcesMetadata.BotSourceItem
              * @static
-             * @param {AICommon.BotSourcesMetadata.IBotSourceItem=} [properties] Properties to set
+             * @param {AICommon.BotSourcesMetadata.BotSourceItem.$Properties=} [properties] Properties to set
              * @returns {AICommon.BotSourcesMetadata.BotSourceItem} BotSourceItem instance
+             * @type {{
+             *   (properties: AICommon.BotSourcesMetadata.BotSourceItem.$Shape): AICommon.BotSourcesMetadata.BotSourceItem & AICommon.BotSourcesMetadata.BotSourceItem.$Shape;
+             *   (properties?: AICommon.BotSourcesMetadata.BotSourceItem.$Properties): AICommon.BotSourcesMetadata.BotSourceItem;
+             * }}
              */
             BotSourceItem.create = function create(properties) {
                 return new BotSourceItem(properties);
@@ -15702,7 +16347,7 @@ $root.AICommon = (function() {
              * @function encode
              * @memberof AICommon.BotSourcesMetadata.BotSourceItem
              * @static
-             * @param {AICommon.BotSourcesMetadata.IBotSourceItem} message BotSourceItem message or plain object to encode
+             * @param {AICommon.BotSourcesMetadata.BotSourceItem.$Properties} message BotSourceItem message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -15734,7 +16379,7 @@ $root.AICommon = (function() {
              * @function encodeDelimited
              * @memberof AICommon.BotSourcesMetadata.BotSourceItem
              * @static
-             * @param {AICommon.BotSourcesMetadata.IBotSourceItem} message BotSourceItem message or plain object to encode
+             * @param {AICommon.BotSourcesMetadata.BotSourceItem.$Properties} message BotSourceItem message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -15749,7 +16394,7 @@ $root.AICommon = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {AICommon.BotSourcesMetadata.BotSourceItem} BotSourceItem
+             * @returns {AICommon.BotSourcesMetadata.BotSourceItem & AICommon.BotSourcesMetadata.BotSourceItem.$Shape} BotSourceItem
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -15835,7 +16480,7 @@ $root.AICommon = (function() {
              * @memberof AICommon.BotSourcesMetadata.BotSourceItem
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {AICommon.BotSourcesMetadata.BotSourceItem} BotSourceItem
+             * @returns {AICommon.BotSourcesMetadata.BotSourceItem & AICommon.BotSourcesMetadata.BotSourceItem.$Shape} BotSourceItem
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -16072,8 +16717,7 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotAgeCollectionMetadata.
-         * @memberof AICommon
-         * @interface IBotAgeCollectionMetadata
+         * @typedef {Object} AICommon.BotAgeCollectionMetadata.$Properties
          * @property {boolean|null} [ageCollectionEligible] BotAgeCollectionMetadata ageCollectionEligible
          * @property {boolean|null} [shouldTriggerAgeCollectionOnClient] BotAgeCollectionMetadata shouldTriggerAgeCollectionOnClient
          * @property {AICommon.BotAgeCollectionMetadata.AgeCollectionType|null} [ageCollectionType] BotAgeCollectionMetadata ageCollectionType
@@ -16081,12 +16725,24 @@ $root.AICommon = (function() {
          */
 
         /**
+         * Properties of a BotAgeCollectionMetadata.
+         * @memberof AICommon
+         * @interface IBotAgeCollectionMetadata
+         * @augments AICommon.BotAgeCollectionMetadata.$Properties
+         * @deprecated Use AICommon.BotAgeCollectionMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotAgeCollectionMetadata.
+         * @typedef {AICommon.BotAgeCollectionMetadata.$Properties} AICommon.BotAgeCollectionMetadata.$Shape
+         */
+
+        /**
          * Constructs a new BotAgeCollectionMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotAgeCollectionMetadata.
-         * @implements IBotAgeCollectionMetadata
          * @constructor
-         * @param {AICommon.IBotAgeCollectionMetadata=} [properties] Properties to set
+         * @param {AICommon.BotAgeCollectionMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotAgeCollectionMetadata(properties) {
@@ -16146,8 +16802,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotAgeCollectionMetadata
          * @static
-         * @param {AICommon.IBotAgeCollectionMetadata=} [properties] Properties to set
+         * @param {AICommon.BotAgeCollectionMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotAgeCollectionMetadata} BotAgeCollectionMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotAgeCollectionMetadata.$Shape): AICommon.BotAgeCollectionMetadata & AICommon.BotAgeCollectionMetadata.$Shape;
+         *   (properties?: AICommon.BotAgeCollectionMetadata.$Properties): AICommon.BotAgeCollectionMetadata;
+         * }}
          */
         BotAgeCollectionMetadata.create = function create(properties) {
             return new BotAgeCollectionMetadata(properties);
@@ -16158,7 +16818,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotAgeCollectionMetadata
          * @static
-         * @param {AICommon.IBotAgeCollectionMetadata} message BotAgeCollectionMetadata message or plain object to encode
+         * @param {AICommon.BotAgeCollectionMetadata.$Properties} message BotAgeCollectionMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -16182,7 +16842,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotAgeCollectionMetadata
          * @static
-         * @param {AICommon.IBotAgeCollectionMetadata} message BotAgeCollectionMetadata message or plain object to encode
+         * @param {AICommon.BotAgeCollectionMetadata.$Properties} message BotAgeCollectionMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -16197,7 +16857,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotAgeCollectionMetadata} BotAgeCollectionMetadata
+         * @returns {AICommon.BotAgeCollectionMetadata & AICommon.BotAgeCollectionMetadata.$Shape} BotAgeCollectionMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -16255,7 +16915,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotAgeCollectionMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotAgeCollectionMetadata} BotAgeCollectionMetadata
+         * @returns {AICommon.BotAgeCollectionMetadata & AICommon.BotAgeCollectionMetadata.$Shape} BotAgeCollectionMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -16420,20 +17080,31 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotImagineMetadata.
-         * @memberof AICommon
-         * @interface IBotImagineMetadata
+         * @typedef {Object} AICommon.BotImagineMetadata.$Properties
          * @property {AICommon.BotImagineMetadata.ImagineType|null} [imagineType] BotImagineMetadata imagineType
          * @property {string|null} [shortPrompt] BotImagineMetadata shortPrompt
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
+         * Properties of a BotImagineMetadata.
+         * @memberof AICommon
+         * @interface IBotImagineMetadata
+         * @augments AICommon.BotImagineMetadata.$Properties
+         * @deprecated Use AICommon.BotImagineMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotImagineMetadata.
+         * @typedef {AICommon.BotImagineMetadata.$Properties} AICommon.BotImagineMetadata.$Shape
+         */
+
+        /**
          * Constructs a new BotImagineMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotImagineMetadata.
-         * @implements IBotImagineMetadata
          * @constructor
-         * @param {AICommon.IBotImagineMetadata=} [properties] Properties to set
+         * @param {AICommon.BotImagineMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotImagineMetadata(properties) {
@@ -16479,8 +17150,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotImagineMetadata
          * @static
-         * @param {AICommon.IBotImagineMetadata=} [properties] Properties to set
+         * @param {AICommon.BotImagineMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotImagineMetadata} BotImagineMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotImagineMetadata.$Shape): AICommon.BotImagineMetadata & AICommon.BotImagineMetadata.$Shape;
+         *   (properties?: AICommon.BotImagineMetadata.$Properties): AICommon.BotImagineMetadata;
+         * }}
          */
         BotImagineMetadata.create = function create(properties) {
             return new BotImagineMetadata(properties);
@@ -16491,7 +17166,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotImagineMetadata
          * @static
-         * @param {AICommon.IBotImagineMetadata} message BotImagineMetadata message or plain object to encode
+         * @param {AICommon.BotImagineMetadata.$Properties} message BotImagineMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -16513,7 +17188,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotImagineMetadata
          * @static
-         * @param {AICommon.IBotImagineMetadata} message BotImagineMetadata message or plain object to encode
+         * @param {AICommon.BotImagineMetadata.$Properties} message BotImagineMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -16528,7 +17203,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotImagineMetadata} BotImagineMetadata
+         * @returns {AICommon.BotImagineMetadata & AICommon.BotImagineMetadata.$Shape} BotImagineMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -16579,7 +17254,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotImagineMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotImagineMetadata} BotImagineMetadata
+         * @returns {AICommon.BotImagineMetadata & AICommon.BotImagineMetadata.$Shape} BotImagineMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -16753,19 +17428,30 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotQuotaMetadata.
+         * @typedef {Object} AICommon.BotQuotaMetadata.$Properties
+         * @property {Array.<AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.$Properties>|null} [botFeatureQuotaMetadata] BotQuotaMetadata botFeatureQuotaMetadata
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a BotQuotaMetadata.
          * @memberof AICommon
          * @interface IBotQuotaMetadata
-         * @property {Array.<AICommon.BotQuotaMetadata.IBotFeatureQuotaMetadata>|null} [botFeatureQuotaMetadata] BotQuotaMetadata botFeatureQuotaMetadata
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments AICommon.BotQuotaMetadata.$Properties
+         * @deprecated Use AICommon.BotQuotaMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotQuotaMetadata.
+         * @typedef {AICommon.BotQuotaMetadata.$Properties} AICommon.BotQuotaMetadata.$Shape
          */
 
         /**
          * Constructs a new BotQuotaMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotQuotaMetadata.
-         * @implements IBotQuotaMetadata
          * @constructor
-         * @param {AICommon.IBotQuotaMetadata=} [properties] Properties to set
+         * @param {AICommon.BotQuotaMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotQuotaMetadata(properties) {
@@ -16778,7 +17464,7 @@ $root.AICommon = (function() {
 
         /**
          * BotQuotaMetadata botFeatureQuotaMetadata.
-         * @member {Array.<AICommon.BotQuotaMetadata.IBotFeatureQuotaMetadata>} botFeatureQuotaMetadata
+         * @member {Array.<AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.$Properties>} botFeatureQuotaMetadata
          * @memberof AICommon.BotQuotaMetadata
          * @instance
          */
@@ -16789,8 +17475,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotQuotaMetadata
          * @static
-         * @param {AICommon.IBotQuotaMetadata=} [properties] Properties to set
+         * @param {AICommon.BotQuotaMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotQuotaMetadata} BotQuotaMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotQuotaMetadata.$Shape): AICommon.BotQuotaMetadata & AICommon.BotQuotaMetadata.$Shape;
+         *   (properties?: AICommon.BotQuotaMetadata.$Properties): AICommon.BotQuotaMetadata;
+         * }}
          */
         BotQuotaMetadata.create = function create(properties) {
             return new BotQuotaMetadata(properties);
@@ -16801,7 +17491,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotQuotaMetadata
          * @static
-         * @param {AICommon.IBotQuotaMetadata} message BotQuotaMetadata message or plain object to encode
+         * @param {AICommon.BotQuotaMetadata.$Properties} message BotQuotaMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -16822,7 +17512,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotQuotaMetadata
          * @static
-         * @param {AICommon.IBotQuotaMetadata} message BotQuotaMetadata message or plain object to encode
+         * @param {AICommon.BotQuotaMetadata.$Properties} message BotQuotaMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -16837,7 +17527,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotQuotaMetadata} BotQuotaMetadata
+         * @returns {AICommon.BotQuotaMetadata & AICommon.BotQuotaMetadata.$Shape} BotQuotaMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -16882,7 +17572,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotQuotaMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotQuotaMetadata} BotQuotaMetadata
+         * @returns {AICommon.BotQuotaMetadata & AICommon.BotQuotaMetadata.$Shape} BotQuotaMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -17000,8 +17690,7 @@ $root.AICommon = (function() {
 
             /**
              * Properties of a BotFeatureQuotaMetadata.
-             * @memberof AICommon.BotQuotaMetadata
-             * @interface IBotFeatureQuotaMetadata
+             * @typedef {Object} AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.$Properties
              * @property {AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.BotFeatureType|null} [featureType] BotFeatureQuotaMetadata featureType
              * @property {number|null} [remainingQuota] BotFeatureQuotaMetadata remainingQuota
              * @property {number|Long|null} [expirationTimestamp] BotFeatureQuotaMetadata expirationTimestamp
@@ -17009,12 +17698,24 @@ $root.AICommon = (function() {
              */
 
             /**
+             * Properties of a BotFeatureQuotaMetadata.
+             * @memberof AICommon.BotQuotaMetadata
+             * @interface IBotFeatureQuotaMetadata
+             * @augments AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.$Properties
+             * @deprecated Use AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.$Properties instead.
+             */
+
+            /**
+             * Shape of a BotFeatureQuotaMetadata.
+             * @typedef {AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.$Properties} AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.$Shape
+             */
+
+            /**
              * Constructs a new BotFeatureQuotaMetadata.
              * @memberof AICommon.BotQuotaMetadata
              * @classdesc Represents a BotFeatureQuotaMetadata.
-             * @implements IBotFeatureQuotaMetadata
              * @constructor
-             * @param {AICommon.BotQuotaMetadata.IBotFeatureQuotaMetadata=} [properties] Properties to set
+             * @param {AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function BotFeatureQuotaMetadata(properties) {
@@ -17074,8 +17775,12 @@ $root.AICommon = (function() {
              * @function create
              * @memberof AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata
              * @static
-             * @param {AICommon.BotQuotaMetadata.IBotFeatureQuotaMetadata=} [properties] Properties to set
+             * @param {AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.$Properties=} [properties] Properties to set
              * @returns {AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata} BotFeatureQuotaMetadata instance
+             * @type {{
+             *   (properties: AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.$Shape): AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata & AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.$Shape;
+             *   (properties?: AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.$Properties): AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata;
+             * }}
              */
             BotFeatureQuotaMetadata.create = function create(properties) {
                 return new BotFeatureQuotaMetadata(properties);
@@ -17086,7 +17791,7 @@ $root.AICommon = (function() {
              * @function encode
              * @memberof AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata
              * @static
-             * @param {AICommon.BotQuotaMetadata.IBotFeatureQuotaMetadata} message BotFeatureQuotaMetadata message or plain object to encode
+             * @param {AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.$Properties} message BotFeatureQuotaMetadata message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -17110,7 +17815,7 @@ $root.AICommon = (function() {
              * @function encodeDelimited
              * @memberof AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata
              * @static
-             * @param {AICommon.BotQuotaMetadata.IBotFeatureQuotaMetadata} message BotFeatureQuotaMetadata message or plain object to encode
+             * @param {AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.$Properties} message BotFeatureQuotaMetadata message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -17125,7 +17830,7 @@ $root.AICommon = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata} BotFeatureQuotaMetadata
+             * @returns {AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata & AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.$Shape} BotFeatureQuotaMetadata
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -17183,7 +17888,7 @@ $root.AICommon = (function() {
              * @memberof AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata} BotFeatureQuotaMetadata
+             * @returns {AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata & AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.$Shape} BotFeatureQuotaMetadata
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -17361,20 +18066,31 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotModeSelectionMetadata.
-         * @memberof AICommon
-         * @interface IBotModeSelectionMetadata
+         * @typedef {Object} AICommon.BotModeSelectionMetadata.$Properties
          * @property {Array.<AICommon.BotModeSelectionMetadata.BotUserSelectionMode>|null} [mode] BotModeSelectionMetadata mode
          * @property {Array.<number>|null} [overrideMode] BotModeSelectionMetadata overrideMode
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
+         * Properties of a BotModeSelectionMetadata.
+         * @memberof AICommon
+         * @interface IBotModeSelectionMetadata
+         * @augments AICommon.BotModeSelectionMetadata.$Properties
+         * @deprecated Use AICommon.BotModeSelectionMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotModeSelectionMetadata.
+         * @typedef {AICommon.BotModeSelectionMetadata.$Properties} AICommon.BotModeSelectionMetadata.$Shape
+         */
+
+        /**
          * Constructs a new BotModeSelectionMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotModeSelectionMetadata.
-         * @implements IBotModeSelectionMetadata
          * @constructor
-         * @param {AICommon.IBotModeSelectionMetadata=} [properties] Properties to set
+         * @param {AICommon.BotModeSelectionMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotModeSelectionMetadata(properties) {
@@ -17407,8 +18123,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotModeSelectionMetadata
          * @static
-         * @param {AICommon.IBotModeSelectionMetadata=} [properties] Properties to set
+         * @param {AICommon.BotModeSelectionMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotModeSelectionMetadata} BotModeSelectionMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotModeSelectionMetadata.$Shape): AICommon.BotModeSelectionMetadata & AICommon.BotModeSelectionMetadata.$Shape;
+         *   (properties?: AICommon.BotModeSelectionMetadata.$Properties): AICommon.BotModeSelectionMetadata;
+         * }}
          */
         BotModeSelectionMetadata.create = function create(properties) {
             return new BotModeSelectionMetadata(properties);
@@ -17419,7 +18139,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotModeSelectionMetadata
          * @static
-         * @param {AICommon.IBotModeSelectionMetadata} message BotModeSelectionMetadata message or plain object to encode
+         * @param {AICommon.BotModeSelectionMetadata.$Properties} message BotModeSelectionMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -17449,7 +18169,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotModeSelectionMetadata
          * @static
-         * @param {AICommon.IBotModeSelectionMetadata} message BotModeSelectionMetadata message or plain object to encode
+         * @param {AICommon.BotModeSelectionMetadata.$Properties} message BotModeSelectionMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -17464,7 +18184,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotModeSelectionMetadata} BotModeSelectionMetadata
+         * @returns {AICommon.BotModeSelectionMetadata & AICommon.BotModeSelectionMetadata.$Shape} BotModeSelectionMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -17533,7 +18253,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotModeSelectionMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotModeSelectionMetadata} BotModeSelectionMetadata
+         * @returns {AICommon.BotModeSelectionMetadata & AICommon.BotModeSelectionMetadata.$Shape} BotModeSelectionMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -17703,19 +18423,30 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotCapabilityMetadata.
-         * @memberof AICommon
-         * @interface IBotCapabilityMetadata
+         * @typedef {Object} AICommon.BotCapabilityMetadata.$Properties
          * @property {Array.<AICommon.BotCapabilityMetadata.BotCapabilityType>|null} [capabilities] BotCapabilityMetadata capabilities
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a BotCapabilityMetadata.
+         * @memberof AICommon
+         * @interface IBotCapabilityMetadata
+         * @augments AICommon.BotCapabilityMetadata.$Properties
+         * @deprecated Use AICommon.BotCapabilityMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotCapabilityMetadata.
+         * @typedef {AICommon.BotCapabilityMetadata.$Properties} AICommon.BotCapabilityMetadata.$Shape
          */
 
         /**
          * Constructs a new BotCapabilityMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotCapabilityMetadata.
-         * @implements IBotCapabilityMetadata
          * @constructor
-         * @param {AICommon.IBotCapabilityMetadata=} [properties] Properties to set
+         * @param {AICommon.BotCapabilityMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotCapabilityMetadata(properties) {
@@ -17739,8 +18470,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotCapabilityMetadata
          * @static
-         * @param {AICommon.IBotCapabilityMetadata=} [properties] Properties to set
+         * @param {AICommon.BotCapabilityMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotCapabilityMetadata} BotCapabilityMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotCapabilityMetadata.$Shape): AICommon.BotCapabilityMetadata & AICommon.BotCapabilityMetadata.$Shape;
+         *   (properties?: AICommon.BotCapabilityMetadata.$Properties): AICommon.BotCapabilityMetadata;
+         * }}
          */
         BotCapabilityMetadata.create = function create(properties) {
             return new BotCapabilityMetadata(properties);
@@ -17751,7 +18486,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotCapabilityMetadata
          * @static
-         * @param {AICommon.IBotCapabilityMetadata} message BotCapabilityMetadata message or plain object to encode
+         * @param {AICommon.BotCapabilityMetadata.$Properties} message BotCapabilityMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -17775,7 +18510,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotCapabilityMetadata
          * @static
-         * @param {AICommon.IBotCapabilityMetadata} message BotCapabilityMetadata message or plain object to encode
+         * @param {AICommon.BotCapabilityMetadata.$Properties} message BotCapabilityMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -17790,7 +18525,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotCapabilityMetadata} BotCapabilityMetadata
+         * @returns {AICommon.BotCapabilityMetadata & AICommon.BotCapabilityMetadata.$Shape} BotCapabilityMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -17843,7 +18578,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotCapabilityMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotCapabilityMetadata} BotCapabilityMetadata
+         * @returns {AICommon.BotCapabilityMetadata & AICommon.BotCapabilityMetadata.$Shape} BotCapabilityMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -18412,21 +19147,32 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotProgressIndicatorMetadata.
-         * @memberof AICommon
-         * @interface IBotProgressIndicatorMetadata
+         * @typedef {Object} AICommon.BotProgressIndicatorMetadata.$Properties
          * @property {string|null} [progressDescription] BotProgressIndicatorMetadata progressDescription
-         * @property {Array.<AICommon.BotProgressIndicatorMetadata.IBotPlanningStepMetadata>|null} [stepsMetadata] BotProgressIndicatorMetadata stepsMetadata
+         * @property {Array.<AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.$Properties>|null} [stepsMetadata] BotProgressIndicatorMetadata stepsMetadata
          * @property {number|Long|null} [estimatedCompletionTime] BotProgressIndicatorMetadata estimatedCompletionTime
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a BotProgressIndicatorMetadata.
+         * @memberof AICommon
+         * @interface IBotProgressIndicatorMetadata
+         * @augments AICommon.BotProgressIndicatorMetadata.$Properties
+         * @deprecated Use AICommon.BotProgressIndicatorMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotProgressIndicatorMetadata.
+         * @typedef {AICommon.BotProgressIndicatorMetadata.$Properties} AICommon.BotProgressIndicatorMetadata.$Shape
          */
 
         /**
          * Constructs a new BotProgressIndicatorMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotProgressIndicatorMetadata.
-         * @implements IBotProgressIndicatorMetadata
          * @constructor
-         * @param {AICommon.IBotProgressIndicatorMetadata=} [properties] Properties to set
+         * @param {AICommon.BotProgressIndicatorMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotProgressIndicatorMetadata(properties) {
@@ -18447,7 +19193,7 @@ $root.AICommon = (function() {
 
         /**
          * BotProgressIndicatorMetadata stepsMetadata.
-         * @member {Array.<AICommon.BotProgressIndicatorMetadata.IBotPlanningStepMetadata>} stepsMetadata
+         * @member {Array.<AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.$Properties>} stepsMetadata
          * @memberof AICommon.BotProgressIndicatorMetadata
          * @instance
          */
@@ -18481,8 +19227,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotProgressIndicatorMetadata
          * @static
-         * @param {AICommon.IBotProgressIndicatorMetadata=} [properties] Properties to set
+         * @param {AICommon.BotProgressIndicatorMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotProgressIndicatorMetadata} BotProgressIndicatorMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotProgressIndicatorMetadata.$Shape): AICommon.BotProgressIndicatorMetadata & AICommon.BotProgressIndicatorMetadata.$Shape;
+         *   (properties?: AICommon.BotProgressIndicatorMetadata.$Properties): AICommon.BotProgressIndicatorMetadata;
+         * }}
          */
         BotProgressIndicatorMetadata.create = function create(properties) {
             return new BotProgressIndicatorMetadata(properties);
@@ -18493,7 +19243,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotProgressIndicatorMetadata
          * @static
-         * @param {AICommon.IBotProgressIndicatorMetadata} message BotProgressIndicatorMetadata message or plain object to encode
+         * @param {AICommon.BotProgressIndicatorMetadata.$Properties} message BotProgressIndicatorMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -18518,7 +19268,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotProgressIndicatorMetadata
          * @static
-         * @param {AICommon.IBotProgressIndicatorMetadata} message BotProgressIndicatorMetadata message or plain object to encode
+         * @param {AICommon.BotProgressIndicatorMetadata.$Properties} message BotProgressIndicatorMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -18533,7 +19283,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotProgressIndicatorMetadata} BotProgressIndicatorMetadata
+         * @returns {AICommon.BotProgressIndicatorMetadata & AICommon.BotProgressIndicatorMetadata.$Shape} BotProgressIndicatorMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -18592,7 +19342,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotProgressIndicatorMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotProgressIndicatorMetadata} BotProgressIndicatorMetadata
+         * @returns {AICommon.BotProgressIndicatorMetadata & AICommon.BotProgressIndicatorMetadata.$Shape} BotProgressIndicatorMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -18745,25 +19495,36 @@ $root.AICommon = (function() {
 
             /**
              * Properties of a BotPlanningStepMetadata.
-             * @memberof AICommon.BotProgressIndicatorMetadata
-             * @interface IBotPlanningStepMetadata
+             * @typedef {Object} AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.$Properties
              * @property {string|null} [statusTitle] BotPlanningStepMetadata statusTitle
              * @property {string|null} [statusBody] BotPlanningStepMetadata statusBody
-             * @property {Array.<AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningSearchSourcesMetadata>|null} [sourcesMetadata] BotPlanningStepMetadata sourcesMetadata
+             * @property {Array.<AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.$Properties>|null} [sourcesMetadata] BotPlanningStepMetadata sourcesMetadata
              * @property {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.PlanningStepStatus|null} [status] BotPlanningStepMetadata status
              * @property {boolean|null} [isReasoning] BotPlanningStepMetadata isReasoning
              * @property {boolean|null} [isEnhancedSearch] BotPlanningStepMetadata isEnhancedSearch
-             * @property {Array.<AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningStepSectionMetadata>|null} [sections] BotPlanningStepMetadata sections
+             * @property {Array.<AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.$Properties>|null} [sections] BotPlanningStepMetadata sections
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a BotPlanningStepMetadata.
+             * @memberof AICommon.BotProgressIndicatorMetadata
+             * @interface IBotPlanningStepMetadata
+             * @augments AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.$Properties
+             * @deprecated Use AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.$Properties instead.
+             */
+
+            /**
+             * Shape of a BotPlanningStepMetadata.
+             * @typedef {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.$Properties} AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.$Shape
              */
 
             /**
              * Constructs a new BotPlanningStepMetadata.
              * @memberof AICommon.BotProgressIndicatorMetadata
              * @classdesc Represents a BotPlanningStepMetadata.
-             * @implements IBotPlanningStepMetadata
              * @constructor
-             * @param {AICommon.BotProgressIndicatorMetadata.IBotPlanningStepMetadata=} [properties] Properties to set
+             * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function BotPlanningStepMetadata(properties) {
@@ -18793,7 +19554,7 @@ $root.AICommon = (function() {
 
             /**
              * BotPlanningStepMetadata sourcesMetadata.
-             * @member {Array.<AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningSearchSourcesMetadata>} sourcesMetadata
+             * @member {Array.<AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.$Properties>} sourcesMetadata
              * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata
              * @instance
              */
@@ -18825,7 +19586,7 @@ $root.AICommon = (function() {
 
             /**
              * BotPlanningStepMetadata sections.
-             * @member {Array.<AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningStepSectionMetadata>} sections
+             * @member {Array.<AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.$Properties>} sections
              * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata
              * @instance
              */
@@ -18869,8 +19630,12 @@ $root.AICommon = (function() {
              * @function create
              * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata
              * @static
-             * @param {AICommon.BotProgressIndicatorMetadata.IBotPlanningStepMetadata=} [properties] Properties to set
+             * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.$Properties=} [properties] Properties to set
              * @returns {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata} BotPlanningStepMetadata instance
+             * @type {{
+             *   (properties: AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.$Shape): AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata & AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.$Shape;
+             *   (properties?: AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.$Properties): AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata;
+             * }}
              */
             BotPlanningStepMetadata.create = function create(properties) {
                 return new BotPlanningStepMetadata(properties);
@@ -18881,7 +19646,7 @@ $root.AICommon = (function() {
              * @function encode
              * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata
              * @static
-             * @param {AICommon.BotProgressIndicatorMetadata.IBotPlanningStepMetadata} message BotPlanningStepMetadata message or plain object to encode
+             * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.$Properties} message BotPlanningStepMetadata message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -18915,7 +19680,7 @@ $root.AICommon = (function() {
              * @function encodeDelimited
              * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata
              * @static
-             * @param {AICommon.BotProgressIndicatorMetadata.IBotPlanningStepMetadata} message BotPlanningStepMetadata message or plain object to encode
+             * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.$Properties} message BotPlanningStepMetadata message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -18930,7 +19695,7 @@ $root.AICommon = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata} BotPlanningStepMetadata
+             * @returns {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata & AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.$Shape} BotPlanningStepMetadata
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -19018,7 +19783,7 @@ $root.AICommon = (function() {
              * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata} BotPlanningStepMetadata
+             * @returns {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata & AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.$Shape} BotPlanningStepMetadata
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -19252,8 +20017,7 @@ $root.AICommon = (function() {
 
                 /**
                  * Properties of a BotPlanningSearchSourceMetadata.
-                 * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata
-                 * @interface IBotPlanningSearchSourceMetadata
+                 * @typedef {Object} AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.$Properties
                  * @property {string|null} [title] BotPlanningSearchSourceMetadata title
                  * @property {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotSearchSourceProvider|null} [provider] BotPlanningSearchSourceMetadata provider
                  * @property {string|null} [sourceUrl] BotPlanningSearchSourceMetadata sourceUrl
@@ -19262,12 +20026,24 @@ $root.AICommon = (function() {
                  */
 
                 /**
+                 * Properties of a BotPlanningSearchSourceMetadata.
+                 * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata
+                 * @interface IBotPlanningSearchSourceMetadata
+                 * @augments AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.$Properties
+                 * @deprecated Use AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.$Properties instead.
+                 */
+
+                /**
+                 * Shape of a BotPlanningSearchSourceMetadata.
+                 * @typedef {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.$Properties} AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.$Shape
+                 */
+
+                /**
                  * Constructs a new BotPlanningSearchSourceMetadata.
                  * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata
                  * @classdesc Represents a BotPlanningSearchSourceMetadata.
-                 * @implements IBotPlanningSearchSourceMetadata
                  * @constructor
-                 * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningSearchSourceMetadata=} [properties] Properties to set
+                 * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.$Properties=} [properties] Properties to set
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function BotPlanningSearchSourceMetadata(properties) {
@@ -19341,8 +20117,12 @@ $root.AICommon = (function() {
                  * @function create
                  * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata
                  * @static
-                 * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningSearchSourceMetadata=} [properties] Properties to set
+                 * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.$Properties=} [properties] Properties to set
                  * @returns {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata} BotPlanningSearchSourceMetadata instance
+                 * @type {{
+                 *   (properties: AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.$Shape): AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata & AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.$Shape;
+                 *   (properties?: AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.$Properties): AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata;
+                 * }}
                  */
                 BotPlanningSearchSourceMetadata.create = function create(properties) {
                     return new BotPlanningSearchSourceMetadata(properties);
@@ -19353,7 +20133,7 @@ $root.AICommon = (function() {
                  * @function encode
                  * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata
                  * @static
-                 * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningSearchSourceMetadata} message BotPlanningSearchSourceMetadata message or plain object to encode
+                 * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.$Properties} message BotPlanningSearchSourceMetadata message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -19379,7 +20159,7 @@ $root.AICommon = (function() {
                  * @function encodeDelimited
                  * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata
                  * @static
-                 * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningSearchSourceMetadata} message BotPlanningSearchSourceMetadata message or plain object to encode
+                 * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.$Properties} message BotPlanningSearchSourceMetadata message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -19394,7 +20174,7 @@ $root.AICommon = (function() {
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                  * @param {number} [length] Message length if known beforehand
-                 * @returns {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata} BotPlanningSearchSourceMetadata
+                 * @returns {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata & AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.$Shape} BotPlanningSearchSourceMetadata
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -19459,7 +20239,7 @@ $root.AICommon = (function() {
                  * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata} BotPlanningSearchSourceMetadata
+                 * @returns {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata & AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.$Shape} BotPlanningSearchSourceMetadata
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -19632,8 +20412,7 @@ $root.AICommon = (function() {
 
                 /**
                  * Properties of a BotPlanningSearchSourcesMetadata.
-                 * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata
-                 * @interface IBotPlanningSearchSourcesMetadata
+                 * @typedef {Object} AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.$Properties
                  * @property {string|null} [sourceTitle] BotPlanningSearchSourcesMetadata sourceTitle
                  * @property {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.BotPlanningSearchSourceProvider|null} [provider] BotPlanningSearchSourcesMetadata provider
                  * @property {string|null} [sourceUrl] BotPlanningSearchSourcesMetadata sourceUrl
@@ -19641,12 +20420,24 @@ $root.AICommon = (function() {
                  */
 
                 /**
+                 * Properties of a BotPlanningSearchSourcesMetadata.
+                 * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata
+                 * @interface IBotPlanningSearchSourcesMetadata
+                 * @augments AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.$Properties
+                 * @deprecated Use AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.$Properties instead.
+                 */
+
+                /**
+                 * Shape of a BotPlanningSearchSourcesMetadata.
+                 * @typedef {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.$Properties} AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.$Shape
+                 */
+
+                /**
                  * Constructs a new BotPlanningSearchSourcesMetadata.
                  * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata
                  * @classdesc Represents a BotPlanningSearchSourcesMetadata.
-                 * @implements IBotPlanningSearchSourcesMetadata
                  * @constructor
-                 * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningSearchSourcesMetadata=} [properties] Properties to set
+                 * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.$Properties=} [properties] Properties to set
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function BotPlanningSearchSourcesMetadata(properties) {
@@ -19706,8 +20497,12 @@ $root.AICommon = (function() {
                  * @function create
                  * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata
                  * @static
-                 * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningSearchSourcesMetadata=} [properties] Properties to set
+                 * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.$Properties=} [properties] Properties to set
                  * @returns {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata} BotPlanningSearchSourcesMetadata instance
+                 * @type {{
+                 *   (properties: AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.$Shape): AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata & AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.$Shape;
+                 *   (properties?: AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.$Properties): AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata;
+                 * }}
                  */
                 BotPlanningSearchSourcesMetadata.create = function create(properties) {
                     return new BotPlanningSearchSourcesMetadata(properties);
@@ -19718,7 +20513,7 @@ $root.AICommon = (function() {
                  * @function encode
                  * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata
                  * @static
-                 * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningSearchSourcesMetadata} message BotPlanningSearchSourcesMetadata message or plain object to encode
+                 * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.$Properties} message BotPlanningSearchSourcesMetadata message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -19742,7 +20537,7 @@ $root.AICommon = (function() {
                  * @function encodeDelimited
                  * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata
                  * @static
-                 * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningSearchSourcesMetadata} message BotPlanningSearchSourcesMetadata message or plain object to encode
+                 * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.$Properties} message BotPlanningSearchSourcesMetadata message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -19757,7 +20552,7 @@ $root.AICommon = (function() {
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                  * @param {number} [length] Message length if known beforehand
-                 * @returns {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata} BotPlanningSearchSourcesMetadata
+                 * @returns {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata & AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.$Shape} BotPlanningSearchSourcesMetadata
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -19815,7 +20610,7 @@ $root.AICommon = (function() {
                  * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata} BotPlanningSearchSourcesMetadata
+                 * @returns {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata & AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.$Shape} BotPlanningSearchSourcesMetadata
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -19994,21 +20789,32 @@ $root.AICommon = (function() {
 
                 /**
                  * Properties of a BotPlanningStepSectionMetadata.
-                 * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata
-                 * @interface IBotPlanningStepSectionMetadata
+                 * @typedef {Object} AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.$Properties
                  * @property {string|null} [sectionTitle] BotPlanningStepSectionMetadata sectionTitle
                  * @property {string|null} [sectionBody] BotPlanningStepSectionMetadata sectionBody
-                 * @property {Array.<AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningSearchSourceMetadata>|null} [sourcesMetadata] BotPlanningStepSectionMetadata sourcesMetadata
+                 * @property {Array.<AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.$Properties>|null} [sourcesMetadata] BotPlanningStepSectionMetadata sourcesMetadata
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 */
+
+                /**
+                 * Properties of a BotPlanningStepSectionMetadata.
+                 * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata
+                 * @interface IBotPlanningStepSectionMetadata
+                 * @augments AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.$Properties
+                 * @deprecated Use AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.$Properties instead.
+                 */
+
+                /**
+                 * Shape of a BotPlanningStepSectionMetadata.
+                 * @typedef {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.$Properties} AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.$Shape
                  */
 
                 /**
                  * Constructs a new BotPlanningStepSectionMetadata.
                  * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata
                  * @classdesc Represents a BotPlanningStepSectionMetadata.
-                 * @implements IBotPlanningStepSectionMetadata
                  * @constructor
-                 * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningStepSectionMetadata=} [properties] Properties to set
+                 * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.$Properties=} [properties] Properties to set
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function BotPlanningStepSectionMetadata(properties) {
@@ -20037,7 +20843,7 @@ $root.AICommon = (function() {
 
                 /**
                  * BotPlanningStepSectionMetadata sourcesMetadata.
-                 * @member {Array.<AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningSearchSourceMetadata>} sourcesMetadata
+                 * @member {Array.<AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.$Properties>} sourcesMetadata
                  * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata
                  * @instance
                  */
@@ -20063,8 +20869,12 @@ $root.AICommon = (function() {
                  * @function create
                  * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata
                  * @static
-                 * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningStepSectionMetadata=} [properties] Properties to set
+                 * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.$Properties=} [properties] Properties to set
                  * @returns {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata} BotPlanningStepSectionMetadata instance
+                 * @type {{
+                 *   (properties: AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.$Shape): AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata & AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.$Shape;
+                 *   (properties?: AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.$Properties): AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata;
+                 * }}
                  */
                 BotPlanningStepSectionMetadata.create = function create(properties) {
                     return new BotPlanningStepSectionMetadata(properties);
@@ -20075,7 +20885,7 @@ $root.AICommon = (function() {
                  * @function encode
                  * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata
                  * @static
-                 * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningStepSectionMetadata} message BotPlanningStepSectionMetadata message or plain object to encode
+                 * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.$Properties} message BotPlanningStepSectionMetadata message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -20100,7 +20910,7 @@ $root.AICommon = (function() {
                  * @function encodeDelimited
                  * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata
                  * @static
-                 * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.IBotPlanningStepSectionMetadata} message BotPlanningStepSectionMetadata message or plain object to encode
+                 * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.$Properties} message BotPlanningStepSectionMetadata message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -20115,7 +20925,7 @@ $root.AICommon = (function() {
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                  * @param {number} [length] Message length if known beforehand
-                 * @returns {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata} BotPlanningStepSectionMetadata
+                 * @returns {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata & AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.$Shape} BotPlanningStepSectionMetadata
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -20174,7 +20984,7 @@ $root.AICommon = (function() {
                  * @memberof AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata} BotPlanningStepSectionMetadata
+                 * @returns {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata & AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.$Shape} BotPlanningStepSectionMetadata
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -20362,8 +21172,7 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotModelMetadata.
-         * @memberof AICommon
-         * @interface IBotModelMetadata
+         * @typedef {Object} AICommon.BotModelMetadata.$Properties
          * @property {AICommon.BotModelMetadata.ModelType|null} [modelType] BotModelMetadata modelType
          * @property {AICommon.BotModelMetadata.PremiumModelStatus|null} [premiumModelStatus] BotModelMetadata premiumModelStatus
          * @property {string|null} [modelNameOverride] BotModelMetadata modelNameOverride
@@ -20371,12 +21180,24 @@ $root.AICommon = (function() {
          */
 
         /**
+         * Properties of a BotModelMetadata.
+         * @memberof AICommon
+         * @interface IBotModelMetadata
+         * @augments AICommon.BotModelMetadata.$Properties
+         * @deprecated Use AICommon.BotModelMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotModelMetadata.
+         * @typedef {AICommon.BotModelMetadata.$Properties} AICommon.BotModelMetadata.$Shape
+         */
+
+        /**
          * Constructs a new BotModelMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotModelMetadata.
-         * @implements IBotModelMetadata
          * @constructor
-         * @param {AICommon.IBotModelMetadata=} [properties] Properties to set
+         * @param {AICommon.BotModelMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotModelMetadata(properties) {
@@ -20436,8 +21257,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotModelMetadata
          * @static
-         * @param {AICommon.IBotModelMetadata=} [properties] Properties to set
+         * @param {AICommon.BotModelMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotModelMetadata} BotModelMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotModelMetadata.$Shape): AICommon.BotModelMetadata & AICommon.BotModelMetadata.$Shape;
+         *   (properties?: AICommon.BotModelMetadata.$Properties): AICommon.BotModelMetadata;
+         * }}
          */
         BotModelMetadata.create = function create(properties) {
             return new BotModelMetadata(properties);
@@ -20448,7 +21273,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotModelMetadata
          * @static
-         * @param {AICommon.IBotModelMetadata} message BotModelMetadata message or plain object to encode
+         * @param {AICommon.BotModelMetadata.$Properties} message BotModelMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -20472,7 +21297,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotModelMetadata
          * @static
-         * @param {AICommon.IBotModelMetadata} message BotModelMetadata message or plain object to encode
+         * @param {AICommon.BotModelMetadata.$Properties} message BotModelMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -20487,7 +21312,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotModelMetadata} BotModelMetadata
+         * @returns {AICommon.BotModelMetadata & AICommon.BotModelMetadata.$Shape} BotModelMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -20545,7 +21370,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotModelMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotModelMetadata} BotModelMetadata
+         * @returns {AICommon.BotModelMetadata & AICommon.BotModelMetadata.$Shape} BotModelMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -20757,9 +21582,8 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotReminderMetadata.
-         * @memberof AICommon
-         * @interface IBotReminderMetadata
-         * @property {Protocol.IMessageKey|null} [requestMessageKey] BotReminderMetadata requestMessageKey
+         * @typedef {Object} AICommon.BotReminderMetadata.$Properties
+         * @property {Protocol.MessageKey.$Properties|null} [requestMessageKey] BotReminderMetadata requestMessageKey
          * @property {AICommon.BotReminderMetadata.ReminderAction|null} [action] BotReminderMetadata action
          * @property {string|null} [name] BotReminderMetadata name
          * @property {number|Long|null} [nextTriggerTimestamp] BotReminderMetadata nextTriggerTimestamp
@@ -20768,12 +21592,24 @@ $root.AICommon = (function() {
          */
 
         /**
+         * Properties of a BotReminderMetadata.
+         * @memberof AICommon
+         * @interface IBotReminderMetadata
+         * @augments AICommon.BotReminderMetadata.$Properties
+         * @deprecated Use AICommon.BotReminderMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotReminderMetadata.
+         * @typedef {AICommon.BotReminderMetadata.$Properties} AICommon.BotReminderMetadata.$Shape
+         */
+
+        /**
          * Constructs a new BotReminderMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotReminderMetadata.
-         * @implements IBotReminderMetadata
          * @constructor
-         * @param {AICommon.IBotReminderMetadata=} [properties] Properties to set
+         * @param {AICommon.BotReminderMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotReminderMetadata(properties) {
@@ -20785,7 +21621,7 @@ $root.AICommon = (function() {
 
         /**
          * BotReminderMetadata requestMessageKey.
-         * @member {Protocol.IMessageKey|null|undefined} requestMessageKey
+         * @member {Protocol.MessageKey.$Properties|null|undefined} requestMessageKey
          * @memberof AICommon.BotReminderMetadata
          * @instance
          */
@@ -20861,8 +21697,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotReminderMetadata
          * @static
-         * @param {AICommon.IBotReminderMetadata=} [properties] Properties to set
+         * @param {AICommon.BotReminderMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotReminderMetadata} BotReminderMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotReminderMetadata.$Shape): AICommon.BotReminderMetadata & AICommon.BotReminderMetadata.$Shape;
+         *   (properties?: AICommon.BotReminderMetadata.$Properties): AICommon.BotReminderMetadata;
+         * }}
          */
         BotReminderMetadata.create = function create(properties) {
             return new BotReminderMetadata(properties);
@@ -20873,7 +21713,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotReminderMetadata
          * @static
-         * @param {AICommon.IBotReminderMetadata} message BotReminderMetadata message or plain object to encode
+         * @param {AICommon.BotReminderMetadata.$Properties} message BotReminderMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -20901,7 +21741,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotReminderMetadata
          * @static
-         * @param {AICommon.IBotReminderMetadata} message BotReminderMetadata message or plain object to encode
+         * @param {AICommon.BotReminderMetadata.$Properties} message BotReminderMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -20916,7 +21756,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotReminderMetadata} BotReminderMetadata
+         * @returns {AICommon.BotReminderMetadata & AICommon.BotReminderMetadata.$Shape} BotReminderMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -20988,7 +21828,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotReminderMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotReminderMetadata} BotReminderMetadata
+         * @returns {AICommon.BotReminderMetadata & AICommon.BotReminderMetadata.$Shape} BotReminderMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -21261,19 +22101,30 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotMemuMetadata.
+         * @typedef {Object} AICommon.BotMemuMetadata.$Properties
+         * @property {Array.<AICommon.BotMediaMetadata.$Properties>|null} [faceImages] BotMemuMetadata faceImages
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a BotMemuMetadata.
          * @memberof AICommon
          * @interface IBotMemuMetadata
-         * @property {Array.<AICommon.IBotMediaMetadata>|null} [faceImages] BotMemuMetadata faceImages
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments AICommon.BotMemuMetadata.$Properties
+         * @deprecated Use AICommon.BotMemuMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotMemuMetadata.
+         * @typedef {AICommon.BotMemuMetadata.$Properties} AICommon.BotMemuMetadata.$Shape
          */
 
         /**
          * Constructs a new BotMemuMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotMemuMetadata.
-         * @implements IBotMemuMetadata
          * @constructor
-         * @param {AICommon.IBotMemuMetadata=} [properties] Properties to set
+         * @param {AICommon.BotMemuMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotMemuMetadata(properties) {
@@ -21286,7 +22137,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMemuMetadata faceImages.
-         * @member {Array.<AICommon.IBotMediaMetadata>} faceImages
+         * @member {Array.<AICommon.BotMediaMetadata.$Properties>} faceImages
          * @memberof AICommon.BotMemuMetadata
          * @instance
          */
@@ -21297,8 +22148,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotMemuMetadata
          * @static
-         * @param {AICommon.IBotMemuMetadata=} [properties] Properties to set
+         * @param {AICommon.BotMemuMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotMemuMetadata} BotMemuMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotMemuMetadata.$Shape): AICommon.BotMemuMetadata & AICommon.BotMemuMetadata.$Shape;
+         *   (properties?: AICommon.BotMemuMetadata.$Properties): AICommon.BotMemuMetadata;
+         * }}
          */
         BotMemuMetadata.create = function create(properties) {
             return new BotMemuMetadata(properties);
@@ -21309,7 +22164,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotMemuMetadata
          * @static
-         * @param {AICommon.IBotMemuMetadata} message BotMemuMetadata message or plain object to encode
+         * @param {AICommon.BotMemuMetadata.$Properties} message BotMemuMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -21330,7 +22185,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotMemuMetadata
          * @static
-         * @param {AICommon.IBotMemuMetadata} message BotMemuMetadata message or plain object to encode
+         * @param {AICommon.BotMemuMetadata.$Properties} message BotMemuMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -21345,7 +22200,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotMemuMetadata} BotMemuMetadata
+         * @returns {AICommon.BotMemuMetadata & AICommon.BotMemuMetadata.$Shape} BotMemuMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -21390,7 +22245,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotMemuMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotMemuMetadata} BotMemuMetadata
+         * @returns {AICommon.BotMemuMetadata & AICommon.BotMemuMetadata.$Shape} BotMemuMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -21511,8 +22366,7 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotMediaMetadata.
-         * @memberof AICommon
-         * @interface IBotMediaMetadata
+         * @typedef {Object} AICommon.BotMediaMetadata.$Properties
          * @property {string|null} [fileSha256] BotMediaMetadata fileSha256
          * @property {string|null} [mediaKey] BotMediaMetadata mediaKey
          * @property {string|null} [fileEncSha256] BotMediaMetadata fileEncSha256
@@ -21524,12 +22378,24 @@ $root.AICommon = (function() {
          */
 
         /**
+         * Properties of a BotMediaMetadata.
+         * @memberof AICommon
+         * @interface IBotMediaMetadata
+         * @augments AICommon.BotMediaMetadata.$Properties
+         * @deprecated Use AICommon.BotMediaMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotMediaMetadata.
+         * @typedef {AICommon.BotMediaMetadata.$Properties} AICommon.BotMediaMetadata.$Shape
+         */
+
+        /**
          * Constructs a new BotMediaMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotMediaMetadata.
-         * @implements IBotMediaMetadata
          * @constructor
-         * @param {AICommon.IBotMediaMetadata=} [properties] Properties to set
+         * @param {AICommon.BotMediaMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotMediaMetadata(properties) {
@@ -21645,8 +22511,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotMediaMetadata
          * @static
-         * @param {AICommon.IBotMediaMetadata=} [properties] Properties to set
+         * @param {AICommon.BotMediaMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotMediaMetadata} BotMediaMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotMediaMetadata.$Shape): AICommon.BotMediaMetadata & AICommon.BotMediaMetadata.$Shape;
+         *   (properties?: AICommon.BotMediaMetadata.$Properties): AICommon.BotMediaMetadata;
+         * }}
          */
         BotMediaMetadata.create = function create(properties) {
             return new BotMediaMetadata(properties);
@@ -21657,7 +22527,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotMediaMetadata
          * @static
-         * @param {AICommon.IBotMediaMetadata} message BotMediaMetadata message or plain object to encode
+         * @param {AICommon.BotMediaMetadata.$Properties} message BotMediaMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -21689,7 +22559,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotMediaMetadata
          * @static
-         * @param {AICommon.IBotMediaMetadata} message BotMediaMetadata message or plain object to encode
+         * @param {AICommon.BotMediaMetadata.$Properties} message BotMediaMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -21704,7 +22574,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotMediaMetadata} BotMediaMetadata
+         * @returns {AICommon.BotMediaMetadata & AICommon.BotMediaMetadata.$Shape} BotMediaMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -21790,7 +22660,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotMediaMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotMediaMetadata} BotMediaMetadata
+         * @returns {AICommon.BotMediaMetadata & AICommon.BotMediaMetadata.$Shape} BotMediaMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -22020,20 +22890,31 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotSessionMetadata.
-         * @memberof AICommon
-         * @interface IBotSessionMetadata
+         * @typedef {Object} AICommon.BotSessionMetadata.$Properties
          * @property {string|null} [sessionId] BotSessionMetadata sessionId
          * @property {AICommon.BotSessionSource|null} [sessionSource] BotSessionMetadata sessionSource
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
+         * Properties of a BotSessionMetadata.
+         * @memberof AICommon
+         * @interface IBotSessionMetadata
+         * @augments AICommon.BotSessionMetadata.$Properties
+         * @deprecated Use AICommon.BotSessionMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotSessionMetadata.
+         * @typedef {AICommon.BotSessionMetadata.$Properties} AICommon.BotSessionMetadata.$Shape
+         */
+
+        /**
          * Constructs a new BotSessionMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotSessionMetadata.
-         * @implements IBotSessionMetadata
          * @constructor
-         * @param {AICommon.IBotSessionMetadata=} [properties] Properties to set
+         * @param {AICommon.BotSessionMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotSessionMetadata(properties) {
@@ -22079,8 +22960,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotSessionMetadata
          * @static
-         * @param {AICommon.IBotSessionMetadata=} [properties] Properties to set
+         * @param {AICommon.BotSessionMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotSessionMetadata} BotSessionMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotSessionMetadata.$Shape): AICommon.BotSessionMetadata & AICommon.BotSessionMetadata.$Shape;
+         *   (properties?: AICommon.BotSessionMetadata.$Properties): AICommon.BotSessionMetadata;
+         * }}
          */
         BotSessionMetadata.create = function create(properties) {
             return new BotSessionMetadata(properties);
@@ -22091,7 +22976,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotSessionMetadata
          * @static
-         * @param {AICommon.IBotSessionMetadata} message BotSessionMetadata message or plain object to encode
+         * @param {AICommon.BotSessionMetadata.$Properties} message BotSessionMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -22113,7 +22998,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotSessionMetadata
          * @static
-         * @param {AICommon.IBotSessionMetadata} message BotSessionMetadata message or plain object to encode
+         * @param {AICommon.BotSessionMetadata.$Properties} message BotSessionMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -22128,7 +23013,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotSessionMetadata} BotSessionMetadata
+         * @returns {AICommon.BotSessionMetadata & AICommon.BotSessionMetadata.$Shape} BotSessionMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -22179,7 +23064,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotSessionMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotSessionMetadata} BotSessionMetadata
+         * @returns {AICommon.BotSessionMetadata & AICommon.BotSessionMetadata.$Shape} BotSessionMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -22348,8 +23233,7 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotMetricsMetadata.
-         * @memberof AICommon
-         * @interface IBotMetricsMetadata
+         * @typedef {Object} AICommon.BotMetricsMetadata.$Properties
          * @property {string|null} [destinationId] BotMetricsMetadata destinationId
          * @property {AICommon.BotMetricsEntryPoint|null} [destinationEntryPoint] BotMetricsMetadata destinationEntryPoint
          * @property {AICommon.BotMetricsThreadEntryPoint|null} [threadOrigin] BotMetricsMetadata threadOrigin
@@ -22357,12 +23241,24 @@ $root.AICommon = (function() {
          */
 
         /**
+         * Properties of a BotMetricsMetadata.
+         * @memberof AICommon
+         * @interface IBotMetricsMetadata
+         * @augments AICommon.BotMetricsMetadata.$Properties
+         * @deprecated Use AICommon.BotMetricsMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotMetricsMetadata.
+         * @typedef {AICommon.BotMetricsMetadata.$Properties} AICommon.BotMetricsMetadata.$Shape
+         */
+
+        /**
          * Constructs a new BotMetricsMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotMetricsMetadata.
-         * @implements IBotMetricsMetadata
          * @constructor
-         * @param {AICommon.IBotMetricsMetadata=} [properties] Properties to set
+         * @param {AICommon.BotMetricsMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotMetricsMetadata(properties) {
@@ -22422,8 +23318,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotMetricsMetadata
          * @static
-         * @param {AICommon.IBotMetricsMetadata=} [properties] Properties to set
+         * @param {AICommon.BotMetricsMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotMetricsMetadata} BotMetricsMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotMetricsMetadata.$Shape): AICommon.BotMetricsMetadata & AICommon.BotMetricsMetadata.$Shape;
+         *   (properties?: AICommon.BotMetricsMetadata.$Properties): AICommon.BotMetricsMetadata;
+         * }}
          */
         BotMetricsMetadata.create = function create(properties) {
             return new BotMetricsMetadata(properties);
@@ -22434,7 +23334,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotMetricsMetadata
          * @static
-         * @param {AICommon.IBotMetricsMetadata} message BotMetricsMetadata message or plain object to encode
+         * @param {AICommon.BotMetricsMetadata.$Properties} message BotMetricsMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -22458,7 +23358,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotMetricsMetadata
          * @static
-         * @param {AICommon.IBotMetricsMetadata} message BotMetricsMetadata message or plain object to encode
+         * @param {AICommon.BotMetricsMetadata.$Properties} message BotMetricsMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -22473,7 +23373,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotMetricsMetadata} BotMetricsMetadata
+         * @returns {AICommon.BotMetricsMetadata & AICommon.BotMetricsMetadata.$Shape} BotMetricsMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -22531,7 +23431,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotMetricsMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotMetricsMetadata} BotMetricsMetadata
+         * @returns {AICommon.BotMetricsMetadata & AICommon.BotMetricsMetadata.$Shape} BotMetricsMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -22946,19 +23846,30 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotRenderingMetadata.
+         * @typedef {Object} AICommon.BotRenderingMetadata.$Properties
+         * @property {Array.<AICommon.BotRenderingMetadata.Keyword.$Properties>|null} [keywords] BotRenderingMetadata keywords
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a BotRenderingMetadata.
          * @memberof AICommon
          * @interface IBotRenderingMetadata
-         * @property {Array.<AICommon.BotRenderingMetadata.IKeyword>|null} [keywords] BotRenderingMetadata keywords
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments AICommon.BotRenderingMetadata.$Properties
+         * @deprecated Use AICommon.BotRenderingMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotRenderingMetadata.
+         * @typedef {AICommon.BotRenderingMetadata.$Properties} AICommon.BotRenderingMetadata.$Shape
          */
 
         /**
          * Constructs a new BotRenderingMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotRenderingMetadata.
-         * @implements IBotRenderingMetadata
          * @constructor
-         * @param {AICommon.IBotRenderingMetadata=} [properties] Properties to set
+         * @param {AICommon.BotRenderingMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotRenderingMetadata(properties) {
@@ -22971,7 +23882,7 @@ $root.AICommon = (function() {
 
         /**
          * BotRenderingMetadata keywords.
-         * @member {Array.<AICommon.BotRenderingMetadata.IKeyword>} keywords
+         * @member {Array.<AICommon.BotRenderingMetadata.Keyword.$Properties>} keywords
          * @memberof AICommon.BotRenderingMetadata
          * @instance
          */
@@ -22982,8 +23893,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotRenderingMetadata
          * @static
-         * @param {AICommon.IBotRenderingMetadata=} [properties] Properties to set
+         * @param {AICommon.BotRenderingMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotRenderingMetadata} BotRenderingMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotRenderingMetadata.$Shape): AICommon.BotRenderingMetadata & AICommon.BotRenderingMetadata.$Shape;
+         *   (properties?: AICommon.BotRenderingMetadata.$Properties): AICommon.BotRenderingMetadata;
+         * }}
          */
         BotRenderingMetadata.create = function create(properties) {
             return new BotRenderingMetadata(properties);
@@ -22994,7 +23909,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotRenderingMetadata
          * @static
-         * @param {AICommon.IBotRenderingMetadata} message BotRenderingMetadata message or plain object to encode
+         * @param {AICommon.BotRenderingMetadata.$Properties} message BotRenderingMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -23015,7 +23930,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotRenderingMetadata
          * @static
-         * @param {AICommon.IBotRenderingMetadata} message BotRenderingMetadata message or plain object to encode
+         * @param {AICommon.BotRenderingMetadata.$Properties} message BotRenderingMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -23030,7 +23945,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotRenderingMetadata} BotRenderingMetadata
+         * @returns {AICommon.BotRenderingMetadata & AICommon.BotRenderingMetadata.$Shape} BotRenderingMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -23075,7 +23990,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotRenderingMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotRenderingMetadata} BotRenderingMetadata
+         * @returns {AICommon.BotRenderingMetadata & AICommon.BotRenderingMetadata.$Shape} BotRenderingMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -23193,20 +24108,31 @@ $root.AICommon = (function() {
 
             /**
              * Properties of a Keyword.
-             * @memberof AICommon.BotRenderingMetadata
-             * @interface IKeyword
+             * @typedef {Object} AICommon.BotRenderingMetadata.Keyword.$Properties
              * @property {string|null} [value] Keyword value
              * @property {Array.<string>|null} [associatedPrompts] Keyword associatedPrompts
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
+             * Properties of a Keyword.
+             * @memberof AICommon.BotRenderingMetadata
+             * @interface IKeyword
+             * @augments AICommon.BotRenderingMetadata.Keyword.$Properties
+             * @deprecated Use AICommon.BotRenderingMetadata.Keyword.$Properties instead.
+             */
+
+            /**
+             * Shape of a Keyword.
+             * @typedef {AICommon.BotRenderingMetadata.Keyword.$Properties} AICommon.BotRenderingMetadata.Keyword.$Shape
+             */
+
+            /**
              * Constructs a new Keyword.
              * @memberof AICommon.BotRenderingMetadata
              * @classdesc Represents a Keyword.
-             * @implements IKeyword
              * @constructor
-             * @param {AICommon.BotRenderingMetadata.IKeyword=} [properties] Properties to set
+             * @param {AICommon.BotRenderingMetadata.Keyword.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function Keyword(properties) {
@@ -23247,8 +24173,12 @@ $root.AICommon = (function() {
              * @function create
              * @memberof AICommon.BotRenderingMetadata.Keyword
              * @static
-             * @param {AICommon.BotRenderingMetadata.IKeyword=} [properties] Properties to set
+             * @param {AICommon.BotRenderingMetadata.Keyword.$Properties=} [properties] Properties to set
              * @returns {AICommon.BotRenderingMetadata.Keyword} Keyword instance
+             * @type {{
+             *   (properties: AICommon.BotRenderingMetadata.Keyword.$Shape): AICommon.BotRenderingMetadata.Keyword & AICommon.BotRenderingMetadata.Keyword.$Shape;
+             *   (properties?: AICommon.BotRenderingMetadata.Keyword.$Properties): AICommon.BotRenderingMetadata.Keyword;
+             * }}
              */
             Keyword.create = function create(properties) {
                 return new Keyword(properties);
@@ -23259,7 +24189,7 @@ $root.AICommon = (function() {
              * @function encode
              * @memberof AICommon.BotRenderingMetadata.Keyword
              * @static
-             * @param {AICommon.BotRenderingMetadata.IKeyword} message Keyword message or plain object to encode
+             * @param {AICommon.BotRenderingMetadata.Keyword.$Properties} message Keyword message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -23282,7 +24212,7 @@ $root.AICommon = (function() {
              * @function encodeDelimited
              * @memberof AICommon.BotRenderingMetadata.Keyword
              * @static
-             * @param {AICommon.BotRenderingMetadata.IKeyword} message Keyword message or plain object to encode
+             * @param {AICommon.BotRenderingMetadata.Keyword.$Properties} message Keyword message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -23297,7 +24227,7 @@ $root.AICommon = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {AICommon.BotRenderingMetadata.Keyword} Keyword
+             * @returns {AICommon.BotRenderingMetadata.Keyword & AICommon.BotRenderingMetadata.Keyword.$Shape} Keyword
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -23349,7 +24279,7 @@ $root.AICommon = (function() {
              * @memberof AICommon.BotRenderingMetadata.Keyword
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {AICommon.BotRenderingMetadata.Keyword} Keyword
+             * @returns {AICommon.BotRenderingMetadata.Keyword & AICommon.BotRenderingMetadata.Keyword.$Shape} Keyword
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -23481,20 +24411,31 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotPromotionMessageMetadata.
-         * @memberof AICommon
-         * @interface IBotPromotionMessageMetadata
+         * @typedef {Object} AICommon.BotPromotionMessageMetadata.$Properties
          * @property {AICommon.BotPromotionMessageMetadata.BotPromotionType|null} [promotionType] BotPromotionMessageMetadata promotionType
          * @property {string|null} [buttonTitle] BotPromotionMessageMetadata buttonTitle
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
+         * Properties of a BotPromotionMessageMetadata.
+         * @memberof AICommon
+         * @interface IBotPromotionMessageMetadata
+         * @augments AICommon.BotPromotionMessageMetadata.$Properties
+         * @deprecated Use AICommon.BotPromotionMessageMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotPromotionMessageMetadata.
+         * @typedef {AICommon.BotPromotionMessageMetadata.$Properties} AICommon.BotPromotionMessageMetadata.$Shape
+         */
+
+        /**
          * Constructs a new BotPromotionMessageMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotPromotionMessageMetadata.
-         * @implements IBotPromotionMessageMetadata
          * @constructor
-         * @param {AICommon.IBotPromotionMessageMetadata=} [properties] Properties to set
+         * @param {AICommon.BotPromotionMessageMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotPromotionMessageMetadata(properties) {
@@ -23540,8 +24481,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotPromotionMessageMetadata
          * @static
-         * @param {AICommon.IBotPromotionMessageMetadata=} [properties] Properties to set
+         * @param {AICommon.BotPromotionMessageMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotPromotionMessageMetadata} BotPromotionMessageMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotPromotionMessageMetadata.$Shape): AICommon.BotPromotionMessageMetadata & AICommon.BotPromotionMessageMetadata.$Shape;
+         *   (properties?: AICommon.BotPromotionMessageMetadata.$Properties): AICommon.BotPromotionMessageMetadata;
+         * }}
          */
         BotPromotionMessageMetadata.create = function create(properties) {
             return new BotPromotionMessageMetadata(properties);
@@ -23552,7 +24497,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotPromotionMessageMetadata
          * @static
-         * @param {AICommon.IBotPromotionMessageMetadata} message BotPromotionMessageMetadata message or plain object to encode
+         * @param {AICommon.BotPromotionMessageMetadata.$Properties} message BotPromotionMessageMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -23574,7 +24519,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotPromotionMessageMetadata
          * @static
-         * @param {AICommon.IBotPromotionMessageMetadata} message BotPromotionMessageMetadata message or plain object to encode
+         * @param {AICommon.BotPromotionMessageMetadata.$Properties} message BotPromotionMessageMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -23589,7 +24534,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotPromotionMessageMetadata} BotPromotionMessageMetadata
+         * @returns {AICommon.BotPromotionMessageMetadata & AICommon.BotPromotionMessageMetadata.$Shape} BotPromotionMessageMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -23640,7 +24585,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotPromotionMessageMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotPromotionMessageMetadata} BotPromotionMessageMetadata
+         * @returns {AICommon.BotPromotionMessageMetadata & AICommon.BotPromotionMessageMetadata.$Shape} BotPromotionMessageMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -23800,8 +24745,7 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotSignatureVerificationUseCaseProof.
-         * @memberof AICommon
-         * @interface IBotSignatureVerificationUseCaseProof
+         * @typedef {Object} AICommon.BotSignatureVerificationUseCaseProof.$Properties
          * @property {number|null} [version] BotSignatureVerificationUseCaseProof version
          * @property {AICommon.BotSignatureVerificationUseCaseProof.BotSignatureUseCase|null} [useCase] BotSignatureVerificationUseCaseProof useCase
          * @property {Uint8Array|null} [signature] BotSignatureVerificationUseCaseProof signature
@@ -23810,12 +24754,24 @@ $root.AICommon = (function() {
          */
 
         /**
+         * Properties of a BotSignatureVerificationUseCaseProof.
+         * @memberof AICommon
+         * @interface IBotSignatureVerificationUseCaseProof
+         * @augments AICommon.BotSignatureVerificationUseCaseProof.$Properties
+         * @deprecated Use AICommon.BotSignatureVerificationUseCaseProof.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotSignatureVerificationUseCaseProof.
+         * @typedef {AICommon.BotSignatureVerificationUseCaseProof.$Properties} AICommon.BotSignatureVerificationUseCaseProof.$Shape
+         */
+
+        /**
          * Constructs a new BotSignatureVerificationUseCaseProof.
          * @memberof AICommon
          * @classdesc Represents a BotSignatureVerificationUseCaseProof.
-         * @implements IBotSignatureVerificationUseCaseProof
          * @constructor
-         * @param {AICommon.IBotSignatureVerificationUseCaseProof=} [properties] Properties to set
+         * @param {AICommon.BotSignatureVerificationUseCaseProof.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotSignatureVerificationUseCaseProof(properties) {
@@ -23884,8 +24840,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotSignatureVerificationUseCaseProof
          * @static
-         * @param {AICommon.IBotSignatureVerificationUseCaseProof=} [properties] Properties to set
+         * @param {AICommon.BotSignatureVerificationUseCaseProof.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotSignatureVerificationUseCaseProof} BotSignatureVerificationUseCaseProof instance
+         * @type {{
+         *   (properties: AICommon.BotSignatureVerificationUseCaseProof.$Shape): AICommon.BotSignatureVerificationUseCaseProof & AICommon.BotSignatureVerificationUseCaseProof.$Shape;
+         *   (properties?: AICommon.BotSignatureVerificationUseCaseProof.$Properties): AICommon.BotSignatureVerificationUseCaseProof;
+         * }}
          */
         BotSignatureVerificationUseCaseProof.create = function create(properties) {
             return new BotSignatureVerificationUseCaseProof(properties);
@@ -23896,7 +24856,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotSignatureVerificationUseCaseProof
          * @static
-         * @param {AICommon.IBotSignatureVerificationUseCaseProof} message BotSignatureVerificationUseCaseProof message or plain object to encode
+         * @param {AICommon.BotSignatureVerificationUseCaseProof.$Properties} message BotSignatureVerificationUseCaseProof message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -23923,7 +24883,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotSignatureVerificationUseCaseProof
          * @static
-         * @param {AICommon.IBotSignatureVerificationUseCaseProof} message BotSignatureVerificationUseCaseProof message or plain object to encode
+         * @param {AICommon.BotSignatureVerificationUseCaseProof.$Properties} message BotSignatureVerificationUseCaseProof message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -23938,7 +24898,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotSignatureVerificationUseCaseProof} BotSignatureVerificationUseCaseProof
+         * @returns {AICommon.BotSignatureVerificationUseCaseProof & AICommon.BotSignatureVerificationUseCaseProof.$Shape} BotSignatureVerificationUseCaseProof
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -24004,7 +24964,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotSignatureVerificationUseCaseProof
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotSignatureVerificationUseCaseProof} BotSignatureVerificationUseCaseProof
+         * @returns {AICommon.BotSignatureVerificationUseCaseProof & AICommon.BotSignatureVerificationUseCaseProof.$Shape} BotSignatureVerificationUseCaseProof
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -24203,19 +25163,30 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotSignatureVerificationMetadata.
+         * @typedef {Object} AICommon.BotSignatureVerificationMetadata.$Properties
+         * @property {Array.<AICommon.BotSignatureVerificationUseCaseProof.$Properties>|null} [proofs] BotSignatureVerificationMetadata proofs
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a BotSignatureVerificationMetadata.
          * @memberof AICommon
          * @interface IBotSignatureVerificationMetadata
-         * @property {Array.<AICommon.IBotSignatureVerificationUseCaseProof>|null} [proofs] BotSignatureVerificationMetadata proofs
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments AICommon.BotSignatureVerificationMetadata.$Properties
+         * @deprecated Use AICommon.BotSignatureVerificationMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotSignatureVerificationMetadata.
+         * @typedef {AICommon.BotSignatureVerificationMetadata.$Properties} AICommon.BotSignatureVerificationMetadata.$Shape
          */
 
         /**
          * Constructs a new BotSignatureVerificationMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotSignatureVerificationMetadata.
-         * @implements IBotSignatureVerificationMetadata
          * @constructor
-         * @param {AICommon.IBotSignatureVerificationMetadata=} [properties] Properties to set
+         * @param {AICommon.BotSignatureVerificationMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotSignatureVerificationMetadata(properties) {
@@ -24228,7 +25199,7 @@ $root.AICommon = (function() {
 
         /**
          * BotSignatureVerificationMetadata proofs.
-         * @member {Array.<AICommon.IBotSignatureVerificationUseCaseProof>} proofs
+         * @member {Array.<AICommon.BotSignatureVerificationUseCaseProof.$Properties>} proofs
          * @memberof AICommon.BotSignatureVerificationMetadata
          * @instance
          */
@@ -24239,8 +25210,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotSignatureVerificationMetadata
          * @static
-         * @param {AICommon.IBotSignatureVerificationMetadata=} [properties] Properties to set
+         * @param {AICommon.BotSignatureVerificationMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotSignatureVerificationMetadata} BotSignatureVerificationMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotSignatureVerificationMetadata.$Shape): AICommon.BotSignatureVerificationMetadata & AICommon.BotSignatureVerificationMetadata.$Shape;
+         *   (properties?: AICommon.BotSignatureVerificationMetadata.$Properties): AICommon.BotSignatureVerificationMetadata;
+         * }}
          */
         BotSignatureVerificationMetadata.create = function create(properties) {
             return new BotSignatureVerificationMetadata(properties);
@@ -24251,7 +25226,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotSignatureVerificationMetadata
          * @static
-         * @param {AICommon.IBotSignatureVerificationMetadata} message BotSignatureVerificationMetadata message or plain object to encode
+         * @param {AICommon.BotSignatureVerificationMetadata.$Properties} message BotSignatureVerificationMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -24272,7 +25247,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotSignatureVerificationMetadata
          * @static
-         * @param {AICommon.IBotSignatureVerificationMetadata} message BotSignatureVerificationMetadata message or plain object to encode
+         * @param {AICommon.BotSignatureVerificationMetadata.$Properties} message BotSignatureVerificationMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -24287,7 +25262,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotSignatureVerificationMetadata} BotSignatureVerificationMetadata
+         * @returns {AICommon.BotSignatureVerificationMetadata & AICommon.BotSignatureVerificationMetadata.$Shape} BotSignatureVerificationMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -24332,7 +25307,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotSignatureVerificationMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotSignatureVerificationMetadata} BotSignatureVerificationMetadata
+         * @returns {AICommon.BotSignatureVerificationMetadata & AICommon.BotSignatureVerificationMetadata.$Shape} BotSignatureVerificationMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -24453,20 +25428,31 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotMemoryFact.
-         * @memberof AICommon
-         * @interface IBotMemoryFact
+         * @typedef {Object} AICommon.BotMemoryFact.$Properties
          * @property {string|null} [fact] BotMemoryFact fact
          * @property {string|null} [factId] BotMemoryFact factId
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
+         * Properties of a BotMemoryFact.
+         * @memberof AICommon
+         * @interface IBotMemoryFact
+         * @augments AICommon.BotMemoryFact.$Properties
+         * @deprecated Use AICommon.BotMemoryFact.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotMemoryFact.
+         * @typedef {AICommon.BotMemoryFact.$Properties} AICommon.BotMemoryFact.$Shape
+         */
+
+        /**
          * Constructs a new BotMemoryFact.
          * @memberof AICommon
          * @classdesc Represents a BotMemoryFact.
-         * @implements IBotMemoryFact
          * @constructor
-         * @param {AICommon.IBotMemoryFact=} [properties] Properties to set
+         * @param {AICommon.BotMemoryFact.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotMemoryFact(properties) {
@@ -24512,8 +25498,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotMemoryFact
          * @static
-         * @param {AICommon.IBotMemoryFact=} [properties] Properties to set
+         * @param {AICommon.BotMemoryFact.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotMemoryFact} BotMemoryFact instance
+         * @type {{
+         *   (properties: AICommon.BotMemoryFact.$Shape): AICommon.BotMemoryFact & AICommon.BotMemoryFact.$Shape;
+         *   (properties?: AICommon.BotMemoryFact.$Properties): AICommon.BotMemoryFact;
+         * }}
          */
         BotMemoryFact.create = function create(properties) {
             return new BotMemoryFact(properties);
@@ -24524,7 +25514,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotMemoryFact
          * @static
-         * @param {AICommon.IBotMemoryFact} message BotMemoryFact message or plain object to encode
+         * @param {AICommon.BotMemoryFact.$Properties} message BotMemoryFact message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -24546,7 +25536,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotMemoryFact
          * @static
-         * @param {AICommon.IBotMemoryFact} message BotMemoryFact message or plain object to encode
+         * @param {AICommon.BotMemoryFact.$Properties} message BotMemoryFact message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -24561,7 +25551,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotMemoryFact} BotMemoryFact
+         * @returns {AICommon.BotMemoryFact & AICommon.BotMemoryFact.$Shape} BotMemoryFact
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -24612,7 +25602,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotMemoryFact
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotMemoryFact} BotMemoryFact
+         * @returns {AICommon.BotMemoryFact & AICommon.BotMemoryFact.$Shape} BotMemoryFact
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -24732,21 +25722,32 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotMemoryMetadata.
-         * @memberof AICommon
-         * @interface IBotMemoryMetadata
-         * @property {Array.<AICommon.IBotMemoryFact>|null} [addedFacts] BotMemoryMetadata addedFacts
-         * @property {Array.<AICommon.IBotMemoryFact>|null} [removedFacts] BotMemoryMetadata removedFacts
+         * @typedef {Object} AICommon.BotMemoryMetadata.$Properties
+         * @property {Array.<AICommon.BotMemoryFact.$Properties>|null} [addedFacts] BotMemoryMetadata addedFacts
+         * @property {Array.<AICommon.BotMemoryFact.$Properties>|null} [removedFacts] BotMemoryMetadata removedFacts
          * @property {string|null} [disclaimer] BotMemoryMetadata disclaimer
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a BotMemoryMetadata.
+         * @memberof AICommon
+         * @interface IBotMemoryMetadata
+         * @augments AICommon.BotMemoryMetadata.$Properties
+         * @deprecated Use AICommon.BotMemoryMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotMemoryMetadata.
+         * @typedef {AICommon.BotMemoryMetadata.$Properties} AICommon.BotMemoryMetadata.$Shape
          */
 
         /**
          * Constructs a new BotMemoryMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotMemoryMetadata.
-         * @implements IBotMemoryMetadata
          * @constructor
-         * @param {AICommon.IBotMemoryMetadata=} [properties] Properties to set
+         * @param {AICommon.BotMemoryMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotMemoryMetadata(properties) {
@@ -24760,7 +25761,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMemoryMetadata addedFacts.
-         * @member {Array.<AICommon.IBotMemoryFact>} addedFacts
+         * @member {Array.<AICommon.BotMemoryFact.$Properties>} addedFacts
          * @memberof AICommon.BotMemoryMetadata
          * @instance
          */
@@ -24768,7 +25769,7 @@ $root.AICommon = (function() {
 
         /**
          * BotMemoryMetadata removedFacts.
-         * @member {Array.<AICommon.IBotMemoryFact>} removedFacts
+         * @member {Array.<AICommon.BotMemoryFact.$Properties>} removedFacts
          * @memberof AICommon.BotMemoryMetadata
          * @instance
          */
@@ -24796,8 +25797,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotMemoryMetadata
          * @static
-         * @param {AICommon.IBotMemoryMetadata=} [properties] Properties to set
+         * @param {AICommon.BotMemoryMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotMemoryMetadata} BotMemoryMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotMemoryMetadata.$Shape): AICommon.BotMemoryMetadata & AICommon.BotMemoryMetadata.$Shape;
+         *   (properties?: AICommon.BotMemoryMetadata.$Properties): AICommon.BotMemoryMetadata;
+         * }}
          */
         BotMemoryMetadata.create = function create(properties) {
             return new BotMemoryMetadata(properties);
@@ -24808,7 +25813,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotMemoryMetadata
          * @static
-         * @param {AICommon.IBotMemoryMetadata} message BotMemoryMetadata message or plain object to encode
+         * @param {AICommon.BotMemoryMetadata.$Properties} message BotMemoryMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -24834,7 +25839,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotMemoryMetadata
          * @static
-         * @param {AICommon.IBotMemoryMetadata} message BotMemoryMetadata message or plain object to encode
+         * @param {AICommon.BotMemoryMetadata.$Properties} message BotMemoryMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -24849,7 +25854,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotMemoryMetadata} BotMemoryMetadata
+         * @returns {AICommon.BotMemoryMetadata & AICommon.BotMemoryMetadata.$Shape} BotMemoryMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -24909,7 +25914,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotMemoryMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotMemoryMetadata} BotMemoryMetadata
+         * @returns {AICommon.BotMemoryMetadata & AICommon.BotMemoryMetadata.$Shape} BotMemoryMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -25069,19 +26074,30 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotLinkedAccount.
-         * @memberof AICommon
-         * @interface IBotLinkedAccount
+         * @typedef {Object} AICommon.BotLinkedAccount.$Properties
          * @property {AICommon.BotLinkedAccount.BotLinkedAccountType|null} [type] BotLinkedAccount type
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a BotLinkedAccount.
+         * @memberof AICommon
+         * @interface IBotLinkedAccount
+         * @augments AICommon.BotLinkedAccount.$Properties
+         * @deprecated Use AICommon.BotLinkedAccount.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotLinkedAccount.
+         * @typedef {AICommon.BotLinkedAccount.$Properties} AICommon.BotLinkedAccount.$Shape
          */
 
         /**
          * Constructs a new BotLinkedAccount.
          * @memberof AICommon
          * @classdesc Represents a BotLinkedAccount.
-         * @implements IBotLinkedAccount
          * @constructor
-         * @param {AICommon.IBotLinkedAccount=} [properties] Properties to set
+         * @param {AICommon.BotLinkedAccount.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotLinkedAccount(properties) {
@@ -25113,8 +26129,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotLinkedAccount
          * @static
-         * @param {AICommon.IBotLinkedAccount=} [properties] Properties to set
+         * @param {AICommon.BotLinkedAccount.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotLinkedAccount} BotLinkedAccount instance
+         * @type {{
+         *   (properties: AICommon.BotLinkedAccount.$Shape): AICommon.BotLinkedAccount & AICommon.BotLinkedAccount.$Shape;
+         *   (properties?: AICommon.BotLinkedAccount.$Properties): AICommon.BotLinkedAccount;
+         * }}
          */
         BotLinkedAccount.create = function create(properties) {
             return new BotLinkedAccount(properties);
@@ -25125,7 +26145,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotLinkedAccount
          * @static
-         * @param {AICommon.IBotLinkedAccount} message BotLinkedAccount message or plain object to encode
+         * @param {AICommon.BotLinkedAccount.$Properties} message BotLinkedAccount message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -25145,7 +26165,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotLinkedAccount
          * @static
-         * @param {AICommon.IBotLinkedAccount} message BotLinkedAccount message or plain object to encode
+         * @param {AICommon.BotLinkedAccount.$Properties} message BotLinkedAccount message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -25160,7 +26180,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotLinkedAccount} BotLinkedAccount
+         * @returns {AICommon.BotLinkedAccount & AICommon.BotLinkedAccount.$Shape} BotLinkedAccount
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -25204,7 +26224,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotLinkedAccount
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotLinkedAccount} BotLinkedAccount
+         * @returns {AICommon.BotLinkedAccount & AICommon.BotLinkedAccount.$Shape} BotLinkedAccount
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -25338,21 +26358,32 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotLinkedAccountsMetadata.
-         * @memberof AICommon
-         * @interface IBotLinkedAccountsMetadata
-         * @property {Array.<AICommon.IBotLinkedAccount>|null} [accounts] BotLinkedAccountsMetadata accounts
+         * @typedef {Object} AICommon.BotLinkedAccountsMetadata.$Properties
+         * @property {Array.<AICommon.BotLinkedAccount.$Properties>|null} [accounts] BotLinkedAccountsMetadata accounts
          * @property {Uint8Array|null} [acAuthTokens] BotLinkedAccountsMetadata acAuthTokens
          * @property {number|null} [acErrorCode] BotLinkedAccountsMetadata acErrorCode
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
+         * Properties of a BotLinkedAccountsMetadata.
+         * @memberof AICommon
+         * @interface IBotLinkedAccountsMetadata
+         * @augments AICommon.BotLinkedAccountsMetadata.$Properties
+         * @deprecated Use AICommon.BotLinkedAccountsMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotLinkedAccountsMetadata.
+         * @typedef {AICommon.BotLinkedAccountsMetadata.$Properties} AICommon.BotLinkedAccountsMetadata.$Shape
+         */
+
+        /**
          * Constructs a new BotLinkedAccountsMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotLinkedAccountsMetadata.
-         * @implements IBotLinkedAccountsMetadata
          * @constructor
-         * @param {AICommon.IBotLinkedAccountsMetadata=} [properties] Properties to set
+         * @param {AICommon.BotLinkedAccountsMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotLinkedAccountsMetadata(properties) {
@@ -25365,7 +26396,7 @@ $root.AICommon = (function() {
 
         /**
          * BotLinkedAccountsMetadata accounts.
-         * @member {Array.<AICommon.IBotLinkedAccount>} accounts
+         * @member {Array.<AICommon.BotLinkedAccount.$Properties>} accounts
          * @memberof AICommon.BotLinkedAccountsMetadata
          * @instance
          */
@@ -25407,8 +26438,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotLinkedAccountsMetadata
          * @static
-         * @param {AICommon.IBotLinkedAccountsMetadata=} [properties] Properties to set
+         * @param {AICommon.BotLinkedAccountsMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotLinkedAccountsMetadata} BotLinkedAccountsMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotLinkedAccountsMetadata.$Shape): AICommon.BotLinkedAccountsMetadata & AICommon.BotLinkedAccountsMetadata.$Shape;
+         *   (properties?: AICommon.BotLinkedAccountsMetadata.$Properties): AICommon.BotLinkedAccountsMetadata;
+         * }}
          */
         BotLinkedAccountsMetadata.create = function create(properties) {
             return new BotLinkedAccountsMetadata(properties);
@@ -25419,7 +26454,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotLinkedAccountsMetadata
          * @static
-         * @param {AICommon.IBotLinkedAccountsMetadata} message BotLinkedAccountsMetadata message or plain object to encode
+         * @param {AICommon.BotLinkedAccountsMetadata.$Properties} message BotLinkedAccountsMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -25444,7 +26479,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotLinkedAccountsMetadata
          * @static
-         * @param {AICommon.IBotLinkedAccountsMetadata} message BotLinkedAccountsMetadata message or plain object to encode
+         * @param {AICommon.BotLinkedAccountsMetadata.$Properties} message BotLinkedAccountsMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -25459,7 +26494,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotLinkedAccountsMetadata} BotLinkedAccountsMetadata
+         * @returns {AICommon.BotLinkedAccountsMetadata & AICommon.BotLinkedAccountsMetadata.$Shape} BotLinkedAccountsMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -25518,7 +26553,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotLinkedAccountsMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotLinkedAccountsMetadata} BotLinkedAccountsMetadata
+         * @returns {AICommon.BotLinkedAccountsMetadata & AICommon.BotLinkedAccountsMetadata.$Shape} BotLinkedAccountsMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -25667,20 +26702,31 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotPromptSuggestion.
-         * @memberof AICommon
-         * @interface IBotPromptSuggestion
+         * @typedef {Object} AICommon.BotPromptSuggestion.$Properties
          * @property {string|null} [prompt] BotPromptSuggestion prompt
          * @property {string|null} [promptId] BotPromptSuggestion promptId
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
+         * Properties of a BotPromptSuggestion.
+         * @memberof AICommon
+         * @interface IBotPromptSuggestion
+         * @augments AICommon.BotPromptSuggestion.$Properties
+         * @deprecated Use AICommon.BotPromptSuggestion.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotPromptSuggestion.
+         * @typedef {AICommon.BotPromptSuggestion.$Properties} AICommon.BotPromptSuggestion.$Shape
+         */
+
+        /**
          * Constructs a new BotPromptSuggestion.
          * @memberof AICommon
          * @classdesc Represents a BotPromptSuggestion.
-         * @implements IBotPromptSuggestion
          * @constructor
-         * @param {AICommon.IBotPromptSuggestion=} [properties] Properties to set
+         * @param {AICommon.BotPromptSuggestion.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotPromptSuggestion(properties) {
@@ -25726,8 +26772,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotPromptSuggestion
          * @static
-         * @param {AICommon.IBotPromptSuggestion=} [properties] Properties to set
+         * @param {AICommon.BotPromptSuggestion.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotPromptSuggestion} BotPromptSuggestion instance
+         * @type {{
+         *   (properties: AICommon.BotPromptSuggestion.$Shape): AICommon.BotPromptSuggestion & AICommon.BotPromptSuggestion.$Shape;
+         *   (properties?: AICommon.BotPromptSuggestion.$Properties): AICommon.BotPromptSuggestion;
+         * }}
          */
         BotPromptSuggestion.create = function create(properties) {
             return new BotPromptSuggestion(properties);
@@ -25738,7 +26788,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotPromptSuggestion
          * @static
-         * @param {AICommon.IBotPromptSuggestion} message BotPromptSuggestion message or plain object to encode
+         * @param {AICommon.BotPromptSuggestion.$Properties} message BotPromptSuggestion message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -25760,7 +26810,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotPromptSuggestion
          * @static
-         * @param {AICommon.IBotPromptSuggestion} message BotPromptSuggestion message or plain object to encode
+         * @param {AICommon.BotPromptSuggestion.$Properties} message BotPromptSuggestion message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -25775,7 +26825,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotPromptSuggestion} BotPromptSuggestion
+         * @returns {AICommon.BotPromptSuggestion & AICommon.BotPromptSuggestion.$Shape} BotPromptSuggestion
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -25826,7 +26876,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotPromptSuggestion
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotPromptSuggestion} BotPromptSuggestion
+         * @returns {AICommon.BotPromptSuggestion & AICommon.BotPromptSuggestion.$Shape} BotPromptSuggestion
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -25946,19 +26996,30 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotPromptSuggestions.
+         * @typedef {Object} AICommon.BotPromptSuggestions.$Properties
+         * @property {Array.<AICommon.BotPromptSuggestion.$Properties>|null} [suggestions] BotPromptSuggestions suggestions
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a BotPromptSuggestions.
          * @memberof AICommon
          * @interface IBotPromptSuggestions
-         * @property {Array.<AICommon.IBotPromptSuggestion>|null} [suggestions] BotPromptSuggestions suggestions
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments AICommon.BotPromptSuggestions.$Properties
+         * @deprecated Use AICommon.BotPromptSuggestions.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotPromptSuggestions.
+         * @typedef {AICommon.BotPromptSuggestions.$Properties} AICommon.BotPromptSuggestions.$Shape
          */
 
         /**
          * Constructs a new BotPromptSuggestions.
          * @memberof AICommon
          * @classdesc Represents a BotPromptSuggestions.
-         * @implements IBotPromptSuggestions
          * @constructor
-         * @param {AICommon.IBotPromptSuggestions=} [properties] Properties to set
+         * @param {AICommon.BotPromptSuggestions.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotPromptSuggestions(properties) {
@@ -25971,7 +27032,7 @@ $root.AICommon = (function() {
 
         /**
          * BotPromptSuggestions suggestions.
-         * @member {Array.<AICommon.IBotPromptSuggestion>} suggestions
+         * @member {Array.<AICommon.BotPromptSuggestion.$Properties>} suggestions
          * @memberof AICommon.BotPromptSuggestions
          * @instance
          */
@@ -25982,8 +27043,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotPromptSuggestions
          * @static
-         * @param {AICommon.IBotPromptSuggestions=} [properties] Properties to set
+         * @param {AICommon.BotPromptSuggestions.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotPromptSuggestions} BotPromptSuggestions instance
+         * @type {{
+         *   (properties: AICommon.BotPromptSuggestions.$Shape): AICommon.BotPromptSuggestions & AICommon.BotPromptSuggestions.$Shape;
+         *   (properties?: AICommon.BotPromptSuggestions.$Properties): AICommon.BotPromptSuggestions;
+         * }}
          */
         BotPromptSuggestions.create = function create(properties) {
             return new BotPromptSuggestions(properties);
@@ -25994,7 +27059,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotPromptSuggestions
          * @static
-         * @param {AICommon.IBotPromptSuggestions} message BotPromptSuggestions message or plain object to encode
+         * @param {AICommon.BotPromptSuggestions.$Properties} message BotPromptSuggestions message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -26015,7 +27080,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotPromptSuggestions
          * @static
-         * @param {AICommon.IBotPromptSuggestions} message BotPromptSuggestions message or plain object to encode
+         * @param {AICommon.BotPromptSuggestions.$Properties} message BotPromptSuggestions message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -26030,7 +27095,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotPromptSuggestions} BotPromptSuggestions
+         * @returns {AICommon.BotPromptSuggestions & AICommon.BotPromptSuggestions.$Shape} BotPromptSuggestions
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -26075,7 +27140,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotPromptSuggestions
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotPromptSuggestions} BotPromptSuggestions
+         * @returns {AICommon.BotPromptSuggestions & AICommon.BotPromptSuggestions.$Shape} BotPromptSuggestions
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -26196,22 +27261,33 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotSuggestedPromptMetadata.
-         * @memberof AICommon
-         * @interface IBotSuggestedPromptMetadata
+         * @typedef {Object} AICommon.BotSuggestedPromptMetadata.$Properties
          * @property {Array.<string>|null} [suggestedPrompts] BotSuggestedPromptMetadata suggestedPrompts
          * @property {number|null} [selectedPromptIndex] BotSuggestedPromptMetadata selectedPromptIndex
-         * @property {AICommon.IBotPromptSuggestions|null} [promptSuggestions] BotSuggestedPromptMetadata promptSuggestions
+         * @property {AICommon.BotPromptSuggestions.$Properties|null} [promptSuggestions] BotSuggestedPromptMetadata promptSuggestions
          * @property {string|null} [selectedPromptId] BotSuggestedPromptMetadata selectedPromptId
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a BotSuggestedPromptMetadata.
+         * @memberof AICommon
+         * @interface IBotSuggestedPromptMetadata
+         * @augments AICommon.BotSuggestedPromptMetadata.$Properties
+         * @deprecated Use AICommon.BotSuggestedPromptMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotSuggestedPromptMetadata.
+         * @typedef {AICommon.BotSuggestedPromptMetadata.$Properties} AICommon.BotSuggestedPromptMetadata.$Shape
          */
 
         /**
          * Constructs a new BotSuggestedPromptMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotSuggestedPromptMetadata.
-         * @implements IBotSuggestedPromptMetadata
          * @constructor
-         * @param {AICommon.IBotSuggestedPromptMetadata=} [properties] Properties to set
+         * @param {AICommon.BotSuggestedPromptMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotSuggestedPromptMetadata(properties) {
@@ -26240,7 +27316,7 @@ $root.AICommon = (function() {
 
         /**
          * BotSuggestedPromptMetadata promptSuggestions.
-         * @member {AICommon.IBotPromptSuggestions|null|undefined} promptSuggestions
+         * @member {AICommon.BotPromptSuggestions.$Properties|null|undefined} promptSuggestions
          * @memberof AICommon.BotSuggestedPromptMetadata
          * @instance
          */
@@ -26280,8 +27356,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotSuggestedPromptMetadata
          * @static
-         * @param {AICommon.IBotSuggestedPromptMetadata=} [properties] Properties to set
+         * @param {AICommon.BotSuggestedPromptMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotSuggestedPromptMetadata} BotSuggestedPromptMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotSuggestedPromptMetadata.$Shape): AICommon.BotSuggestedPromptMetadata & AICommon.BotSuggestedPromptMetadata.$Shape;
+         *   (properties?: AICommon.BotSuggestedPromptMetadata.$Properties): AICommon.BotSuggestedPromptMetadata;
+         * }}
          */
         BotSuggestedPromptMetadata.create = function create(properties) {
             return new BotSuggestedPromptMetadata(properties);
@@ -26292,7 +27372,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotSuggestedPromptMetadata
          * @static
-         * @param {AICommon.IBotSuggestedPromptMetadata} message BotSuggestedPromptMetadata message or plain object to encode
+         * @param {AICommon.BotSuggestedPromptMetadata.$Properties} message BotSuggestedPromptMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -26319,7 +27399,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotSuggestedPromptMetadata
          * @static
-         * @param {AICommon.IBotSuggestedPromptMetadata} message BotSuggestedPromptMetadata message or plain object to encode
+         * @param {AICommon.BotSuggestedPromptMetadata.$Properties} message BotSuggestedPromptMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -26334,7 +27414,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotSuggestedPromptMetadata} BotSuggestedPromptMetadata
+         * @returns {AICommon.BotSuggestedPromptMetadata & AICommon.BotSuggestedPromptMetadata.$Shape} BotSuggestedPromptMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -26400,7 +27480,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotSuggestedPromptMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotSuggestedPromptMetadata} BotSuggestedPromptMetadata
+         * @returns {AICommon.BotSuggestedPromptMetadata & AICommon.BotSuggestedPromptMetadata.$Shape} BotSuggestedPromptMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -26559,8 +27639,7 @@ $root.AICommon = (function() {
 
         /**
          * Properties of a BotPluginMetadata.
-         * @memberof AICommon
-         * @interface IBotPluginMetadata
+         * @typedef {Object} AICommon.BotPluginMetadata.$Properties
          * @property {AICommon.BotPluginMetadata.SearchProvider|null} [provider] BotPluginMetadata provider
          * @property {AICommon.BotPluginMetadata.PluginType|null} [pluginType] BotPluginMetadata pluginType
          * @property {string|null} [thumbnailCdnUrl] BotPluginMetadata thumbnailCdnUrl
@@ -26569,7 +27648,7 @@ $root.AICommon = (function() {
          * @property {number|null} [referenceIndex] BotPluginMetadata referenceIndex
          * @property {number|null} [expectedLinksCount] BotPluginMetadata expectedLinksCount
          * @property {string|null} [searchQuery] BotPluginMetadata searchQuery
-         * @property {Protocol.IMessageKey|null} [parentPluginMessageKey] BotPluginMetadata parentPluginMessageKey
+         * @property {Protocol.MessageKey.$Properties|null} [parentPluginMessageKey] BotPluginMetadata parentPluginMessageKey
          * @property {AICommon.BotPluginMetadata.PluginType|null} [deprecatedField] BotPluginMetadata deprecatedField
          * @property {AICommon.BotPluginMetadata.PluginType|null} [parentPluginType] BotPluginMetadata parentPluginType
          * @property {string|null} [faviconCdnUrl] BotPluginMetadata faviconCdnUrl
@@ -26577,12 +27656,24 @@ $root.AICommon = (function() {
          */
 
         /**
+         * Properties of a BotPluginMetadata.
+         * @memberof AICommon
+         * @interface IBotPluginMetadata
+         * @augments AICommon.BotPluginMetadata.$Properties
+         * @deprecated Use AICommon.BotPluginMetadata.$Properties instead.
+         */
+
+        /**
+         * Shape of a BotPluginMetadata.
+         * @typedef {AICommon.BotPluginMetadata.$Properties} AICommon.BotPluginMetadata.$Shape
+         */
+
+        /**
          * Constructs a new BotPluginMetadata.
          * @memberof AICommon
          * @classdesc Represents a BotPluginMetadata.
-         * @implements IBotPluginMetadata
          * @constructor
-         * @param {AICommon.IBotPluginMetadata=} [properties] Properties to set
+         * @param {AICommon.BotPluginMetadata.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function BotPluginMetadata(properties) {
@@ -26658,7 +27749,7 @@ $root.AICommon = (function() {
 
         /**
          * BotPluginMetadata parentPluginMessageKey.
-         * @member {Protocol.IMessageKey|null|undefined} parentPluginMessageKey
+         * @member {Protocol.MessageKey.$Properties|null|undefined} parentPluginMessageKey
          * @memberof AICommon.BotPluginMetadata
          * @instance
          */
@@ -26768,8 +27859,12 @@ $root.AICommon = (function() {
          * @function create
          * @memberof AICommon.BotPluginMetadata
          * @static
-         * @param {AICommon.IBotPluginMetadata=} [properties] Properties to set
+         * @param {AICommon.BotPluginMetadata.$Properties=} [properties] Properties to set
          * @returns {AICommon.BotPluginMetadata} BotPluginMetadata instance
+         * @type {{
+         *   (properties: AICommon.BotPluginMetadata.$Shape): AICommon.BotPluginMetadata & AICommon.BotPluginMetadata.$Shape;
+         *   (properties?: AICommon.BotPluginMetadata.$Properties): AICommon.BotPluginMetadata;
+         * }}
          */
         BotPluginMetadata.create = function create(properties) {
             return new BotPluginMetadata(properties);
@@ -26780,7 +27875,7 @@ $root.AICommon = (function() {
          * @function encode
          * @memberof AICommon.BotPluginMetadata
          * @static
-         * @param {AICommon.IBotPluginMetadata} message BotPluginMetadata message or plain object to encode
+         * @param {AICommon.BotPluginMetadata.$Properties} message BotPluginMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -26822,7 +27917,7 @@ $root.AICommon = (function() {
          * @function encodeDelimited
          * @memberof AICommon.BotPluginMetadata
          * @static
-         * @param {AICommon.IBotPluginMetadata} message BotPluginMetadata message or plain object to encode
+         * @param {AICommon.BotPluginMetadata.$Properties} message BotPluginMetadata message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -26837,7 +27932,7 @@ $root.AICommon = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {AICommon.BotPluginMetadata} BotPluginMetadata
+         * @returns {AICommon.BotPluginMetadata & AICommon.BotPluginMetadata.$Shape} BotPluginMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -26958,7 +28053,7 @@ $root.AICommon = (function() {
          * @memberof AICommon.BotPluginMetadata
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {AICommon.BotPluginMetadata} BotPluginMetadata
+         * @returns {AICommon.BotPluginMetadata & AICommon.BotPluginMetadata.$Shape} BotPluginMetadata
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -27535,8 +28630,7 @@ $root.Protocol = (function() {
 
         /**
          * Properties of a LimitSharing.
-         * @memberof Protocol
-         * @interface ILimitSharing
+         * @typedef {Object} Protocol.LimitSharing.$Properties
          * @property {boolean|null} [sharingLimited] LimitSharing sharingLimited
          * @property {Protocol.LimitSharing.TriggerType|null} [trigger] LimitSharing trigger
          * @property {number|Long|null} [limitSharingSettingTimestamp] LimitSharing limitSharingSettingTimestamp
@@ -27545,12 +28639,24 @@ $root.Protocol = (function() {
          */
 
         /**
+         * Properties of a LimitSharing.
+         * @memberof Protocol
+         * @interface ILimitSharing
+         * @augments Protocol.LimitSharing.$Properties
+         * @deprecated Use Protocol.LimitSharing.$Properties instead.
+         */
+
+        /**
+         * Shape of a LimitSharing.
+         * @typedef {Protocol.LimitSharing.$Properties} Protocol.LimitSharing.$Shape
+         */
+
+        /**
          * Constructs a new LimitSharing.
          * @memberof Protocol
          * @classdesc Represents a LimitSharing.
-         * @implements ILimitSharing
          * @constructor
-         * @param {Protocol.ILimitSharing=} [properties] Properties to set
+         * @param {Protocol.LimitSharing.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function LimitSharing(properties) {
@@ -27624,8 +28730,12 @@ $root.Protocol = (function() {
          * @function create
          * @memberof Protocol.LimitSharing
          * @static
-         * @param {Protocol.ILimitSharing=} [properties] Properties to set
+         * @param {Protocol.LimitSharing.$Properties=} [properties] Properties to set
          * @returns {Protocol.LimitSharing} LimitSharing instance
+         * @type {{
+         *   (properties: Protocol.LimitSharing.$Shape): Protocol.LimitSharing & Protocol.LimitSharing.$Shape;
+         *   (properties?: Protocol.LimitSharing.$Properties): Protocol.LimitSharing;
+         * }}
          */
         LimitSharing.create = function create(properties) {
             return new LimitSharing(properties);
@@ -27636,7 +28746,7 @@ $root.Protocol = (function() {
          * @function encode
          * @memberof Protocol.LimitSharing
          * @static
-         * @param {Protocol.ILimitSharing} message LimitSharing message or plain object to encode
+         * @param {Protocol.LimitSharing.$Properties} message LimitSharing message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -27662,7 +28772,7 @@ $root.Protocol = (function() {
          * @function encodeDelimited
          * @memberof Protocol.LimitSharing
          * @static
-         * @param {Protocol.ILimitSharing} message LimitSharing message or plain object to encode
+         * @param {Protocol.LimitSharing.$Properties} message LimitSharing message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -27677,7 +28787,7 @@ $root.Protocol = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {Protocol.LimitSharing} LimitSharing
+         * @returns {Protocol.LimitSharing & Protocol.LimitSharing.$Shape} LimitSharing
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -27742,7 +28852,7 @@ $root.Protocol = (function() {
          * @memberof Protocol.LimitSharing
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {Protocol.LimitSharing} LimitSharing
+         * @returns {Protocol.LimitSharing & Protocol.LimitSharing.$Shape} LimitSharing
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -27943,8 +29053,7 @@ $root.Protocol = (function() {
 
         /**
          * Properties of a MessageKey.
-         * @memberof Protocol
-         * @interface IMessageKey
+         * @typedef {Object} Protocol.MessageKey.$Properties
          * @property {string|null} [remoteJid] MessageKey remoteJid
          * @property {boolean|null} [fromMe] MessageKey fromMe
          * @property {string|null} [id] MessageKey id
@@ -27953,12 +29062,24 @@ $root.Protocol = (function() {
          */
 
         /**
+         * Properties of a MessageKey.
+         * @memberof Protocol
+         * @interface IMessageKey
+         * @augments Protocol.MessageKey.$Properties
+         * @deprecated Use Protocol.MessageKey.$Properties instead.
+         */
+
+        /**
+         * Shape of a MessageKey.
+         * @typedef {Protocol.MessageKey.$Properties} Protocol.MessageKey.$Shape
+         */
+
+        /**
          * Constructs a new MessageKey.
          * @memberof Protocol
          * @classdesc Represents a MessageKey.
-         * @implements IMessageKey
          * @constructor
-         * @param {Protocol.IMessageKey=} [properties] Properties to set
+         * @param {Protocol.MessageKey.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function MessageKey(properties) {
@@ -28032,8 +29153,12 @@ $root.Protocol = (function() {
          * @function create
          * @memberof Protocol.MessageKey
          * @static
-         * @param {Protocol.IMessageKey=} [properties] Properties to set
+         * @param {Protocol.MessageKey.$Properties=} [properties] Properties to set
          * @returns {Protocol.MessageKey} MessageKey instance
+         * @type {{
+         *   (properties: Protocol.MessageKey.$Shape): Protocol.MessageKey & Protocol.MessageKey.$Shape;
+         *   (properties?: Protocol.MessageKey.$Properties): Protocol.MessageKey;
+         * }}
          */
         MessageKey.create = function create(properties) {
             return new MessageKey(properties);
@@ -28044,7 +29169,7 @@ $root.Protocol = (function() {
          * @function encode
          * @memberof Protocol.MessageKey
          * @static
-         * @param {Protocol.IMessageKey} message MessageKey message or plain object to encode
+         * @param {Protocol.MessageKey.$Properties} message MessageKey message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -28070,7 +29195,7 @@ $root.Protocol = (function() {
          * @function encodeDelimited
          * @memberof Protocol.MessageKey
          * @static
-         * @param {Protocol.IMessageKey} message MessageKey message or plain object to encode
+         * @param {Protocol.MessageKey.$Properties} message MessageKey message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -28085,7 +29210,7 @@ $root.Protocol = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {Protocol.MessageKey} MessageKey
+         * @returns {Protocol.MessageKey & Protocol.MessageKey.$Shape} MessageKey
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -28150,7 +29275,7 @@ $root.Protocol = (function() {
          * @memberof Protocol.MessageKey
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {Protocol.MessageKey} MessageKey
+         * @returns {Protocol.MessageKey & Protocol.MessageKey.$Shape} MessageKey
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */

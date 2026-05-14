@@ -22,20 +22,35 @@ $root.ChatLockSettings = (function() {
 
         /**
          * Properties of a ChatLockSettings.
+         * @typedef {Object} ChatLockSettings.ChatLockSettings.$Properties
+         * @property {boolean|null} [hideLockedChats] ChatLockSettings hideLockedChats
+         * @property {UserPassword.UserPassword.$Properties|null} [secretCode] ChatLockSettings secretCode
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a ChatLockSettings.
          * @memberof ChatLockSettings
          * @interface IChatLockSettings
-         * @property {boolean|null} [hideLockedChats] ChatLockSettings hideLockedChats
-         * @property {UserPassword.IUserPassword|null} [secretCode] ChatLockSettings secretCode
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments ChatLockSettings.ChatLockSettings.$Properties
+         * @deprecated Use ChatLockSettings.ChatLockSettings.$Properties instead.
+         */
+
+        /**
+         * Shape of a ChatLockSettings.
+         * @typedef {{
+         *   hideLockedChats?: boolean|null;
+         *   secretCode?: UserPassword.UserPassword.$Shape|null;
+         *   $unknowns?: Array.<Uint8Array>;
+         * }} ChatLockSettings.ChatLockSettings.$Shape
          */
 
         /**
          * Constructs a new ChatLockSettings.
          * @memberof ChatLockSettings
          * @classdesc Represents a ChatLockSettings.
-         * @implements IChatLockSettings
          * @constructor
-         * @param {ChatLockSettings.IChatLockSettings=} [properties] Properties to set
+         * @param {ChatLockSettings.ChatLockSettings.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function ChatLockSettings(properties) {
@@ -55,7 +70,7 @@ $root.ChatLockSettings = (function() {
 
         /**
          * ChatLockSettings secretCode.
-         * @member {UserPassword.IUserPassword|null|undefined} secretCode
+         * @member {UserPassword.UserPassword.$Properties|null|undefined} secretCode
          * @memberof ChatLockSettings.ChatLockSettings
          * @instance
          */
@@ -81,8 +96,12 @@ $root.ChatLockSettings = (function() {
          * @function create
          * @memberof ChatLockSettings.ChatLockSettings
          * @static
-         * @param {ChatLockSettings.IChatLockSettings=} [properties] Properties to set
+         * @param {ChatLockSettings.ChatLockSettings.$Properties=} [properties] Properties to set
          * @returns {ChatLockSettings.ChatLockSettings} ChatLockSettings instance
+         * @type {{
+         *   (properties: ChatLockSettings.ChatLockSettings.$Shape): ChatLockSettings.ChatLockSettings & ChatLockSettings.ChatLockSettings.$Shape;
+         *   (properties?: ChatLockSettings.ChatLockSettings.$Properties): ChatLockSettings.ChatLockSettings;
+         * }}
          */
         ChatLockSettings.create = function create(properties) {
             return new ChatLockSettings(properties);
@@ -93,7 +112,7 @@ $root.ChatLockSettings = (function() {
          * @function encode
          * @memberof ChatLockSettings.ChatLockSettings
          * @static
-         * @param {ChatLockSettings.IChatLockSettings} message ChatLockSettings message or plain object to encode
+         * @param {ChatLockSettings.ChatLockSettings.$Properties} message ChatLockSettings message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -115,7 +134,7 @@ $root.ChatLockSettings = (function() {
          * @function encodeDelimited
          * @memberof ChatLockSettings.ChatLockSettings
          * @static
-         * @param {ChatLockSettings.IChatLockSettings} message ChatLockSettings message or plain object to encode
+         * @param {ChatLockSettings.ChatLockSettings.$Properties} message ChatLockSettings message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -130,7 +149,7 @@ $root.ChatLockSettings = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {ChatLockSettings.ChatLockSettings} ChatLockSettings
+         * @returns {ChatLockSettings.ChatLockSettings & ChatLockSettings.ChatLockSettings.$Shape} ChatLockSettings
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -181,7 +200,7 @@ $root.ChatLockSettings = (function() {
          * @memberof ChatLockSettings.ChatLockSettings
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {ChatLockSettings.ChatLockSettings} ChatLockSettings
+         * @returns {ChatLockSettings.ChatLockSettings & ChatLockSettings.ChatLockSettings.$Shape} ChatLockSettings
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -319,22 +338,39 @@ $root.UserPassword = (function() {
 
         /**
          * Properties of a UserPassword.
-         * @memberof UserPassword
-         * @interface IUserPassword
+         * @typedef {Object} UserPassword.UserPassword.$Properties
          * @property {UserPassword.UserPassword.Encoding|null} [encoding] UserPassword encoding
          * @property {UserPassword.UserPassword.Transformer|null} [transformer] UserPassword transformer
-         * @property {Array.<UserPassword.UserPassword.ITransformerArg>|null} [transformerArg] UserPassword transformerArg
+         * @property {Array.<UserPassword.UserPassword.TransformerArg.$Properties>|null} [transformerArg] UserPassword transformerArg
          * @property {Uint8Array|null} [transformedData] UserPassword transformedData
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a UserPassword.
+         * @memberof UserPassword
+         * @interface IUserPassword
+         * @augments UserPassword.UserPassword.$Properties
+         * @deprecated Use UserPassword.UserPassword.$Properties instead.
+         */
+
+        /**
+         * Shape of a UserPassword.
+         * @typedef {{
+         *   encoding?: UserPassword.UserPassword.Encoding|null;
+         *   transformer?: UserPassword.UserPassword.Transformer|null;
+         *   transformerArg?: Array.<UserPassword.UserPassword.TransformerArg.$Shape>|null;
+         *   transformedData?: Uint8Array|null;
+         *   $unknowns?: Array.<Uint8Array>;
+         * }} UserPassword.UserPassword.$Shape
          */
 
         /**
          * Constructs a new UserPassword.
          * @memberof UserPassword
          * @classdesc Represents a UserPassword.
-         * @implements IUserPassword
          * @constructor
-         * @param {UserPassword.IUserPassword=} [properties] Properties to set
+         * @param {UserPassword.UserPassword.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function UserPassword(properties) {
@@ -363,7 +399,7 @@ $root.UserPassword = (function() {
 
         /**
          * UserPassword transformerArg.
-         * @member {Array.<UserPassword.UserPassword.ITransformerArg>} transformerArg
+         * @member {Array.<UserPassword.UserPassword.TransformerArg.$Properties>} transformerArg
          * @memberof UserPassword.UserPassword
          * @instance
          */
@@ -403,8 +439,12 @@ $root.UserPassword = (function() {
          * @function create
          * @memberof UserPassword.UserPassword
          * @static
-         * @param {UserPassword.IUserPassword=} [properties] Properties to set
+         * @param {UserPassword.UserPassword.$Properties=} [properties] Properties to set
          * @returns {UserPassword.UserPassword} UserPassword instance
+         * @type {{
+         *   (properties: UserPassword.UserPassword.$Shape): UserPassword.UserPassword & UserPassword.UserPassword.$Shape;
+         *   (properties?: UserPassword.UserPassword.$Properties): UserPassword.UserPassword;
+         * }}
          */
         UserPassword.create = function create(properties) {
             return new UserPassword(properties);
@@ -415,7 +455,7 @@ $root.UserPassword = (function() {
          * @function encode
          * @memberof UserPassword.UserPassword
          * @static
-         * @param {UserPassword.IUserPassword} message UserPassword message or plain object to encode
+         * @param {UserPassword.UserPassword.$Properties} message UserPassword message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -442,7 +482,7 @@ $root.UserPassword = (function() {
          * @function encodeDelimited
          * @memberof UserPassword.UserPassword
          * @static
-         * @param {UserPassword.IUserPassword} message UserPassword message or plain object to encode
+         * @param {UserPassword.UserPassword.$Properties} message UserPassword message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -457,7 +497,7 @@ $root.UserPassword = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {UserPassword.UserPassword} UserPassword
+         * @returns {UserPassword.UserPassword & UserPassword.UserPassword.$Shape} UserPassword
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -523,7 +563,7 @@ $root.UserPassword = (function() {
          * @memberof UserPassword.UserPassword
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {UserPassword.UserPassword} UserPassword
+         * @returns {UserPassword.UserPassword & UserPassword.UserPassword.$Shape} UserPassword
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -754,20 +794,35 @@ $root.UserPassword = (function() {
 
             /**
              * Properties of a TransformerArg.
+             * @typedef {Object} UserPassword.UserPassword.TransformerArg.$Properties
+             * @property {string|null} [key] TransformerArg key
+             * @property {UserPassword.UserPassword.TransformerArg.Value.$Properties|null} [value] TransformerArg value
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a TransformerArg.
              * @memberof UserPassword.UserPassword
              * @interface ITransformerArg
-             * @property {string|null} [key] TransformerArg key
-             * @property {UserPassword.UserPassword.TransformerArg.IValue|null} [value] TransformerArg value
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @augments UserPassword.UserPassword.TransformerArg.$Properties
+             * @deprecated Use UserPassword.UserPassword.TransformerArg.$Properties instead.
+             */
+
+            /**
+             * Shape of a TransformerArg.
+             * @typedef {{
+             *   key?: string|null;
+             *   value?: UserPassword.UserPassword.TransformerArg.Value.$Shape|null;
+             *   $unknowns?: Array.<Uint8Array>;
+             * }} UserPassword.UserPassword.TransformerArg.$Shape
              */
 
             /**
              * Constructs a new TransformerArg.
              * @memberof UserPassword.UserPassword
              * @classdesc Represents a TransformerArg.
-             * @implements ITransformerArg
              * @constructor
-             * @param {UserPassword.UserPassword.ITransformerArg=} [properties] Properties to set
+             * @param {UserPassword.UserPassword.TransformerArg.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function TransformerArg(properties) {
@@ -787,7 +842,7 @@ $root.UserPassword = (function() {
 
             /**
              * TransformerArg value.
-             * @member {UserPassword.UserPassword.TransformerArg.IValue|null|undefined} value
+             * @member {UserPassword.UserPassword.TransformerArg.Value.$Properties|null|undefined} value
              * @memberof UserPassword.UserPassword.TransformerArg
              * @instance
              */
@@ -813,8 +868,12 @@ $root.UserPassword = (function() {
              * @function create
              * @memberof UserPassword.UserPassword.TransformerArg
              * @static
-             * @param {UserPassword.UserPassword.ITransformerArg=} [properties] Properties to set
+             * @param {UserPassword.UserPassword.TransformerArg.$Properties=} [properties] Properties to set
              * @returns {UserPassword.UserPassword.TransformerArg} TransformerArg instance
+             * @type {{
+             *   (properties: UserPassword.UserPassword.TransformerArg.$Shape): UserPassword.UserPassword.TransformerArg & UserPassword.UserPassword.TransformerArg.$Shape;
+             *   (properties?: UserPassword.UserPassword.TransformerArg.$Properties): UserPassword.UserPassword.TransformerArg;
+             * }}
              */
             TransformerArg.create = function create(properties) {
                 return new TransformerArg(properties);
@@ -825,7 +884,7 @@ $root.UserPassword = (function() {
              * @function encode
              * @memberof UserPassword.UserPassword.TransformerArg
              * @static
-             * @param {UserPassword.UserPassword.ITransformerArg} message TransformerArg message or plain object to encode
+             * @param {UserPassword.UserPassword.TransformerArg.$Properties} message TransformerArg message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -847,7 +906,7 @@ $root.UserPassword = (function() {
              * @function encodeDelimited
              * @memberof UserPassword.UserPassword.TransformerArg
              * @static
-             * @param {UserPassword.UserPassword.ITransformerArg} message TransformerArg message or plain object to encode
+             * @param {UserPassword.UserPassword.TransformerArg.$Properties} message TransformerArg message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -862,7 +921,7 @@ $root.UserPassword = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {UserPassword.UserPassword.TransformerArg} TransformerArg
+             * @returns {UserPassword.UserPassword.TransformerArg & UserPassword.UserPassword.TransformerArg.$Shape} TransformerArg
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -913,7 +972,7 @@ $root.UserPassword = (function() {
              * @memberof UserPassword.UserPassword.TransformerArg
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {UserPassword.UserPassword.TransformerArg} TransformerArg
+             * @returns {UserPassword.UserPassword.TransformerArg & UserPassword.UserPassword.TransformerArg.$Shape} TransformerArg
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -1036,20 +1095,38 @@ $root.UserPassword = (function() {
 
                 /**
                  * Properties of a Value.
-                 * @memberof UserPassword.UserPassword.TransformerArg
-                 * @interface IValue
+                 * @typedef {Object} UserPassword.UserPassword.TransformerArg.Value.$Properties
                  * @property {Uint8Array|null} [asBlob] Value asBlob
                  * @property {number|null} [asUnsignedInteger] Value asUnsignedInteger
+                 * @property {"asBlob"|"asUnsignedInteger"} [value] Value value
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 */
+
+                /**
+                 * Properties of a Value.
+                 * @memberof UserPassword.UserPassword.TransformerArg
+                 * @interface IValue
+                 * @augments UserPassword.UserPassword.TransformerArg.Value.$Properties
+                 * @deprecated Use UserPassword.UserPassword.TransformerArg.Value.$Properties instead.
+                 */
+
+                /**
+                 * Narrowed shape of a Value.
+                 * @typedef {{
+                 *   asBlob?: Uint8Array|null;
+                 *   asUnsignedInteger?: number|null;
+                 *   $unknowns?: Array.<Uint8Array>;
+                 * } & (
+                 *   ({ value?: undefined; asBlob?: null; asUnsignedInteger?: null }|{ value?: "asBlob"; asBlob: Uint8Array; asUnsignedInteger?: null }|{ value?: "asUnsignedInteger"; asBlob?: null; asUnsignedInteger: number })
+                 * )} UserPassword.UserPassword.TransformerArg.Value.$Shape
                  */
 
                 /**
                  * Constructs a new Value.
                  * @memberof UserPassword.UserPassword.TransformerArg
                  * @classdesc Represents a Value.
-                 * @implements IValue
                  * @constructor
-                 * @param {UserPassword.UserPassword.TransformerArg.IValue=} [properties] Properties to set
+                 * @param {UserPassword.UserPassword.TransformerArg.Value.$Properties=} [properties] Properties to set
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function Value(properties) {
@@ -1094,8 +1171,12 @@ $root.UserPassword = (function() {
                  * @function create
                  * @memberof UserPassword.UserPassword.TransformerArg.Value
                  * @static
-                 * @param {UserPassword.UserPassword.TransformerArg.IValue=} [properties] Properties to set
+                 * @param {UserPassword.UserPassword.TransformerArg.Value.$Properties=} [properties] Properties to set
                  * @returns {UserPassword.UserPassword.TransformerArg.Value} Value instance
+                 * @type {{
+                 *   (properties: UserPassword.UserPassword.TransformerArg.Value.$Shape): UserPassword.UserPassword.TransformerArg.Value & UserPassword.UserPassword.TransformerArg.Value.$Shape;
+                 *   (properties?: UserPassword.UserPassword.TransformerArg.Value.$Properties): UserPassword.UserPassword.TransformerArg.Value;
+                 * }}
                  */
                 Value.create = function create(properties) {
                     return new Value(properties);
@@ -1106,7 +1187,7 @@ $root.UserPassword = (function() {
                  * @function encode
                  * @memberof UserPassword.UserPassword.TransformerArg.Value
                  * @static
-                 * @param {UserPassword.UserPassword.TransformerArg.IValue} message Value message or plain object to encode
+                 * @param {UserPassword.UserPassword.TransformerArg.Value.$Properties} message Value message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -1128,7 +1209,7 @@ $root.UserPassword = (function() {
                  * @function encodeDelimited
                  * @memberof UserPassword.UserPassword.TransformerArg.Value
                  * @static
-                 * @param {UserPassword.UserPassword.TransformerArg.IValue} message Value message or plain object to encode
+                 * @param {UserPassword.UserPassword.TransformerArg.Value.$Properties} message Value message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -1143,7 +1224,7 @@ $root.UserPassword = (function() {
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                  * @param {number} [length] Message length if known beforehand
-                 * @returns {UserPassword.UserPassword.TransformerArg.Value} Value
+                 * @returns {UserPassword.UserPassword.TransformerArg.Value & UserPassword.UserPassword.TransformerArg.Value.$Shape} Value
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -1194,7 +1275,7 @@ $root.UserPassword = (function() {
                  * @memberof UserPassword.UserPassword.TransformerArg.Value
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {UserPassword.UserPassword.TransformerArg.Value} Value
+                 * @returns {UserPassword.UserPassword.TransformerArg.Value & UserPassword.UserPassword.TransformerArg.Value.$Shape} Value
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */

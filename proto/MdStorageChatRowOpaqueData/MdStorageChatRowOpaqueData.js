@@ -22,19 +22,30 @@ $root.MdStorageChatRowOpaqueData = (function() {
 
         /**
          * Properties of a ChatRowOpaqueData.
+         * @typedef {Object} MdStorageChatRowOpaqueData.ChatRowOpaqueData.$Properties
+         * @property {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.$Properties|null} [draftMessage] ChatRowOpaqueData draftMessage
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a ChatRowOpaqueData.
          * @memberof MdStorageChatRowOpaqueData
          * @interface IChatRowOpaqueData
-         * @property {MdStorageChatRowOpaqueData.ChatRowOpaqueData.IDraftMessage|null} [draftMessage] ChatRowOpaqueData draftMessage
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments MdStorageChatRowOpaqueData.ChatRowOpaqueData.$Properties
+         * @deprecated Use MdStorageChatRowOpaqueData.ChatRowOpaqueData.$Properties instead.
+         */
+
+        /**
+         * Shape of a ChatRowOpaqueData.
+         * @typedef {MdStorageChatRowOpaqueData.ChatRowOpaqueData.$Properties} MdStorageChatRowOpaqueData.ChatRowOpaqueData.$Shape
          */
 
         /**
          * Constructs a new ChatRowOpaqueData.
          * @memberof MdStorageChatRowOpaqueData
          * @classdesc Represents a ChatRowOpaqueData.
-         * @implements IChatRowOpaqueData
          * @constructor
-         * @param {MdStorageChatRowOpaqueData.IChatRowOpaqueData=} [properties] Properties to set
+         * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function ChatRowOpaqueData(properties) {
@@ -46,7 +57,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
 
         /**
          * ChatRowOpaqueData draftMessage.
-         * @member {MdStorageChatRowOpaqueData.ChatRowOpaqueData.IDraftMessage|null|undefined} draftMessage
+         * @member {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.$Properties|null|undefined} draftMessage
          * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData
          * @instance
          */
@@ -66,8 +77,12 @@ $root.MdStorageChatRowOpaqueData = (function() {
          * @function create
          * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData
          * @static
-         * @param {MdStorageChatRowOpaqueData.IChatRowOpaqueData=} [properties] Properties to set
+         * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.$Properties=} [properties] Properties to set
          * @returns {MdStorageChatRowOpaqueData.ChatRowOpaqueData} ChatRowOpaqueData instance
+         * @type {{
+         *   (properties: MdStorageChatRowOpaqueData.ChatRowOpaqueData.$Shape): MdStorageChatRowOpaqueData.ChatRowOpaqueData & MdStorageChatRowOpaqueData.ChatRowOpaqueData.$Shape;
+         *   (properties?: MdStorageChatRowOpaqueData.ChatRowOpaqueData.$Properties): MdStorageChatRowOpaqueData.ChatRowOpaqueData;
+         * }}
          */
         ChatRowOpaqueData.create = function create(properties) {
             return new ChatRowOpaqueData(properties);
@@ -78,7 +93,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
          * @function encode
          * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData
          * @static
-         * @param {MdStorageChatRowOpaqueData.IChatRowOpaqueData} message ChatRowOpaqueData message or plain object to encode
+         * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.$Properties} message ChatRowOpaqueData message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -98,7 +113,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
          * @function encodeDelimited
          * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData
          * @static
-         * @param {MdStorageChatRowOpaqueData.IChatRowOpaqueData} message ChatRowOpaqueData message or plain object to encode
+         * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.$Properties} message ChatRowOpaqueData message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -113,7 +128,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {MdStorageChatRowOpaqueData.ChatRowOpaqueData} ChatRowOpaqueData
+         * @returns {MdStorageChatRowOpaqueData.ChatRowOpaqueData & MdStorageChatRowOpaqueData.ChatRowOpaqueData.$Shape} ChatRowOpaqueData
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -157,7 +172,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
          * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {MdStorageChatRowOpaqueData.ChatRowOpaqueData} ChatRowOpaqueData
+         * @returns {MdStorageChatRowOpaqueData.ChatRowOpaqueData & MdStorageChatRowOpaqueData.ChatRowOpaqueData.$Shape} ChatRowOpaqueData
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -268,23 +283,34 @@ $root.MdStorageChatRowOpaqueData = (function() {
 
             /**
              * Properties of a DraftMessage.
-             * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData
-             * @interface IDraftMessage
+             * @typedef {Object} MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.$Properties
              * @property {string|null} [text] DraftMessage text
              * @property {string|null} [omittedUrl] DraftMessage omittedUrl
-             * @property {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.ICtwaContextLinkData|null} [ctwaContextLinkData] DraftMessage ctwaContextLinkData
-             * @property {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.ICtwaContextData|null} [ctwaContext] DraftMessage ctwaContext
+             * @property {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.$Properties|null} [ctwaContextLinkData] DraftMessage ctwaContextLinkData
+             * @property {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.$Properties|null} [ctwaContext] DraftMessage ctwaContext
              * @property {number|Long|null} [timestamp] DraftMessage timestamp
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a DraftMessage.
+             * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData
+             * @interface IDraftMessage
+             * @augments MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.$Properties
+             * @deprecated Use MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.$Properties instead.
+             */
+
+            /**
+             * Shape of a DraftMessage.
+             * @typedef {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.$Properties} MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.$Shape
              */
 
             /**
              * Constructs a new DraftMessage.
              * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData
              * @classdesc Represents a DraftMessage.
-             * @implements IDraftMessage
              * @constructor
-             * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.IDraftMessage=} [properties] Properties to set
+             * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function DraftMessage(properties) {
@@ -312,7 +338,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
 
             /**
              * DraftMessage ctwaContextLinkData.
-             * @member {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.ICtwaContextLinkData|null|undefined} ctwaContextLinkData
+             * @member {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.$Properties|null|undefined} ctwaContextLinkData
              * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage
              * @instance
              */
@@ -320,7 +346,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
 
             /**
              * DraftMessage ctwaContext.
-             * @member {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.ICtwaContextData|null|undefined} ctwaContext
+             * @member {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.$Properties|null|undefined} ctwaContext
              * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage
              * @instance
              */
@@ -372,8 +398,12 @@ $root.MdStorageChatRowOpaqueData = (function() {
              * @function create
              * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage
              * @static
-             * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.IDraftMessage=} [properties] Properties to set
+             * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.$Properties=} [properties] Properties to set
              * @returns {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage} DraftMessage instance
+             * @type {{
+             *   (properties: MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.$Shape): MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage & MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.$Shape;
+             *   (properties?: MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.$Properties): MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage;
+             * }}
              */
             DraftMessage.create = function create(properties) {
                 return new DraftMessage(properties);
@@ -384,7 +414,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
              * @function encode
              * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage
              * @static
-             * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.IDraftMessage} message DraftMessage message or plain object to encode
+             * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.$Properties} message DraftMessage message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -412,7 +442,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
              * @function encodeDelimited
              * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage
              * @static
-             * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.IDraftMessage} message DraftMessage message or plain object to encode
+             * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.$Properties} message DraftMessage message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -427,7 +457,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage} DraftMessage
+             * @returns {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage & MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.$Shape} DraftMessage
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -499,7 +529,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
              * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage} DraftMessage
+             * @returns {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage & MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.$Shape} DraftMessage
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -674,8 +704,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
 
                 /**
                  * Properties of a CtwaContextData.
-                 * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage
-                 * @interface ICtwaContextData
+                 * @typedef {Object} MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.$Properties
                  * @property {string|null} [conversionSource] CtwaContextData conversionSource
                  * @property {Uint8Array|null} [conversionData] CtwaContextData conversionData
                  * @property {string|null} [sourceUrl] CtwaContextData sourceUrl
@@ -692,12 +721,24 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  */
 
                 /**
+                 * Properties of a CtwaContextData.
+                 * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage
+                 * @interface ICtwaContextData
+                 * @augments MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.$Properties
+                 * @deprecated Use MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.$Properties instead.
+                 */
+
+                /**
+                 * Shape of a CtwaContextData.
+                 * @typedef {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.$Properties} MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.$Shape
+                 */
+
+                /**
                  * Constructs a new CtwaContextData.
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage
                  * @classdesc Represents a CtwaContextData.
-                 * @implements ICtwaContextData
                  * @constructor
-                 * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.ICtwaContextData=} [properties] Properties to set
+                 * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.$Properties=} [properties] Properties to set
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function CtwaContextData(properties) {
@@ -883,8 +924,12 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @function create
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
                  * @static
-                 * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.ICtwaContextData=} [properties] Properties to set
+                 * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.$Properties=} [properties] Properties to set
                  * @returns {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData} CtwaContextData instance
+                 * @type {{
+                 *   (properties: MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.$Shape): MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData & MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.$Shape;
+                 *   (properties?: MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.$Properties): MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData;
+                 * }}
                  */
                 CtwaContextData.create = function create(properties) {
                     return new CtwaContextData(properties);
@@ -895,7 +940,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @function encode
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
                  * @static
-                 * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.ICtwaContextData} message CtwaContextData message or plain object to encode
+                 * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.$Properties} message CtwaContextData message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -937,7 +982,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @function encodeDelimited
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
                  * @static
-                 * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.ICtwaContextData} message CtwaContextData message or plain object to encode
+                 * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.$Properties} message CtwaContextData message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -952,7 +997,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                  * @param {number} [length] Message length if known beforehand
-                 * @returns {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData} CtwaContextData
+                 * @returns {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData & MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.$Shape} CtwaContextData
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -1073,7 +1118,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData} CtwaContextData
+                 * @returns {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData & MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.$Shape} CtwaContextData
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -1356,8 +1401,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
 
                 /**
                  * Properties of a CtwaContextLinkData.
-                 * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage
-                 * @interface ICtwaContextLinkData
+                 * @typedef {Object} MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.$Properties
                  * @property {string|null} [context] CtwaContextLinkData context
                  * @property {string|null} [sourceUrl] CtwaContextLinkData sourceUrl
                  * @property {string|null} [icebreaker] CtwaContextLinkData icebreaker
@@ -1366,12 +1410,24 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  */
 
                 /**
+                 * Properties of a CtwaContextLinkData.
+                 * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage
+                 * @interface ICtwaContextLinkData
+                 * @augments MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.$Properties
+                 * @deprecated Use MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.$Properties instead.
+                 */
+
+                /**
+                 * Shape of a CtwaContextLinkData.
+                 * @typedef {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.$Properties} MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.$Shape
+                 */
+
+                /**
                  * Constructs a new CtwaContextLinkData.
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage
                  * @classdesc Represents a CtwaContextLinkData.
-                 * @implements ICtwaContextLinkData
                  * @constructor
-                 * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.ICtwaContextLinkData=} [properties] Properties to set
+                 * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.$Properties=} [properties] Properties to set
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function CtwaContextLinkData(properties) {
@@ -1445,8 +1501,12 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @function create
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData
                  * @static
-                 * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.ICtwaContextLinkData=} [properties] Properties to set
+                 * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.$Properties=} [properties] Properties to set
                  * @returns {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData} CtwaContextLinkData instance
+                 * @type {{
+                 *   (properties: MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.$Shape): MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData & MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.$Shape;
+                 *   (properties?: MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.$Properties): MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData;
+                 * }}
                  */
                 CtwaContextLinkData.create = function create(properties) {
                     return new CtwaContextLinkData(properties);
@@ -1457,7 +1517,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @function encode
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData
                  * @static
-                 * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.ICtwaContextLinkData} message CtwaContextLinkData message or plain object to encode
+                 * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.$Properties} message CtwaContextLinkData message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -1483,7 +1543,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @function encodeDelimited
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData
                  * @static
-                 * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.ICtwaContextLinkData} message CtwaContextLinkData message or plain object to encode
+                 * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.$Properties} message CtwaContextLinkData message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -1498,7 +1558,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                  * @param {number} [length] Message length if known beforehand
-                 * @returns {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData} CtwaContextLinkData
+                 * @returns {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData & MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.$Shape} CtwaContextLinkData
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -1563,7 +1623,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @memberof MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData} CtwaContextLinkData
+                 * @returns {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData & MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.$Shape} CtwaContextLinkData
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */

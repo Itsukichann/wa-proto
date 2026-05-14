@@ -22,8 +22,7 @@ $root.Protocol = (function() {
 
         /**
          * Properties of a LimitSharing.
-         * @memberof Protocol
-         * @interface ILimitSharing
+         * @typedef {Object} Protocol.LimitSharing.$Properties
          * @property {boolean|null} [sharingLimited] LimitSharing sharingLimited
          * @property {Protocol.LimitSharing.TriggerType|null} [trigger] LimitSharing trigger
          * @property {number|Long|null} [limitSharingSettingTimestamp] LimitSharing limitSharingSettingTimestamp
@@ -32,12 +31,24 @@ $root.Protocol = (function() {
          */
 
         /**
+         * Properties of a LimitSharing.
+         * @memberof Protocol
+         * @interface ILimitSharing
+         * @augments Protocol.LimitSharing.$Properties
+         * @deprecated Use Protocol.LimitSharing.$Properties instead.
+         */
+
+        /**
+         * Shape of a LimitSharing.
+         * @typedef {Protocol.LimitSharing.$Properties} Protocol.LimitSharing.$Shape
+         */
+
+        /**
          * Constructs a new LimitSharing.
          * @memberof Protocol
          * @classdesc Represents a LimitSharing.
-         * @implements ILimitSharing
          * @constructor
-         * @param {Protocol.ILimitSharing=} [properties] Properties to set
+         * @param {Protocol.LimitSharing.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function LimitSharing(properties) {
@@ -111,8 +122,12 @@ $root.Protocol = (function() {
          * @function create
          * @memberof Protocol.LimitSharing
          * @static
-         * @param {Protocol.ILimitSharing=} [properties] Properties to set
+         * @param {Protocol.LimitSharing.$Properties=} [properties] Properties to set
          * @returns {Protocol.LimitSharing} LimitSharing instance
+         * @type {{
+         *   (properties: Protocol.LimitSharing.$Shape): Protocol.LimitSharing & Protocol.LimitSharing.$Shape;
+         *   (properties?: Protocol.LimitSharing.$Properties): Protocol.LimitSharing;
+         * }}
          */
         LimitSharing.create = function create(properties) {
             return new LimitSharing(properties);
@@ -123,7 +138,7 @@ $root.Protocol = (function() {
          * @function encode
          * @memberof Protocol.LimitSharing
          * @static
-         * @param {Protocol.ILimitSharing} message LimitSharing message or plain object to encode
+         * @param {Protocol.LimitSharing.$Properties} message LimitSharing message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -149,7 +164,7 @@ $root.Protocol = (function() {
          * @function encodeDelimited
          * @memberof Protocol.LimitSharing
          * @static
-         * @param {Protocol.ILimitSharing} message LimitSharing message or plain object to encode
+         * @param {Protocol.LimitSharing.$Properties} message LimitSharing message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -164,7 +179,7 @@ $root.Protocol = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {Protocol.LimitSharing} LimitSharing
+         * @returns {Protocol.LimitSharing & Protocol.LimitSharing.$Shape} LimitSharing
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -229,7 +244,7 @@ $root.Protocol = (function() {
          * @memberof Protocol.LimitSharing
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {Protocol.LimitSharing} LimitSharing
+         * @returns {Protocol.LimitSharing & Protocol.LimitSharing.$Shape} LimitSharing
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -430,8 +445,7 @@ $root.Protocol = (function() {
 
         /**
          * Properties of a MessageKey.
-         * @memberof Protocol
-         * @interface IMessageKey
+         * @typedef {Object} Protocol.MessageKey.$Properties
          * @property {string|null} [remoteJid] MessageKey remoteJid
          * @property {boolean|null} [fromMe] MessageKey fromMe
          * @property {string|null} [id] MessageKey id
@@ -440,12 +454,24 @@ $root.Protocol = (function() {
          */
 
         /**
+         * Properties of a MessageKey.
+         * @memberof Protocol
+         * @interface IMessageKey
+         * @augments Protocol.MessageKey.$Properties
+         * @deprecated Use Protocol.MessageKey.$Properties instead.
+         */
+
+        /**
+         * Shape of a MessageKey.
+         * @typedef {Protocol.MessageKey.$Properties} Protocol.MessageKey.$Shape
+         */
+
+        /**
          * Constructs a new MessageKey.
          * @memberof Protocol
          * @classdesc Represents a MessageKey.
-         * @implements IMessageKey
          * @constructor
-         * @param {Protocol.IMessageKey=} [properties] Properties to set
+         * @param {Protocol.MessageKey.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function MessageKey(properties) {
@@ -519,8 +545,12 @@ $root.Protocol = (function() {
          * @function create
          * @memberof Protocol.MessageKey
          * @static
-         * @param {Protocol.IMessageKey=} [properties] Properties to set
+         * @param {Protocol.MessageKey.$Properties=} [properties] Properties to set
          * @returns {Protocol.MessageKey} MessageKey instance
+         * @type {{
+         *   (properties: Protocol.MessageKey.$Shape): Protocol.MessageKey & Protocol.MessageKey.$Shape;
+         *   (properties?: Protocol.MessageKey.$Properties): Protocol.MessageKey;
+         * }}
          */
         MessageKey.create = function create(properties) {
             return new MessageKey(properties);
@@ -531,7 +561,7 @@ $root.Protocol = (function() {
          * @function encode
          * @memberof Protocol.MessageKey
          * @static
-         * @param {Protocol.IMessageKey} message MessageKey message or plain object to encode
+         * @param {Protocol.MessageKey.$Properties} message MessageKey message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -557,7 +587,7 @@ $root.Protocol = (function() {
          * @function encodeDelimited
          * @memberof Protocol.MessageKey
          * @static
-         * @param {Protocol.IMessageKey} message MessageKey message or plain object to encode
+         * @param {Protocol.MessageKey.$Properties} message MessageKey message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -572,7 +602,7 @@ $root.Protocol = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {Protocol.MessageKey} MessageKey
+         * @returns {Protocol.MessageKey & Protocol.MessageKey.$Shape} MessageKey
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -637,7 +667,7 @@ $root.Protocol = (function() {
          * @memberof Protocol.MessageKey
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {Protocol.MessageKey} MessageKey
+         * @returns {Protocol.MessageKey & Protocol.MessageKey.$Shape} MessageKey
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */

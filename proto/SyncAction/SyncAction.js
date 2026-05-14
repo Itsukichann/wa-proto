@@ -22,8 +22,7 @@ $root.SyncAction = (function() {
 
         /**
          * Properties of a PatchDebugData.
-         * @memberof SyncAction
-         * @interface IPatchDebugData
+         * @typedef {Object} SyncAction.PatchDebugData.$Properties
          * @property {Uint8Array|null} [currentLthash] PatchDebugData currentLthash
          * @property {Uint8Array|null} [newLthash] PatchDebugData newLthash
          * @property {Uint8Array|null} [patchVersion] PatchDebugData patchVersion
@@ -39,12 +38,24 @@ $root.SyncAction = (function() {
          */
 
         /**
+         * Properties of a PatchDebugData.
+         * @memberof SyncAction
+         * @interface IPatchDebugData
+         * @augments SyncAction.PatchDebugData.$Properties
+         * @deprecated Use SyncAction.PatchDebugData.$Properties instead.
+         */
+
+        /**
+         * Shape of a PatchDebugData.
+         * @typedef {SyncAction.PatchDebugData.$Properties} SyncAction.PatchDebugData.$Shape
+         */
+
+        /**
          * Constructs a new PatchDebugData.
          * @memberof SyncAction
          * @classdesc Represents a PatchDebugData.
-         * @implements IPatchDebugData
          * @constructor
-         * @param {SyncAction.IPatchDebugData=} [properties] Properties to set
+         * @param {SyncAction.PatchDebugData.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function PatchDebugData(properties) {
@@ -216,8 +227,12 @@ $root.SyncAction = (function() {
          * @function create
          * @memberof SyncAction.PatchDebugData
          * @static
-         * @param {SyncAction.IPatchDebugData=} [properties] Properties to set
+         * @param {SyncAction.PatchDebugData.$Properties=} [properties] Properties to set
          * @returns {SyncAction.PatchDebugData} PatchDebugData instance
+         * @type {{
+         *   (properties: SyncAction.PatchDebugData.$Shape): SyncAction.PatchDebugData & SyncAction.PatchDebugData.$Shape;
+         *   (properties?: SyncAction.PatchDebugData.$Properties): SyncAction.PatchDebugData;
+         * }}
          */
         PatchDebugData.create = function create(properties) {
             return new PatchDebugData(properties);
@@ -228,7 +243,7 @@ $root.SyncAction = (function() {
          * @function encode
          * @memberof SyncAction.PatchDebugData
          * @static
-         * @param {SyncAction.IPatchDebugData} message PatchDebugData message or plain object to encode
+         * @param {SyncAction.PatchDebugData.$Properties} message PatchDebugData message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -268,7 +283,7 @@ $root.SyncAction = (function() {
          * @function encodeDelimited
          * @memberof SyncAction.PatchDebugData
          * @static
-         * @param {SyncAction.IPatchDebugData} message PatchDebugData message or plain object to encode
+         * @param {SyncAction.PatchDebugData.$Properties} message PatchDebugData message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -283,7 +298,7 @@ $root.SyncAction = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {SyncAction.PatchDebugData} PatchDebugData
+         * @returns {SyncAction.PatchDebugData & SyncAction.PatchDebugData.$Shape} PatchDebugData
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -397,7 +412,7 @@ $root.SyncAction = (function() {
          * @memberof SyncAction.PatchDebugData
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {SyncAction.PatchDebugData} PatchDebugData
+         * @returns {SyncAction.PatchDebugData & SyncAction.PatchDebugData.$Shape} PatchDebugData
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -746,22 +761,39 @@ $root.SyncAction = (function() {
 
         /**
          * Properties of a SyncActionData.
-         * @memberof SyncAction
-         * @interface ISyncActionData
+         * @typedef {Object} SyncAction.SyncActionData.$Properties
          * @property {Uint8Array|null} [index] SyncActionData index
-         * @property {SyncAction.ISyncActionValue|null} [value] SyncActionData value
+         * @property {SyncAction.SyncActionValue.$Properties|null} [value] SyncActionData value
          * @property {Uint8Array|null} [padding] SyncActionData padding
          * @property {number|null} [version] SyncActionData version
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
+         * Properties of a SyncActionData.
+         * @memberof SyncAction
+         * @interface ISyncActionData
+         * @augments SyncAction.SyncActionData.$Properties
+         * @deprecated Use SyncAction.SyncActionData.$Properties instead.
+         */
+
+        /**
+         * Shape of a SyncActionData.
+         * @typedef {{
+         *   index?: Uint8Array|null;
+         *   value?: SyncAction.SyncActionValue.$Shape|null;
+         *   padding?: Uint8Array|null;
+         *   version?: number|null;
+         *   $unknowns?: Array.<Uint8Array>;
+         * }} SyncAction.SyncActionData.$Shape
+         */
+
+        /**
          * Constructs a new SyncActionData.
          * @memberof SyncAction
          * @classdesc Represents a SyncActionData.
-         * @implements ISyncActionData
          * @constructor
-         * @param {SyncAction.ISyncActionData=} [properties] Properties to set
+         * @param {SyncAction.SyncActionData.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SyncActionData(properties) {
@@ -781,7 +813,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionData value.
-         * @member {SyncAction.ISyncActionValue|null|undefined} value
+         * @member {SyncAction.SyncActionValue.$Properties|null|undefined} value
          * @memberof SyncAction.SyncActionData
          * @instance
          */
@@ -835,8 +867,12 @@ $root.SyncAction = (function() {
          * @function create
          * @memberof SyncAction.SyncActionData
          * @static
-         * @param {SyncAction.ISyncActionData=} [properties] Properties to set
+         * @param {SyncAction.SyncActionData.$Properties=} [properties] Properties to set
          * @returns {SyncAction.SyncActionData} SyncActionData instance
+         * @type {{
+         *   (properties: SyncAction.SyncActionData.$Shape): SyncAction.SyncActionData & SyncAction.SyncActionData.$Shape;
+         *   (properties?: SyncAction.SyncActionData.$Properties): SyncAction.SyncActionData;
+         * }}
          */
         SyncActionData.create = function create(properties) {
             return new SyncActionData(properties);
@@ -847,7 +883,7 @@ $root.SyncAction = (function() {
          * @function encode
          * @memberof SyncAction.SyncActionData
          * @static
-         * @param {SyncAction.ISyncActionData} message SyncActionData message or plain object to encode
+         * @param {SyncAction.SyncActionData.$Properties} message SyncActionData message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -873,7 +909,7 @@ $root.SyncAction = (function() {
          * @function encodeDelimited
          * @memberof SyncAction.SyncActionData
          * @static
-         * @param {SyncAction.ISyncActionData} message SyncActionData message or plain object to encode
+         * @param {SyncAction.SyncActionData.$Properties} message SyncActionData message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -888,7 +924,7 @@ $root.SyncAction = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {SyncAction.SyncActionData} SyncActionData
+         * @returns {SyncAction.SyncActionData & SyncAction.SyncActionData.$Shape} SyncActionData
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -953,7 +989,7 @@ $root.SyncAction = (function() {
          * @memberof SyncAction.SyncActionData
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {SyncAction.SyncActionData} SyncActionData
+         * @returns {SyncAction.SyncActionData & SyncAction.SyncActionData.$Shape} SyncActionData
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1109,96 +1145,187 @@ $root.SyncAction = (function() {
 
         /**
          * Properties of a SyncActionValue.
+         * @typedef {Object} SyncAction.SyncActionValue.$Properties
+         * @property {number|Long|null} [timestamp] SyncActionValue timestamp
+         * @property {SyncAction.SyncActionValue.StarAction.$Properties|null} [starAction] SyncActionValue starAction
+         * @property {SyncAction.SyncActionValue.ContactAction.$Properties|null} [contactAction] SyncActionValue contactAction
+         * @property {SyncAction.SyncActionValue.MuteAction.$Properties|null} [muteAction] SyncActionValue muteAction
+         * @property {SyncAction.SyncActionValue.PinAction.$Properties|null} [pinAction] SyncActionValue pinAction
+         * @property {SyncAction.SyncActionValue.PushNameSetting.$Properties|null} [pushNameSetting] SyncActionValue pushNameSetting
+         * @property {SyncAction.SyncActionValue.QuickReplyAction.$Properties|null} [quickReplyAction] SyncActionValue quickReplyAction
+         * @property {SyncAction.SyncActionValue.RecentEmojiWeightsAction.$Properties|null} [recentEmojiWeightsAction] SyncActionValue recentEmojiWeightsAction
+         * @property {SyncAction.SyncActionValue.LabelEditAction.$Properties|null} [labelEditAction] SyncActionValue labelEditAction
+         * @property {SyncAction.SyncActionValue.LabelAssociationAction.$Properties|null} [labelAssociationAction] SyncActionValue labelAssociationAction
+         * @property {SyncAction.SyncActionValue.LocaleSetting.$Properties|null} [localeSetting] SyncActionValue localeSetting
+         * @property {SyncAction.SyncActionValue.ArchiveChatAction.$Properties|null} [archiveChatAction] SyncActionValue archiveChatAction
+         * @property {SyncAction.SyncActionValue.DeleteMessageForMeAction.$Properties|null} [deleteMessageForMeAction] SyncActionValue deleteMessageForMeAction
+         * @property {SyncAction.SyncActionValue.KeyExpiration.$Properties|null} [keyExpiration] SyncActionValue keyExpiration
+         * @property {SyncAction.SyncActionValue.MarkChatAsReadAction.$Properties|null} [markChatAsReadAction] SyncActionValue markChatAsReadAction
+         * @property {SyncAction.SyncActionValue.ClearChatAction.$Properties|null} [clearChatAction] SyncActionValue clearChatAction
+         * @property {SyncAction.SyncActionValue.DeleteChatAction.$Properties|null} [deleteChatAction] SyncActionValue deleteChatAction
+         * @property {SyncAction.SyncActionValue.UnarchiveChatsSetting.$Properties|null} [unarchiveChatsSetting] SyncActionValue unarchiveChatsSetting
+         * @property {SyncAction.SyncActionValue.PrimaryFeature.$Properties|null} [primaryFeature] SyncActionValue primaryFeature
+         * @property {SyncAction.SyncActionValue.AndroidUnsupportedActions.$Properties|null} [androidUnsupportedActions] SyncActionValue androidUnsupportedActions
+         * @property {SyncAction.SyncActionValue.AgentAction.$Properties|null} [agentAction] SyncActionValue agentAction
+         * @property {SyncAction.SyncActionValue.SubscriptionAction.$Properties|null} [subscriptionAction] SyncActionValue subscriptionAction
+         * @property {SyncAction.SyncActionValue.UserStatusMuteAction.$Properties|null} [userStatusMuteAction] SyncActionValue userStatusMuteAction
+         * @property {SyncAction.SyncActionValue.TimeFormatAction.$Properties|null} [timeFormatAction] SyncActionValue timeFormatAction
+         * @property {SyncAction.SyncActionValue.NuxAction.$Properties|null} [nuxAction] SyncActionValue nuxAction
+         * @property {SyncAction.SyncActionValue.PrimaryVersionAction.$Properties|null} [primaryVersionAction] SyncActionValue primaryVersionAction
+         * @property {SyncAction.SyncActionValue.StickerAction.$Properties|null} [stickerAction] SyncActionValue stickerAction
+         * @property {SyncAction.SyncActionValue.RemoveRecentStickerAction.$Properties|null} [removeRecentStickerAction] SyncActionValue removeRecentStickerAction
+         * @property {SyncAction.SyncActionValue.ChatAssignmentAction.$Properties|null} [chatAssignment] SyncActionValue chatAssignment
+         * @property {SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction.$Properties|null} [chatAssignmentOpenedStatus] SyncActionValue chatAssignmentOpenedStatus
+         * @property {SyncAction.SyncActionValue.PnForLidChatAction.$Properties|null} [pnForLidChatAction] SyncActionValue pnForLidChatAction
+         * @property {SyncAction.SyncActionValue.MarketingMessageAction.$Properties|null} [marketingMessageAction] SyncActionValue marketingMessageAction
+         * @property {SyncAction.SyncActionValue.MarketingMessageBroadcastAction.$Properties|null} [marketingMessageBroadcastAction] SyncActionValue marketingMessageBroadcastAction
+         * @property {SyncAction.SyncActionValue.ExternalWebBetaAction.$Properties|null} [externalWebBetaAction] SyncActionValue externalWebBetaAction
+         * @property {SyncAction.SyncActionValue.PrivacySettingRelayAllCalls.$Properties|null} [privacySettingRelayAllCalls] SyncActionValue privacySettingRelayAllCalls
+         * @property {SyncAction.SyncActionValue.CallLogAction.$Properties|null} [callLogAction] SyncActionValue callLogAction
+         * @property {SyncAction.SyncActionValue.UGCBot.$Properties|null} [ugcBot] SyncActionValue ugcBot
+         * @property {SyncAction.SyncActionValue.StatusPrivacyAction.$Properties|null} [statusPrivacy] SyncActionValue statusPrivacy
+         * @property {SyncAction.SyncActionValue.BotWelcomeRequestAction.$Properties|null} [botWelcomeRequestAction] SyncActionValue botWelcomeRequestAction
+         * @property {SyncAction.SyncActionValue.DeleteIndividualCallLogAction.$Properties|null} [deleteIndividualCallLog] SyncActionValue deleteIndividualCallLog
+         * @property {SyncAction.SyncActionValue.LabelReorderingAction.$Properties|null} [labelReorderingAction] SyncActionValue labelReorderingAction
+         * @property {SyncAction.SyncActionValue.PaymentInfoAction.$Properties|null} [paymentInfoAction] SyncActionValue paymentInfoAction
+         * @property {SyncAction.SyncActionValue.CustomPaymentMethodsAction.$Properties|null} [customPaymentMethodsAction] SyncActionValue customPaymentMethodsAction
+         * @property {SyncAction.SyncActionValue.LockChatAction.$Properties|null} [lockChatAction] SyncActionValue lockChatAction
+         * @property {ChatLockSettings.ChatLockSettings.$Properties|null} [chatLockSettings] SyncActionValue chatLockSettings
+         * @property {SyncAction.SyncActionValue.WamoUserIdentifierAction.$Properties|null} [wamoUserIdentifierAction] SyncActionValue wamoUserIdentifierAction
+         * @property {SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction.$Properties|null} [privacySettingDisableLinkPreviewsAction] SyncActionValue privacySettingDisableLinkPreviewsAction
+         * @property {DeviceCapabilities.DeviceCapabilities.$Properties|null} [deviceCapabilities] SyncActionValue deviceCapabilities
+         * @property {SyncAction.SyncActionValue.NoteEditAction.$Properties|null} [noteEditAction] SyncActionValue noteEditAction
+         * @property {SyncAction.SyncActionValue.FavoritesAction.$Properties|null} [favoritesAction] SyncActionValue favoritesAction
+         * @property {SyncAction.SyncActionValue.MerchantPaymentPartnerAction.$Properties|null} [merchantPaymentPartnerAction] SyncActionValue merchantPaymentPartnerAction
+         * @property {SyncAction.SyncActionValue.WaffleAccountLinkStateAction.$Properties|null} [waffleAccountLinkStateAction] SyncActionValue waffleAccountLinkStateAction
+         * @property {SyncAction.SyncActionValue.UsernameChatStartModeAction.$Properties|null} [usernameChatStartMode] SyncActionValue usernameChatStartMode
+         * @property {SyncAction.SyncActionValue.NotificationActivitySettingAction.$Properties|null} [notificationActivitySettingAction] SyncActionValue notificationActivitySettingAction
+         * @property {SyncAction.SyncActionValue.LidContactAction.$Properties|null} [lidContactAction] SyncActionValue lidContactAction
+         * @property {SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction.$Properties|null} [ctwaPerCustomerDataSharingAction] SyncActionValue ctwaPerCustomerDataSharingAction
+         * @property {SyncAction.SyncActionValue.PaymentTosAction.$Properties|null} [paymentTosAction] SyncActionValue paymentTosAction
+         * @property {SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction.$Properties|null} [privacySettingChannelsPersonalisedRecommendationAction] SyncActionValue privacySettingChannelsPersonalisedRecommendationAction
+         * @property {SyncAction.SyncActionValue.DetectedOutcomesStatusAction.$Properties|null} [detectedOutcomesStatusAction] SyncActionValue detectedOutcomesStatusAction
+         * @property {SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.$Properties|null} [maibaAiFeaturesControlAction] SyncActionValue maibaAiFeaturesControlAction
+         * @property {SyncAction.SyncActionValue.BusinessBroadcastListAction.$Properties|null} [businessBroadcastListAction] SyncActionValue businessBroadcastListAction
+         * @property {SyncAction.SyncActionValue.MusicUserIdAction.$Properties|null} [musicUserIdAction] SyncActionValue musicUserIdAction
+         * @property {SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction.$Properties|null} [statusPostOptInNotificationPreferencesAction] SyncActionValue statusPostOptInNotificationPreferencesAction
+         * @property {SyncAction.SyncActionValue.AvatarUpdatedAction.$Properties|null} [avatarUpdatedAction] SyncActionValue avatarUpdatedAction
+         * @property {SyncAction.SyncActionValue.PrivateProcessingSettingAction.$Properties|null} [privateProcessingSettingAction] SyncActionValue privateProcessingSettingAction
+         * @property {SyncAction.SyncActionValue.NewsletterSavedInterestsAction.$Properties|null} [newsletterSavedInterestsAction] SyncActionValue newsletterSavedInterestsAction
+         * @property {SyncAction.SyncActionValue.AiThreadRenameAction.$Properties|null} [aiThreadRenameAction] SyncActionValue aiThreadRenameAction
+         * @property {SyncAction.SyncActionValue.InteractiveMessageAction.$Properties|null} [interactiveMessageAction] SyncActionValue interactiveMessageAction
+         * @property {SyncAction.SyncActionValue.SettingsSyncAction.$Properties|null} [settingsSyncAction] SyncActionValue settingsSyncAction
+         * @property {SyncAction.SyncActionValue.OutContactAction.$Properties|null} [outContactAction] SyncActionValue outContactAction
+         * @property {SyncAction.SyncActionValue.NctSaltSyncAction.$Properties|null} [nctSaltSyncAction] SyncActionValue nctSaltSyncAction
+         * @property {SyncAction.SyncActionValue.BusinessBroadcastCampaignAction.$Properties|null} [businessBroadcastCampaignAction] SyncActionValue businessBroadcastCampaignAction
+         * @property {SyncAction.SyncActionValue.BusinessBroadcastInsightsAction.$Properties|null} [businessBroadcastInsightsAction] SyncActionValue businessBroadcastInsightsAction
+         * @property {SyncAction.SyncActionValue.CustomerDataAction.$Properties|null} [customerDataAction] SyncActionValue customerDataAction
+         * @property {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.$Properties|null} [subscriptionsSyncV2Action] SyncActionValue subscriptionsSyncV2Action
+         * @property {SyncAction.SyncActionValue.ThreadPinAction.$Properties|null} [threadPinAction] SyncActionValue threadPinAction
+         * @property {SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting.$Properties|null} [autoOrganizeBusinessChatSetting] SyncActionValue autoOrganizeBusinessChatSetting
+         * @property {SyncAction.SyncActionValue.BizAISettingsNudgeAction.$Properties|null} [bizAiSettingsNudgeAction] SyncActionValue bizAiSettingsNudgeAction
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a SyncActionValue.
          * @memberof SyncAction
          * @interface ISyncActionValue
-         * @property {number|Long|null} [timestamp] SyncActionValue timestamp
-         * @property {SyncAction.SyncActionValue.IStarAction|null} [starAction] SyncActionValue starAction
-         * @property {SyncAction.SyncActionValue.IContactAction|null} [contactAction] SyncActionValue contactAction
-         * @property {SyncAction.SyncActionValue.IMuteAction|null} [muteAction] SyncActionValue muteAction
-         * @property {SyncAction.SyncActionValue.IPinAction|null} [pinAction] SyncActionValue pinAction
-         * @property {SyncAction.SyncActionValue.IPushNameSetting|null} [pushNameSetting] SyncActionValue pushNameSetting
-         * @property {SyncAction.SyncActionValue.IQuickReplyAction|null} [quickReplyAction] SyncActionValue quickReplyAction
-         * @property {SyncAction.SyncActionValue.IRecentEmojiWeightsAction|null} [recentEmojiWeightsAction] SyncActionValue recentEmojiWeightsAction
-         * @property {SyncAction.SyncActionValue.ILabelEditAction|null} [labelEditAction] SyncActionValue labelEditAction
-         * @property {SyncAction.SyncActionValue.ILabelAssociationAction|null} [labelAssociationAction] SyncActionValue labelAssociationAction
-         * @property {SyncAction.SyncActionValue.ILocaleSetting|null} [localeSetting] SyncActionValue localeSetting
-         * @property {SyncAction.SyncActionValue.IArchiveChatAction|null} [archiveChatAction] SyncActionValue archiveChatAction
-         * @property {SyncAction.SyncActionValue.IDeleteMessageForMeAction|null} [deleteMessageForMeAction] SyncActionValue deleteMessageForMeAction
-         * @property {SyncAction.SyncActionValue.IKeyExpiration|null} [keyExpiration] SyncActionValue keyExpiration
-         * @property {SyncAction.SyncActionValue.IMarkChatAsReadAction|null} [markChatAsReadAction] SyncActionValue markChatAsReadAction
-         * @property {SyncAction.SyncActionValue.IClearChatAction|null} [clearChatAction] SyncActionValue clearChatAction
-         * @property {SyncAction.SyncActionValue.IDeleteChatAction|null} [deleteChatAction] SyncActionValue deleteChatAction
-         * @property {SyncAction.SyncActionValue.IUnarchiveChatsSetting|null} [unarchiveChatsSetting] SyncActionValue unarchiveChatsSetting
-         * @property {SyncAction.SyncActionValue.IPrimaryFeature|null} [primaryFeature] SyncActionValue primaryFeature
-         * @property {SyncAction.SyncActionValue.IAndroidUnsupportedActions|null} [androidUnsupportedActions] SyncActionValue androidUnsupportedActions
-         * @property {SyncAction.SyncActionValue.IAgentAction|null} [agentAction] SyncActionValue agentAction
-         * @property {SyncAction.SyncActionValue.ISubscriptionAction|null} [subscriptionAction] SyncActionValue subscriptionAction
-         * @property {SyncAction.SyncActionValue.IUserStatusMuteAction|null} [userStatusMuteAction] SyncActionValue userStatusMuteAction
-         * @property {SyncAction.SyncActionValue.ITimeFormatAction|null} [timeFormatAction] SyncActionValue timeFormatAction
-         * @property {SyncAction.SyncActionValue.INuxAction|null} [nuxAction] SyncActionValue nuxAction
-         * @property {SyncAction.SyncActionValue.IPrimaryVersionAction|null} [primaryVersionAction] SyncActionValue primaryVersionAction
-         * @property {SyncAction.SyncActionValue.IStickerAction|null} [stickerAction] SyncActionValue stickerAction
-         * @property {SyncAction.SyncActionValue.IRemoveRecentStickerAction|null} [removeRecentStickerAction] SyncActionValue removeRecentStickerAction
-         * @property {SyncAction.SyncActionValue.IChatAssignmentAction|null} [chatAssignment] SyncActionValue chatAssignment
-         * @property {SyncAction.SyncActionValue.IChatAssignmentOpenedStatusAction|null} [chatAssignmentOpenedStatus] SyncActionValue chatAssignmentOpenedStatus
-         * @property {SyncAction.SyncActionValue.IPnForLidChatAction|null} [pnForLidChatAction] SyncActionValue pnForLidChatAction
-         * @property {SyncAction.SyncActionValue.IMarketingMessageAction|null} [marketingMessageAction] SyncActionValue marketingMessageAction
-         * @property {SyncAction.SyncActionValue.IMarketingMessageBroadcastAction|null} [marketingMessageBroadcastAction] SyncActionValue marketingMessageBroadcastAction
-         * @property {SyncAction.SyncActionValue.IExternalWebBetaAction|null} [externalWebBetaAction] SyncActionValue externalWebBetaAction
-         * @property {SyncAction.SyncActionValue.IPrivacySettingRelayAllCalls|null} [privacySettingRelayAllCalls] SyncActionValue privacySettingRelayAllCalls
-         * @property {SyncAction.SyncActionValue.ICallLogAction|null} [callLogAction] SyncActionValue callLogAction
-         * @property {SyncAction.SyncActionValue.IUGCBot|null} [ugcBot] SyncActionValue ugcBot
-         * @property {SyncAction.SyncActionValue.IStatusPrivacyAction|null} [statusPrivacy] SyncActionValue statusPrivacy
-         * @property {SyncAction.SyncActionValue.IBotWelcomeRequestAction|null} [botWelcomeRequestAction] SyncActionValue botWelcomeRequestAction
-         * @property {SyncAction.SyncActionValue.IDeleteIndividualCallLogAction|null} [deleteIndividualCallLog] SyncActionValue deleteIndividualCallLog
-         * @property {SyncAction.SyncActionValue.ILabelReorderingAction|null} [labelReorderingAction] SyncActionValue labelReorderingAction
-         * @property {SyncAction.SyncActionValue.IPaymentInfoAction|null} [paymentInfoAction] SyncActionValue paymentInfoAction
-         * @property {SyncAction.SyncActionValue.ICustomPaymentMethodsAction|null} [customPaymentMethodsAction] SyncActionValue customPaymentMethodsAction
-         * @property {SyncAction.SyncActionValue.ILockChatAction|null} [lockChatAction] SyncActionValue lockChatAction
-         * @property {ChatLockSettings.IChatLockSettings|null} [chatLockSettings] SyncActionValue chatLockSettings
-         * @property {SyncAction.SyncActionValue.IWamoUserIdentifierAction|null} [wamoUserIdentifierAction] SyncActionValue wamoUserIdentifierAction
-         * @property {SyncAction.SyncActionValue.IPrivacySettingDisableLinkPreviewsAction|null} [privacySettingDisableLinkPreviewsAction] SyncActionValue privacySettingDisableLinkPreviewsAction
-         * @property {DeviceCapabilities.IDeviceCapabilities|null} [deviceCapabilities] SyncActionValue deviceCapabilities
-         * @property {SyncAction.SyncActionValue.INoteEditAction|null} [noteEditAction] SyncActionValue noteEditAction
-         * @property {SyncAction.SyncActionValue.IFavoritesAction|null} [favoritesAction] SyncActionValue favoritesAction
-         * @property {SyncAction.SyncActionValue.IMerchantPaymentPartnerAction|null} [merchantPaymentPartnerAction] SyncActionValue merchantPaymentPartnerAction
-         * @property {SyncAction.SyncActionValue.IWaffleAccountLinkStateAction|null} [waffleAccountLinkStateAction] SyncActionValue waffleAccountLinkStateAction
-         * @property {SyncAction.SyncActionValue.IUsernameChatStartModeAction|null} [usernameChatStartMode] SyncActionValue usernameChatStartMode
-         * @property {SyncAction.SyncActionValue.INotificationActivitySettingAction|null} [notificationActivitySettingAction] SyncActionValue notificationActivitySettingAction
-         * @property {SyncAction.SyncActionValue.ILidContactAction|null} [lidContactAction] SyncActionValue lidContactAction
-         * @property {SyncAction.SyncActionValue.ICtwaPerCustomerDataSharingAction|null} [ctwaPerCustomerDataSharingAction] SyncActionValue ctwaPerCustomerDataSharingAction
-         * @property {SyncAction.SyncActionValue.IPaymentTosAction|null} [paymentTosAction] SyncActionValue paymentTosAction
-         * @property {SyncAction.SyncActionValue.IPrivacySettingChannelsPersonalisedRecommendationAction|null} [privacySettingChannelsPersonalisedRecommendationAction] SyncActionValue privacySettingChannelsPersonalisedRecommendationAction
-         * @property {SyncAction.SyncActionValue.IDetectedOutcomesStatusAction|null} [detectedOutcomesStatusAction] SyncActionValue detectedOutcomesStatusAction
-         * @property {SyncAction.SyncActionValue.IMaibaAIFeaturesControlAction|null} [maibaAiFeaturesControlAction] SyncActionValue maibaAiFeaturesControlAction
-         * @property {SyncAction.SyncActionValue.IBusinessBroadcastListAction|null} [businessBroadcastListAction] SyncActionValue businessBroadcastListAction
-         * @property {SyncAction.SyncActionValue.IMusicUserIdAction|null} [musicUserIdAction] SyncActionValue musicUserIdAction
-         * @property {SyncAction.SyncActionValue.IStatusPostOptInNotificationPreferencesAction|null} [statusPostOptInNotificationPreferencesAction] SyncActionValue statusPostOptInNotificationPreferencesAction
-         * @property {SyncAction.SyncActionValue.IAvatarUpdatedAction|null} [avatarUpdatedAction] SyncActionValue avatarUpdatedAction
-         * @property {SyncAction.SyncActionValue.IPrivateProcessingSettingAction|null} [privateProcessingSettingAction] SyncActionValue privateProcessingSettingAction
-         * @property {SyncAction.SyncActionValue.INewsletterSavedInterestsAction|null} [newsletterSavedInterestsAction] SyncActionValue newsletterSavedInterestsAction
-         * @property {SyncAction.SyncActionValue.IAiThreadRenameAction|null} [aiThreadRenameAction] SyncActionValue aiThreadRenameAction
-         * @property {SyncAction.SyncActionValue.IInteractiveMessageAction|null} [interactiveMessageAction] SyncActionValue interactiveMessageAction
-         * @property {SyncAction.SyncActionValue.ISettingsSyncAction|null} [settingsSyncAction] SyncActionValue settingsSyncAction
-         * @property {SyncAction.SyncActionValue.IOutContactAction|null} [outContactAction] SyncActionValue outContactAction
-         * @property {SyncAction.SyncActionValue.INctSaltSyncAction|null} [nctSaltSyncAction] SyncActionValue nctSaltSyncAction
-         * @property {SyncAction.SyncActionValue.IBusinessBroadcastCampaignAction|null} [businessBroadcastCampaignAction] SyncActionValue businessBroadcastCampaignAction
-         * @property {SyncAction.SyncActionValue.IBusinessBroadcastInsightsAction|null} [businessBroadcastInsightsAction] SyncActionValue businessBroadcastInsightsAction
-         * @property {SyncAction.SyncActionValue.ICustomerDataAction|null} [customerDataAction] SyncActionValue customerDataAction
-         * @property {SyncAction.SyncActionValue.ISubscriptionsSyncV2Action|null} [subscriptionsSyncV2Action] SyncActionValue subscriptionsSyncV2Action
-         * @property {SyncAction.SyncActionValue.IThreadPinAction|null} [threadPinAction] SyncActionValue threadPinAction
-         * @property {SyncAction.SyncActionValue.IAutoOrganizeBusinessChatSetting|null} [autoOrganizeBusinessChatSetting] SyncActionValue autoOrganizeBusinessChatSetting
-         * @property {SyncAction.SyncActionValue.IBizAISettingsNudgeAction|null} [bizAiSettingsNudgeAction] SyncActionValue bizAiSettingsNudgeAction
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments SyncAction.SyncActionValue.$Properties
+         * @deprecated Use SyncAction.SyncActionValue.$Properties instead.
+         */
+
+        /**
+         * Shape of a SyncActionValue.
+         * @typedef {{
+         *   timestamp?: number|Long|null;
+         *   starAction?: SyncAction.SyncActionValue.StarAction.$Shape|null;
+         *   contactAction?: SyncAction.SyncActionValue.ContactAction.$Shape|null;
+         *   muteAction?: SyncAction.SyncActionValue.MuteAction.$Shape|null;
+         *   pinAction?: SyncAction.SyncActionValue.PinAction.$Shape|null;
+         *   pushNameSetting?: SyncAction.SyncActionValue.PushNameSetting.$Shape|null;
+         *   quickReplyAction?: SyncAction.SyncActionValue.QuickReplyAction.$Shape|null;
+         *   recentEmojiWeightsAction?: SyncAction.SyncActionValue.RecentEmojiWeightsAction.$Shape|null;
+         *   labelEditAction?: SyncAction.SyncActionValue.LabelEditAction.$Shape|null;
+         *   labelAssociationAction?: SyncAction.SyncActionValue.LabelAssociationAction.$Shape|null;
+         *   localeSetting?: SyncAction.SyncActionValue.LocaleSetting.$Shape|null;
+         *   archiveChatAction?: SyncAction.SyncActionValue.ArchiveChatAction.$Shape|null;
+         *   deleteMessageForMeAction?: SyncAction.SyncActionValue.DeleteMessageForMeAction.$Shape|null;
+         *   keyExpiration?: SyncAction.SyncActionValue.KeyExpiration.$Shape|null;
+         *   markChatAsReadAction?: SyncAction.SyncActionValue.MarkChatAsReadAction.$Shape|null;
+         *   clearChatAction?: SyncAction.SyncActionValue.ClearChatAction.$Shape|null;
+         *   deleteChatAction?: SyncAction.SyncActionValue.DeleteChatAction.$Shape|null;
+         *   unarchiveChatsSetting?: SyncAction.SyncActionValue.UnarchiveChatsSetting.$Shape|null;
+         *   primaryFeature?: SyncAction.SyncActionValue.PrimaryFeature.$Shape|null;
+         *   androidUnsupportedActions?: SyncAction.SyncActionValue.AndroidUnsupportedActions.$Shape|null;
+         *   agentAction?: SyncAction.SyncActionValue.AgentAction.$Shape|null;
+         *   subscriptionAction?: SyncAction.SyncActionValue.SubscriptionAction.$Shape|null;
+         *   userStatusMuteAction?: SyncAction.SyncActionValue.UserStatusMuteAction.$Shape|null;
+         *   timeFormatAction?: SyncAction.SyncActionValue.TimeFormatAction.$Shape|null;
+         *   nuxAction?: SyncAction.SyncActionValue.NuxAction.$Shape|null;
+         *   primaryVersionAction?: SyncAction.SyncActionValue.PrimaryVersionAction.$Shape|null;
+         *   stickerAction?: SyncAction.SyncActionValue.StickerAction.$Shape|null;
+         *   removeRecentStickerAction?: SyncAction.SyncActionValue.RemoveRecentStickerAction.$Shape|null;
+         *   chatAssignment?: SyncAction.SyncActionValue.ChatAssignmentAction.$Shape|null;
+         *   chatAssignmentOpenedStatus?: SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction.$Shape|null;
+         *   pnForLidChatAction?: SyncAction.SyncActionValue.PnForLidChatAction.$Shape|null;
+         *   marketingMessageAction?: SyncAction.SyncActionValue.MarketingMessageAction.$Shape|null;
+         *   marketingMessageBroadcastAction?: SyncAction.SyncActionValue.MarketingMessageBroadcastAction.$Shape|null;
+         *   externalWebBetaAction?: SyncAction.SyncActionValue.ExternalWebBetaAction.$Shape|null;
+         *   privacySettingRelayAllCalls?: SyncAction.SyncActionValue.PrivacySettingRelayAllCalls.$Shape|null;
+         *   callLogAction?: SyncAction.SyncActionValue.CallLogAction.$Shape|null;
+         *   ugcBot?: SyncAction.SyncActionValue.UGCBot.$Shape|null;
+         *   statusPrivacy?: SyncAction.SyncActionValue.StatusPrivacyAction.$Shape|null;
+         *   botWelcomeRequestAction?: SyncAction.SyncActionValue.BotWelcomeRequestAction.$Shape|null;
+         *   deleteIndividualCallLog?: SyncAction.SyncActionValue.DeleteIndividualCallLogAction.$Shape|null;
+         *   labelReorderingAction?: SyncAction.SyncActionValue.LabelReorderingAction.$Shape|null;
+         *   paymentInfoAction?: SyncAction.SyncActionValue.PaymentInfoAction.$Shape|null;
+         *   customPaymentMethodsAction?: SyncAction.SyncActionValue.CustomPaymentMethodsAction.$Shape|null;
+         *   lockChatAction?: SyncAction.SyncActionValue.LockChatAction.$Shape|null;
+         *   chatLockSettings?: ChatLockSettings.ChatLockSettings.$Shape|null;
+         *   wamoUserIdentifierAction?: SyncAction.SyncActionValue.WamoUserIdentifierAction.$Shape|null;
+         *   privacySettingDisableLinkPreviewsAction?: SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction.$Shape|null;
+         *   deviceCapabilities?: DeviceCapabilities.DeviceCapabilities.$Shape|null;
+         *   noteEditAction?: SyncAction.SyncActionValue.NoteEditAction.$Shape|null;
+         *   favoritesAction?: SyncAction.SyncActionValue.FavoritesAction.$Shape|null;
+         *   merchantPaymentPartnerAction?: SyncAction.SyncActionValue.MerchantPaymentPartnerAction.$Shape|null;
+         *   waffleAccountLinkStateAction?: SyncAction.SyncActionValue.WaffleAccountLinkStateAction.$Shape|null;
+         *   usernameChatStartMode?: SyncAction.SyncActionValue.UsernameChatStartModeAction.$Shape|null;
+         *   notificationActivitySettingAction?: SyncAction.SyncActionValue.NotificationActivitySettingAction.$Shape|null;
+         *   lidContactAction?: SyncAction.SyncActionValue.LidContactAction.$Shape|null;
+         *   ctwaPerCustomerDataSharingAction?: SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction.$Shape|null;
+         *   paymentTosAction?: SyncAction.SyncActionValue.PaymentTosAction.$Shape|null;
+         *   privacySettingChannelsPersonalisedRecommendationAction?: SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction.$Shape|null;
+         *   detectedOutcomesStatusAction?: SyncAction.SyncActionValue.DetectedOutcomesStatusAction.$Shape|null;
+         *   maibaAiFeaturesControlAction?: SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.$Shape|null;
+         *   businessBroadcastListAction?: SyncAction.SyncActionValue.BusinessBroadcastListAction.$Shape|null;
+         *   musicUserIdAction?: SyncAction.SyncActionValue.MusicUserIdAction.$Shape|null;
+         *   statusPostOptInNotificationPreferencesAction?: SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction.$Shape|null;
+         *   avatarUpdatedAction?: SyncAction.SyncActionValue.AvatarUpdatedAction.$Shape|null;
+         *   privateProcessingSettingAction?: SyncAction.SyncActionValue.PrivateProcessingSettingAction.$Shape|null;
+         *   newsletterSavedInterestsAction?: SyncAction.SyncActionValue.NewsletterSavedInterestsAction.$Shape|null;
+         *   aiThreadRenameAction?: SyncAction.SyncActionValue.AiThreadRenameAction.$Shape|null;
+         *   interactiveMessageAction?: SyncAction.SyncActionValue.InteractiveMessageAction.$Shape|null;
+         *   settingsSyncAction?: SyncAction.SyncActionValue.SettingsSyncAction.$Shape|null;
+         *   outContactAction?: SyncAction.SyncActionValue.OutContactAction.$Shape|null;
+         *   nctSaltSyncAction?: SyncAction.SyncActionValue.NctSaltSyncAction.$Shape|null;
+         *   businessBroadcastCampaignAction?: SyncAction.SyncActionValue.BusinessBroadcastCampaignAction.$Shape|null;
+         *   businessBroadcastInsightsAction?: SyncAction.SyncActionValue.BusinessBroadcastInsightsAction.$Shape|null;
+         *   customerDataAction?: SyncAction.SyncActionValue.CustomerDataAction.$Shape|null;
+         *   subscriptionsSyncV2Action?: SyncAction.SyncActionValue.SubscriptionsSyncV2Action.$Shape|null;
+         *   threadPinAction?: SyncAction.SyncActionValue.ThreadPinAction.$Shape|null;
+         *   autoOrganizeBusinessChatSetting?: SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting.$Shape|null;
+         *   bizAiSettingsNudgeAction?: SyncAction.SyncActionValue.BizAISettingsNudgeAction.$Shape|null;
+         *   $unknowns?: Array.<Uint8Array>;
+         * }} SyncAction.SyncActionValue.$Shape
          */
 
         /**
          * Constructs a new SyncActionValue.
          * @memberof SyncAction
          * @classdesc Represents a SyncActionValue.
-         * @implements ISyncActionValue
          * @constructor
-         * @param {SyncAction.ISyncActionValue=} [properties] Properties to set
+         * @param {SyncAction.SyncActionValue.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SyncActionValue(properties) {
@@ -1218,7 +1345,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue starAction.
-         * @member {SyncAction.SyncActionValue.IStarAction|null|undefined} starAction
+         * @member {SyncAction.SyncActionValue.StarAction.$Properties|null|undefined} starAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1226,7 +1353,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue contactAction.
-         * @member {SyncAction.SyncActionValue.IContactAction|null|undefined} contactAction
+         * @member {SyncAction.SyncActionValue.ContactAction.$Properties|null|undefined} contactAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1234,7 +1361,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue muteAction.
-         * @member {SyncAction.SyncActionValue.IMuteAction|null|undefined} muteAction
+         * @member {SyncAction.SyncActionValue.MuteAction.$Properties|null|undefined} muteAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1242,7 +1369,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue pinAction.
-         * @member {SyncAction.SyncActionValue.IPinAction|null|undefined} pinAction
+         * @member {SyncAction.SyncActionValue.PinAction.$Properties|null|undefined} pinAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1250,7 +1377,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue pushNameSetting.
-         * @member {SyncAction.SyncActionValue.IPushNameSetting|null|undefined} pushNameSetting
+         * @member {SyncAction.SyncActionValue.PushNameSetting.$Properties|null|undefined} pushNameSetting
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1258,7 +1385,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue quickReplyAction.
-         * @member {SyncAction.SyncActionValue.IQuickReplyAction|null|undefined} quickReplyAction
+         * @member {SyncAction.SyncActionValue.QuickReplyAction.$Properties|null|undefined} quickReplyAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1266,7 +1393,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue recentEmojiWeightsAction.
-         * @member {SyncAction.SyncActionValue.IRecentEmojiWeightsAction|null|undefined} recentEmojiWeightsAction
+         * @member {SyncAction.SyncActionValue.RecentEmojiWeightsAction.$Properties|null|undefined} recentEmojiWeightsAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1274,7 +1401,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue labelEditAction.
-         * @member {SyncAction.SyncActionValue.ILabelEditAction|null|undefined} labelEditAction
+         * @member {SyncAction.SyncActionValue.LabelEditAction.$Properties|null|undefined} labelEditAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1282,7 +1409,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue labelAssociationAction.
-         * @member {SyncAction.SyncActionValue.ILabelAssociationAction|null|undefined} labelAssociationAction
+         * @member {SyncAction.SyncActionValue.LabelAssociationAction.$Properties|null|undefined} labelAssociationAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1290,7 +1417,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue localeSetting.
-         * @member {SyncAction.SyncActionValue.ILocaleSetting|null|undefined} localeSetting
+         * @member {SyncAction.SyncActionValue.LocaleSetting.$Properties|null|undefined} localeSetting
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1298,7 +1425,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue archiveChatAction.
-         * @member {SyncAction.SyncActionValue.IArchiveChatAction|null|undefined} archiveChatAction
+         * @member {SyncAction.SyncActionValue.ArchiveChatAction.$Properties|null|undefined} archiveChatAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1306,7 +1433,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue deleteMessageForMeAction.
-         * @member {SyncAction.SyncActionValue.IDeleteMessageForMeAction|null|undefined} deleteMessageForMeAction
+         * @member {SyncAction.SyncActionValue.DeleteMessageForMeAction.$Properties|null|undefined} deleteMessageForMeAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1314,7 +1441,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue keyExpiration.
-         * @member {SyncAction.SyncActionValue.IKeyExpiration|null|undefined} keyExpiration
+         * @member {SyncAction.SyncActionValue.KeyExpiration.$Properties|null|undefined} keyExpiration
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1322,7 +1449,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue markChatAsReadAction.
-         * @member {SyncAction.SyncActionValue.IMarkChatAsReadAction|null|undefined} markChatAsReadAction
+         * @member {SyncAction.SyncActionValue.MarkChatAsReadAction.$Properties|null|undefined} markChatAsReadAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1330,7 +1457,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue clearChatAction.
-         * @member {SyncAction.SyncActionValue.IClearChatAction|null|undefined} clearChatAction
+         * @member {SyncAction.SyncActionValue.ClearChatAction.$Properties|null|undefined} clearChatAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1338,7 +1465,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue deleteChatAction.
-         * @member {SyncAction.SyncActionValue.IDeleteChatAction|null|undefined} deleteChatAction
+         * @member {SyncAction.SyncActionValue.DeleteChatAction.$Properties|null|undefined} deleteChatAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1346,7 +1473,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue unarchiveChatsSetting.
-         * @member {SyncAction.SyncActionValue.IUnarchiveChatsSetting|null|undefined} unarchiveChatsSetting
+         * @member {SyncAction.SyncActionValue.UnarchiveChatsSetting.$Properties|null|undefined} unarchiveChatsSetting
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1354,7 +1481,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue primaryFeature.
-         * @member {SyncAction.SyncActionValue.IPrimaryFeature|null|undefined} primaryFeature
+         * @member {SyncAction.SyncActionValue.PrimaryFeature.$Properties|null|undefined} primaryFeature
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1362,7 +1489,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue androidUnsupportedActions.
-         * @member {SyncAction.SyncActionValue.IAndroidUnsupportedActions|null|undefined} androidUnsupportedActions
+         * @member {SyncAction.SyncActionValue.AndroidUnsupportedActions.$Properties|null|undefined} androidUnsupportedActions
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1370,7 +1497,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue agentAction.
-         * @member {SyncAction.SyncActionValue.IAgentAction|null|undefined} agentAction
+         * @member {SyncAction.SyncActionValue.AgentAction.$Properties|null|undefined} agentAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1378,7 +1505,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue subscriptionAction.
-         * @member {SyncAction.SyncActionValue.ISubscriptionAction|null|undefined} subscriptionAction
+         * @member {SyncAction.SyncActionValue.SubscriptionAction.$Properties|null|undefined} subscriptionAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1386,7 +1513,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue userStatusMuteAction.
-         * @member {SyncAction.SyncActionValue.IUserStatusMuteAction|null|undefined} userStatusMuteAction
+         * @member {SyncAction.SyncActionValue.UserStatusMuteAction.$Properties|null|undefined} userStatusMuteAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1394,7 +1521,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue timeFormatAction.
-         * @member {SyncAction.SyncActionValue.ITimeFormatAction|null|undefined} timeFormatAction
+         * @member {SyncAction.SyncActionValue.TimeFormatAction.$Properties|null|undefined} timeFormatAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1402,7 +1529,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue nuxAction.
-         * @member {SyncAction.SyncActionValue.INuxAction|null|undefined} nuxAction
+         * @member {SyncAction.SyncActionValue.NuxAction.$Properties|null|undefined} nuxAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1410,7 +1537,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue primaryVersionAction.
-         * @member {SyncAction.SyncActionValue.IPrimaryVersionAction|null|undefined} primaryVersionAction
+         * @member {SyncAction.SyncActionValue.PrimaryVersionAction.$Properties|null|undefined} primaryVersionAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1418,7 +1545,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue stickerAction.
-         * @member {SyncAction.SyncActionValue.IStickerAction|null|undefined} stickerAction
+         * @member {SyncAction.SyncActionValue.StickerAction.$Properties|null|undefined} stickerAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1426,7 +1553,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue removeRecentStickerAction.
-         * @member {SyncAction.SyncActionValue.IRemoveRecentStickerAction|null|undefined} removeRecentStickerAction
+         * @member {SyncAction.SyncActionValue.RemoveRecentStickerAction.$Properties|null|undefined} removeRecentStickerAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1434,7 +1561,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue chatAssignment.
-         * @member {SyncAction.SyncActionValue.IChatAssignmentAction|null|undefined} chatAssignment
+         * @member {SyncAction.SyncActionValue.ChatAssignmentAction.$Properties|null|undefined} chatAssignment
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1442,7 +1569,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue chatAssignmentOpenedStatus.
-         * @member {SyncAction.SyncActionValue.IChatAssignmentOpenedStatusAction|null|undefined} chatAssignmentOpenedStatus
+         * @member {SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction.$Properties|null|undefined} chatAssignmentOpenedStatus
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1450,7 +1577,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue pnForLidChatAction.
-         * @member {SyncAction.SyncActionValue.IPnForLidChatAction|null|undefined} pnForLidChatAction
+         * @member {SyncAction.SyncActionValue.PnForLidChatAction.$Properties|null|undefined} pnForLidChatAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1458,7 +1585,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue marketingMessageAction.
-         * @member {SyncAction.SyncActionValue.IMarketingMessageAction|null|undefined} marketingMessageAction
+         * @member {SyncAction.SyncActionValue.MarketingMessageAction.$Properties|null|undefined} marketingMessageAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1466,7 +1593,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue marketingMessageBroadcastAction.
-         * @member {SyncAction.SyncActionValue.IMarketingMessageBroadcastAction|null|undefined} marketingMessageBroadcastAction
+         * @member {SyncAction.SyncActionValue.MarketingMessageBroadcastAction.$Properties|null|undefined} marketingMessageBroadcastAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1474,7 +1601,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue externalWebBetaAction.
-         * @member {SyncAction.SyncActionValue.IExternalWebBetaAction|null|undefined} externalWebBetaAction
+         * @member {SyncAction.SyncActionValue.ExternalWebBetaAction.$Properties|null|undefined} externalWebBetaAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1482,7 +1609,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue privacySettingRelayAllCalls.
-         * @member {SyncAction.SyncActionValue.IPrivacySettingRelayAllCalls|null|undefined} privacySettingRelayAllCalls
+         * @member {SyncAction.SyncActionValue.PrivacySettingRelayAllCalls.$Properties|null|undefined} privacySettingRelayAllCalls
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1490,7 +1617,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue callLogAction.
-         * @member {SyncAction.SyncActionValue.ICallLogAction|null|undefined} callLogAction
+         * @member {SyncAction.SyncActionValue.CallLogAction.$Properties|null|undefined} callLogAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1498,7 +1625,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue ugcBot.
-         * @member {SyncAction.SyncActionValue.IUGCBot|null|undefined} ugcBot
+         * @member {SyncAction.SyncActionValue.UGCBot.$Properties|null|undefined} ugcBot
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1506,7 +1633,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue statusPrivacy.
-         * @member {SyncAction.SyncActionValue.IStatusPrivacyAction|null|undefined} statusPrivacy
+         * @member {SyncAction.SyncActionValue.StatusPrivacyAction.$Properties|null|undefined} statusPrivacy
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1514,7 +1641,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue botWelcomeRequestAction.
-         * @member {SyncAction.SyncActionValue.IBotWelcomeRequestAction|null|undefined} botWelcomeRequestAction
+         * @member {SyncAction.SyncActionValue.BotWelcomeRequestAction.$Properties|null|undefined} botWelcomeRequestAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1522,7 +1649,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue deleteIndividualCallLog.
-         * @member {SyncAction.SyncActionValue.IDeleteIndividualCallLogAction|null|undefined} deleteIndividualCallLog
+         * @member {SyncAction.SyncActionValue.DeleteIndividualCallLogAction.$Properties|null|undefined} deleteIndividualCallLog
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1530,7 +1657,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue labelReorderingAction.
-         * @member {SyncAction.SyncActionValue.ILabelReorderingAction|null|undefined} labelReorderingAction
+         * @member {SyncAction.SyncActionValue.LabelReorderingAction.$Properties|null|undefined} labelReorderingAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1538,7 +1665,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue paymentInfoAction.
-         * @member {SyncAction.SyncActionValue.IPaymentInfoAction|null|undefined} paymentInfoAction
+         * @member {SyncAction.SyncActionValue.PaymentInfoAction.$Properties|null|undefined} paymentInfoAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1546,7 +1673,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue customPaymentMethodsAction.
-         * @member {SyncAction.SyncActionValue.ICustomPaymentMethodsAction|null|undefined} customPaymentMethodsAction
+         * @member {SyncAction.SyncActionValue.CustomPaymentMethodsAction.$Properties|null|undefined} customPaymentMethodsAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1554,7 +1681,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue lockChatAction.
-         * @member {SyncAction.SyncActionValue.ILockChatAction|null|undefined} lockChatAction
+         * @member {SyncAction.SyncActionValue.LockChatAction.$Properties|null|undefined} lockChatAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1562,7 +1689,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue chatLockSettings.
-         * @member {ChatLockSettings.IChatLockSettings|null|undefined} chatLockSettings
+         * @member {ChatLockSettings.ChatLockSettings.$Properties|null|undefined} chatLockSettings
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1570,7 +1697,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue wamoUserIdentifierAction.
-         * @member {SyncAction.SyncActionValue.IWamoUserIdentifierAction|null|undefined} wamoUserIdentifierAction
+         * @member {SyncAction.SyncActionValue.WamoUserIdentifierAction.$Properties|null|undefined} wamoUserIdentifierAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1578,7 +1705,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue privacySettingDisableLinkPreviewsAction.
-         * @member {SyncAction.SyncActionValue.IPrivacySettingDisableLinkPreviewsAction|null|undefined} privacySettingDisableLinkPreviewsAction
+         * @member {SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction.$Properties|null|undefined} privacySettingDisableLinkPreviewsAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1586,7 +1713,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue deviceCapabilities.
-         * @member {DeviceCapabilities.IDeviceCapabilities|null|undefined} deviceCapabilities
+         * @member {DeviceCapabilities.DeviceCapabilities.$Properties|null|undefined} deviceCapabilities
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1594,7 +1721,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue noteEditAction.
-         * @member {SyncAction.SyncActionValue.INoteEditAction|null|undefined} noteEditAction
+         * @member {SyncAction.SyncActionValue.NoteEditAction.$Properties|null|undefined} noteEditAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1602,7 +1729,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue favoritesAction.
-         * @member {SyncAction.SyncActionValue.IFavoritesAction|null|undefined} favoritesAction
+         * @member {SyncAction.SyncActionValue.FavoritesAction.$Properties|null|undefined} favoritesAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1610,7 +1737,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue merchantPaymentPartnerAction.
-         * @member {SyncAction.SyncActionValue.IMerchantPaymentPartnerAction|null|undefined} merchantPaymentPartnerAction
+         * @member {SyncAction.SyncActionValue.MerchantPaymentPartnerAction.$Properties|null|undefined} merchantPaymentPartnerAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1618,7 +1745,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue waffleAccountLinkStateAction.
-         * @member {SyncAction.SyncActionValue.IWaffleAccountLinkStateAction|null|undefined} waffleAccountLinkStateAction
+         * @member {SyncAction.SyncActionValue.WaffleAccountLinkStateAction.$Properties|null|undefined} waffleAccountLinkStateAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1626,7 +1753,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue usernameChatStartMode.
-         * @member {SyncAction.SyncActionValue.IUsernameChatStartModeAction|null|undefined} usernameChatStartMode
+         * @member {SyncAction.SyncActionValue.UsernameChatStartModeAction.$Properties|null|undefined} usernameChatStartMode
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1634,7 +1761,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue notificationActivitySettingAction.
-         * @member {SyncAction.SyncActionValue.INotificationActivitySettingAction|null|undefined} notificationActivitySettingAction
+         * @member {SyncAction.SyncActionValue.NotificationActivitySettingAction.$Properties|null|undefined} notificationActivitySettingAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1642,7 +1769,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue lidContactAction.
-         * @member {SyncAction.SyncActionValue.ILidContactAction|null|undefined} lidContactAction
+         * @member {SyncAction.SyncActionValue.LidContactAction.$Properties|null|undefined} lidContactAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1650,7 +1777,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue ctwaPerCustomerDataSharingAction.
-         * @member {SyncAction.SyncActionValue.ICtwaPerCustomerDataSharingAction|null|undefined} ctwaPerCustomerDataSharingAction
+         * @member {SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction.$Properties|null|undefined} ctwaPerCustomerDataSharingAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1658,7 +1785,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue paymentTosAction.
-         * @member {SyncAction.SyncActionValue.IPaymentTosAction|null|undefined} paymentTosAction
+         * @member {SyncAction.SyncActionValue.PaymentTosAction.$Properties|null|undefined} paymentTosAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1666,7 +1793,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue privacySettingChannelsPersonalisedRecommendationAction.
-         * @member {SyncAction.SyncActionValue.IPrivacySettingChannelsPersonalisedRecommendationAction|null|undefined} privacySettingChannelsPersonalisedRecommendationAction
+         * @member {SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction.$Properties|null|undefined} privacySettingChannelsPersonalisedRecommendationAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1674,7 +1801,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue detectedOutcomesStatusAction.
-         * @member {SyncAction.SyncActionValue.IDetectedOutcomesStatusAction|null|undefined} detectedOutcomesStatusAction
+         * @member {SyncAction.SyncActionValue.DetectedOutcomesStatusAction.$Properties|null|undefined} detectedOutcomesStatusAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1682,7 +1809,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue maibaAiFeaturesControlAction.
-         * @member {SyncAction.SyncActionValue.IMaibaAIFeaturesControlAction|null|undefined} maibaAiFeaturesControlAction
+         * @member {SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.$Properties|null|undefined} maibaAiFeaturesControlAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1690,7 +1817,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue businessBroadcastListAction.
-         * @member {SyncAction.SyncActionValue.IBusinessBroadcastListAction|null|undefined} businessBroadcastListAction
+         * @member {SyncAction.SyncActionValue.BusinessBroadcastListAction.$Properties|null|undefined} businessBroadcastListAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1698,7 +1825,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue musicUserIdAction.
-         * @member {SyncAction.SyncActionValue.IMusicUserIdAction|null|undefined} musicUserIdAction
+         * @member {SyncAction.SyncActionValue.MusicUserIdAction.$Properties|null|undefined} musicUserIdAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1706,7 +1833,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue statusPostOptInNotificationPreferencesAction.
-         * @member {SyncAction.SyncActionValue.IStatusPostOptInNotificationPreferencesAction|null|undefined} statusPostOptInNotificationPreferencesAction
+         * @member {SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction.$Properties|null|undefined} statusPostOptInNotificationPreferencesAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1714,7 +1841,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue avatarUpdatedAction.
-         * @member {SyncAction.SyncActionValue.IAvatarUpdatedAction|null|undefined} avatarUpdatedAction
+         * @member {SyncAction.SyncActionValue.AvatarUpdatedAction.$Properties|null|undefined} avatarUpdatedAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1722,7 +1849,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue privateProcessingSettingAction.
-         * @member {SyncAction.SyncActionValue.IPrivateProcessingSettingAction|null|undefined} privateProcessingSettingAction
+         * @member {SyncAction.SyncActionValue.PrivateProcessingSettingAction.$Properties|null|undefined} privateProcessingSettingAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1730,7 +1857,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue newsletterSavedInterestsAction.
-         * @member {SyncAction.SyncActionValue.INewsletterSavedInterestsAction|null|undefined} newsletterSavedInterestsAction
+         * @member {SyncAction.SyncActionValue.NewsletterSavedInterestsAction.$Properties|null|undefined} newsletterSavedInterestsAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1738,7 +1865,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue aiThreadRenameAction.
-         * @member {SyncAction.SyncActionValue.IAiThreadRenameAction|null|undefined} aiThreadRenameAction
+         * @member {SyncAction.SyncActionValue.AiThreadRenameAction.$Properties|null|undefined} aiThreadRenameAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1746,7 +1873,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue interactiveMessageAction.
-         * @member {SyncAction.SyncActionValue.IInteractiveMessageAction|null|undefined} interactiveMessageAction
+         * @member {SyncAction.SyncActionValue.InteractiveMessageAction.$Properties|null|undefined} interactiveMessageAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1754,7 +1881,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue settingsSyncAction.
-         * @member {SyncAction.SyncActionValue.ISettingsSyncAction|null|undefined} settingsSyncAction
+         * @member {SyncAction.SyncActionValue.SettingsSyncAction.$Properties|null|undefined} settingsSyncAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1762,7 +1889,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue outContactAction.
-         * @member {SyncAction.SyncActionValue.IOutContactAction|null|undefined} outContactAction
+         * @member {SyncAction.SyncActionValue.OutContactAction.$Properties|null|undefined} outContactAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1770,7 +1897,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue nctSaltSyncAction.
-         * @member {SyncAction.SyncActionValue.INctSaltSyncAction|null|undefined} nctSaltSyncAction
+         * @member {SyncAction.SyncActionValue.NctSaltSyncAction.$Properties|null|undefined} nctSaltSyncAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1778,7 +1905,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue businessBroadcastCampaignAction.
-         * @member {SyncAction.SyncActionValue.IBusinessBroadcastCampaignAction|null|undefined} businessBroadcastCampaignAction
+         * @member {SyncAction.SyncActionValue.BusinessBroadcastCampaignAction.$Properties|null|undefined} businessBroadcastCampaignAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1786,7 +1913,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue businessBroadcastInsightsAction.
-         * @member {SyncAction.SyncActionValue.IBusinessBroadcastInsightsAction|null|undefined} businessBroadcastInsightsAction
+         * @member {SyncAction.SyncActionValue.BusinessBroadcastInsightsAction.$Properties|null|undefined} businessBroadcastInsightsAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1794,7 +1921,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue customerDataAction.
-         * @member {SyncAction.SyncActionValue.ICustomerDataAction|null|undefined} customerDataAction
+         * @member {SyncAction.SyncActionValue.CustomerDataAction.$Properties|null|undefined} customerDataAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1802,7 +1929,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue subscriptionsSyncV2Action.
-         * @member {SyncAction.SyncActionValue.ISubscriptionsSyncV2Action|null|undefined} subscriptionsSyncV2Action
+         * @member {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.$Properties|null|undefined} subscriptionsSyncV2Action
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1810,7 +1937,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue threadPinAction.
-         * @member {SyncAction.SyncActionValue.IThreadPinAction|null|undefined} threadPinAction
+         * @member {SyncAction.SyncActionValue.ThreadPinAction.$Properties|null|undefined} threadPinAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1818,7 +1945,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue autoOrganizeBusinessChatSetting.
-         * @member {SyncAction.SyncActionValue.IAutoOrganizeBusinessChatSetting|null|undefined} autoOrganizeBusinessChatSetting
+         * @member {SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting.$Properties|null|undefined} autoOrganizeBusinessChatSetting
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -1826,7 +1953,7 @@ $root.SyncAction = (function() {
 
         /**
          * SyncActionValue bizAiSettingsNudgeAction.
-         * @member {SyncAction.SyncActionValue.IBizAISettingsNudgeAction|null|undefined} bizAiSettingsNudgeAction
+         * @member {SyncAction.SyncActionValue.BizAISettingsNudgeAction.$Properties|null|undefined} bizAiSettingsNudgeAction
          * @memberof SyncAction.SyncActionValue
          * @instance
          */
@@ -2308,8 +2435,12 @@ $root.SyncAction = (function() {
          * @function create
          * @memberof SyncAction.SyncActionValue
          * @static
-         * @param {SyncAction.ISyncActionValue=} [properties] Properties to set
+         * @param {SyncAction.SyncActionValue.$Properties=} [properties] Properties to set
          * @returns {SyncAction.SyncActionValue} SyncActionValue instance
+         * @type {{
+         *   (properties: SyncAction.SyncActionValue.$Shape): SyncAction.SyncActionValue & SyncAction.SyncActionValue.$Shape;
+         *   (properties?: SyncAction.SyncActionValue.$Properties): SyncAction.SyncActionValue;
+         * }}
          */
         SyncActionValue.create = function create(properties) {
             return new SyncActionValue(properties);
@@ -2320,7 +2451,7 @@ $root.SyncAction = (function() {
          * @function encode
          * @memberof SyncAction.SyncActionValue
          * @static
-         * @param {SyncAction.ISyncActionValue} message SyncActionValue message or plain object to encode
+         * @param {SyncAction.SyncActionValue.$Properties} message SyncActionValue message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2494,7 +2625,7 @@ $root.SyncAction = (function() {
          * @function encodeDelimited
          * @memberof SyncAction.SyncActionValue
          * @static
-         * @param {SyncAction.ISyncActionValue} message SyncActionValue message or plain object to encode
+         * @param {SyncAction.SyncActionValue.$Properties} message SyncActionValue message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2509,7 +2640,7 @@ $root.SyncAction = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {SyncAction.SyncActionValue} SyncActionValue
+         * @returns {SyncAction.SyncActionValue & SyncAction.SyncActionValue.$Shape} SyncActionValue
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -3092,7 +3223,7 @@ $root.SyncAction = (function() {
          * @memberof SyncAction.SyncActionValue
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {SyncAction.SyncActionValue} SyncActionValue
+         * @returns {SyncAction.SyncActionValue & SyncAction.SyncActionValue.$Shape} SyncActionValue
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -4593,8 +4724,7 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of an AgentAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IAgentAction
+             * @typedef {Object} SyncAction.SyncActionValue.AgentAction.$Properties
              * @property {string|null} [name] AgentAction name
              * @property {number|null} [deviceID] AgentAction deviceID
              * @property {boolean|null} [isDeleted] AgentAction isDeleted
@@ -4602,12 +4732,24 @@ $root.SyncAction = (function() {
              */
 
             /**
+             * Properties of an AgentAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IAgentAction
+             * @augments SyncAction.SyncActionValue.AgentAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.AgentAction.$Properties instead.
+             */
+
+            /**
+             * Shape of an AgentAction.
+             * @typedef {SyncAction.SyncActionValue.AgentAction.$Properties} SyncAction.SyncActionValue.AgentAction.$Shape
+             */
+
+            /**
              * Constructs a new AgentAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents an AgentAction.
-             * @implements IAgentAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IAgentAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.AgentAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AgentAction(properties) {
@@ -4667,8 +4809,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.AgentAction
              * @static
-             * @param {SyncAction.SyncActionValue.IAgentAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.AgentAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.AgentAction} AgentAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.AgentAction.$Shape): SyncAction.SyncActionValue.AgentAction & SyncAction.SyncActionValue.AgentAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.AgentAction.$Properties): SyncAction.SyncActionValue.AgentAction;
+             * }}
              */
             AgentAction.create = function create(properties) {
                 return new AgentAction(properties);
@@ -4679,7 +4825,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.AgentAction
              * @static
-             * @param {SyncAction.SyncActionValue.IAgentAction} message AgentAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.AgentAction.$Properties} message AgentAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -4703,7 +4849,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.AgentAction
              * @static
-             * @param {SyncAction.SyncActionValue.IAgentAction} message AgentAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.AgentAction.$Properties} message AgentAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -4718,7 +4864,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.AgentAction} AgentAction
+             * @returns {SyncAction.SyncActionValue.AgentAction & SyncAction.SyncActionValue.AgentAction.$Shape} AgentAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -4776,7 +4922,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.AgentAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.AgentAction} AgentAction
+             * @returns {SyncAction.SyncActionValue.AgentAction & SyncAction.SyncActionValue.AgentAction.$Shape} AgentAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -4908,19 +5054,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of an AiThreadRenameAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IAiThreadRenameAction
+             * @typedef {Object} SyncAction.SyncActionValue.AiThreadRenameAction.$Properties
              * @property {string|null} [newTitle] AiThreadRenameAction newTitle
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of an AiThreadRenameAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IAiThreadRenameAction
+             * @augments SyncAction.SyncActionValue.AiThreadRenameAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.AiThreadRenameAction.$Properties instead.
+             */
+
+            /**
+             * Shape of an AiThreadRenameAction.
+             * @typedef {SyncAction.SyncActionValue.AiThreadRenameAction.$Properties} SyncAction.SyncActionValue.AiThreadRenameAction.$Shape
              */
 
             /**
              * Constructs a new AiThreadRenameAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents an AiThreadRenameAction.
-             * @implements IAiThreadRenameAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IAiThreadRenameAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.AiThreadRenameAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AiThreadRenameAction(properties) {
@@ -4952,8 +5109,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.AiThreadRenameAction
              * @static
-             * @param {SyncAction.SyncActionValue.IAiThreadRenameAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.AiThreadRenameAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.AiThreadRenameAction} AiThreadRenameAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.AiThreadRenameAction.$Shape): SyncAction.SyncActionValue.AiThreadRenameAction & SyncAction.SyncActionValue.AiThreadRenameAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.AiThreadRenameAction.$Properties): SyncAction.SyncActionValue.AiThreadRenameAction;
+             * }}
              */
             AiThreadRenameAction.create = function create(properties) {
                 return new AiThreadRenameAction(properties);
@@ -4964,7 +5125,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.AiThreadRenameAction
              * @static
-             * @param {SyncAction.SyncActionValue.IAiThreadRenameAction} message AiThreadRenameAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.AiThreadRenameAction.$Properties} message AiThreadRenameAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -4984,7 +5145,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.AiThreadRenameAction
              * @static
-             * @param {SyncAction.SyncActionValue.IAiThreadRenameAction} message AiThreadRenameAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.AiThreadRenameAction.$Properties} message AiThreadRenameAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -4999,7 +5160,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.AiThreadRenameAction} AiThreadRenameAction
+             * @returns {SyncAction.SyncActionValue.AiThreadRenameAction & SyncAction.SyncActionValue.AiThreadRenameAction.$Shape} AiThreadRenameAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -5043,7 +5204,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.AiThreadRenameAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.AiThreadRenameAction} AiThreadRenameAction
+             * @returns {SyncAction.SyncActionValue.AiThreadRenameAction & SyncAction.SyncActionValue.AiThreadRenameAction.$Shape} AiThreadRenameAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -5151,19 +5312,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of an AndroidUnsupportedActions.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IAndroidUnsupportedActions
+             * @typedef {Object} SyncAction.SyncActionValue.AndroidUnsupportedActions.$Properties
              * @property {boolean|null} [allowed] AndroidUnsupportedActions allowed
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of an AndroidUnsupportedActions.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IAndroidUnsupportedActions
+             * @augments SyncAction.SyncActionValue.AndroidUnsupportedActions.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.AndroidUnsupportedActions.$Properties instead.
+             */
+
+            /**
+             * Shape of an AndroidUnsupportedActions.
+             * @typedef {SyncAction.SyncActionValue.AndroidUnsupportedActions.$Properties} SyncAction.SyncActionValue.AndroidUnsupportedActions.$Shape
              */
 
             /**
              * Constructs a new AndroidUnsupportedActions.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents an AndroidUnsupportedActions.
-             * @implements IAndroidUnsupportedActions
              * @constructor
-             * @param {SyncAction.SyncActionValue.IAndroidUnsupportedActions=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.AndroidUnsupportedActions.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AndroidUnsupportedActions(properties) {
@@ -5195,8 +5367,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.AndroidUnsupportedActions
              * @static
-             * @param {SyncAction.SyncActionValue.IAndroidUnsupportedActions=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.AndroidUnsupportedActions.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.AndroidUnsupportedActions} AndroidUnsupportedActions instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.AndroidUnsupportedActions.$Shape): SyncAction.SyncActionValue.AndroidUnsupportedActions & SyncAction.SyncActionValue.AndroidUnsupportedActions.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.AndroidUnsupportedActions.$Properties): SyncAction.SyncActionValue.AndroidUnsupportedActions;
+             * }}
              */
             AndroidUnsupportedActions.create = function create(properties) {
                 return new AndroidUnsupportedActions(properties);
@@ -5207,7 +5383,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.AndroidUnsupportedActions
              * @static
-             * @param {SyncAction.SyncActionValue.IAndroidUnsupportedActions} message AndroidUnsupportedActions message or plain object to encode
+             * @param {SyncAction.SyncActionValue.AndroidUnsupportedActions.$Properties} message AndroidUnsupportedActions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -5227,7 +5403,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.AndroidUnsupportedActions
              * @static
-             * @param {SyncAction.SyncActionValue.IAndroidUnsupportedActions} message AndroidUnsupportedActions message or plain object to encode
+             * @param {SyncAction.SyncActionValue.AndroidUnsupportedActions.$Properties} message AndroidUnsupportedActions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -5242,7 +5418,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.AndroidUnsupportedActions} AndroidUnsupportedActions
+             * @returns {SyncAction.SyncActionValue.AndroidUnsupportedActions & SyncAction.SyncActionValue.AndroidUnsupportedActions.$Shape} AndroidUnsupportedActions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -5286,7 +5462,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.AndroidUnsupportedActions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.AndroidUnsupportedActions} AndroidUnsupportedActions
+             * @returns {SyncAction.SyncActionValue.AndroidUnsupportedActions & SyncAction.SyncActionValue.AndroidUnsupportedActions.$Shape} AndroidUnsupportedActions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -5394,20 +5570,31 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of an ArchiveChatAction.
+             * @typedef {Object} SyncAction.SyncActionValue.ArchiveChatAction.$Properties
+             * @property {boolean|null} [archived] ArchiveChatAction archived
+             * @property {SyncAction.SyncActionValue.SyncActionMessageRange.$Properties|null} [messageRange] ArchiveChatAction messageRange
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of an ArchiveChatAction.
              * @memberof SyncAction.SyncActionValue
              * @interface IArchiveChatAction
-             * @property {boolean|null} [archived] ArchiveChatAction archived
-             * @property {SyncAction.SyncActionValue.ISyncActionMessageRange|null} [messageRange] ArchiveChatAction messageRange
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @augments SyncAction.SyncActionValue.ArchiveChatAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.ArchiveChatAction.$Properties instead.
+             */
+
+            /**
+             * Shape of an ArchiveChatAction.
+             * @typedef {SyncAction.SyncActionValue.ArchiveChatAction.$Properties} SyncAction.SyncActionValue.ArchiveChatAction.$Shape
              */
 
             /**
              * Constructs a new ArchiveChatAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents an ArchiveChatAction.
-             * @implements IArchiveChatAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IArchiveChatAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.ArchiveChatAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function ArchiveChatAction(properties) {
@@ -5427,7 +5614,7 @@ $root.SyncAction = (function() {
 
             /**
              * ArchiveChatAction messageRange.
-             * @member {SyncAction.SyncActionValue.ISyncActionMessageRange|null|undefined} messageRange
+             * @member {SyncAction.SyncActionValue.SyncActionMessageRange.$Properties|null|undefined} messageRange
              * @memberof SyncAction.SyncActionValue.ArchiveChatAction
              * @instance
              */
@@ -5453,8 +5640,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.ArchiveChatAction
              * @static
-             * @param {SyncAction.SyncActionValue.IArchiveChatAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.ArchiveChatAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.ArchiveChatAction} ArchiveChatAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.ArchiveChatAction.$Shape): SyncAction.SyncActionValue.ArchiveChatAction & SyncAction.SyncActionValue.ArchiveChatAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.ArchiveChatAction.$Properties): SyncAction.SyncActionValue.ArchiveChatAction;
+             * }}
              */
             ArchiveChatAction.create = function create(properties) {
                 return new ArchiveChatAction(properties);
@@ -5465,7 +5656,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.ArchiveChatAction
              * @static
-             * @param {SyncAction.SyncActionValue.IArchiveChatAction} message ArchiveChatAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.ArchiveChatAction.$Properties} message ArchiveChatAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -5487,7 +5678,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.ArchiveChatAction
              * @static
-             * @param {SyncAction.SyncActionValue.IArchiveChatAction} message ArchiveChatAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.ArchiveChatAction.$Properties} message ArchiveChatAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -5502,7 +5693,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.ArchiveChatAction} ArchiveChatAction
+             * @returns {SyncAction.SyncActionValue.ArchiveChatAction & SyncAction.SyncActionValue.ArchiveChatAction.$Shape} ArchiveChatAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -5553,7 +5744,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.ArchiveChatAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.ArchiveChatAction} ArchiveChatAction
+             * @returns {SyncAction.SyncActionValue.ArchiveChatAction & SyncAction.SyncActionValue.ArchiveChatAction.$Shape} ArchiveChatAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -5679,19 +5870,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of an AutoOrganizeBusinessChatSetting.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IAutoOrganizeBusinessChatSetting
+             * @typedef {Object} SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting.$Properties
              * @property {boolean|null} [autoOrganize] AutoOrganizeBusinessChatSetting autoOrganize
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of an AutoOrganizeBusinessChatSetting.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IAutoOrganizeBusinessChatSetting
+             * @augments SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting.$Properties instead.
+             */
+
+            /**
+             * Shape of an AutoOrganizeBusinessChatSetting.
+             * @typedef {SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting.$Properties} SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting.$Shape
              */
 
             /**
              * Constructs a new AutoOrganizeBusinessChatSetting.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents an AutoOrganizeBusinessChatSetting.
-             * @implements IAutoOrganizeBusinessChatSetting
              * @constructor
-             * @param {SyncAction.SyncActionValue.IAutoOrganizeBusinessChatSetting=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AutoOrganizeBusinessChatSetting(properties) {
@@ -5723,8 +5925,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting
              * @static
-             * @param {SyncAction.SyncActionValue.IAutoOrganizeBusinessChatSetting=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting} AutoOrganizeBusinessChatSetting instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting.$Shape): SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting & SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting.$Properties): SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting;
+             * }}
              */
             AutoOrganizeBusinessChatSetting.create = function create(properties) {
                 return new AutoOrganizeBusinessChatSetting(properties);
@@ -5735,7 +5941,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting
              * @static
-             * @param {SyncAction.SyncActionValue.IAutoOrganizeBusinessChatSetting} message AutoOrganizeBusinessChatSetting message or plain object to encode
+             * @param {SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting.$Properties} message AutoOrganizeBusinessChatSetting message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -5755,7 +5961,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting
              * @static
-             * @param {SyncAction.SyncActionValue.IAutoOrganizeBusinessChatSetting} message AutoOrganizeBusinessChatSetting message or plain object to encode
+             * @param {SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting.$Properties} message AutoOrganizeBusinessChatSetting message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -5770,7 +5976,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting} AutoOrganizeBusinessChatSetting
+             * @returns {SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting & SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting.$Shape} AutoOrganizeBusinessChatSetting
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -5814,7 +6020,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting} AutoOrganizeBusinessChatSetting
+             * @returns {SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting & SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting.$Shape} AutoOrganizeBusinessChatSetting
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -5922,20 +6128,31 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of an AvatarUpdatedAction.
+             * @typedef {Object} SyncAction.SyncActionValue.AvatarUpdatedAction.$Properties
+             * @property {SyncAction.SyncActionValue.AvatarUpdatedAction.AvatarEventType|null} [eventType] AvatarUpdatedAction eventType
+             * @property {Array.<SyncAction.SyncActionValue.StickerAction.$Properties>|null} [recentAvatarStickers] AvatarUpdatedAction recentAvatarStickers
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of an AvatarUpdatedAction.
              * @memberof SyncAction.SyncActionValue
              * @interface IAvatarUpdatedAction
-             * @property {SyncAction.SyncActionValue.AvatarUpdatedAction.AvatarEventType|null} [eventType] AvatarUpdatedAction eventType
-             * @property {Array.<SyncAction.SyncActionValue.IStickerAction>|null} [recentAvatarStickers] AvatarUpdatedAction recentAvatarStickers
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @augments SyncAction.SyncActionValue.AvatarUpdatedAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.AvatarUpdatedAction.$Properties instead.
+             */
+
+            /**
+             * Shape of an AvatarUpdatedAction.
+             * @typedef {SyncAction.SyncActionValue.AvatarUpdatedAction.$Properties} SyncAction.SyncActionValue.AvatarUpdatedAction.$Shape
              */
 
             /**
              * Constructs a new AvatarUpdatedAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents an AvatarUpdatedAction.
-             * @implements IAvatarUpdatedAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IAvatarUpdatedAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.AvatarUpdatedAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AvatarUpdatedAction(properties) {
@@ -5956,7 +6173,7 @@ $root.SyncAction = (function() {
 
             /**
              * AvatarUpdatedAction recentAvatarStickers.
-             * @member {Array.<SyncAction.SyncActionValue.IStickerAction>} recentAvatarStickers
+             * @member {Array.<SyncAction.SyncActionValue.StickerAction.$Properties>} recentAvatarStickers
              * @memberof SyncAction.SyncActionValue.AvatarUpdatedAction
              * @instance
              */
@@ -5976,8 +6193,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.AvatarUpdatedAction
              * @static
-             * @param {SyncAction.SyncActionValue.IAvatarUpdatedAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.AvatarUpdatedAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.AvatarUpdatedAction} AvatarUpdatedAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.AvatarUpdatedAction.$Shape): SyncAction.SyncActionValue.AvatarUpdatedAction & SyncAction.SyncActionValue.AvatarUpdatedAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.AvatarUpdatedAction.$Properties): SyncAction.SyncActionValue.AvatarUpdatedAction;
+             * }}
              */
             AvatarUpdatedAction.create = function create(properties) {
                 return new AvatarUpdatedAction(properties);
@@ -5988,7 +6209,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.AvatarUpdatedAction
              * @static
-             * @param {SyncAction.SyncActionValue.IAvatarUpdatedAction} message AvatarUpdatedAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.AvatarUpdatedAction.$Properties} message AvatarUpdatedAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -6011,7 +6232,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.AvatarUpdatedAction
              * @static
-             * @param {SyncAction.SyncActionValue.IAvatarUpdatedAction} message AvatarUpdatedAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.AvatarUpdatedAction.$Properties} message AvatarUpdatedAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -6026,7 +6247,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.AvatarUpdatedAction} AvatarUpdatedAction
+             * @returns {SyncAction.SyncActionValue.AvatarUpdatedAction & SyncAction.SyncActionValue.AvatarUpdatedAction.$Shape} AvatarUpdatedAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -6078,7 +6299,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.AvatarUpdatedAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.AvatarUpdatedAction} AvatarUpdatedAction
+             * @returns {SyncAction.SyncActionValue.AvatarUpdatedAction & SyncAction.SyncActionValue.AvatarUpdatedAction.$Shape} AvatarUpdatedAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -6252,8 +6473,7 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a BizAISettingsNudgeAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IBizAISettingsNudgeAction
+             * @typedef {Object} SyncAction.SyncActionValue.BizAISettingsNudgeAction.$Properties
              * @property {SyncAction.SyncActionValue.BizAISettingsNudgeAction.BizAISettingsCategory|null} [category] BizAISettingsNudgeAction category
              * @property {number|Long|null} [version] BizAISettingsNudgeAction version
              * @property {number|Long|null} [updatedAtMs] BizAISettingsNudgeAction updatedAtMs
@@ -6261,12 +6481,24 @@ $root.SyncAction = (function() {
              */
 
             /**
+             * Properties of a BizAISettingsNudgeAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IBizAISettingsNudgeAction
+             * @augments SyncAction.SyncActionValue.BizAISettingsNudgeAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.BizAISettingsNudgeAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a BizAISettingsNudgeAction.
+             * @typedef {SyncAction.SyncActionValue.BizAISettingsNudgeAction.$Properties} SyncAction.SyncActionValue.BizAISettingsNudgeAction.$Shape
+             */
+
+            /**
              * Constructs a new BizAISettingsNudgeAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a BizAISettingsNudgeAction.
-             * @implements IBizAISettingsNudgeAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IBizAISettingsNudgeAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.BizAISettingsNudgeAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function BizAISettingsNudgeAction(properties) {
@@ -6326,8 +6558,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.BizAISettingsNudgeAction
              * @static
-             * @param {SyncAction.SyncActionValue.IBizAISettingsNudgeAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.BizAISettingsNudgeAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.BizAISettingsNudgeAction} BizAISettingsNudgeAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.BizAISettingsNudgeAction.$Shape): SyncAction.SyncActionValue.BizAISettingsNudgeAction & SyncAction.SyncActionValue.BizAISettingsNudgeAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.BizAISettingsNudgeAction.$Properties): SyncAction.SyncActionValue.BizAISettingsNudgeAction;
+             * }}
              */
             BizAISettingsNudgeAction.create = function create(properties) {
                 return new BizAISettingsNudgeAction(properties);
@@ -6338,7 +6574,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.BizAISettingsNudgeAction
              * @static
-             * @param {SyncAction.SyncActionValue.IBizAISettingsNudgeAction} message BizAISettingsNudgeAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.BizAISettingsNudgeAction.$Properties} message BizAISettingsNudgeAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -6362,7 +6598,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.BizAISettingsNudgeAction
              * @static
-             * @param {SyncAction.SyncActionValue.IBizAISettingsNudgeAction} message BizAISettingsNudgeAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.BizAISettingsNudgeAction.$Properties} message BizAISettingsNudgeAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -6377,7 +6613,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.BizAISettingsNudgeAction} BizAISettingsNudgeAction
+             * @returns {SyncAction.SyncActionValue.BizAISettingsNudgeAction & SyncAction.SyncActionValue.BizAISettingsNudgeAction.$Shape} BizAISettingsNudgeAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -6435,7 +6671,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.BizAISettingsNudgeAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.BizAISettingsNudgeAction} BizAISettingsNudgeAction
+             * @returns {SyncAction.SyncActionValue.BizAISettingsNudgeAction & SyncAction.SyncActionValue.BizAISettingsNudgeAction.$Shape} BizAISettingsNudgeAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -6648,19 +6884,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a BotWelcomeRequestAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IBotWelcomeRequestAction
+             * @typedef {Object} SyncAction.SyncActionValue.BotWelcomeRequestAction.$Properties
              * @property {boolean|null} [isSent] BotWelcomeRequestAction isSent
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a BotWelcomeRequestAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IBotWelcomeRequestAction
+             * @augments SyncAction.SyncActionValue.BotWelcomeRequestAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.BotWelcomeRequestAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a BotWelcomeRequestAction.
+             * @typedef {SyncAction.SyncActionValue.BotWelcomeRequestAction.$Properties} SyncAction.SyncActionValue.BotWelcomeRequestAction.$Shape
              */
 
             /**
              * Constructs a new BotWelcomeRequestAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a BotWelcomeRequestAction.
-             * @implements IBotWelcomeRequestAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IBotWelcomeRequestAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.BotWelcomeRequestAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function BotWelcomeRequestAction(properties) {
@@ -6692,8 +6939,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.BotWelcomeRequestAction
              * @static
-             * @param {SyncAction.SyncActionValue.IBotWelcomeRequestAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.BotWelcomeRequestAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.BotWelcomeRequestAction} BotWelcomeRequestAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.BotWelcomeRequestAction.$Shape): SyncAction.SyncActionValue.BotWelcomeRequestAction & SyncAction.SyncActionValue.BotWelcomeRequestAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.BotWelcomeRequestAction.$Properties): SyncAction.SyncActionValue.BotWelcomeRequestAction;
+             * }}
              */
             BotWelcomeRequestAction.create = function create(properties) {
                 return new BotWelcomeRequestAction(properties);
@@ -6704,7 +6955,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.BotWelcomeRequestAction
              * @static
-             * @param {SyncAction.SyncActionValue.IBotWelcomeRequestAction} message BotWelcomeRequestAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.BotWelcomeRequestAction.$Properties} message BotWelcomeRequestAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -6724,7 +6975,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.BotWelcomeRequestAction
              * @static
-             * @param {SyncAction.SyncActionValue.IBotWelcomeRequestAction} message BotWelcomeRequestAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.BotWelcomeRequestAction.$Properties} message BotWelcomeRequestAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -6739,7 +6990,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.BotWelcomeRequestAction} BotWelcomeRequestAction
+             * @returns {SyncAction.SyncActionValue.BotWelcomeRequestAction & SyncAction.SyncActionValue.BotWelcomeRequestAction.$Shape} BotWelcomeRequestAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -6783,7 +7034,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.BotWelcomeRequestAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.BotWelcomeRequestAction} BotWelcomeRequestAction
+             * @returns {SyncAction.SyncActionValue.BotWelcomeRequestAction & SyncAction.SyncActionValue.BotWelcomeRequestAction.$Shape} BotWelcomeRequestAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -6891,20 +7142,31 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a BroadcastListParticipant.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IBroadcastListParticipant
+             * @typedef {Object} SyncAction.SyncActionValue.BroadcastListParticipant.$Properties
              * @property {string|null} [lidJid] BroadcastListParticipant lidJid
              * @property {string|null} [pnJid] BroadcastListParticipant pnJid
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
+             * Properties of a BroadcastListParticipant.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IBroadcastListParticipant
+             * @augments SyncAction.SyncActionValue.BroadcastListParticipant.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.BroadcastListParticipant.$Properties instead.
+             */
+
+            /**
+             * Shape of a BroadcastListParticipant.
+             * @typedef {SyncAction.SyncActionValue.BroadcastListParticipant.$Properties} SyncAction.SyncActionValue.BroadcastListParticipant.$Shape
+             */
+
+            /**
              * Constructs a new BroadcastListParticipant.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a BroadcastListParticipant.
-             * @implements IBroadcastListParticipant
              * @constructor
-             * @param {SyncAction.SyncActionValue.IBroadcastListParticipant=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.BroadcastListParticipant.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function BroadcastListParticipant(properties) {
@@ -6950,8 +7212,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.BroadcastListParticipant
              * @static
-             * @param {SyncAction.SyncActionValue.IBroadcastListParticipant=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.BroadcastListParticipant.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.BroadcastListParticipant} BroadcastListParticipant instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.BroadcastListParticipant.$Shape): SyncAction.SyncActionValue.BroadcastListParticipant & SyncAction.SyncActionValue.BroadcastListParticipant.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.BroadcastListParticipant.$Properties): SyncAction.SyncActionValue.BroadcastListParticipant;
+             * }}
              */
             BroadcastListParticipant.create = function create(properties) {
                 return new BroadcastListParticipant(properties);
@@ -6962,7 +7228,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.BroadcastListParticipant
              * @static
-             * @param {SyncAction.SyncActionValue.IBroadcastListParticipant} message BroadcastListParticipant message or plain object to encode
+             * @param {SyncAction.SyncActionValue.BroadcastListParticipant.$Properties} message BroadcastListParticipant message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -6984,7 +7250,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.BroadcastListParticipant
              * @static
-             * @param {SyncAction.SyncActionValue.IBroadcastListParticipant} message BroadcastListParticipant message or plain object to encode
+             * @param {SyncAction.SyncActionValue.BroadcastListParticipant.$Properties} message BroadcastListParticipant message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -6999,7 +7265,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.BroadcastListParticipant} BroadcastListParticipant
+             * @returns {SyncAction.SyncActionValue.BroadcastListParticipant & SyncAction.SyncActionValue.BroadcastListParticipant.$Shape} BroadcastListParticipant
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -7050,7 +7316,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.BroadcastListParticipant
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.BroadcastListParticipant} BroadcastListParticipant
+             * @returns {SyncAction.SyncActionValue.BroadcastListParticipant & SyncAction.SyncActionValue.BroadcastListParticipant.$Shape} BroadcastListParticipant
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -7170,19 +7436,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a BusinessBroadcastAssociationAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IBusinessBroadcastAssociationAction
+             * @typedef {Object} SyncAction.SyncActionValue.BusinessBroadcastAssociationAction.$Properties
              * @property {boolean|null} [deleted] BusinessBroadcastAssociationAction deleted
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a BusinessBroadcastAssociationAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IBusinessBroadcastAssociationAction
+             * @augments SyncAction.SyncActionValue.BusinessBroadcastAssociationAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.BusinessBroadcastAssociationAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a BusinessBroadcastAssociationAction.
+             * @typedef {SyncAction.SyncActionValue.BusinessBroadcastAssociationAction.$Properties} SyncAction.SyncActionValue.BusinessBroadcastAssociationAction.$Shape
              */
 
             /**
              * Constructs a new BusinessBroadcastAssociationAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a BusinessBroadcastAssociationAction.
-             * @implements IBusinessBroadcastAssociationAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IBusinessBroadcastAssociationAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.BusinessBroadcastAssociationAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function BusinessBroadcastAssociationAction(properties) {
@@ -7214,8 +7491,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.BusinessBroadcastAssociationAction
              * @static
-             * @param {SyncAction.SyncActionValue.IBusinessBroadcastAssociationAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.BusinessBroadcastAssociationAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.BusinessBroadcastAssociationAction} BusinessBroadcastAssociationAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.BusinessBroadcastAssociationAction.$Shape): SyncAction.SyncActionValue.BusinessBroadcastAssociationAction & SyncAction.SyncActionValue.BusinessBroadcastAssociationAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.BusinessBroadcastAssociationAction.$Properties): SyncAction.SyncActionValue.BusinessBroadcastAssociationAction;
+             * }}
              */
             BusinessBroadcastAssociationAction.create = function create(properties) {
                 return new BusinessBroadcastAssociationAction(properties);
@@ -7226,7 +7507,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.BusinessBroadcastAssociationAction
              * @static
-             * @param {SyncAction.SyncActionValue.IBusinessBroadcastAssociationAction} message BusinessBroadcastAssociationAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.BusinessBroadcastAssociationAction.$Properties} message BusinessBroadcastAssociationAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -7246,7 +7527,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.BusinessBroadcastAssociationAction
              * @static
-             * @param {SyncAction.SyncActionValue.IBusinessBroadcastAssociationAction} message BusinessBroadcastAssociationAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.BusinessBroadcastAssociationAction.$Properties} message BusinessBroadcastAssociationAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -7261,7 +7542,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.BusinessBroadcastAssociationAction} BusinessBroadcastAssociationAction
+             * @returns {SyncAction.SyncActionValue.BusinessBroadcastAssociationAction & SyncAction.SyncActionValue.BusinessBroadcastAssociationAction.$Shape} BusinessBroadcastAssociationAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -7305,7 +7586,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.BusinessBroadcastAssociationAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.BusinessBroadcastAssociationAction} BusinessBroadcastAssociationAction
+             * @returns {SyncAction.SyncActionValue.BusinessBroadcastAssociationAction & SyncAction.SyncActionValue.BusinessBroadcastAssociationAction.$Shape} BusinessBroadcastAssociationAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -7413,8 +7694,7 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a BusinessBroadcastCampaignAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IBusinessBroadcastCampaignAction
+             * @typedef {Object} SyncAction.SyncActionValue.BusinessBroadcastCampaignAction.$Properties
              * @property {number|null} [deviceId] BusinessBroadcastCampaignAction deviceId
              * @property {string|null} [adId] BusinessBroadcastCampaignAction adId
              * @property {string|null} [name] BusinessBroadcastCampaignAction name
@@ -7428,12 +7708,24 @@ $root.SyncAction = (function() {
              */
 
             /**
+             * Properties of a BusinessBroadcastCampaignAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IBusinessBroadcastCampaignAction
+             * @augments SyncAction.SyncActionValue.BusinessBroadcastCampaignAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.BusinessBroadcastCampaignAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a BusinessBroadcastCampaignAction.
+             * @typedef {SyncAction.SyncActionValue.BusinessBroadcastCampaignAction.$Properties} SyncAction.SyncActionValue.BusinessBroadcastCampaignAction.$Shape
+             */
+
+            /**
              * Constructs a new BusinessBroadcastCampaignAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a BusinessBroadcastCampaignAction.
-             * @implements IBusinessBroadcastCampaignAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IBusinessBroadcastCampaignAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.BusinessBroadcastCampaignAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function BusinessBroadcastCampaignAction(properties) {
@@ -7577,8 +7869,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.BusinessBroadcastCampaignAction
              * @static
-             * @param {SyncAction.SyncActionValue.IBusinessBroadcastCampaignAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.BusinessBroadcastCampaignAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.BusinessBroadcastCampaignAction} BusinessBroadcastCampaignAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.BusinessBroadcastCampaignAction.$Shape): SyncAction.SyncActionValue.BusinessBroadcastCampaignAction & SyncAction.SyncActionValue.BusinessBroadcastCampaignAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.BusinessBroadcastCampaignAction.$Properties): SyncAction.SyncActionValue.BusinessBroadcastCampaignAction;
+             * }}
              */
             BusinessBroadcastCampaignAction.create = function create(properties) {
                 return new BusinessBroadcastCampaignAction(properties);
@@ -7589,7 +7885,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.BusinessBroadcastCampaignAction
              * @static
-             * @param {SyncAction.SyncActionValue.IBusinessBroadcastCampaignAction} message BusinessBroadcastCampaignAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.BusinessBroadcastCampaignAction.$Properties} message BusinessBroadcastCampaignAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -7625,7 +7921,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.BusinessBroadcastCampaignAction
              * @static
-             * @param {SyncAction.SyncActionValue.IBusinessBroadcastCampaignAction} message BusinessBroadcastCampaignAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.BusinessBroadcastCampaignAction.$Properties} message BusinessBroadcastCampaignAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -7640,7 +7936,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.BusinessBroadcastCampaignAction} BusinessBroadcastCampaignAction
+             * @returns {SyncAction.SyncActionValue.BusinessBroadcastCampaignAction & SyncAction.SyncActionValue.BusinessBroadcastCampaignAction.$Shape} BusinessBroadcastCampaignAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -7740,7 +8036,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.BusinessBroadcastCampaignAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.BusinessBroadcastCampaignAction} BusinessBroadcastCampaignAction
+             * @returns {SyncAction.SyncActionValue.BusinessBroadcastCampaignAction & SyncAction.SyncActionValue.BusinessBroadcastCampaignAction.$Shape} BusinessBroadcastCampaignAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -8018,8 +8314,7 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a BusinessBroadcastInsightsAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IBusinessBroadcastInsightsAction
+             * @typedef {Object} SyncAction.SyncActionValue.BusinessBroadcastInsightsAction.$Properties
              * @property {number|null} [recipientCount] BusinessBroadcastInsightsAction recipientCount
              * @property {number|null} [deliveredCount] BusinessBroadcastInsightsAction deliveredCount
              * @property {number|null} [readCount] BusinessBroadcastInsightsAction readCount
@@ -8029,12 +8324,24 @@ $root.SyncAction = (function() {
              */
 
             /**
+             * Properties of a BusinessBroadcastInsightsAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IBusinessBroadcastInsightsAction
+             * @augments SyncAction.SyncActionValue.BusinessBroadcastInsightsAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.BusinessBroadcastInsightsAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a BusinessBroadcastInsightsAction.
+             * @typedef {SyncAction.SyncActionValue.BusinessBroadcastInsightsAction.$Properties} SyncAction.SyncActionValue.BusinessBroadcastInsightsAction.$Shape
+             */
+
+            /**
              * Constructs a new BusinessBroadcastInsightsAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a BusinessBroadcastInsightsAction.
-             * @implements IBusinessBroadcastInsightsAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IBusinessBroadcastInsightsAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.BusinessBroadcastInsightsAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function BusinessBroadcastInsightsAction(properties) {
@@ -8122,8 +8429,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.BusinessBroadcastInsightsAction
              * @static
-             * @param {SyncAction.SyncActionValue.IBusinessBroadcastInsightsAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.BusinessBroadcastInsightsAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.BusinessBroadcastInsightsAction} BusinessBroadcastInsightsAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.BusinessBroadcastInsightsAction.$Shape): SyncAction.SyncActionValue.BusinessBroadcastInsightsAction & SyncAction.SyncActionValue.BusinessBroadcastInsightsAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.BusinessBroadcastInsightsAction.$Properties): SyncAction.SyncActionValue.BusinessBroadcastInsightsAction;
+             * }}
              */
             BusinessBroadcastInsightsAction.create = function create(properties) {
                 return new BusinessBroadcastInsightsAction(properties);
@@ -8134,7 +8445,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.BusinessBroadcastInsightsAction
              * @static
-             * @param {SyncAction.SyncActionValue.IBusinessBroadcastInsightsAction} message BusinessBroadcastInsightsAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.BusinessBroadcastInsightsAction.$Properties} message BusinessBroadcastInsightsAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -8162,7 +8473,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.BusinessBroadcastInsightsAction
              * @static
-             * @param {SyncAction.SyncActionValue.IBusinessBroadcastInsightsAction} message BusinessBroadcastInsightsAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.BusinessBroadcastInsightsAction.$Properties} message BusinessBroadcastInsightsAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -8177,7 +8488,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.BusinessBroadcastInsightsAction} BusinessBroadcastInsightsAction
+             * @returns {SyncAction.SyncActionValue.BusinessBroadcastInsightsAction & SyncAction.SyncActionValue.BusinessBroadcastInsightsAction.$Shape} BusinessBroadcastInsightsAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -8249,7 +8560,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.BusinessBroadcastInsightsAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.BusinessBroadcastInsightsAction} BusinessBroadcastInsightsAction
+             * @returns {SyncAction.SyncActionValue.BusinessBroadcastInsightsAction & SyncAction.SyncActionValue.BusinessBroadcastInsightsAction.$Shape} BusinessBroadcastInsightsAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -8405,10 +8716,9 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a BusinessBroadcastListAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IBusinessBroadcastListAction
+             * @typedef {Object} SyncAction.SyncActionValue.BusinessBroadcastListAction.$Properties
              * @property {boolean|null} [deleted] BusinessBroadcastListAction deleted
-             * @property {Array.<SyncAction.SyncActionValue.IBroadcastListParticipant>|null} [participants] BusinessBroadcastListAction participants
+             * @property {Array.<SyncAction.SyncActionValue.BroadcastListParticipant.$Properties>|null} [participants] BusinessBroadcastListAction participants
              * @property {string|null} [listName] BusinessBroadcastListAction listName
              * @property {Array.<string>|null} [labelIds] BusinessBroadcastListAction labelIds
              * @property {string|null} [audienceExpression] BusinessBroadcastListAction audienceExpression
@@ -8416,12 +8726,24 @@ $root.SyncAction = (function() {
              */
 
             /**
+             * Properties of a BusinessBroadcastListAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IBusinessBroadcastListAction
+             * @augments SyncAction.SyncActionValue.BusinessBroadcastListAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.BusinessBroadcastListAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a BusinessBroadcastListAction.
+             * @typedef {SyncAction.SyncActionValue.BusinessBroadcastListAction.$Properties} SyncAction.SyncActionValue.BusinessBroadcastListAction.$Shape
+             */
+
+            /**
              * Constructs a new BusinessBroadcastListAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a BusinessBroadcastListAction.
-             * @implements IBusinessBroadcastListAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IBusinessBroadcastListAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.BusinessBroadcastListAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function BusinessBroadcastListAction(properties) {
@@ -8443,7 +8765,7 @@ $root.SyncAction = (function() {
 
             /**
              * BusinessBroadcastListAction participants.
-             * @member {Array.<SyncAction.SyncActionValue.IBroadcastListParticipant>} participants
+             * @member {Array.<SyncAction.SyncActionValue.BroadcastListParticipant.$Properties>} participants
              * @memberof SyncAction.SyncActionValue.BusinessBroadcastListAction
              * @instance
              */
@@ -8499,8 +8821,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.BusinessBroadcastListAction
              * @static
-             * @param {SyncAction.SyncActionValue.IBusinessBroadcastListAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.BusinessBroadcastListAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.BusinessBroadcastListAction} BusinessBroadcastListAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.BusinessBroadcastListAction.$Shape): SyncAction.SyncActionValue.BusinessBroadcastListAction & SyncAction.SyncActionValue.BusinessBroadcastListAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.BusinessBroadcastListAction.$Properties): SyncAction.SyncActionValue.BusinessBroadcastListAction;
+             * }}
              */
             BusinessBroadcastListAction.create = function create(properties) {
                 return new BusinessBroadcastListAction(properties);
@@ -8511,7 +8837,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.BusinessBroadcastListAction
              * @static
-             * @param {SyncAction.SyncActionValue.IBusinessBroadcastListAction} message BusinessBroadcastListAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.BusinessBroadcastListAction.$Properties} message BusinessBroadcastListAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -8541,7 +8867,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.BusinessBroadcastListAction
              * @static
-             * @param {SyncAction.SyncActionValue.IBusinessBroadcastListAction} message BusinessBroadcastListAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.BusinessBroadcastListAction.$Properties} message BusinessBroadcastListAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -8556,7 +8882,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.BusinessBroadcastListAction} BusinessBroadcastListAction
+             * @returns {SyncAction.SyncActionValue.BusinessBroadcastListAction & SyncAction.SyncActionValue.BusinessBroadcastListAction.$Shape} BusinessBroadcastListAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -8630,7 +8956,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.BusinessBroadcastListAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.BusinessBroadcastListAction} BusinessBroadcastListAction
+             * @returns {SyncAction.SyncActionValue.BusinessBroadcastListAction & SyncAction.SyncActionValue.BusinessBroadcastListAction.$Shape} BusinessBroadcastListAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -8809,19 +9135,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a CallLogAction.
+             * @typedef {Object} SyncAction.SyncActionValue.CallLogAction.$Properties
+             * @property {SyncAction.CallLogRecord.$Properties|null} [callLogRecord] CallLogAction callLogRecord
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a CallLogAction.
              * @memberof SyncAction.SyncActionValue
              * @interface ICallLogAction
-             * @property {SyncAction.ICallLogRecord|null} [callLogRecord] CallLogAction callLogRecord
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @augments SyncAction.SyncActionValue.CallLogAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.CallLogAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a CallLogAction.
+             * @typedef {SyncAction.SyncActionValue.CallLogAction.$Properties} SyncAction.SyncActionValue.CallLogAction.$Shape
              */
 
             /**
              * Constructs a new CallLogAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a CallLogAction.
-             * @implements ICallLogAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.ICallLogAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.CallLogAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function CallLogAction(properties) {
@@ -8833,7 +9170,7 @@ $root.SyncAction = (function() {
 
             /**
              * CallLogAction callLogRecord.
-             * @member {SyncAction.ICallLogRecord|null|undefined} callLogRecord
+             * @member {SyncAction.CallLogRecord.$Properties|null|undefined} callLogRecord
              * @memberof SyncAction.SyncActionValue.CallLogAction
              * @instance
              */
@@ -8853,8 +9190,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.CallLogAction
              * @static
-             * @param {SyncAction.SyncActionValue.ICallLogAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.CallLogAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.CallLogAction} CallLogAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.CallLogAction.$Shape): SyncAction.SyncActionValue.CallLogAction & SyncAction.SyncActionValue.CallLogAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.CallLogAction.$Properties): SyncAction.SyncActionValue.CallLogAction;
+             * }}
              */
             CallLogAction.create = function create(properties) {
                 return new CallLogAction(properties);
@@ -8865,7 +9206,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.CallLogAction
              * @static
-             * @param {SyncAction.SyncActionValue.ICallLogAction} message CallLogAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.CallLogAction.$Properties} message CallLogAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -8885,7 +9226,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.CallLogAction
              * @static
-             * @param {SyncAction.SyncActionValue.ICallLogAction} message CallLogAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.CallLogAction.$Properties} message CallLogAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -8900,7 +9241,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.CallLogAction} CallLogAction
+             * @returns {SyncAction.SyncActionValue.CallLogAction & SyncAction.SyncActionValue.CallLogAction.$Shape} CallLogAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -8944,7 +9285,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.CallLogAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.CallLogAction} CallLogAction
+             * @returns {SyncAction.SyncActionValue.CallLogAction & SyncAction.SyncActionValue.CallLogAction.$Shape} CallLogAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -9058,19 +9399,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a ChatAssignmentAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IChatAssignmentAction
+             * @typedef {Object} SyncAction.SyncActionValue.ChatAssignmentAction.$Properties
              * @property {string|null} [deviceAgentID] ChatAssignmentAction deviceAgentID
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a ChatAssignmentAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IChatAssignmentAction
+             * @augments SyncAction.SyncActionValue.ChatAssignmentAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.ChatAssignmentAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a ChatAssignmentAction.
+             * @typedef {SyncAction.SyncActionValue.ChatAssignmentAction.$Properties} SyncAction.SyncActionValue.ChatAssignmentAction.$Shape
              */
 
             /**
              * Constructs a new ChatAssignmentAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a ChatAssignmentAction.
-             * @implements IChatAssignmentAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IChatAssignmentAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.ChatAssignmentAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function ChatAssignmentAction(properties) {
@@ -9102,8 +9454,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.ChatAssignmentAction
              * @static
-             * @param {SyncAction.SyncActionValue.IChatAssignmentAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.ChatAssignmentAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.ChatAssignmentAction} ChatAssignmentAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.ChatAssignmentAction.$Shape): SyncAction.SyncActionValue.ChatAssignmentAction & SyncAction.SyncActionValue.ChatAssignmentAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.ChatAssignmentAction.$Properties): SyncAction.SyncActionValue.ChatAssignmentAction;
+             * }}
              */
             ChatAssignmentAction.create = function create(properties) {
                 return new ChatAssignmentAction(properties);
@@ -9114,7 +9470,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.ChatAssignmentAction
              * @static
-             * @param {SyncAction.SyncActionValue.IChatAssignmentAction} message ChatAssignmentAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.ChatAssignmentAction.$Properties} message ChatAssignmentAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -9134,7 +9490,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.ChatAssignmentAction
              * @static
-             * @param {SyncAction.SyncActionValue.IChatAssignmentAction} message ChatAssignmentAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.ChatAssignmentAction.$Properties} message ChatAssignmentAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -9149,7 +9505,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.ChatAssignmentAction} ChatAssignmentAction
+             * @returns {SyncAction.SyncActionValue.ChatAssignmentAction & SyncAction.SyncActionValue.ChatAssignmentAction.$Shape} ChatAssignmentAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -9193,7 +9549,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.ChatAssignmentAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.ChatAssignmentAction} ChatAssignmentAction
+             * @returns {SyncAction.SyncActionValue.ChatAssignmentAction & SyncAction.SyncActionValue.ChatAssignmentAction.$Shape} ChatAssignmentAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -9301,19 +9657,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a ChatAssignmentOpenedStatusAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IChatAssignmentOpenedStatusAction
+             * @typedef {Object} SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction.$Properties
              * @property {boolean|null} [chatOpened] ChatAssignmentOpenedStatusAction chatOpened
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a ChatAssignmentOpenedStatusAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IChatAssignmentOpenedStatusAction
+             * @augments SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a ChatAssignmentOpenedStatusAction.
+             * @typedef {SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction.$Properties} SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction.$Shape
              */
 
             /**
              * Constructs a new ChatAssignmentOpenedStatusAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a ChatAssignmentOpenedStatusAction.
-             * @implements IChatAssignmentOpenedStatusAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IChatAssignmentOpenedStatusAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function ChatAssignmentOpenedStatusAction(properties) {
@@ -9345,8 +9712,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction
              * @static
-             * @param {SyncAction.SyncActionValue.IChatAssignmentOpenedStatusAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction} ChatAssignmentOpenedStatusAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction.$Shape): SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction & SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction.$Properties): SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction;
+             * }}
              */
             ChatAssignmentOpenedStatusAction.create = function create(properties) {
                 return new ChatAssignmentOpenedStatusAction(properties);
@@ -9357,7 +9728,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction
              * @static
-             * @param {SyncAction.SyncActionValue.IChatAssignmentOpenedStatusAction} message ChatAssignmentOpenedStatusAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction.$Properties} message ChatAssignmentOpenedStatusAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -9377,7 +9748,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction
              * @static
-             * @param {SyncAction.SyncActionValue.IChatAssignmentOpenedStatusAction} message ChatAssignmentOpenedStatusAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction.$Properties} message ChatAssignmentOpenedStatusAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -9392,7 +9763,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction} ChatAssignmentOpenedStatusAction
+             * @returns {SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction & SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction.$Shape} ChatAssignmentOpenedStatusAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -9436,7 +9807,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction} ChatAssignmentOpenedStatusAction
+             * @returns {SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction & SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction.$Shape} ChatAssignmentOpenedStatusAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -9544,19 +9915,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a ClearChatAction.
+             * @typedef {Object} SyncAction.SyncActionValue.ClearChatAction.$Properties
+             * @property {SyncAction.SyncActionValue.SyncActionMessageRange.$Properties|null} [messageRange] ClearChatAction messageRange
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a ClearChatAction.
              * @memberof SyncAction.SyncActionValue
              * @interface IClearChatAction
-             * @property {SyncAction.SyncActionValue.ISyncActionMessageRange|null} [messageRange] ClearChatAction messageRange
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @augments SyncAction.SyncActionValue.ClearChatAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.ClearChatAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a ClearChatAction.
+             * @typedef {SyncAction.SyncActionValue.ClearChatAction.$Properties} SyncAction.SyncActionValue.ClearChatAction.$Shape
              */
 
             /**
              * Constructs a new ClearChatAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a ClearChatAction.
-             * @implements IClearChatAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IClearChatAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.ClearChatAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function ClearChatAction(properties) {
@@ -9568,7 +9950,7 @@ $root.SyncAction = (function() {
 
             /**
              * ClearChatAction messageRange.
-             * @member {SyncAction.SyncActionValue.ISyncActionMessageRange|null|undefined} messageRange
+             * @member {SyncAction.SyncActionValue.SyncActionMessageRange.$Properties|null|undefined} messageRange
              * @memberof SyncAction.SyncActionValue.ClearChatAction
              * @instance
              */
@@ -9588,8 +9970,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.ClearChatAction
              * @static
-             * @param {SyncAction.SyncActionValue.IClearChatAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.ClearChatAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.ClearChatAction} ClearChatAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.ClearChatAction.$Shape): SyncAction.SyncActionValue.ClearChatAction & SyncAction.SyncActionValue.ClearChatAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.ClearChatAction.$Properties): SyncAction.SyncActionValue.ClearChatAction;
+             * }}
              */
             ClearChatAction.create = function create(properties) {
                 return new ClearChatAction(properties);
@@ -9600,7 +9986,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.ClearChatAction
              * @static
-             * @param {SyncAction.SyncActionValue.IClearChatAction} message ClearChatAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.ClearChatAction.$Properties} message ClearChatAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -9620,7 +10006,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.ClearChatAction
              * @static
-             * @param {SyncAction.SyncActionValue.IClearChatAction} message ClearChatAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.ClearChatAction.$Properties} message ClearChatAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -9635,7 +10021,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.ClearChatAction} ClearChatAction
+             * @returns {SyncAction.SyncActionValue.ClearChatAction & SyncAction.SyncActionValue.ClearChatAction.$Shape} ClearChatAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -9679,7 +10065,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.ClearChatAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.ClearChatAction} ClearChatAction
+             * @returns {SyncAction.SyncActionValue.ClearChatAction & SyncAction.SyncActionValue.ClearChatAction.$Shape} ClearChatAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -9793,8 +10179,7 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a ContactAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IContactAction
+             * @typedef {Object} SyncAction.SyncActionValue.ContactAction.$Properties
              * @property {string|null} [fullName] ContactAction fullName
              * @property {string|null} [firstName] ContactAction firstName
              * @property {string|null} [lidJid] ContactAction lidJid
@@ -9805,12 +10190,24 @@ $root.SyncAction = (function() {
              */
 
             /**
+             * Properties of a ContactAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IContactAction
+             * @augments SyncAction.SyncActionValue.ContactAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.ContactAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a ContactAction.
+             * @typedef {SyncAction.SyncActionValue.ContactAction.$Properties} SyncAction.SyncActionValue.ContactAction.$Shape
+             */
+
+            /**
              * Constructs a new ContactAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a ContactAction.
-             * @implements IContactAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IContactAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.ContactAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function ContactAction(properties) {
@@ -9912,8 +10309,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.ContactAction
              * @static
-             * @param {SyncAction.SyncActionValue.IContactAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.ContactAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.ContactAction} ContactAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.ContactAction.$Shape): SyncAction.SyncActionValue.ContactAction & SyncAction.SyncActionValue.ContactAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.ContactAction.$Properties): SyncAction.SyncActionValue.ContactAction;
+             * }}
              */
             ContactAction.create = function create(properties) {
                 return new ContactAction(properties);
@@ -9924,7 +10325,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.ContactAction
              * @static
-             * @param {SyncAction.SyncActionValue.IContactAction} message ContactAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.ContactAction.$Properties} message ContactAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -9954,7 +10355,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.ContactAction
              * @static
-             * @param {SyncAction.SyncActionValue.IContactAction} message ContactAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.ContactAction.$Properties} message ContactAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -9969,7 +10370,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.ContactAction} ContactAction
+             * @returns {SyncAction.SyncActionValue.ContactAction & SyncAction.SyncActionValue.ContactAction.$Shape} ContactAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -10048,7 +10449,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.ContactAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.ContactAction} ContactAction
+             * @returns {SyncAction.SyncActionValue.ContactAction & SyncAction.SyncActionValue.ContactAction.$Shape} ContactAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -10216,19 +10617,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a CtwaPerCustomerDataSharingAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface ICtwaPerCustomerDataSharingAction
+             * @typedef {Object} SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction.$Properties
              * @property {boolean|null} [isCtwaPerCustomerDataSharingEnabled] CtwaPerCustomerDataSharingAction isCtwaPerCustomerDataSharingEnabled
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a CtwaPerCustomerDataSharingAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface ICtwaPerCustomerDataSharingAction
+             * @augments SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a CtwaPerCustomerDataSharingAction.
+             * @typedef {SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction.$Properties} SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction.$Shape
              */
 
             /**
              * Constructs a new CtwaPerCustomerDataSharingAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a CtwaPerCustomerDataSharingAction.
-             * @implements ICtwaPerCustomerDataSharingAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.ICtwaPerCustomerDataSharingAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function CtwaPerCustomerDataSharingAction(properties) {
@@ -10260,8 +10672,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction
              * @static
-             * @param {SyncAction.SyncActionValue.ICtwaPerCustomerDataSharingAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction} CtwaPerCustomerDataSharingAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction.$Shape): SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction & SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction.$Properties): SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction;
+             * }}
              */
             CtwaPerCustomerDataSharingAction.create = function create(properties) {
                 return new CtwaPerCustomerDataSharingAction(properties);
@@ -10272,7 +10688,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction
              * @static
-             * @param {SyncAction.SyncActionValue.ICtwaPerCustomerDataSharingAction} message CtwaPerCustomerDataSharingAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction.$Properties} message CtwaPerCustomerDataSharingAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -10292,7 +10708,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction
              * @static
-             * @param {SyncAction.SyncActionValue.ICtwaPerCustomerDataSharingAction} message CtwaPerCustomerDataSharingAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction.$Properties} message CtwaPerCustomerDataSharingAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -10307,7 +10723,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction} CtwaPerCustomerDataSharingAction
+             * @returns {SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction & SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction.$Shape} CtwaPerCustomerDataSharingAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -10351,7 +10767,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction} CtwaPerCustomerDataSharingAction
+             * @returns {SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction & SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction.$Shape} CtwaPerCustomerDataSharingAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -10459,22 +10875,33 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a CustomPaymentMethod.
-             * @memberof SyncAction.SyncActionValue
-             * @interface ICustomPaymentMethod
+             * @typedef {Object} SyncAction.SyncActionValue.CustomPaymentMethod.$Properties
              * @property {string|null} [credentialId] CustomPaymentMethod credentialId
              * @property {string|null} [country] CustomPaymentMethod country
              * @property {string|null} [type] CustomPaymentMethod type
-             * @property {Array.<SyncAction.SyncActionValue.ICustomPaymentMethodMetadata>|null} [metadata] CustomPaymentMethod metadata
+             * @property {Array.<SyncAction.SyncActionValue.CustomPaymentMethodMetadata.$Properties>|null} [metadata] CustomPaymentMethod metadata
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a CustomPaymentMethod.
+             * @memberof SyncAction.SyncActionValue
+             * @interface ICustomPaymentMethod
+             * @augments SyncAction.SyncActionValue.CustomPaymentMethod.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.CustomPaymentMethod.$Properties instead.
+             */
+
+            /**
+             * Shape of a CustomPaymentMethod.
+             * @typedef {SyncAction.SyncActionValue.CustomPaymentMethod.$Properties} SyncAction.SyncActionValue.CustomPaymentMethod.$Shape
              */
 
             /**
              * Constructs a new CustomPaymentMethod.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a CustomPaymentMethod.
-             * @implements ICustomPaymentMethod
              * @constructor
-             * @param {SyncAction.SyncActionValue.ICustomPaymentMethod=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.CustomPaymentMethod.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function CustomPaymentMethod(properties) {
@@ -10511,7 +10938,7 @@ $root.SyncAction = (function() {
 
             /**
              * CustomPaymentMethod metadata.
-             * @member {Array.<SyncAction.SyncActionValue.ICustomPaymentMethodMetadata>} metadata
+             * @member {Array.<SyncAction.SyncActionValue.CustomPaymentMethodMetadata.$Properties>} metadata
              * @memberof SyncAction.SyncActionValue.CustomPaymentMethod
              * @instance
              */
@@ -10543,8 +10970,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.CustomPaymentMethod
              * @static
-             * @param {SyncAction.SyncActionValue.ICustomPaymentMethod=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.CustomPaymentMethod.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.CustomPaymentMethod} CustomPaymentMethod instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.CustomPaymentMethod.$Shape): SyncAction.SyncActionValue.CustomPaymentMethod & SyncAction.SyncActionValue.CustomPaymentMethod.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.CustomPaymentMethod.$Properties): SyncAction.SyncActionValue.CustomPaymentMethod;
+             * }}
              */
             CustomPaymentMethod.create = function create(properties) {
                 return new CustomPaymentMethod(properties);
@@ -10555,7 +10986,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.CustomPaymentMethod
              * @static
-             * @param {SyncAction.SyncActionValue.ICustomPaymentMethod} message CustomPaymentMethod message or plain object to encode
+             * @param {SyncAction.SyncActionValue.CustomPaymentMethod.$Properties} message CustomPaymentMethod message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -10582,7 +11013,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.CustomPaymentMethod
              * @static
-             * @param {SyncAction.SyncActionValue.ICustomPaymentMethod} message CustomPaymentMethod message or plain object to encode
+             * @param {SyncAction.SyncActionValue.CustomPaymentMethod.$Properties} message CustomPaymentMethod message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -10597,7 +11028,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.CustomPaymentMethod} CustomPaymentMethod
+             * @returns {SyncAction.SyncActionValue.CustomPaymentMethod & SyncAction.SyncActionValue.CustomPaymentMethod.$Shape} CustomPaymentMethod
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -10663,7 +11094,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.CustomPaymentMethod
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.CustomPaymentMethod} CustomPaymentMethod
+             * @returns {SyncAction.SyncActionValue.CustomPaymentMethod & SyncAction.SyncActionValue.CustomPaymentMethod.$Shape} CustomPaymentMethod
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -10821,20 +11252,31 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a CustomPaymentMethodMetadata.
-             * @memberof SyncAction.SyncActionValue
-             * @interface ICustomPaymentMethodMetadata
+             * @typedef {Object} SyncAction.SyncActionValue.CustomPaymentMethodMetadata.$Properties
              * @property {string|null} [key] CustomPaymentMethodMetadata key
              * @property {string|null} [value] CustomPaymentMethodMetadata value
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
+             * Properties of a CustomPaymentMethodMetadata.
+             * @memberof SyncAction.SyncActionValue
+             * @interface ICustomPaymentMethodMetadata
+             * @augments SyncAction.SyncActionValue.CustomPaymentMethodMetadata.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.CustomPaymentMethodMetadata.$Properties instead.
+             */
+
+            /**
+             * Shape of a CustomPaymentMethodMetadata.
+             * @typedef {SyncAction.SyncActionValue.CustomPaymentMethodMetadata.$Properties} SyncAction.SyncActionValue.CustomPaymentMethodMetadata.$Shape
+             */
+
+            /**
              * Constructs a new CustomPaymentMethodMetadata.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a CustomPaymentMethodMetadata.
-             * @implements ICustomPaymentMethodMetadata
              * @constructor
-             * @param {SyncAction.SyncActionValue.ICustomPaymentMethodMetadata=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.CustomPaymentMethodMetadata.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function CustomPaymentMethodMetadata(properties) {
@@ -10880,8 +11322,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.CustomPaymentMethodMetadata
              * @static
-             * @param {SyncAction.SyncActionValue.ICustomPaymentMethodMetadata=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.CustomPaymentMethodMetadata.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.CustomPaymentMethodMetadata} CustomPaymentMethodMetadata instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.CustomPaymentMethodMetadata.$Shape): SyncAction.SyncActionValue.CustomPaymentMethodMetadata & SyncAction.SyncActionValue.CustomPaymentMethodMetadata.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.CustomPaymentMethodMetadata.$Properties): SyncAction.SyncActionValue.CustomPaymentMethodMetadata;
+             * }}
              */
             CustomPaymentMethodMetadata.create = function create(properties) {
                 return new CustomPaymentMethodMetadata(properties);
@@ -10892,7 +11338,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.CustomPaymentMethodMetadata
              * @static
-             * @param {SyncAction.SyncActionValue.ICustomPaymentMethodMetadata} message CustomPaymentMethodMetadata message or plain object to encode
+             * @param {SyncAction.SyncActionValue.CustomPaymentMethodMetadata.$Properties} message CustomPaymentMethodMetadata message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -10914,7 +11360,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.CustomPaymentMethodMetadata
              * @static
-             * @param {SyncAction.SyncActionValue.ICustomPaymentMethodMetadata} message CustomPaymentMethodMetadata message or plain object to encode
+             * @param {SyncAction.SyncActionValue.CustomPaymentMethodMetadata.$Properties} message CustomPaymentMethodMetadata message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -10929,7 +11375,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.CustomPaymentMethodMetadata} CustomPaymentMethodMetadata
+             * @returns {SyncAction.SyncActionValue.CustomPaymentMethodMetadata & SyncAction.SyncActionValue.CustomPaymentMethodMetadata.$Shape} CustomPaymentMethodMetadata
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -10980,7 +11426,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.CustomPaymentMethodMetadata
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.CustomPaymentMethodMetadata} CustomPaymentMethodMetadata
+             * @returns {SyncAction.SyncActionValue.CustomPaymentMethodMetadata & SyncAction.SyncActionValue.CustomPaymentMethodMetadata.$Shape} CustomPaymentMethodMetadata
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -11100,19 +11546,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a CustomPaymentMethodsAction.
+             * @typedef {Object} SyncAction.SyncActionValue.CustomPaymentMethodsAction.$Properties
+             * @property {Array.<SyncAction.SyncActionValue.CustomPaymentMethod.$Properties>|null} [customPaymentMethods] CustomPaymentMethodsAction customPaymentMethods
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a CustomPaymentMethodsAction.
              * @memberof SyncAction.SyncActionValue
              * @interface ICustomPaymentMethodsAction
-             * @property {Array.<SyncAction.SyncActionValue.ICustomPaymentMethod>|null} [customPaymentMethods] CustomPaymentMethodsAction customPaymentMethods
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @augments SyncAction.SyncActionValue.CustomPaymentMethodsAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.CustomPaymentMethodsAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a CustomPaymentMethodsAction.
+             * @typedef {SyncAction.SyncActionValue.CustomPaymentMethodsAction.$Properties} SyncAction.SyncActionValue.CustomPaymentMethodsAction.$Shape
              */
 
             /**
              * Constructs a new CustomPaymentMethodsAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a CustomPaymentMethodsAction.
-             * @implements ICustomPaymentMethodsAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.ICustomPaymentMethodsAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.CustomPaymentMethodsAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function CustomPaymentMethodsAction(properties) {
@@ -11125,7 +11582,7 @@ $root.SyncAction = (function() {
 
             /**
              * CustomPaymentMethodsAction customPaymentMethods.
-             * @member {Array.<SyncAction.SyncActionValue.ICustomPaymentMethod>} customPaymentMethods
+             * @member {Array.<SyncAction.SyncActionValue.CustomPaymentMethod.$Properties>} customPaymentMethods
              * @memberof SyncAction.SyncActionValue.CustomPaymentMethodsAction
              * @instance
              */
@@ -11136,8 +11593,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.CustomPaymentMethodsAction
              * @static
-             * @param {SyncAction.SyncActionValue.ICustomPaymentMethodsAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.CustomPaymentMethodsAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.CustomPaymentMethodsAction} CustomPaymentMethodsAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.CustomPaymentMethodsAction.$Shape): SyncAction.SyncActionValue.CustomPaymentMethodsAction & SyncAction.SyncActionValue.CustomPaymentMethodsAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.CustomPaymentMethodsAction.$Properties): SyncAction.SyncActionValue.CustomPaymentMethodsAction;
+             * }}
              */
             CustomPaymentMethodsAction.create = function create(properties) {
                 return new CustomPaymentMethodsAction(properties);
@@ -11148,7 +11609,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.CustomPaymentMethodsAction
              * @static
-             * @param {SyncAction.SyncActionValue.ICustomPaymentMethodsAction} message CustomPaymentMethodsAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.CustomPaymentMethodsAction.$Properties} message CustomPaymentMethodsAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -11169,7 +11630,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.CustomPaymentMethodsAction
              * @static
-             * @param {SyncAction.SyncActionValue.ICustomPaymentMethodsAction} message CustomPaymentMethodsAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.CustomPaymentMethodsAction.$Properties} message CustomPaymentMethodsAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -11184,7 +11645,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.CustomPaymentMethodsAction} CustomPaymentMethodsAction
+             * @returns {SyncAction.SyncActionValue.CustomPaymentMethodsAction & SyncAction.SyncActionValue.CustomPaymentMethodsAction.$Shape} CustomPaymentMethodsAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -11229,7 +11690,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.CustomPaymentMethodsAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.CustomPaymentMethodsAction} CustomPaymentMethodsAction
+             * @returns {SyncAction.SyncActionValue.CustomPaymentMethodsAction & SyncAction.SyncActionValue.CustomPaymentMethodsAction.$Shape} CustomPaymentMethodsAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -11350,8 +11811,7 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a CustomerDataAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface ICustomerDataAction
+             * @typedef {Object} SyncAction.SyncActionValue.CustomerDataAction.$Properties
              * @property {string|null} [chatJid] CustomerDataAction chatJid
              * @property {number|null} [contactType] CustomerDataAction contactType
              * @property {string|null} [email] CustomerDataAction email
@@ -11367,12 +11827,24 @@ $root.SyncAction = (function() {
              */
 
             /**
+             * Properties of a CustomerDataAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface ICustomerDataAction
+             * @augments SyncAction.SyncActionValue.CustomerDataAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.CustomerDataAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a CustomerDataAction.
+             * @typedef {SyncAction.SyncActionValue.CustomerDataAction.$Properties} SyncAction.SyncActionValue.CustomerDataAction.$Shape
+             */
+
+            /**
              * Constructs a new CustomerDataAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a CustomerDataAction.
-             * @implements ICustomerDataAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.ICustomerDataAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.CustomerDataAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function CustomerDataAction(properties) {
@@ -11544,8 +12016,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.CustomerDataAction
              * @static
-             * @param {SyncAction.SyncActionValue.ICustomerDataAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.CustomerDataAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.CustomerDataAction} CustomerDataAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.CustomerDataAction.$Shape): SyncAction.SyncActionValue.CustomerDataAction & SyncAction.SyncActionValue.CustomerDataAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.CustomerDataAction.$Properties): SyncAction.SyncActionValue.CustomerDataAction;
+             * }}
              */
             CustomerDataAction.create = function create(properties) {
                 return new CustomerDataAction(properties);
@@ -11556,7 +12032,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.CustomerDataAction
              * @static
-             * @param {SyncAction.SyncActionValue.ICustomerDataAction} message CustomerDataAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.CustomerDataAction.$Properties} message CustomerDataAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -11596,7 +12072,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.CustomerDataAction
              * @static
-             * @param {SyncAction.SyncActionValue.ICustomerDataAction} message CustomerDataAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.CustomerDataAction.$Properties} message CustomerDataAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -11611,7 +12087,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.CustomerDataAction} CustomerDataAction
+             * @returns {SyncAction.SyncActionValue.CustomerDataAction & SyncAction.SyncActionValue.CustomerDataAction.$Shape} CustomerDataAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -11725,7 +12201,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.CustomerDataAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.CustomerDataAction} CustomerDataAction
+             * @returns {SyncAction.SyncActionValue.CustomerDataAction & SyncAction.SyncActionValue.CustomerDataAction.$Shape} CustomerDataAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -11993,19 +12469,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a DeleteChatAction.
+             * @typedef {Object} SyncAction.SyncActionValue.DeleteChatAction.$Properties
+             * @property {SyncAction.SyncActionValue.SyncActionMessageRange.$Properties|null} [messageRange] DeleteChatAction messageRange
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a DeleteChatAction.
              * @memberof SyncAction.SyncActionValue
              * @interface IDeleteChatAction
-             * @property {SyncAction.SyncActionValue.ISyncActionMessageRange|null} [messageRange] DeleteChatAction messageRange
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @augments SyncAction.SyncActionValue.DeleteChatAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.DeleteChatAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a DeleteChatAction.
+             * @typedef {SyncAction.SyncActionValue.DeleteChatAction.$Properties} SyncAction.SyncActionValue.DeleteChatAction.$Shape
              */
 
             /**
              * Constructs a new DeleteChatAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a DeleteChatAction.
-             * @implements IDeleteChatAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IDeleteChatAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.DeleteChatAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function DeleteChatAction(properties) {
@@ -12017,7 +12504,7 @@ $root.SyncAction = (function() {
 
             /**
              * DeleteChatAction messageRange.
-             * @member {SyncAction.SyncActionValue.ISyncActionMessageRange|null|undefined} messageRange
+             * @member {SyncAction.SyncActionValue.SyncActionMessageRange.$Properties|null|undefined} messageRange
              * @memberof SyncAction.SyncActionValue.DeleteChatAction
              * @instance
              */
@@ -12037,8 +12524,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.DeleteChatAction
              * @static
-             * @param {SyncAction.SyncActionValue.IDeleteChatAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.DeleteChatAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.DeleteChatAction} DeleteChatAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.DeleteChatAction.$Shape): SyncAction.SyncActionValue.DeleteChatAction & SyncAction.SyncActionValue.DeleteChatAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.DeleteChatAction.$Properties): SyncAction.SyncActionValue.DeleteChatAction;
+             * }}
              */
             DeleteChatAction.create = function create(properties) {
                 return new DeleteChatAction(properties);
@@ -12049,7 +12540,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.DeleteChatAction
              * @static
-             * @param {SyncAction.SyncActionValue.IDeleteChatAction} message DeleteChatAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.DeleteChatAction.$Properties} message DeleteChatAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -12069,7 +12560,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.DeleteChatAction
              * @static
-             * @param {SyncAction.SyncActionValue.IDeleteChatAction} message DeleteChatAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.DeleteChatAction.$Properties} message DeleteChatAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -12084,7 +12575,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.DeleteChatAction} DeleteChatAction
+             * @returns {SyncAction.SyncActionValue.DeleteChatAction & SyncAction.SyncActionValue.DeleteChatAction.$Shape} DeleteChatAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -12128,7 +12619,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.DeleteChatAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.DeleteChatAction} DeleteChatAction
+             * @returns {SyncAction.SyncActionValue.DeleteChatAction & SyncAction.SyncActionValue.DeleteChatAction.$Shape} DeleteChatAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -12242,20 +12733,31 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a DeleteIndividualCallLogAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IDeleteIndividualCallLogAction
+             * @typedef {Object} SyncAction.SyncActionValue.DeleteIndividualCallLogAction.$Properties
              * @property {string|null} [peerJid] DeleteIndividualCallLogAction peerJid
              * @property {boolean|null} [isIncoming] DeleteIndividualCallLogAction isIncoming
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
+             * Properties of a DeleteIndividualCallLogAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IDeleteIndividualCallLogAction
+             * @augments SyncAction.SyncActionValue.DeleteIndividualCallLogAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.DeleteIndividualCallLogAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a DeleteIndividualCallLogAction.
+             * @typedef {SyncAction.SyncActionValue.DeleteIndividualCallLogAction.$Properties} SyncAction.SyncActionValue.DeleteIndividualCallLogAction.$Shape
+             */
+
+            /**
              * Constructs a new DeleteIndividualCallLogAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a DeleteIndividualCallLogAction.
-             * @implements IDeleteIndividualCallLogAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IDeleteIndividualCallLogAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.DeleteIndividualCallLogAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function DeleteIndividualCallLogAction(properties) {
@@ -12301,8 +12803,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.DeleteIndividualCallLogAction
              * @static
-             * @param {SyncAction.SyncActionValue.IDeleteIndividualCallLogAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.DeleteIndividualCallLogAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.DeleteIndividualCallLogAction} DeleteIndividualCallLogAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.DeleteIndividualCallLogAction.$Shape): SyncAction.SyncActionValue.DeleteIndividualCallLogAction & SyncAction.SyncActionValue.DeleteIndividualCallLogAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.DeleteIndividualCallLogAction.$Properties): SyncAction.SyncActionValue.DeleteIndividualCallLogAction;
+             * }}
              */
             DeleteIndividualCallLogAction.create = function create(properties) {
                 return new DeleteIndividualCallLogAction(properties);
@@ -12313,7 +12819,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.DeleteIndividualCallLogAction
              * @static
-             * @param {SyncAction.SyncActionValue.IDeleteIndividualCallLogAction} message DeleteIndividualCallLogAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.DeleteIndividualCallLogAction.$Properties} message DeleteIndividualCallLogAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -12335,7 +12841,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.DeleteIndividualCallLogAction
              * @static
-             * @param {SyncAction.SyncActionValue.IDeleteIndividualCallLogAction} message DeleteIndividualCallLogAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.DeleteIndividualCallLogAction.$Properties} message DeleteIndividualCallLogAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -12350,7 +12856,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.DeleteIndividualCallLogAction} DeleteIndividualCallLogAction
+             * @returns {SyncAction.SyncActionValue.DeleteIndividualCallLogAction & SyncAction.SyncActionValue.DeleteIndividualCallLogAction.$Shape} DeleteIndividualCallLogAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -12401,7 +12907,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.DeleteIndividualCallLogAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.DeleteIndividualCallLogAction} DeleteIndividualCallLogAction
+             * @returns {SyncAction.SyncActionValue.DeleteIndividualCallLogAction & SyncAction.SyncActionValue.DeleteIndividualCallLogAction.$Shape} DeleteIndividualCallLogAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -12521,20 +13027,31 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a DeleteMessageForMeAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IDeleteMessageForMeAction
+             * @typedef {Object} SyncAction.SyncActionValue.DeleteMessageForMeAction.$Properties
              * @property {boolean|null} [deleteMedia] DeleteMessageForMeAction deleteMedia
              * @property {number|Long|null} [messageTimestamp] DeleteMessageForMeAction messageTimestamp
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
+             * Properties of a DeleteMessageForMeAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IDeleteMessageForMeAction
+             * @augments SyncAction.SyncActionValue.DeleteMessageForMeAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.DeleteMessageForMeAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a DeleteMessageForMeAction.
+             * @typedef {SyncAction.SyncActionValue.DeleteMessageForMeAction.$Properties} SyncAction.SyncActionValue.DeleteMessageForMeAction.$Shape
+             */
+
+            /**
              * Constructs a new DeleteMessageForMeAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a DeleteMessageForMeAction.
-             * @implements IDeleteMessageForMeAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IDeleteMessageForMeAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.DeleteMessageForMeAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function DeleteMessageForMeAction(properties) {
@@ -12580,8 +13097,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.DeleteMessageForMeAction
              * @static
-             * @param {SyncAction.SyncActionValue.IDeleteMessageForMeAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.DeleteMessageForMeAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.DeleteMessageForMeAction} DeleteMessageForMeAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.DeleteMessageForMeAction.$Shape): SyncAction.SyncActionValue.DeleteMessageForMeAction & SyncAction.SyncActionValue.DeleteMessageForMeAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.DeleteMessageForMeAction.$Properties): SyncAction.SyncActionValue.DeleteMessageForMeAction;
+             * }}
              */
             DeleteMessageForMeAction.create = function create(properties) {
                 return new DeleteMessageForMeAction(properties);
@@ -12592,7 +13113,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.DeleteMessageForMeAction
              * @static
-             * @param {SyncAction.SyncActionValue.IDeleteMessageForMeAction} message DeleteMessageForMeAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.DeleteMessageForMeAction.$Properties} message DeleteMessageForMeAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -12614,7 +13135,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.DeleteMessageForMeAction
              * @static
-             * @param {SyncAction.SyncActionValue.IDeleteMessageForMeAction} message DeleteMessageForMeAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.DeleteMessageForMeAction.$Properties} message DeleteMessageForMeAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -12629,7 +13150,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.DeleteMessageForMeAction} DeleteMessageForMeAction
+             * @returns {SyncAction.SyncActionValue.DeleteMessageForMeAction & SyncAction.SyncActionValue.DeleteMessageForMeAction.$Shape} DeleteMessageForMeAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -12680,7 +13201,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.DeleteMessageForMeAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.DeleteMessageForMeAction} DeleteMessageForMeAction
+             * @returns {SyncAction.SyncActionValue.DeleteMessageForMeAction & SyncAction.SyncActionValue.DeleteMessageForMeAction.$Shape} DeleteMessageForMeAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -12810,19 +13331,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a DetectedOutcomesStatusAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IDetectedOutcomesStatusAction
+             * @typedef {Object} SyncAction.SyncActionValue.DetectedOutcomesStatusAction.$Properties
              * @property {boolean|null} [isEnabled] DetectedOutcomesStatusAction isEnabled
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a DetectedOutcomesStatusAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IDetectedOutcomesStatusAction
+             * @augments SyncAction.SyncActionValue.DetectedOutcomesStatusAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.DetectedOutcomesStatusAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a DetectedOutcomesStatusAction.
+             * @typedef {SyncAction.SyncActionValue.DetectedOutcomesStatusAction.$Properties} SyncAction.SyncActionValue.DetectedOutcomesStatusAction.$Shape
              */
 
             /**
              * Constructs a new DetectedOutcomesStatusAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a DetectedOutcomesStatusAction.
-             * @implements IDetectedOutcomesStatusAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IDetectedOutcomesStatusAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.DetectedOutcomesStatusAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function DetectedOutcomesStatusAction(properties) {
@@ -12854,8 +13386,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.DetectedOutcomesStatusAction
              * @static
-             * @param {SyncAction.SyncActionValue.IDetectedOutcomesStatusAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.DetectedOutcomesStatusAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.DetectedOutcomesStatusAction} DetectedOutcomesStatusAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.DetectedOutcomesStatusAction.$Shape): SyncAction.SyncActionValue.DetectedOutcomesStatusAction & SyncAction.SyncActionValue.DetectedOutcomesStatusAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.DetectedOutcomesStatusAction.$Properties): SyncAction.SyncActionValue.DetectedOutcomesStatusAction;
+             * }}
              */
             DetectedOutcomesStatusAction.create = function create(properties) {
                 return new DetectedOutcomesStatusAction(properties);
@@ -12866,7 +13402,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.DetectedOutcomesStatusAction
              * @static
-             * @param {SyncAction.SyncActionValue.IDetectedOutcomesStatusAction} message DetectedOutcomesStatusAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.DetectedOutcomesStatusAction.$Properties} message DetectedOutcomesStatusAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -12886,7 +13422,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.DetectedOutcomesStatusAction
              * @static
-             * @param {SyncAction.SyncActionValue.IDetectedOutcomesStatusAction} message DetectedOutcomesStatusAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.DetectedOutcomesStatusAction.$Properties} message DetectedOutcomesStatusAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -12901,7 +13437,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.DetectedOutcomesStatusAction} DetectedOutcomesStatusAction
+             * @returns {SyncAction.SyncActionValue.DetectedOutcomesStatusAction & SyncAction.SyncActionValue.DetectedOutcomesStatusAction.$Shape} DetectedOutcomesStatusAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -12945,7 +13481,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.DetectedOutcomesStatusAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.DetectedOutcomesStatusAction} DetectedOutcomesStatusAction
+             * @returns {SyncAction.SyncActionValue.DetectedOutcomesStatusAction & SyncAction.SyncActionValue.DetectedOutcomesStatusAction.$Shape} DetectedOutcomesStatusAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -13053,19 +13589,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of an ExternalWebBetaAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IExternalWebBetaAction
+             * @typedef {Object} SyncAction.SyncActionValue.ExternalWebBetaAction.$Properties
              * @property {boolean|null} [isOptIn] ExternalWebBetaAction isOptIn
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of an ExternalWebBetaAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IExternalWebBetaAction
+             * @augments SyncAction.SyncActionValue.ExternalWebBetaAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.ExternalWebBetaAction.$Properties instead.
+             */
+
+            /**
+             * Shape of an ExternalWebBetaAction.
+             * @typedef {SyncAction.SyncActionValue.ExternalWebBetaAction.$Properties} SyncAction.SyncActionValue.ExternalWebBetaAction.$Shape
              */
 
             /**
              * Constructs a new ExternalWebBetaAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents an ExternalWebBetaAction.
-             * @implements IExternalWebBetaAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IExternalWebBetaAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.ExternalWebBetaAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function ExternalWebBetaAction(properties) {
@@ -13097,8 +13644,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.ExternalWebBetaAction
              * @static
-             * @param {SyncAction.SyncActionValue.IExternalWebBetaAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.ExternalWebBetaAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.ExternalWebBetaAction} ExternalWebBetaAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.ExternalWebBetaAction.$Shape): SyncAction.SyncActionValue.ExternalWebBetaAction & SyncAction.SyncActionValue.ExternalWebBetaAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.ExternalWebBetaAction.$Properties): SyncAction.SyncActionValue.ExternalWebBetaAction;
+             * }}
              */
             ExternalWebBetaAction.create = function create(properties) {
                 return new ExternalWebBetaAction(properties);
@@ -13109,7 +13660,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.ExternalWebBetaAction
              * @static
-             * @param {SyncAction.SyncActionValue.IExternalWebBetaAction} message ExternalWebBetaAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.ExternalWebBetaAction.$Properties} message ExternalWebBetaAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -13129,7 +13680,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.ExternalWebBetaAction
              * @static
-             * @param {SyncAction.SyncActionValue.IExternalWebBetaAction} message ExternalWebBetaAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.ExternalWebBetaAction.$Properties} message ExternalWebBetaAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -13144,7 +13695,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.ExternalWebBetaAction} ExternalWebBetaAction
+             * @returns {SyncAction.SyncActionValue.ExternalWebBetaAction & SyncAction.SyncActionValue.ExternalWebBetaAction.$Shape} ExternalWebBetaAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -13188,7 +13739,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.ExternalWebBetaAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.ExternalWebBetaAction} ExternalWebBetaAction
+             * @returns {SyncAction.SyncActionValue.ExternalWebBetaAction & SyncAction.SyncActionValue.ExternalWebBetaAction.$Shape} ExternalWebBetaAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -13296,19 +13847,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a FavoritesAction.
+             * @typedef {Object} SyncAction.SyncActionValue.FavoritesAction.$Properties
+             * @property {Array.<SyncAction.SyncActionValue.FavoritesAction.Favorite.$Properties>|null} [favorites] FavoritesAction favorites
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a FavoritesAction.
              * @memberof SyncAction.SyncActionValue
              * @interface IFavoritesAction
-             * @property {Array.<SyncAction.SyncActionValue.FavoritesAction.IFavorite>|null} [favorites] FavoritesAction favorites
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @augments SyncAction.SyncActionValue.FavoritesAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.FavoritesAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a FavoritesAction.
+             * @typedef {SyncAction.SyncActionValue.FavoritesAction.$Properties} SyncAction.SyncActionValue.FavoritesAction.$Shape
              */
 
             /**
              * Constructs a new FavoritesAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a FavoritesAction.
-             * @implements IFavoritesAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IFavoritesAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.FavoritesAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function FavoritesAction(properties) {
@@ -13321,7 +13883,7 @@ $root.SyncAction = (function() {
 
             /**
              * FavoritesAction favorites.
-             * @member {Array.<SyncAction.SyncActionValue.FavoritesAction.IFavorite>} favorites
+             * @member {Array.<SyncAction.SyncActionValue.FavoritesAction.Favorite.$Properties>} favorites
              * @memberof SyncAction.SyncActionValue.FavoritesAction
              * @instance
              */
@@ -13332,8 +13894,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.FavoritesAction
              * @static
-             * @param {SyncAction.SyncActionValue.IFavoritesAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.FavoritesAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.FavoritesAction} FavoritesAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.FavoritesAction.$Shape): SyncAction.SyncActionValue.FavoritesAction & SyncAction.SyncActionValue.FavoritesAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.FavoritesAction.$Properties): SyncAction.SyncActionValue.FavoritesAction;
+             * }}
              */
             FavoritesAction.create = function create(properties) {
                 return new FavoritesAction(properties);
@@ -13344,7 +13910,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.FavoritesAction
              * @static
-             * @param {SyncAction.SyncActionValue.IFavoritesAction} message FavoritesAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.FavoritesAction.$Properties} message FavoritesAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -13365,7 +13931,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.FavoritesAction
              * @static
-             * @param {SyncAction.SyncActionValue.IFavoritesAction} message FavoritesAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.FavoritesAction.$Properties} message FavoritesAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -13380,7 +13946,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.FavoritesAction} FavoritesAction
+             * @returns {SyncAction.SyncActionValue.FavoritesAction & SyncAction.SyncActionValue.FavoritesAction.$Shape} FavoritesAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -13425,7 +13991,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.FavoritesAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.FavoritesAction} FavoritesAction
+             * @returns {SyncAction.SyncActionValue.FavoritesAction & SyncAction.SyncActionValue.FavoritesAction.$Shape} FavoritesAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -13543,19 +14109,30 @@ $root.SyncAction = (function() {
 
                 /**
                  * Properties of a Favorite.
-                 * @memberof SyncAction.SyncActionValue.FavoritesAction
-                 * @interface IFavorite
+                 * @typedef {Object} SyncAction.SyncActionValue.FavoritesAction.Favorite.$Properties
                  * @property {string|null} [id] Favorite id
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 */
+
+                /**
+                 * Properties of a Favorite.
+                 * @memberof SyncAction.SyncActionValue.FavoritesAction
+                 * @interface IFavorite
+                 * @augments SyncAction.SyncActionValue.FavoritesAction.Favorite.$Properties
+                 * @deprecated Use SyncAction.SyncActionValue.FavoritesAction.Favorite.$Properties instead.
+                 */
+
+                /**
+                 * Shape of a Favorite.
+                 * @typedef {SyncAction.SyncActionValue.FavoritesAction.Favorite.$Properties} SyncAction.SyncActionValue.FavoritesAction.Favorite.$Shape
                  */
 
                 /**
                  * Constructs a new Favorite.
                  * @memberof SyncAction.SyncActionValue.FavoritesAction
                  * @classdesc Represents a Favorite.
-                 * @implements IFavorite
                  * @constructor
-                 * @param {SyncAction.SyncActionValue.FavoritesAction.IFavorite=} [properties] Properties to set
+                 * @param {SyncAction.SyncActionValue.FavoritesAction.Favorite.$Properties=} [properties] Properties to set
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function Favorite(properties) {
@@ -13587,8 +14164,12 @@ $root.SyncAction = (function() {
                  * @function create
                  * @memberof SyncAction.SyncActionValue.FavoritesAction.Favorite
                  * @static
-                 * @param {SyncAction.SyncActionValue.FavoritesAction.IFavorite=} [properties] Properties to set
+                 * @param {SyncAction.SyncActionValue.FavoritesAction.Favorite.$Properties=} [properties] Properties to set
                  * @returns {SyncAction.SyncActionValue.FavoritesAction.Favorite} Favorite instance
+                 * @type {{
+                 *   (properties: SyncAction.SyncActionValue.FavoritesAction.Favorite.$Shape): SyncAction.SyncActionValue.FavoritesAction.Favorite & SyncAction.SyncActionValue.FavoritesAction.Favorite.$Shape;
+                 *   (properties?: SyncAction.SyncActionValue.FavoritesAction.Favorite.$Properties): SyncAction.SyncActionValue.FavoritesAction.Favorite;
+                 * }}
                  */
                 Favorite.create = function create(properties) {
                     return new Favorite(properties);
@@ -13599,7 +14180,7 @@ $root.SyncAction = (function() {
                  * @function encode
                  * @memberof SyncAction.SyncActionValue.FavoritesAction.Favorite
                  * @static
-                 * @param {SyncAction.SyncActionValue.FavoritesAction.IFavorite} message Favorite message or plain object to encode
+                 * @param {SyncAction.SyncActionValue.FavoritesAction.Favorite.$Properties} message Favorite message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -13619,7 +14200,7 @@ $root.SyncAction = (function() {
                  * @function encodeDelimited
                  * @memberof SyncAction.SyncActionValue.FavoritesAction.Favorite
                  * @static
-                 * @param {SyncAction.SyncActionValue.FavoritesAction.IFavorite} message Favorite message or plain object to encode
+                 * @param {SyncAction.SyncActionValue.FavoritesAction.Favorite.$Properties} message Favorite message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -13634,7 +14215,7 @@ $root.SyncAction = (function() {
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                  * @param {number} [length] Message length if known beforehand
-                 * @returns {SyncAction.SyncActionValue.FavoritesAction.Favorite} Favorite
+                 * @returns {SyncAction.SyncActionValue.FavoritesAction.Favorite & SyncAction.SyncActionValue.FavoritesAction.Favorite.$Shape} Favorite
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -13678,7 +14259,7 @@ $root.SyncAction = (function() {
                  * @memberof SyncAction.SyncActionValue.FavoritesAction.Favorite
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {SyncAction.SyncActionValue.FavoritesAction.Favorite} Favorite
+                 * @returns {SyncAction.SyncActionValue.FavoritesAction.Favorite & SyncAction.SyncActionValue.FavoritesAction.Favorite.$Shape} Favorite
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -13789,20 +14370,31 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of an InteractiveMessageAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IInteractiveMessageAction
+             * @typedef {Object} SyncAction.SyncActionValue.InteractiveMessageAction.$Properties
              * @property {SyncAction.SyncActionValue.InteractiveMessageAction.InteractiveMessageActionMode|null} [type] InteractiveMessageAction type
              * @property {string|null} [agmId] InteractiveMessageAction agmId
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
+             * Properties of an InteractiveMessageAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IInteractiveMessageAction
+             * @augments SyncAction.SyncActionValue.InteractiveMessageAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.InteractiveMessageAction.$Properties instead.
+             */
+
+            /**
+             * Shape of an InteractiveMessageAction.
+             * @typedef {SyncAction.SyncActionValue.InteractiveMessageAction.$Properties} SyncAction.SyncActionValue.InteractiveMessageAction.$Shape
+             */
+
+            /**
              * Constructs a new InteractiveMessageAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents an InteractiveMessageAction.
-             * @implements IInteractiveMessageAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IInteractiveMessageAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.InteractiveMessageAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function InteractiveMessageAction(properties) {
@@ -13848,8 +14440,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.InteractiveMessageAction
              * @static
-             * @param {SyncAction.SyncActionValue.IInteractiveMessageAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.InteractiveMessageAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.InteractiveMessageAction} InteractiveMessageAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.InteractiveMessageAction.$Shape): SyncAction.SyncActionValue.InteractiveMessageAction & SyncAction.SyncActionValue.InteractiveMessageAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.InteractiveMessageAction.$Properties): SyncAction.SyncActionValue.InteractiveMessageAction;
+             * }}
              */
             InteractiveMessageAction.create = function create(properties) {
                 return new InteractiveMessageAction(properties);
@@ -13860,7 +14456,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.InteractiveMessageAction
              * @static
-             * @param {SyncAction.SyncActionValue.IInteractiveMessageAction} message InteractiveMessageAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.InteractiveMessageAction.$Properties} message InteractiveMessageAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -13882,7 +14478,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.InteractiveMessageAction
              * @static
-             * @param {SyncAction.SyncActionValue.IInteractiveMessageAction} message InteractiveMessageAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.InteractiveMessageAction.$Properties} message InteractiveMessageAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -13897,7 +14493,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.InteractiveMessageAction} InteractiveMessageAction
+             * @returns {SyncAction.SyncActionValue.InteractiveMessageAction & SyncAction.SyncActionValue.InteractiveMessageAction.$Shape} InteractiveMessageAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -13948,7 +14544,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.InteractiveMessageAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.InteractiveMessageAction} InteractiveMessageAction
+             * @returns {SyncAction.SyncActionValue.InteractiveMessageAction & SyncAction.SyncActionValue.InteractiveMessageAction.$Shape} InteractiveMessageAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -14094,19 +14690,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a KeyExpiration.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IKeyExpiration
+             * @typedef {Object} SyncAction.SyncActionValue.KeyExpiration.$Properties
              * @property {number|null} [expiredKeyEpoch] KeyExpiration expiredKeyEpoch
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a KeyExpiration.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IKeyExpiration
+             * @augments SyncAction.SyncActionValue.KeyExpiration.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.KeyExpiration.$Properties instead.
+             */
+
+            /**
+             * Shape of a KeyExpiration.
+             * @typedef {SyncAction.SyncActionValue.KeyExpiration.$Properties} SyncAction.SyncActionValue.KeyExpiration.$Shape
              */
 
             /**
              * Constructs a new KeyExpiration.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a KeyExpiration.
-             * @implements IKeyExpiration
              * @constructor
-             * @param {SyncAction.SyncActionValue.IKeyExpiration=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.KeyExpiration.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function KeyExpiration(properties) {
@@ -14138,8 +14745,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.KeyExpiration
              * @static
-             * @param {SyncAction.SyncActionValue.IKeyExpiration=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.KeyExpiration.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.KeyExpiration} KeyExpiration instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.KeyExpiration.$Shape): SyncAction.SyncActionValue.KeyExpiration & SyncAction.SyncActionValue.KeyExpiration.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.KeyExpiration.$Properties): SyncAction.SyncActionValue.KeyExpiration;
+             * }}
              */
             KeyExpiration.create = function create(properties) {
                 return new KeyExpiration(properties);
@@ -14150,7 +14761,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.KeyExpiration
              * @static
-             * @param {SyncAction.SyncActionValue.IKeyExpiration} message KeyExpiration message or plain object to encode
+             * @param {SyncAction.SyncActionValue.KeyExpiration.$Properties} message KeyExpiration message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -14170,7 +14781,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.KeyExpiration
              * @static
-             * @param {SyncAction.SyncActionValue.IKeyExpiration} message KeyExpiration message or plain object to encode
+             * @param {SyncAction.SyncActionValue.KeyExpiration.$Properties} message KeyExpiration message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -14185,7 +14796,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.KeyExpiration} KeyExpiration
+             * @returns {SyncAction.SyncActionValue.KeyExpiration & SyncAction.SyncActionValue.KeyExpiration.$Shape} KeyExpiration
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -14229,7 +14840,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.KeyExpiration
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.KeyExpiration} KeyExpiration
+             * @returns {SyncAction.SyncActionValue.KeyExpiration & SyncAction.SyncActionValue.KeyExpiration.$Shape} KeyExpiration
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -14337,20 +14948,31 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a LabelAssociationAction.
+             * @typedef {Object} SyncAction.SyncActionValue.LabelAssociationAction.$Properties
+             * @property {boolean|null} [labeled] LabelAssociationAction labeled
+             * @property {Array.<SyncAction.SyncActionValue.ModelMetadata.$Properties>|null} [modelMetaData] LabelAssociationAction modelMetaData
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a LabelAssociationAction.
              * @memberof SyncAction.SyncActionValue
              * @interface ILabelAssociationAction
-             * @property {boolean|null} [labeled] LabelAssociationAction labeled
-             * @property {Array.<SyncAction.SyncActionValue.IModelMetadata>|null} [modelMetaData] LabelAssociationAction modelMetaData
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @augments SyncAction.SyncActionValue.LabelAssociationAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.LabelAssociationAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a LabelAssociationAction.
+             * @typedef {SyncAction.SyncActionValue.LabelAssociationAction.$Properties} SyncAction.SyncActionValue.LabelAssociationAction.$Shape
              */
 
             /**
              * Constructs a new LabelAssociationAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a LabelAssociationAction.
-             * @implements ILabelAssociationAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.ILabelAssociationAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.LabelAssociationAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function LabelAssociationAction(properties) {
@@ -14371,7 +14993,7 @@ $root.SyncAction = (function() {
 
             /**
              * LabelAssociationAction modelMetaData.
-             * @member {Array.<SyncAction.SyncActionValue.IModelMetadata>} modelMetaData
+             * @member {Array.<SyncAction.SyncActionValue.ModelMetadata.$Properties>} modelMetaData
              * @memberof SyncAction.SyncActionValue.LabelAssociationAction
              * @instance
              */
@@ -14391,8 +15013,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.LabelAssociationAction
              * @static
-             * @param {SyncAction.SyncActionValue.ILabelAssociationAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.LabelAssociationAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.LabelAssociationAction} LabelAssociationAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.LabelAssociationAction.$Shape): SyncAction.SyncActionValue.LabelAssociationAction & SyncAction.SyncActionValue.LabelAssociationAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.LabelAssociationAction.$Properties): SyncAction.SyncActionValue.LabelAssociationAction;
+             * }}
              */
             LabelAssociationAction.create = function create(properties) {
                 return new LabelAssociationAction(properties);
@@ -14403,7 +15029,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.LabelAssociationAction
              * @static
-             * @param {SyncAction.SyncActionValue.ILabelAssociationAction} message LabelAssociationAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.LabelAssociationAction.$Properties} message LabelAssociationAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -14426,7 +15052,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.LabelAssociationAction
              * @static
-             * @param {SyncAction.SyncActionValue.ILabelAssociationAction} message LabelAssociationAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.LabelAssociationAction.$Properties} message LabelAssociationAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -14441,7 +15067,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.LabelAssociationAction} LabelAssociationAction
+             * @returns {SyncAction.SyncActionValue.LabelAssociationAction & SyncAction.SyncActionValue.LabelAssociationAction.$Shape} LabelAssociationAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -14493,7 +15119,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.LabelAssociationAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.LabelAssociationAction} LabelAssociationAction
+             * @returns {SyncAction.SyncActionValue.LabelAssociationAction & SyncAction.SyncActionValue.LabelAssociationAction.$Shape} LabelAssociationAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -14627,8 +15253,7 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a LabelEditAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface ILabelEditAction
+             * @typedef {Object} SyncAction.SyncActionValue.LabelEditAction.$Properties
              * @property {string|null} [name] LabelEditAction name
              * @property {number|null} [color] LabelEditAction color
              * @property {number|null} [predefinedId] LabelEditAction predefinedId
@@ -14642,12 +15267,24 @@ $root.SyncAction = (function() {
              */
 
             /**
+             * Properties of a LabelEditAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface ILabelEditAction
+             * @augments SyncAction.SyncActionValue.LabelEditAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.LabelEditAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a LabelEditAction.
+             * @typedef {SyncAction.SyncActionValue.LabelEditAction.$Properties} SyncAction.SyncActionValue.LabelEditAction.$Shape
+             */
+
+            /**
              * Constructs a new LabelEditAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a LabelEditAction.
-             * @implements ILabelEditAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.ILabelEditAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.LabelEditAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function LabelEditAction(properties) {
@@ -14791,8 +15428,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.LabelEditAction
              * @static
-             * @param {SyncAction.SyncActionValue.ILabelEditAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.LabelEditAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.LabelEditAction} LabelEditAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.LabelEditAction.$Shape): SyncAction.SyncActionValue.LabelEditAction & SyncAction.SyncActionValue.LabelEditAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.LabelEditAction.$Properties): SyncAction.SyncActionValue.LabelEditAction;
+             * }}
              */
             LabelEditAction.create = function create(properties) {
                 return new LabelEditAction(properties);
@@ -14803,7 +15444,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.LabelEditAction
              * @static
-             * @param {SyncAction.SyncActionValue.ILabelEditAction} message LabelEditAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.LabelEditAction.$Properties} message LabelEditAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -14839,7 +15480,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.LabelEditAction
              * @static
-             * @param {SyncAction.SyncActionValue.ILabelEditAction} message LabelEditAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.LabelEditAction.$Properties} message LabelEditAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -14854,7 +15495,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.LabelEditAction} LabelEditAction
+             * @returns {SyncAction.SyncActionValue.LabelEditAction & SyncAction.SyncActionValue.LabelEditAction.$Shape} LabelEditAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -14954,7 +15595,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.LabelEditAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.LabelEditAction} LabelEditAction
+             * @returns {SyncAction.SyncActionValue.LabelEditAction & SyncAction.SyncActionValue.LabelEditAction.$Shape} LabelEditAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -15271,19 +15912,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a LabelReorderingAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface ILabelReorderingAction
+             * @typedef {Object} SyncAction.SyncActionValue.LabelReorderingAction.$Properties
              * @property {Array.<number>|null} [sortedLabelIds] LabelReorderingAction sortedLabelIds
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a LabelReorderingAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface ILabelReorderingAction
+             * @augments SyncAction.SyncActionValue.LabelReorderingAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.LabelReorderingAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a LabelReorderingAction.
+             * @typedef {SyncAction.SyncActionValue.LabelReorderingAction.$Properties} SyncAction.SyncActionValue.LabelReorderingAction.$Shape
              */
 
             /**
              * Constructs a new LabelReorderingAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a LabelReorderingAction.
-             * @implements ILabelReorderingAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.ILabelReorderingAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.LabelReorderingAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function LabelReorderingAction(properties) {
@@ -15307,8 +15959,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.LabelReorderingAction
              * @static
-             * @param {SyncAction.SyncActionValue.ILabelReorderingAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.LabelReorderingAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.LabelReorderingAction} LabelReorderingAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.LabelReorderingAction.$Shape): SyncAction.SyncActionValue.LabelReorderingAction & SyncAction.SyncActionValue.LabelReorderingAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.LabelReorderingAction.$Properties): SyncAction.SyncActionValue.LabelReorderingAction;
+             * }}
              */
             LabelReorderingAction.create = function create(properties) {
                 return new LabelReorderingAction(properties);
@@ -15319,7 +15975,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.LabelReorderingAction
              * @static
-             * @param {SyncAction.SyncActionValue.ILabelReorderingAction} message LabelReorderingAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.LabelReorderingAction.$Properties} message LabelReorderingAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -15343,7 +15999,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.LabelReorderingAction
              * @static
-             * @param {SyncAction.SyncActionValue.ILabelReorderingAction} message LabelReorderingAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.LabelReorderingAction.$Properties} message LabelReorderingAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -15358,7 +16014,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.LabelReorderingAction} LabelReorderingAction
+             * @returns {SyncAction.SyncActionValue.LabelReorderingAction & SyncAction.SyncActionValue.LabelReorderingAction.$Shape} LabelReorderingAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -15411,7 +16067,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.LabelReorderingAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.LabelReorderingAction} LabelReorderingAction
+             * @returns {SyncAction.SyncActionValue.LabelReorderingAction & SyncAction.SyncActionValue.LabelReorderingAction.$Shape} LabelReorderingAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -15527,8 +16183,7 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a LidContactAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface ILidContactAction
+             * @typedef {Object} SyncAction.SyncActionValue.LidContactAction.$Properties
              * @property {string|null} [fullName] LidContactAction fullName
              * @property {string|null} [firstName] LidContactAction firstName
              * @property {string|null} [username] LidContactAction username
@@ -15536,12 +16191,24 @@ $root.SyncAction = (function() {
              */
 
             /**
+             * Properties of a LidContactAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface ILidContactAction
+             * @augments SyncAction.SyncActionValue.LidContactAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.LidContactAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a LidContactAction.
+             * @typedef {SyncAction.SyncActionValue.LidContactAction.$Properties} SyncAction.SyncActionValue.LidContactAction.$Shape
+             */
+
+            /**
              * Constructs a new LidContactAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a LidContactAction.
-             * @implements ILidContactAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.ILidContactAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.LidContactAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function LidContactAction(properties) {
@@ -15601,8 +16268,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.LidContactAction
              * @static
-             * @param {SyncAction.SyncActionValue.ILidContactAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.LidContactAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.LidContactAction} LidContactAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.LidContactAction.$Shape): SyncAction.SyncActionValue.LidContactAction & SyncAction.SyncActionValue.LidContactAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.LidContactAction.$Properties): SyncAction.SyncActionValue.LidContactAction;
+             * }}
              */
             LidContactAction.create = function create(properties) {
                 return new LidContactAction(properties);
@@ -15613,7 +16284,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.LidContactAction
              * @static
-             * @param {SyncAction.SyncActionValue.ILidContactAction} message LidContactAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.LidContactAction.$Properties} message LidContactAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -15637,7 +16308,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.LidContactAction
              * @static
-             * @param {SyncAction.SyncActionValue.ILidContactAction} message LidContactAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.LidContactAction.$Properties} message LidContactAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -15652,7 +16323,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.LidContactAction} LidContactAction
+             * @returns {SyncAction.SyncActionValue.LidContactAction & SyncAction.SyncActionValue.LidContactAction.$Shape} LidContactAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -15710,7 +16381,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.LidContactAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.LidContactAction} LidContactAction
+             * @returns {SyncAction.SyncActionValue.LidContactAction & SyncAction.SyncActionValue.LidContactAction.$Shape} LidContactAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -15842,19 +16513,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a LocaleSetting.
-             * @memberof SyncAction.SyncActionValue
-             * @interface ILocaleSetting
+             * @typedef {Object} SyncAction.SyncActionValue.LocaleSetting.$Properties
              * @property {string|null} [locale] LocaleSetting locale
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a LocaleSetting.
+             * @memberof SyncAction.SyncActionValue
+             * @interface ILocaleSetting
+             * @augments SyncAction.SyncActionValue.LocaleSetting.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.LocaleSetting.$Properties instead.
+             */
+
+            /**
+             * Shape of a LocaleSetting.
+             * @typedef {SyncAction.SyncActionValue.LocaleSetting.$Properties} SyncAction.SyncActionValue.LocaleSetting.$Shape
              */
 
             /**
              * Constructs a new LocaleSetting.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a LocaleSetting.
-             * @implements ILocaleSetting
              * @constructor
-             * @param {SyncAction.SyncActionValue.ILocaleSetting=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.LocaleSetting.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function LocaleSetting(properties) {
@@ -15886,8 +16568,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.LocaleSetting
              * @static
-             * @param {SyncAction.SyncActionValue.ILocaleSetting=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.LocaleSetting.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.LocaleSetting} LocaleSetting instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.LocaleSetting.$Shape): SyncAction.SyncActionValue.LocaleSetting & SyncAction.SyncActionValue.LocaleSetting.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.LocaleSetting.$Properties): SyncAction.SyncActionValue.LocaleSetting;
+             * }}
              */
             LocaleSetting.create = function create(properties) {
                 return new LocaleSetting(properties);
@@ -15898,7 +16584,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.LocaleSetting
              * @static
-             * @param {SyncAction.SyncActionValue.ILocaleSetting} message LocaleSetting message or plain object to encode
+             * @param {SyncAction.SyncActionValue.LocaleSetting.$Properties} message LocaleSetting message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -15918,7 +16604,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.LocaleSetting
              * @static
-             * @param {SyncAction.SyncActionValue.ILocaleSetting} message LocaleSetting message or plain object to encode
+             * @param {SyncAction.SyncActionValue.LocaleSetting.$Properties} message LocaleSetting message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -15933,7 +16619,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.LocaleSetting} LocaleSetting
+             * @returns {SyncAction.SyncActionValue.LocaleSetting & SyncAction.SyncActionValue.LocaleSetting.$Shape} LocaleSetting
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -15977,7 +16663,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.LocaleSetting
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.LocaleSetting} LocaleSetting
+             * @returns {SyncAction.SyncActionValue.LocaleSetting & SyncAction.SyncActionValue.LocaleSetting.$Shape} LocaleSetting
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -16085,19 +16771,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a LockChatAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface ILockChatAction
+             * @typedef {Object} SyncAction.SyncActionValue.LockChatAction.$Properties
              * @property {boolean|null} [locked] LockChatAction locked
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a LockChatAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface ILockChatAction
+             * @augments SyncAction.SyncActionValue.LockChatAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.LockChatAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a LockChatAction.
+             * @typedef {SyncAction.SyncActionValue.LockChatAction.$Properties} SyncAction.SyncActionValue.LockChatAction.$Shape
              */
 
             /**
              * Constructs a new LockChatAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a LockChatAction.
-             * @implements ILockChatAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.ILockChatAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.LockChatAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function LockChatAction(properties) {
@@ -16129,8 +16826,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.LockChatAction
              * @static
-             * @param {SyncAction.SyncActionValue.ILockChatAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.LockChatAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.LockChatAction} LockChatAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.LockChatAction.$Shape): SyncAction.SyncActionValue.LockChatAction & SyncAction.SyncActionValue.LockChatAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.LockChatAction.$Properties): SyncAction.SyncActionValue.LockChatAction;
+             * }}
              */
             LockChatAction.create = function create(properties) {
                 return new LockChatAction(properties);
@@ -16141,7 +16842,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.LockChatAction
              * @static
-             * @param {SyncAction.SyncActionValue.ILockChatAction} message LockChatAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.LockChatAction.$Properties} message LockChatAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -16161,7 +16862,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.LockChatAction
              * @static
-             * @param {SyncAction.SyncActionValue.ILockChatAction} message LockChatAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.LockChatAction.$Properties} message LockChatAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -16176,7 +16877,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.LockChatAction} LockChatAction
+             * @returns {SyncAction.SyncActionValue.LockChatAction & SyncAction.SyncActionValue.LockChatAction.$Shape} LockChatAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -16220,7 +16921,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.LockChatAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.LockChatAction} LockChatAction
+             * @returns {SyncAction.SyncActionValue.LockChatAction & SyncAction.SyncActionValue.LockChatAction.$Shape} LockChatAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -16328,19 +17029,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a MaibaAIFeaturesControlAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IMaibaAIFeaturesControlAction
+             * @typedef {Object} SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.$Properties
              * @property {SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.MaibaAIFeatureStatus|null} [aiFeatureStatus] MaibaAIFeaturesControlAction aiFeatureStatus
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a MaibaAIFeaturesControlAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IMaibaAIFeaturesControlAction
+             * @augments SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a MaibaAIFeaturesControlAction.
+             * @typedef {SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.$Properties} SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.$Shape
              */
 
             /**
              * Constructs a new MaibaAIFeaturesControlAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a MaibaAIFeaturesControlAction.
-             * @implements IMaibaAIFeaturesControlAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IMaibaAIFeaturesControlAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function MaibaAIFeaturesControlAction(properties) {
@@ -16372,8 +17084,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.MaibaAIFeaturesControlAction
              * @static
-             * @param {SyncAction.SyncActionValue.IMaibaAIFeaturesControlAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.MaibaAIFeaturesControlAction} MaibaAIFeaturesControlAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.$Shape): SyncAction.SyncActionValue.MaibaAIFeaturesControlAction & SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.$Properties): SyncAction.SyncActionValue.MaibaAIFeaturesControlAction;
+             * }}
              */
             MaibaAIFeaturesControlAction.create = function create(properties) {
                 return new MaibaAIFeaturesControlAction(properties);
@@ -16384,7 +17100,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.MaibaAIFeaturesControlAction
              * @static
-             * @param {SyncAction.SyncActionValue.IMaibaAIFeaturesControlAction} message MaibaAIFeaturesControlAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.$Properties} message MaibaAIFeaturesControlAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -16404,7 +17120,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.MaibaAIFeaturesControlAction
              * @static
-             * @param {SyncAction.SyncActionValue.IMaibaAIFeaturesControlAction} message MaibaAIFeaturesControlAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.$Properties} message MaibaAIFeaturesControlAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -16419,7 +17135,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.MaibaAIFeaturesControlAction} MaibaAIFeaturesControlAction
+             * @returns {SyncAction.SyncActionValue.MaibaAIFeaturesControlAction & SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.$Shape} MaibaAIFeaturesControlAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -16463,7 +17179,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.MaibaAIFeaturesControlAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.MaibaAIFeaturesControlAction} MaibaAIFeaturesControlAction
+             * @returns {SyncAction.SyncActionValue.MaibaAIFeaturesControlAction & SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.$Shape} MaibaAIFeaturesControlAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -16611,20 +17327,31 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a MarkChatAsReadAction.
+             * @typedef {Object} SyncAction.SyncActionValue.MarkChatAsReadAction.$Properties
+             * @property {boolean|null} [read] MarkChatAsReadAction read
+             * @property {SyncAction.SyncActionValue.SyncActionMessageRange.$Properties|null} [messageRange] MarkChatAsReadAction messageRange
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a MarkChatAsReadAction.
              * @memberof SyncAction.SyncActionValue
              * @interface IMarkChatAsReadAction
-             * @property {boolean|null} [read] MarkChatAsReadAction read
-             * @property {SyncAction.SyncActionValue.ISyncActionMessageRange|null} [messageRange] MarkChatAsReadAction messageRange
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @augments SyncAction.SyncActionValue.MarkChatAsReadAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.MarkChatAsReadAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a MarkChatAsReadAction.
+             * @typedef {SyncAction.SyncActionValue.MarkChatAsReadAction.$Properties} SyncAction.SyncActionValue.MarkChatAsReadAction.$Shape
              */
 
             /**
              * Constructs a new MarkChatAsReadAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a MarkChatAsReadAction.
-             * @implements IMarkChatAsReadAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IMarkChatAsReadAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.MarkChatAsReadAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function MarkChatAsReadAction(properties) {
@@ -16644,7 +17371,7 @@ $root.SyncAction = (function() {
 
             /**
              * MarkChatAsReadAction messageRange.
-             * @member {SyncAction.SyncActionValue.ISyncActionMessageRange|null|undefined} messageRange
+             * @member {SyncAction.SyncActionValue.SyncActionMessageRange.$Properties|null|undefined} messageRange
              * @memberof SyncAction.SyncActionValue.MarkChatAsReadAction
              * @instance
              */
@@ -16670,8 +17397,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.MarkChatAsReadAction
              * @static
-             * @param {SyncAction.SyncActionValue.IMarkChatAsReadAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.MarkChatAsReadAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.MarkChatAsReadAction} MarkChatAsReadAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.MarkChatAsReadAction.$Shape): SyncAction.SyncActionValue.MarkChatAsReadAction & SyncAction.SyncActionValue.MarkChatAsReadAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.MarkChatAsReadAction.$Properties): SyncAction.SyncActionValue.MarkChatAsReadAction;
+             * }}
              */
             MarkChatAsReadAction.create = function create(properties) {
                 return new MarkChatAsReadAction(properties);
@@ -16682,7 +17413,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.MarkChatAsReadAction
              * @static
-             * @param {SyncAction.SyncActionValue.IMarkChatAsReadAction} message MarkChatAsReadAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.MarkChatAsReadAction.$Properties} message MarkChatAsReadAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -16704,7 +17435,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.MarkChatAsReadAction
              * @static
-             * @param {SyncAction.SyncActionValue.IMarkChatAsReadAction} message MarkChatAsReadAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.MarkChatAsReadAction.$Properties} message MarkChatAsReadAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -16719,7 +17450,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.MarkChatAsReadAction} MarkChatAsReadAction
+             * @returns {SyncAction.SyncActionValue.MarkChatAsReadAction & SyncAction.SyncActionValue.MarkChatAsReadAction.$Shape} MarkChatAsReadAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -16770,7 +17501,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.MarkChatAsReadAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.MarkChatAsReadAction} MarkChatAsReadAction
+             * @returns {SyncAction.SyncActionValue.MarkChatAsReadAction & SyncAction.SyncActionValue.MarkChatAsReadAction.$Shape} MarkChatAsReadAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -16896,8 +17627,7 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a MarketingMessageAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IMarketingMessageAction
+             * @typedef {Object} SyncAction.SyncActionValue.MarketingMessageAction.$Properties
              * @property {string|null} [name] MarketingMessageAction name
              * @property {string|null} [message] MarketingMessageAction message
              * @property {SyncAction.SyncActionValue.MarketingMessageAction.MarketingMessagePrototypeType|null} [type] MarketingMessageAction type
@@ -16909,12 +17639,24 @@ $root.SyncAction = (function() {
              */
 
             /**
+             * Properties of a MarketingMessageAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IMarketingMessageAction
+             * @augments SyncAction.SyncActionValue.MarketingMessageAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.MarketingMessageAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a MarketingMessageAction.
+             * @typedef {SyncAction.SyncActionValue.MarketingMessageAction.$Properties} SyncAction.SyncActionValue.MarketingMessageAction.$Shape
+             */
+
+            /**
              * Constructs a new MarketingMessageAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a MarketingMessageAction.
-             * @implements IMarketingMessageAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IMarketingMessageAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.MarketingMessageAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function MarketingMessageAction(properties) {
@@ -17030,8 +17772,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.MarketingMessageAction
              * @static
-             * @param {SyncAction.SyncActionValue.IMarketingMessageAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.MarketingMessageAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.MarketingMessageAction} MarketingMessageAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.MarketingMessageAction.$Shape): SyncAction.SyncActionValue.MarketingMessageAction & SyncAction.SyncActionValue.MarketingMessageAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.MarketingMessageAction.$Properties): SyncAction.SyncActionValue.MarketingMessageAction;
+             * }}
              */
             MarketingMessageAction.create = function create(properties) {
                 return new MarketingMessageAction(properties);
@@ -17042,7 +17788,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.MarketingMessageAction
              * @static
-             * @param {SyncAction.SyncActionValue.IMarketingMessageAction} message MarketingMessageAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.MarketingMessageAction.$Properties} message MarketingMessageAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -17074,7 +17820,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.MarketingMessageAction
              * @static
-             * @param {SyncAction.SyncActionValue.IMarketingMessageAction} message MarketingMessageAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.MarketingMessageAction.$Properties} message MarketingMessageAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -17089,7 +17835,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.MarketingMessageAction} MarketingMessageAction
+             * @returns {SyncAction.SyncActionValue.MarketingMessageAction & SyncAction.SyncActionValue.MarketingMessageAction.$Shape} MarketingMessageAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -17175,7 +17921,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.MarketingMessageAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.MarketingMessageAction} MarketingMessageAction
+             * @returns {SyncAction.SyncActionValue.MarketingMessageAction & SyncAction.SyncActionValue.MarketingMessageAction.$Shape} MarketingMessageAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -17401,19 +18147,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a MarketingMessageBroadcastAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IMarketingMessageBroadcastAction
+             * @typedef {Object} SyncAction.SyncActionValue.MarketingMessageBroadcastAction.$Properties
              * @property {number|null} [repliedCount] MarketingMessageBroadcastAction repliedCount
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a MarketingMessageBroadcastAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IMarketingMessageBroadcastAction
+             * @augments SyncAction.SyncActionValue.MarketingMessageBroadcastAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.MarketingMessageBroadcastAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a MarketingMessageBroadcastAction.
+             * @typedef {SyncAction.SyncActionValue.MarketingMessageBroadcastAction.$Properties} SyncAction.SyncActionValue.MarketingMessageBroadcastAction.$Shape
              */
 
             /**
              * Constructs a new MarketingMessageBroadcastAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a MarketingMessageBroadcastAction.
-             * @implements IMarketingMessageBroadcastAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IMarketingMessageBroadcastAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.MarketingMessageBroadcastAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function MarketingMessageBroadcastAction(properties) {
@@ -17445,8 +18202,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.MarketingMessageBroadcastAction
              * @static
-             * @param {SyncAction.SyncActionValue.IMarketingMessageBroadcastAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.MarketingMessageBroadcastAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.MarketingMessageBroadcastAction} MarketingMessageBroadcastAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.MarketingMessageBroadcastAction.$Shape): SyncAction.SyncActionValue.MarketingMessageBroadcastAction & SyncAction.SyncActionValue.MarketingMessageBroadcastAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.MarketingMessageBroadcastAction.$Properties): SyncAction.SyncActionValue.MarketingMessageBroadcastAction;
+             * }}
              */
             MarketingMessageBroadcastAction.create = function create(properties) {
                 return new MarketingMessageBroadcastAction(properties);
@@ -17457,7 +18218,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.MarketingMessageBroadcastAction
              * @static
-             * @param {SyncAction.SyncActionValue.IMarketingMessageBroadcastAction} message MarketingMessageBroadcastAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.MarketingMessageBroadcastAction.$Properties} message MarketingMessageBroadcastAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -17477,7 +18238,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.MarketingMessageBroadcastAction
              * @static
-             * @param {SyncAction.SyncActionValue.IMarketingMessageBroadcastAction} message MarketingMessageBroadcastAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.MarketingMessageBroadcastAction.$Properties} message MarketingMessageBroadcastAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -17492,7 +18253,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.MarketingMessageBroadcastAction} MarketingMessageBroadcastAction
+             * @returns {SyncAction.SyncActionValue.MarketingMessageBroadcastAction & SyncAction.SyncActionValue.MarketingMessageBroadcastAction.$Shape} MarketingMessageBroadcastAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -17536,7 +18297,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.MarketingMessageBroadcastAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.MarketingMessageBroadcastAction} MarketingMessageBroadcastAction
+             * @returns {SyncAction.SyncActionValue.MarketingMessageBroadcastAction & SyncAction.SyncActionValue.MarketingMessageBroadcastAction.$Shape} MarketingMessageBroadcastAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -17644,8 +18405,7 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a MerchantPaymentPartnerAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IMerchantPaymentPartnerAction
+             * @typedef {Object} SyncAction.SyncActionValue.MerchantPaymentPartnerAction.$Properties
              * @property {SyncAction.SyncActionValue.MerchantPaymentPartnerAction.Status|null} [status] MerchantPaymentPartnerAction status
              * @property {string|null} [country] MerchantPaymentPartnerAction country
              * @property {string|null} [gatewayName] MerchantPaymentPartnerAction gatewayName
@@ -17654,12 +18414,24 @@ $root.SyncAction = (function() {
              */
 
             /**
+             * Properties of a MerchantPaymentPartnerAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IMerchantPaymentPartnerAction
+             * @augments SyncAction.SyncActionValue.MerchantPaymentPartnerAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.MerchantPaymentPartnerAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a MerchantPaymentPartnerAction.
+             * @typedef {SyncAction.SyncActionValue.MerchantPaymentPartnerAction.$Properties} SyncAction.SyncActionValue.MerchantPaymentPartnerAction.$Shape
+             */
+
+            /**
              * Constructs a new MerchantPaymentPartnerAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a MerchantPaymentPartnerAction.
-             * @implements IMerchantPaymentPartnerAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IMerchantPaymentPartnerAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.MerchantPaymentPartnerAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function MerchantPaymentPartnerAction(properties) {
@@ -17733,8 +18505,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.MerchantPaymentPartnerAction
              * @static
-             * @param {SyncAction.SyncActionValue.IMerchantPaymentPartnerAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.MerchantPaymentPartnerAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.MerchantPaymentPartnerAction} MerchantPaymentPartnerAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.MerchantPaymentPartnerAction.$Shape): SyncAction.SyncActionValue.MerchantPaymentPartnerAction & SyncAction.SyncActionValue.MerchantPaymentPartnerAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.MerchantPaymentPartnerAction.$Properties): SyncAction.SyncActionValue.MerchantPaymentPartnerAction;
+             * }}
              */
             MerchantPaymentPartnerAction.create = function create(properties) {
                 return new MerchantPaymentPartnerAction(properties);
@@ -17745,7 +18521,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.MerchantPaymentPartnerAction
              * @static
-             * @param {SyncAction.SyncActionValue.IMerchantPaymentPartnerAction} message MerchantPaymentPartnerAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.MerchantPaymentPartnerAction.$Properties} message MerchantPaymentPartnerAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -17771,7 +18547,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.MerchantPaymentPartnerAction
              * @static
-             * @param {SyncAction.SyncActionValue.IMerchantPaymentPartnerAction} message MerchantPaymentPartnerAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.MerchantPaymentPartnerAction.$Properties} message MerchantPaymentPartnerAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -17786,7 +18562,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.MerchantPaymentPartnerAction} MerchantPaymentPartnerAction
+             * @returns {SyncAction.SyncActionValue.MerchantPaymentPartnerAction & SyncAction.SyncActionValue.MerchantPaymentPartnerAction.$Shape} MerchantPaymentPartnerAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -17851,7 +18627,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.MerchantPaymentPartnerAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.MerchantPaymentPartnerAction} MerchantPaymentPartnerAction
+             * @returns {SyncAction.SyncActionValue.MerchantPaymentPartnerAction & SyncAction.SyncActionValue.MerchantPaymentPartnerAction.$Shape} MerchantPaymentPartnerAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -18028,8 +18804,7 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a ModelMetadata.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IModelMetadata
+             * @typedef {Object} SyncAction.SyncActionValue.ModelMetadata.$Properties
              * @property {string|null} [modelName] ModelMetadata modelName
              * @property {boolean|null} [isLatestModel] ModelMetadata isLatestModel
              * @property {boolean|null} [isDetected] ModelMetadata isDetected
@@ -18037,12 +18812,24 @@ $root.SyncAction = (function() {
              */
 
             /**
+             * Properties of a ModelMetadata.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IModelMetadata
+             * @augments SyncAction.SyncActionValue.ModelMetadata.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.ModelMetadata.$Properties instead.
+             */
+
+            /**
+             * Shape of a ModelMetadata.
+             * @typedef {SyncAction.SyncActionValue.ModelMetadata.$Properties} SyncAction.SyncActionValue.ModelMetadata.$Shape
+             */
+
+            /**
              * Constructs a new ModelMetadata.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a ModelMetadata.
-             * @implements IModelMetadata
              * @constructor
-             * @param {SyncAction.SyncActionValue.IModelMetadata=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.ModelMetadata.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function ModelMetadata(properties) {
@@ -18102,8 +18889,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.ModelMetadata
              * @static
-             * @param {SyncAction.SyncActionValue.IModelMetadata=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.ModelMetadata.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.ModelMetadata} ModelMetadata instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.ModelMetadata.$Shape): SyncAction.SyncActionValue.ModelMetadata & SyncAction.SyncActionValue.ModelMetadata.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.ModelMetadata.$Properties): SyncAction.SyncActionValue.ModelMetadata;
+             * }}
              */
             ModelMetadata.create = function create(properties) {
                 return new ModelMetadata(properties);
@@ -18114,7 +18905,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.ModelMetadata
              * @static
-             * @param {SyncAction.SyncActionValue.IModelMetadata} message ModelMetadata message or plain object to encode
+             * @param {SyncAction.SyncActionValue.ModelMetadata.$Properties} message ModelMetadata message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -18138,7 +18929,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.ModelMetadata
              * @static
-             * @param {SyncAction.SyncActionValue.IModelMetadata} message ModelMetadata message or plain object to encode
+             * @param {SyncAction.SyncActionValue.ModelMetadata.$Properties} message ModelMetadata message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -18153,7 +18944,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.ModelMetadata} ModelMetadata
+             * @returns {SyncAction.SyncActionValue.ModelMetadata & SyncAction.SyncActionValue.ModelMetadata.$Shape} ModelMetadata
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -18211,7 +19002,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.ModelMetadata
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.ModelMetadata} ModelMetadata
+             * @returns {SyncAction.SyncActionValue.ModelMetadata & SyncAction.SyncActionValue.ModelMetadata.$Shape} ModelMetadata
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -18343,20 +19134,31 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a MusicUserIdAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IMusicUserIdAction
+             * @typedef {Object} SyncAction.SyncActionValue.MusicUserIdAction.$Properties
              * @property {string|null} [musicUserId] MusicUserIdAction musicUserId
              * @property {Object.<string,string>|null} [musicUserIdMap] MusicUserIdAction musicUserIdMap
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
+             * Properties of a MusicUserIdAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IMusicUserIdAction
+             * @augments SyncAction.SyncActionValue.MusicUserIdAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.MusicUserIdAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a MusicUserIdAction.
+             * @typedef {SyncAction.SyncActionValue.MusicUserIdAction.$Properties} SyncAction.SyncActionValue.MusicUserIdAction.$Shape
+             */
+
+            /**
              * Constructs a new MusicUserIdAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a MusicUserIdAction.
-             * @implements IMusicUserIdAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IMusicUserIdAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.MusicUserIdAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function MusicUserIdAction(properties) {
@@ -18397,8 +19199,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.MusicUserIdAction
              * @static
-             * @param {SyncAction.SyncActionValue.IMusicUserIdAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.MusicUserIdAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.MusicUserIdAction} MusicUserIdAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.MusicUserIdAction.$Shape): SyncAction.SyncActionValue.MusicUserIdAction & SyncAction.SyncActionValue.MusicUserIdAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.MusicUserIdAction.$Properties): SyncAction.SyncActionValue.MusicUserIdAction;
+             * }}
              */
             MusicUserIdAction.create = function create(properties) {
                 return new MusicUserIdAction(properties);
@@ -18409,7 +19215,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.MusicUserIdAction
              * @static
-             * @param {SyncAction.SyncActionValue.IMusicUserIdAction} message MusicUserIdAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.MusicUserIdAction.$Properties} message MusicUserIdAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -18432,7 +19238,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.MusicUserIdAction
              * @static
-             * @param {SyncAction.SyncActionValue.IMusicUserIdAction} message MusicUserIdAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.MusicUserIdAction.$Properties} message MusicUserIdAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -18447,7 +19253,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.MusicUserIdAction} MusicUserIdAction
+             * @returns {SyncAction.SyncActionValue.MusicUserIdAction & SyncAction.SyncActionValue.MusicUserIdAction.$Shape} MusicUserIdAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -18521,7 +19327,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.MusicUserIdAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.MusicUserIdAction} MusicUserIdAction
+             * @returns {SyncAction.SyncActionValue.MusicUserIdAction & SyncAction.SyncActionValue.MusicUserIdAction.$Shape} MusicUserIdAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -18658,8 +19464,7 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a MuteAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IMuteAction
+             * @typedef {Object} SyncAction.SyncActionValue.MuteAction.$Properties
              * @property {boolean|null} [muted] MuteAction muted
              * @property {number|Long|null} [muteEndTimestamp] MuteAction muteEndTimestamp
              * @property {boolean|null} [autoMuted] MuteAction autoMuted
@@ -18668,12 +19473,24 @@ $root.SyncAction = (function() {
              */
 
             /**
+             * Properties of a MuteAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IMuteAction
+             * @augments SyncAction.SyncActionValue.MuteAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.MuteAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a MuteAction.
+             * @typedef {SyncAction.SyncActionValue.MuteAction.$Properties} SyncAction.SyncActionValue.MuteAction.$Shape
+             */
+
+            /**
              * Constructs a new MuteAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a MuteAction.
-             * @implements IMuteAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IMuteAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.MuteAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function MuteAction(properties) {
@@ -18747,8 +19564,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.MuteAction
              * @static
-             * @param {SyncAction.SyncActionValue.IMuteAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.MuteAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.MuteAction} MuteAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.MuteAction.$Shape): SyncAction.SyncActionValue.MuteAction & SyncAction.SyncActionValue.MuteAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.MuteAction.$Properties): SyncAction.SyncActionValue.MuteAction;
+             * }}
              */
             MuteAction.create = function create(properties) {
                 return new MuteAction(properties);
@@ -18759,7 +19580,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.MuteAction
              * @static
-             * @param {SyncAction.SyncActionValue.IMuteAction} message MuteAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.MuteAction.$Properties} message MuteAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -18785,7 +19606,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.MuteAction
              * @static
-             * @param {SyncAction.SyncActionValue.IMuteAction} message MuteAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.MuteAction.$Properties} message MuteAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -18800,7 +19621,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.MuteAction} MuteAction
+             * @returns {SyncAction.SyncActionValue.MuteAction & SyncAction.SyncActionValue.MuteAction.$Shape} MuteAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -18865,7 +19686,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.MuteAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.MuteAction} MuteAction
+             * @returns {SyncAction.SyncActionValue.MuteAction & SyncAction.SyncActionValue.MuteAction.$Shape} MuteAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -19029,19 +19850,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a NctSaltSyncAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface INctSaltSyncAction
+             * @typedef {Object} SyncAction.SyncActionValue.NctSaltSyncAction.$Properties
              * @property {Uint8Array|null} [salt] NctSaltSyncAction salt
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a NctSaltSyncAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface INctSaltSyncAction
+             * @augments SyncAction.SyncActionValue.NctSaltSyncAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.NctSaltSyncAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a NctSaltSyncAction.
+             * @typedef {SyncAction.SyncActionValue.NctSaltSyncAction.$Properties} SyncAction.SyncActionValue.NctSaltSyncAction.$Shape
              */
 
             /**
              * Constructs a new NctSaltSyncAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a NctSaltSyncAction.
-             * @implements INctSaltSyncAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.INctSaltSyncAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.NctSaltSyncAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function NctSaltSyncAction(properties) {
@@ -19073,8 +19905,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.NctSaltSyncAction
              * @static
-             * @param {SyncAction.SyncActionValue.INctSaltSyncAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.NctSaltSyncAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.NctSaltSyncAction} NctSaltSyncAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.NctSaltSyncAction.$Shape): SyncAction.SyncActionValue.NctSaltSyncAction & SyncAction.SyncActionValue.NctSaltSyncAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.NctSaltSyncAction.$Properties): SyncAction.SyncActionValue.NctSaltSyncAction;
+             * }}
              */
             NctSaltSyncAction.create = function create(properties) {
                 return new NctSaltSyncAction(properties);
@@ -19085,7 +19921,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.NctSaltSyncAction
              * @static
-             * @param {SyncAction.SyncActionValue.INctSaltSyncAction} message NctSaltSyncAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.NctSaltSyncAction.$Properties} message NctSaltSyncAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -19105,7 +19941,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.NctSaltSyncAction
              * @static
-             * @param {SyncAction.SyncActionValue.INctSaltSyncAction} message NctSaltSyncAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.NctSaltSyncAction.$Properties} message NctSaltSyncAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -19120,7 +19956,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.NctSaltSyncAction} NctSaltSyncAction
+             * @returns {SyncAction.SyncActionValue.NctSaltSyncAction & SyncAction.SyncActionValue.NctSaltSyncAction.$Shape} NctSaltSyncAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -19164,7 +20000,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.NctSaltSyncAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.NctSaltSyncAction} NctSaltSyncAction
+             * @returns {SyncAction.SyncActionValue.NctSaltSyncAction & SyncAction.SyncActionValue.NctSaltSyncAction.$Shape} NctSaltSyncAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -19275,19 +20111,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a NewsletterSavedInterestsAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface INewsletterSavedInterestsAction
+             * @typedef {Object} SyncAction.SyncActionValue.NewsletterSavedInterestsAction.$Properties
              * @property {string|null} [newsletterSavedInterests] NewsletterSavedInterestsAction newsletterSavedInterests
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a NewsletterSavedInterestsAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface INewsletterSavedInterestsAction
+             * @augments SyncAction.SyncActionValue.NewsletterSavedInterestsAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.NewsletterSavedInterestsAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a NewsletterSavedInterestsAction.
+             * @typedef {SyncAction.SyncActionValue.NewsletterSavedInterestsAction.$Properties} SyncAction.SyncActionValue.NewsletterSavedInterestsAction.$Shape
              */
 
             /**
              * Constructs a new NewsletterSavedInterestsAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a NewsletterSavedInterestsAction.
-             * @implements INewsletterSavedInterestsAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.INewsletterSavedInterestsAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.NewsletterSavedInterestsAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function NewsletterSavedInterestsAction(properties) {
@@ -19319,8 +20166,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.NewsletterSavedInterestsAction
              * @static
-             * @param {SyncAction.SyncActionValue.INewsletterSavedInterestsAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.NewsletterSavedInterestsAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.NewsletterSavedInterestsAction} NewsletterSavedInterestsAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.NewsletterSavedInterestsAction.$Shape): SyncAction.SyncActionValue.NewsletterSavedInterestsAction & SyncAction.SyncActionValue.NewsletterSavedInterestsAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.NewsletterSavedInterestsAction.$Properties): SyncAction.SyncActionValue.NewsletterSavedInterestsAction;
+             * }}
              */
             NewsletterSavedInterestsAction.create = function create(properties) {
                 return new NewsletterSavedInterestsAction(properties);
@@ -19331,7 +20182,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.NewsletterSavedInterestsAction
              * @static
-             * @param {SyncAction.SyncActionValue.INewsletterSavedInterestsAction} message NewsletterSavedInterestsAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.NewsletterSavedInterestsAction.$Properties} message NewsletterSavedInterestsAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -19351,7 +20202,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.NewsletterSavedInterestsAction
              * @static
-             * @param {SyncAction.SyncActionValue.INewsletterSavedInterestsAction} message NewsletterSavedInterestsAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.NewsletterSavedInterestsAction.$Properties} message NewsletterSavedInterestsAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -19366,7 +20217,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.NewsletterSavedInterestsAction} NewsletterSavedInterestsAction
+             * @returns {SyncAction.SyncActionValue.NewsletterSavedInterestsAction & SyncAction.SyncActionValue.NewsletterSavedInterestsAction.$Shape} NewsletterSavedInterestsAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -19410,7 +20261,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.NewsletterSavedInterestsAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.NewsletterSavedInterestsAction} NewsletterSavedInterestsAction
+             * @returns {SyncAction.SyncActionValue.NewsletterSavedInterestsAction & SyncAction.SyncActionValue.NewsletterSavedInterestsAction.$Shape} NewsletterSavedInterestsAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -19518,8 +20369,7 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a NoteEditAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface INoteEditAction
+             * @typedef {Object} SyncAction.SyncActionValue.NoteEditAction.$Properties
              * @property {SyncAction.SyncActionValue.NoteEditAction.NoteType|null} [type] NoteEditAction type
              * @property {string|null} [chatJid] NoteEditAction chatJid
              * @property {number|Long|null} [createdAt] NoteEditAction createdAt
@@ -19529,12 +20379,24 @@ $root.SyncAction = (function() {
              */
 
             /**
+             * Properties of a NoteEditAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface INoteEditAction
+             * @augments SyncAction.SyncActionValue.NoteEditAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.NoteEditAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a NoteEditAction.
+             * @typedef {SyncAction.SyncActionValue.NoteEditAction.$Properties} SyncAction.SyncActionValue.NoteEditAction.$Shape
+             */
+
+            /**
              * Constructs a new NoteEditAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a NoteEditAction.
-             * @implements INoteEditAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.INoteEditAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.NoteEditAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function NoteEditAction(properties) {
@@ -19622,8 +20484,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.NoteEditAction
              * @static
-             * @param {SyncAction.SyncActionValue.INoteEditAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.NoteEditAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.NoteEditAction} NoteEditAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.NoteEditAction.$Shape): SyncAction.SyncActionValue.NoteEditAction & SyncAction.SyncActionValue.NoteEditAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.NoteEditAction.$Properties): SyncAction.SyncActionValue.NoteEditAction;
+             * }}
              */
             NoteEditAction.create = function create(properties) {
                 return new NoteEditAction(properties);
@@ -19634,7 +20500,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.NoteEditAction
              * @static
-             * @param {SyncAction.SyncActionValue.INoteEditAction} message NoteEditAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.NoteEditAction.$Properties} message NoteEditAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -19662,7 +20528,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.NoteEditAction
              * @static
-             * @param {SyncAction.SyncActionValue.INoteEditAction} message NoteEditAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.NoteEditAction.$Properties} message NoteEditAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -19677,7 +20543,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.NoteEditAction} NoteEditAction
+             * @returns {SyncAction.SyncActionValue.NoteEditAction & SyncAction.SyncActionValue.NoteEditAction.$Shape} NoteEditAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -19749,7 +20615,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.NoteEditAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.NoteEditAction} NoteEditAction
+             * @returns {SyncAction.SyncActionValue.NoteEditAction & SyncAction.SyncActionValue.NoteEditAction.$Shape} NoteEditAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -19948,19 +20814,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a NotificationActivitySettingAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface INotificationActivitySettingAction
+             * @typedef {Object} SyncAction.SyncActionValue.NotificationActivitySettingAction.$Properties
              * @property {SyncAction.SyncActionValue.NotificationActivitySettingAction.NotificationActivitySetting|null} [notificationActivitySetting] NotificationActivitySettingAction notificationActivitySetting
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a NotificationActivitySettingAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface INotificationActivitySettingAction
+             * @augments SyncAction.SyncActionValue.NotificationActivitySettingAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.NotificationActivitySettingAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a NotificationActivitySettingAction.
+             * @typedef {SyncAction.SyncActionValue.NotificationActivitySettingAction.$Properties} SyncAction.SyncActionValue.NotificationActivitySettingAction.$Shape
              */
 
             /**
              * Constructs a new NotificationActivitySettingAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a NotificationActivitySettingAction.
-             * @implements INotificationActivitySettingAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.INotificationActivitySettingAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.NotificationActivitySettingAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function NotificationActivitySettingAction(properties) {
@@ -19992,8 +20869,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.NotificationActivitySettingAction
              * @static
-             * @param {SyncAction.SyncActionValue.INotificationActivitySettingAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.NotificationActivitySettingAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.NotificationActivitySettingAction} NotificationActivitySettingAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.NotificationActivitySettingAction.$Shape): SyncAction.SyncActionValue.NotificationActivitySettingAction & SyncAction.SyncActionValue.NotificationActivitySettingAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.NotificationActivitySettingAction.$Properties): SyncAction.SyncActionValue.NotificationActivitySettingAction;
+             * }}
              */
             NotificationActivitySettingAction.create = function create(properties) {
                 return new NotificationActivitySettingAction(properties);
@@ -20004,7 +20885,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.NotificationActivitySettingAction
              * @static
-             * @param {SyncAction.SyncActionValue.INotificationActivitySettingAction} message NotificationActivitySettingAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.NotificationActivitySettingAction.$Properties} message NotificationActivitySettingAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -20024,7 +20905,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.NotificationActivitySettingAction
              * @static
-             * @param {SyncAction.SyncActionValue.INotificationActivitySettingAction} message NotificationActivitySettingAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.NotificationActivitySettingAction.$Properties} message NotificationActivitySettingAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -20039,7 +20920,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.NotificationActivitySettingAction} NotificationActivitySettingAction
+             * @returns {SyncAction.SyncActionValue.NotificationActivitySettingAction & SyncAction.SyncActionValue.NotificationActivitySettingAction.$Shape} NotificationActivitySettingAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -20083,7 +20964,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.NotificationActivitySettingAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.NotificationActivitySettingAction} NotificationActivitySettingAction
+             * @returns {SyncAction.SyncActionValue.NotificationActivitySettingAction & SyncAction.SyncActionValue.NotificationActivitySettingAction.$Shape} NotificationActivitySettingAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -20238,19 +21119,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a NuxAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface INuxAction
+             * @typedef {Object} SyncAction.SyncActionValue.NuxAction.$Properties
              * @property {boolean|null} [acknowledged] NuxAction acknowledged
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a NuxAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface INuxAction
+             * @augments SyncAction.SyncActionValue.NuxAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.NuxAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a NuxAction.
+             * @typedef {SyncAction.SyncActionValue.NuxAction.$Properties} SyncAction.SyncActionValue.NuxAction.$Shape
              */
 
             /**
              * Constructs a new NuxAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a NuxAction.
-             * @implements INuxAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.INuxAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.NuxAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function NuxAction(properties) {
@@ -20282,8 +21174,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.NuxAction
              * @static
-             * @param {SyncAction.SyncActionValue.INuxAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.NuxAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.NuxAction} NuxAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.NuxAction.$Shape): SyncAction.SyncActionValue.NuxAction & SyncAction.SyncActionValue.NuxAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.NuxAction.$Properties): SyncAction.SyncActionValue.NuxAction;
+             * }}
              */
             NuxAction.create = function create(properties) {
                 return new NuxAction(properties);
@@ -20294,7 +21190,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.NuxAction
              * @static
-             * @param {SyncAction.SyncActionValue.INuxAction} message NuxAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.NuxAction.$Properties} message NuxAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -20314,7 +21210,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.NuxAction
              * @static
-             * @param {SyncAction.SyncActionValue.INuxAction} message NuxAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.NuxAction.$Properties} message NuxAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -20329,7 +21225,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.NuxAction} NuxAction
+             * @returns {SyncAction.SyncActionValue.NuxAction & SyncAction.SyncActionValue.NuxAction.$Shape} NuxAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -20373,7 +21269,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.NuxAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.NuxAction} NuxAction
+             * @returns {SyncAction.SyncActionValue.NuxAction & SyncAction.SyncActionValue.NuxAction.$Shape} NuxAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -20481,20 +21377,31 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of an OutContactAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IOutContactAction
+             * @typedef {Object} SyncAction.SyncActionValue.OutContactAction.$Properties
              * @property {string|null} [fullName] OutContactAction fullName
              * @property {string|null} [firstName] OutContactAction firstName
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
+             * Properties of an OutContactAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IOutContactAction
+             * @augments SyncAction.SyncActionValue.OutContactAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.OutContactAction.$Properties instead.
+             */
+
+            /**
+             * Shape of an OutContactAction.
+             * @typedef {SyncAction.SyncActionValue.OutContactAction.$Properties} SyncAction.SyncActionValue.OutContactAction.$Shape
+             */
+
+            /**
              * Constructs a new OutContactAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents an OutContactAction.
-             * @implements IOutContactAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IOutContactAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.OutContactAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function OutContactAction(properties) {
@@ -20540,8 +21447,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.OutContactAction
              * @static
-             * @param {SyncAction.SyncActionValue.IOutContactAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.OutContactAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.OutContactAction} OutContactAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.OutContactAction.$Shape): SyncAction.SyncActionValue.OutContactAction & SyncAction.SyncActionValue.OutContactAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.OutContactAction.$Properties): SyncAction.SyncActionValue.OutContactAction;
+             * }}
              */
             OutContactAction.create = function create(properties) {
                 return new OutContactAction(properties);
@@ -20552,7 +21463,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.OutContactAction
              * @static
-             * @param {SyncAction.SyncActionValue.IOutContactAction} message OutContactAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.OutContactAction.$Properties} message OutContactAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -20574,7 +21485,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.OutContactAction
              * @static
-             * @param {SyncAction.SyncActionValue.IOutContactAction} message OutContactAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.OutContactAction.$Properties} message OutContactAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -20589,7 +21500,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.OutContactAction} OutContactAction
+             * @returns {SyncAction.SyncActionValue.OutContactAction & SyncAction.SyncActionValue.OutContactAction.$Shape} OutContactAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -20640,7 +21551,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.OutContactAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.OutContactAction} OutContactAction
+             * @returns {SyncAction.SyncActionValue.OutContactAction & SyncAction.SyncActionValue.OutContactAction.$Shape} OutContactAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -20760,19 +21671,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a PaymentInfoAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IPaymentInfoAction
+             * @typedef {Object} SyncAction.SyncActionValue.PaymentInfoAction.$Properties
              * @property {string|null} [cpi] PaymentInfoAction cpi
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a PaymentInfoAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IPaymentInfoAction
+             * @augments SyncAction.SyncActionValue.PaymentInfoAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.PaymentInfoAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a PaymentInfoAction.
+             * @typedef {SyncAction.SyncActionValue.PaymentInfoAction.$Properties} SyncAction.SyncActionValue.PaymentInfoAction.$Shape
              */
 
             /**
              * Constructs a new PaymentInfoAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a PaymentInfoAction.
-             * @implements IPaymentInfoAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IPaymentInfoAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.PaymentInfoAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function PaymentInfoAction(properties) {
@@ -20804,8 +21726,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.PaymentInfoAction
              * @static
-             * @param {SyncAction.SyncActionValue.IPaymentInfoAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.PaymentInfoAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.PaymentInfoAction} PaymentInfoAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.PaymentInfoAction.$Shape): SyncAction.SyncActionValue.PaymentInfoAction & SyncAction.SyncActionValue.PaymentInfoAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.PaymentInfoAction.$Properties): SyncAction.SyncActionValue.PaymentInfoAction;
+             * }}
              */
             PaymentInfoAction.create = function create(properties) {
                 return new PaymentInfoAction(properties);
@@ -20816,7 +21742,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.PaymentInfoAction
              * @static
-             * @param {SyncAction.SyncActionValue.IPaymentInfoAction} message PaymentInfoAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.PaymentInfoAction.$Properties} message PaymentInfoAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -20836,7 +21762,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.PaymentInfoAction
              * @static
-             * @param {SyncAction.SyncActionValue.IPaymentInfoAction} message PaymentInfoAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.PaymentInfoAction.$Properties} message PaymentInfoAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -20851,7 +21777,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.PaymentInfoAction} PaymentInfoAction
+             * @returns {SyncAction.SyncActionValue.PaymentInfoAction & SyncAction.SyncActionValue.PaymentInfoAction.$Shape} PaymentInfoAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -20895,7 +21821,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.PaymentInfoAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.PaymentInfoAction} PaymentInfoAction
+             * @returns {SyncAction.SyncActionValue.PaymentInfoAction & SyncAction.SyncActionValue.PaymentInfoAction.$Shape} PaymentInfoAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -21003,20 +21929,31 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a PaymentTosAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IPaymentTosAction
+             * @typedef {Object} SyncAction.SyncActionValue.PaymentTosAction.$Properties
              * @property {SyncAction.SyncActionValue.PaymentTosAction.PaymentNotice|null} [paymentNotice] PaymentTosAction paymentNotice
              * @property {boolean|null} [accepted] PaymentTosAction accepted
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
+             * Properties of a PaymentTosAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IPaymentTosAction
+             * @augments SyncAction.SyncActionValue.PaymentTosAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.PaymentTosAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a PaymentTosAction.
+             * @typedef {SyncAction.SyncActionValue.PaymentTosAction.$Properties} SyncAction.SyncActionValue.PaymentTosAction.$Shape
+             */
+
+            /**
              * Constructs a new PaymentTosAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a PaymentTosAction.
-             * @implements IPaymentTosAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IPaymentTosAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.PaymentTosAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function PaymentTosAction(properties) {
@@ -21062,8 +21999,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.PaymentTosAction
              * @static
-             * @param {SyncAction.SyncActionValue.IPaymentTosAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.PaymentTosAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.PaymentTosAction} PaymentTosAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.PaymentTosAction.$Shape): SyncAction.SyncActionValue.PaymentTosAction & SyncAction.SyncActionValue.PaymentTosAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.PaymentTosAction.$Properties): SyncAction.SyncActionValue.PaymentTosAction;
+             * }}
              */
             PaymentTosAction.create = function create(properties) {
                 return new PaymentTosAction(properties);
@@ -21074,7 +22015,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.PaymentTosAction
              * @static
-             * @param {SyncAction.SyncActionValue.IPaymentTosAction} message PaymentTosAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.PaymentTosAction.$Properties} message PaymentTosAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -21096,7 +22037,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.PaymentTosAction
              * @static
-             * @param {SyncAction.SyncActionValue.IPaymentTosAction} message PaymentTosAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.PaymentTosAction.$Properties} message PaymentTosAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -21111,7 +22052,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.PaymentTosAction} PaymentTosAction
+             * @returns {SyncAction.SyncActionValue.PaymentTosAction & SyncAction.SyncActionValue.PaymentTosAction.$Shape} PaymentTosAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -21162,7 +22103,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.PaymentTosAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.PaymentTosAction} PaymentTosAction
+             * @returns {SyncAction.SyncActionValue.PaymentTosAction & SyncAction.SyncActionValue.PaymentTosAction.$Shape} PaymentTosAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -21308,19 +22249,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a PinAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IPinAction
+             * @typedef {Object} SyncAction.SyncActionValue.PinAction.$Properties
              * @property {boolean|null} [pinned] PinAction pinned
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a PinAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IPinAction
+             * @augments SyncAction.SyncActionValue.PinAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.PinAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a PinAction.
+             * @typedef {SyncAction.SyncActionValue.PinAction.$Properties} SyncAction.SyncActionValue.PinAction.$Shape
              */
 
             /**
              * Constructs a new PinAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a PinAction.
-             * @implements IPinAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IPinAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.PinAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function PinAction(properties) {
@@ -21352,8 +22304,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.PinAction
              * @static
-             * @param {SyncAction.SyncActionValue.IPinAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.PinAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.PinAction} PinAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.PinAction.$Shape): SyncAction.SyncActionValue.PinAction & SyncAction.SyncActionValue.PinAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.PinAction.$Properties): SyncAction.SyncActionValue.PinAction;
+             * }}
              */
             PinAction.create = function create(properties) {
                 return new PinAction(properties);
@@ -21364,7 +22320,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.PinAction
              * @static
-             * @param {SyncAction.SyncActionValue.IPinAction} message PinAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.PinAction.$Properties} message PinAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -21384,7 +22340,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.PinAction
              * @static
-             * @param {SyncAction.SyncActionValue.IPinAction} message PinAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.PinAction.$Properties} message PinAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -21399,7 +22355,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.PinAction} PinAction
+             * @returns {SyncAction.SyncActionValue.PinAction & SyncAction.SyncActionValue.PinAction.$Shape} PinAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -21443,7 +22399,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.PinAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.PinAction} PinAction
+             * @returns {SyncAction.SyncActionValue.PinAction & SyncAction.SyncActionValue.PinAction.$Shape} PinAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -21551,19 +22507,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a PnForLidChatAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IPnForLidChatAction
+             * @typedef {Object} SyncAction.SyncActionValue.PnForLidChatAction.$Properties
              * @property {string|null} [pnJid] PnForLidChatAction pnJid
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a PnForLidChatAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IPnForLidChatAction
+             * @augments SyncAction.SyncActionValue.PnForLidChatAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.PnForLidChatAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a PnForLidChatAction.
+             * @typedef {SyncAction.SyncActionValue.PnForLidChatAction.$Properties} SyncAction.SyncActionValue.PnForLidChatAction.$Shape
              */
 
             /**
              * Constructs a new PnForLidChatAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a PnForLidChatAction.
-             * @implements IPnForLidChatAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IPnForLidChatAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.PnForLidChatAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function PnForLidChatAction(properties) {
@@ -21595,8 +22562,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.PnForLidChatAction
              * @static
-             * @param {SyncAction.SyncActionValue.IPnForLidChatAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.PnForLidChatAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.PnForLidChatAction} PnForLidChatAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.PnForLidChatAction.$Shape): SyncAction.SyncActionValue.PnForLidChatAction & SyncAction.SyncActionValue.PnForLidChatAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.PnForLidChatAction.$Properties): SyncAction.SyncActionValue.PnForLidChatAction;
+             * }}
              */
             PnForLidChatAction.create = function create(properties) {
                 return new PnForLidChatAction(properties);
@@ -21607,7 +22578,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.PnForLidChatAction
              * @static
-             * @param {SyncAction.SyncActionValue.IPnForLidChatAction} message PnForLidChatAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.PnForLidChatAction.$Properties} message PnForLidChatAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -21627,7 +22598,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.PnForLidChatAction
              * @static
-             * @param {SyncAction.SyncActionValue.IPnForLidChatAction} message PnForLidChatAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.PnForLidChatAction.$Properties} message PnForLidChatAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -21642,7 +22613,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.PnForLidChatAction} PnForLidChatAction
+             * @returns {SyncAction.SyncActionValue.PnForLidChatAction & SyncAction.SyncActionValue.PnForLidChatAction.$Shape} PnForLidChatAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -21686,7 +22657,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.PnForLidChatAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.PnForLidChatAction} PnForLidChatAction
+             * @returns {SyncAction.SyncActionValue.PnForLidChatAction & SyncAction.SyncActionValue.PnForLidChatAction.$Shape} PnForLidChatAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -21794,19 +22765,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a PrimaryFeature.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IPrimaryFeature
+             * @typedef {Object} SyncAction.SyncActionValue.PrimaryFeature.$Properties
              * @property {Array.<string>|null} [flags] PrimaryFeature flags
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a PrimaryFeature.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IPrimaryFeature
+             * @augments SyncAction.SyncActionValue.PrimaryFeature.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.PrimaryFeature.$Properties instead.
+             */
+
+            /**
+             * Shape of a PrimaryFeature.
+             * @typedef {SyncAction.SyncActionValue.PrimaryFeature.$Properties} SyncAction.SyncActionValue.PrimaryFeature.$Shape
              */
 
             /**
              * Constructs a new PrimaryFeature.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a PrimaryFeature.
-             * @implements IPrimaryFeature
              * @constructor
-             * @param {SyncAction.SyncActionValue.IPrimaryFeature=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.PrimaryFeature.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function PrimaryFeature(properties) {
@@ -21830,8 +22812,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.PrimaryFeature
              * @static
-             * @param {SyncAction.SyncActionValue.IPrimaryFeature=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.PrimaryFeature.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.PrimaryFeature} PrimaryFeature instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.PrimaryFeature.$Shape): SyncAction.SyncActionValue.PrimaryFeature & SyncAction.SyncActionValue.PrimaryFeature.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.PrimaryFeature.$Properties): SyncAction.SyncActionValue.PrimaryFeature;
+             * }}
              */
             PrimaryFeature.create = function create(properties) {
                 return new PrimaryFeature(properties);
@@ -21842,7 +22828,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.PrimaryFeature
              * @static
-             * @param {SyncAction.SyncActionValue.IPrimaryFeature} message PrimaryFeature message or plain object to encode
+             * @param {SyncAction.SyncActionValue.PrimaryFeature.$Properties} message PrimaryFeature message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -21863,7 +22849,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.PrimaryFeature
              * @static
-             * @param {SyncAction.SyncActionValue.IPrimaryFeature} message PrimaryFeature message or plain object to encode
+             * @param {SyncAction.SyncActionValue.PrimaryFeature.$Properties} message PrimaryFeature message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -21878,7 +22864,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.PrimaryFeature} PrimaryFeature
+             * @returns {SyncAction.SyncActionValue.PrimaryFeature & SyncAction.SyncActionValue.PrimaryFeature.$Shape} PrimaryFeature
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -21923,7 +22909,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.PrimaryFeature
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.PrimaryFeature} PrimaryFeature
+             * @returns {SyncAction.SyncActionValue.PrimaryFeature & SyncAction.SyncActionValue.PrimaryFeature.$Shape} PrimaryFeature
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -22039,19 +23025,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a PrimaryVersionAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IPrimaryVersionAction
+             * @typedef {Object} SyncAction.SyncActionValue.PrimaryVersionAction.$Properties
              * @property {string|null} [version] PrimaryVersionAction version
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a PrimaryVersionAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IPrimaryVersionAction
+             * @augments SyncAction.SyncActionValue.PrimaryVersionAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.PrimaryVersionAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a PrimaryVersionAction.
+             * @typedef {SyncAction.SyncActionValue.PrimaryVersionAction.$Properties} SyncAction.SyncActionValue.PrimaryVersionAction.$Shape
              */
 
             /**
              * Constructs a new PrimaryVersionAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a PrimaryVersionAction.
-             * @implements IPrimaryVersionAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IPrimaryVersionAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.PrimaryVersionAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function PrimaryVersionAction(properties) {
@@ -22083,8 +23080,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.PrimaryVersionAction
              * @static
-             * @param {SyncAction.SyncActionValue.IPrimaryVersionAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.PrimaryVersionAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.PrimaryVersionAction} PrimaryVersionAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.PrimaryVersionAction.$Shape): SyncAction.SyncActionValue.PrimaryVersionAction & SyncAction.SyncActionValue.PrimaryVersionAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.PrimaryVersionAction.$Properties): SyncAction.SyncActionValue.PrimaryVersionAction;
+             * }}
              */
             PrimaryVersionAction.create = function create(properties) {
                 return new PrimaryVersionAction(properties);
@@ -22095,7 +23096,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.PrimaryVersionAction
              * @static
-             * @param {SyncAction.SyncActionValue.IPrimaryVersionAction} message PrimaryVersionAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.PrimaryVersionAction.$Properties} message PrimaryVersionAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -22115,7 +23116,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.PrimaryVersionAction
              * @static
-             * @param {SyncAction.SyncActionValue.IPrimaryVersionAction} message PrimaryVersionAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.PrimaryVersionAction.$Properties} message PrimaryVersionAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -22130,7 +23131,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.PrimaryVersionAction} PrimaryVersionAction
+             * @returns {SyncAction.SyncActionValue.PrimaryVersionAction & SyncAction.SyncActionValue.PrimaryVersionAction.$Shape} PrimaryVersionAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -22174,7 +23175,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.PrimaryVersionAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.PrimaryVersionAction} PrimaryVersionAction
+             * @returns {SyncAction.SyncActionValue.PrimaryVersionAction & SyncAction.SyncActionValue.PrimaryVersionAction.$Shape} PrimaryVersionAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -22282,19 +23283,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a PrivacySettingChannelsPersonalisedRecommendationAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IPrivacySettingChannelsPersonalisedRecommendationAction
+             * @typedef {Object} SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction.$Properties
              * @property {boolean|null} [isUserOptedOut] PrivacySettingChannelsPersonalisedRecommendationAction isUserOptedOut
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a PrivacySettingChannelsPersonalisedRecommendationAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IPrivacySettingChannelsPersonalisedRecommendationAction
+             * @augments SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a PrivacySettingChannelsPersonalisedRecommendationAction.
+             * @typedef {SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction.$Properties} SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction.$Shape
              */
 
             /**
              * Constructs a new PrivacySettingChannelsPersonalisedRecommendationAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a PrivacySettingChannelsPersonalisedRecommendationAction.
-             * @implements IPrivacySettingChannelsPersonalisedRecommendationAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IPrivacySettingChannelsPersonalisedRecommendationAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function PrivacySettingChannelsPersonalisedRecommendationAction(properties) {
@@ -22326,8 +23338,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction
              * @static
-             * @param {SyncAction.SyncActionValue.IPrivacySettingChannelsPersonalisedRecommendationAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction} PrivacySettingChannelsPersonalisedRecommendationAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction.$Shape): SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction & SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction.$Properties): SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction;
+             * }}
              */
             PrivacySettingChannelsPersonalisedRecommendationAction.create = function create(properties) {
                 return new PrivacySettingChannelsPersonalisedRecommendationAction(properties);
@@ -22338,7 +23354,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction
              * @static
-             * @param {SyncAction.SyncActionValue.IPrivacySettingChannelsPersonalisedRecommendationAction} message PrivacySettingChannelsPersonalisedRecommendationAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction.$Properties} message PrivacySettingChannelsPersonalisedRecommendationAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -22358,7 +23374,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction
              * @static
-             * @param {SyncAction.SyncActionValue.IPrivacySettingChannelsPersonalisedRecommendationAction} message PrivacySettingChannelsPersonalisedRecommendationAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction.$Properties} message PrivacySettingChannelsPersonalisedRecommendationAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -22373,7 +23389,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction} PrivacySettingChannelsPersonalisedRecommendationAction
+             * @returns {SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction & SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction.$Shape} PrivacySettingChannelsPersonalisedRecommendationAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -22417,7 +23433,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction} PrivacySettingChannelsPersonalisedRecommendationAction
+             * @returns {SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction & SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction.$Shape} PrivacySettingChannelsPersonalisedRecommendationAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -22525,19 +23541,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a PrivacySettingDisableLinkPreviewsAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IPrivacySettingDisableLinkPreviewsAction
+             * @typedef {Object} SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction.$Properties
              * @property {boolean|null} [isPreviewsDisabled] PrivacySettingDisableLinkPreviewsAction isPreviewsDisabled
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a PrivacySettingDisableLinkPreviewsAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IPrivacySettingDisableLinkPreviewsAction
+             * @augments SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a PrivacySettingDisableLinkPreviewsAction.
+             * @typedef {SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction.$Properties} SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction.$Shape
              */
 
             /**
              * Constructs a new PrivacySettingDisableLinkPreviewsAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a PrivacySettingDisableLinkPreviewsAction.
-             * @implements IPrivacySettingDisableLinkPreviewsAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IPrivacySettingDisableLinkPreviewsAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function PrivacySettingDisableLinkPreviewsAction(properties) {
@@ -22569,8 +23596,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction
              * @static
-             * @param {SyncAction.SyncActionValue.IPrivacySettingDisableLinkPreviewsAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction} PrivacySettingDisableLinkPreviewsAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction.$Shape): SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction & SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction.$Properties): SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction;
+             * }}
              */
             PrivacySettingDisableLinkPreviewsAction.create = function create(properties) {
                 return new PrivacySettingDisableLinkPreviewsAction(properties);
@@ -22581,7 +23612,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction
              * @static
-             * @param {SyncAction.SyncActionValue.IPrivacySettingDisableLinkPreviewsAction} message PrivacySettingDisableLinkPreviewsAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction.$Properties} message PrivacySettingDisableLinkPreviewsAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -22601,7 +23632,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction
              * @static
-             * @param {SyncAction.SyncActionValue.IPrivacySettingDisableLinkPreviewsAction} message PrivacySettingDisableLinkPreviewsAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction.$Properties} message PrivacySettingDisableLinkPreviewsAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -22616,7 +23647,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction} PrivacySettingDisableLinkPreviewsAction
+             * @returns {SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction & SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction.$Shape} PrivacySettingDisableLinkPreviewsAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -22660,7 +23691,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction} PrivacySettingDisableLinkPreviewsAction
+             * @returns {SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction & SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction.$Shape} PrivacySettingDisableLinkPreviewsAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -22768,19 +23799,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a PrivacySettingRelayAllCalls.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IPrivacySettingRelayAllCalls
+             * @typedef {Object} SyncAction.SyncActionValue.PrivacySettingRelayAllCalls.$Properties
              * @property {boolean|null} [isEnabled] PrivacySettingRelayAllCalls isEnabled
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a PrivacySettingRelayAllCalls.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IPrivacySettingRelayAllCalls
+             * @augments SyncAction.SyncActionValue.PrivacySettingRelayAllCalls.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.PrivacySettingRelayAllCalls.$Properties instead.
+             */
+
+            /**
+             * Shape of a PrivacySettingRelayAllCalls.
+             * @typedef {SyncAction.SyncActionValue.PrivacySettingRelayAllCalls.$Properties} SyncAction.SyncActionValue.PrivacySettingRelayAllCalls.$Shape
              */
 
             /**
              * Constructs a new PrivacySettingRelayAllCalls.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a PrivacySettingRelayAllCalls.
-             * @implements IPrivacySettingRelayAllCalls
              * @constructor
-             * @param {SyncAction.SyncActionValue.IPrivacySettingRelayAllCalls=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.PrivacySettingRelayAllCalls.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function PrivacySettingRelayAllCalls(properties) {
@@ -22812,8 +23854,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.PrivacySettingRelayAllCalls
              * @static
-             * @param {SyncAction.SyncActionValue.IPrivacySettingRelayAllCalls=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.PrivacySettingRelayAllCalls.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.PrivacySettingRelayAllCalls} PrivacySettingRelayAllCalls instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.PrivacySettingRelayAllCalls.$Shape): SyncAction.SyncActionValue.PrivacySettingRelayAllCalls & SyncAction.SyncActionValue.PrivacySettingRelayAllCalls.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.PrivacySettingRelayAllCalls.$Properties): SyncAction.SyncActionValue.PrivacySettingRelayAllCalls;
+             * }}
              */
             PrivacySettingRelayAllCalls.create = function create(properties) {
                 return new PrivacySettingRelayAllCalls(properties);
@@ -22824,7 +23870,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.PrivacySettingRelayAllCalls
              * @static
-             * @param {SyncAction.SyncActionValue.IPrivacySettingRelayAllCalls} message PrivacySettingRelayAllCalls message or plain object to encode
+             * @param {SyncAction.SyncActionValue.PrivacySettingRelayAllCalls.$Properties} message PrivacySettingRelayAllCalls message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -22844,7 +23890,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.PrivacySettingRelayAllCalls
              * @static
-             * @param {SyncAction.SyncActionValue.IPrivacySettingRelayAllCalls} message PrivacySettingRelayAllCalls message or plain object to encode
+             * @param {SyncAction.SyncActionValue.PrivacySettingRelayAllCalls.$Properties} message PrivacySettingRelayAllCalls message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -22859,7 +23905,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.PrivacySettingRelayAllCalls} PrivacySettingRelayAllCalls
+             * @returns {SyncAction.SyncActionValue.PrivacySettingRelayAllCalls & SyncAction.SyncActionValue.PrivacySettingRelayAllCalls.$Shape} PrivacySettingRelayAllCalls
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -22903,7 +23949,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.PrivacySettingRelayAllCalls
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.PrivacySettingRelayAllCalls} PrivacySettingRelayAllCalls
+             * @returns {SyncAction.SyncActionValue.PrivacySettingRelayAllCalls & SyncAction.SyncActionValue.PrivacySettingRelayAllCalls.$Shape} PrivacySettingRelayAllCalls
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -23011,19 +24057,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a PrivateProcessingSettingAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IPrivateProcessingSettingAction
+             * @typedef {Object} SyncAction.SyncActionValue.PrivateProcessingSettingAction.$Properties
              * @property {SyncAction.SyncActionValue.PrivateProcessingSettingAction.PrivateProcessingStatus|null} [privateProcessingStatus] PrivateProcessingSettingAction privateProcessingStatus
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a PrivateProcessingSettingAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IPrivateProcessingSettingAction
+             * @augments SyncAction.SyncActionValue.PrivateProcessingSettingAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.PrivateProcessingSettingAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a PrivateProcessingSettingAction.
+             * @typedef {SyncAction.SyncActionValue.PrivateProcessingSettingAction.$Properties} SyncAction.SyncActionValue.PrivateProcessingSettingAction.$Shape
              */
 
             /**
              * Constructs a new PrivateProcessingSettingAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a PrivateProcessingSettingAction.
-             * @implements IPrivateProcessingSettingAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IPrivateProcessingSettingAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.PrivateProcessingSettingAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function PrivateProcessingSettingAction(properties) {
@@ -23055,8 +24112,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.PrivateProcessingSettingAction
              * @static
-             * @param {SyncAction.SyncActionValue.IPrivateProcessingSettingAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.PrivateProcessingSettingAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.PrivateProcessingSettingAction} PrivateProcessingSettingAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.PrivateProcessingSettingAction.$Shape): SyncAction.SyncActionValue.PrivateProcessingSettingAction & SyncAction.SyncActionValue.PrivateProcessingSettingAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.PrivateProcessingSettingAction.$Properties): SyncAction.SyncActionValue.PrivateProcessingSettingAction;
+             * }}
              */
             PrivateProcessingSettingAction.create = function create(properties) {
                 return new PrivateProcessingSettingAction(properties);
@@ -23067,7 +24128,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.PrivateProcessingSettingAction
              * @static
-             * @param {SyncAction.SyncActionValue.IPrivateProcessingSettingAction} message PrivateProcessingSettingAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.PrivateProcessingSettingAction.$Properties} message PrivateProcessingSettingAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -23087,7 +24148,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.PrivateProcessingSettingAction
              * @static
-             * @param {SyncAction.SyncActionValue.IPrivateProcessingSettingAction} message PrivateProcessingSettingAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.PrivateProcessingSettingAction.$Properties} message PrivateProcessingSettingAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -23102,7 +24163,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.PrivateProcessingSettingAction} PrivateProcessingSettingAction
+             * @returns {SyncAction.SyncActionValue.PrivateProcessingSettingAction & SyncAction.SyncActionValue.PrivateProcessingSettingAction.$Shape} PrivateProcessingSettingAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -23146,7 +24207,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.PrivateProcessingSettingAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.PrivateProcessingSettingAction} PrivateProcessingSettingAction
+             * @returns {SyncAction.SyncActionValue.PrivateProcessingSettingAction & SyncAction.SyncActionValue.PrivateProcessingSettingAction.$Shape} PrivateProcessingSettingAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -23294,19 +24355,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a PushNameSetting.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IPushNameSetting
+             * @typedef {Object} SyncAction.SyncActionValue.PushNameSetting.$Properties
              * @property {string|null} [name] PushNameSetting name
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a PushNameSetting.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IPushNameSetting
+             * @augments SyncAction.SyncActionValue.PushNameSetting.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.PushNameSetting.$Properties instead.
+             */
+
+            /**
+             * Shape of a PushNameSetting.
+             * @typedef {SyncAction.SyncActionValue.PushNameSetting.$Properties} SyncAction.SyncActionValue.PushNameSetting.$Shape
              */
 
             /**
              * Constructs a new PushNameSetting.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a PushNameSetting.
-             * @implements IPushNameSetting
              * @constructor
-             * @param {SyncAction.SyncActionValue.IPushNameSetting=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.PushNameSetting.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function PushNameSetting(properties) {
@@ -23338,8 +24410,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.PushNameSetting
              * @static
-             * @param {SyncAction.SyncActionValue.IPushNameSetting=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.PushNameSetting.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.PushNameSetting} PushNameSetting instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.PushNameSetting.$Shape): SyncAction.SyncActionValue.PushNameSetting & SyncAction.SyncActionValue.PushNameSetting.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.PushNameSetting.$Properties): SyncAction.SyncActionValue.PushNameSetting;
+             * }}
              */
             PushNameSetting.create = function create(properties) {
                 return new PushNameSetting(properties);
@@ -23350,7 +24426,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.PushNameSetting
              * @static
-             * @param {SyncAction.SyncActionValue.IPushNameSetting} message PushNameSetting message or plain object to encode
+             * @param {SyncAction.SyncActionValue.PushNameSetting.$Properties} message PushNameSetting message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -23370,7 +24446,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.PushNameSetting
              * @static
-             * @param {SyncAction.SyncActionValue.IPushNameSetting} message PushNameSetting message or plain object to encode
+             * @param {SyncAction.SyncActionValue.PushNameSetting.$Properties} message PushNameSetting message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -23385,7 +24461,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.PushNameSetting} PushNameSetting
+             * @returns {SyncAction.SyncActionValue.PushNameSetting & SyncAction.SyncActionValue.PushNameSetting.$Shape} PushNameSetting
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -23429,7 +24505,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.PushNameSetting
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.PushNameSetting} PushNameSetting
+             * @returns {SyncAction.SyncActionValue.PushNameSetting & SyncAction.SyncActionValue.PushNameSetting.$Shape} PushNameSetting
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -23537,8 +24613,7 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a QuickReplyAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IQuickReplyAction
+             * @typedef {Object} SyncAction.SyncActionValue.QuickReplyAction.$Properties
              * @property {string|null} [shortcut] QuickReplyAction shortcut
              * @property {string|null} [message] QuickReplyAction message
              * @property {Array.<string>|null} [keywords] QuickReplyAction keywords
@@ -23549,12 +24624,24 @@ $root.SyncAction = (function() {
              */
 
             /**
+             * Properties of a QuickReplyAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IQuickReplyAction
+             * @augments SyncAction.SyncActionValue.QuickReplyAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.QuickReplyAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a QuickReplyAction.
+             * @typedef {SyncAction.SyncActionValue.QuickReplyAction.$Properties} SyncAction.SyncActionValue.QuickReplyAction.$Shape
+             */
+
+            /**
              * Constructs a new QuickReplyAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a QuickReplyAction.
-             * @implements IQuickReplyAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IQuickReplyAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.QuickReplyAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function QuickReplyAction(properties) {
@@ -23646,8 +24733,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.QuickReplyAction
              * @static
-             * @param {SyncAction.SyncActionValue.IQuickReplyAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.QuickReplyAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.QuickReplyAction} QuickReplyAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.QuickReplyAction.$Shape): SyncAction.SyncActionValue.QuickReplyAction & SyncAction.SyncActionValue.QuickReplyAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.QuickReplyAction.$Properties): SyncAction.SyncActionValue.QuickReplyAction;
+             * }}
              */
             QuickReplyAction.create = function create(properties) {
                 return new QuickReplyAction(properties);
@@ -23658,7 +24749,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.QuickReplyAction
              * @static
-             * @param {SyncAction.SyncActionValue.IQuickReplyAction} message QuickReplyAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.QuickReplyAction.$Properties} message QuickReplyAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -23690,7 +24781,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.QuickReplyAction
              * @static
-             * @param {SyncAction.SyncActionValue.IQuickReplyAction} message QuickReplyAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.QuickReplyAction.$Properties} message QuickReplyAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -23705,7 +24796,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.QuickReplyAction} QuickReplyAction
+             * @returns {SyncAction.SyncActionValue.QuickReplyAction & SyncAction.SyncActionValue.QuickReplyAction.$Shape} QuickReplyAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -23786,7 +24877,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.QuickReplyAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.QuickReplyAction} QuickReplyAction
+             * @returns {SyncAction.SyncActionValue.QuickReplyAction & SyncAction.SyncActionValue.QuickReplyAction.$Shape} QuickReplyAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -23972,19 +25063,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a RecentEmojiWeightsAction.
+             * @typedef {Object} SyncAction.SyncActionValue.RecentEmojiWeightsAction.$Properties
+             * @property {Array.<SyncAction.RecentEmojiWeight.$Properties>|null} [weights] RecentEmojiWeightsAction weights
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a RecentEmojiWeightsAction.
              * @memberof SyncAction.SyncActionValue
              * @interface IRecentEmojiWeightsAction
-             * @property {Array.<SyncAction.IRecentEmojiWeight>|null} [weights] RecentEmojiWeightsAction weights
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @augments SyncAction.SyncActionValue.RecentEmojiWeightsAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.RecentEmojiWeightsAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a RecentEmojiWeightsAction.
+             * @typedef {SyncAction.SyncActionValue.RecentEmojiWeightsAction.$Properties} SyncAction.SyncActionValue.RecentEmojiWeightsAction.$Shape
              */
 
             /**
              * Constructs a new RecentEmojiWeightsAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a RecentEmojiWeightsAction.
-             * @implements IRecentEmojiWeightsAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IRecentEmojiWeightsAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.RecentEmojiWeightsAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function RecentEmojiWeightsAction(properties) {
@@ -23997,7 +25099,7 @@ $root.SyncAction = (function() {
 
             /**
              * RecentEmojiWeightsAction weights.
-             * @member {Array.<SyncAction.IRecentEmojiWeight>} weights
+             * @member {Array.<SyncAction.RecentEmojiWeight.$Properties>} weights
              * @memberof SyncAction.SyncActionValue.RecentEmojiWeightsAction
              * @instance
              */
@@ -24008,8 +25110,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.RecentEmojiWeightsAction
              * @static
-             * @param {SyncAction.SyncActionValue.IRecentEmojiWeightsAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.RecentEmojiWeightsAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.RecentEmojiWeightsAction} RecentEmojiWeightsAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.RecentEmojiWeightsAction.$Shape): SyncAction.SyncActionValue.RecentEmojiWeightsAction & SyncAction.SyncActionValue.RecentEmojiWeightsAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.RecentEmojiWeightsAction.$Properties): SyncAction.SyncActionValue.RecentEmojiWeightsAction;
+             * }}
              */
             RecentEmojiWeightsAction.create = function create(properties) {
                 return new RecentEmojiWeightsAction(properties);
@@ -24020,7 +25126,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.RecentEmojiWeightsAction
              * @static
-             * @param {SyncAction.SyncActionValue.IRecentEmojiWeightsAction} message RecentEmojiWeightsAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.RecentEmojiWeightsAction.$Properties} message RecentEmojiWeightsAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -24041,7 +25147,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.RecentEmojiWeightsAction
              * @static
-             * @param {SyncAction.SyncActionValue.IRecentEmojiWeightsAction} message RecentEmojiWeightsAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.RecentEmojiWeightsAction.$Properties} message RecentEmojiWeightsAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -24056,7 +25162,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.RecentEmojiWeightsAction} RecentEmojiWeightsAction
+             * @returns {SyncAction.SyncActionValue.RecentEmojiWeightsAction & SyncAction.SyncActionValue.RecentEmojiWeightsAction.$Shape} RecentEmojiWeightsAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -24101,7 +25207,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.RecentEmojiWeightsAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.RecentEmojiWeightsAction} RecentEmojiWeightsAction
+             * @returns {SyncAction.SyncActionValue.RecentEmojiWeightsAction & SyncAction.SyncActionValue.RecentEmojiWeightsAction.$Shape} RecentEmojiWeightsAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -24222,19 +25328,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a RemoveRecentStickerAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IRemoveRecentStickerAction
+             * @typedef {Object} SyncAction.SyncActionValue.RemoveRecentStickerAction.$Properties
              * @property {number|Long|null} [lastStickerSentTs] RemoveRecentStickerAction lastStickerSentTs
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a RemoveRecentStickerAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IRemoveRecentStickerAction
+             * @augments SyncAction.SyncActionValue.RemoveRecentStickerAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.RemoveRecentStickerAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a RemoveRecentStickerAction.
+             * @typedef {SyncAction.SyncActionValue.RemoveRecentStickerAction.$Properties} SyncAction.SyncActionValue.RemoveRecentStickerAction.$Shape
              */
 
             /**
              * Constructs a new RemoveRecentStickerAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a RemoveRecentStickerAction.
-             * @implements IRemoveRecentStickerAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IRemoveRecentStickerAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.RemoveRecentStickerAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function RemoveRecentStickerAction(properties) {
@@ -24266,8 +25383,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.RemoveRecentStickerAction
              * @static
-             * @param {SyncAction.SyncActionValue.IRemoveRecentStickerAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.RemoveRecentStickerAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.RemoveRecentStickerAction} RemoveRecentStickerAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.RemoveRecentStickerAction.$Shape): SyncAction.SyncActionValue.RemoveRecentStickerAction & SyncAction.SyncActionValue.RemoveRecentStickerAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.RemoveRecentStickerAction.$Properties): SyncAction.SyncActionValue.RemoveRecentStickerAction;
+             * }}
              */
             RemoveRecentStickerAction.create = function create(properties) {
                 return new RemoveRecentStickerAction(properties);
@@ -24278,7 +25399,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.RemoveRecentStickerAction
              * @static
-             * @param {SyncAction.SyncActionValue.IRemoveRecentStickerAction} message RemoveRecentStickerAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.RemoveRecentStickerAction.$Properties} message RemoveRecentStickerAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -24298,7 +25419,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.RemoveRecentStickerAction
              * @static
-             * @param {SyncAction.SyncActionValue.IRemoveRecentStickerAction} message RemoveRecentStickerAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.RemoveRecentStickerAction.$Properties} message RemoveRecentStickerAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -24313,7 +25434,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.RemoveRecentStickerAction} RemoveRecentStickerAction
+             * @returns {SyncAction.SyncActionValue.RemoveRecentStickerAction & SyncAction.SyncActionValue.RemoveRecentStickerAction.$Shape} RemoveRecentStickerAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -24357,7 +25478,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.RemoveRecentStickerAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.RemoveRecentStickerAction} RemoveRecentStickerAction
+             * @returns {SyncAction.SyncActionValue.RemoveRecentStickerAction & SyncAction.SyncActionValue.RemoveRecentStickerAction.$Shape} RemoveRecentStickerAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -24475,8 +25596,7 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a SettingsSyncAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface ISettingsSyncAction
+             * @typedef {Object} SyncAction.SyncActionValue.SettingsSyncAction.$Properties
              * @property {boolean|null} [startAtLogin] SettingsSyncAction startAtLogin
              * @property {boolean|null} [minimizeToTray] SettingsSyncAction minimizeToTray
              * @property {string|null} [language] SettingsSyncAction language
@@ -24514,12 +25634,24 @@ $root.SyncAction = (function() {
              */
 
             /**
+             * Properties of a SettingsSyncAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface ISettingsSyncAction
+             * @augments SyncAction.SyncActionValue.SettingsSyncAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.SettingsSyncAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a SettingsSyncAction.
+             * @typedef {SyncAction.SyncActionValue.SettingsSyncAction.$Properties} SyncAction.SyncActionValue.SettingsSyncAction.$Shape
+             */
+
+            /**
              * Constructs a new SettingsSyncAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a SettingsSyncAction.
-             * @implements ISettingsSyncAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.ISettingsSyncAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.SettingsSyncAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function SettingsSyncAction(properties) {
@@ -24999,8 +26131,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.SettingsSyncAction
              * @static
-             * @param {SyncAction.SyncActionValue.ISettingsSyncAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.SettingsSyncAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.SettingsSyncAction} SettingsSyncAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.SettingsSyncAction.$Shape): SyncAction.SyncActionValue.SettingsSyncAction & SyncAction.SyncActionValue.SettingsSyncAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.SettingsSyncAction.$Properties): SyncAction.SyncActionValue.SettingsSyncAction;
+             * }}
              */
             SettingsSyncAction.create = function create(properties) {
                 return new SettingsSyncAction(properties);
@@ -25011,7 +26147,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.SettingsSyncAction
              * @static
-             * @param {SyncAction.SyncActionValue.ISettingsSyncAction} message SettingsSyncAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.SettingsSyncAction.$Properties} message SettingsSyncAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -25095,7 +26231,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.SettingsSyncAction
              * @static
-             * @param {SyncAction.SyncActionValue.ISettingsSyncAction} message SettingsSyncAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.SettingsSyncAction.$Properties} message SettingsSyncAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -25110,7 +26246,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.SettingsSyncAction} SettingsSyncAction
+             * @returns {SyncAction.SyncActionValue.SettingsSyncAction & SyncAction.SyncActionValue.SettingsSyncAction.$Shape} SettingsSyncAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -25378,7 +26514,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.SettingsSyncAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.SettingsSyncAction} SettingsSyncAction
+             * @returns {SyncAction.SyncActionValue.SettingsSyncAction & SyncAction.SyncActionValue.SettingsSyncAction.$Shape} SettingsSyncAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -26084,19 +27220,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a StarAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IStarAction
+             * @typedef {Object} SyncAction.SyncActionValue.StarAction.$Properties
              * @property {boolean|null} [starred] StarAction starred
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a StarAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IStarAction
+             * @augments SyncAction.SyncActionValue.StarAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.StarAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a StarAction.
+             * @typedef {SyncAction.SyncActionValue.StarAction.$Properties} SyncAction.SyncActionValue.StarAction.$Shape
              */
 
             /**
              * Constructs a new StarAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a StarAction.
-             * @implements IStarAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IStarAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.StarAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function StarAction(properties) {
@@ -26128,8 +27275,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.StarAction
              * @static
-             * @param {SyncAction.SyncActionValue.IStarAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.StarAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.StarAction} StarAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.StarAction.$Shape): SyncAction.SyncActionValue.StarAction & SyncAction.SyncActionValue.StarAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.StarAction.$Properties): SyncAction.SyncActionValue.StarAction;
+             * }}
              */
             StarAction.create = function create(properties) {
                 return new StarAction(properties);
@@ -26140,7 +27291,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.StarAction
              * @static
-             * @param {SyncAction.SyncActionValue.IStarAction} message StarAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.StarAction.$Properties} message StarAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -26160,7 +27311,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.StarAction
              * @static
-             * @param {SyncAction.SyncActionValue.IStarAction} message StarAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.StarAction.$Properties} message StarAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -26175,7 +27326,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.StarAction} StarAction
+             * @returns {SyncAction.SyncActionValue.StarAction & SyncAction.SyncActionValue.StarAction.$Shape} StarAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -26219,7 +27370,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.StarAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.StarAction} StarAction
+             * @returns {SyncAction.SyncActionValue.StarAction & SyncAction.SyncActionValue.StarAction.$Shape} StarAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -26327,19 +27478,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a StatusPostOptInNotificationPreferencesAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IStatusPostOptInNotificationPreferencesAction
+             * @typedef {Object} SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction.$Properties
              * @property {boolean|null} [enabled] StatusPostOptInNotificationPreferencesAction enabled
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a StatusPostOptInNotificationPreferencesAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IStatusPostOptInNotificationPreferencesAction
+             * @augments SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a StatusPostOptInNotificationPreferencesAction.
+             * @typedef {SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction.$Properties} SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction.$Shape
              */
 
             /**
              * Constructs a new StatusPostOptInNotificationPreferencesAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a StatusPostOptInNotificationPreferencesAction.
-             * @implements IStatusPostOptInNotificationPreferencesAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IStatusPostOptInNotificationPreferencesAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function StatusPostOptInNotificationPreferencesAction(properties) {
@@ -26371,8 +27533,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction
              * @static
-             * @param {SyncAction.SyncActionValue.IStatusPostOptInNotificationPreferencesAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction} StatusPostOptInNotificationPreferencesAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction.$Shape): SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction & SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction.$Properties): SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction;
+             * }}
              */
             StatusPostOptInNotificationPreferencesAction.create = function create(properties) {
                 return new StatusPostOptInNotificationPreferencesAction(properties);
@@ -26383,7 +27549,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction
              * @static
-             * @param {SyncAction.SyncActionValue.IStatusPostOptInNotificationPreferencesAction} message StatusPostOptInNotificationPreferencesAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction.$Properties} message StatusPostOptInNotificationPreferencesAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -26403,7 +27569,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction
              * @static
-             * @param {SyncAction.SyncActionValue.IStatusPostOptInNotificationPreferencesAction} message StatusPostOptInNotificationPreferencesAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction.$Properties} message StatusPostOptInNotificationPreferencesAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -26418,7 +27584,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction} StatusPostOptInNotificationPreferencesAction
+             * @returns {SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction & SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction.$Shape} StatusPostOptInNotificationPreferencesAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -26462,7 +27628,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction} StatusPostOptInNotificationPreferencesAction
+             * @returns {SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction & SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction.$Shape} StatusPostOptInNotificationPreferencesAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -26570,24 +27736,35 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a StatusPrivacyAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IStatusPrivacyAction
+             * @typedef {Object} SyncAction.SyncActionValue.StatusPrivacyAction.$Properties
              * @property {SyncAction.SyncActionValue.StatusPrivacyAction.StatusDistributionMode|null} [mode] StatusPrivacyAction mode
              * @property {Array.<string>|null} [userJid] StatusPrivacyAction userJid
              * @property {boolean|null} [shareToFB] StatusPrivacyAction shareToFB
              * @property {boolean|null} [shareToIG] StatusPrivacyAction shareToIG
-             * @property {Array.<SyncAction.SyncActionValue.StatusPrivacyAction.ICustomList>|null} [customLists] StatusPrivacyAction customLists
+             * @property {Array.<SyncAction.SyncActionValue.StatusPrivacyAction.CustomList.$Properties>|null} [customLists] StatusPrivacyAction customLists
              * @property {Array.<SyncAction.SyncActionValue.StatusPrivacyAction.StatusDistributionMode>|null} [modes] StatusPrivacyAction modes
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a StatusPrivacyAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IStatusPrivacyAction
+             * @augments SyncAction.SyncActionValue.StatusPrivacyAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.StatusPrivacyAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a StatusPrivacyAction.
+             * @typedef {SyncAction.SyncActionValue.StatusPrivacyAction.$Properties} SyncAction.SyncActionValue.StatusPrivacyAction.$Shape
              */
 
             /**
              * Constructs a new StatusPrivacyAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a StatusPrivacyAction.
-             * @implements IStatusPrivacyAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IStatusPrivacyAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.StatusPrivacyAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function StatusPrivacyAction(properties) {
@@ -26634,7 +27811,7 @@ $root.SyncAction = (function() {
 
             /**
              * StatusPrivacyAction customLists.
-             * @member {Array.<SyncAction.SyncActionValue.StatusPrivacyAction.ICustomList>} customLists
+             * @member {Array.<SyncAction.SyncActionValue.StatusPrivacyAction.CustomList.$Properties>} customLists
              * @memberof SyncAction.SyncActionValue.StatusPrivacyAction
              * @instance
              */
@@ -26674,8 +27851,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.StatusPrivacyAction
              * @static
-             * @param {SyncAction.SyncActionValue.IStatusPrivacyAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.StatusPrivacyAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.StatusPrivacyAction} StatusPrivacyAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.StatusPrivacyAction.$Shape): SyncAction.SyncActionValue.StatusPrivacyAction & SyncAction.SyncActionValue.StatusPrivacyAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.StatusPrivacyAction.$Properties): SyncAction.SyncActionValue.StatusPrivacyAction;
+             * }}
              */
             StatusPrivacyAction.create = function create(properties) {
                 return new StatusPrivacyAction(properties);
@@ -26686,7 +27867,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.StatusPrivacyAction
              * @static
-             * @param {SyncAction.SyncActionValue.IStatusPrivacyAction} message StatusPrivacyAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.StatusPrivacyAction.$Properties} message StatusPrivacyAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -26722,7 +27903,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.StatusPrivacyAction
              * @static
-             * @param {SyncAction.SyncActionValue.IStatusPrivacyAction} message StatusPrivacyAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.StatusPrivacyAction.$Properties} message StatusPrivacyAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -26737,7 +27918,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.StatusPrivacyAction} StatusPrivacyAction
+             * @returns {SyncAction.SyncActionValue.StatusPrivacyAction & SyncAction.SyncActionValue.StatusPrivacyAction.$Shape} StatusPrivacyAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -26827,7 +28008,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.StatusPrivacyAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.StatusPrivacyAction} StatusPrivacyAction
+             * @returns {SyncAction.SyncActionValue.StatusPrivacyAction & SyncAction.SyncActionValue.StatusPrivacyAction.$Shape} StatusPrivacyAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -27091,8 +28272,7 @@ $root.SyncAction = (function() {
 
                 /**
                  * Properties of a CustomList.
-                 * @memberof SyncAction.SyncActionValue.StatusPrivacyAction
-                 * @interface ICustomList
+                 * @typedef {Object} SyncAction.SyncActionValue.StatusPrivacyAction.CustomList.$Properties
                  * @property {string|null} [listId] CustomList listId
                  * @property {string|null} [name] CustomList name
                  * @property {string|null} [emoji] CustomList emoji
@@ -27102,12 +28282,24 @@ $root.SyncAction = (function() {
                  */
 
                 /**
+                 * Properties of a CustomList.
+                 * @memberof SyncAction.SyncActionValue.StatusPrivacyAction
+                 * @interface ICustomList
+                 * @augments SyncAction.SyncActionValue.StatusPrivacyAction.CustomList.$Properties
+                 * @deprecated Use SyncAction.SyncActionValue.StatusPrivacyAction.CustomList.$Properties instead.
+                 */
+
+                /**
+                 * Shape of a CustomList.
+                 * @typedef {SyncAction.SyncActionValue.StatusPrivacyAction.CustomList.$Properties} SyncAction.SyncActionValue.StatusPrivacyAction.CustomList.$Shape
+                 */
+
+                /**
                  * Constructs a new CustomList.
                  * @memberof SyncAction.SyncActionValue.StatusPrivacyAction
                  * @classdesc Represents a CustomList.
-                 * @implements ICustomList
                  * @constructor
-                 * @param {SyncAction.SyncActionValue.StatusPrivacyAction.ICustomList=} [properties] Properties to set
+                 * @param {SyncAction.SyncActionValue.StatusPrivacyAction.CustomList.$Properties=} [properties] Properties to set
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function CustomList(properties) {
@@ -27190,8 +28382,12 @@ $root.SyncAction = (function() {
                  * @function create
                  * @memberof SyncAction.SyncActionValue.StatusPrivacyAction.CustomList
                  * @static
-                 * @param {SyncAction.SyncActionValue.StatusPrivacyAction.ICustomList=} [properties] Properties to set
+                 * @param {SyncAction.SyncActionValue.StatusPrivacyAction.CustomList.$Properties=} [properties] Properties to set
                  * @returns {SyncAction.SyncActionValue.StatusPrivacyAction.CustomList} CustomList instance
+                 * @type {{
+                 *   (properties: SyncAction.SyncActionValue.StatusPrivacyAction.CustomList.$Shape): SyncAction.SyncActionValue.StatusPrivacyAction.CustomList & SyncAction.SyncActionValue.StatusPrivacyAction.CustomList.$Shape;
+                 *   (properties?: SyncAction.SyncActionValue.StatusPrivacyAction.CustomList.$Properties): SyncAction.SyncActionValue.StatusPrivacyAction.CustomList;
+                 * }}
                  */
                 CustomList.create = function create(properties) {
                     return new CustomList(properties);
@@ -27202,7 +28398,7 @@ $root.SyncAction = (function() {
                  * @function encode
                  * @memberof SyncAction.SyncActionValue.StatusPrivacyAction.CustomList
                  * @static
-                 * @param {SyncAction.SyncActionValue.StatusPrivacyAction.ICustomList} message CustomList message or plain object to encode
+                 * @param {SyncAction.SyncActionValue.StatusPrivacyAction.CustomList.$Properties} message CustomList message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -27231,7 +28427,7 @@ $root.SyncAction = (function() {
                  * @function encodeDelimited
                  * @memberof SyncAction.SyncActionValue.StatusPrivacyAction.CustomList
                  * @static
-                 * @param {SyncAction.SyncActionValue.StatusPrivacyAction.ICustomList} message CustomList message or plain object to encode
+                 * @param {SyncAction.SyncActionValue.StatusPrivacyAction.CustomList.$Properties} message CustomList message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -27246,7 +28442,7 @@ $root.SyncAction = (function() {
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                  * @param {number} [length] Message length if known beforehand
-                 * @returns {SyncAction.SyncActionValue.StatusPrivacyAction.CustomList} CustomList
+                 * @returns {SyncAction.SyncActionValue.StatusPrivacyAction.CustomList & SyncAction.SyncActionValue.StatusPrivacyAction.CustomList.$Shape} CustomList
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -27319,7 +28515,7 @@ $root.SyncAction = (function() {
                  * @memberof SyncAction.SyncActionValue.StatusPrivacyAction.CustomList
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {SyncAction.SyncActionValue.StatusPrivacyAction.CustomList} CustomList
+                 * @returns {SyncAction.SyncActionValue.StatusPrivacyAction.CustomList & SyncAction.SyncActionValue.StatusPrivacyAction.CustomList.$Shape} CustomList
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -27507,8 +28703,7 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a StickerAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IStickerAction
+             * @typedef {Object} SyncAction.SyncActionValue.StickerAction.$Properties
              * @property {string|null} [url] StickerAction url
              * @property {Uint8Array|null} [fileEncSha256] StickerAction fileEncSha256
              * @property {Uint8Array|null} [mediaKey] StickerAction mediaKey
@@ -27526,12 +28721,24 @@ $root.SyncAction = (function() {
              */
 
             /**
+             * Properties of a StickerAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IStickerAction
+             * @augments SyncAction.SyncActionValue.StickerAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.StickerAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a StickerAction.
+             * @typedef {SyncAction.SyncActionValue.StickerAction.$Properties} SyncAction.SyncActionValue.StickerAction.$Shape
+             */
+
+            /**
              * Constructs a new StickerAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a StickerAction.
-             * @implements IStickerAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IStickerAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.StickerAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function StickerAction(properties) {
@@ -27731,8 +28938,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.StickerAction
              * @static
-             * @param {SyncAction.SyncActionValue.IStickerAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.StickerAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.StickerAction} StickerAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.StickerAction.$Shape): SyncAction.SyncActionValue.StickerAction & SyncAction.SyncActionValue.StickerAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.StickerAction.$Properties): SyncAction.SyncActionValue.StickerAction;
+             * }}
              */
             StickerAction.create = function create(properties) {
                 return new StickerAction(properties);
@@ -27743,7 +28954,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.StickerAction
              * @static
-             * @param {SyncAction.SyncActionValue.IStickerAction} message StickerAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.StickerAction.$Properties} message StickerAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -27787,7 +28998,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.StickerAction
              * @static
-             * @param {SyncAction.SyncActionValue.IStickerAction} message StickerAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.StickerAction.$Properties} message StickerAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -27802,7 +29013,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.StickerAction} StickerAction
+             * @returns {SyncAction.SyncActionValue.StickerAction & SyncAction.SyncActionValue.StickerAction.$Shape} StickerAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -27930,7 +29141,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.StickerAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.StickerAction} StickerAction
+             * @returns {SyncAction.SyncActionValue.StickerAction & SyncAction.SyncActionValue.StickerAction.$Shape} StickerAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -28198,8 +29409,7 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a SubscriptionAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface ISubscriptionAction
+             * @typedef {Object} SyncAction.SyncActionValue.SubscriptionAction.$Properties
              * @property {boolean|null} [isDeactivated] SubscriptionAction isDeactivated
              * @property {boolean|null} [isAutoRenewing] SubscriptionAction isAutoRenewing
              * @property {number|Long|null} [expirationDate] SubscriptionAction expirationDate
@@ -28207,12 +29417,24 @@ $root.SyncAction = (function() {
              */
 
             /**
+             * Properties of a SubscriptionAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface ISubscriptionAction
+             * @augments SyncAction.SyncActionValue.SubscriptionAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.SubscriptionAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a SubscriptionAction.
+             * @typedef {SyncAction.SyncActionValue.SubscriptionAction.$Properties} SyncAction.SyncActionValue.SubscriptionAction.$Shape
+             */
+
+            /**
              * Constructs a new SubscriptionAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a SubscriptionAction.
-             * @implements ISubscriptionAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.ISubscriptionAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.SubscriptionAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function SubscriptionAction(properties) {
@@ -28272,8 +29494,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.SubscriptionAction
              * @static
-             * @param {SyncAction.SyncActionValue.ISubscriptionAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.SubscriptionAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.SubscriptionAction} SubscriptionAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.SubscriptionAction.$Shape): SyncAction.SyncActionValue.SubscriptionAction & SyncAction.SyncActionValue.SubscriptionAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.SubscriptionAction.$Properties): SyncAction.SyncActionValue.SubscriptionAction;
+             * }}
              */
             SubscriptionAction.create = function create(properties) {
                 return new SubscriptionAction(properties);
@@ -28284,7 +29510,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.SubscriptionAction
              * @static
-             * @param {SyncAction.SyncActionValue.ISubscriptionAction} message SubscriptionAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.SubscriptionAction.$Properties} message SubscriptionAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -28308,7 +29534,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.SubscriptionAction
              * @static
-             * @param {SyncAction.SyncActionValue.ISubscriptionAction} message SubscriptionAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.SubscriptionAction.$Properties} message SubscriptionAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -28323,7 +29549,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.SubscriptionAction} SubscriptionAction
+             * @returns {SyncAction.SyncActionValue.SubscriptionAction & SyncAction.SyncActionValue.SubscriptionAction.$Shape} SubscriptionAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -28381,7 +29607,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.SubscriptionAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.SubscriptionAction} SubscriptionAction
+             * @returns {SyncAction.SyncActionValue.SubscriptionAction & SyncAction.SyncActionValue.SubscriptionAction.$Shape} SubscriptionAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -28523,20 +29749,31 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a SubscriptionsSyncV2Action.
+             * @typedef {Object} SyncAction.SyncActionValue.SubscriptionsSyncV2Action.$Properties
+             * @property {Array.<SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo.$Properties>|null} [subscriptions] SubscriptionsSyncV2Action subscriptions
+             * @property {Array.<SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature.$Properties>|null} [paidFeature] SubscriptionsSyncV2Action paidFeature
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a SubscriptionsSyncV2Action.
              * @memberof SyncAction.SyncActionValue
              * @interface ISubscriptionsSyncV2Action
-             * @property {Array.<SyncAction.SyncActionValue.SubscriptionsSyncV2Action.ISubscriptionInfo>|null} [subscriptions] SubscriptionsSyncV2Action subscriptions
-             * @property {Array.<SyncAction.SyncActionValue.SubscriptionsSyncV2Action.IPaidFeature>|null} [paidFeature] SubscriptionsSyncV2Action paidFeature
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @augments SyncAction.SyncActionValue.SubscriptionsSyncV2Action.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.SubscriptionsSyncV2Action.$Properties instead.
+             */
+
+            /**
+             * Shape of a SubscriptionsSyncV2Action.
+             * @typedef {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.$Properties} SyncAction.SyncActionValue.SubscriptionsSyncV2Action.$Shape
              */
 
             /**
              * Constructs a new SubscriptionsSyncV2Action.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a SubscriptionsSyncV2Action.
-             * @implements ISubscriptionsSyncV2Action
              * @constructor
-             * @param {SyncAction.SyncActionValue.ISubscriptionsSyncV2Action=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function SubscriptionsSyncV2Action(properties) {
@@ -28550,7 +29787,7 @@ $root.SyncAction = (function() {
 
             /**
              * SubscriptionsSyncV2Action subscriptions.
-             * @member {Array.<SyncAction.SyncActionValue.SubscriptionsSyncV2Action.ISubscriptionInfo>} subscriptions
+             * @member {Array.<SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo.$Properties>} subscriptions
              * @memberof SyncAction.SyncActionValue.SubscriptionsSyncV2Action
              * @instance
              */
@@ -28558,7 +29795,7 @@ $root.SyncAction = (function() {
 
             /**
              * SubscriptionsSyncV2Action paidFeature.
-             * @member {Array.<SyncAction.SyncActionValue.SubscriptionsSyncV2Action.IPaidFeature>} paidFeature
+             * @member {Array.<SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature.$Properties>} paidFeature
              * @memberof SyncAction.SyncActionValue.SubscriptionsSyncV2Action
              * @instance
              */
@@ -28569,8 +29806,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.SubscriptionsSyncV2Action
              * @static
-             * @param {SyncAction.SyncActionValue.ISubscriptionsSyncV2Action=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.SubscriptionsSyncV2Action} SubscriptionsSyncV2Action instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.SubscriptionsSyncV2Action.$Shape): SyncAction.SyncActionValue.SubscriptionsSyncV2Action & SyncAction.SyncActionValue.SubscriptionsSyncV2Action.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.SubscriptionsSyncV2Action.$Properties): SyncAction.SyncActionValue.SubscriptionsSyncV2Action;
+             * }}
              */
             SubscriptionsSyncV2Action.create = function create(properties) {
                 return new SubscriptionsSyncV2Action(properties);
@@ -28581,7 +29822,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.SubscriptionsSyncV2Action
              * @static
-             * @param {SyncAction.SyncActionValue.ISubscriptionsSyncV2Action} message SubscriptionsSyncV2Action message or plain object to encode
+             * @param {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.$Properties} message SubscriptionsSyncV2Action message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -28605,7 +29846,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.SubscriptionsSyncV2Action
              * @static
-             * @param {SyncAction.SyncActionValue.ISubscriptionsSyncV2Action} message SubscriptionsSyncV2Action message or plain object to encode
+             * @param {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.$Properties} message SubscriptionsSyncV2Action message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -28620,7 +29861,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.SubscriptionsSyncV2Action} SubscriptionsSyncV2Action
+             * @returns {SyncAction.SyncActionValue.SubscriptionsSyncV2Action & SyncAction.SyncActionValue.SubscriptionsSyncV2Action.$Shape} SubscriptionsSyncV2Action
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -28673,7 +29914,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.SubscriptionsSyncV2Action
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.SubscriptionsSyncV2Action} SubscriptionsSyncV2Action
+             * @returns {SyncAction.SyncActionValue.SubscriptionsSyncV2Action & SyncAction.SyncActionValue.SubscriptionsSyncV2Action.$Shape} SubscriptionsSyncV2Action
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -28817,8 +30058,7 @@ $root.SyncAction = (function() {
 
                 /**
                  * Properties of a PaidFeature.
-                 * @memberof SyncAction.SyncActionValue.SubscriptionsSyncV2Action
-                 * @interface IPaidFeature
+                 * @typedef {Object} SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature.$Properties
                  * @property {string|null} [name] PaidFeature name
                  * @property {boolean|null} [enabled] PaidFeature enabled
                  * @property {number|null} [limit] PaidFeature limit
@@ -28827,12 +30067,24 @@ $root.SyncAction = (function() {
                  */
 
                 /**
+                 * Properties of a PaidFeature.
+                 * @memberof SyncAction.SyncActionValue.SubscriptionsSyncV2Action
+                 * @interface IPaidFeature
+                 * @augments SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature.$Properties
+                 * @deprecated Use SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature.$Properties instead.
+                 */
+
+                /**
+                 * Shape of a PaidFeature.
+                 * @typedef {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature.$Properties} SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature.$Shape
+                 */
+
+                /**
                  * Constructs a new PaidFeature.
                  * @memberof SyncAction.SyncActionValue.SubscriptionsSyncV2Action
                  * @classdesc Represents a PaidFeature.
-                 * @implements IPaidFeature
                  * @constructor
-                 * @param {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.IPaidFeature=} [properties] Properties to set
+                 * @param {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature.$Properties=} [properties] Properties to set
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function PaidFeature(properties) {
@@ -28906,8 +30158,12 @@ $root.SyncAction = (function() {
                  * @function create
                  * @memberof SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature
                  * @static
-                 * @param {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.IPaidFeature=} [properties] Properties to set
+                 * @param {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature.$Properties=} [properties] Properties to set
                  * @returns {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature} PaidFeature instance
+                 * @type {{
+                 *   (properties: SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature.$Shape): SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature & SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature.$Shape;
+                 *   (properties?: SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature.$Properties): SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature;
+                 * }}
                  */
                 PaidFeature.create = function create(properties) {
                     return new PaidFeature(properties);
@@ -28918,7 +30174,7 @@ $root.SyncAction = (function() {
                  * @function encode
                  * @memberof SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature
                  * @static
-                 * @param {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.IPaidFeature} message PaidFeature message or plain object to encode
+                 * @param {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature.$Properties} message PaidFeature message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -28944,7 +30200,7 @@ $root.SyncAction = (function() {
                  * @function encodeDelimited
                  * @memberof SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature
                  * @static
-                 * @param {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.IPaidFeature} message PaidFeature message or plain object to encode
+                 * @param {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature.$Properties} message PaidFeature message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -28959,7 +30215,7 @@ $root.SyncAction = (function() {
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                  * @param {number} [length] Message length if known beforehand
-                 * @returns {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature} PaidFeature
+                 * @returns {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature & SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature.$Shape} PaidFeature
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -29024,7 +30280,7 @@ $root.SyncAction = (function() {
                  * @memberof SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature} PaidFeature
+                 * @returns {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature & SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature.$Shape} PaidFeature
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -29178,8 +30434,7 @@ $root.SyncAction = (function() {
 
                 /**
                  * Properties of a SubscriptionInfo.
-                 * @memberof SyncAction.SyncActionValue.SubscriptionsSyncV2Action
-                 * @interface ISubscriptionInfo
+                 * @typedef {Object} SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo.$Properties
                  * @property {string|null} [id] SubscriptionInfo id
                  * @property {number|null} [tier] SubscriptionInfo tier
                  * @property {string|null} [status] SubscriptionInfo status
@@ -29192,12 +30447,24 @@ $root.SyncAction = (function() {
                  */
 
                 /**
+                 * Properties of a SubscriptionInfo.
+                 * @memberof SyncAction.SyncActionValue.SubscriptionsSyncV2Action
+                 * @interface ISubscriptionInfo
+                 * @augments SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo.$Properties
+                 * @deprecated Use SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo.$Properties instead.
+                 */
+
+                /**
+                 * Shape of a SubscriptionInfo.
+                 * @typedef {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo.$Properties} SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo.$Shape
+                 */
+
+                /**
                  * Constructs a new SubscriptionInfo.
                  * @memberof SyncAction.SyncActionValue.SubscriptionsSyncV2Action
                  * @classdesc Represents a SubscriptionInfo.
-                 * @implements ISubscriptionInfo
                  * @constructor
-                 * @param {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.ISubscriptionInfo=} [properties] Properties to set
+                 * @param {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo.$Properties=} [properties] Properties to set
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function SubscriptionInfo(properties) {
@@ -29327,8 +30594,12 @@ $root.SyncAction = (function() {
                  * @function create
                  * @memberof SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo
                  * @static
-                 * @param {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.ISubscriptionInfo=} [properties] Properties to set
+                 * @param {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo.$Properties=} [properties] Properties to set
                  * @returns {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo} SubscriptionInfo instance
+                 * @type {{
+                 *   (properties: SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo.$Shape): SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo & SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo.$Shape;
+                 *   (properties?: SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo.$Properties): SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo;
+                 * }}
                  */
                 SubscriptionInfo.create = function create(properties) {
                     return new SubscriptionInfo(properties);
@@ -29339,7 +30610,7 @@ $root.SyncAction = (function() {
                  * @function encode
                  * @memberof SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo
                  * @static
-                 * @param {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.ISubscriptionInfo} message SubscriptionInfo message or plain object to encode
+                 * @param {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo.$Properties} message SubscriptionInfo message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -29373,7 +30644,7 @@ $root.SyncAction = (function() {
                  * @function encodeDelimited
                  * @memberof SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo
                  * @static
-                 * @param {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.ISubscriptionInfo} message SubscriptionInfo message or plain object to encode
+                 * @param {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo.$Properties} message SubscriptionInfo message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -29388,7 +30659,7 @@ $root.SyncAction = (function() {
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                  * @param {number} [length] Message length if known beforehand
-                 * @returns {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo} SubscriptionInfo
+                 * @returns {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo & SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo.$Shape} SubscriptionInfo
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -29481,7 +30752,7 @@ $root.SyncAction = (function() {
                  * @memberof SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo} SubscriptionInfo
+                 * @returns {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo & SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo.$Shape} SubscriptionInfo
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -29706,20 +30977,31 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a SyncActionMessage.
-             * @memberof SyncAction.SyncActionValue
-             * @interface ISyncActionMessage
-             * @property {Protocol.IMessageKey|null} [key] SyncActionMessage key
+             * @typedef {Object} SyncAction.SyncActionValue.SyncActionMessage.$Properties
+             * @property {Protocol.MessageKey.$Properties|null} [key] SyncActionMessage key
              * @property {number|Long|null} [timestamp] SyncActionMessage timestamp
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a SyncActionMessage.
+             * @memberof SyncAction.SyncActionValue
+             * @interface ISyncActionMessage
+             * @augments SyncAction.SyncActionValue.SyncActionMessage.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.SyncActionMessage.$Properties instead.
+             */
+
+            /**
+             * Shape of a SyncActionMessage.
+             * @typedef {SyncAction.SyncActionValue.SyncActionMessage.$Properties} SyncAction.SyncActionValue.SyncActionMessage.$Shape
              */
 
             /**
              * Constructs a new SyncActionMessage.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a SyncActionMessage.
-             * @implements ISyncActionMessage
              * @constructor
-             * @param {SyncAction.SyncActionValue.ISyncActionMessage=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.SyncActionMessage.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function SyncActionMessage(properties) {
@@ -29731,7 +31013,7 @@ $root.SyncAction = (function() {
 
             /**
              * SyncActionMessage key.
-             * @member {Protocol.IMessageKey|null|undefined} key
+             * @member {Protocol.MessageKey.$Properties|null|undefined} key
              * @memberof SyncAction.SyncActionValue.SyncActionMessage
              * @instance
              */
@@ -29765,8 +31047,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.SyncActionMessage
              * @static
-             * @param {SyncAction.SyncActionValue.ISyncActionMessage=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.SyncActionMessage.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.SyncActionMessage} SyncActionMessage instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.SyncActionMessage.$Shape): SyncAction.SyncActionValue.SyncActionMessage & SyncAction.SyncActionValue.SyncActionMessage.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.SyncActionMessage.$Properties): SyncAction.SyncActionValue.SyncActionMessage;
+             * }}
              */
             SyncActionMessage.create = function create(properties) {
                 return new SyncActionMessage(properties);
@@ -29777,7 +31063,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.SyncActionMessage
              * @static
-             * @param {SyncAction.SyncActionValue.ISyncActionMessage} message SyncActionMessage message or plain object to encode
+             * @param {SyncAction.SyncActionValue.SyncActionMessage.$Properties} message SyncActionMessage message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -29799,7 +31085,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.SyncActionMessage
              * @static
-             * @param {SyncAction.SyncActionValue.ISyncActionMessage} message SyncActionMessage message or plain object to encode
+             * @param {SyncAction.SyncActionValue.SyncActionMessage.$Properties} message SyncActionMessage message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -29814,7 +31100,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.SyncActionMessage} SyncActionMessage
+             * @returns {SyncAction.SyncActionValue.SyncActionMessage & SyncAction.SyncActionValue.SyncActionMessage.$Shape} SyncActionMessage
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -29865,7 +31151,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.SyncActionMessage
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.SyncActionMessage} SyncActionMessage
+             * @returns {SyncAction.SyncActionValue.SyncActionMessage & SyncAction.SyncActionValue.SyncActionMessage.$Shape} SyncActionMessage
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -30001,21 +31287,32 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a SyncActionMessageRange.
-             * @memberof SyncAction.SyncActionValue
-             * @interface ISyncActionMessageRange
+             * @typedef {Object} SyncAction.SyncActionValue.SyncActionMessageRange.$Properties
              * @property {number|Long|null} [lastMessageTimestamp] SyncActionMessageRange lastMessageTimestamp
              * @property {number|Long|null} [lastSystemMessageTimestamp] SyncActionMessageRange lastSystemMessageTimestamp
-             * @property {Array.<SyncAction.SyncActionValue.ISyncActionMessage>|null} [messages] SyncActionMessageRange messages
+             * @property {Array.<SyncAction.SyncActionValue.SyncActionMessage.$Properties>|null} [messages] SyncActionMessageRange messages
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a SyncActionMessageRange.
+             * @memberof SyncAction.SyncActionValue
+             * @interface ISyncActionMessageRange
+             * @augments SyncAction.SyncActionValue.SyncActionMessageRange.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.SyncActionMessageRange.$Properties instead.
+             */
+
+            /**
+             * Shape of a SyncActionMessageRange.
+             * @typedef {SyncAction.SyncActionValue.SyncActionMessageRange.$Properties} SyncAction.SyncActionValue.SyncActionMessageRange.$Shape
              */
 
             /**
              * Constructs a new SyncActionMessageRange.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a SyncActionMessageRange.
-             * @implements ISyncActionMessageRange
              * @constructor
-             * @param {SyncAction.SyncActionValue.ISyncActionMessageRange=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.SyncActionMessageRange.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function SyncActionMessageRange(properties) {
@@ -30044,7 +31341,7 @@ $root.SyncAction = (function() {
 
             /**
              * SyncActionMessageRange messages.
-             * @member {Array.<SyncAction.SyncActionValue.ISyncActionMessage>} messages
+             * @member {Array.<SyncAction.SyncActionValue.SyncActionMessage.$Properties>} messages
              * @memberof SyncAction.SyncActionValue.SyncActionMessageRange
              * @instance
              */
@@ -30070,8 +31367,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.SyncActionMessageRange
              * @static
-             * @param {SyncAction.SyncActionValue.ISyncActionMessageRange=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.SyncActionMessageRange.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.SyncActionMessageRange} SyncActionMessageRange instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.SyncActionMessageRange.$Shape): SyncAction.SyncActionValue.SyncActionMessageRange & SyncAction.SyncActionValue.SyncActionMessageRange.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.SyncActionMessageRange.$Properties): SyncAction.SyncActionValue.SyncActionMessageRange;
+             * }}
              */
             SyncActionMessageRange.create = function create(properties) {
                 return new SyncActionMessageRange(properties);
@@ -30082,7 +31383,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.SyncActionMessageRange
              * @static
-             * @param {SyncAction.SyncActionValue.ISyncActionMessageRange} message SyncActionMessageRange message or plain object to encode
+             * @param {SyncAction.SyncActionValue.SyncActionMessageRange.$Properties} message SyncActionMessageRange message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -30107,7 +31408,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.SyncActionMessageRange
              * @static
-             * @param {SyncAction.SyncActionValue.ISyncActionMessageRange} message SyncActionMessageRange message or plain object to encode
+             * @param {SyncAction.SyncActionValue.SyncActionMessageRange.$Properties} message SyncActionMessageRange message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -30122,7 +31423,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.SyncActionMessageRange} SyncActionMessageRange
+             * @returns {SyncAction.SyncActionValue.SyncActionMessageRange & SyncAction.SyncActionValue.SyncActionMessageRange.$Shape} SyncActionMessageRange
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -30181,7 +31482,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.SyncActionMessageRange
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.SyncActionMessageRange} SyncActionMessageRange
+             * @returns {SyncAction.SyncActionValue.SyncActionMessageRange & SyncAction.SyncActionValue.SyncActionMessageRange.$Shape} SyncActionMessageRange
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -30347,19 +31648,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a ThreadPinAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IThreadPinAction
+             * @typedef {Object} SyncAction.SyncActionValue.ThreadPinAction.$Properties
              * @property {boolean|null} [pinned] ThreadPinAction pinned
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a ThreadPinAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IThreadPinAction
+             * @augments SyncAction.SyncActionValue.ThreadPinAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.ThreadPinAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a ThreadPinAction.
+             * @typedef {SyncAction.SyncActionValue.ThreadPinAction.$Properties} SyncAction.SyncActionValue.ThreadPinAction.$Shape
              */
 
             /**
              * Constructs a new ThreadPinAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a ThreadPinAction.
-             * @implements IThreadPinAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IThreadPinAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.ThreadPinAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function ThreadPinAction(properties) {
@@ -30391,8 +31703,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.ThreadPinAction
              * @static
-             * @param {SyncAction.SyncActionValue.IThreadPinAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.ThreadPinAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.ThreadPinAction} ThreadPinAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.ThreadPinAction.$Shape): SyncAction.SyncActionValue.ThreadPinAction & SyncAction.SyncActionValue.ThreadPinAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.ThreadPinAction.$Properties): SyncAction.SyncActionValue.ThreadPinAction;
+             * }}
              */
             ThreadPinAction.create = function create(properties) {
                 return new ThreadPinAction(properties);
@@ -30403,7 +31719,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.ThreadPinAction
              * @static
-             * @param {SyncAction.SyncActionValue.IThreadPinAction} message ThreadPinAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.ThreadPinAction.$Properties} message ThreadPinAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -30423,7 +31739,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.ThreadPinAction
              * @static
-             * @param {SyncAction.SyncActionValue.IThreadPinAction} message ThreadPinAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.ThreadPinAction.$Properties} message ThreadPinAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -30438,7 +31754,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.ThreadPinAction} ThreadPinAction
+             * @returns {SyncAction.SyncActionValue.ThreadPinAction & SyncAction.SyncActionValue.ThreadPinAction.$Shape} ThreadPinAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -30482,7 +31798,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.ThreadPinAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.ThreadPinAction} ThreadPinAction
+             * @returns {SyncAction.SyncActionValue.ThreadPinAction & SyncAction.SyncActionValue.ThreadPinAction.$Shape} ThreadPinAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -30590,19 +31906,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a TimeFormatAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface ITimeFormatAction
+             * @typedef {Object} SyncAction.SyncActionValue.TimeFormatAction.$Properties
              * @property {boolean|null} [isTwentyFourHourFormatEnabled] TimeFormatAction isTwentyFourHourFormatEnabled
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a TimeFormatAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface ITimeFormatAction
+             * @augments SyncAction.SyncActionValue.TimeFormatAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.TimeFormatAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a TimeFormatAction.
+             * @typedef {SyncAction.SyncActionValue.TimeFormatAction.$Properties} SyncAction.SyncActionValue.TimeFormatAction.$Shape
              */
 
             /**
              * Constructs a new TimeFormatAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a TimeFormatAction.
-             * @implements ITimeFormatAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.ITimeFormatAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.TimeFormatAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function TimeFormatAction(properties) {
@@ -30634,8 +31961,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.TimeFormatAction
              * @static
-             * @param {SyncAction.SyncActionValue.ITimeFormatAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.TimeFormatAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.TimeFormatAction} TimeFormatAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.TimeFormatAction.$Shape): SyncAction.SyncActionValue.TimeFormatAction & SyncAction.SyncActionValue.TimeFormatAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.TimeFormatAction.$Properties): SyncAction.SyncActionValue.TimeFormatAction;
+             * }}
              */
             TimeFormatAction.create = function create(properties) {
                 return new TimeFormatAction(properties);
@@ -30646,7 +31977,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.TimeFormatAction
              * @static
-             * @param {SyncAction.SyncActionValue.ITimeFormatAction} message TimeFormatAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.TimeFormatAction.$Properties} message TimeFormatAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -30666,7 +31997,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.TimeFormatAction
              * @static
-             * @param {SyncAction.SyncActionValue.ITimeFormatAction} message TimeFormatAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.TimeFormatAction.$Properties} message TimeFormatAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -30681,7 +32012,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.TimeFormatAction} TimeFormatAction
+             * @returns {SyncAction.SyncActionValue.TimeFormatAction & SyncAction.SyncActionValue.TimeFormatAction.$Shape} TimeFormatAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -30725,7 +32056,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.TimeFormatAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.TimeFormatAction} TimeFormatAction
+             * @returns {SyncAction.SyncActionValue.TimeFormatAction & SyncAction.SyncActionValue.TimeFormatAction.$Shape} TimeFormatAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -30833,19 +32164,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a UGCBot.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IUGCBot
+             * @typedef {Object} SyncAction.SyncActionValue.UGCBot.$Properties
              * @property {Uint8Array|null} [definition] UGCBot definition
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a UGCBot.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IUGCBot
+             * @augments SyncAction.SyncActionValue.UGCBot.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.UGCBot.$Properties instead.
+             */
+
+            /**
+             * Shape of a UGCBot.
+             * @typedef {SyncAction.SyncActionValue.UGCBot.$Properties} SyncAction.SyncActionValue.UGCBot.$Shape
              */
 
             /**
              * Constructs a new UGCBot.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a UGCBot.
-             * @implements IUGCBot
              * @constructor
-             * @param {SyncAction.SyncActionValue.IUGCBot=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.UGCBot.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function UGCBot(properties) {
@@ -30877,8 +32219,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.UGCBot
              * @static
-             * @param {SyncAction.SyncActionValue.IUGCBot=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.UGCBot.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.UGCBot} UGCBot instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.UGCBot.$Shape): SyncAction.SyncActionValue.UGCBot & SyncAction.SyncActionValue.UGCBot.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.UGCBot.$Properties): SyncAction.SyncActionValue.UGCBot;
+             * }}
              */
             UGCBot.create = function create(properties) {
                 return new UGCBot(properties);
@@ -30889,7 +32235,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.UGCBot
              * @static
-             * @param {SyncAction.SyncActionValue.IUGCBot} message UGCBot message or plain object to encode
+             * @param {SyncAction.SyncActionValue.UGCBot.$Properties} message UGCBot message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -30909,7 +32255,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.UGCBot
              * @static
-             * @param {SyncAction.SyncActionValue.IUGCBot} message UGCBot message or plain object to encode
+             * @param {SyncAction.SyncActionValue.UGCBot.$Properties} message UGCBot message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -30924,7 +32270,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.UGCBot} UGCBot
+             * @returns {SyncAction.SyncActionValue.UGCBot & SyncAction.SyncActionValue.UGCBot.$Shape} UGCBot
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -30968,7 +32314,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.UGCBot
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.UGCBot} UGCBot
+             * @returns {SyncAction.SyncActionValue.UGCBot & SyncAction.SyncActionValue.UGCBot.$Shape} UGCBot
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -31079,19 +32425,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of an UnarchiveChatsSetting.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IUnarchiveChatsSetting
+             * @typedef {Object} SyncAction.SyncActionValue.UnarchiveChatsSetting.$Properties
              * @property {boolean|null} [unarchiveChats] UnarchiveChatsSetting unarchiveChats
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of an UnarchiveChatsSetting.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IUnarchiveChatsSetting
+             * @augments SyncAction.SyncActionValue.UnarchiveChatsSetting.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.UnarchiveChatsSetting.$Properties instead.
+             */
+
+            /**
+             * Shape of an UnarchiveChatsSetting.
+             * @typedef {SyncAction.SyncActionValue.UnarchiveChatsSetting.$Properties} SyncAction.SyncActionValue.UnarchiveChatsSetting.$Shape
              */
 
             /**
              * Constructs a new UnarchiveChatsSetting.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents an UnarchiveChatsSetting.
-             * @implements IUnarchiveChatsSetting
              * @constructor
-             * @param {SyncAction.SyncActionValue.IUnarchiveChatsSetting=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.UnarchiveChatsSetting.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function UnarchiveChatsSetting(properties) {
@@ -31123,8 +32480,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.UnarchiveChatsSetting
              * @static
-             * @param {SyncAction.SyncActionValue.IUnarchiveChatsSetting=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.UnarchiveChatsSetting.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.UnarchiveChatsSetting} UnarchiveChatsSetting instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.UnarchiveChatsSetting.$Shape): SyncAction.SyncActionValue.UnarchiveChatsSetting & SyncAction.SyncActionValue.UnarchiveChatsSetting.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.UnarchiveChatsSetting.$Properties): SyncAction.SyncActionValue.UnarchiveChatsSetting;
+             * }}
              */
             UnarchiveChatsSetting.create = function create(properties) {
                 return new UnarchiveChatsSetting(properties);
@@ -31135,7 +32496,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.UnarchiveChatsSetting
              * @static
-             * @param {SyncAction.SyncActionValue.IUnarchiveChatsSetting} message UnarchiveChatsSetting message or plain object to encode
+             * @param {SyncAction.SyncActionValue.UnarchiveChatsSetting.$Properties} message UnarchiveChatsSetting message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -31155,7 +32516,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.UnarchiveChatsSetting
              * @static
-             * @param {SyncAction.SyncActionValue.IUnarchiveChatsSetting} message UnarchiveChatsSetting message or plain object to encode
+             * @param {SyncAction.SyncActionValue.UnarchiveChatsSetting.$Properties} message UnarchiveChatsSetting message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -31170,7 +32531,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.UnarchiveChatsSetting} UnarchiveChatsSetting
+             * @returns {SyncAction.SyncActionValue.UnarchiveChatsSetting & SyncAction.SyncActionValue.UnarchiveChatsSetting.$Shape} UnarchiveChatsSetting
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -31214,7 +32575,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.UnarchiveChatsSetting
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.UnarchiveChatsSetting} UnarchiveChatsSetting
+             * @returns {SyncAction.SyncActionValue.UnarchiveChatsSetting & SyncAction.SyncActionValue.UnarchiveChatsSetting.$Shape} UnarchiveChatsSetting
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -31322,19 +32683,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a UserStatusMuteAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IUserStatusMuteAction
+             * @typedef {Object} SyncAction.SyncActionValue.UserStatusMuteAction.$Properties
              * @property {boolean|null} [muted] UserStatusMuteAction muted
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a UserStatusMuteAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IUserStatusMuteAction
+             * @augments SyncAction.SyncActionValue.UserStatusMuteAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.UserStatusMuteAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a UserStatusMuteAction.
+             * @typedef {SyncAction.SyncActionValue.UserStatusMuteAction.$Properties} SyncAction.SyncActionValue.UserStatusMuteAction.$Shape
              */
 
             /**
              * Constructs a new UserStatusMuteAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a UserStatusMuteAction.
-             * @implements IUserStatusMuteAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IUserStatusMuteAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.UserStatusMuteAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function UserStatusMuteAction(properties) {
@@ -31366,8 +32738,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.UserStatusMuteAction
              * @static
-             * @param {SyncAction.SyncActionValue.IUserStatusMuteAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.UserStatusMuteAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.UserStatusMuteAction} UserStatusMuteAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.UserStatusMuteAction.$Shape): SyncAction.SyncActionValue.UserStatusMuteAction & SyncAction.SyncActionValue.UserStatusMuteAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.UserStatusMuteAction.$Properties): SyncAction.SyncActionValue.UserStatusMuteAction;
+             * }}
              */
             UserStatusMuteAction.create = function create(properties) {
                 return new UserStatusMuteAction(properties);
@@ -31378,7 +32754,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.UserStatusMuteAction
              * @static
-             * @param {SyncAction.SyncActionValue.IUserStatusMuteAction} message UserStatusMuteAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.UserStatusMuteAction.$Properties} message UserStatusMuteAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -31398,7 +32774,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.UserStatusMuteAction
              * @static
-             * @param {SyncAction.SyncActionValue.IUserStatusMuteAction} message UserStatusMuteAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.UserStatusMuteAction.$Properties} message UserStatusMuteAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -31413,7 +32789,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.UserStatusMuteAction} UserStatusMuteAction
+             * @returns {SyncAction.SyncActionValue.UserStatusMuteAction & SyncAction.SyncActionValue.UserStatusMuteAction.$Shape} UserStatusMuteAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -31457,7 +32833,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.UserStatusMuteAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.UserStatusMuteAction} UserStatusMuteAction
+             * @returns {SyncAction.SyncActionValue.UserStatusMuteAction & SyncAction.SyncActionValue.UserStatusMuteAction.$Shape} UserStatusMuteAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -31565,19 +32941,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a UsernameChatStartModeAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IUsernameChatStartModeAction
+             * @typedef {Object} SyncAction.SyncActionValue.UsernameChatStartModeAction.$Properties
              * @property {SyncAction.SyncActionValue.UsernameChatStartModeAction.ChatStartMode|null} [chatStartMode] UsernameChatStartModeAction chatStartMode
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a UsernameChatStartModeAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IUsernameChatStartModeAction
+             * @augments SyncAction.SyncActionValue.UsernameChatStartModeAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.UsernameChatStartModeAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a UsernameChatStartModeAction.
+             * @typedef {SyncAction.SyncActionValue.UsernameChatStartModeAction.$Properties} SyncAction.SyncActionValue.UsernameChatStartModeAction.$Shape
              */
 
             /**
              * Constructs a new UsernameChatStartModeAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a UsernameChatStartModeAction.
-             * @implements IUsernameChatStartModeAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IUsernameChatStartModeAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.UsernameChatStartModeAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function UsernameChatStartModeAction(properties) {
@@ -31609,8 +32996,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.UsernameChatStartModeAction
              * @static
-             * @param {SyncAction.SyncActionValue.IUsernameChatStartModeAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.UsernameChatStartModeAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.UsernameChatStartModeAction} UsernameChatStartModeAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.UsernameChatStartModeAction.$Shape): SyncAction.SyncActionValue.UsernameChatStartModeAction & SyncAction.SyncActionValue.UsernameChatStartModeAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.UsernameChatStartModeAction.$Properties): SyncAction.SyncActionValue.UsernameChatStartModeAction;
+             * }}
              */
             UsernameChatStartModeAction.create = function create(properties) {
                 return new UsernameChatStartModeAction(properties);
@@ -31621,7 +33012,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.UsernameChatStartModeAction
              * @static
-             * @param {SyncAction.SyncActionValue.IUsernameChatStartModeAction} message UsernameChatStartModeAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.UsernameChatStartModeAction.$Properties} message UsernameChatStartModeAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -31641,7 +33032,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.UsernameChatStartModeAction
              * @static
-             * @param {SyncAction.SyncActionValue.IUsernameChatStartModeAction} message UsernameChatStartModeAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.UsernameChatStartModeAction.$Properties} message UsernameChatStartModeAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -31656,7 +33047,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.UsernameChatStartModeAction} UsernameChatStartModeAction
+             * @returns {SyncAction.SyncActionValue.UsernameChatStartModeAction & SyncAction.SyncActionValue.UsernameChatStartModeAction.$Shape} UsernameChatStartModeAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -31700,7 +33091,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.UsernameChatStartModeAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.UsernameChatStartModeAction} UsernameChatStartModeAction
+             * @returns {SyncAction.SyncActionValue.UsernameChatStartModeAction & SyncAction.SyncActionValue.UsernameChatStartModeAction.$Shape} UsernameChatStartModeAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -31841,19 +33232,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a WaffleAccountLinkStateAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IWaffleAccountLinkStateAction
+             * @typedef {Object} SyncAction.SyncActionValue.WaffleAccountLinkStateAction.$Properties
              * @property {SyncAction.SyncActionValue.WaffleAccountLinkStateAction.AccountLinkState|null} [linkState] WaffleAccountLinkStateAction linkState
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a WaffleAccountLinkStateAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IWaffleAccountLinkStateAction
+             * @augments SyncAction.SyncActionValue.WaffleAccountLinkStateAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.WaffleAccountLinkStateAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a WaffleAccountLinkStateAction.
+             * @typedef {SyncAction.SyncActionValue.WaffleAccountLinkStateAction.$Properties} SyncAction.SyncActionValue.WaffleAccountLinkStateAction.$Shape
              */
 
             /**
              * Constructs a new WaffleAccountLinkStateAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a WaffleAccountLinkStateAction.
-             * @implements IWaffleAccountLinkStateAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IWaffleAccountLinkStateAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.WaffleAccountLinkStateAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function WaffleAccountLinkStateAction(properties) {
@@ -31885,8 +33287,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.WaffleAccountLinkStateAction
              * @static
-             * @param {SyncAction.SyncActionValue.IWaffleAccountLinkStateAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.WaffleAccountLinkStateAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.WaffleAccountLinkStateAction} WaffleAccountLinkStateAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.WaffleAccountLinkStateAction.$Shape): SyncAction.SyncActionValue.WaffleAccountLinkStateAction & SyncAction.SyncActionValue.WaffleAccountLinkStateAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.WaffleAccountLinkStateAction.$Properties): SyncAction.SyncActionValue.WaffleAccountLinkStateAction;
+             * }}
              */
             WaffleAccountLinkStateAction.create = function create(properties) {
                 return new WaffleAccountLinkStateAction(properties);
@@ -31897,7 +33303,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.WaffleAccountLinkStateAction
              * @static
-             * @param {SyncAction.SyncActionValue.IWaffleAccountLinkStateAction} message WaffleAccountLinkStateAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.WaffleAccountLinkStateAction.$Properties} message WaffleAccountLinkStateAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -31917,7 +33323,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.WaffleAccountLinkStateAction
              * @static
-             * @param {SyncAction.SyncActionValue.IWaffleAccountLinkStateAction} message WaffleAccountLinkStateAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.WaffleAccountLinkStateAction.$Properties} message WaffleAccountLinkStateAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -31932,7 +33338,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.WaffleAccountLinkStateAction} WaffleAccountLinkStateAction
+             * @returns {SyncAction.SyncActionValue.WaffleAccountLinkStateAction & SyncAction.SyncActionValue.WaffleAccountLinkStateAction.$Shape} WaffleAccountLinkStateAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -31976,7 +33382,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.WaffleAccountLinkStateAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.WaffleAccountLinkStateAction} WaffleAccountLinkStateAction
+             * @returns {SyncAction.SyncActionValue.WaffleAccountLinkStateAction & SyncAction.SyncActionValue.WaffleAccountLinkStateAction.$Shape} WaffleAccountLinkStateAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -32124,19 +33530,30 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a WamoUserIdentifierAction.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IWamoUserIdentifierAction
+             * @typedef {Object} SyncAction.SyncActionValue.WamoUserIdentifierAction.$Properties
              * @property {string|null} [identifier] WamoUserIdentifierAction identifier
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a WamoUserIdentifierAction.
+             * @memberof SyncAction.SyncActionValue
+             * @interface IWamoUserIdentifierAction
+             * @augments SyncAction.SyncActionValue.WamoUserIdentifierAction.$Properties
+             * @deprecated Use SyncAction.SyncActionValue.WamoUserIdentifierAction.$Properties instead.
+             */
+
+            /**
+             * Shape of a WamoUserIdentifierAction.
+             * @typedef {SyncAction.SyncActionValue.WamoUserIdentifierAction.$Properties} SyncAction.SyncActionValue.WamoUserIdentifierAction.$Shape
              */
 
             /**
              * Constructs a new WamoUserIdentifierAction.
              * @memberof SyncAction.SyncActionValue
              * @classdesc Represents a WamoUserIdentifierAction.
-             * @implements IWamoUserIdentifierAction
              * @constructor
-             * @param {SyncAction.SyncActionValue.IWamoUserIdentifierAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.WamoUserIdentifierAction.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function WamoUserIdentifierAction(properties) {
@@ -32168,8 +33585,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.SyncActionValue.WamoUserIdentifierAction
              * @static
-             * @param {SyncAction.SyncActionValue.IWamoUserIdentifierAction=} [properties] Properties to set
+             * @param {SyncAction.SyncActionValue.WamoUserIdentifierAction.$Properties=} [properties] Properties to set
              * @returns {SyncAction.SyncActionValue.WamoUserIdentifierAction} WamoUserIdentifierAction instance
+             * @type {{
+             *   (properties: SyncAction.SyncActionValue.WamoUserIdentifierAction.$Shape): SyncAction.SyncActionValue.WamoUserIdentifierAction & SyncAction.SyncActionValue.WamoUserIdentifierAction.$Shape;
+             *   (properties?: SyncAction.SyncActionValue.WamoUserIdentifierAction.$Properties): SyncAction.SyncActionValue.WamoUserIdentifierAction;
+             * }}
              */
             WamoUserIdentifierAction.create = function create(properties) {
                 return new WamoUserIdentifierAction(properties);
@@ -32180,7 +33601,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.SyncActionValue.WamoUserIdentifierAction
              * @static
-             * @param {SyncAction.SyncActionValue.IWamoUserIdentifierAction} message WamoUserIdentifierAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.WamoUserIdentifierAction.$Properties} message WamoUserIdentifierAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -32200,7 +33621,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.SyncActionValue.WamoUserIdentifierAction
              * @static
-             * @param {SyncAction.SyncActionValue.IWamoUserIdentifierAction} message WamoUserIdentifierAction message or plain object to encode
+             * @param {SyncAction.SyncActionValue.WamoUserIdentifierAction.$Properties} message WamoUserIdentifierAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -32215,7 +33636,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.WamoUserIdentifierAction} WamoUserIdentifierAction
+             * @returns {SyncAction.SyncActionValue.WamoUserIdentifierAction & SyncAction.SyncActionValue.WamoUserIdentifierAction.$Shape} WamoUserIdentifierAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -32259,7 +33680,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.SyncActionValue.WamoUserIdentifierAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.WamoUserIdentifierAction} WamoUserIdentifierAction
+             * @returns {SyncAction.SyncActionValue.WamoUserIdentifierAction & SyncAction.SyncActionValue.WamoUserIdentifierAction.$Shape} WamoUserIdentifierAction
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -32370,8 +33791,7 @@ $root.SyncAction = (function() {
 
         /**
          * Properties of a CallLogRecord.
-         * @memberof SyncAction
-         * @interface ICallLogRecord
+         * @typedef {Object} SyncAction.CallLogRecord.$Properties
          * @property {SyncAction.CallLogRecord.CallResult|null} [callResult] CallLogRecord callResult
          * @property {boolean|null} [isDndMode] CallLogRecord isDndMode
          * @property {SyncAction.CallLogRecord.SilenceReason|null} [silenceReason] CallLogRecord silenceReason
@@ -32385,18 +33805,30 @@ $root.SyncAction = (function() {
          * @property {string|null} [callId] CallLogRecord callId
          * @property {string|null} [callCreatorJid] CallLogRecord callCreatorJid
          * @property {string|null} [groupJid] CallLogRecord groupJid
-         * @property {Array.<SyncAction.CallLogRecord.IParticipantInfo>|null} [participants] CallLogRecord participants
+         * @property {Array.<SyncAction.CallLogRecord.ParticipantInfo.$Properties>|null} [participants] CallLogRecord participants
          * @property {SyncAction.CallLogRecord.CallType|null} [callType] CallLogRecord callType
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a CallLogRecord.
+         * @memberof SyncAction
+         * @interface ICallLogRecord
+         * @augments SyncAction.CallLogRecord.$Properties
+         * @deprecated Use SyncAction.CallLogRecord.$Properties instead.
+         */
+
+        /**
+         * Shape of a CallLogRecord.
+         * @typedef {SyncAction.CallLogRecord.$Properties} SyncAction.CallLogRecord.$Shape
          */
 
         /**
          * Constructs a new CallLogRecord.
          * @memberof SyncAction
          * @classdesc Represents a CallLogRecord.
-         * @implements ICallLogRecord
          * @constructor
-         * @param {SyncAction.ICallLogRecord=} [properties] Properties to set
+         * @param {SyncAction.CallLogRecord.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function CallLogRecord(properties) {
@@ -32513,7 +33945,7 @@ $root.SyncAction = (function() {
 
         /**
          * CallLogRecord participants.
-         * @member {Array.<SyncAction.CallLogRecord.IParticipantInfo>} participants
+         * @member {Array.<SyncAction.CallLogRecord.ParticipantInfo.$Properties>} participants
          * @memberof SyncAction.CallLogRecord
          * @instance
          */
@@ -32619,8 +34051,12 @@ $root.SyncAction = (function() {
          * @function create
          * @memberof SyncAction.CallLogRecord
          * @static
-         * @param {SyncAction.ICallLogRecord=} [properties] Properties to set
+         * @param {SyncAction.CallLogRecord.$Properties=} [properties] Properties to set
          * @returns {SyncAction.CallLogRecord} CallLogRecord instance
+         * @type {{
+         *   (properties: SyncAction.CallLogRecord.$Shape): SyncAction.CallLogRecord & SyncAction.CallLogRecord.$Shape;
+         *   (properties?: SyncAction.CallLogRecord.$Properties): SyncAction.CallLogRecord;
+         * }}
          */
         CallLogRecord.create = function create(properties) {
             return new CallLogRecord(properties);
@@ -32631,7 +34067,7 @@ $root.SyncAction = (function() {
          * @function encode
          * @memberof SyncAction.CallLogRecord
          * @static
-         * @param {SyncAction.ICallLogRecord} message CallLogRecord message or plain object to encode
+         * @param {SyncAction.CallLogRecord.$Properties} message CallLogRecord message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -32680,7 +34116,7 @@ $root.SyncAction = (function() {
          * @function encodeDelimited
          * @memberof SyncAction.CallLogRecord
          * @static
-         * @param {SyncAction.ICallLogRecord} message CallLogRecord message or plain object to encode
+         * @param {SyncAction.CallLogRecord.$Properties} message CallLogRecord message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -32695,7 +34131,7 @@ $root.SyncAction = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {SyncAction.CallLogRecord} CallLogRecord
+         * @returns {SyncAction.CallLogRecord & SyncAction.CallLogRecord.$Shape} CallLogRecord
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -32838,7 +34274,7 @@ $root.SyncAction = (function() {
          * @memberof SyncAction.CallLogRecord
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {SyncAction.CallLogRecord} CallLogRecord
+         * @returns {SyncAction.CallLogRecord & SyncAction.CallLogRecord.$Shape} CallLogRecord
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -33310,20 +34746,31 @@ $root.SyncAction = (function() {
 
             /**
              * Properties of a ParticipantInfo.
-             * @memberof SyncAction.CallLogRecord
-             * @interface IParticipantInfo
+             * @typedef {Object} SyncAction.CallLogRecord.ParticipantInfo.$Properties
              * @property {string|null} [userJid] ParticipantInfo userJid
              * @property {SyncAction.CallLogRecord.CallResult|null} [callResult] ParticipantInfo callResult
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
+             * Properties of a ParticipantInfo.
+             * @memberof SyncAction.CallLogRecord
+             * @interface IParticipantInfo
+             * @augments SyncAction.CallLogRecord.ParticipantInfo.$Properties
+             * @deprecated Use SyncAction.CallLogRecord.ParticipantInfo.$Properties instead.
+             */
+
+            /**
+             * Shape of a ParticipantInfo.
+             * @typedef {SyncAction.CallLogRecord.ParticipantInfo.$Properties} SyncAction.CallLogRecord.ParticipantInfo.$Shape
+             */
+
+            /**
              * Constructs a new ParticipantInfo.
              * @memberof SyncAction.CallLogRecord
              * @classdesc Represents a ParticipantInfo.
-             * @implements IParticipantInfo
              * @constructor
-             * @param {SyncAction.CallLogRecord.IParticipantInfo=} [properties] Properties to set
+             * @param {SyncAction.CallLogRecord.ParticipantInfo.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function ParticipantInfo(properties) {
@@ -33369,8 +34816,12 @@ $root.SyncAction = (function() {
              * @function create
              * @memberof SyncAction.CallLogRecord.ParticipantInfo
              * @static
-             * @param {SyncAction.CallLogRecord.IParticipantInfo=} [properties] Properties to set
+             * @param {SyncAction.CallLogRecord.ParticipantInfo.$Properties=} [properties] Properties to set
              * @returns {SyncAction.CallLogRecord.ParticipantInfo} ParticipantInfo instance
+             * @type {{
+             *   (properties: SyncAction.CallLogRecord.ParticipantInfo.$Shape): SyncAction.CallLogRecord.ParticipantInfo & SyncAction.CallLogRecord.ParticipantInfo.$Shape;
+             *   (properties?: SyncAction.CallLogRecord.ParticipantInfo.$Properties): SyncAction.CallLogRecord.ParticipantInfo;
+             * }}
              */
             ParticipantInfo.create = function create(properties) {
                 return new ParticipantInfo(properties);
@@ -33381,7 +34832,7 @@ $root.SyncAction = (function() {
              * @function encode
              * @memberof SyncAction.CallLogRecord.ParticipantInfo
              * @static
-             * @param {SyncAction.CallLogRecord.IParticipantInfo} message ParticipantInfo message or plain object to encode
+             * @param {SyncAction.CallLogRecord.ParticipantInfo.$Properties} message ParticipantInfo message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -33403,7 +34854,7 @@ $root.SyncAction = (function() {
              * @function encodeDelimited
              * @memberof SyncAction.CallLogRecord.ParticipantInfo
              * @static
-             * @param {SyncAction.CallLogRecord.IParticipantInfo} message ParticipantInfo message or plain object to encode
+             * @param {SyncAction.CallLogRecord.ParticipantInfo.$Properties} message ParticipantInfo message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -33418,7 +34869,7 @@ $root.SyncAction = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.CallLogRecord.ParticipantInfo} ParticipantInfo
+             * @returns {SyncAction.CallLogRecord.ParticipantInfo & SyncAction.CallLogRecord.ParticipantInfo.$Shape} ParticipantInfo
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -33469,7 +34920,7 @@ $root.SyncAction = (function() {
              * @memberof SyncAction.CallLogRecord.ParticipantInfo
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.CallLogRecord.ParticipantInfo} ParticipantInfo
+             * @returns {SyncAction.CallLogRecord.ParticipantInfo & SyncAction.CallLogRecord.ParticipantInfo.$Shape} ParticipantInfo
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -33674,20 +35125,31 @@ $root.SyncAction = (function() {
 
         /**
          * Properties of a RecentEmojiWeight.
-         * @memberof SyncAction
-         * @interface IRecentEmojiWeight
+         * @typedef {Object} SyncAction.RecentEmojiWeight.$Properties
          * @property {string|null} [emoji] RecentEmojiWeight emoji
          * @property {number|null} [weight] RecentEmojiWeight weight
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
+         * Properties of a RecentEmojiWeight.
+         * @memberof SyncAction
+         * @interface IRecentEmojiWeight
+         * @augments SyncAction.RecentEmojiWeight.$Properties
+         * @deprecated Use SyncAction.RecentEmojiWeight.$Properties instead.
+         */
+
+        /**
+         * Shape of a RecentEmojiWeight.
+         * @typedef {SyncAction.RecentEmojiWeight.$Properties} SyncAction.RecentEmojiWeight.$Shape
+         */
+
+        /**
          * Constructs a new RecentEmojiWeight.
          * @memberof SyncAction
          * @classdesc Represents a RecentEmojiWeight.
-         * @implements IRecentEmojiWeight
          * @constructor
-         * @param {SyncAction.IRecentEmojiWeight=} [properties] Properties to set
+         * @param {SyncAction.RecentEmojiWeight.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function RecentEmojiWeight(properties) {
@@ -33733,8 +35195,12 @@ $root.SyncAction = (function() {
          * @function create
          * @memberof SyncAction.RecentEmojiWeight
          * @static
-         * @param {SyncAction.IRecentEmojiWeight=} [properties] Properties to set
+         * @param {SyncAction.RecentEmojiWeight.$Properties=} [properties] Properties to set
          * @returns {SyncAction.RecentEmojiWeight} RecentEmojiWeight instance
+         * @type {{
+         *   (properties: SyncAction.RecentEmojiWeight.$Shape): SyncAction.RecentEmojiWeight & SyncAction.RecentEmojiWeight.$Shape;
+         *   (properties?: SyncAction.RecentEmojiWeight.$Properties): SyncAction.RecentEmojiWeight;
+         * }}
          */
         RecentEmojiWeight.create = function create(properties) {
             return new RecentEmojiWeight(properties);
@@ -33745,7 +35211,7 @@ $root.SyncAction = (function() {
          * @function encode
          * @memberof SyncAction.RecentEmojiWeight
          * @static
-         * @param {SyncAction.IRecentEmojiWeight} message RecentEmojiWeight message or plain object to encode
+         * @param {SyncAction.RecentEmojiWeight.$Properties} message RecentEmojiWeight message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -33767,7 +35233,7 @@ $root.SyncAction = (function() {
          * @function encodeDelimited
          * @memberof SyncAction.RecentEmojiWeight
          * @static
-         * @param {SyncAction.IRecentEmojiWeight} message RecentEmojiWeight message or plain object to encode
+         * @param {SyncAction.RecentEmojiWeight.$Properties} message RecentEmojiWeight message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -33782,7 +35248,7 @@ $root.SyncAction = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {SyncAction.RecentEmojiWeight} RecentEmojiWeight
+         * @returns {SyncAction.RecentEmojiWeight & SyncAction.RecentEmojiWeight.$Shape} RecentEmojiWeight
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -33833,7 +35299,7 @@ $root.SyncAction = (function() {
          * @memberof SyncAction.RecentEmojiWeight
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {SyncAction.RecentEmojiWeight} RecentEmojiWeight
+         * @returns {SyncAction.RecentEmojiWeight & SyncAction.RecentEmojiWeight.$Shape} RecentEmojiWeight
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -34165,20 +35631,35 @@ $root.ChatLockSettings = (function() {
 
         /**
          * Properties of a ChatLockSettings.
+         * @typedef {Object} ChatLockSettings.ChatLockSettings.$Properties
+         * @property {boolean|null} [hideLockedChats] ChatLockSettings hideLockedChats
+         * @property {UserPassword.UserPassword.$Properties|null} [secretCode] ChatLockSettings secretCode
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a ChatLockSettings.
          * @memberof ChatLockSettings
          * @interface IChatLockSettings
-         * @property {boolean|null} [hideLockedChats] ChatLockSettings hideLockedChats
-         * @property {UserPassword.IUserPassword|null} [secretCode] ChatLockSettings secretCode
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments ChatLockSettings.ChatLockSettings.$Properties
+         * @deprecated Use ChatLockSettings.ChatLockSettings.$Properties instead.
+         */
+
+        /**
+         * Shape of a ChatLockSettings.
+         * @typedef {{
+         *   hideLockedChats?: boolean|null;
+         *   secretCode?: UserPassword.UserPassword.$Shape|null;
+         *   $unknowns?: Array.<Uint8Array>;
+         * }} ChatLockSettings.ChatLockSettings.$Shape
          */
 
         /**
          * Constructs a new ChatLockSettings.
          * @memberof ChatLockSettings
          * @classdesc Represents a ChatLockSettings.
-         * @implements IChatLockSettings
          * @constructor
-         * @param {ChatLockSettings.IChatLockSettings=} [properties] Properties to set
+         * @param {ChatLockSettings.ChatLockSettings.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function ChatLockSettings(properties) {
@@ -34198,7 +35679,7 @@ $root.ChatLockSettings = (function() {
 
         /**
          * ChatLockSettings secretCode.
-         * @member {UserPassword.IUserPassword|null|undefined} secretCode
+         * @member {UserPassword.UserPassword.$Properties|null|undefined} secretCode
          * @memberof ChatLockSettings.ChatLockSettings
          * @instance
          */
@@ -34224,8 +35705,12 @@ $root.ChatLockSettings = (function() {
          * @function create
          * @memberof ChatLockSettings.ChatLockSettings
          * @static
-         * @param {ChatLockSettings.IChatLockSettings=} [properties] Properties to set
+         * @param {ChatLockSettings.ChatLockSettings.$Properties=} [properties] Properties to set
          * @returns {ChatLockSettings.ChatLockSettings} ChatLockSettings instance
+         * @type {{
+         *   (properties: ChatLockSettings.ChatLockSettings.$Shape): ChatLockSettings.ChatLockSettings & ChatLockSettings.ChatLockSettings.$Shape;
+         *   (properties?: ChatLockSettings.ChatLockSettings.$Properties): ChatLockSettings.ChatLockSettings;
+         * }}
          */
         ChatLockSettings.create = function create(properties) {
             return new ChatLockSettings(properties);
@@ -34236,7 +35721,7 @@ $root.ChatLockSettings = (function() {
          * @function encode
          * @memberof ChatLockSettings.ChatLockSettings
          * @static
-         * @param {ChatLockSettings.IChatLockSettings} message ChatLockSettings message or plain object to encode
+         * @param {ChatLockSettings.ChatLockSettings.$Properties} message ChatLockSettings message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -34258,7 +35743,7 @@ $root.ChatLockSettings = (function() {
          * @function encodeDelimited
          * @memberof ChatLockSettings.ChatLockSettings
          * @static
-         * @param {ChatLockSettings.IChatLockSettings} message ChatLockSettings message or plain object to encode
+         * @param {ChatLockSettings.ChatLockSettings.$Properties} message ChatLockSettings message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -34273,7 +35758,7 @@ $root.ChatLockSettings = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {ChatLockSettings.ChatLockSettings} ChatLockSettings
+         * @returns {ChatLockSettings.ChatLockSettings & ChatLockSettings.ChatLockSettings.$Shape} ChatLockSettings
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -34324,7 +35809,7 @@ $root.ChatLockSettings = (function() {
          * @memberof ChatLockSettings.ChatLockSettings
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {ChatLockSettings.ChatLockSettings} ChatLockSettings
+         * @returns {ChatLockSettings.ChatLockSettings & ChatLockSettings.ChatLockSettings.$Shape} ChatLockSettings
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -34462,22 +35947,39 @@ $root.UserPassword = (function() {
 
         /**
          * Properties of a UserPassword.
-         * @memberof UserPassword
-         * @interface IUserPassword
+         * @typedef {Object} UserPassword.UserPassword.$Properties
          * @property {UserPassword.UserPassword.Encoding|null} [encoding] UserPassword encoding
          * @property {UserPassword.UserPassword.Transformer|null} [transformer] UserPassword transformer
-         * @property {Array.<UserPassword.UserPassword.ITransformerArg>|null} [transformerArg] UserPassword transformerArg
+         * @property {Array.<UserPassword.UserPassword.TransformerArg.$Properties>|null} [transformerArg] UserPassword transformerArg
          * @property {Uint8Array|null} [transformedData] UserPassword transformedData
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a UserPassword.
+         * @memberof UserPassword
+         * @interface IUserPassword
+         * @augments UserPassword.UserPassword.$Properties
+         * @deprecated Use UserPassword.UserPassword.$Properties instead.
+         */
+
+        /**
+         * Shape of a UserPassword.
+         * @typedef {{
+         *   encoding?: UserPassword.UserPassword.Encoding|null;
+         *   transformer?: UserPassword.UserPassword.Transformer|null;
+         *   transformerArg?: Array.<UserPassword.UserPassword.TransformerArg.$Shape>|null;
+         *   transformedData?: Uint8Array|null;
+         *   $unknowns?: Array.<Uint8Array>;
+         * }} UserPassword.UserPassword.$Shape
          */
 
         /**
          * Constructs a new UserPassword.
          * @memberof UserPassword
          * @classdesc Represents a UserPassword.
-         * @implements IUserPassword
          * @constructor
-         * @param {UserPassword.IUserPassword=} [properties] Properties to set
+         * @param {UserPassword.UserPassword.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function UserPassword(properties) {
@@ -34506,7 +36008,7 @@ $root.UserPassword = (function() {
 
         /**
          * UserPassword transformerArg.
-         * @member {Array.<UserPassword.UserPassword.ITransformerArg>} transformerArg
+         * @member {Array.<UserPassword.UserPassword.TransformerArg.$Properties>} transformerArg
          * @memberof UserPassword.UserPassword
          * @instance
          */
@@ -34546,8 +36048,12 @@ $root.UserPassword = (function() {
          * @function create
          * @memberof UserPassword.UserPassword
          * @static
-         * @param {UserPassword.IUserPassword=} [properties] Properties to set
+         * @param {UserPassword.UserPassword.$Properties=} [properties] Properties to set
          * @returns {UserPassword.UserPassword} UserPassword instance
+         * @type {{
+         *   (properties: UserPassword.UserPassword.$Shape): UserPassword.UserPassword & UserPassword.UserPassword.$Shape;
+         *   (properties?: UserPassword.UserPassword.$Properties): UserPassword.UserPassword;
+         * }}
          */
         UserPassword.create = function create(properties) {
             return new UserPassword(properties);
@@ -34558,7 +36064,7 @@ $root.UserPassword = (function() {
          * @function encode
          * @memberof UserPassword.UserPassword
          * @static
-         * @param {UserPassword.IUserPassword} message UserPassword message or plain object to encode
+         * @param {UserPassword.UserPassword.$Properties} message UserPassword message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -34585,7 +36091,7 @@ $root.UserPassword = (function() {
          * @function encodeDelimited
          * @memberof UserPassword.UserPassword
          * @static
-         * @param {UserPassword.IUserPassword} message UserPassword message or plain object to encode
+         * @param {UserPassword.UserPassword.$Properties} message UserPassword message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -34600,7 +36106,7 @@ $root.UserPassword = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {UserPassword.UserPassword} UserPassword
+         * @returns {UserPassword.UserPassword & UserPassword.UserPassword.$Shape} UserPassword
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -34666,7 +36172,7 @@ $root.UserPassword = (function() {
          * @memberof UserPassword.UserPassword
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {UserPassword.UserPassword} UserPassword
+         * @returns {UserPassword.UserPassword & UserPassword.UserPassword.$Shape} UserPassword
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -34897,20 +36403,35 @@ $root.UserPassword = (function() {
 
             /**
              * Properties of a TransformerArg.
+             * @typedef {Object} UserPassword.UserPassword.TransformerArg.$Properties
+             * @property {string|null} [key] TransformerArg key
+             * @property {UserPassword.UserPassword.TransformerArg.Value.$Properties|null} [value] TransformerArg value
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a TransformerArg.
              * @memberof UserPassword.UserPassword
              * @interface ITransformerArg
-             * @property {string|null} [key] TransformerArg key
-             * @property {UserPassword.UserPassword.TransformerArg.IValue|null} [value] TransformerArg value
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @augments UserPassword.UserPassword.TransformerArg.$Properties
+             * @deprecated Use UserPassword.UserPassword.TransformerArg.$Properties instead.
+             */
+
+            /**
+             * Shape of a TransformerArg.
+             * @typedef {{
+             *   key?: string|null;
+             *   value?: UserPassword.UserPassword.TransformerArg.Value.$Shape|null;
+             *   $unknowns?: Array.<Uint8Array>;
+             * }} UserPassword.UserPassword.TransformerArg.$Shape
              */
 
             /**
              * Constructs a new TransformerArg.
              * @memberof UserPassword.UserPassword
              * @classdesc Represents a TransformerArg.
-             * @implements ITransformerArg
              * @constructor
-             * @param {UserPassword.UserPassword.ITransformerArg=} [properties] Properties to set
+             * @param {UserPassword.UserPassword.TransformerArg.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function TransformerArg(properties) {
@@ -34930,7 +36451,7 @@ $root.UserPassword = (function() {
 
             /**
              * TransformerArg value.
-             * @member {UserPassword.UserPassword.TransformerArg.IValue|null|undefined} value
+             * @member {UserPassword.UserPassword.TransformerArg.Value.$Properties|null|undefined} value
              * @memberof UserPassword.UserPassword.TransformerArg
              * @instance
              */
@@ -34956,8 +36477,12 @@ $root.UserPassword = (function() {
              * @function create
              * @memberof UserPassword.UserPassword.TransformerArg
              * @static
-             * @param {UserPassword.UserPassword.ITransformerArg=} [properties] Properties to set
+             * @param {UserPassword.UserPassword.TransformerArg.$Properties=} [properties] Properties to set
              * @returns {UserPassword.UserPassword.TransformerArg} TransformerArg instance
+             * @type {{
+             *   (properties: UserPassword.UserPassword.TransformerArg.$Shape): UserPassword.UserPassword.TransformerArg & UserPassword.UserPassword.TransformerArg.$Shape;
+             *   (properties?: UserPassword.UserPassword.TransformerArg.$Properties): UserPassword.UserPassword.TransformerArg;
+             * }}
              */
             TransformerArg.create = function create(properties) {
                 return new TransformerArg(properties);
@@ -34968,7 +36493,7 @@ $root.UserPassword = (function() {
              * @function encode
              * @memberof UserPassword.UserPassword.TransformerArg
              * @static
-             * @param {UserPassword.UserPassword.ITransformerArg} message TransformerArg message or plain object to encode
+             * @param {UserPassword.UserPassword.TransformerArg.$Properties} message TransformerArg message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -34990,7 +36515,7 @@ $root.UserPassword = (function() {
              * @function encodeDelimited
              * @memberof UserPassword.UserPassword.TransformerArg
              * @static
-             * @param {UserPassword.UserPassword.ITransformerArg} message TransformerArg message or plain object to encode
+             * @param {UserPassword.UserPassword.TransformerArg.$Properties} message TransformerArg message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -35005,7 +36530,7 @@ $root.UserPassword = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {UserPassword.UserPassword.TransformerArg} TransformerArg
+             * @returns {UserPassword.UserPassword.TransformerArg & UserPassword.UserPassword.TransformerArg.$Shape} TransformerArg
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -35056,7 +36581,7 @@ $root.UserPassword = (function() {
              * @memberof UserPassword.UserPassword.TransformerArg
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {UserPassword.UserPassword.TransformerArg} TransformerArg
+             * @returns {UserPassword.UserPassword.TransformerArg & UserPassword.UserPassword.TransformerArg.$Shape} TransformerArg
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -35179,20 +36704,38 @@ $root.UserPassword = (function() {
 
                 /**
                  * Properties of a Value.
-                 * @memberof UserPassword.UserPassword.TransformerArg
-                 * @interface IValue
+                 * @typedef {Object} UserPassword.UserPassword.TransformerArg.Value.$Properties
                  * @property {Uint8Array|null} [asBlob] Value asBlob
                  * @property {number|null} [asUnsignedInteger] Value asUnsignedInteger
+                 * @property {"asBlob"|"asUnsignedInteger"} [value] Value value
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 */
+
+                /**
+                 * Properties of a Value.
+                 * @memberof UserPassword.UserPassword.TransformerArg
+                 * @interface IValue
+                 * @augments UserPassword.UserPassword.TransformerArg.Value.$Properties
+                 * @deprecated Use UserPassword.UserPassword.TransformerArg.Value.$Properties instead.
+                 */
+
+                /**
+                 * Narrowed shape of a Value.
+                 * @typedef {{
+                 *   asBlob?: Uint8Array|null;
+                 *   asUnsignedInteger?: number|null;
+                 *   $unknowns?: Array.<Uint8Array>;
+                 * } & (
+                 *   ({ value?: undefined; asBlob?: null; asUnsignedInteger?: null }|{ value?: "asBlob"; asBlob: Uint8Array; asUnsignedInteger?: null }|{ value?: "asUnsignedInteger"; asBlob?: null; asUnsignedInteger: number })
+                 * )} UserPassword.UserPassword.TransformerArg.Value.$Shape
                  */
 
                 /**
                  * Constructs a new Value.
                  * @memberof UserPassword.UserPassword.TransformerArg
                  * @classdesc Represents a Value.
-                 * @implements IValue
                  * @constructor
-                 * @param {UserPassword.UserPassword.TransformerArg.IValue=} [properties] Properties to set
+                 * @param {UserPassword.UserPassword.TransformerArg.Value.$Properties=} [properties] Properties to set
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function Value(properties) {
@@ -35237,8 +36780,12 @@ $root.UserPassword = (function() {
                  * @function create
                  * @memberof UserPassword.UserPassword.TransformerArg.Value
                  * @static
-                 * @param {UserPassword.UserPassword.TransformerArg.IValue=} [properties] Properties to set
+                 * @param {UserPassword.UserPassword.TransformerArg.Value.$Properties=} [properties] Properties to set
                  * @returns {UserPassword.UserPassword.TransformerArg.Value} Value instance
+                 * @type {{
+                 *   (properties: UserPassword.UserPassword.TransformerArg.Value.$Shape): UserPassword.UserPassword.TransformerArg.Value & UserPassword.UserPassword.TransformerArg.Value.$Shape;
+                 *   (properties?: UserPassword.UserPassword.TransformerArg.Value.$Properties): UserPassword.UserPassword.TransformerArg.Value;
+                 * }}
                  */
                 Value.create = function create(properties) {
                     return new Value(properties);
@@ -35249,7 +36796,7 @@ $root.UserPassword = (function() {
                  * @function encode
                  * @memberof UserPassword.UserPassword.TransformerArg.Value
                  * @static
-                 * @param {UserPassword.UserPassword.TransformerArg.IValue} message Value message or plain object to encode
+                 * @param {UserPassword.UserPassword.TransformerArg.Value.$Properties} message Value message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -35271,7 +36818,7 @@ $root.UserPassword = (function() {
                  * @function encodeDelimited
                  * @memberof UserPassword.UserPassword.TransformerArg.Value
                  * @static
-                 * @param {UserPassword.UserPassword.TransformerArg.IValue} message Value message or plain object to encode
+                 * @param {UserPassword.UserPassword.TransformerArg.Value.$Properties} message Value message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -35286,7 +36833,7 @@ $root.UserPassword = (function() {
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                  * @param {number} [length] Message length if known beforehand
-                 * @returns {UserPassword.UserPassword.TransformerArg.Value} Value
+                 * @returns {UserPassword.UserPassword.TransformerArg.Value & UserPassword.UserPassword.TransformerArg.Value.$Shape} Value
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -35337,7 +36884,7 @@ $root.UserPassword = (function() {
                  * @memberof UserPassword.UserPassword.TransformerArg.Value
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {UserPassword.UserPassword.TransformerArg.Value} Value
+                 * @returns {UserPassword.UserPassword.TransformerArg.Value & UserPassword.UserPassword.TransformerArg.Value.$Shape} Value
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -35480,24 +37027,35 @@ $root.DeviceCapabilities = (function() {
 
         /**
          * Properties of a DeviceCapabilities.
+         * @typedef {Object} DeviceCapabilities.DeviceCapabilities.$Properties
+         * @property {DeviceCapabilities.DeviceCapabilities.ChatLockSupportLevel|null} [chatLockSupportLevel] DeviceCapabilities chatLockSupportLevel
+         * @property {DeviceCapabilities.DeviceCapabilities.LIDMigration.$Properties|null} [lidMigration] DeviceCapabilities lidMigration
+         * @property {DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Properties|null} [businessBroadcast] DeviceCapabilities businessBroadcast
+         * @property {DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Properties|null} [userHasAvatar] DeviceCapabilities userHasAvatar
+         * @property {DeviceCapabilities.DeviceCapabilities.MemberNameTagPrimarySupport|null} [memberNameTagPrimarySupport] DeviceCapabilities memberNameTagPrimarySupport
+         * @property {DeviceCapabilities.DeviceCapabilities.AiThread.$Properties|null} [aiThread] DeviceCapabilities aiThread
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a DeviceCapabilities.
          * @memberof DeviceCapabilities
          * @interface IDeviceCapabilities
-         * @property {DeviceCapabilities.DeviceCapabilities.ChatLockSupportLevel|null} [chatLockSupportLevel] DeviceCapabilities chatLockSupportLevel
-         * @property {DeviceCapabilities.DeviceCapabilities.ILIDMigration|null} [lidMigration] DeviceCapabilities lidMigration
-         * @property {DeviceCapabilities.DeviceCapabilities.IBusinessBroadcast|null} [businessBroadcast] DeviceCapabilities businessBroadcast
-         * @property {DeviceCapabilities.DeviceCapabilities.IUserHasAvatar|null} [userHasAvatar] DeviceCapabilities userHasAvatar
-         * @property {DeviceCapabilities.DeviceCapabilities.MemberNameTagPrimarySupport|null} [memberNameTagPrimarySupport] DeviceCapabilities memberNameTagPrimarySupport
-         * @property {DeviceCapabilities.DeviceCapabilities.IAiThread|null} [aiThread] DeviceCapabilities aiThread
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments DeviceCapabilities.DeviceCapabilities.$Properties
+         * @deprecated Use DeviceCapabilities.DeviceCapabilities.$Properties instead.
+         */
+
+        /**
+         * Shape of a DeviceCapabilities.
+         * @typedef {DeviceCapabilities.DeviceCapabilities.$Properties} DeviceCapabilities.DeviceCapabilities.$Shape
          */
 
         /**
          * Constructs a new DeviceCapabilities.
          * @memberof DeviceCapabilities
          * @classdesc Represents a DeviceCapabilities.
-         * @implements IDeviceCapabilities
          * @constructor
-         * @param {DeviceCapabilities.IDeviceCapabilities=} [properties] Properties to set
+         * @param {DeviceCapabilities.DeviceCapabilities.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function DeviceCapabilities(properties) {
@@ -35517,7 +37075,7 @@ $root.DeviceCapabilities = (function() {
 
         /**
          * DeviceCapabilities lidMigration.
-         * @member {DeviceCapabilities.DeviceCapabilities.ILIDMigration|null|undefined} lidMigration
+         * @member {DeviceCapabilities.DeviceCapabilities.LIDMigration.$Properties|null|undefined} lidMigration
          * @memberof DeviceCapabilities.DeviceCapabilities
          * @instance
          */
@@ -35525,7 +37083,7 @@ $root.DeviceCapabilities = (function() {
 
         /**
          * DeviceCapabilities businessBroadcast.
-         * @member {DeviceCapabilities.DeviceCapabilities.IBusinessBroadcast|null|undefined} businessBroadcast
+         * @member {DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Properties|null|undefined} businessBroadcast
          * @memberof DeviceCapabilities.DeviceCapabilities
          * @instance
          */
@@ -35533,7 +37091,7 @@ $root.DeviceCapabilities = (function() {
 
         /**
          * DeviceCapabilities userHasAvatar.
-         * @member {DeviceCapabilities.DeviceCapabilities.IUserHasAvatar|null|undefined} userHasAvatar
+         * @member {DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Properties|null|undefined} userHasAvatar
          * @memberof DeviceCapabilities.DeviceCapabilities
          * @instance
          */
@@ -35549,7 +37107,7 @@ $root.DeviceCapabilities = (function() {
 
         /**
          * DeviceCapabilities aiThread.
-         * @member {DeviceCapabilities.DeviceCapabilities.IAiThread|null|undefined} aiThread
+         * @member {DeviceCapabilities.DeviceCapabilities.AiThread.$Properties|null|undefined} aiThread
          * @memberof DeviceCapabilities.DeviceCapabilities
          * @instance
          */
@@ -35599,8 +37157,12 @@ $root.DeviceCapabilities = (function() {
          * @function create
          * @memberof DeviceCapabilities.DeviceCapabilities
          * @static
-         * @param {DeviceCapabilities.IDeviceCapabilities=} [properties] Properties to set
+         * @param {DeviceCapabilities.DeviceCapabilities.$Properties=} [properties] Properties to set
          * @returns {DeviceCapabilities.DeviceCapabilities} DeviceCapabilities instance
+         * @type {{
+         *   (properties: DeviceCapabilities.DeviceCapabilities.$Shape): DeviceCapabilities.DeviceCapabilities & DeviceCapabilities.DeviceCapabilities.$Shape;
+         *   (properties?: DeviceCapabilities.DeviceCapabilities.$Properties): DeviceCapabilities.DeviceCapabilities;
+         * }}
          */
         DeviceCapabilities.create = function create(properties) {
             return new DeviceCapabilities(properties);
@@ -35611,7 +37173,7 @@ $root.DeviceCapabilities = (function() {
          * @function encode
          * @memberof DeviceCapabilities.DeviceCapabilities
          * @static
-         * @param {DeviceCapabilities.IDeviceCapabilities} message DeviceCapabilities message or plain object to encode
+         * @param {DeviceCapabilities.DeviceCapabilities.$Properties} message DeviceCapabilities message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -35641,7 +37203,7 @@ $root.DeviceCapabilities = (function() {
          * @function encodeDelimited
          * @memberof DeviceCapabilities.DeviceCapabilities
          * @static
-         * @param {DeviceCapabilities.IDeviceCapabilities} message DeviceCapabilities message or plain object to encode
+         * @param {DeviceCapabilities.DeviceCapabilities.$Properties} message DeviceCapabilities message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -35656,7 +37218,7 @@ $root.DeviceCapabilities = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {DeviceCapabilities.DeviceCapabilities} DeviceCapabilities
+         * @returns {DeviceCapabilities.DeviceCapabilities & DeviceCapabilities.DeviceCapabilities.$Shape} DeviceCapabilities
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -35735,7 +37297,7 @@ $root.DeviceCapabilities = (function() {
          * @memberof DeviceCapabilities.DeviceCapabilities
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {DeviceCapabilities.DeviceCapabilities} DeviceCapabilities
+         * @returns {DeviceCapabilities.DeviceCapabilities & DeviceCapabilities.DeviceCapabilities.$Shape} DeviceCapabilities
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -35972,19 +37534,30 @@ $root.DeviceCapabilities = (function() {
 
             /**
              * Properties of an AiThread.
-             * @memberof DeviceCapabilities.DeviceCapabilities
-             * @interface IAiThread
+             * @typedef {Object} DeviceCapabilities.DeviceCapabilities.AiThread.$Properties
              * @property {DeviceCapabilities.DeviceCapabilities.AiThread.SupportLevel|null} [supportLevel] AiThread supportLevel
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of an AiThread.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @interface IAiThread
+             * @augments DeviceCapabilities.DeviceCapabilities.AiThread.$Properties
+             * @deprecated Use DeviceCapabilities.DeviceCapabilities.AiThread.$Properties instead.
+             */
+
+            /**
+             * Shape of an AiThread.
+             * @typedef {DeviceCapabilities.DeviceCapabilities.AiThread.$Properties} DeviceCapabilities.DeviceCapabilities.AiThread.$Shape
              */
 
             /**
              * Constructs a new AiThread.
              * @memberof DeviceCapabilities.DeviceCapabilities
              * @classdesc Represents an AiThread.
-             * @implements IAiThread
              * @constructor
-             * @param {DeviceCapabilities.DeviceCapabilities.IAiThread=} [properties] Properties to set
+             * @param {DeviceCapabilities.DeviceCapabilities.AiThread.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AiThread(properties) {
@@ -36016,8 +37589,12 @@ $root.DeviceCapabilities = (function() {
              * @function create
              * @memberof DeviceCapabilities.DeviceCapabilities.AiThread
              * @static
-             * @param {DeviceCapabilities.DeviceCapabilities.IAiThread=} [properties] Properties to set
+             * @param {DeviceCapabilities.DeviceCapabilities.AiThread.$Properties=} [properties] Properties to set
              * @returns {DeviceCapabilities.DeviceCapabilities.AiThread} AiThread instance
+             * @type {{
+             *   (properties: DeviceCapabilities.DeviceCapabilities.AiThread.$Shape): DeviceCapabilities.DeviceCapabilities.AiThread & DeviceCapabilities.DeviceCapabilities.AiThread.$Shape;
+             *   (properties?: DeviceCapabilities.DeviceCapabilities.AiThread.$Properties): DeviceCapabilities.DeviceCapabilities.AiThread;
+             * }}
              */
             AiThread.create = function create(properties) {
                 return new AiThread(properties);
@@ -36028,7 +37605,7 @@ $root.DeviceCapabilities = (function() {
              * @function encode
              * @memberof DeviceCapabilities.DeviceCapabilities.AiThread
              * @static
-             * @param {DeviceCapabilities.DeviceCapabilities.IAiThread} message AiThread message or plain object to encode
+             * @param {DeviceCapabilities.DeviceCapabilities.AiThread.$Properties} message AiThread message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -36048,7 +37625,7 @@ $root.DeviceCapabilities = (function() {
              * @function encodeDelimited
              * @memberof DeviceCapabilities.DeviceCapabilities.AiThread
              * @static
-             * @param {DeviceCapabilities.DeviceCapabilities.IAiThread} message AiThread message or plain object to encode
+             * @param {DeviceCapabilities.DeviceCapabilities.AiThread.$Properties} message AiThread message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -36063,7 +37640,7 @@ $root.DeviceCapabilities = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {DeviceCapabilities.DeviceCapabilities.AiThread} AiThread
+             * @returns {DeviceCapabilities.DeviceCapabilities.AiThread & DeviceCapabilities.DeviceCapabilities.AiThread.$Shape} AiThread
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -36107,7 +37684,7 @@ $root.DeviceCapabilities = (function() {
              * @memberof DeviceCapabilities.DeviceCapabilities.AiThread
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {DeviceCapabilities.DeviceCapabilities.AiThread} AiThread
+             * @returns {DeviceCapabilities.DeviceCapabilities.AiThread & DeviceCapabilities.DeviceCapabilities.AiThread.$Shape} AiThread
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -36255,8 +37832,7 @@ $root.DeviceCapabilities = (function() {
 
             /**
              * Properties of a BusinessBroadcast.
-             * @memberof DeviceCapabilities.DeviceCapabilities
-             * @interface IBusinessBroadcast
+             * @typedef {Object} DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Properties
              * @property {boolean|null} [importListEnabled] BusinessBroadcast importListEnabled
              * @property {boolean|null} [companionSupportEnabled] BusinessBroadcast companionSupportEnabled
              * @property {boolean|null} [campaignSyncEnabled] BusinessBroadcast campaignSyncEnabled
@@ -36266,12 +37842,24 @@ $root.DeviceCapabilities = (function() {
              */
 
             /**
+             * Properties of a BusinessBroadcast.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @interface IBusinessBroadcast
+             * @augments DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Properties
+             * @deprecated Use DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Properties instead.
+             */
+
+            /**
+             * Shape of a BusinessBroadcast.
+             * @typedef {DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Properties} DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Shape
+             */
+
+            /**
              * Constructs a new BusinessBroadcast.
              * @memberof DeviceCapabilities.DeviceCapabilities
              * @classdesc Represents a BusinessBroadcast.
-             * @implements IBusinessBroadcast
              * @constructor
-             * @param {DeviceCapabilities.DeviceCapabilities.IBusinessBroadcast=} [properties] Properties to set
+             * @param {DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function BusinessBroadcast(properties) {
@@ -36359,8 +37947,12 @@ $root.DeviceCapabilities = (function() {
              * @function create
              * @memberof DeviceCapabilities.DeviceCapabilities.BusinessBroadcast
              * @static
-             * @param {DeviceCapabilities.DeviceCapabilities.IBusinessBroadcast=} [properties] Properties to set
+             * @param {DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Properties=} [properties] Properties to set
              * @returns {DeviceCapabilities.DeviceCapabilities.BusinessBroadcast} BusinessBroadcast instance
+             * @type {{
+             *   (properties: DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Shape): DeviceCapabilities.DeviceCapabilities.BusinessBroadcast & DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Shape;
+             *   (properties?: DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Properties): DeviceCapabilities.DeviceCapabilities.BusinessBroadcast;
+             * }}
              */
             BusinessBroadcast.create = function create(properties) {
                 return new BusinessBroadcast(properties);
@@ -36371,7 +37963,7 @@ $root.DeviceCapabilities = (function() {
              * @function encode
              * @memberof DeviceCapabilities.DeviceCapabilities.BusinessBroadcast
              * @static
-             * @param {DeviceCapabilities.DeviceCapabilities.IBusinessBroadcast} message BusinessBroadcast message or plain object to encode
+             * @param {DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Properties} message BusinessBroadcast message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -36399,7 +37991,7 @@ $root.DeviceCapabilities = (function() {
              * @function encodeDelimited
              * @memberof DeviceCapabilities.DeviceCapabilities.BusinessBroadcast
              * @static
-             * @param {DeviceCapabilities.DeviceCapabilities.IBusinessBroadcast} message BusinessBroadcast message or plain object to encode
+             * @param {DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Properties} message BusinessBroadcast message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -36414,7 +38006,7 @@ $root.DeviceCapabilities = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {DeviceCapabilities.DeviceCapabilities.BusinessBroadcast} BusinessBroadcast
+             * @returns {DeviceCapabilities.DeviceCapabilities.BusinessBroadcast & DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Shape} BusinessBroadcast
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -36486,7 +38078,7 @@ $root.DeviceCapabilities = (function() {
              * @memberof DeviceCapabilities.DeviceCapabilities.BusinessBroadcast
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {DeviceCapabilities.DeviceCapabilities.BusinessBroadcast} BusinessBroadcast
+             * @returns {DeviceCapabilities.DeviceCapabilities.BusinessBroadcast & DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Shape} BusinessBroadcast
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -36658,19 +38250,30 @@ $root.DeviceCapabilities = (function() {
 
             /**
              * Properties of a LIDMigration.
-             * @memberof DeviceCapabilities.DeviceCapabilities
-             * @interface ILIDMigration
+             * @typedef {Object} DeviceCapabilities.DeviceCapabilities.LIDMigration.$Properties
              * @property {number|Long|null} [chatDbMigrationTimestamp] LIDMigration chatDbMigrationTimestamp
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a LIDMigration.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @interface ILIDMigration
+             * @augments DeviceCapabilities.DeviceCapabilities.LIDMigration.$Properties
+             * @deprecated Use DeviceCapabilities.DeviceCapabilities.LIDMigration.$Properties instead.
+             */
+
+            /**
+             * Shape of a LIDMigration.
+             * @typedef {DeviceCapabilities.DeviceCapabilities.LIDMigration.$Properties} DeviceCapabilities.DeviceCapabilities.LIDMigration.$Shape
              */
 
             /**
              * Constructs a new LIDMigration.
              * @memberof DeviceCapabilities.DeviceCapabilities
              * @classdesc Represents a LIDMigration.
-             * @implements ILIDMigration
              * @constructor
-             * @param {DeviceCapabilities.DeviceCapabilities.ILIDMigration=} [properties] Properties to set
+             * @param {DeviceCapabilities.DeviceCapabilities.LIDMigration.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function LIDMigration(properties) {
@@ -36702,8 +38305,12 @@ $root.DeviceCapabilities = (function() {
              * @function create
              * @memberof DeviceCapabilities.DeviceCapabilities.LIDMigration
              * @static
-             * @param {DeviceCapabilities.DeviceCapabilities.ILIDMigration=} [properties] Properties to set
+             * @param {DeviceCapabilities.DeviceCapabilities.LIDMigration.$Properties=} [properties] Properties to set
              * @returns {DeviceCapabilities.DeviceCapabilities.LIDMigration} LIDMigration instance
+             * @type {{
+             *   (properties: DeviceCapabilities.DeviceCapabilities.LIDMigration.$Shape): DeviceCapabilities.DeviceCapabilities.LIDMigration & DeviceCapabilities.DeviceCapabilities.LIDMigration.$Shape;
+             *   (properties?: DeviceCapabilities.DeviceCapabilities.LIDMigration.$Properties): DeviceCapabilities.DeviceCapabilities.LIDMigration;
+             * }}
              */
             LIDMigration.create = function create(properties) {
                 return new LIDMigration(properties);
@@ -36714,7 +38321,7 @@ $root.DeviceCapabilities = (function() {
              * @function encode
              * @memberof DeviceCapabilities.DeviceCapabilities.LIDMigration
              * @static
-             * @param {DeviceCapabilities.DeviceCapabilities.ILIDMigration} message LIDMigration message or plain object to encode
+             * @param {DeviceCapabilities.DeviceCapabilities.LIDMigration.$Properties} message LIDMigration message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -36734,7 +38341,7 @@ $root.DeviceCapabilities = (function() {
              * @function encodeDelimited
              * @memberof DeviceCapabilities.DeviceCapabilities.LIDMigration
              * @static
-             * @param {DeviceCapabilities.DeviceCapabilities.ILIDMigration} message LIDMigration message or plain object to encode
+             * @param {DeviceCapabilities.DeviceCapabilities.LIDMigration.$Properties} message LIDMigration message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -36749,7 +38356,7 @@ $root.DeviceCapabilities = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {DeviceCapabilities.DeviceCapabilities.LIDMigration} LIDMigration
+             * @returns {DeviceCapabilities.DeviceCapabilities.LIDMigration & DeviceCapabilities.DeviceCapabilities.LIDMigration.$Shape} LIDMigration
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -36793,7 +38400,7 @@ $root.DeviceCapabilities = (function() {
              * @memberof DeviceCapabilities.DeviceCapabilities.LIDMigration
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {DeviceCapabilities.DeviceCapabilities.LIDMigration} LIDMigration
+             * @returns {DeviceCapabilities.DeviceCapabilities.LIDMigration & DeviceCapabilities.DeviceCapabilities.LIDMigration.$Shape} LIDMigration
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -36927,19 +38534,30 @@ $root.DeviceCapabilities = (function() {
 
             /**
              * Properties of a UserHasAvatar.
-             * @memberof DeviceCapabilities.DeviceCapabilities
-             * @interface IUserHasAvatar
+             * @typedef {Object} DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Properties
              * @property {boolean|null} [userHasAvatar] UserHasAvatar userHasAvatar
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a UserHasAvatar.
+             * @memberof DeviceCapabilities.DeviceCapabilities
+             * @interface IUserHasAvatar
+             * @augments DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Properties
+             * @deprecated Use DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Properties instead.
+             */
+
+            /**
+             * Shape of a UserHasAvatar.
+             * @typedef {DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Properties} DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Shape
              */
 
             /**
              * Constructs a new UserHasAvatar.
              * @memberof DeviceCapabilities.DeviceCapabilities
              * @classdesc Represents a UserHasAvatar.
-             * @implements IUserHasAvatar
              * @constructor
-             * @param {DeviceCapabilities.DeviceCapabilities.IUserHasAvatar=} [properties] Properties to set
+             * @param {DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function UserHasAvatar(properties) {
@@ -36971,8 +38589,12 @@ $root.DeviceCapabilities = (function() {
              * @function create
              * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
              * @static
-             * @param {DeviceCapabilities.DeviceCapabilities.IUserHasAvatar=} [properties] Properties to set
+             * @param {DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Properties=} [properties] Properties to set
              * @returns {DeviceCapabilities.DeviceCapabilities.UserHasAvatar} UserHasAvatar instance
+             * @type {{
+             *   (properties: DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Shape): DeviceCapabilities.DeviceCapabilities.UserHasAvatar & DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Shape;
+             *   (properties?: DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Properties): DeviceCapabilities.DeviceCapabilities.UserHasAvatar;
+             * }}
              */
             UserHasAvatar.create = function create(properties) {
                 return new UserHasAvatar(properties);
@@ -36983,7 +38605,7 @@ $root.DeviceCapabilities = (function() {
              * @function encode
              * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
              * @static
-             * @param {DeviceCapabilities.DeviceCapabilities.IUserHasAvatar} message UserHasAvatar message or plain object to encode
+             * @param {DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Properties} message UserHasAvatar message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -37003,7 +38625,7 @@ $root.DeviceCapabilities = (function() {
              * @function encodeDelimited
              * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
              * @static
-             * @param {DeviceCapabilities.DeviceCapabilities.IUserHasAvatar} message UserHasAvatar message or plain object to encode
+             * @param {DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Properties} message UserHasAvatar message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -37018,7 +38640,7 @@ $root.DeviceCapabilities = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {DeviceCapabilities.DeviceCapabilities.UserHasAvatar} UserHasAvatar
+             * @returns {DeviceCapabilities.DeviceCapabilities.UserHasAvatar & DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Shape} UserHasAvatar
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -37062,7 +38684,7 @@ $root.DeviceCapabilities = (function() {
              * @memberof DeviceCapabilities.DeviceCapabilities.UserHasAvatar
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {DeviceCapabilities.DeviceCapabilities.UserHasAvatar} UserHasAvatar
+             * @returns {DeviceCapabilities.DeviceCapabilities.UserHasAvatar & DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Shape} UserHasAvatar
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -37185,8 +38807,7 @@ $root.Protocol = (function() {
 
         /**
          * Properties of a LimitSharing.
-         * @memberof Protocol
-         * @interface ILimitSharing
+         * @typedef {Object} Protocol.LimitSharing.$Properties
          * @property {boolean|null} [sharingLimited] LimitSharing sharingLimited
          * @property {Protocol.LimitSharing.TriggerType|null} [trigger] LimitSharing trigger
          * @property {number|Long|null} [limitSharingSettingTimestamp] LimitSharing limitSharingSettingTimestamp
@@ -37195,12 +38816,24 @@ $root.Protocol = (function() {
          */
 
         /**
+         * Properties of a LimitSharing.
+         * @memberof Protocol
+         * @interface ILimitSharing
+         * @augments Protocol.LimitSharing.$Properties
+         * @deprecated Use Protocol.LimitSharing.$Properties instead.
+         */
+
+        /**
+         * Shape of a LimitSharing.
+         * @typedef {Protocol.LimitSharing.$Properties} Protocol.LimitSharing.$Shape
+         */
+
+        /**
          * Constructs a new LimitSharing.
          * @memberof Protocol
          * @classdesc Represents a LimitSharing.
-         * @implements ILimitSharing
          * @constructor
-         * @param {Protocol.ILimitSharing=} [properties] Properties to set
+         * @param {Protocol.LimitSharing.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function LimitSharing(properties) {
@@ -37274,8 +38907,12 @@ $root.Protocol = (function() {
          * @function create
          * @memberof Protocol.LimitSharing
          * @static
-         * @param {Protocol.ILimitSharing=} [properties] Properties to set
+         * @param {Protocol.LimitSharing.$Properties=} [properties] Properties to set
          * @returns {Protocol.LimitSharing} LimitSharing instance
+         * @type {{
+         *   (properties: Protocol.LimitSharing.$Shape): Protocol.LimitSharing & Protocol.LimitSharing.$Shape;
+         *   (properties?: Protocol.LimitSharing.$Properties): Protocol.LimitSharing;
+         * }}
          */
         LimitSharing.create = function create(properties) {
             return new LimitSharing(properties);
@@ -37286,7 +38923,7 @@ $root.Protocol = (function() {
          * @function encode
          * @memberof Protocol.LimitSharing
          * @static
-         * @param {Protocol.ILimitSharing} message LimitSharing message or plain object to encode
+         * @param {Protocol.LimitSharing.$Properties} message LimitSharing message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -37312,7 +38949,7 @@ $root.Protocol = (function() {
          * @function encodeDelimited
          * @memberof Protocol.LimitSharing
          * @static
-         * @param {Protocol.ILimitSharing} message LimitSharing message or plain object to encode
+         * @param {Protocol.LimitSharing.$Properties} message LimitSharing message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -37327,7 +38964,7 @@ $root.Protocol = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {Protocol.LimitSharing} LimitSharing
+         * @returns {Protocol.LimitSharing & Protocol.LimitSharing.$Shape} LimitSharing
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -37392,7 +39029,7 @@ $root.Protocol = (function() {
          * @memberof Protocol.LimitSharing
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {Protocol.LimitSharing} LimitSharing
+         * @returns {Protocol.LimitSharing & Protocol.LimitSharing.$Shape} LimitSharing
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -37593,8 +39230,7 @@ $root.Protocol = (function() {
 
         /**
          * Properties of a MessageKey.
-         * @memberof Protocol
-         * @interface IMessageKey
+         * @typedef {Object} Protocol.MessageKey.$Properties
          * @property {string|null} [remoteJid] MessageKey remoteJid
          * @property {boolean|null} [fromMe] MessageKey fromMe
          * @property {string|null} [id] MessageKey id
@@ -37603,12 +39239,24 @@ $root.Protocol = (function() {
          */
 
         /**
+         * Properties of a MessageKey.
+         * @memberof Protocol
+         * @interface IMessageKey
+         * @augments Protocol.MessageKey.$Properties
+         * @deprecated Use Protocol.MessageKey.$Properties instead.
+         */
+
+        /**
+         * Shape of a MessageKey.
+         * @typedef {Protocol.MessageKey.$Properties} Protocol.MessageKey.$Shape
+         */
+
+        /**
          * Constructs a new MessageKey.
          * @memberof Protocol
          * @classdesc Represents a MessageKey.
-         * @implements IMessageKey
          * @constructor
-         * @param {Protocol.IMessageKey=} [properties] Properties to set
+         * @param {Protocol.MessageKey.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function MessageKey(properties) {
@@ -37682,8 +39330,12 @@ $root.Protocol = (function() {
          * @function create
          * @memberof Protocol.MessageKey
          * @static
-         * @param {Protocol.IMessageKey=} [properties] Properties to set
+         * @param {Protocol.MessageKey.$Properties=} [properties] Properties to set
          * @returns {Protocol.MessageKey} MessageKey instance
+         * @type {{
+         *   (properties: Protocol.MessageKey.$Shape): Protocol.MessageKey & Protocol.MessageKey.$Shape;
+         *   (properties?: Protocol.MessageKey.$Properties): Protocol.MessageKey;
+         * }}
          */
         MessageKey.create = function create(properties) {
             return new MessageKey(properties);
@@ -37694,7 +39346,7 @@ $root.Protocol = (function() {
          * @function encode
          * @memberof Protocol.MessageKey
          * @static
-         * @param {Protocol.IMessageKey} message MessageKey message or plain object to encode
+         * @param {Protocol.MessageKey.$Properties} message MessageKey message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -37720,7 +39372,7 @@ $root.Protocol = (function() {
          * @function encodeDelimited
          * @memberof Protocol.MessageKey
          * @static
-         * @param {Protocol.IMessageKey} message MessageKey message or plain object to encode
+         * @param {Protocol.MessageKey.$Properties} message MessageKey message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -37735,7 +39387,7 @@ $root.Protocol = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {Protocol.MessageKey} MessageKey
+         * @returns {Protocol.MessageKey & Protocol.MessageKey.$Shape} MessageKey
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -37800,7 +39452,7 @@ $root.Protocol = (function() {
          * @memberof Protocol.MessageKey
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {Protocol.MessageKey} MessageKey
+         * @returns {Protocol.MessageKey & Protocol.MessageKey.$Shape} MessageKey
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */

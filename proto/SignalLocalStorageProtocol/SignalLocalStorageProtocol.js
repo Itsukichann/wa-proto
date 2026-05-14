@@ -22,19 +22,30 @@ $root.SignalLocalStorageProtocol = (function() {
 
         /**
          * Properties of a SenderKeyRecordStructure.
+         * @typedef {Object} SignalLocalStorageProtocol.SenderKeyRecordStructure.$Properties
+         * @property {Array.<SignalLocalStorageProtocol.SenderKeyStateStructure.$Properties>|null} [senderKeyStates] SenderKeyRecordStructure senderKeyStates
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a SenderKeyRecordStructure.
          * @memberof SignalLocalStorageProtocol
          * @interface ISenderKeyRecordStructure
-         * @property {Array.<SignalLocalStorageProtocol.ISenderKeyStateStructure>|null} [senderKeyStates] SenderKeyRecordStructure senderKeyStates
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments SignalLocalStorageProtocol.SenderKeyRecordStructure.$Properties
+         * @deprecated Use SignalLocalStorageProtocol.SenderKeyRecordStructure.$Properties instead.
+         */
+
+        /**
+         * Shape of a SenderKeyRecordStructure.
+         * @typedef {SignalLocalStorageProtocol.SenderKeyRecordStructure.$Properties} SignalLocalStorageProtocol.SenderKeyRecordStructure.$Shape
          */
 
         /**
          * Constructs a new SenderKeyRecordStructure.
          * @memberof SignalLocalStorageProtocol
          * @classdesc Represents a SenderKeyRecordStructure.
-         * @implements ISenderKeyRecordStructure
          * @constructor
-         * @param {SignalLocalStorageProtocol.ISenderKeyRecordStructure=} [properties] Properties to set
+         * @param {SignalLocalStorageProtocol.SenderKeyRecordStructure.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SenderKeyRecordStructure(properties) {
@@ -47,7 +58,7 @@ $root.SignalLocalStorageProtocol = (function() {
 
         /**
          * SenderKeyRecordStructure senderKeyStates.
-         * @member {Array.<SignalLocalStorageProtocol.ISenderKeyStateStructure>} senderKeyStates
+         * @member {Array.<SignalLocalStorageProtocol.SenderKeyStateStructure.$Properties>} senderKeyStates
          * @memberof SignalLocalStorageProtocol.SenderKeyRecordStructure
          * @instance
          */
@@ -58,8 +69,12 @@ $root.SignalLocalStorageProtocol = (function() {
          * @function create
          * @memberof SignalLocalStorageProtocol.SenderKeyRecordStructure
          * @static
-         * @param {SignalLocalStorageProtocol.ISenderKeyRecordStructure=} [properties] Properties to set
+         * @param {SignalLocalStorageProtocol.SenderKeyRecordStructure.$Properties=} [properties] Properties to set
          * @returns {SignalLocalStorageProtocol.SenderKeyRecordStructure} SenderKeyRecordStructure instance
+         * @type {{
+         *   (properties: SignalLocalStorageProtocol.SenderKeyRecordStructure.$Shape): SignalLocalStorageProtocol.SenderKeyRecordStructure & SignalLocalStorageProtocol.SenderKeyRecordStructure.$Shape;
+         *   (properties?: SignalLocalStorageProtocol.SenderKeyRecordStructure.$Properties): SignalLocalStorageProtocol.SenderKeyRecordStructure;
+         * }}
          */
         SenderKeyRecordStructure.create = function create(properties) {
             return new SenderKeyRecordStructure(properties);
@@ -70,7 +85,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @function encode
          * @memberof SignalLocalStorageProtocol.SenderKeyRecordStructure
          * @static
-         * @param {SignalLocalStorageProtocol.ISenderKeyRecordStructure} message SenderKeyRecordStructure message or plain object to encode
+         * @param {SignalLocalStorageProtocol.SenderKeyRecordStructure.$Properties} message SenderKeyRecordStructure message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -91,7 +106,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @function encodeDelimited
          * @memberof SignalLocalStorageProtocol.SenderKeyRecordStructure
          * @static
-         * @param {SignalLocalStorageProtocol.ISenderKeyRecordStructure} message SenderKeyRecordStructure message or plain object to encode
+         * @param {SignalLocalStorageProtocol.SenderKeyRecordStructure.$Properties} message SenderKeyRecordStructure message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -106,7 +121,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {SignalLocalStorageProtocol.SenderKeyRecordStructure} SenderKeyRecordStructure
+         * @returns {SignalLocalStorageProtocol.SenderKeyRecordStructure & SignalLocalStorageProtocol.SenderKeyRecordStructure.$Shape} SenderKeyRecordStructure
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -151,7 +166,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @memberof SignalLocalStorageProtocol.SenderKeyRecordStructure
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {SignalLocalStorageProtocol.SenderKeyRecordStructure} SenderKeyRecordStructure
+         * @returns {SignalLocalStorageProtocol.SenderKeyRecordStructure & SignalLocalStorageProtocol.SenderKeyRecordStructure.$Shape} SenderKeyRecordStructure
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -272,22 +287,33 @@ $root.SignalLocalStorageProtocol = (function() {
 
         /**
          * Properties of a SenderKeyStateStructure.
+         * @typedef {Object} SignalLocalStorageProtocol.SenderKeyStateStructure.$Properties
+         * @property {number|null} [senderKeyId] SenderKeyStateStructure senderKeyId
+         * @property {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.$Properties|null} [senderChainKey] SenderKeyStateStructure senderChainKey
+         * @property {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.$Properties|null} [senderSigningKey] SenderKeyStateStructure senderSigningKey
+         * @property {Array.<SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.$Properties>|null} [senderMessageKeys] SenderKeyStateStructure senderMessageKeys
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a SenderKeyStateStructure.
          * @memberof SignalLocalStorageProtocol
          * @interface ISenderKeyStateStructure
-         * @property {number|null} [senderKeyId] SenderKeyStateStructure senderKeyId
-         * @property {SignalLocalStorageProtocol.SenderKeyStateStructure.ISenderChainKey|null} [senderChainKey] SenderKeyStateStructure senderChainKey
-         * @property {SignalLocalStorageProtocol.SenderKeyStateStructure.ISenderSigningKey|null} [senderSigningKey] SenderKeyStateStructure senderSigningKey
-         * @property {Array.<SignalLocalStorageProtocol.SenderKeyStateStructure.ISenderMessageKey>|null} [senderMessageKeys] SenderKeyStateStructure senderMessageKeys
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments SignalLocalStorageProtocol.SenderKeyStateStructure.$Properties
+         * @deprecated Use SignalLocalStorageProtocol.SenderKeyStateStructure.$Properties instead.
+         */
+
+        /**
+         * Shape of a SenderKeyStateStructure.
+         * @typedef {SignalLocalStorageProtocol.SenderKeyStateStructure.$Properties} SignalLocalStorageProtocol.SenderKeyStateStructure.$Shape
          */
 
         /**
          * Constructs a new SenderKeyStateStructure.
          * @memberof SignalLocalStorageProtocol
          * @classdesc Represents a SenderKeyStateStructure.
-         * @implements ISenderKeyStateStructure
          * @constructor
-         * @param {SignalLocalStorageProtocol.ISenderKeyStateStructure=} [properties] Properties to set
+         * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SenderKeyStateStructure(properties) {
@@ -308,7 +334,7 @@ $root.SignalLocalStorageProtocol = (function() {
 
         /**
          * SenderKeyStateStructure senderChainKey.
-         * @member {SignalLocalStorageProtocol.SenderKeyStateStructure.ISenderChainKey|null|undefined} senderChainKey
+         * @member {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.$Properties|null|undefined} senderChainKey
          * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure
          * @instance
          */
@@ -316,7 +342,7 @@ $root.SignalLocalStorageProtocol = (function() {
 
         /**
          * SenderKeyStateStructure senderSigningKey.
-         * @member {SignalLocalStorageProtocol.SenderKeyStateStructure.ISenderSigningKey|null|undefined} senderSigningKey
+         * @member {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.$Properties|null|undefined} senderSigningKey
          * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure
          * @instance
          */
@@ -324,7 +350,7 @@ $root.SignalLocalStorageProtocol = (function() {
 
         /**
          * SenderKeyStateStructure senderMessageKeys.
-         * @member {Array.<SignalLocalStorageProtocol.SenderKeyStateStructure.ISenderMessageKey>} senderMessageKeys
+         * @member {Array.<SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.$Properties>} senderMessageKeys
          * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure
          * @instance
          */
@@ -356,8 +382,12 @@ $root.SignalLocalStorageProtocol = (function() {
          * @function create
          * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure
          * @static
-         * @param {SignalLocalStorageProtocol.ISenderKeyStateStructure=} [properties] Properties to set
+         * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.$Properties=} [properties] Properties to set
          * @returns {SignalLocalStorageProtocol.SenderKeyStateStructure} SenderKeyStateStructure instance
+         * @type {{
+         *   (properties: SignalLocalStorageProtocol.SenderKeyStateStructure.$Shape): SignalLocalStorageProtocol.SenderKeyStateStructure & SignalLocalStorageProtocol.SenderKeyStateStructure.$Shape;
+         *   (properties?: SignalLocalStorageProtocol.SenderKeyStateStructure.$Properties): SignalLocalStorageProtocol.SenderKeyStateStructure;
+         * }}
          */
         SenderKeyStateStructure.create = function create(properties) {
             return new SenderKeyStateStructure(properties);
@@ -368,7 +398,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @function encode
          * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure
          * @static
-         * @param {SignalLocalStorageProtocol.ISenderKeyStateStructure} message SenderKeyStateStructure message or plain object to encode
+         * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.$Properties} message SenderKeyStateStructure message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -395,7 +425,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @function encodeDelimited
          * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure
          * @static
-         * @param {SignalLocalStorageProtocol.ISenderKeyStateStructure} message SenderKeyStateStructure message or plain object to encode
+         * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.$Properties} message SenderKeyStateStructure message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -410,7 +440,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {SignalLocalStorageProtocol.SenderKeyStateStructure} SenderKeyStateStructure
+         * @returns {SignalLocalStorageProtocol.SenderKeyStateStructure & SignalLocalStorageProtocol.SenderKeyStateStructure.$Shape} SenderKeyStateStructure
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -476,7 +506,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {SignalLocalStorageProtocol.SenderKeyStateStructure} SenderKeyStateStructure
+         * @returns {SignalLocalStorageProtocol.SenderKeyStateStructure & SignalLocalStorageProtocol.SenderKeyStateStructure.$Shape} SenderKeyStateStructure
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -643,20 +673,31 @@ $root.SignalLocalStorageProtocol = (function() {
 
             /**
              * Properties of a SenderChainKey.
-             * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure
-             * @interface ISenderChainKey
+             * @typedef {Object} SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.$Properties
              * @property {number|null} [iteration] SenderChainKey iteration
              * @property {Uint8Array|null} [seed] SenderChainKey seed
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
+             * Properties of a SenderChainKey.
+             * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure
+             * @interface ISenderChainKey
+             * @augments SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.$Properties
+             * @deprecated Use SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.$Properties instead.
+             */
+
+            /**
+             * Shape of a SenderChainKey.
+             * @typedef {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.$Properties} SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.$Shape
+             */
+
+            /**
              * Constructs a new SenderChainKey.
              * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure
              * @classdesc Represents a SenderChainKey.
-             * @implements ISenderChainKey
              * @constructor
-             * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.ISenderChainKey=} [properties] Properties to set
+             * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function SenderChainKey(properties) {
@@ -702,8 +743,12 @@ $root.SignalLocalStorageProtocol = (function() {
              * @function create
              * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey
              * @static
-             * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.ISenderChainKey=} [properties] Properties to set
+             * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.$Properties=} [properties] Properties to set
              * @returns {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey} SenderChainKey instance
+             * @type {{
+             *   (properties: SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.$Shape): SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey & SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.$Shape;
+             *   (properties?: SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.$Properties): SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey;
+             * }}
              */
             SenderChainKey.create = function create(properties) {
                 return new SenderChainKey(properties);
@@ -714,7 +759,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @function encode
              * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey
              * @static
-             * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.ISenderChainKey} message SenderChainKey message or plain object to encode
+             * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.$Properties} message SenderChainKey message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -736,7 +781,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @function encodeDelimited
              * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey
              * @static
-             * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.ISenderChainKey} message SenderChainKey message or plain object to encode
+             * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.$Properties} message SenderChainKey message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -751,7 +796,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey} SenderChainKey
+             * @returns {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey & SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.$Shape} SenderChainKey
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -802,7 +847,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey} SenderChainKey
+             * @returns {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey & SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.$Shape} SenderChainKey
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -925,20 +970,31 @@ $root.SignalLocalStorageProtocol = (function() {
 
             /**
              * Properties of a SenderMessageKey.
-             * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure
-             * @interface ISenderMessageKey
+             * @typedef {Object} SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.$Properties
              * @property {number|null} [iteration] SenderMessageKey iteration
              * @property {Uint8Array|null} [seed] SenderMessageKey seed
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
+             * Properties of a SenderMessageKey.
+             * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure
+             * @interface ISenderMessageKey
+             * @augments SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.$Properties
+             * @deprecated Use SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.$Properties instead.
+             */
+
+            /**
+             * Shape of a SenderMessageKey.
+             * @typedef {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.$Properties} SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.$Shape
+             */
+
+            /**
              * Constructs a new SenderMessageKey.
              * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure
              * @classdesc Represents a SenderMessageKey.
-             * @implements ISenderMessageKey
              * @constructor
-             * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.ISenderMessageKey=} [properties] Properties to set
+             * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function SenderMessageKey(properties) {
@@ -984,8 +1040,12 @@ $root.SignalLocalStorageProtocol = (function() {
              * @function create
              * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey
              * @static
-             * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.ISenderMessageKey=} [properties] Properties to set
+             * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.$Properties=} [properties] Properties to set
              * @returns {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey} SenderMessageKey instance
+             * @type {{
+             *   (properties: SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.$Shape): SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey & SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.$Shape;
+             *   (properties?: SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.$Properties): SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey;
+             * }}
              */
             SenderMessageKey.create = function create(properties) {
                 return new SenderMessageKey(properties);
@@ -996,7 +1056,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @function encode
              * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey
              * @static
-             * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.ISenderMessageKey} message SenderMessageKey message or plain object to encode
+             * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.$Properties} message SenderMessageKey message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -1018,7 +1078,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @function encodeDelimited
              * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey
              * @static
-             * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.ISenderMessageKey} message SenderMessageKey message or plain object to encode
+             * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.$Properties} message SenderMessageKey message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -1033,7 +1093,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey} SenderMessageKey
+             * @returns {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey & SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.$Shape} SenderMessageKey
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -1084,7 +1144,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey} SenderMessageKey
+             * @returns {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey & SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.$Shape} SenderMessageKey
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -1207,20 +1267,31 @@ $root.SignalLocalStorageProtocol = (function() {
 
             /**
              * Properties of a SenderSigningKey.
-             * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure
-             * @interface ISenderSigningKey
+             * @typedef {Object} SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.$Properties
              * @property {Uint8Array|null} ["public"] SenderSigningKey public
              * @property {Uint8Array|null} ["private"] SenderSigningKey private
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
+             * Properties of a SenderSigningKey.
+             * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure
+             * @interface ISenderSigningKey
+             * @augments SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.$Properties
+             * @deprecated Use SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.$Properties instead.
+             */
+
+            /**
+             * Shape of a SenderSigningKey.
+             * @typedef {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.$Properties} SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.$Shape
+             */
+
+            /**
              * Constructs a new SenderSigningKey.
              * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure
              * @classdesc Represents a SenderSigningKey.
-             * @implements ISenderSigningKey
              * @constructor
-             * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.ISenderSigningKey=} [properties] Properties to set
+             * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function SenderSigningKey(properties) {
@@ -1266,8 +1337,12 @@ $root.SignalLocalStorageProtocol = (function() {
              * @function create
              * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey
              * @static
-             * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.ISenderSigningKey=} [properties] Properties to set
+             * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.$Properties=} [properties] Properties to set
              * @returns {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey} SenderSigningKey instance
+             * @type {{
+             *   (properties: SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.$Shape): SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey & SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.$Shape;
+             *   (properties?: SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.$Properties): SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey;
+             * }}
              */
             SenderSigningKey.create = function create(properties) {
                 return new SenderSigningKey(properties);
@@ -1278,7 +1353,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @function encode
              * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey
              * @static
-             * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.ISenderSigningKey} message SenderSigningKey message or plain object to encode
+             * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.$Properties} message SenderSigningKey message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -1300,7 +1375,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @function encodeDelimited
              * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey
              * @static
-             * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.ISenderSigningKey} message SenderSigningKey message or plain object to encode
+             * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.$Properties} message SenderSigningKey message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -1315,7 +1390,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey} SenderSigningKey
+             * @returns {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey & SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.$Shape} SenderSigningKey
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -1366,7 +1441,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @memberof SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey} SenderSigningKey
+             * @returns {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey & SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.$Shape} SenderSigningKey
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -1495,20 +1570,31 @@ $root.SignalLocalStorageProtocol = (function() {
 
         /**
          * Properties of an IdentityKeyPairStructure.
-         * @memberof SignalLocalStorageProtocol
-         * @interface IIdentityKeyPairStructure
+         * @typedef {Object} SignalLocalStorageProtocol.IdentityKeyPairStructure.$Properties
          * @property {Uint8Array|null} [publicKey] IdentityKeyPairStructure publicKey
          * @property {Uint8Array|null} [privateKey] IdentityKeyPairStructure privateKey
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
+         * Properties of an IdentityKeyPairStructure.
+         * @memberof SignalLocalStorageProtocol
+         * @interface IIdentityKeyPairStructure
+         * @augments SignalLocalStorageProtocol.IdentityKeyPairStructure.$Properties
+         * @deprecated Use SignalLocalStorageProtocol.IdentityKeyPairStructure.$Properties instead.
+         */
+
+        /**
+         * Shape of an IdentityKeyPairStructure.
+         * @typedef {SignalLocalStorageProtocol.IdentityKeyPairStructure.$Properties} SignalLocalStorageProtocol.IdentityKeyPairStructure.$Shape
+         */
+
+        /**
          * Constructs a new IdentityKeyPairStructure.
          * @memberof SignalLocalStorageProtocol
          * @classdesc Represents an IdentityKeyPairStructure.
-         * @implements IIdentityKeyPairStructure
          * @constructor
-         * @param {SignalLocalStorageProtocol.IIdentityKeyPairStructure=} [properties] Properties to set
+         * @param {SignalLocalStorageProtocol.IdentityKeyPairStructure.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function IdentityKeyPairStructure(properties) {
@@ -1554,8 +1640,12 @@ $root.SignalLocalStorageProtocol = (function() {
          * @function create
          * @memberof SignalLocalStorageProtocol.IdentityKeyPairStructure
          * @static
-         * @param {SignalLocalStorageProtocol.IIdentityKeyPairStructure=} [properties] Properties to set
+         * @param {SignalLocalStorageProtocol.IdentityKeyPairStructure.$Properties=} [properties] Properties to set
          * @returns {SignalLocalStorageProtocol.IdentityKeyPairStructure} IdentityKeyPairStructure instance
+         * @type {{
+         *   (properties: SignalLocalStorageProtocol.IdentityKeyPairStructure.$Shape): SignalLocalStorageProtocol.IdentityKeyPairStructure & SignalLocalStorageProtocol.IdentityKeyPairStructure.$Shape;
+         *   (properties?: SignalLocalStorageProtocol.IdentityKeyPairStructure.$Properties): SignalLocalStorageProtocol.IdentityKeyPairStructure;
+         * }}
          */
         IdentityKeyPairStructure.create = function create(properties) {
             return new IdentityKeyPairStructure(properties);
@@ -1566,7 +1656,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @function encode
          * @memberof SignalLocalStorageProtocol.IdentityKeyPairStructure
          * @static
-         * @param {SignalLocalStorageProtocol.IIdentityKeyPairStructure} message IdentityKeyPairStructure message or plain object to encode
+         * @param {SignalLocalStorageProtocol.IdentityKeyPairStructure.$Properties} message IdentityKeyPairStructure message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1588,7 +1678,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @function encodeDelimited
          * @memberof SignalLocalStorageProtocol.IdentityKeyPairStructure
          * @static
-         * @param {SignalLocalStorageProtocol.IIdentityKeyPairStructure} message IdentityKeyPairStructure message or plain object to encode
+         * @param {SignalLocalStorageProtocol.IdentityKeyPairStructure.$Properties} message IdentityKeyPairStructure message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1603,7 +1693,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {SignalLocalStorageProtocol.IdentityKeyPairStructure} IdentityKeyPairStructure
+         * @returns {SignalLocalStorageProtocol.IdentityKeyPairStructure & SignalLocalStorageProtocol.IdentityKeyPairStructure.$Shape} IdentityKeyPairStructure
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1654,7 +1744,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @memberof SignalLocalStorageProtocol.IdentityKeyPairStructure
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {SignalLocalStorageProtocol.IdentityKeyPairStructure} IdentityKeyPairStructure
+         * @returns {SignalLocalStorageProtocol.IdentityKeyPairStructure & SignalLocalStorageProtocol.IdentityKeyPairStructure.$Shape} IdentityKeyPairStructure
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1780,8 +1870,7 @@ $root.SignalLocalStorageProtocol = (function() {
 
         /**
          * Properties of a SignedPreKeyRecordStructure.
-         * @memberof SignalLocalStorageProtocol
-         * @interface ISignedPreKeyRecordStructure
+         * @typedef {Object} SignalLocalStorageProtocol.SignedPreKeyRecordStructure.$Properties
          * @property {number|null} [id] SignedPreKeyRecordStructure id
          * @property {Uint8Array|null} [publicKey] SignedPreKeyRecordStructure publicKey
          * @property {Uint8Array|null} [privateKey] SignedPreKeyRecordStructure privateKey
@@ -1791,12 +1880,24 @@ $root.SignalLocalStorageProtocol = (function() {
          */
 
         /**
+         * Properties of a SignedPreKeyRecordStructure.
+         * @memberof SignalLocalStorageProtocol
+         * @interface ISignedPreKeyRecordStructure
+         * @augments SignalLocalStorageProtocol.SignedPreKeyRecordStructure.$Properties
+         * @deprecated Use SignalLocalStorageProtocol.SignedPreKeyRecordStructure.$Properties instead.
+         */
+
+        /**
+         * Shape of a SignedPreKeyRecordStructure.
+         * @typedef {SignalLocalStorageProtocol.SignedPreKeyRecordStructure.$Properties} SignalLocalStorageProtocol.SignedPreKeyRecordStructure.$Shape
+         */
+
+        /**
          * Constructs a new SignedPreKeyRecordStructure.
          * @memberof SignalLocalStorageProtocol
          * @classdesc Represents a SignedPreKeyRecordStructure.
-         * @implements ISignedPreKeyRecordStructure
          * @constructor
-         * @param {SignalLocalStorageProtocol.ISignedPreKeyRecordStructure=} [properties] Properties to set
+         * @param {SignalLocalStorageProtocol.SignedPreKeyRecordStructure.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SignedPreKeyRecordStructure(properties) {
@@ -1884,8 +1985,12 @@ $root.SignalLocalStorageProtocol = (function() {
          * @function create
          * @memberof SignalLocalStorageProtocol.SignedPreKeyRecordStructure
          * @static
-         * @param {SignalLocalStorageProtocol.ISignedPreKeyRecordStructure=} [properties] Properties to set
+         * @param {SignalLocalStorageProtocol.SignedPreKeyRecordStructure.$Properties=} [properties] Properties to set
          * @returns {SignalLocalStorageProtocol.SignedPreKeyRecordStructure} SignedPreKeyRecordStructure instance
+         * @type {{
+         *   (properties: SignalLocalStorageProtocol.SignedPreKeyRecordStructure.$Shape): SignalLocalStorageProtocol.SignedPreKeyRecordStructure & SignalLocalStorageProtocol.SignedPreKeyRecordStructure.$Shape;
+         *   (properties?: SignalLocalStorageProtocol.SignedPreKeyRecordStructure.$Properties): SignalLocalStorageProtocol.SignedPreKeyRecordStructure;
+         * }}
          */
         SignedPreKeyRecordStructure.create = function create(properties) {
             return new SignedPreKeyRecordStructure(properties);
@@ -1896,7 +2001,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @function encode
          * @memberof SignalLocalStorageProtocol.SignedPreKeyRecordStructure
          * @static
-         * @param {SignalLocalStorageProtocol.ISignedPreKeyRecordStructure} message SignedPreKeyRecordStructure message or plain object to encode
+         * @param {SignalLocalStorageProtocol.SignedPreKeyRecordStructure.$Properties} message SignedPreKeyRecordStructure message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1924,7 +2029,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @function encodeDelimited
          * @memberof SignalLocalStorageProtocol.SignedPreKeyRecordStructure
          * @static
-         * @param {SignalLocalStorageProtocol.ISignedPreKeyRecordStructure} message SignedPreKeyRecordStructure message or plain object to encode
+         * @param {SignalLocalStorageProtocol.SignedPreKeyRecordStructure.$Properties} message SignedPreKeyRecordStructure message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1939,7 +2044,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {SignalLocalStorageProtocol.SignedPreKeyRecordStructure} SignedPreKeyRecordStructure
+         * @returns {SignalLocalStorageProtocol.SignedPreKeyRecordStructure & SignalLocalStorageProtocol.SignedPreKeyRecordStructure.$Shape} SignedPreKeyRecordStructure
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2011,7 +2116,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @memberof SignalLocalStorageProtocol.SignedPreKeyRecordStructure
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {SignalLocalStorageProtocol.SignedPreKeyRecordStructure} SignedPreKeyRecordStructure
+         * @returns {SignalLocalStorageProtocol.SignedPreKeyRecordStructure & SignalLocalStorageProtocol.SignedPreKeyRecordStructure.$Shape} SignedPreKeyRecordStructure
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2186,8 +2291,7 @@ $root.SignalLocalStorageProtocol = (function() {
 
         /**
          * Properties of a PreKeyRecordStructure.
-         * @memberof SignalLocalStorageProtocol
-         * @interface IPreKeyRecordStructure
+         * @typedef {Object} SignalLocalStorageProtocol.PreKeyRecordStructure.$Properties
          * @property {number|null} [id] PreKeyRecordStructure id
          * @property {Uint8Array|null} [publicKey] PreKeyRecordStructure publicKey
          * @property {Uint8Array|null} [privateKey] PreKeyRecordStructure privateKey
@@ -2195,12 +2299,24 @@ $root.SignalLocalStorageProtocol = (function() {
          */
 
         /**
+         * Properties of a PreKeyRecordStructure.
+         * @memberof SignalLocalStorageProtocol
+         * @interface IPreKeyRecordStructure
+         * @augments SignalLocalStorageProtocol.PreKeyRecordStructure.$Properties
+         * @deprecated Use SignalLocalStorageProtocol.PreKeyRecordStructure.$Properties instead.
+         */
+
+        /**
+         * Shape of a PreKeyRecordStructure.
+         * @typedef {SignalLocalStorageProtocol.PreKeyRecordStructure.$Properties} SignalLocalStorageProtocol.PreKeyRecordStructure.$Shape
+         */
+
+        /**
          * Constructs a new PreKeyRecordStructure.
          * @memberof SignalLocalStorageProtocol
          * @classdesc Represents a PreKeyRecordStructure.
-         * @implements IPreKeyRecordStructure
          * @constructor
-         * @param {SignalLocalStorageProtocol.IPreKeyRecordStructure=} [properties] Properties to set
+         * @param {SignalLocalStorageProtocol.PreKeyRecordStructure.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function PreKeyRecordStructure(properties) {
@@ -2260,8 +2376,12 @@ $root.SignalLocalStorageProtocol = (function() {
          * @function create
          * @memberof SignalLocalStorageProtocol.PreKeyRecordStructure
          * @static
-         * @param {SignalLocalStorageProtocol.IPreKeyRecordStructure=} [properties] Properties to set
+         * @param {SignalLocalStorageProtocol.PreKeyRecordStructure.$Properties=} [properties] Properties to set
          * @returns {SignalLocalStorageProtocol.PreKeyRecordStructure} PreKeyRecordStructure instance
+         * @type {{
+         *   (properties: SignalLocalStorageProtocol.PreKeyRecordStructure.$Shape): SignalLocalStorageProtocol.PreKeyRecordStructure & SignalLocalStorageProtocol.PreKeyRecordStructure.$Shape;
+         *   (properties?: SignalLocalStorageProtocol.PreKeyRecordStructure.$Properties): SignalLocalStorageProtocol.PreKeyRecordStructure;
+         * }}
          */
         PreKeyRecordStructure.create = function create(properties) {
             return new PreKeyRecordStructure(properties);
@@ -2272,7 +2392,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @function encode
          * @memberof SignalLocalStorageProtocol.PreKeyRecordStructure
          * @static
-         * @param {SignalLocalStorageProtocol.IPreKeyRecordStructure} message PreKeyRecordStructure message or plain object to encode
+         * @param {SignalLocalStorageProtocol.PreKeyRecordStructure.$Properties} message PreKeyRecordStructure message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2296,7 +2416,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @function encodeDelimited
          * @memberof SignalLocalStorageProtocol.PreKeyRecordStructure
          * @static
-         * @param {SignalLocalStorageProtocol.IPreKeyRecordStructure} message PreKeyRecordStructure message or plain object to encode
+         * @param {SignalLocalStorageProtocol.PreKeyRecordStructure.$Properties} message PreKeyRecordStructure message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2311,7 +2431,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {SignalLocalStorageProtocol.PreKeyRecordStructure} PreKeyRecordStructure
+         * @returns {SignalLocalStorageProtocol.PreKeyRecordStructure & SignalLocalStorageProtocol.PreKeyRecordStructure.$Shape} PreKeyRecordStructure
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2369,7 +2489,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @memberof SignalLocalStorageProtocol.PreKeyRecordStructure
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {SignalLocalStorageProtocol.PreKeyRecordStructure} PreKeyRecordStructure
+         * @returns {SignalLocalStorageProtocol.PreKeyRecordStructure & SignalLocalStorageProtocol.PreKeyRecordStructure.$Shape} PreKeyRecordStructure
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2507,20 +2627,31 @@ $root.SignalLocalStorageProtocol = (function() {
 
         /**
          * Properties of a RecordStructure.
+         * @typedef {Object} SignalLocalStorageProtocol.RecordStructure.$Properties
+         * @property {SignalLocalStorageProtocol.SessionStructure.$Properties|null} [currentSession] RecordStructure currentSession
+         * @property {Array.<SignalLocalStorageProtocol.SessionStructure.$Properties>|null} [previousSessions] RecordStructure previousSessions
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a RecordStructure.
          * @memberof SignalLocalStorageProtocol
          * @interface IRecordStructure
-         * @property {SignalLocalStorageProtocol.ISessionStructure|null} [currentSession] RecordStructure currentSession
-         * @property {Array.<SignalLocalStorageProtocol.ISessionStructure>|null} [previousSessions] RecordStructure previousSessions
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments SignalLocalStorageProtocol.RecordStructure.$Properties
+         * @deprecated Use SignalLocalStorageProtocol.RecordStructure.$Properties instead.
+         */
+
+        /**
+         * Shape of a RecordStructure.
+         * @typedef {SignalLocalStorageProtocol.RecordStructure.$Properties} SignalLocalStorageProtocol.RecordStructure.$Shape
          */
 
         /**
          * Constructs a new RecordStructure.
          * @memberof SignalLocalStorageProtocol
          * @classdesc Represents a RecordStructure.
-         * @implements IRecordStructure
          * @constructor
-         * @param {SignalLocalStorageProtocol.IRecordStructure=} [properties] Properties to set
+         * @param {SignalLocalStorageProtocol.RecordStructure.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function RecordStructure(properties) {
@@ -2533,7 +2664,7 @@ $root.SignalLocalStorageProtocol = (function() {
 
         /**
          * RecordStructure currentSession.
-         * @member {SignalLocalStorageProtocol.ISessionStructure|null|undefined} currentSession
+         * @member {SignalLocalStorageProtocol.SessionStructure.$Properties|null|undefined} currentSession
          * @memberof SignalLocalStorageProtocol.RecordStructure
          * @instance
          */
@@ -2541,7 +2672,7 @@ $root.SignalLocalStorageProtocol = (function() {
 
         /**
          * RecordStructure previousSessions.
-         * @member {Array.<SignalLocalStorageProtocol.ISessionStructure>} previousSessions
+         * @member {Array.<SignalLocalStorageProtocol.SessionStructure.$Properties>} previousSessions
          * @memberof SignalLocalStorageProtocol.RecordStructure
          * @instance
          */
@@ -2561,8 +2692,12 @@ $root.SignalLocalStorageProtocol = (function() {
          * @function create
          * @memberof SignalLocalStorageProtocol.RecordStructure
          * @static
-         * @param {SignalLocalStorageProtocol.IRecordStructure=} [properties] Properties to set
+         * @param {SignalLocalStorageProtocol.RecordStructure.$Properties=} [properties] Properties to set
          * @returns {SignalLocalStorageProtocol.RecordStructure} RecordStructure instance
+         * @type {{
+         *   (properties: SignalLocalStorageProtocol.RecordStructure.$Shape): SignalLocalStorageProtocol.RecordStructure & SignalLocalStorageProtocol.RecordStructure.$Shape;
+         *   (properties?: SignalLocalStorageProtocol.RecordStructure.$Properties): SignalLocalStorageProtocol.RecordStructure;
+         * }}
          */
         RecordStructure.create = function create(properties) {
             return new RecordStructure(properties);
@@ -2573,7 +2708,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @function encode
          * @memberof SignalLocalStorageProtocol.RecordStructure
          * @static
-         * @param {SignalLocalStorageProtocol.IRecordStructure} message RecordStructure message or plain object to encode
+         * @param {SignalLocalStorageProtocol.RecordStructure.$Properties} message RecordStructure message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2596,7 +2731,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @function encodeDelimited
          * @memberof SignalLocalStorageProtocol.RecordStructure
          * @static
-         * @param {SignalLocalStorageProtocol.IRecordStructure} message RecordStructure message or plain object to encode
+         * @param {SignalLocalStorageProtocol.RecordStructure.$Properties} message RecordStructure message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2611,7 +2746,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {SignalLocalStorageProtocol.RecordStructure} RecordStructure
+         * @returns {SignalLocalStorageProtocol.RecordStructure & SignalLocalStorageProtocol.RecordStructure.$Shape} RecordStructure
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2663,7 +2798,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @memberof SignalLocalStorageProtocol.RecordStructure
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {SignalLocalStorageProtocol.RecordStructure} RecordStructure
+         * @returns {SignalLocalStorageProtocol.RecordStructure & SignalLocalStorageProtocol.RecordStructure.$Shape} RecordStructure
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2803,17 +2938,16 @@ $root.SignalLocalStorageProtocol = (function() {
 
         /**
          * Properties of a SessionStructure.
-         * @memberof SignalLocalStorageProtocol
-         * @interface ISessionStructure
+         * @typedef {Object} SignalLocalStorageProtocol.SessionStructure.$Properties
          * @property {number|null} [sessionVersion] SessionStructure sessionVersion
          * @property {Uint8Array|null} [localIdentityPublic] SessionStructure localIdentityPublic
          * @property {Uint8Array|null} [remoteIdentityPublic] SessionStructure remoteIdentityPublic
          * @property {Uint8Array|null} [rootKey] SessionStructure rootKey
          * @property {number|null} [previousCounter] SessionStructure previousCounter
-         * @property {SignalLocalStorageProtocol.SessionStructure.IChain|null} [senderChain] SessionStructure senderChain
-         * @property {Array.<SignalLocalStorageProtocol.SessionStructure.IChain>|null} [receiverChains] SessionStructure receiverChains
-         * @property {SignalLocalStorageProtocol.SessionStructure.IPendingKeyExchange|null} [pendingKeyExchange] SessionStructure pendingKeyExchange
-         * @property {SignalLocalStorageProtocol.SessionStructure.IPendingPreKey|null} [pendingPreKey] SessionStructure pendingPreKey
+         * @property {SignalLocalStorageProtocol.SessionStructure.Chain.$Properties|null} [senderChain] SessionStructure senderChain
+         * @property {Array.<SignalLocalStorageProtocol.SessionStructure.Chain.$Properties>|null} [receiverChains] SessionStructure receiverChains
+         * @property {SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.$Properties|null} [pendingKeyExchange] SessionStructure pendingKeyExchange
+         * @property {SignalLocalStorageProtocol.SessionStructure.PendingPreKey.$Properties|null} [pendingPreKey] SessionStructure pendingPreKey
          * @property {number|null} [remoteRegistrationId] SessionStructure remoteRegistrationId
          * @property {number|null} [localRegistrationId] SessionStructure localRegistrationId
          * @property {boolean|null} [needsRefresh] SessionStructure needsRefresh
@@ -2822,12 +2956,24 @@ $root.SignalLocalStorageProtocol = (function() {
          */
 
         /**
+         * Properties of a SessionStructure.
+         * @memberof SignalLocalStorageProtocol
+         * @interface ISessionStructure
+         * @augments SignalLocalStorageProtocol.SessionStructure.$Properties
+         * @deprecated Use SignalLocalStorageProtocol.SessionStructure.$Properties instead.
+         */
+
+        /**
+         * Shape of a SessionStructure.
+         * @typedef {SignalLocalStorageProtocol.SessionStructure.$Properties} SignalLocalStorageProtocol.SessionStructure.$Shape
+         */
+
+        /**
          * Constructs a new SessionStructure.
          * @memberof SignalLocalStorageProtocol
          * @classdesc Represents a SessionStructure.
-         * @implements ISessionStructure
          * @constructor
-         * @param {SignalLocalStorageProtocol.ISessionStructure=} [properties] Properties to set
+         * @param {SignalLocalStorageProtocol.SessionStructure.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SessionStructure(properties) {
@@ -2880,7 +3026,7 @@ $root.SignalLocalStorageProtocol = (function() {
 
         /**
          * SessionStructure senderChain.
-         * @member {SignalLocalStorageProtocol.SessionStructure.IChain|null|undefined} senderChain
+         * @member {SignalLocalStorageProtocol.SessionStructure.Chain.$Properties|null|undefined} senderChain
          * @memberof SignalLocalStorageProtocol.SessionStructure
          * @instance
          */
@@ -2888,7 +3034,7 @@ $root.SignalLocalStorageProtocol = (function() {
 
         /**
          * SessionStructure receiverChains.
-         * @member {Array.<SignalLocalStorageProtocol.SessionStructure.IChain>} receiverChains
+         * @member {Array.<SignalLocalStorageProtocol.SessionStructure.Chain.$Properties>} receiverChains
          * @memberof SignalLocalStorageProtocol.SessionStructure
          * @instance
          */
@@ -2896,7 +3042,7 @@ $root.SignalLocalStorageProtocol = (function() {
 
         /**
          * SessionStructure pendingKeyExchange.
-         * @member {SignalLocalStorageProtocol.SessionStructure.IPendingKeyExchange|null|undefined} pendingKeyExchange
+         * @member {SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.$Properties|null|undefined} pendingKeyExchange
          * @memberof SignalLocalStorageProtocol.SessionStructure
          * @instance
          */
@@ -2904,7 +3050,7 @@ $root.SignalLocalStorageProtocol = (function() {
 
         /**
          * SessionStructure pendingPreKey.
-         * @member {SignalLocalStorageProtocol.SessionStructure.IPendingPreKey|null|undefined} pendingPreKey
+         * @member {SignalLocalStorageProtocol.SessionStructure.PendingPreKey.$Properties|null|undefined} pendingPreKey
          * @memberof SignalLocalStorageProtocol.SessionStructure
          * @instance
          */
@@ -3022,8 +3168,12 @@ $root.SignalLocalStorageProtocol = (function() {
          * @function create
          * @memberof SignalLocalStorageProtocol.SessionStructure
          * @static
-         * @param {SignalLocalStorageProtocol.ISessionStructure=} [properties] Properties to set
+         * @param {SignalLocalStorageProtocol.SessionStructure.$Properties=} [properties] Properties to set
          * @returns {SignalLocalStorageProtocol.SessionStructure} SessionStructure instance
+         * @type {{
+         *   (properties: SignalLocalStorageProtocol.SessionStructure.$Shape): SignalLocalStorageProtocol.SessionStructure & SignalLocalStorageProtocol.SessionStructure.$Shape;
+         *   (properties?: SignalLocalStorageProtocol.SessionStructure.$Properties): SignalLocalStorageProtocol.SessionStructure;
+         * }}
          */
         SessionStructure.create = function create(properties) {
             return new SessionStructure(properties);
@@ -3034,7 +3184,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @function encode
          * @memberof SignalLocalStorageProtocol.SessionStructure
          * @static
-         * @param {SignalLocalStorageProtocol.ISessionStructure} message SessionStructure message or plain object to encode
+         * @param {SignalLocalStorageProtocol.SessionStructure.$Properties} message SessionStructure message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3079,7 +3229,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @function encodeDelimited
          * @memberof SignalLocalStorageProtocol.SessionStructure
          * @static
-         * @param {SignalLocalStorageProtocol.ISessionStructure} message SessionStructure message or plain object to encode
+         * @param {SignalLocalStorageProtocol.SessionStructure.$Properties} message SessionStructure message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3094,7 +3244,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {SignalLocalStorageProtocol.SessionStructure} SessionStructure
+         * @returns {SignalLocalStorageProtocol.SessionStructure & SignalLocalStorageProtocol.SessionStructure.$Shape} SessionStructure
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -3223,7 +3373,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @memberof SignalLocalStorageProtocol.SessionStructure
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {SignalLocalStorageProtocol.SessionStructure} SessionStructure
+         * @returns {SignalLocalStorageProtocol.SessionStructure & SignalLocalStorageProtocol.SessionStructure.$Shape} SessionStructure
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -3516,22 +3666,33 @@ $root.SignalLocalStorageProtocol = (function() {
 
             /**
              * Properties of a Chain.
-             * @memberof SignalLocalStorageProtocol.SessionStructure
-             * @interface IChain
+             * @typedef {Object} SignalLocalStorageProtocol.SessionStructure.Chain.$Properties
              * @property {Uint8Array|null} [senderRatchetKey] Chain senderRatchetKey
              * @property {Uint8Array|null} [senderRatchetKeyPrivate] Chain senderRatchetKeyPrivate
-             * @property {SignalLocalStorageProtocol.SessionStructure.Chain.IChainKey|null} [chainKey] Chain chainKey
-             * @property {Array.<SignalLocalStorageProtocol.SessionStructure.Chain.IMessageKey>|null} [messageKeys] Chain messageKeys
+             * @property {SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.$Properties|null} [chainKey] Chain chainKey
+             * @property {Array.<SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.$Properties>|null} [messageKeys] Chain messageKeys
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a Chain.
+             * @memberof SignalLocalStorageProtocol.SessionStructure
+             * @interface IChain
+             * @augments SignalLocalStorageProtocol.SessionStructure.Chain.$Properties
+             * @deprecated Use SignalLocalStorageProtocol.SessionStructure.Chain.$Properties instead.
+             */
+
+            /**
+             * Shape of a Chain.
+             * @typedef {SignalLocalStorageProtocol.SessionStructure.Chain.$Properties} SignalLocalStorageProtocol.SessionStructure.Chain.$Shape
              */
 
             /**
              * Constructs a new Chain.
              * @memberof SignalLocalStorageProtocol.SessionStructure
              * @classdesc Represents a Chain.
-             * @implements IChain
              * @constructor
-             * @param {SignalLocalStorageProtocol.SessionStructure.IChain=} [properties] Properties to set
+             * @param {SignalLocalStorageProtocol.SessionStructure.Chain.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function Chain(properties) {
@@ -3560,7 +3721,7 @@ $root.SignalLocalStorageProtocol = (function() {
 
             /**
              * Chain chainKey.
-             * @member {SignalLocalStorageProtocol.SessionStructure.Chain.IChainKey|null|undefined} chainKey
+             * @member {SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.$Properties|null|undefined} chainKey
              * @memberof SignalLocalStorageProtocol.SessionStructure.Chain
              * @instance
              */
@@ -3568,7 +3729,7 @@ $root.SignalLocalStorageProtocol = (function() {
 
             /**
              * Chain messageKeys.
-             * @member {Array.<SignalLocalStorageProtocol.SessionStructure.Chain.IMessageKey>} messageKeys
+             * @member {Array.<SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.$Properties>} messageKeys
              * @memberof SignalLocalStorageProtocol.SessionStructure.Chain
              * @instance
              */
@@ -3600,8 +3761,12 @@ $root.SignalLocalStorageProtocol = (function() {
              * @function create
              * @memberof SignalLocalStorageProtocol.SessionStructure.Chain
              * @static
-             * @param {SignalLocalStorageProtocol.SessionStructure.IChain=} [properties] Properties to set
+             * @param {SignalLocalStorageProtocol.SessionStructure.Chain.$Properties=} [properties] Properties to set
              * @returns {SignalLocalStorageProtocol.SessionStructure.Chain} Chain instance
+             * @type {{
+             *   (properties: SignalLocalStorageProtocol.SessionStructure.Chain.$Shape): SignalLocalStorageProtocol.SessionStructure.Chain & SignalLocalStorageProtocol.SessionStructure.Chain.$Shape;
+             *   (properties?: SignalLocalStorageProtocol.SessionStructure.Chain.$Properties): SignalLocalStorageProtocol.SessionStructure.Chain;
+             * }}
              */
             Chain.create = function create(properties) {
                 return new Chain(properties);
@@ -3612,7 +3777,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @function encode
              * @memberof SignalLocalStorageProtocol.SessionStructure.Chain
              * @static
-             * @param {SignalLocalStorageProtocol.SessionStructure.IChain} message Chain message or plain object to encode
+             * @param {SignalLocalStorageProtocol.SessionStructure.Chain.$Properties} message Chain message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -3639,7 +3804,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @function encodeDelimited
              * @memberof SignalLocalStorageProtocol.SessionStructure.Chain
              * @static
-             * @param {SignalLocalStorageProtocol.SessionStructure.IChain} message Chain message or plain object to encode
+             * @param {SignalLocalStorageProtocol.SessionStructure.Chain.$Properties} message Chain message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -3654,7 +3819,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SignalLocalStorageProtocol.SessionStructure.Chain} Chain
+             * @returns {SignalLocalStorageProtocol.SessionStructure.Chain & SignalLocalStorageProtocol.SessionStructure.Chain.$Shape} Chain
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -3720,7 +3885,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @memberof SignalLocalStorageProtocol.SessionStructure.Chain
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SignalLocalStorageProtocol.SessionStructure.Chain} Chain
+             * @returns {SignalLocalStorageProtocol.SessionStructure.Chain & SignalLocalStorageProtocol.SessionStructure.Chain.$Shape} Chain
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -3887,20 +4052,31 @@ $root.SignalLocalStorageProtocol = (function() {
 
                 /**
                  * Properties of a ChainKey.
-                 * @memberof SignalLocalStorageProtocol.SessionStructure.Chain
-                 * @interface IChainKey
+                 * @typedef {Object} SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.$Properties
                  * @property {number|null} [index] ChainKey index
                  * @property {Uint8Array|null} [key] ChainKey key
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
 
                 /**
+                 * Properties of a ChainKey.
+                 * @memberof SignalLocalStorageProtocol.SessionStructure.Chain
+                 * @interface IChainKey
+                 * @augments SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.$Properties
+                 * @deprecated Use SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.$Properties instead.
+                 */
+
+                /**
+                 * Shape of a ChainKey.
+                 * @typedef {SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.$Properties} SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.$Shape
+                 */
+
+                /**
                  * Constructs a new ChainKey.
                  * @memberof SignalLocalStorageProtocol.SessionStructure.Chain
                  * @classdesc Represents a ChainKey.
-                 * @implements IChainKey
                  * @constructor
-                 * @param {SignalLocalStorageProtocol.SessionStructure.Chain.IChainKey=} [properties] Properties to set
+                 * @param {SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.$Properties=} [properties] Properties to set
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function ChainKey(properties) {
@@ -3946,8 +4122,12 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @function create
                  * @memberof SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey
                  * @static
-                 * @param {SignalLocalStorageProtocol.SessionStructure.Chain.IChainKey=} [properties] Properties to set
+                 * @param {SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.$Properties=} [properties] Properties to set
                  * @returns {SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey} ChainKey instance
+                 * @type {{
+                 *   (properties: SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.$Shape): SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey & SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.$Shape;
+                 *   (properties?: SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.$Properties): SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey;
+                 * }}
                  */
                 ChainKey.create = function create(properties) {
                     return new ChainKey(properties);
@@ -3958,7 +4138,7 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @function encode
                  * @memberof SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey
                  * @static
-                 * @param {SignalLocalStorageProtocol.SessionStructure.Chain.IChainKey} message ChainKey message or plain object to encode
+                 * @param {SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.$Properties} message ChainKey message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -3980,7 +4160,7 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @function encodeDelimited
                  * @memberof SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey
                  * @static
-                 * @param {SignalLocalStorageProtocol.SessionStructure.Chain.IChainKey} message ChainKey message or plain object to encode
+                 * @param {SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.$Properties} message ChainKey message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -3995,7 +4175,7 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                  * @param {number} [length] Message length if known beforehand
-                 * @returns {SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey} ChainKey
+                 * @returns {SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey & SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.$Shape} ChainKey
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -4046,7 +4226,7 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @memberof SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey} ChainKey
+                 * @returns {SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey & SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.$Shape} ChainKey
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -4169,8 +4349,7 @@ $root.SignalLocalStorageProtocol = (function() {
 
                 /**
                  * Properties of a MessageKey.
-                 * @memberof SignalLocalStorageProtocol.SessionStructure.Chain
-                 * @interface IMessageKey
+                 * @typedef {Object} SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.$Properties
                  * @property {number|null} [index] MessageKey index
                  * @property {Uint8Array|null} [cipherKey] MessageKey cipherKey
                  * @property {Uint8Array|null} [macKey] MessageKey macKey
@@ -4179,12 +4358,24 @@ $root.SignalLocalStorageProtocol = (function() {
                  */
 
                 /**
+                 * Properties of a MessageKey.
+                 * @memberof SignalLocalStorageProtocol.SessionStructure.Chain
+                 * @interface IMessageKey
+                 * @augments SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.$Properties
+                 * @deprecated Use SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.$Properties instead.
+                 */
+
+                /**
+                 * Shape of a MessageKey.
+                 * @typedef {SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.$Properties} SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.$Shape
+                 */
+
+                /**
                  * Constructs a new MessageKey.
                  * @memberof SignalLocalStorageProtocol.SessionStructure.Chain
                  * @classdesc Represents a MessageKey.
-                 * @implements IMessageKey
                  * @constructor
-                 * @param {SignalLocalStorageProtocol.SessionStructure.Chain.IMessageKey=} [properties] Properties to set
+                 * @param {SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.$Properties=} [properties] Properties to set
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function MessageKey(properties) {
@@ -4258,8 +4449,12 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @function create
                  * @memberof SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey
                  * @static
-                 * @param {SignalLocalStorageProtocol.SessionStructure.Chain.IMessageKey=} [properties] Properties to set
+                 * @param {SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.$Properties=} [properties] Properties to set
                  * @returns {SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey} MessageKey instance
+                 * @type {{
+                 *   (properties: SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.$Shape): SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey & SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.$Shape;
+                 *   (properties?: SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.$Properties): SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey;
+                 * }}
                  */
                 MessageKey.create = function create(properties) {
                     return new MessageKey(properties);
@@ -4270,7 +4465,7 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @function encode
                  * @memberof SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey
                  * @static
-                 * @param {SignalLocalStorageProtocol.SessionStructure.Chain.IMessageKey} message MessageKey message or plain object to encode
+                 * @param {SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.$Properties} message MessageKey message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -4296,7 +4491,7 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @function encodeDelimited
                  * @memberof SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey
                  * @static
-                 * @param {SignalLocalStorageProtocol.SessionStructure.Chain.IMessageKey} message MessageKey message or plain object to encode
+                 * @param {SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.$Properties} message MessageKey message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -4311,7 +4506,7 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                  * @param {number} [length] Message length if known beforehand
-                 * @returns {SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey} MessageKey
+                 * @returns {SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey & SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.$Shape} MessageKey
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -4376,7 +4571,7 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @memberof SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey} MessageKey
+                 * @returns {SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey & SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.$Shape} MessageKey
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -4532,8 +4727,7 @@ $root.SignalLocalStorageProtocol = (function() {
 
             /**
              * Properties of a PendingKeyExchange.
-             * @memberof SignalLocalStorageProtocol.SessionStructure
-             * @interface IPendingKeyExchange
+             * @typedef {Object} SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.$Properties
              * @property {number|null} [sequence] PendingKeyExchange sequence
              * @property {Uint8Array|null} [localBaseKey] PendingKeyExchange localBaseKey
              * @property {Uint8Array|null} [localBaseKeyPrivate] PendingKeyExchange localBaseKeyPrivate
@@ -4545,12 +4739,24 @@ $root.SignalLocalStorageProtocol = (function() {
              */
 
             /**
+             * Properties of a PendingKeyExchange.
+             * @memberof SignalLocalStorageProtocol.SessionStructure
+             * @interface IPendingKeyExchange
+             * @augments SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.$Properties
+             * @deprecated Use SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.$Properties instead.
+             */
+
+            /**
+             * Shape of a PendingKeyExchange.
+             * @typedef {SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.$Properties} SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.$Shape
+             */
+
+            /**
              * Constructs a new PendingKeyExchange.
              * @memberof SignalLocalStorageProtocol.SessionStructure
              * @classdesc Represents a PendingKeyExchange.
-             * @implements IPendingKeyExchange
              * @constructor
-             * @param {SignalLocalStorageProtocol.SessionStructure.IPendingKeyExchange=} [properties] Properties to set
+             * @param {SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function PendingKeyExchange(properties) {
@@ -4666,8 +4872,12 @@ $root.SignalLocalStorageProtocol = (function() {
              * @function create
              * @memberof SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange
              * @static
-             * @param {SignalLocalStorageProtocol.SessionStructure.IPendingKeyExchange=} [properties] Properties to set
+             * @param {SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.$Properties=} [properties] Properties to set
              * @returns {SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange} PendingKeyExchange instance
+             * @type {{
+             *   (properties: SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.$Shape): SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange & SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.$Shape;
+             *   (properties?: SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.$Properties): SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange;
+             * }}
              */
             PendingKeyExchange.create = function create(properties) {
                 return new PendingKeyExchange(properties);
@@ -4678,7 +4888,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @function encode
              * @memberof SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange
              * @static
-             * @param {SignalLocalStorageProtocol.SessionStructure.IPendingKeyExchange} message PendingKeyExchange message or plain object to encode
+             * @param {SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.$Properties} message PendingKeyExchange message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -4710,7 +4920,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @function encodeDelimited
              * @memberof SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange
              * @static
-             * @param {SignalLocalStorageProtocol.SessionStructure.IPendingKeyExchange} message PendingKeyExchange message or plain object to encode
+             * @param {SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.$Properties} message PendingKeyExchange message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -4725,7 +4935,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange} PendingKeyExchange
+             * @returns {SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange & SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.$Shape} PendingKeyExchange
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -4811,7 +5021,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @memberof SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange} PendingKeyExchange
+             * @returns {SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange & SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.$Shape} PendingKeyExchange
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -5009,8 +5219,7 @@ $root.SignalLocalStorageProtocol = (function() {
 
             /**
              * Properties of a PendingPreKey.
-             * @memberof SignalLocalStorageProtocol.SessionStructure
-             * @interface IPendingPreKey
+             * @typedef {Object} SignalLocalStorageProtocol.SessionStructure.PendingPreKey.$Properties
              * @property {number|null} [preKeyId] PendingPreKey preKeyId
              * @property {number|null} [signedPreKeyId] PendingPreKey signedPreKeyId
              * @property {Uint8Array|null} [baseKey] PendingPreKey baseKey
@@ -5018,12 +5227,24 @@ $root.SignalLocalStorageProtocol = (function() {
              */
 
             /**
+             * Properties of a PendingPreKey.
+             * @memberof SignalLocalStorageProtocol.SessionStructure
+             * @interface IPendingPreKey
+             * @augments SignalLocalStorageProtocol.SessionStructure.PendingPreKey.$Properties
+             * @deprecated Use SignalLocalStorageProtocol.SessionStructure.PendingPreKey.$Properties instead.
+             */
+
+            /**
+             * Shape of a PendingPreKey.
+             * @typedef {SignalLocalStorageProtocol.SessionStructure.PendingPreKey.$Properties} SignalLocalStorageProtocol.SessionStructure.PendingPreKey.$Shape
+             */
+
+            /**
              * Constructs a new PendingPreKey.
              * @memberof SignalLocalStorageProtocol.SessionStructure
              * @classdesc Represents a PendingPreKey.
-             * @implements IPendingPreKey
              * @constructor
-             * @param {SignalLocalStorageProtocol.SessionStructure.IPendingPreKey=} [properties] Properties to set
+             * @param {SignalLocalStorageProtocol.SessionStructure.PendingPreKey.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function PendingPreKey(properties) {
@@ -5083,8 +5304,12 @@ $root.SignalLocalStorageProtocol = (function() {
              * @function create
              * @memberof SignalLocalStorageProtocol.SessionStructure.PendingPreKey
              * @static
-             * @param {SignalLocalStorageProtocol.SessionStructure.IPendingPreKey=} [properties] Properties to set
+             * @param {SignalLocalStorageProtocol.SessionStructure.PendingPreKey.$Properties=} [properties] Properties to set
              * @returns {SignalLocalStorageProtocol.SessionStructure.PendingPreKey} PendingPreKey instance
+             * @type {{
+             *   (properties: SignalLocalStorageProtocol.SessionStructure.PendingPreKey.$Shape): SignalLocalStorageProtocol.SessionStructure.PendingPreKey & SignalLocalStorageProtocol.SessionStructure.PendingPreKey.$Shape;
+             *   (properties?: SignalLocalStorageProtocol.SessionStructure.PendingPreKey.$Properties): SignalLocalStorageProtocol.SessionStructure.PendingPreKey;
+             * }}
              */
             PendingPreKey.create = function create(properties) {
                 return new PendingPreKey(properties);
@@ -5095,7 +5320,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @function encode
              * @memberof SignalLocalStorageProtocol.SessionStructure.PendingPreKey
              * @static
-             * @param {SignalLocalStorageProtocol.SessionStructure.IPendingPreKey} message PendingPreKey message or plain object to encode
+             * @param {SignalLocalStorageProtocol.SessionStructure.PendingPreKey.$Properties} message PendingPreKey message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -5119,7 +5344,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @function encodeDelimited
              * @memberof SignalLocalStorageProtocol.SessionStructure.PendingPreKey
              * @static
-             * @param {SignalLocalStorageProtocol.SessionStructure.IPendingPreKey} message PendingPreKey message or plain object to encode
+             * @param {SignalLocalStorageProtocol.SessionStructure.PendingPreKey.$Properties} message PendingPreKey message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -5134,7 +5359,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {SignalLocalStorageProtocol.SessionStructure.PendingPreKey} PendingPreKey
+             * @returns {SignalLocalStorageProtocol.SessionStructure.PendingPreKey & SignalLocalStorageProtocol.SessionStructure.PendingPreKey.$Shape} PendingPreKey
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -5192,7 +5417,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @memberof SignalLocalStorageProtocol.SessionStructure.PendingPreKey
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SignalLocalStorageProtocol.SessionStructure.PendingPreKey} PendingPreKey
+             * @returns {SignalLocalStorageProtocol.SessionStructure.PendingPreKey & SignalLocalStorageProtocol.SessionStructure.PendingPreKey.$Shape} PendingPreKey
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */

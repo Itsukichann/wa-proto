@@ -22,26 +22,50 @@ $root.StatusAttributions = (function() {
 
         /**
          * Properties of a StatusAttribution.
-         * @memberof StatusAttributions
-         * @interface IStatusAttribution
+         * @typedef {Object} StatusAttributions.StatusAttribution.$Properties
          * @property {StatusAttributions.StatusAttribution.Type|null} [type] StatusAttribution type
          * @property {string|null} [actionUrl] StatusAttribution actionUrl
-         * @property {StatusAttributions.StatusAttribution.IStatusReshare|null} [statusReshare] StatusAttribution statusReshare
-         * @property {StatusAttributions.StatusAttribution.IExternalShare|null} [externalShare] StatusAttribution externalShare
-         * @property {StatusAttributions.StatusAttribution.IMusic|null} [music] StatusAttribution music
-         * @property {StatusAttributions.StatusAttribution.IGroupStatus|null} [groupStatus] StatusAttribution groupStatus
-         * @property {StatusAttributions.StatusAttribution.IRLAttribution|null} [rlAttribution] StatusAttribution rlAttribution
-         * @property {StatusAttributions.StatusAttribution.IAiCreatedAttribution|null} [aiCreatedAttribution] StatusAttribution aiCreatedAttribution
+         * @property {StatusAttributions.StatusAttribution.StatusReshare.$Properties|null} [statusReshare] StatusAttribution statusReshare
+         * @property {StatusAttributions.StatusAttribution.ExternalShare.$Properties|null} [externalShare] StatusAttribution externalShare
+         * @property {StatusAttributions.StatusAttribution.Music.$Properties|null} [music] StatusAttribution music
+         * @property {StatusAttributions.StatusAttribution.GroupStatus.$Properties|null} [groupStatus] StatusAttribution groupStatus
+         * @property {StatusAttributions.StatusAttribution.RLAttribution.$Properties|null} [rlAttribution] StatusAttribution rlAttribution
+         * @property {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties|null} [aiCreatedAttribution] StatusAttribution aiCreatedAttribution
+         * @property {"statusReshare"|"externalShare"|"music"|"groupStatus"|"rlAttribution"|"aiCreatedAttribution"} [attributionData] StatusAttribution attributionData
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a StatusAttribution.
+         * @memberof StatusAttributions
+         * @interface IStatusAttribution
+         * @augments StatusAttributions.StatusAttribution.$Properties
+         * @deprecated Use StatusAttributions.StatusAttribution.$Properties instead.
+         */
+
+        /**
+         * Narrowed shape of a StatusAttribution.
+         * @typedef {{
+         *   type?: StatusAttributions.StatusAttribution.Type|null;
+         *   actionUrl?: string|null;
+         *   statusReshare?: StatusAttributions.StatusAttribution.StatusReshare.$Shape|null;
+         *   externalShare?: StatusAttributions.StatusAttribution.ExternalShare.$Shape|null;
+         *   music?: StatusAttributions.StatusAttribution.Music.$Shape|null;
+         *   groupStatus?: StatusAttributions.StatusAttribution.GroupStatus.$Shape|null;
+         *   rlAttribution?: StatusAttributions.StatusAttribution.RLAttribution.$Shape|null;
+         *   aiCreatedAttribution?: StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape|null;
+         *   $unknowns?: Array.<Uint8Array>;
+         * } & (
+         *   ({ attributionData?: undefined; statusReshare?: null; externalShare?: null; music?: null; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution?: null }|{ attributionData?: "statusReshare"; statusReshare: StatusAttributions.StatusAttribution.StatusReshare.$Shape; externalShare?: null; music?: null; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution?: null }|{ attributionData?: "externalShare"; statusReshare?: null; externalShare: StatusAttributions.StatusAttribution.ExternalShare.$Shape; music?: null; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution?: null }|{ attributionData?: "music"; statusReshare?: null; externalShare?: null; music: StatusAttributions.StatusAttribution.Music.$Shape; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution?: null }|{ attributionData?: "groupStatus"; statusReshare?: null; externalShare?: null; music?: null; groupStatus: StatusAttributions.StatusAttribution.GroupStatus.$Shape; rlAttribution?: null; aiCreatedAttribution?: null }|{ attributionData?: "rlAttribution"; statusReshare?: null; externalShare?: null; music?: null; groupStatus?: null; rlAttribution: StatusAttributions.StatusAttribution.RLAttribution.$Shape; aiCreatedAttribution?: null }|{ attributionData?: "aiCreatedAttribution"; statusReshare?: null; externalShare?: null; music?: null; groupStatus?: null; rlAttribution?: null; aiCreatedAttribution: StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape })
+         * )} StatusAttributions.StatusAttribution.$Shape
          */
 
         /**
          * Constructs a new StatusAttribution.
          * @memberof StatusAttributions
          * @classdesc Represents a StatusAttribution.
-         * @implements IStatusAttribution
          * @constructor
-         * @param {StatusAttributions.IStatusAttribution=} [properties] Properties to set
+         * @param {StatusAttributions.StatusAttribution.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function StatusAttribution(properties) {
@@ -69,7 +93,7 @@ $root.StatusAttributions = (function() {
 
         /**
          * StatusAttribution statusReshare.
-         * @member {StatusAttributions.StatusAttribution.IStatusReshare|null|undefined} statusReshare
+         * @member {StatusAttributions.StatusAttribution.StatusReshare.$Properties|null|undefined} statusReshare
          * @memberof StatusAttributions.StatusAttribution
          * @instance
          */
@@ -77,7 +101,7 @@ $root.StatusAttributions = (function() {
 
         /**
          * StatusAttribution externalShare.
-         * @member {StatusAttributions.StatusAttribution.IExternalShare|null|undefined} externalShare
+         * @member {StatusAttributions.StatusAttribution.ExternalShare.$Properties|null|undefined} externalShare
          * @memberof StatusAttributions.StatusAttribution
          * @instance
          */
@@ -85,7 +109,7 @@ $root.StatusAttributions = (function() {
 
         /**
          * StatusAttribution music.
-         * @member {StatusAttributions.StatusAttribution.IMusic|null|undefined} music
+         * @member {StatusAttributions.StatusAttribution.Music.$Properties|null|undefined} music
          * @memberof StatusAttributions.StatusAttribution
          * @instance
          */
@@ -93,7 +117,7 @@ $root.StatusAttributions = (function() {
 
         /**
          * StatusAttribution groupStatus.
-         * @member {StatusAttributions.StatusAttribution.IGroupStatus|null|undefined} groupStatus
+         * @member {StatusAttributions.StatusAttribution.GroupStatus.$Properties|null|undefined} groupStatus
          * @memberof StatusAttributions.StatusAttribution
          * @instance
          */
@@ -101,7 +125,7 @@ $root.StatusAttributions = (function() {
 
         /**
          * StatusAttribution rlAttribution.
-         * @member {StatusAttributions.StatusAttribution.IRLAttribution|null|undefined} rlAttribution
+         * @member {StatusAttributions.StatusAttribution.RLAttribution.$Properties|null|undefined} rlAttribution
          * @memberof StatusAttributions.StatusAttribution
          * @instance
          */
@@ -109,7 +133,7 @@ $root.StatusAttributions = (function() {
 
         /**
          * StatusAttribution aiCreatedAttribution.
-         * @member {StatusAttributions.StatusAttribution.IAiCreatedAttribution|null|undefined} aiCreatedAttribution
+         * @member {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties|null|undefined} aiCreatedAttribution
          * @memberof StatusAttributions.StatusAttribution
          * @instance
          */
@@ -146,8 +170,12 @@ $root.StatusAttributions = (function() {
          * @function create
          * @memberof StatusAttributions.StatusAttribution
          * @static
-         * @param {StatusAttributions.IStatusAttribution=} [properties] Properties to set
+         * @param {StatusAttributions.StatusAttribution.$Properties=} [properties] Properties to set
          * @returns {StatusAttributions.StatusAttribution} StatusAttribution instance
+         * @type {{
+         *   (properties: StatusAttributions.StatusAttribution.$Shape): StatusAttributions.StatusAttribution & StatusAttributions.StatusAttribution.$Shape;
+         *   (properties?: StatusAttributions.StatusAttribution.$Properties): StatusAttributions.StatusAttribution;
+         * }}
          */
         StatusAttribution.create = function create(properties) {
             return new StatusAttribution(properties);
@@ -158,7 +186,7 @@ $root.StatusAttributions = (function() {
          * @function encode
          * @memberof StatusAttributions.StatusAttribution
          * @static
-         * @param {StatusAttributions.IStatusAttribution} message StatusAttribution message or plain object to encode
+         * @param {StatusAttributions.StatusAttribution.$Properties} message StatusAttribution message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -192,7 +220,7 @@ $root.StatusAttributions = (function() {
          * @function encodeDelimited
          * @memberof StatusAttributions.StatusAttribution
          * @static
-         * @param {StatusAttributions.IStatusAttribution} message StatusAttribution message or plain object to encode
+         * @param {StatusAttributions.StatusAttribution.$Properties} message StatusAttribution message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -207,7 +235,7 @@ $root.StatusAttributions = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {StatusAttributions.StatusAttribution} StatusAttribution
+         * @returns {StatusAttributions.StatusAttribution & StatusAttributions.StatusAttribution.$Shape} StatusAttribution
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -300,7 +328,7 @@ $root.StatusAttributions = (function() {
          * @memberof StatusAttributions.StatusAttribution
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {StatusAttributions.StatusAttribution} StatusAttribution
+         * @returns {StatusAttributions.StatusAttribution & StatusAttributions.StatusAttribution.$Shape} StatusAttribution
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -604,19 +632,30 @@ $root.StatusAttributions = (function() {
 
             /**
              * Properties of an AiCreatedAttribution.
-             * @memberof StatusAttributions.StatusAttribution
-             * @interface IAiCreatedAttribution
+             * @typedef {Object} StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties
              * @property {StatusAttributions.StatusAttribution.AiCreatedAttribution.Source|null} [source] AiCreatedAttribution source
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of an AiCreatedAttribution.
+             * @memberof StatusAttributions.StatusAttribution
+             * @interface IAiCreatedAttribution
+             * @augments StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties
+             * @deprecated Use StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties instead.
+             */
+
+            /**
+             * Shape of an AiCreatedAttribution.
+             * @typedef {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties} StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape
              */
 
             /**
              * Constructs a new AiCreatedAttribution.
              * @memberof StatusAttributions.StatusAttribution
              * @classdesc Represents an AiCreatedAttribution.
-             * @implements IAiCreatedAttribution
              * @constructor
-             * @param {StatusAttributions.StatusAttribution.IAiCreatedAttribution=} [properties] Properties to set
+             * @param {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AiCreatedAttribution(properties) {
@@ -648,8 +687,12 @@ $root.StatusAttributions = (function() {
              * @function create
              * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
              * @static
-             * @param {StatusAttributions.StatusAttribution.IAiCreatedAttribution=} [properties] Properties to set
+             * @param {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties=} [properties] Properties to set
              * @returns {StatusAttributions.StatusAttribution.AiCreatedAttribution} AiCreatedAttribution instance
+             * @type {{
+             *   (properties: StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape): StatusAttributions.StatusAttribution.AiCreatedAttribution & StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape;
+             *   (properties?: StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties): StatusAttributions.StatusAttribution.AiCreatedAttribution;
+             * }}
              */
             AiCreatedAttribution.create = function create(properties) {
                 return new AiCreatedAttribution(properties);
@@ -660,7 +703,7 @@ $root.StatusAttributions = (function() {
              * @function encode
              * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
              * @static
-             * @param {StatusAttributions.StatusAttribution.IAiCreatedAttribution} message AiCreatedAttribution message or plain object to encode
+             * @param {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties} message AiCreatedAttribution message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -680,7 +723,7 @@ $root.StatusAttributions = (function() {
              * @function encodeDelimited
              * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
              * @static
-             * @param {StatusAttributions.StatusAttribution.IAiCreatedAttribution} message AiCreatedAttribution message or plain object to encode
+             * @param {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties} message AiCreatedAttribution message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -695,7 +738,7 @@ $root.StatusAttributions = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {StatusAttributions.StatusAttribution.AiCreatedAttribution} AiCreatedAttribution
+             * @returns {StatusAttributions.StatusAttribution.AiCreatedAttribution & StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape} AiCreatedAttribution
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -739,7 +782,7 @@ $root.StatusAttributions = (function() {
              * @memberof StatusAttributions.StatusAttribution.AiCreatedAttribution
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {StatusAttributions.StatusAttribution.AiCreatedAttribution} AiCreatedAttribution
+             * @returns {StatusAttributions.StatusAttribution.AiCreatedAttribution & StatusAttributions.StatusAttribution.AiCreatedAttribution.$Shape} AiCreatedAttribution
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -880,8 +923,7 @@ $root.StatusAttributions = (function() {
 
             /**
              * Properties of an ExternalShare.
-             * @memberof StatusAttributions.StatusAttribution
-             * @interface IExternalShare
+             * @typedef {Object} StatusAttributions.StatusAttribution.ExternalShare.$Properties
              * @property {string|null} [actionUrl] ExternalShare actionUrl
              * @property {StatusAttributions.StatusAttribution.ExternalShare.Source|null} [source] ExternalShare source
              * @property {number|null} [duration] ExternalShare duration
@@ -890,12 +932,24 @@ $root.StatusAttributions = (function() {
              */
 
             /**
+             * Properties of an ExternalShare.
+             * @memberof StatusAttributions.StatusAttribution
+             * @interface IExternalShare
+             * @augments StatusAttributions.StatusAttribution.ExternalShare.$Properties
+             * @deprecated Use StatusAttributions.StatusAttribution.ExternalShare.$Properties instead.
+             */
+
+            /**
+             * Shape of an ExternalShare.
+             * @typedef {StatusAttributions.StatusAttribution.ExternalShare.$Properties} StatusAttributions.StatusAttribution.ExternalShare.$Shape
+             */
+
+            /**
              * Constructs a new ExternalShare.
              * @memberof StatusAttributions.StatusAttribution
              * @classdesc Represents an ExternalShare.
-             * @implements IExternalShare
              * @constructor
-             * @param {StatusAttributions.StatusAttribution.IExternalShare=} [properties] Properties to set
+             * @param {StatusAttributions.StatusAttribution.ExternalShare.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function ExternalShare(properties) {
@@ -969,8 +1023,12 @@ $root.StatusAttributions = (function() {
              * @function create
              * @memberof StatusAttributions.StatusAttribution.ExternalShare
              * @static
-             * @param {StatusAttributions.StatusAttribution.IExternalShare=} [properties] Properties to set
+             * @param {StatusAttributions.StatusAttribution.ExternalShare.$Properties=} [properties] Properties to set
              * @returns {StatusAttributions.StatusAttribution.ExternalShare} ExternalShare instance
+             * @type {{
+             *   (properties: StatusAttributions.StatusAttribution.ExternalShare.$Shape): StatusAttributions.StatusAttribution.ExternalShare & StatusAttributions.StatusAttribution.ExternalShare.$Shape;
+             *   (properties?: StatusAttributions.StatusAttribution.ExternalShare.$Properties): StatusAttributions.StatusAttribution.ExternalShare;
+             * }}
              */
             ExternalShare.create = function create(properties) {
                 return new ExternalShare(properties);
@@ -981,7 +1039,7 @@ $root.StatusAttributions = (function() {
              * @function encode
              * @memberof StatusAttributions.StatusAttribution.ExternalShare
              * @static
-             * @param {StatusAttributions.StatusAttribution.IExternalShare} message ExternalShare message or plain object to encode
+             * @param {StatusAttributions.StatusAttribution.ExternalShare.$Properties} message ExternalShare message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -1007,7 +1065,7 @@ $root.StatusAttributions = (function() {
              * @function encodeDelimited
              * @memberof StatusAttributions.StatusAttribution.ExternalShare
              * @static
-             * @param {StatusAttributions.StatusAttribution.IExternalShare} message ExternalShare message or plain object to encode
+             * @param {StatusAttributions.StatusAttribution.ExternalShare.$Properties} message ExternalShare message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -1022,7 +1080,7 @@ $root.StatusAttributions = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {StatusAttributions.StatusAttribution.ExternalShare} ExternalShare
+             * @returns {StatusAttributions.StatusAttribution.ExternalShare & StatusAttributions.StatusAttribution.ExternalShare.$Shape} ExternalShare
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -1087,7 +1145,7 @@ $root.StatusAttributions = (function() {
              * @memberof StatusAttributions.StatusAttribution.ExternalShare
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {StatusAttributions.StatusAttribution.ExternalShare} ExternalShare
+             * @returns {StatusAttributions.StatusAttribution.ExternalShare & StatusAttributions.StatusAttribution.ExternalShare.$Shape} ExternalShare
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -1341,19 +1399,30 @@ $root.StatusAttributions = (function() {
 
             /**
              * Properties of a GroupStatus.
-             * @memberof StatusAttributions.StatusAttribution
-             * @interface IGroupStatus
+             * @typedef {Object} StatusAttributions.StatusAttribution.GroupStatus.$Properties
              * @property {string|null} [authorJid] GroupStatus authorJid
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a GroupStatus.
+             * @memberof StatusAttributions.StatusAttribution
+             * @interface IGroupStatus
+             * @augments StatusAttributions.StatusAttribution.GroupStatus.$Properties
+             * @deprecated Use StatusAttributions.StatusAttribution.GroupStatus.$Properties instead.
+             */
+
+            /**
+             * Shape of a GroupStatus.
+             * @typedef {StatusAttributions.StatusAttribution.GroupStatus.$Properties} StatusAttributions.StatusAttribution.GroupStatus.$Shape
              */
 
             /**
              * Constructs a new GroupStatus.
              * @memberof StatusAttributions.StatusAttribution
              * @classdesc Represents a GroupStatus.
-             * @implements IGroupStatus
              * @constructor
-             * @param {StatusAttributions.StatusAttribution.IGroupStatus=} [properties] Properties to set
+             * @param {StatusAttributions.StatusAttribution.GroupStatus.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function GroupStatus(properties) {
@@ -1385,8 +1454,12 @@ $root.StatusAttributions = (function() {
              * @function create
              * @memberof StatusAttributions.StatusAttribution.GroupStatus
              * @static
-             * @param {StatusAttributions.StatusAttribution.IGroupStatus=} [properties] Properties to set
+             * @param {StatusAttributions.StatusAttribution.GroupStatus.$Properties=} [properties] Properties to set
              * @returns {StatusAttributions.StatusAttribution.GroupStatus} GroupStatus instance
+             * @type {{
+             *   (properties: StatusAttributions.StatusAttribution.GroupStatus.$Shape): StatusAttributions.StatusAttribution.GroupStatus & StatusAttributions.StatusAttribution.GroupStatus.$Shape;
+             *   (properties?: StatusAttributions.StatusAttribution.GroupStatus.$Properties): StatusAttributions.StatusAttribution.GroupStatus;
+             * }}
              */
             GroupStatus.create = function create(properties) {
                 return new GroupStatus(properties);
@@ -1397,7 +1470,7 @@ $root.StatusAttributions = (function() {
              * @function encode
              * @memberof StatusAttributions.StatusAttribution.GroupStatus
              * @static
-             * @param {StatusAttributions.StatusAttribution.IGroupStatus} message GroupStatus message or plain object to encode
+             * @param {StatusAttributions.StatusAttribution.GroupStatus.$Properties} message GroupStatus message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -1417,7 +1490,7 @@ $root.StatusAttributions = (function() {
              * @function encodeDelimited
              * @memberof StatusAttributions.StatusAttribution.GroupStatus
              * @static
-             * @param {StatusAttributions.StatusAttribution.IGroupStatus} message GroupStatus message or plain object to encode
+             * @param {StatusAttributions.StatusAttribution.GroupStatus.$Properties} message GroupStatus message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -1432,7 +1505,7 @@ $root.StatusAttributions = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {StatusAttributions.StatusAttribution.GroupStatus} GroupStatus
+             * @returns {StatusAttributions.StatusAttribution.GroupStatus & StatusAttributions.StatusAttribution.GroupStatus.$Shape} GroupStatus
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -1476,7 +1549,7 @@ $root.StatusAttributions = (function() {
              * @memberof StatusAttributions.StatusAttribution.GroupStatus
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {StatusAttributions.StatusAttribution.GroupStatus} GroupStatus
+             * @returns {StatusAttributions.StatusAttribution.GroupStatus & StatusAttributions.StatusAttribution.GroupStatus.$Shape} GroupStatus
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -1584,8 +1657,7 @@ $root.StatusAttributions = (function() {
 
             /**
              * Properties of a Music.
-             * @memberof StatusAttributions.StatusAttribution
-             * @interface IMusic
+             * @typedef {Object} StatusAttributions.StatusAttribution.Music.$Properties
              * @property {string|null} [authorName] Music authorName
              * @property {string|null} [songId] Music songId
              * @property {string|null} [title] Music title
@@ -1596,12 +1668,24 @@ $root.StatusAttributions = (function() {
              */
 
             /**
+             * Properties of a Music.
+             * @memberof StatusAttributions.StatusAttribution
+             * @interface IMusic
+             * @augments StatusAttributions.StatusAttribution.Music.$Properties
+             * @deprecated Use StatusAttributions.StatusAttribution.Music.$Properties instead.
+             */
+
+            /**
+             * Shape of a Music.
+             * @typedef {StatusAttributions.StatusAttribution.Music.$Properties} StatusAttributions.StatusAttribution.Music.$Shape
+             */
+
+            /**
              * Constructs a new Music.
              * @memberof StatusAttributions.StatusAttribution
              * @classdesc Represents a Music.
-             * @implements IMusic
              * @constructor
-             * @param {StatusAttributions.StatusAttribution.IMusic=} [properties] Properties to set
+             * @param {StatusAttributions.StatusAttribution.Music.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function Music(properties) {
@@ -1703,8 +1787,12 @@ $root.StatusAttributions = (function() {
              * @function create
              * @memberof StatusAttributions.StatusAttribution.Music
              * @static
-             * @param {StatusAttributions.StatusAttribution.IMusic=} [properties] Properties to set
+             * @param {StatusAttributions.StatusAttribution.Music.$Properties=} [properties] Properties to set
              * @returns {StatusAttributions.StatusAttribution.Music} Music instance
+             * @type {{
+             *   (properties: StatusAttributions.StatusAttribution.Music.$Shape): StatusAttributions.StatusAttribution.Music & StatusAttributions.StatusAttribution.Music.$Shape;
+             *   (properties?: StatusAttributions.StatusAttribution.Music.$Properties): StatusAttributions.StatusAttribution.Music;
+             * }}
              */
             Music.create = function create(properties) {
                 return new Music(properties);
@@ -1715,7 +1803,7 @@ $root.StatusAttributions = (function() {
              * @function encode
              * @memberof StatusAttributions.StatusAttribution.Music
              * @static
-             * @param {StatusAttributions.StatusAttribution.IMusic} message Music message or plain object to encode
+             * @param {StatusAttributions.StatusAttribution.Music.$Properties} message Music message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -1745,7 +1833,7 @@ $root.StatusAttributions = (function() {
              * @function encodeDelimited
              * @memberof StatusAttributions.StatusAttribution.Music
              * @static
-             * @param {StatusAttributions.StatusAttribution.IMusic} message Music message or plain object to encode
+             * @param {StatusAttributions.StatusAttribution.Music.$Properties} message Music message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -1760,7 +1848,7 @@ $root.StatusAttributions = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {StatusAttributions.StatusAttribution.Music} Music
+             * @returns {StatusAttributions.StatusAttribution.Music & StatusAttributions.StatusAttribution.Music.$Shape} Music
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -1839,7 +1927,7 @@ $root.StatusAttributions = (function() {
              * @memberof StatusAttributions.StatusAttribution.Music
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {StatusAttributions.StatusAttribution.Music} Music
+             * @returns {StatusAttributions.StatusAttribution.Music & StatusAttributions.StatusAttribution.Music.$Shape} Music
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -2007,19 +2095,30 @@ $root.StatusAttributions = (function() {
 
             /**
              * Properties of a RLAttribution.
-             * @memberof StatusAttributions.StatusAttribution
-             * @interface IRLAttribution
+             * @typedef {Object} StatusAttributions.StatusAttribution.RLAttribution.$Properties
              * @property {StatusAttributions.StatusAttribution.RLAttribution.Source|null} [source] RLAttribution source
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a RLAttribution.
+             * @memberof StatusAttributions.StatusAttribution
+             * @interface IRLAttribution
+             * @augments StatusAttributions.StatusAttribution.RLAttribution.$Properties
+             * @deprecated Use StatusAttributions.StatusAttribution.RLAttribution.$Properties instead.
+             */
+
+            /**
+             * Shape of a RLAttribution.
+             * @typedef {StatusAttributions.StatusAttribution.RLAttribution.$Properties} StatusAttributions.StatusAttribution.RLAttribution.$Shape
              */
 
             /**
              * Constructs a new RLAttribution.
              * @memberof StatusAttributions.StatusAttribution
              * @classdesc Represents a RLAttribution.
-             * @implements IRLAttribution
              * @constructor
-             * @param {StatusAttributions.StatusAttribution.IRLAttribution=} [properties] Properties to set
+             * @param {StatusAttributions.StatusAttribution.RLAttribution.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function RLAttribution(properties) {
@@ -2051,8 +2150,12 @@ $root.StatusAttributions = (function() {
              * @function create
              * @memberof StatusAttributions.StatusAttribution.RLAttribution
              * @static
-             * @param {StatusAttributions.StatusAttribution.IRLAttribution=} [properties] Properties to set
+             * @param {StatusAttributions.StatusAttribution.RLAttribution.$Properties=} [properties] Properties to set
              * @returns {StatusAttributions.StatusAttribution.RLAttribution} RLAttribution instance
+             * @type {{
+             *   (properties: StatusAttributions.StatusAttribution.RLAttribution.$Shape): StatusAttributions.StatusAttribution.RLAttribution & StatusAttributions.StatusAttribution.RLAttribution.$Shape;
+             *   (properties?: StatusAttributions.StatusAttribution.RLAttribution.$Properties): StatusAttributions.StatusAttribution.RLAttribution;
+             * }}
              */
             RLAttribution.create = function create(properties) {
                 return new RLAttribution(properties);
@@ -2063,7 +2166,7 @@ $root.StatusAttributions = (function() {
              * @function encode
              * @memberof StatusAttributions.StatusAttribution.RLAttribution
              * @static
-             * @param {StatusAttributions.StatusAttribution.IRLAttribution} message RLAttribution message or plain object to encode
+             * @param {StatusAttributions.StatusAttribution.RLAttribution.$Properties} message RLAttribution message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -2083,7 +2186,7 @@ $root.StatusAttributions = (function() {
              * @function encodeDelimited
              * @memberof StatusAttributions.StatusAttribution.RLAttribution
              * @static
-             * @param {StatusAttributions.StatusAttribution.IRLAttribution} message RLAttribution message or plain object to encode
+             * @param {StatusAttributions.StatusAttribution.RLAttribution.$Properties} message RLAttribution message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -2098,7 +2201,7 @@ $root.StatusAttributions = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {StatusAttributions.StatusAttribution.RLAttribution} RLAttribution
+             * @returns {StatusAttributions.StatusAttribution.RLAttribution & StatusAttributions.StatusAttribution.RLAttribution.$Shape} RLAttribution
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -2142,7 +2245,7 @@ $root.StatusAttributions = (function() {
              * @memberof StatusAttributions.StatusAttribution.RLAttribution
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {StatusAttributions.StatusAttribution.RLAttribution} RLAttribution
+             * @returns {StatusAttributions.StatusAttribution.RLAttribution & StatusAttributions.StatusAttribution.RLAttribution.$Shape} RLAttribution
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -2297,20 +2400,31 @@ $root.StatusAttributions = (function() {
 
             /**
              * Properties of a StatusReshare.
+             * @typedef {Object} StatusAttributions.StatusAttribution.StatusReshare.$Properties
+             * @property {StatusAttributions.StatusAttribution.StatusReshare.Source|null} [source] StatusReshare source
+             * @property {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties|null} [metadata] StatusReshare metadata
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a StatusReshare.
              * @memberof StatusAttributions.StatusAttribution
              * @interface IStatusReshare
-             * @property {StatusAttributions.StatusAttribution.StatusReshare.Source|null} [source] StatusReshare source
-             * @property {StatusAttributions.StatusAttribution.StatusReshare.IMetadata|null} [metadata] StatusReshare metadata
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @augments StatusAttributions.StatusAttribution.StatusReshare.$Properties
+             * @deprecated Use StatusAttributions.StatusAttribution.StatusReshare.$Properties instead.
+             */
+
+            /**
+             * Shape of a StatusReshare.
+             * @typedef {StatusAttributions.StatusAttribution.StatusReshare.$Properties} StatusAttributions.StatusAttribution.StatusReshare.$Shape
              */
 
             /**
              * Constructs a new StatusReshare.
              * @memberof StatusAttributions.StatusAttribution
              * @classdesc Represents a StatusReshare.
-             * @implements IStatusReshare
              * @constructor
-             * @param {StatusAttributions.StatusAttribution.IStatusReshare=} [properties] Properties to set
+             * @param {StatusAttributions.StatusAttribution.StatusReshare.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function StatusReshare(properties) {
@@ -2330,7 +2444,7 @@ $root.StatusAttributions = (function() {
 
             /**
              * StatusReshare metadata.
-             * @member {StatusAttributions.StatusAttribution.StatusReshare.IMetadata|null|undefined} metadata
+             * @member {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties|null|undefined} metadata
              * @memberof StatusAttributions.StatusAttribution.StatusReshare
              * @instance
              */
@@ -2356,8 +2470,12 @@ $root.StatusAttributions = (function() {
              * @function create
              * @memberof StatusAttributions.StatusAttribution.StatusReshare
              * @static
-             * @param {StatusAttributions.StatusAttribution.IStatusReshare=} [properties] Properties to set
+             * @param {StatusAttributions.StatusAttribution.StatusReshare.$Properties=} [properties] Properties to set
              * @returns {StatusAttributions.StatusAttribution.StatusReshare} StatusReshare instance
+             * @type {{
+             *   (properties: StatusAttributions.StatusAttribution.StatusReshare.$Shape): StatusAttributions.StatusAttribution.StatusReshare & StatusAttributions.StatusAttribution.StatusReshare.$Shape;
+             *   (properties?: StatusAttributions.StatusAttribution.StatusReshare.$Properties): StatusAttributions.StatusAttribution.StatusReshare;
+             * }}
              */
             StatusReshare.create = function create(properties) {
                 return new StatusReshare(properties);
@@ -2368,7 +2486,7 @@ $root.StatusAttributions = (function() {
              * @function encode
              * @memberof StatusAttributions.StatusAttribution.StatusReshare
              * @static
-             * @param {StatusAttributions.StatusAttribution.IStatusReshare} message StatusReshare message or plain object to encode
+             * @param {StatusAttributions.StatusAttribution.StatusReshare.$Properties} message StatusReshare message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -2390,7 +2508,7 @@ $root.StatusAttributions = (function() {
              * @function encodeDelimited
              * @memberof StatusAttributions.StatusAttribution.StatusReshare
              * @static
-             * @param {StatusAttributions.StatusAttribution.IStatusReshare} message StatusReshare message or plain object to encode
+             * @param {StatusAttributions.StatusAttribution.StatusReshare.$Properties} message StatusReshare message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -2405,7 +2523,7 @@ $root.StatusAttributions = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {StatusAttributions.StatusAttribution.StatusReshare} StatusReshare
+             * @returns {StatusAttributions.StatusAttribution.StatusReshare & StatusAttributions.StatusAttribution.StatusReshare.$Shape} StatusReshare
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -2456,7 +2574,7 @@ $root.StatusAttributions = (function() {
              * @memberof StatusAttributions.StatusAttribution.StatusReshare
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {StatusAttributions.StatusAttribution.StatusReshare} StatusReshare
+             * @returns {StatusAttributions.StatusAttribution.StatusReshare & StatusAttributions.StatusAttribution.StatusReshare.$Shape} StatusReshare
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -2613,8 +2731,7 @@ $root.StatusAttributions = (function() {
 
                 /**
                  * Properties of a Metadata.
-                 * @memberof StatusAttributions.StatusAttribution.StatusReshare
-                 * @interface IMetadata
+                 * @typedef {Object} StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties
                  * @property {number|null} [duration] Metadata duration
                  * @property {string|null} [channelJid] Metadata channelJid
                  * @property {number|null} [channelMessageId] Metadata channelMessageId
@@ -2623,12 +2740,24 @@ $root.StatusAttributions = (function() {
                  */
 
                 /**
+                 * Properties of a Metadata.
+                 * @memberof StatusAttributions.StatusAttribution.StatusReshare
+                 * @interface IMetadata
+                 * @augments StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties
+                 * @deprecated Use StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties instead.
+                 */
+
+                /**
+                 * Shape of a Metadata.
+                 * @typedef {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties} StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Shape
+                 */
+
+                /**
                  * Constructs a new Metadata.
                  * @memberof StatusAttributions.StatusAttribution.StatusReshare
                  * @classdesc Represents a Metadata.
-                 * @implements IMetadata
                  * @constructor
-                 * @param {StatusAttributions.StatusAttribution.StatusReshare.IMetadata=} [properties] Properties to set
+                 * @param {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties=} [properties] Properties to set
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function Metadata(properties) {
@@ -2702,8 +2831,12 @@ $root.StatusAttributions = (function() {
                  * @function create
                  * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
                  * @static
-                 * @param {StatusAttributions.StatusAttribution.StatusReshare.IMetadata=} [properties] Properties to set
+                 * @param {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties=} [properties] Properties to set
                  * @returns {StatusAttributions.StatusAttribution.StatusReshare.Metadata} Metadata instance
+                 * @type {{
+                 *   (properties: StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Shape): StatusAttributions.StatusAttribution.StatusReshare.Metadata & StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Shape;
+                 *   (properties?: StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties): StatusAttributions.StatusAttribution.StatusReshare.Metadata;
+                 * }}
                  */
                 Metadata.create = function create(properties) {
                     return new Metadata(properties);
@@ -2714,7 +2847,7 @@ $root.StatusAttributions = (function() {
                  * @function encode
                  * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
                  * @static
-                 * @param {StatusAttributions.StatusAttribution.StatusReshare.IMetadata} message Metadata message or plain object to encode
+                 * @param {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties} message Metadata message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -2740,7 +2873,7 @@ $root.StatusAttributions = (function() {
                  * @function encodeDelimited
                  * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
                  * @static
-                 * @param {StatusAttributions.StatusAttribution.StatusReshare.IMetadata} message Metadata message or plain object to encode
+                 * @param {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties} message Metadata message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -2755,7 +2888,7 @@ $root.StatusAttributions = (function() {
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                  * @param {number} [length] Message length if known beforehand
-                 * @returns {StatusAttributions.StatusAttribution.StatusReshare.Metadata} Metadata
+                 * @returns {StatusAttributions.StatusAttribution.StatusReshare.Metadata & StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Shape} Metadata
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -2820,7 +2953,7 @@ $root.StatusAttributions = (function() {
                  * @memberof StatusAttributions.StatusAttribution.StatusReshare.Metadata
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {StatusAttributions.StatusAttribution.StatusReshare.Metadata} Metadata
+                 * @returns {StatusAttributions.StatusAttribution.StatusReshare.Metadata & StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Shape} Metadata
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */

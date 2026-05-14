@@ -22,19 +22,30 @@ $root.MmsRetry = (function() {
 
         /**
          * Properties of a ServerErrorReceipt.
-         * @memberof MmsRetry
-         * @interface IServerErrorReceipt
+         * @typedef {Object} MmsRetry.ServerErrorReceipt.$Properties
          * @property {string|null} [stanzaId] ServerErrorReceipt stanzaId
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a ServerErrorReceipt.
+         * @memberof MmsRetry
+         * @interface IServerErrorReceipt
+         * @augments MmsRetry.ServerErrorReceipt.$Properties
+         * @deprecated Use MmsRetry.ServerErrorReceipt.$Properties instead.
+         */
+
+        /**
+         * Shape of a ServerErrorReceipt.
+         * @typedef {MmsRetry.ServerErrorReceipt.$Properties} MmsRetry.ServerErrorReceipt.$Shape
          */
 
         /**
          * Constructs a new ServerErrorReceipt.
          * @memberof MmsRetry
          * @classdesc Represents a ServerErrorReceipt.
-         * @implements IServerErrorReceipt
          * @constructor
-         * @param {MmsRetry.IServerErrorReceipt=} [properties] Properties to set
+         * @param {MmsRetry.ServerErrorReceipt.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function ServerErrorReceipt(properties) {
@@ -66,8 +77,12 @@ $root.MmsRetry = (function() {
          * @function create
          * @memberof MmsRetry.ServerErrorReceipt
          * @static
-         * @param {MmsRetry.IServerErrorReceipt=} [properties] Properties to set
+         * @param {MmsRetry.ServerErrorReceipt.$Properties=} [properties] Properties to set
          * @returns {MmsRetry.ServerErrorReceipt} ServerErrorReceipt instance
+         * @type {{
+         *   (properties: MmsRetry.ServerErrorReceipt.$Shape): MmsRetry.ServerErrorReceipt & MmsRetry.ServerErrorReceipt.$Shape;
+         *   (properties?: MmsRetry.ServerErrorReceipt.$Properties): MmsRetry.ServerErrorReceipt;
+         * }}
          */
         ServerErrorReceipt.create = function create(properties) {
             return new ServerErrorReceipt(properties);
@@ -78,7 +93,7 @@ $root.MmsRetry = (function() {
          * @function encode
          * @memberof MmsRetry.ServerErrorReceipt
          * @static
-         * @param {MmsRetry.IServerErrorReceipt} message ServerErrorReceipt message or plain object to encode
+         * @param {MmsRetry.ServerErrorReceipt.$Properties} message ServerErrorReceipt message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -98,7 +113,7 @@ $root.MmsRetry = (function() {
          * @function encodeDelimited
          * @memberof MmsRetry.ServerErrorReceipt
          * @static
-         * @param {MmsRetry.IServerErrorReceipt} message ServerErrorReceipt message or plain object to encode
+         * @param {MmsRetry.ServerErrorReceipt.$Properties} message ServerErrorReceipt message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -113,7 +128,7 @@ $root.MmsRetry = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {MmsRetry.ServerErrorReceipt} ServerErrorReceipt
+         * @returns {MmsRetry.ServerErrorReceipt & MmsRetry.ServerErrorReceipt.$Shape} ServerErrorReceipt
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -157,7 +172,7 @@ $root.MmsRetry = (function() {
          * @memberof MmsRetry.ServerErrorReceipt
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {MmsRetry.ServerErrorReceipt} ServerErrorReceipt
+         * @returns {MmsRetry.ServerErrorReceipt & MmsRetry.ServerErrorReceipt.$Shape} ServerErrorReceipt
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -265,8 +280,7 @@ $root.MmsRetry = (function() {
 
         /**
          * Properties of a MediaRetryNotification.
-         * @memberof MmsRetry
-         * @interface IMediaRetryNotification
+         * @typedef {Object} MmsRetry.MediaRetryNotification.$Properties
          * @property {string|null} [stanzaId] MediaRetryNotification stanzaId
          * @property {string|null} [directPath] MediaRetryNotification directPath
          * @property {MmsRetry.MediaRetryNotification.ResultType|null} [result] MediaRetryNotification result
@@ -275,12 +289,24 @@ $root.MmsRetry = (function() {
          */
 
         /**
+         * Properties of a MediaRetryNotification.
+         * @memberof MmsRetry
+         * @interface IMediaRetryNotification
+         * @augments MmsRetry.MediaRetryNotification.$Properties
+         * @deprecated Use MmsRetry.MediaRetryNotification.$Properties instead.
+         */
+
+        /**
+         * Shape of a MediaRetryNotification.
+         * @typedef {MmsRetry.MediaRetryNotification.$Properties} MmsRetry.MediaRetryNotification.$Shape
+         */
+
+        /**
          * Constructs a new MediaRetryNotification.
          * @memberof MmsRetry
          * @classdesc Represents a MediaRetryNotification.
-         * @implements IMediaRetryNotification
          * @constructor
-         * @param {MmsRetry.IMediaRetryNotification=} [properties] Properties to set
+         * @param {MmsRetry.MediaRetryNotification.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function MediaRetryNotification(properties) {
@@ -354,8 +380,12 @@ $root.MmsRetry = (function() {
          * @function create
          * @memberof MmsRetry.MediaRetryNotification
          * @static
-         * @param {MmsRetry.IMediaRetryNotification=} [properties] Properties to set
+         * @param {MmsRetry.MediaRetryNotification.$Properties=} [properties] Properties to set
          * @returns {MmsRetry.MediaRetryNotification} MediaRetryNotification instance
+         * @type {{
+         *   (properties: MmsRetry.MediaRetryNotification.$Shape): MmsRetry.MediaRetryNotification & MmsRetry.MediaRetryNotification.$Shape;
+         *   (properties?: MmsRetry.MediaRetryNotification.$Properties): MmsRetry.MediaRetryNotification;
+         * }}
          */
         MediaRetryNotification.create = function create(properties) {
             return new MediaRetryNotification(properties);
@@ -366,7 +396,7 @@ $root.MmsRetry = (function() {
          * @function encode
          * @memberof MmsRetry.MediaRetryNotification
          * @static
-         * @param {MmsRetry.IMediaRetryNotification} message MediaRetryNotification message or plain object to encode
+         * @param {MmsRetry.MediaRetryNotification.$Properties} message MediaRetryNotification message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -392,7 +422,7 @@ $root.MmsRetry = (function() {
          * @function encodeDelimited
          * @memberof MmsRetry.MediaRetryNotification
          * @static
-         * @param {MmsRetry.IMediaRetryNotification} message MediaRetryNotification message or plain object to encode
+         * @param {MmsRetry.MediaRetryNotification.$Properties} message MediaRetryNotification message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -407,7 +437,7 @@ $root.MmsRetry = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {MmsRetry.MediaRetryNotification} MediaRetryNotification
+         * @returns {MmsRetry.MediaRetryNotification & MmsRetry.MediaRetryNotification.$Shape} MediaRetryNotification
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -472,7 +502,7 @@ $root.MmsRetry = (function() {
          * @memberof MmsRetry.MediaRetryNotification
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {MmsRetry.MediaRetryNotification} MediaRetryNotification
+         * @returns {MmsRetry.MediaRetryNotification & MmsRetry.MediaRetryNotification.$Shape} MediaRetryNotification
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */

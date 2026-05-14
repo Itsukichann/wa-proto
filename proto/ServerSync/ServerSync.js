@@ -22,27 +22,38 @@ $root.ServerSync = (function() {
 
         /**
          * Properties of a SyncdPatch.
-         * @memberof ServerSync
-         * @interface ISyncdPatch
-         * @property {ServerSync.ISyncdVersion|null} [version] SyncdPatch version
-         * @property {Array.<ServerSync.ISyncdMutation>|null} [mutations] SyncdPatch mutations
-         * @property {ServerSync.IExternalBlobReference|null} [externalMutations] SyncdPatch externalMutations
+         * @typedef {Object} ServerSync.SyncdPatch.$Properties
+         * @property {ServerSync.SyncdVersion.$Properties|null} [version] SyncdPatch version
+         * @property {Array.<ServerSync.SyncdMutation.$Properties>|null} [mutations] SyncdPatch mutations
+         * @property {ServerSync.ExternalBlobReference.$Properties|null} [externalMutations] SyncdPatch externalMutations
          * @property {Uint8Array|null} [snapshotMac] SyncdPatch snapshotMac
          * @property {Uint8Array|null} [patchMac] SyncdPatch patchMac
-         * @property {ServerSync.IKeyId|null} [keyId] SyncdPatch keyId
-         * @property {ServerSync.IExitCode|null} [exitCode] SyncdPatch exitCode
+         * @property {ServerSync.KeyId.$Properties|null} [keyId] SyncdPatch keyId
+         * @property {ServerSync.ExitCode.$Properties|null} [exitCode] SyncdPatch exitCode
          * @property {number|null} [deviceIndex] SyncdPatch deviceIndex
          * @property {Uint8Array|null} [clientDebugData] SyncdPatch clientDebugData
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
+         * Properties of a SyncdPatch.
+         * @memberof ServerSync
+         * @interface ISyncdPatch
+         * @augments ServerSync.SyncdPatch.$Properties
+         * @deprecated Use ServerSync.SyncdPatch.$Properties instead.
+         */
+
+        /**
+         * Shape of a SyncdPatch.
+         * @typedef {ServerSync.SyncdPatch.$Properties} ServerSync.SyncdPatch.$Shape
+         */
+
+        /**
          * Constructs a new SyncdPatch.
          * @memberof ServerSync
          * @classdesc Represents a SyncdPatch.
-         * @implements ISyncdPatch
          * @constructor
-         * @param {ServerSync.ISyncdPatch=} [properties] Properties to set
+         * @param {ServerSync.SyncdPatch.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SyncdPatch(properties) {
@@ -55,7 +66,7 @@ $root.ServerSync = (function() {
 
         /**
          * SyncdPatch version.
-         * @member {ServerSync.ISyncdVersion|null|undefined} version
+         * @member {ServerSync.SyncdVersion.$Properties|null|undefined} version
          * @memberof ServerSync.SyncdPatch
          * @instance
          */
@@ -63,7 +74,7 @@ $root.ServerSync = (function() {
 
         /**
          * SyncdPatch mutations.
-         * @member {Array.<ServerSync.ISyncdMutation>} mutations
+         * @member {Array.<ServerSync.SyncdMutation.$Properties>} mutations
          * @memberof ServerSync.SyncdPatch
          * @instance
          */
@@ -71,7 +82,7 @@ $root.ServerSync = (function() {
 
         /**
          * SyncdPatch externalMutations.
-         * @member {ServerSync.IExternalBlobReference|null|undefined} externalMutations
+         * @member {ServerSync.ExternalBlobReference.$Properties|null|undefined} externalMutations
          * @memberof ServerSync.SyncdPatch
          * @instance
          */
@@ -95,7 +106,7 @@ $root.ServerSync = (function() {
 
         /**
          * SyncdPatch keyId.
-         * @member {ServerSync.IKeyId|null|undefined} keyId
+         * @member {ServerSync.KeyId.$Properties|null|undefined} keyId
          * @memberof ServerSync.SyncdPatch
          * @instance
          */
@@ -103,7 +114,7 @@ $root.ServerSync = (function() {
 
         /**
          * SyncdPatch exitCode.
-         * @member {ServerSync.IExitCode|null|undefined} exitCode
+         * @member {ServerSync.ExitCode.$Properties|null|undefined} exitCode
          * @memberof ServerSync.SyncdPatch
          * @instance
          */
@@ -181,8 +192,12 @@ $root.ServerSync = (function() {
          * @function create
          * @memberof ServerSync.SyncdPatch
          * @static
-         * @param {ServerSync.ISyncdPatch=} [properties] Properties to set
+         * @param {ServerSync.SyncdPatch.$Properties=} [properties] Properties to set
          * @returns {ServerSync.SyncdPatch} SyncdPatch instance
+         * @type {{
+         *   (properties: ServerSync.SyncdPatch.$Shape): ServerSync.SyncdPatch & ServerSync.SyncdPatch.$Shape;
+         *   (properties?: ServerSync.SyncdPatch.$Properties): ServerSync.SyncdPatch;
+         * }}
          */
         SyncdPatch.create = function create(properties) {
             return new SyncdPatch(properties);
@@ -193,7 +208,7 @@ $root.ServerSync = (function() {
          * @function encode
          * @memberof ServerSync.SyncdPatch
          * @static
-         * @param {ServerSync.ISyncdPatch} message SyncdPatch message or plain object to encode
+         * @param {ServerSync.SyncdPatch.$Properties} message SyncdPatch message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -230,7 +245,7 @@ $root.ServerSync = (function() {
          * @function encodeDelimited
          * @memberof ServerSync.SyncdPatch
          * @static
-         * @param {ServerSync.ISyncdPatch} message SyncdPatch message or plain object to encode
+         * @param {ServerSync.SyncdPatch.$Properties} message SyncdPatch message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -245,7 +260,7 @@ $root.ServerSync = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {ServerSync.SyncdPatch} SyncdPatch
+         * @returns {ServerSync.SyncdPatch & ServerSync.SyncdPatch.$Shape} SyncdPatch
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -346,7 +361,7 @@ $root.ServerSync = (function() {
          * @memberof ServerSync.SyncdPatch
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {ServerSync.SyncdPatch} SyncdPatch
+         * @returns {ServerSync.SyncdPatch & ServerSync.SyncdPatch.$Shape} SyncdPatch
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -597,20 +612,31 @@ $root.ServerSync = (function() {
 
         /**
          * Properties of a SyncdMutation.
+         * @typedef {Object} ServerSync.SyncdMutation.$Properties
+         * @property {ServerSync.SyncdMutation.SyncdOperation|null} [operation] SyncdMutation operation
+         * @property {ServerSync.SyncdRecord.$Properties|null} [record] SyncdMutation record
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a SyncdMutation.
          * @memberof ServerSync
          * @interface ISyncdMutation
-         * @property {ServerSync.SyncdMutation.SyncdOperation|null} [operation] SyncdMutation operation
-         * @property {ServerSync.ISyncdRecord|null} [record] SyncdMutation record
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments ServerSync.SyncdMutation.$Properties
+         * @deprecated Use ServerSync.SyncdMutation.$Properties instead.
+         */
+
+        /**
+         * Shape of a SyncdMutation.
+         * @typedef {ServerSync.SyncdMutation.$Properties} ServerSync.SyncdMutation.$Shape
          */
 
         /**
          * Constructs a new SyncdMutation.
          * @memberof ServerSync
          * @classdesc Represents a SyncdMutation.
-         * @implements ISyncdMutation
          * @constructor
-         * @param {ServerSync.ISyncdMutation=} [properties] Properties to set
+         * @param {ServerSync.SyncdMutation.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SyncdMutation(properties) {
@@ -630,7 +656,7 @@ $root.ServerSync = (function() {
 
         /**
          * SyncdMutation record.
-         * @member {ServerSync.ISyncdRecord|null|undefined} record
+         * @member {ServerSync.SyncdRecord.$Properties|null|undefined} record
          * @memberof ServerSync.SyncdMutation
          * @instance
          */
@@ -656,8 +682,12 @@ $root.ServerSync = (function() {
          * @function create
          * @memberof ServerSync.SyncdMutation
          * @static
-         * @param {ServerSync.ISyncdMutation=} [properties] Properties to set
+         * @param {ServerSync.SyncdMutation.$Properties=} [properties] Properties to set
          * @returns {ServerSync.SyncdMutation} SyncdMutation instance
+         * @type {{
+         *   (properties: ServerSync.SyncdMutation.$Shape): ServerSync.SyncdMutation & ServerSync.SyncdMutation.$Shape;
+         *   (properties?: ServerSync.SyncdMutation.$Properties): ServerSync.SyncdMutation;
+         * }}
          */
         SyncdMutation.create = function create(properties) {
             return new SyncdMutation(properties);
@@ -668,7 +698,7 @@ $root.ServerSync = (function() {
          * @function encode
          * @memberof ServerSync.SyncdMutation
          * @static
-         * @param {ServerSync.ISyncdMutation} message SyncdMutation message or plain object to encode
+         * @param {ServerSync.SyncdMutation.$Properties} message SyncdMutation message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -690,7 +720,7 @@ $root.ServerSync = (function() {
          * @function encodeDelimited
          * @memberof ServerSync.SyncdMutation
          * @static
-         * @param {ServerSync.ISyncdMutation} message SyncdMutation message or plain object to encode
+         * @param {ServerSync.SyncdMutation.$Properties} message SyncdMutation message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -705,7 +735,7 @@ $root.ServerSync = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {ServerSync.SyncdMutation} SyncdMutation
+         * @returns {ServerSync.SyncdMutation & ServerSync.SyncdMutation.$Shape} SyncdMutation
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -756,7 +786,7 @@ $root.ServerSync = (function() {
          * @memberof ServerSync.SyncdMutation
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {ServerSync.SyncdMutation} SyncdMutation
+         * @returns {ServerSync.SyncdMutation & ServerSync.SyncdMutation.$Shape} SyncdMutation
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -915,19 +945,30 @@ $root.ServerSync = (function() {
 
         /**
          * Properties of a SyncdMutations.
+         * @typedef {Object} ServerSync.SyncdMutations.$Properties
+         * @property {Array.<ServerSync.SyncdMutation.$Properties>|null} [mutations] SyncdMutations mutations
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a SyncdMutations.
          * @memberof ServerSync
          * @interface ISyncdMutations
-         * @property {Array.<ServerSync.ISyncdMutation>|null} [mutations] SyncdMutations mutations
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments ServerSync.SyncdMutations.$Properties
+         * @deprecated Use ServerSync.SyncdMutations.$Properties instead.
+         */
+
+        /**
+         * Shape of a SyncdMutations.
+         * @typedef {ServerSync.SyncdMutations.$Properties} ServerSync.SyncdMutations.$Shape
          */
 
         /**
          * Constructs a new SyncdMutations.
          * @memberof ServerSync
          * @classdesc Represents a SyncdMutations.
-         * @implements ISyncdMutations
          * @constructor
-         * @param {ServerSync.ISyncdMutations=} [properties] Properties to set
+         * @param {ServerSync.SyncdMutations.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SyncdMutations(properties) {
@@ -940,7 +981,7 @@ $root.ServerSync = (function() {
 
         /**
          * SyncdMutations mutations.
-         * @member {Array.<ServerSync.ISyncdMutation>} mutations
+         * @member {Array.<ServerSync.SyncdMutation.$Properties>} mutations
          * @memberof ServerSync.SyncdMutations
          * @instance
          */
@@ -951,8 +992,12 @@ $root.ServerSync = (function() {
          * @function create
          * @memberof ServerSync.SyncdMutations
          * @static
-         * @param {ServerSync.ISyncdMutations=} [properties] Properties to set
+         * @param {ServerSync.SyncdMutations.$Properties=} [properties] Properties to set
          * @returns {ServerSync.SyncdMutations} SyncdMutations instance
+         * @type {{
+         *   (properties: ServerSync.SyncdMutations.$Shape): ServerSync.SyncdMutations & ServerSync.SyncdMutations.$Shape;
+         *   (properties?: ServerSync.SyncdMutations.$Properties): ServerSync.SyncdMutations;
+         * }}
          */
         SyncdMutations.create = function create(properties) {
             return new SyncdMutations(properties);
@@ -963,7 +1008,7 @@ $root.ServerSync = (function() {
          * @function encode
          * @memberof ServerSync.SyncdMutations
          * @static
-         * @param {ServerSync.ISyncdMutations} message SyncdMutations message or plain object to encode
+         * @param {ServerSync.SyncdMutations.$Properties} message SyncdMutations message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -984,7 +1029,7 @@ $root.ServerSync = (function() {
          * @function encodeDelimited
          * @memberof ServerSync.SyncdMutations
          * @static
-         * @param {ServerSync.ISyncdMutations} message SyncdMutations message or plain object to encode
+         * @param {ServerSync.SyncdMutations.$Properties} message SyncdMutations message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -999,7 +1044,7 @@ $root.ServerSync = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {ServerSync.SyncdMutations} SyncdMutations
+         * @returns {ServerSync.SyncdMutations & ServerSync.SyncdMutations.$Shape} SyncdMutations
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1044,7 +1089,7 @@ $root.ServerSync = (function() {
          * @memberof ServerSync.SyncdMutations
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {ServerSync.SyncdMutations} SyncdMutations
+         * @returns {ServerSync.SyncdMutations & ServerSync.SyncdMutations.$Shape} SyncdMutations
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1165,22 +1210,33 @@ $root.ServerSync = (function() {
 
         /**
          * Properties of a SyncdSnapshot.
+         * @typedef {Object} ServerSync.SyncdSnapshot.$Properties
+         * @property {ServerSync.SyncdVersion.$Properties|null} [version] SyncdSnapshot version
+         * @property {Array.<ServerSync.SyncdRecord.$Properties>|null} [records] SyncdSnapshot records
+         * @property {Uint8Array|null} [mac] SyncdSnapshot mac
+         * @property {ServerSync.KeyId.$Properties|null} [keyId] SyncdSnapshot keyId
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a SyncdSnapshot.
          * @memberof ServerSync
          * @interface ISyncdSnapshot
-         * @property {ServerSync.ISyncdVersion|null} [version] SyncdSnapshot version
-         * @property {Array.<ServerSync.ISyncdRecord>|null} [records] SyncdSnapshot records
-         * @property {Uint8Array|null} [mac] SyncdSnapshot mac
-         * @property {ServerSync.IKeyId|null} [keyId] SyncdSnapshot keyId
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments ServerSync.SyncdSnapshot.$Properties
+         * @deprecated Use ServerSync.SyncdSnapshot.$Properties instead.
+         */
+
+        /**
+         * Shape of a SyncdSnapshot.
+         * @typedef {ServerSync.SyncdSnapshot.$Properties} ServerSync.SyncdSnapshot.$Shape
          */
 
         /**
          * Constructs a new SyncdSnapshot.
          * @memberof ServerSync
          * @classdesc Represents a SyncdSnapshot.
-         * @implements ISyncdSnapshot
          * @constructor
-         * @param {ServerSync.ISyncdSnapshot=} [properties] Properties to set
+         * @param {ServerSync.SyncdSnapshot.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SyncdSnapshot(properties) {
@@ -1193,7 +1249,7 @@ $root.ServerSync = (function() {
 
         /**
          * SyncdSnapshot version.
-         * @member {ServerSync.ISyncdVersion|null|undefined} version
+         * @member {ServerSync.SyncdVersion.$Properties|null|undefined} version
          * @memberof ServerSync.SyncdSnapshot
          * @instance
          */
@@ -1201,7 +1257,7 @@ $root.ServerSync = (function() {
 
         /**
          * SyncdSnapshot records.
-         * @member {Array.<ServerSync.ISyncdRecord>} records
+         * @member {Array.<ServerSync.SyncdRecord.$Properties>} records
          * @memberof ServerSync.SyncdSnapshot
          * @instance
          */
@@ -1217,7 +1273,7 @@ $root.ServerSync = (function() {
 
         /**
          * SyncdSnapshot keyId.
-         * @member {ServerSync.IKeyId|null|undefined} keyId
+         * @member {ServerSync.KeyId.$Properties|null|undefined} keyId
          * @memberof ServerSync.SyncdSnapshot
          * @instance
          */
@@ -1249,8 +1305,12 @@ $root.ServerSync = (function() {
          * @function create
          * @memberof ServerSync.SyncdSnapshot
          * @static
-         * @param {ServerSync.ISyncdSnapshot=} [properties] Properties to set
+         * @param {ServerSync.SyncdSnapshot.$Properties=} [properties] Properties to set
          * @returns {ServerSync.SyncdSnapshot} SyncdSnapshot instance
+         * @type {{
+         *   (properties: ServerSync.SyncdSnapshot.$Shape): ServerSync.SyncdSnapshot & ServerSync.SyncdSnapshot.$Shape;
+         *   (properties?: ServerSync.SyncdSnapshot.$Properties): ServerSync.SyncdSnapshot;
+         * }}
          */
         SyncdSnapshot.create = function create(properties) {
             return new SyncdSnapshot(properties);
@@ -1261,7 +1321,7 @@ $root.ServerSync = (function() {
          * @function encode
          * @memberof ServerSync.SyncdSnapshot
          * @static
-         * @param {ServerSync.ISyncdSnapshot} message SyncdSnapshot message or plain object to encode
+         * @param {ServerSync.SyncdSnapshot.$Properties} message SyncdSnapshot message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1288,7 +1348,7 @@ $root.ServerSync = (function() {
          * @function encodeDelimited
          * @memberof ServerSync.SyncdSnapshot
          * @static
-         * @param {ServerSync.ISyncdSnapshot} message SyncdSnapshot message or plain object to encode
+         * @param {ServerSync.SyncdSnapshot.$Properties} message SyncdSnapshot message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1303,7 +1363,7 @@ $root.ServerSync = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {ServerSync.SyncdSnapshot} SyncdSnapshot
+         * @returns {ServerSync.SyncdSnapshot & ServerSync.SyncdSnapshot.$Shape} SyncdSnapshot
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1369,7 +1429,7 @@ $root.ServerSync = (function() {
          * @memberof ServerSync.SyncdSnapshot
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {ServerSync.SyncdSnapshot} SyncdSnapshot
+         * @returns {ServerSync.SyncdSnapshot & ServerSync.SyncdSnapshot.$Shape} SyncdSnapshot
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1542,8 +1602,7 @@ $root.ServerSync = (function() {
 
         /**
          * Properties of an ExternalBlobReference.
-         * @memberof ServerSync
-         * @interface IExternalBlobReference
+         * @typedef {Object} ServerSync.ExternalBlobReference.$Properties
          * @property {Uint8Array|null} [mediaKey] ExternalBlobReference mediaKey
          * @property {string|null} [directPath] ExternalBlobReference directPath
          * @property {string|null} [handle] ExternalBlobReference handle
@@ -1554,12 +1613,24 @@ $root.ServerSync = (function() {
          */
 
         /**
+         * Properties of an ExternalBlobReference.
+         * @memberof ServerSync
+         * @interface IExternalBlobReference
+         * @augments ServerSync.ExternalBlobReference.$Properties
+         * @deprecated Use ServerSync.ExternalBlobReference.$Properties instead.
+         */
+
+        /**
+         * Shape of an ExternalBlobReference.
+         * @typedef {ServerSync.ExternalBlobReference.$Properties} ServerSync.ExternalBlobReference.$Shape
+         */
+
+        /**
          * Constructs a new ExternalBlobReference.
          * @memberof ServerSync
          * @classdesc Represents an ExternalBlobReference.
-         * @implements IExternalBlobReference
          * @constructor
-         * @param {ServerSync.IExternalBlobReference=} [properties] Properties to set
+         * @param {ServerSync.ExternalBlobReference.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function ExternalBlobReference(properties) {
@@ -1661,8 +1732,12 @@ $root.ServerSync = (function() {
          * @function create
          * @memberof ServerSync.ExternalBlobReference
          * @static
-         * @param {ServerSync.IExternalBlobReference=} [properties] Properties to set
+         * @param {ServerSync.ExternalBlobReference.$Properties=} [properties] Properties to set
          * @returns {ServerSync.ExternalBlobReference} ExternalBlobReference instance
+         * @type {{
+         *   (properties: ServerSync.ExternalBlobReference.$Shape): ServerSync.ExternalBlobReference & ServerSync.ExternalBlobReference.$Shape;
+         *   (properties?: ServerSync.ExternalBlobReference.$Properties): ServerSync.ExternalBlobReference;
+         * }}
          */
         ExternalBlobReference.create = function create(properties) {
             return new ExternalBlobReference(properties);
@@ -1673,7 +1748,7 @@ $root.ServerSync = (function() {
          * @function encode
          * @memberof ServerSync.ExternalBlobReference
          * @static
-         * @param {ServerSync.IExternalBlobReference} message ExternalBlobReference message or plain object to encode
+         * @param {ServerSync.ExternalBlobReference.$Properties} message ExternalBlobReference message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1703,7 +1778,7 @@ $root.ServerSync = (function() {
          * @function encodeDelimited
          * @memberof ServerSync.ExternalBlobReference
          * @static
-         * @param {ServerSync.IExternalBlobReference} message ExternalBlobReference message or plain object to encode
+         * @param {ServerSync.ExternalBlobReference.$Properties} message ExternalBlobReference message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1718,7 +1793,7 @@ $root.ServerSync = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {ServerSync.ExternalBlobReference} ExternalBlobReference
+         * @returns {ServerSync.ExternalBlobReference & ServerSync.ExternalBlobReference.$Shape} ExternalBlobReference
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1797,7 +1872,7 @@ $root.ServerSync = (function() {
          * @memberof ServerSync.ExternalBlobReference
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {ServerSync.ExternalBlobReference} ExternalBlobReference
+         * @returns {ServerSync.ExternalBlobReference & ServerSync.ExternalBlobReference.$Shape} ExternalBlobReference
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1984,21 +2059,32 @@ $root.ServerSync = (function() {
 
         /**
          * Properties of a SyncdRecord.
+         * @typedef {Object} ServerSync.SyncdRecord.$Properties
+         * @property {ServerSync.SyncdIndex.$Properties|null} [index] SyncdRecord index
+         * @property {ServerSync.SyncdValue.$Properties|null} [value] SyncdRecord value
+         * @property {ServerSync.KeyId.$Properties|null} [keyId] SyncdRecord keyId
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a SyncdRecord.
          * @memberof ServerSync
          * @interface ISyncdRecord
-         * @property {ServerSync.ISyncdIndex|null} [index] SyncdRecord index
-         * @property {ServerSync.ISyncdValue|null} [value] SyncdRecord value
-         * @property {ServerSync.IKeyId|null} [keyId] SyncdRecord keyId
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments ServerSync.SyncdRecord.$Properties
+         * @deprecated Use ServerSync.SyncdRecord.$Properties instead.
+         */
+
+        /**
+         * Shape of a SyncdRecord.
+         * @typedef {ServerSync.SyncdRecord.$Properties} ServerSync.SyncdRecord.$Shape
          */
 
         /**
          * Constructs a new SyncdRecord.
          * @memberof ServerSync
          * @classdesc Represents a SyncdRecord.
-         * @implements ISyncdRecord
          * @constructor
-         * @param {ServerSync.ISyncdRecord=} [properties] Properties to set
+         * @param {ServerSync.SyncdRecord.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SyncdRecord(properties) {
@@ -2010,7 +2096,7 @@ $root.ServerSync = (function() {
 
         /**
          * SyncdRecord index.
-         * @member {ServerSync.ISyncdIndex|null|undefined} index
+         * @member {ServerSync.SyncdIndex.$Properties|null|undefined} index
          * @memberof ServerSync.SyncdRecord
          * @instance
          */
@@ -2018,7 +2104,7 @@ $root.ServerSync = (function() {
 
         /**
          * SyncdRecord value.
-         * @member {ServerSync.ISyncdValue|null|undefined} value
+         * @member {ServerSync.SyncdValue.$Properties|null|undefined} value
          * @memberof ServerSync.SyncdRecord
          * @instance
          */
@@ -2026,7 +2112,7 @@ $root.ServerSync = (function() {
 
         /**
          * SyncdRecord keyId.
-         * @member {ServerSync.IKeyId|null|undefined} keyId
+         * @member {ServerSync.KeyId.$Properties|null|undefined} keyId
          * @memberof ServerSync.SyncdRecord
          * @instance
          */
@@ -2058,8 +2144,12 @@ $root.ServerSync = (function() {
          * @function create
          * @memberof ServerSync.SyncdRecord
          * @static
-         * @param {ServerSync.ISyncdRecord=} [properties] Properties to set
+         * @param {ServerSync.SyncdRecord.$Properties=} [properties] Properties to set
          * @returns {ServerSync.SyncdRecord} SyncdRecord instance
+         * @type {{
+         *   (properties: ServerSync.SyncdRecord.$Shape): ServerSync.SyncdRecord & ServerSync.SyncdRecord.$Shape;
+         *   (properties?: ServerSync.SyncdRecord.$Properties): ServerSync.SyncdRecord;
+         * }}
          */
         SyncdRecord.create = function create(properties) {
             return new SyncdRecord(properties);
@@ -2070,7 +2160,7 @@ $root.ServerSync = (function() {
          * @function encode
          * @memberof ServerSync.SyncdRecord
          * @static
-         * @param {ServerSync.ISyncdRecord} message SyncdRecord message or plain object to encode
+         * @param {ServerSync.SyncdRecord.$Properties} message SyncdRecord message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2094,7 +2184,7 @@ $root.ServerSync = (function() {
          * @function encodeDelimited
          * @memberof ServerSync.SyncdRecord
          * @static
-         * @param {ServerSync.ISyncdRecord} message SyncdRecord message or plain object to encode
+         * @param {ServerSync.SyncdRecord.$Properties} message SyncdRecord message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2109,7 +2199,7 @@ $root.ServerSync = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {ServerSync.SyncdRecord} SyncdRecord
+         * @returns {ServerSync.SyncdRecord & ServerSync.SyncdRecord.$Shape} SyncdRecord
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2167,7 +2257,7 @@ $root.ServerSync = (function() {
          * @memberof ServerSync.SyncdRecord
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {ServerSync.SyncdRecord} SyncdRecord
+         * @returns {ServerSync.SyncdRecord & ServerSync.SyncdRecord.$Shape} SyncdRecord
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2317,19 +2407,30 @@ $root.ServerSync = (function() {
 
         /**
          * Properties of a KeyId.
-         * @memberof ServerSync
-         * @interface IKeyId
+         * @typedef {Object} ServerSync.KeyId.$Properties
          * @property {Uint8Array|null} [id] KeyId id
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a KeyId.
+         * @memberof ServerSync
+         * @interface IKeyId
+         * @augments ServerSync.KeyId.$Properties
+         * @deprecated Use ServerSync.KeyId.$Properties instead.
+         */
+
+        /**
+         * Shape of a KeyId.
+         * @typedef {ServerSync.KeyId.$Properties} ServerSync.KeyId.$Shape
          */
 
         /**
          * Constructs a new KeyId.
          * @memberof ServerSync
          * @classdesc Represents a KeyId.
-         * @implements IKeyId
          * @constructor
-         * @param {ServerSync.IKeyId=} [properties] Properties to set
+         * @param {ServerSync.KeyId.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function KeyId(properties) {
@@ -2361,8 +2462,12 @@ $root.ServerSync = (function() {
          * @function create
          * @memberof ServerSync.KeyId
          * @static
-         * @param {ServerSync.IKeyId=} [properties] Properties to set
+         * @param {ServerSync.KeyId.$Properties=} [properties] Properties to set
          * @returns {ServerSync.KeyId} KeyId instance
+         * @type {{
+         *   (properties: ServerSync.KeyId.$Shape): ServerSync.KeyId & ServerSync.KeyId.$Shape;
+         *   (properties?: ServerSync.KeyId.$Properties): ServerSync.KeyId;
+         * }}
          */
         KeyId.create = function create(properties) {
             return new KeyId(properties);
@@ -2373,7 +2478,7 @@ $root.ServerSync = (function() {
          * @function encode
          * @memberof ServerSync.KeyId
          * @static
-         * @param {ServerSync.IKeyId} message KeyId message or plain object to encode
+         * @param {ServerSync.KeyId.$Properties} message KeyId message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2393,7 +2498,7 @@ $root.ServerSync = (function() {
          * @function encodeDelimited
          * @memberof ServerSync.KeyId
          * @static
-         * @param {ServerSync.IKeyId} message KeyId message or plain object to encode
+         * @param {ServerSync.KeyId.$Properties} message KeyId message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2408,7 +2513,7 @@ $root.ServerSync = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {ServerSync.KeyId} KeyId
+         * @returns {ServerSync.KeyId & ServerSync.KeyId.$Shape} KeyId
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2452,7 +2557,7 @@ $root.ServerSync = (function() {
          * @memberof ServerSync.KeyId
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {ServerSync.KeyId} KeyId
+         * @returns {ServerSync.KeyId & ServerSync.KeyId.$Shape} KeyId
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2563,19 +2668,30 @@ $root.ServerSync = (function() {
 
         /**
          * Properties of a SyncdValue.
-         * @memberof ServerSync
-         * @interface ISyncdValue
+         * @typedef {Object} ServerSync.SyncdValue.$Properties
          * @property {Uint8Array|null} [blob] SyncdValue blob
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a SyncdValue.
+         * @memberof ServerSync
+         * @interface ISyncdValue
+         * @augments ServerSync.SyncdValue.$Properties
+         * @deprecated Use ServerSync.SyncdValue.$Properties instead.
+         */
+
+        /**
+         * Shape of a SyncdValue.
+         * @typedef {ServerSync.SyncdValue.$Properties} ServerSync.SyncdValue.$Shape
          */
 
         /**
          * Constructs a new SyncdValue.
          * @memberof ServerSync
          * @classdesc Represents a SyncdValue.
-         * @implements ISyncdValue
          * @constructor
-         * @param {ServerSync.ISyncdValue=} [properties] Properties to set
+         * @param {ServerSync.SyncdValue.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SyncdValue(properties) {
@@ -2607,8 +2723,12 @@ $root.ServerSync = (function() {
          * @function create
          * @memberof ServerSync.SyncdValue
          * @static
-         * @param {ServerSync.ISyncdValue=} [properties] Properties to set
+         * @param {ServerSync.SyncdValue.$Properties=} [properties] Properties to set
          * @returns {ServerSync.SyncdValue} SyncdValue instance
+         * @type {{
+         *   (properties: ServerSync.SyncdValue.$Shape): ServerSync.SyncdValue & ServerSync.SyncdValue.$Shape;
+         *   (properties?: ServerSync.SyncdValue.$Properties): ServerSync.SyncdValue;
+         * }}
          */
         SyncdValue.create = function create(properties) {
             return new SyncdValue(properties);
@@ -2619,7 +2739,7 @@ $root.ServerSync = (function() {
          * @function encode
          * @memberof ServerSync.SyncdValue
          * @static
-         * @param {ServerSync.ISyncdValue} message SyncdValue message or plain object to encode
+         * @param {ServerSync.SyncdValue.$Properties} message SyncdValue message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2639,7 +2759,7 @@ $root.ServerSync = (function() {
          * @function encodeDelimited
          * @memberof ServerSync.SyncdValue
          * @static
-         * @param {ServerSync.ISyncdValue} message SyncdValue message or plain object to encode
+         * @param {ServerSync.SyncdValue.$Properties} message SyncdValue message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2654,7 +2774,7 @@ $root.ServerSync = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {ServerSync.SyncdValue} SyncdValue
+         * @returns {ServerSync.SyncdValue & ServerSync.SyncdValue.$Shape} SyncdValue
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2698,7 +2818,7 @@ $root.ServerSync = (function() {
          * @memberof ServerSync.SyncdValue
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {ServerSync.SyncdValue} SyncdValue
+         * @returns {ServerSync.SyncdValue & ServerSync.SyncdValue.$Shape} SyncdValue
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2809,19 +2929,30 @@ $root.ServerSync = (function() {
 
         /**
          * Properties of a SyncdIndex.
-         * @memberof ServerSync
-         * @interface ISyncdIndex
+         * @typedef {Object} ServerSync.SyncdIndex.$Properties
          * @property {Uint8Array|null} [blob] SyncdIndex blob
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a SyncdIndex.
+         * @memberof ServerSync
+         * @interface ISyncdIndex
+         * @augments ServerSync.SyncdIndex.$Properties
+         * @deprecated Use ServerSync.SyncdIndex.$Properties instead.
+         */
+
+        /**
+         * Shape of a SyncdIndex.
+         * @typedef {ServerSync.SyncdIndex.$Properties} ServerSync.SyncdIndex.$Shape
          */
 
         /**
          * Constructs a new SyncdIndex.
          * @memberof ServerSync
          * @classdesc Represents a SyncdIndex.
-         * @implements ISyncdIndex
          * @constructor
-         * @param {ServerSync.ISyncdIndex=} [properties] Properties to set
+         * @param {ServerSync.SyncdIndex.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SyncdIndex(properties) {
@@ -2853,8 +2984,12 @@ $root.ServerSync = (function() {
          * @function create
          * @memberof ServerSync.SyncdIndex
          * @static
-         * @param {ServerSync.ISyncdIndex=} [properties] Properties to set
+         * @param {ServerSync.SyncdIndex.$Properties=} [properties] Properties to set
          * @returns {ServerSync.SyncdIndex} SyncdIndex instance
+         * @type {{
+         *   (properties: ServerSync.SyncdIndex.$Shape): ServerSync.SyncdIndex & ServerSync.SyncdIndex.$Shape;
+         *   (properties?: ServerSync.SyncdIndex.$Properties): ServerSync.SyncdIndex;
+         * }}
          */
         SyncdIndex.create = function create(properties) {
             return new SyncdIndex(properties);
@@ -2865,7 +3000,7 @@ $root.ServerSync = (function() {
          * @function encode
          * @memberof ServerSync.SyncdIndex
          * @static
-         * @param {ServerSync.ISyncdIndex} message SyncdIndex message or plain object to encode
+         * @param {ServerSync.SyncdIndex.$Properties} message SyncdIndex message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2885,7 +3020,7 @@ $root.ServerSync = (function() {
          * @function encodeDelimited
          * @memberof ServerSync.SyncdIndex
          * @static
-         * @param {ServerSync.ISyncdIndex} message SyncdIndex message or plain object to encode
+         * @param {ServerSync.SyncdIndex.$Properties} message SyncdIndex message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2900,7 +3035,7 @@ $root.ServerSync = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {ServerSync.SyncdIndex} SyncdIndex
+         * @returns {ServerSync.SyncdIndex & ServerSync.SyncdIndex.$Shape} SyncdIndex
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2944,7 +3079,7 @@ $root.ServerSync = (function() {
          * @memberof ServerSync.SyncdIndex
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {ServerSync.SyncdIndex} SyncdIndex
+         * @returns {ServerSync.SyncdIndex & ServerSync.SyncdIndex.$Shape} SyncdIndex
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -3055,20 +3190,31 @@ $root.ServerSync = (function() {
 
         /**
          * Properties of an ExitCode.
-         * @memberof ServerSync
-         * @interface IExitCode
+         * @typedef {Object} ServerSync.ExitCode.$Properties
          * @property {number|Long|null} [code] ExitCode code
          * @property {string|null} [text] ExitCode text
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
+         * Properties of an ExitCode.
+         * @memberof ServerSync
+         * @interface IExitCode
+         * @augments ServerSync.ExitCode.$Properties
+         * @deprecated Use ServerSync.ExitCode.$Properties instead.
+         */
+
+        /**
+         * Shape of an ExitCode.
+         * @typedef {ServerSync.ExitCode.$Properties} ServerSync.ExitCode.$Shape
+         */
+
+        /**
          * Constructs a new ExitCode.
          * @memberof ServerSync
          * @classdesc Represents an ExitCode.
-         * @implements IExitCode
          * @constructor
-         * @param {ServerSync.IExitCode=} [properties] Properties to set
+         * @param {ServerSync.ExitCode.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function ExitCode(properties) {
@@ -3114,8 +3260,12 @@ $root.ServerSync = (function() {
          * @function create
          * @memberof ServerSync.ExitCode
          * @static
-         * @param {ServerSync.IExitCode=} [properties] Properties to set
+         * @param {ServerSync.ExitCode.$Properties=} [properties] Properties to set
          * @returns {ServerSync.ExitCode} ExitCode instance
+         * @type {{
+         *   (properties: ServerSync.ExitCode.$Shape): ServerSync.ExitCode & ServerSync.ExitCode.$Shape;
+         *   (properties?: ServerSync.ExitCode.$Properties): ServerSync.ExitCode;
+         * }}
          */
         ExitCode.create = function create(properties) {
             return new ExitCode(properties);
@@ -3126,7 +3276,7 @@ $root.ServerSync = (function() {
          * @function encode
          * @memberof ServerSync.ExitCode
          * @static
-         * @param {ServerSync.IExitCode} message ExitCode message or plain object to encode
+         * @param {ServerSync.ExitCode.$Properties} message ExitCode message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3148,7 +3298,7 @@ $root.ServerSync = (function() {
          * @function encodeDelimited
          * @memberof ServerSync.ExitCode
          * @static
-         * @param {ServerSync.IExitCode} message ExitCode message or plain object to encode
+         * @param {ServerSync.ExitCode.$Properties} message ExitCode message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3163,7 +3313,7 @@ $root.ServerSync = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {ServerSync.ExitCode} ExitCode
+         * @returns {ServerSync.ExitCode & ServerSync.ExitCode.$Shape} ExitCode
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -3214,7 +3364,7 @@ $root.ServerSync = (function() {
          * @memberof ServerSync.ExitCode
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {ServerSync.ExitCode} ExitCode
+         * @returns {ServerSync.ExitCode & ServerSync.ExitCode.$Shape} ExitCode
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -3344,19 +3494,30 @@ $root.ServerSync = (function() {
 
         /**
          * Properties of a SyncdVersion.
-         * @memberof ServerSync
-         * @interface ISyncdVersion
+         * @typedef {Object} ServerSync.SyncdVersion.$Properties
          * @property {number|Long|null} [version] SyncdVersion version
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a SyncdVersion.
+         * @memberof ServerSync
+         * @interface ISyncdVersion
+         * @augments ServerSync.SyncdVersion.$Properties
+         * @deprecated Use ServerSync.SyncdVersion.$Properties instead.
+         */
+
+        /**
+         * Shape of a SyncdVersion.
+         * @typedef {ServerSync.SyncdVersion.$Properties} ServerSync.SyncdVersion.$Shape
          */
 
         /**
          * Constructs a new SyncdVersion.
          * @memberof ServerSync
          * @classdesc Represents a SyncdVersion.
-         * @implements ISyncdVersion
          * @constructor
-         * @param {ServerSync.ISyncdVersion=} [properties] Properties to set
+         * @param {ServerSync.SyncdVersion.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function SyncdVersion(properties) {
@@ -3388,8 +3549,12 @@ $root.ServerSync = (function() {
          * @function create
          * @memberof ServerSync.SyncdVersion
          * @static
-         * @param {ServerSync.ISyncdVersion=} [properties] Properties to set
+         * @param {ServerSync.SyncdVersion.$Properties=} [properties] Properties to set
          * @returns {ServerSync.SyncdVersion} SyncdVersion instance
+         * @type {{
+         *   (properties: ServerSync.SyncdVersion.$Shape): ServerSync.SyncdVersion & ServerSync.SyncdVersion.$Shape;
+         *   (properties?: ServerSync.SyncdVersion.$Properties): ServerSync.SyncdVersion;
+         * }}
          */
         SyncdVersion.create = function create(properties) {
             return new SyncdVersion(properties);
@@ -3400,7 +3565,7 @@ $root.ServerSync = (function() {
          * @function encode
          * @memberof ServerSync.SyncdVersion
          * @static
-         * @param {ServerSync.ISyncdVersion} message SyncdVersion message or plain object to encode
+         * @param {ServerSync.SyncdVersion.$Properties} message SyncdVersion message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3420,7 +3585,7 @@ $root.ServerSync = (function() {
          * @function encodeDelimited
          * @memberof ServerSync.SyncdVersion
          * @static
-         * @param {ServerSync.ISyncdVersion} message SyncdVersion message or plain object to encode
+         * @param {ServerSync.SyncdVersion.$Properties} message SyncdVersion message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3435,7 +3600,7 @@ $root.ServerSync = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {ServerSync.SyncdVersion} SyncdVersion
+         * @returns {ServerSync.SyncdVersion & ServerSync.SyncdVersion.$Shape} SyncdVersion
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -3479,7 +3644,7 @@ $root.ServerSync = (function() {
          * @memberof ServerSync.SyncdVersion
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {ServerSync.SyncdVersion} SyncdVersion
+         * @returns {ServerSync.SyncdVersion & ServerSync.SyncdVersion.$Shape} SyncdVersion
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */

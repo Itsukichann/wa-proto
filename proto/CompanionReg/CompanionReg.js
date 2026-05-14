@@ -22,8 +22,7 @@ $root.CompanionReg = (function() {
 
         /**
          * Properties of a ClientPairingProps.
-         * @memberof CompanionReg
-         * @interface IClientPairingProps
+         * @typedef {Object} CompanionReg.ClientPairingProps.$Properties
          * @property {boolean|null} [isChatDbLidMigrated] ClientPairingProps isChatDbLidMigrated
          * @property {boolean|null} [isSyncdPureLidSession] ClientPairingProps isSyncdPureLidSession
          * @property {boolean|null} [isSyncdSnapshotRecoveryEnabled] ClientPairingProps isSyncdSnapshotRecoveryEnabled
@@ -33,12 +32,24 @@ $root.CompanionReg = (function() {
          */
 
         /**
+         * Properties of a ClientPairingProps.
+         * @memberof CompanionReg
+         * @interface IClientPairingProps
+         * @augments CompanionReg.ClientPairingProps.$Properties
+         * @deprecated Use CompanionReg.ClientPairingProps.$Properties instead.
+         */
+
+        /**
+         * Shape of a ClientPairingProps.
+         * @typedef {CompanionReg.ClientPairingProps.$Properties} CompanionReg.ClientPairingProps.$Shape
+         */
+
+        /**
          * Constructs a new ClientPairingProps.
          * @memberof CompanionReg
          * @classdesc Represents a ClientPairingProps.
-         * @implements IClientPairingProps
          * @constructor
-         * @param {CompanionReg.IClientPairingProps=} [properties] Properties to set
+         * @param {CompanionReg.ClientPairingProps.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function ClientPairingProps(properties) {
@@ -126,8 +137,12 @@ $root.CompanionReg = (function() {
          * @function create
          * @memberof CompanionReg.ClientPairingProps
          * @static
-         * @param {CompanionReg.IClientPairingProps=} [properties] Properties to set
+         * @param {CompanionReg.ClientPairingProps.$Properties=} [properties] Properties to set
          * @returns {CompanionReg.ClientPairingProps} ClientPairingProps instance
+         * @type {{
+         *   (properties: CompanionReg.ClientPairingProps.$Shape): CompanionReg.ClientPairingProps & CompanionReg.ClientPairingProps.$Shape;
+         *   (properties?: CompanionReg.ClientPairingProps.$Properties): CompanionReg.ClientPairingProps;
+         * }}
          */
         ClientPairingProps.create = function create(properties) {
             return new ClientPairingProps(properties);
@@ -138,7 +153,7 @@ $root.CompanionReg = (function() {
          * @function encode
          * @memberof CompanionReg.ClientPairingProps
          * @static
-         * @param {CompanionReg.IClientPairingProps} message ClientPairingProps message or plain object to encode
+         * @param {CompanionReg.ClientPairingProps.$Properties} message ClientPairingProps message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -166,7 +181,7 @@ $root.CompanionReg = (function() {
          * @function encodeDelimited
          * @memberof CompanionReg.ClientPairingProps
          * @static
-         * @param {CompanionReg.IClientPairingProps} message ClientPairingProps message or plain object to encode
+         * @param {CompanionReg.ClientPairingProps.$Properties} message ClientPairingProps message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -181,7 +196,7 @@ $root.CompanionReg = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {CompanionReg.ClientPairingProps} ClientPairingProps
+         * @returns {CompanionReg.ClientPairingProps & CompanionReg.ClientPairingProps.$Shape} ClientPairingProps
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -253,7 +268,7 @@ $root.CompanionReg = (function() {
          * @memberof CompanionReg.ClientPairingProps
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {CompanionReg.ClientPairingProps} ClientPairingProps
+         * @returns {CompanionReg.ClientPairingProps & CompanionReg.ClientPairingProps.$Shape} ClientPairingProps
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -412,20 +427,31 @@ $root.CompanionReg = (function() {
 
         /**
          * Properties of an EncryptedPairingRequest.
-         * @memberof CompanionReg
-         * @interface IEncryptedPairingRequest
+         * @typedef {Object} CompanionReg.EncryptedPairingRequest.$Properties
          * @property {Uint8Array|null} [encryptedPayload] EncryptedPairingRequest encryptedPayload
          * @property {Uint8Array|null} [iv] EncryptedPairingRequest iv
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
+         * Properties of an EncryptedPairingRequest.
+         * @memberof CompanionReg
+         * @interface IEncryptedPairingRequest
+         * @augments CompanionReg.EncryptedPairingRequest.$Properties
+         * @deprecated Use CompanionReg.EncryptedPairingRequest.$Properties instead.
+         */
+
+        /**
+         * Shape of an EncryptedPairingRequest.
+         * @typedef {CompanionReg.EncryptedPairingRequest.$Properties} CompanionReg.EncryptedPairingRequest.$Shape
+         */
+
+        /**
          * Constructs a new EncryptedPairingRequest.
          * @memberof CompanionReg
          * @classdesc Represents an EncryptedPairingRequest.
-         * @implements IEncryptedPairingRequest
          * @constructor
-         * @param {CompanionReg.IEncryptedPairingRequest=} [properties] Properties to set
+         * @param {CompanionReg.EncryptedPairingRequest.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function EncryptedPairingRequest(properties) {
@@ -471,8 +497,12 @@ $root.CompanionReg = (function() {
          * @function create
          * @memberof CompanionReg.EncryptedPairingRequest
          * @static
-         * @param {CompanionReg.IEncryptedPairingRequest=} [properties] Properties to set
+         * @param {CompanionReg.EncryptedPairingRequest.$Properties=} [properties] Properties to set
          * @returns {CompanionReg.EncryptedPairingRequest} EncryptedPairingRequest instance
+         * @type {{
+         *   (properties: CompanionReg.EncryptedPairingRequest.$Shape): CompanionReg.EncryptedPairingRequest & CompanionReg.EncryptedPairingRequest.$Shape;
+         *   (properties?: CompanionReg.EncryptedPairingRequest.$Properties): CompanionReg.EncryptedPairingRequest;
+         * }}
          */
         EncryptedPairingRequest.create = function create(properties) {
             return new EncryptedPairingRequest(properties);
@@ -483,7 +513,7 @@ $root.CompanionReg = (function() {
          * @function encode
          * @memberof CompanionReg.EncryptedPairingRequest
          * @static
-         * @param {CompanionReg.IEncryptedPairingRequest} message EncryptedPairingRequest message or plain object to encode
+         * @param {CompanionReg.EncryptedPairingRequest.$Properties} message EncryptedPairingRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -505,7 +535,7 @@ $root.CompanionReg = (function() {
          * @function encodeDelimited
          * @memberof CompanionReg.EncryptedPairingRequest
          * @static
-         * @param {CompanionReg.IEncryptedPairingRequest} message EncryptedPairingRequest message or plain object to encode
+         * @param {CompanionReg.EncryptedPairingRequest.$Properties} message EncryptedPairingRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -520,7 +550,7 @@ $root.CompanionReg = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {CompanionReg.EncryptedPairingRequest} EncryptedPairingRequest
+         * @returns {CompanionReg.EncryptedPairingRequest & CompanionReg.EncryptedPairingRequest.$Shape} EncryptedPairingRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -571,7 +601,7 @@ $root.CompanionReg = (function() {
          * @memberof CompanionReg.EncryptedPairingRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {CompanionReg.EncryptedPairingRequest} EncryptedPairingRequest
+         * @returns {CompanionReg.EncryptedPairingRequest & CompanionReg.EncryptedPairingRequest.$Shape} EncryptedPairingRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -697,8 +727,7 @@ $root.CompanionReg = (function() {
 
         /**
          * Properties of a PairingRequest.
-         * @memberof CompanionReg
-         * @interface IPairingRequest
+         * @typedef {Object} CompanionReg.PairingRequest.$Properties
          * @property {Uint8Array|null} [companionPublicKey] PairingRequest companionPublicKey
          * @property {Uint8Array|null} [companionIdentityKey] PairingRequest companionIdentityKey
          * @property {Uint8Array|null} [advSecret] PairingRequest advSecret
@@ -706,12 +735,24 @@ $root.CompanionReg = (function() {
          */
 
         /**
+         * Properties of a PairingRequest.
+         * @memberof CompanionReg
+         * @interface IPairingRequest
+         * @augments CompanionReg.PairingRequest.$Properties
+         * @deprecated Use CompanionReg.PairingRequest.$Properties instead.
+         */
+
+        /**
+         * Shape of a PairingRequest.
+         * @typedef {CompanionReg.PairingRequest.$Properties} CompanionReg.PairingRequest.$Shape
+         */
+
+        /**
          * Constructs a new PairingRequest.
          * @memberof CompanionReg
          * @classdesc Represents a PairingRequest.
-         * @implements IPairingRequest
          * @constructor
-         * @param {CompanionReg.IPairingRequest=} [properties] Properties to set
+         * @param {CompanionReg.PairingRequest.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function PairingRequest(properties) {
@@ -771,8 +812,12 @@ $root.CompanionReg = (function() {
          * @function create
          * @memberof CompanionReg.PairingRequest
          * @static
-         * @param {CompanionReg.IPairingRequest=} [properties] Properties to set
+         * @param {CompanionReg.PairingRequest.$Properties=} [properties] Properties to set
          * @returns {CompanionReg.PairingRequest} PairingRequest instance
+         * @type {{
+         *   (properties: CompanionReg.PairingRequest.$Shape): CompanionReg.PairingRequest & CompanionReg.PairingRequest.$Shape;
+         *   (properties?: CompanionReg.PairingRequest.$Properties): CompanionReg.PairingRequest;
+         * }}
          */
         PairingRequest.create = function create(properties) {
             return new PairingRequest(properties);
@@ -783,7 +828,7 @@ $root.CompanionReg = (function() {
          * @function encode
          * @memberof CompanionReg.PairingRequest
          * @static
-         * @param {CompanionReg.IPairingRequest} message PairingRequest message or plain object to encode
+         * @param {CompanionReg.PairingRequest.$Properties} message PairingRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -807,7 +852,7 @@ $root.CompanionReg = (function() {
          * @function encodeDelimited
          * @memberof CompanionReg.PairingRequest
          * @static
-         * @param {CompanionReg.IPairingRequest} message PairingRequest message or plain object to encode
+         * @param {CompanionReg.PairingRequest.$Properties} message PairingRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -822,7 +867,7 @@ $root.CompanionReg = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {CompanionReg.PairingRequest} PairingRequest
+         * @returns {CompanionReg.PairingRequest & CompanionReg.PairingRequest.$Shape} PairingRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -880,7 +925,7 @@ $root.CompanionReg = (function() {
          * @memberof CompanionReg.PairingRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {CompanionReg.PairingRequest} PairingRequest
+         * @returns {CompanionReg.PairingRequest & CompanionReg.PairingRequest.$Shape} PairingRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1021,20 +1066,31 @@ $root.CompanionReg = (function() {
 
         /**
          * Properties of a PrimaryEphemeralIdentity.
-         * @memberof CompanionReg
-         * @interface IPrimaryEphemeralIdentity
+         * @typedef {Object} CompanionReg.PrimaryEphemeralIdentity.$Properties
          * @property {Uint8Array|null} [publicKey] PrimaryEphemeralIdentity publicKey
          * @property {Uint8Array|null} [nonce] PrimaryEphemeralIdentity nonce
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
         /**
+         * Properties of a PrimaryEphemeralIdentity.
+         * @memberof CompanionReg
+         * @interface IPrimaryEphemeralIdentity
+         * @augments CompanionReg.PrimaryEphemeralIdentity.$Properties
+         * @deprecated Use CompanionReg.PrimaryEphemeralIdentity.$Properties instead.
+         */
+
+        /**
+         * Shape of a PrimaryEphemeralIdentity.
+         * @typedef {CompanionReg.PrimaryEphemeralIdentity.$Properties} CompanionReg.PrimaryEphemeralIdentity.$Shape
+         */
+
+        /**
          * Constructs a new PrimaryEphemeralIdentity.
          * @memberof CompanionReg
          * @classdesc Represents a PrimaryEphemeralIdentity.
-         * @implements IPrimaryEphemeralIdentity
          * @constructor
-         * @param {CompanionReg.IPrimaryEphemeralIdentity=} [properties] Properties to set
+         * @param {CompanionReg.PrimaryEphemeralIdentity.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function PrimaryEphemeralIdentity(properties) {
@@ -1080,8 +1136,12 @@ $root.CompanionReg = (function() {
          * @function create
          * @memberof CompanionReg.PrimaryEphemeralIdentity
          * @static
-         * @param {CompanionReg.IPrimaryEphemeralIdentity=} [properties] Properties to set
+         * @param {CompanionReg.PrimaryEphemeralIdentity.$Properties=} [properties] Properties to set
          * @returns {CompanionReg.PrimaryEphemeralIdentity} PrimaryEphemeralIdentity instance
+         * @type {{
+         *   (properties: CompanionReg.PrimaryEphemeralIdentity.$Shape): CompanionReg.PrimaryEphemeralIdentity & CompanionReg.PrimaryEphemeralIdentity.$Shape;
+         *   (properties?: CompanionReg.PrimaryEphemeralIdentity.$Properties): CompanionReg.PrimaryEphemeralIdentity;
+         * }}
          */
         PrimaryEphemeralIdentity.create = function create(properties) {
             return new PrimaryEphemeralIdentity(properties);
@@ -1092,7 +1152,7 @@ $root.CompanionReg = (function() {
          * @function encode
          * @memberof CompanionReg.PrimaryEphemeralIdentity
          * @static
-         * @param {CompanionReg.IPrimaryEphemeralIdentity} message PrimaryEphemeralIdentity message or plain object to encode
+         * @param {CompanionReg.PrimaryEphemeralIdentity.$Properties} message PrimaryEphemeralIdentity message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1114,7 +1174,7 @@ $root.CompanionReg = (function() {
          * @function encodeDelimited
          * @memberof CompanionReg.PrimaryEphemeralIdentity
          * @static
-         * @param {CompanionReg.IPrimaryEphemeralIdentity} message PrimaryEphemeralIdentity message or plain object to encode
+         * @param {CompanionReg.PrimaryEphemeralIdentity.$Properties} message PrimaryEphemeralIdentity message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1129,7 +1189,7 @@ $root.CompanionReg = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {CompanionReg.PrimaryEphemeralIdentity} PrimaryEphemeralIdentity
+         * @returns {CompanionReg.PrimaryEphemeralIdentity & CompanionReg.PrimaryEphemeralIdentity.$Shape} PrimaryEphemeralIdentity
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1180,7 +1240,7 @@ $root.CompanionReg = (function() {
          * @memberof CompanionReg.PrimaryEphemeralIdentity
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {CompanionReg.PrimaryEphemeralIdentity} PrimaryEphemeralIdentity
+         * @returns {CompanionReg.PrimaryEphemeralIdentity & CompanionReg.PrimaryEphemeralIdentity.$Shape} PrimaryEphemeralIdentity
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1306,20 +1366,31 @@ $root.CompanionReg = (function() {
 
         /**
          * Properties of a ProloguePayload.
+         * @typedef {Object} CompanionReg.ProloguePayload.$Properties
+         * @property {Uint8Array|null} [companionEphemeralIdentity] ProloguePayload companionEphemeralIdentity
+         * @property {CompanionReg.CompanionCommitment.$Properties|null} [commitment] ProloguePayload commitment
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a ProloguePayload.
          * @memberof CompanionReg
          * @interface IProloguePayload
-         * @property {Uint8Array|null} [companionEphemeralIdentity] ProloguePayload companionEphemeralIdentity
-         * @property {CompanionReg.ICompanionCommitment|null} [commitment] ProloguePayload commitment
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments CompanionReg.ProloguePayload.$Properties
+         * @deprecated Use CompanionReg.ProloguePayload.$Properties instead.
+         */
+
+        /**
+         * Shape of a ProloguePayload.
+         * @typedef {CompanionReg.ProloguePayload.$Properties} CompanionReg.ProloguePayload.$Shape
          */
 
         /**
          * Constructs a new ProloguePayload.
          * @memberof CompanionReg
          * @classdesc Represents a ProloguePayload.
-         * @implements IProloguePayload
          * @constructor
-         * @param {CompanionReg.IProloguePayload=} [properties] Properties to set
+         * @param {CompanionReg.ProloguePayload.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function ProloguePayload(properties) {
@@ -1339,7 +1410,7 @@ $root.CompanionReg = (function() {
 
         /**
          * ProloguePayload commitment.
-         * @member {CompanionReg.ICompanionCommitment|null|undefined} commitment
+         * @member {CompanionReg.CompanionCommitment.$Properties|null|undefined} commitment
          * @memberof CompanionReg.ProloguePayload
          * @instance
          */
@@ -1365,8 +1436,12 @@ $root.CompanionReg = (function() {
          * @function create
          * @memberof CompanionReg.ProloguePayload
          * @static
-         * @param {CompanionReg.IProloguePayload=} [properties] Properties to set
+         * @param {CompanionReg.ProloguePayload.$Properties=} [properties] Properties to set
          * @returns {CompanionReg.ProloguePayload} ProloguePayload instance
+         * @type {{
+         *   (properties: CompanionReg.ProloguePayload.$Shape): CompanionReg.ProloguePayload & CompanionReg.ProloguePayload.$Shape;
+         *   (properties?: CompanionReg.ProloguePayload.$Properties): CompanionReg.ProloguePayload;
+         * }}
          */
         ProloguePayload.create = function create(properties) {
             return new ProloguePayload(properties);
@@ -1377,7 +1452,7 @@ $root.CompanionReg = (function() {
          * @function encode
          * @memberof CompanionReg.ProloguePayload
          * @static
-         * @param {CompanionReg.IProloguePayload} message ProloguePayload message or plain object to encode
+         * @param {CompanionReg.ProloguePayload.$Properties} message ProloguePayload message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1399,7 +1474,7 @@ $root.CompanionReg = (function() {
          * @function encodeDelimited
          * @memberof CompanionReg.ProloguePayload
          * @static
-         * @param {CompanionReg.IProloguePayload} message ProloguePayload message or plain object to encode
+         * @param {CompanionReg.ProloguePayload.$Properties} message ProloguePayload message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1414,7 +1489,7 @@ $root.CompanionReg = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {CompanionReg.ProloguePayload} ProloguePayload
+         * @returns {CompanionReg.ProloguePayload & CompanionReg.ProloguePayload.$Shape} ProloguePayload
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1465,7 +1540,7 @@ $root.CompanionReg = (function() {
          * @memberof CompanionReg.ProloguePayload
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {CompanionReg.ProloguePayload} ProloguePayload
+         * @returns {CompanionReg.ProloguePayload & CompanionReg.ProloguePayload.$Shape} ProloguePayload
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1594,19 +1669,30 @@ $root.CompanionReg = (function() {
 
         /**
          * Properties of a CompanionCommitment.
-         * @memberof CompanionReg
-         * @interface ICompanionCommitment
+         * @typedef {Object} CompanionReg.CompanionCommitment.$Properties
          * @property {Uint8Array|null} [hash] CompanionCommitment hash
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a CompanionCommitment.
+         * @memberof CompanionReg
+         * @interface ICompanionCommitment
+         * @augments CompanionReg.CompanionCommitment.$Properties
+         * @deprecated Use CompanionReg.CompanionCommitment.$Properties instead.
+         */
+
+        /**
+         * Shape of a CompanionCommitment.
+         * @typedef {CompanionReg.CompanionCommitment.$Properties} CompanionReg.CompanionCommitment.$Shape
          */
 
         /**
          * Constructs a new CompanionCommitment.
          * @memberof CompanionReg
          * @classdesc Represents a CompanionCommitment.
-         * @implements ICompanionCommitment
          * @constructor
-         * @param {CompanionReg.ICompanionCommitment=} [properties] Properties to set
+         * @param {CompanionReg.CompanionCommitment.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function CompanionCommitment(properties) {
@@ -1638,8 +1724,12 @@ $root.CompanionReg = (function() {
          * @function create
          * @memberof CompanionReg.CompanionCommitment
          * @static
-         * @param {CompanionReg.ICompanionCommitment=} [properties] Properties to set
+         * @param {CompanionReg.CompanionCommitment.$Properties=} [properties] Properties to set
          * @returns {CompanionReg.CompanionCommitment} CompanionCommitment instance
+         * @type {{
+         *   (properties: CompanionReg.CompanionCommitment.$Shape): CompanionReg.CompanionCommitment & CompanionReg.CompanionCommitment.$Shape;
+         *   (properties?: CompanionReg.CompanionCommitment.$Properties): CompanionReg.CompanionCommitment;
+         * }}
          */
         CompanionCommitment.create = function create(properties) {
             return new CompanionCommitment(properties);
@@ -1650,7 +1740,7 @@ $root.CompanionReg = (function() {
          * @function encode
          * @memberof CompanionReg.CompanionCommitment
          * @static
-         * @param {CompanionReg.ICompanionCommitment} message CompanionCommitment message or plain object to encode
+         * @param {CompanionReg.CompanionCommitment.$Properties} message CompanionCommitment message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1670,7 +1760,7 @@ $root.CompanionReg = (function() {
          * @function encodeDelimited
          * @memberof CompanionReg.CompanionCommitment
          * @static
-         * @param {CompanionReg.ICompanionCommitment} message CompanionCommitment message or plain object to encode
+         * @param {CompanionReg.CompanionCommitment.$Properties} message CompanionCommitment message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1685,7 +1775,7 @@ $root.CompanionReg = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {CompanionReg.CompanionCommitment} CompanionCommitment
+         * @returns {CompanionReg.CompanionCommitment & CompanionReg.CompanionCommitment.$Shape} CompanionCommitment
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1729,7 +1819,7 @@ $root.CompanionReg = (function() {
          * @memberof CompanionReg.CompanionCommitment
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {CompanionReg.CompanionCommitment} CompanionCommitment
+         * @returns {CompanionReg.CompanionCommitment & CompanionReg.CompanionCommitment.$Shape} CompanionCommitment
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1840,8 +1930,7 @@ $root.CompanionReg = (function() {
 
         /**
          * Properties of a CompanionEphemeralIdentity.
-         * @memberof CompanionReg
-         * @interface ICompanionEphemeralIdentity
+         * @typedef {Object} CompanionReg.CompanionEphemeralIdentity.$Properties
          * @property {Uint8Array|null} [publicKey] CompanionEphemeralIdentity publicKey
          * @property {CompanionReg.DeviceProps.PlatformType|null} [deviceType] CompanionEphemeralIdentity deviceType
          * @property {string|null} [ref] CompanionEphemeralIdentity ref
@@ -1849,12 +1938,24 @@ $root.CompanionReg = (function() {
          */
 
         /**
+         * Properties of a CompanionEphemeralIdentity.
+         * @memberof CompanionReg
+         * @interface ICompanionEphemeralIdentity
+         * @augments CompanionReg.CompanionEphemeralIdentity.$Properties
+         * @deprecated Use CompanionReg.CompanionEphemeralIdentity.$Properties instead.
+         */
+
+        /**
+         * Shape of a CompanionEphemeralIdentity.
+         * @typedef {CompanionReg.CompanionEphemeralIdentity.$Properties} CompanionReg.CompanionEphemeralIdentity.$Shape
+         */
+
+        /**
          * Constructs a new CompanionEphemeralIdentity.
          * @memberof CompanionReg
          * @classdesc Represents a CompanionEphemeralIdentity.
-         * @implements ICompanionEphemeralIdentity
          * @constructor
-         * @param {CompanionReg.ICompanionEphemeralIdentity=} [properties] Properties to set
+         * @param {CompanionReg.CompanionEphemeralIdentity.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function CompanionEphemeralIdentity(properties) {
@@ -1914,8 +2015,12 @@ $root.CompanionReg = (function() {
          * @function create
          * @memberof CompanionReg.CompanionEphemeralIdentity
          * @static
-         * @param {CompanionReg.ICompanionEphemeralIdentity=} [properties] Properties to set
+         * @param {CompanionReg.CompanionEphemeralIdentity.$Properties=} [properties] Properties to set
          * @returns {CompanionReg.CompanionEphemeralIdentity} CompanionEphemeralIdentity instance
+         * @type {{
+         *   (properties: CompanionReg.CompanionEphemeralIdentity.$Shape): CompanionReg.CompanionEphemeralIdentity & CompanionReg.CompanionEphemeralIdentity.$Shape;
+         *   (properties?: CompanionReg.CompanionEphemeralIdentity.$Properties): CompanionReg.CompanionEphemeralIdentity;
+         * }}
          */
         CompanionEphemeralIdentity.create = function create(properties) {
             return new CompanionEphemeralIdentity(properties);
@@ -1926,7 +2031,7 @@ $root.CompanionReg = (function() {
          * @function encode
          * @memberof CompanionReg.CompanionEphemeralIdentity
          * @static
-         * @param {CompanionReg.ICompanionEphemeralIdentity} message CompanionEphemeralIdentity message or plain object to encode
+         * @param {CompanionReg.CompanionEphemeralIdentity.$Properties} message CompanionEphemeralIdentity message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1950,7 +2055,7 @@ $root.CompanionReg = (function() {
          * @function encodeDelimited
          * @memberof CompanionReg.CompanionEphemeralIdentity
          * @static
-         * @param {CompanionReg.ICompanionEphemeralIdentity} message CompanionEphemeralIdentity message or plain object to encode
+         * @param {CompanionReg.CompanionEphemeralIdentity.$Properties} message CompanionEphemeralIdentity message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1965,7 +2070,7 @@ $root.CompanionReg = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {CompanionReg.CompanionEphemeralIdentity} CompanionEphemeralIdentity
+         * @returns {CompanionReg.CompanionEphemeralIdentity & CompanionReg.CompanionEphemeralIdentity.$Shape} CompanionEphemeralIdentity
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2023,7 +2128,7 @@ $root.CompanionReg = (function() {
          * @memberof CompanionReg.CompanionEphemeralIdentity
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {CompanionReg.CompanionEphemeralIdentity} CompanionEphemeralIdentity
+         * @returns {CompanionReg.CompanionEphemeralIdentity & CompanionReg.CompanionEphemeralIdentity.$Shape} CompanionEphemeralIdentity
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2292,23 +2397,34 @@ $root.CompanionReg = (function() {
 
         /**
          * Properties of a DeviceProps.
-         * @memberof CompanionReg
-         * @interface IDeviceProps
+         * @typedef {Object} CompanionReg.DeviceProps.$Properties
          * @property {string|null} [os] DeviceProps os
-         * @property {CompanionReg.DeviceProps.IAppVersion|null} [version] DeviceProps version
+         * @property {CompanionReg.DeviceProps.AppVersion.$Properties|null} [version] DeviceProps version
          * @property {CompanionReg.DeviceProps.PlatformType|null} [platformType] DeviceProps platformType
          * @property {boolean|null} [requireFullSync] DeviceProps requireFullSync
-         * @property {CompanionReg.DeviceProps.IHistorySyncConfig|null} [historySyncConfig] DeviceProps historySyncConfig
+         * @property {CompanionReg.DeviceProps.HistorySyncConfig.$Properties|null} [historySyncConfig] DeviceProps historySyncConfig
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a DeviceProps.
+         * @memberof CompanionReg
+         * @interface IDeviceProps
+         * @augments CompanionReg.DeviceProps.$Properties
+         * @deprecated Use CompanionReg.DeviceProps.$Properties instead.
+         */
+
+        /**
+         * Shape of a DeviceProps.
+         * @typedef {CompanionReg.DeviceProps.$Properties} CompanionReg.DeviceProps.$Shape
          */
 
         /**
          * Constructs a new DeviceProps.
          * @memberof CompanionReg
          * @classdesc Represents a DeviceProps.
-         * @implements IDeviceProps
          * @constructor
-         * @param {CompanionReg.IDeviceProps=} [properties] Properties to set
+         * @param {CompanionReg.DeviceProps.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function DeviceProps(properties) {
@@ -2328,7 +2444,7 @@ $root.CompanionReg = (function() {
 
         /**
          * DeviceProps version.
-         * @member {CompanionReg.DeviceProps.IAppVersion|null|undefined} version
+         * @member {CompanionReg.DeviceProps.AppVersion.$Properties|null|undefined} version
          * @memberof CompanionReg.DeviceProps
          * @instance
          */
@@ -2352,7 +2468,7 @@ $root.CompanionReg = (function() {
 
         /**
          * DeviceProps historySyncConfig.
-         * @member {CompanionReg.DeviceProps.IHistorySyncConfig|null|undefined} historySyncConfig
+         * @member {CompanionReg.DeviceProps.HistorySyncConfig.$Properties|null|undefined} historySyncConfig
          * @memberof CompanionReg.DeviceProps
          * @instance
          */
@@ -2396,8 +2512,12 @@ $root.CompanionReg = (function() {
          * @function create
          * @memberof CompanionReg.DeviceProps
          * @static
-         * @param {CompanionReg.IDeviceProps=} [properties] Properties to set
+         * @param {CompanionReg.DeviceProps.$Properties=} [properties] Properties to set
          * @returns {CompanionReg.DeviceProps} DeviceProps instance
+         * @type {{
+         *   (properties: CompanionReg.DeviceProps.$Shape): CompanionReg.DeviceProps & CompanionReg.DeviceProps.$Shape;
+         *   (properties?: CompanionReg.DeviceProps.$Properties): CompanionReg.DeviceProps;
+         * }}
          */
         DeviceProps.create = function create(properties) {
             return new DeviceProps(properties);
@@ -2408,7 +2528,7 @@ $root.CompanionReg = (function() {
          * @function encode
          * @memberof CompanionReg.DeviceProps
          * @static
-         * @param {CompanionReg.IDeviceProps} message DeviceProps message or plain object to encode
+         * @param {CompanionReg.DeviceProps.$Properties} message DeviceProps message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2436,7 +2556,7 @@ $root.CompanionReg = (function() {
          * @function encodeDelimited
          * @memberof CompanionReg.DeviceProps
          * @static
-         * @param {CompanionReg.IDeviceProps} message DeviceProps message or plain object to encode
+         * @param {CompanionReg.DeviceProps.$Properties} message DeviceProps message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2451,7 +2571,7 @@ $root.CompanionReg = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {CompanionReg.DeviceProps} DeviceProps
+         * @returns {CompanionReg.DeviceProps & CompanionReg.DeviceProps.$Shape} DeviceProps
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2523,7 +2643,7 @@ $root.CompanionReg = (function() {
          * @memberof CompanionReg.DeviceProps
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {CompanionReg.DeviceProps} DeviceProps
+         * @returns {CompanionReg.DeviceProps & CompanionReg.DeviceProps.$Shape} DeviceProps
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2822,8 +2942,7 @@ $root.CompanionReg = (function() {
 
             /**
              * Properties of an AppVersion.
-             * @memberof CompanionReg.DeviceProps
-             * @interface IAppVersion
+             * @typedef {Object} CompanionReg.DeviceProps.AppVersion.$Properties
              * @property {number|null} [primary] AppVersion primary
              * @property {number|null} [secondary] AppVersion secondary
              * @property {number|null} [tertiary] AppVersion tertiary
@@ -2833,12 +2952,24 @@ $root.CompanionReg = (function() {
              */
 
             /**
+             * Properties of an AppVersion.
+             * @memberof CompanionReg.DeviceProps
+             * @interface IAppVersion
+             * @augments CompanionReg.DeviceProps.AppVersion.$Properties
+             * @deprecated Use CompanionReg.DeviceProps.AppVersion.$Properties instead.
+             */
+
+            /**
+             * Shape of an AppVersion.
+             * @typedef {CompanionReg.DeviceProps.AppVersion.$Properties} CompanionReg.DeviceProps.AppVersion.$Shape
+             */
+
+            /**
              * Constructs a new AppVersion.
              * @memberof CompanionReg.DeviceProps
              * @classdesc Represents an AppVersion.
-             * @implements IAppVersion
              * @constructor
-             * @param {CompanionReg.DeviceProps.IAppVersion=} [properties] Properties to set
+             * @param {CompanionReg.DeviceProps.AppVersion.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function AppVersion(properties) {
@@ -2926,8 +3057,12 @@ $root.CompanionReg = (function() {
              * @function create
              * @memberof CompanionReg.DeviceProps.AppVersion
              * @static
-             * @param {CompanionReg.DeviceProps.IAppVersion=} [properties] Properties to set
+             * @param {CompanionReg.DeviceProps.AppVersion.$Properties=} [properties] Properties to set
              * @returns {CompanionReg.DeviceProps.AppVersion} AppVersion instance
+             * @type {{
+             *   (properties: CompanionReg.DeviceProps.AppVersion.$Shape): CompanionReg.DeviceProps.AppVersion & CompanionReg.DeviceProps.AppVersion.$Shape;
+             *   (properties?: CompanionReg.DeviceProps.AppVersion.$Properties): CompanionReg.DeviceProps.AppVersion;
+             * }}
              */
             AppVersion.create = function create(properties) {
                 return new AppVersion(properties);
@@ -2938,7 +3073,7 @@ $root.CompanionReg = (function() {
              * @function encode
              * @memberof CompanionReg.DeviceProps.AppVersion
              * @static
-             * @param {CompanionReg.DeviceProps.IAppVersion} message AppVersion message or plain object to encode
+             * @param {CompanionReg.DeviceProps.AppVersion.$Properties} message AppVersion message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -2966,7 +3101,7 @@ $root.CompanionReg = (function() {
              * @function encodeDelimited
              * @memberof CompanionReg.DeviceProps.AppVersion
              * @static
-             * @param {CompanionReg.DeviceProps.IAppVersion} message AppVersion message or plain object to encode
+             * @param {CompanionReg.DeviceProps.AppVersion.$Properties} message AppVersion message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -2981,7 +3116,7 @@ $root.CompanionReg = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {CompanionReg.DeviceProps.AppVersion} AppVersion
+             * @returns {CompanionReg.DeviceProps.AppVersion & CompanionReg.DeviceProps.AppVersion.$Shape} AppVersion
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -3053,7 +3188,7 @@ $root.CompanionReg = (function() {
              * @memberof CompanionReg.DeviceProps.AppVersion
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {CompanionReg.DeviceProps.AppVersion} AppVersion
+             * @returns {CompanionReg.DeviceProps.AppVersion & CompanionReg.DeviceProps.AppVersion.$Shape} AppVersion
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -3209,8 +3344,7 @@ $root.CompanionReg = (function() {
 
             /**
              * Properties of a HistorySyncConfig.
-             * @memberof CompanionReg.DeviceProps
-             * @interface IHistorySyncConfig
+             * @typedef {Object} CompanionReg.DeviceProps.HistorySyncConfig.$Properties
              * @property {number|null} [fullSyncDaysLimit] HistorySyncConfig fullSyncDaysLimit
              * @property {number|null} [fullSyncSizeMbLimit] HistorySyncConfig fullSyncSizeMbLimit
              * @property {number|null} [storageQuotaMb] HistorySyncConfig storageQuotaMb
@@ -3239,12 +3373,24 @@ $root.CompanionReg = (function() {
              */
 
             /**
+             * Properties of a HistorySyncConfig.
+             * @memberof CompanionReg.DeviceProps
+             * @interface IHistorySyncConfig
+             * @augments CompanionReg.DeviceProps.HistorySyncConfig.$Properties
+             * @deprecated Use CompanionReg.DeviceProps.HistorySyncConfig.$Properties instead.
+             */
+
+            /**
+             * Shape of a HistorySyncConfig.
+             * @typedef {CompanionReg.DeviceProps.HistorySyncConfig.$Properties} CompanionReg.DeviceProps.HistorySyncConfig.$Shape
+             */
+
+            /**
              * Constructs a new HistorySyncConfig.
              * @memberof CompanionReg.DeviceProps
              * @classdesc Represents a HistorySyncConfig.
-             * @implements IHistorySyncConfig
              * @constructor
-             * @param {CompanionReg.DeviceProps.IHistorySyncConfig=} [properties] Properties to set
+             * @param {CompanionReg.DeviceProps.HistorySyncConfig.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function HistorySyncConfig(properties) {
@@ -3593,8 +3739,12 @@ $root.CompanionReg = (function() {
              * @function create
              * @memberof CompanionReg.DeviceProps.HistorySyncConfig
              * @static
-             * @param {CompanionReg.DeviceProps.IHistorySyncConfig=} [properties] Properties to set
+             * @param {CompanionReg.DeviceProps.HistorySyncConfig.$Properties=} [properties] Properties to set
              * @returns {CompanionReg.DeviceProps.HistorySyncConfig} HistorySyncConfig instance
+             * @type {{
+             *   (properties: CompanionReg.DeviceProps.HistorySyncConfig.$Shape): CompanionReg.DeviceProps.HistorySyncConfig & CompanionReg.DeviceProps.HistorySyncConfig.$Shape;
+             *   (properties?: CompanionReg.DeviceProps.HistorySyncConfig.$Properties): CompanionReg.DeviceProps.HistorySyncConfig;
+             * }}
              */
             HistorySyncConfig.create = function create(properties) {
                 return new HistorySyncConfig(properties);
@@ -3605,7 +3755,7 @@ $root.CompanionReg = (function() {
              * @function encode
              * @memberof CompanionReg.DeviceProps.HistorySyncConfig
              * @static
-             * @param {CompanionReg.DeviceProps.IHistorySyncConfig} message HistorySyncConfig message or plain object to encode
+             * @param {CompanionReg.DeviceProps.HistorySyncConfig.$Properties} message HistorySyncConfig message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -3672,7 +3822,7 @@ $root.CompanionReg = (function() {
              * @function encodeDelimited
              * @memberof CompanionReg.DeviceProps.HistorySyncConfig
              * @static
-             * @param {CompanionReg.DeviceProps.IHistorySyncConfig} message HistorySyncConfig message or plain object to encode
+             * @param {CompanionReg.DeviceProps.HistorySyncConfig.$Properties} message HistorySyncConfig message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -3687,7 +3837,7 @@ $root.CompanionReg = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {CompanionReg.DeviceProps.HistorySyncConfig} HistorySyncConfig
+             * @returns {CompanionReg.DeviceProps.HistorySyncConfig & CompanionReg.DeviceProps.HistorySyncConfig.$Shape} HistorySyncConfig
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -3893,7 +4043,7 @@ $root.CompanionReg = (function() {
              * @memberof CompanionReg.DeviceProps.HistorySyncConfig
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {CompanionReg.DeviceProps.HistorySyncConfig} HistorySyncConfig
+             * @returns {CompanionReg.DeviceProps.HistorySyncConfig & CompanionReg.DeviceProps.HistorySyncConfig.$Shape} HistorySyncConfig
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */

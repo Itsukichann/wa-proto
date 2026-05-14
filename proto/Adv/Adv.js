@@ -22,8 +22,7 @@ $root.Adv = (function() {
 
         /**
          * Properties of a ADVSignedDeviceIdentityHMAC.
-         * @memberof Adv
-         * @interface IADVSignedDeviceIdentityHMAC
+         * @typedef {Object} Adv.ADVSignedDeviceIdentityHMAC.$Properties
          * @property {Uint8Array|null} [details] ADVSignedDeviceIdentityHMAC details
          * @property {Uint8Array|null} [hmac] ADVSignedDeviceIdentityHMAC hmac
          * @property {Adv.ADVEncryptionType|null} [accountType] ADVSignedDeviceIdentityHMAC accountType
@@ -31,12 +30,24 @@ $root.Adv = (function() {
          */
 
         /**
+         * Properties of a ADVSignedDeviceIdentityHMAC.
+         * @memberof Adv
+         * @interface IADVSignedDeviceIdentityHMAC
+         * @augments Adv.ADVSignedDeviceIdentityHMAC.$Properties
+         * @deprecated Use Adv.ADVSignedDeviceIdentityHMAC.$Properties instead.
+         */
+
+        /**
+         * Shape of a ADVSignedDeviceIdentityHMAC.
+         * @typedef {Adv.ADVSignedDeviceIdentityHMAC.$Properties} Adv.ADVSignedDeviceIdentityHMAC.$Shape
+         */
+
+        /**
          * Constructs a new ADVSignedDeviceIdentityHMAC.
          * @memberof Adv
          * @classdesc Represents a ADVSignedDeviceIdentityHMAC.
-         * @implements IADVSignedDeviceIdentityHMAC
          * @constructor
-         * @param {Adv.IADVSignedDeviceIdentityHMAC=} [properties] Properties to set
+         * @param {Adv.ADVSignedDeviceIdentityHMAC.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function ADVSignedDeviceIdentityHMAC(properties) {
@@ -96,8 +107,12 @@ $root.Adv = (function() {
          * @function create
          * @memberof Adv.ADVSignedDeviceIdentityHMAC
          * @static
-         * @param {Adv.IADVSignedDeviceIdentityHMAC=} [properties] Properties to set
+         * @param {Adv.ADVSignedDeviceIdentityHMAC.$Properties=} [properties] Properties to set
          * @returns {Adv.ADVSignedDeviceIdentityHMAC} ADVSignedDeviceIdentityHMAC instance
+         * @type {{
+         *   (properties: Adv.ADVSignedDeviceIdentityHMAC.$Shape): Adv.ADVSignedDeviceIdentityHMAC & Adv.ADVSignedDeviceIdentityHMAC.$Shape;
+         *   (properties?: Adv.ADVSignedDeviceIdentityHMAC.$Properties): Adv.ADVSignedDeviceIdentityHMAC;
+         * }}
          */
         ADVSignedDeviceIdentityHMAC.create = function create(properties) {
             return new ADVSignedDeviceIdentityHMAC(properties);
@@ -108,7 +123,7 @@ $root.Adv = (function() {
          * @function encode
          * @memberof Adv.ADVSignedDeviceIdentityHMAC
          * @static
-         * @param {Adv.IADVSignedDeviceIdentityHMAC} message ADVSignedDeviceIdentityHMAC message or plain object to encode
+         * @param {Adv.ADVSignedDeviceIdentityHMAC.$Properties} message ADVSignedDeviceIdentityHMAC message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -132,7 +147,7 @@ $root.Adv = (function() {
          * @function encodeDelimited
          * @memberof Adv.ADVSignedDeviceIdentityHMAC
          * @static
-         * @param {Adv.IADVSignedDeviceIdentityHMAC} message ADVSignedDeviceIdentityHMAC message or plain object to encode
+         * @param {Adv.ADVSignedDeviceIdentityHMAC.$Properties} message ADVSignedDeviceIdentityHMAC message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -147,7 +162,7 @@ $root.Adv = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {Adv.ADVSignedDeviceIdentityHMAC} ADVSignedDeviceIdentityHMAC
+         * @returns {Adv.ADVSignedDeviceIdentityHMAC & Adv.ADVSignedDeviceIdentityHMAC.$Shape} ADVSignedDeviceIdentityHMAC
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -205,7 +220,7 @@ $root.Adv = (function() {
          * @memberof Adv.ADVSignedDeviceIdentityHMAC
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {Adv.ADVSignedDeviceIdentityHMAC} ADVSignedDeviceIdentityHMAC
+         * @returns {Adv.ADVSignedDeviceIdentityHMAC & Adv.ADVSignedDeviceIdentityHMAC.$Shape} ADVSignedDeviceIdentityHMAC
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -367,8 +382,7 @@ $root.Adv = (function() {
 
         /**
          * Properties of a ADVSignedDeviceIdentity.
-         * @memberof Adv
-         * @interface IADVSignedDeviceIdentity
+         * @typedef {Object} Adv.ADVSignedDeviceIdentity.$Properties
          * @property {Uint8Array|null} [details] ADVSignedDeviceIdentity details
          * @property {Uint8Array|null} [accountSignatureKey] ADVSignedDeviceIdentity accountSignatureKey
          * @property {Uint8Array|null} [accountSignature] ADVSignedDeviceIdentity accountSignature
@@ -377,12 +391,24 @@ $root.Adv = (function() {
          */
 
         /**
+         * Properties of a ADVSignedDeviceIdentity.
+         * @memberof Adv
+         * @interface IADVSignedDeviceIdentity
+         * @augments Adv.ADVSignedDeviceIdentity.$Properties
+         * @deprecated Use Adv.ADVSignedDeviceIdentity.$Properties instead.
+         */
+
+        /**
+         * Shape of a ADVSignedDeviceIdentity.
+         * @typedef {Adv.ADVSignedDeviceIdentity.$Properties} Adv.ADVSignedDeviceIdentity.$Shape
+         */
+
+        /**
          * Constructs a new ADVSignedDeviceIdentity.
          * @memberof Adv
          * @classdesc Represents a ADVSignedDeviceIdentity.
-         * @implements IADVSignedDeviceIdentity
          * @constructor
-         * @param {Adv.IADVSignedDeviceIdentity=} [properties] Properties to set
+         * @param {Adv.ADVSignedDeviceIdentity.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function ADVSignedDeviceIdentity(properties) {
@@ -456,8 +482,12 @@ $root.Adv = (function() {
          * @function create
          * @memberof Adv.ADVSignedDeviceIdentity
          * @static
-         * @param {Adv.IADVSignedDeviceIdentity=} [properties] Properties to set
+         * @param {Adv.ADVSignedDeviceIdentity.$Properties=} [properties] Properties to set
          * @returns {Adv.ADVSignedDeviceIdentity} ADVSignedDeviceIdentity instance
+         * @type {{
+         *   (properties: Adv.ADVSignedDeviceIdentity.$Shape): Adv.ADVSignedDeviceIdentity & Adv.ADVSignedDeviceIdentity.$Shape;
+         *   (properties?: Adv.ADVSignedDeviceIdentity.$Properties): Adv.ADVSignedDeviceIdentity;
+         * }}
          */
         ADVSignedDeviceIdentity.create = function create(properties) {
             return new ADVSignedDeviceIdentity(properties);
@@ -468,7 +498,7 @@ $root.Adv = (function() {
          * @function encode
          * @memberof Adv.ADVSignedDeviceIdentity
          * @static
-         * @param {Adv.IADVSignedDeviceIdentity} message ADVSignedDeviceIdentity message or plain object to encode
+         * @param {Adv.ADVSignedDeviceIdentity.$Properties} message ADVSignedDeviceIdentity message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -494,7 +524,7 @@ $root.Adv = (function() {
          * @function encodeDelimited
          * @memberof Adv.ADVSignedDeviceIdentity
          * @static
-         * @param {Adv.IADVSignedDeviceIdentity} message ADVSignedDeviceIdentity message or plain object to encode
+         * @param {Adv.ADVSignedDeviceIdentity.$Properties} message ADVSignedDeviceIdentity message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -509,7 +539,7 @@ $root.Adv = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {Adv.ADVSignedDeviceIdentity} ADVSignedDeviceIdentity
+         * @returns {Adv.ADVSignedDeviceIdentity & Adv.ADVSignedDeviceIdentity.$Shape} ADVSignedDeviceIdentity
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -574,7 +604,7 @@ $root.Adv = (function() {
          * @memberof Adv.ADVSignedDeviceIdentity
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {Adv.ADVSignedDeviceIdentity} ADVSignedDeviceIdentity
+         * @returns {Adv.ADVSignedDeviceIdentity & Adv.ADVSignedDeviceIdentity.$Shape} ADVSignedDeviceIdentity
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -730,8 +760,7 @@ $root.Adv = (function() {
 
         /**
          * Properties of a ADVDeviceIdentity.
-         * @memberof Adv
-         * @interface IADVDeviceIdentity
+         * @typedef {Object} Adv.ADVDeviceIdentity.$Properties
          * @property {number|null} [rawId] ADVDeviceIdentity rawId
          * @property {number|Long|null} [timestamp] ADVDeviceIdentity timestamp
          * @property {number|null} [keyIndex] ADVDeviceIdentity keyIndex
@@ -741,12 +770,24 @@ $root.Adv = (function() {
          */
 
         /**
+         * Properties of a ADVDeviceIdentity.
+         * @memberof Adv
+         * @interface IADVDeviceIdentity
+         * @augments Adv.ADVDeviceIdentity.$Properties
+         * @deprecated Use Adv.ADVDeviceIdentity.$Properties instead.
+         */
+
+        /**
+         * Shape of a ADVDeviceIdentity.
+         * @typedef {Adv.ADVDeviceIdentity.$Properties} Adv.ADVDeviceIdentity.$Shape
+         */
+
+        /**
          * Constructs a new ADVDeviceIdentity.
          * @memberof Adv
          * @classdesc Represents a ADVDeviceIdentity.
-         * @implements IADVDeviceIdentity
          * @constructor
-         * @param {Adv.IADVDeviceIdentity=} [properties] Properties to set
+         * @param {Adv.ADVDeviceIdentity.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function ADVDeviceIdentity(properties) {
@@ -834,8 +875,12 @@ $root.Adv = (function() {
          * @function create
          * @memberof Adv.ADVDeviceIdentity
          * @static
-         * @param {Adv.IADVDeviceIdentity=} [properties] Properties to set
+         * @param {Adv.ADVDeviceIdentity.$Properties=} [properties] Properties to set
          * @returns {Adv.ADVDeviceIdentity} ADVDeviceIdentity instance
+         * @type {{
+         *   (properties: Adv.ADVDeviceIdentity.$Shape): Adv.ADVDeviceIdentity & Adv.ADVDeviceIdentity.$Shape;
+         *   (properties?: Adv.ADVDeviceIdentity.$Properties): Adv.ADVDeviceIdentity;
+         * }}
          */
         ADVDeviceIdentity.create = function create(properties) {
             return new ADVDeviceIdentity(properties);
@@ -846,7 +891,7 @@ $root.Adv = (function() {
          * @function encode
          * @memberof Adv.ADVDeviceIdentity
          * @static
-         * @param {Adv.IADVDeviceIdentity} message ADVDeviceIdentity message or plain object to encode
+         * @param {Adv.ADVDeviceIdentity.$Properties} message ADVDeviceIdentity message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -874,7 +919,7 @@ $root.Adv = (function() {
          * @function encodeDelimited
          * @memberof Adv.ADVDeviceIdentity
          * @static
-         * @param {Adv.IADVDeviceIdentity} message ADVDeviceIdentity message or plain object to encode
+         * @param {Adv.ADVDeviceIdentity.$Properties} message ADVDeviceIdentity message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -889,7 +934,7 @@ $root.Adv = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {Adv.ADVDeviceIdentity} ADVDeviceIdentity
+         * @returns {Adv.ADVDeviceIdentity & Adv.ADVDeviceIdentity.$Shape} ADVDeviceIdentity
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -961,7 +1006,7 @@ $root.Adv = (function() {
          * @memberof Adv.ADVDeviceIdentity
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {Adv.ADVDeviceIdentity} ADVDeviceIdentity
+         * @returns {Adv.ADVDeviceIdentity & Adv.ADVDeviceIdentity.$Shape} ADVDeviceIdentity
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1175,8 +1220,7 @@ $root.Adv = (function() {
 
         /**
          * Properties of a ADVSignedKeyIndexList.
-         * @memberof Adv
-         * @interface IADVSignedKeyIndexList
+         * @typedef {Object} Adv.ADVSignedKeyIndexList.$Properties
          * @property {Uint8Array|null} [details] ADVSignedKeyIndexList details
          * @property {Uint8Array|null} [accountSignature] ADVSignedKeyIndexList accountSignature
          * @property {Uint8Array|null} [accountSignatureKey] ADVSignedKeyIndexList accountSignatureKey
@@ -1184,12 +1228,24 @@ $root.Adv = (function() {
          */
 
         /**
+         * Properties of a ADVSignedKeyIndexList.
+         * @memberof Adv
+         * @interface IADVSignedKeyIndexList
+         * @augments Adv.ADVSignedKeyIndexList.$Properties
+         * @deprecated Use Adv.ADVSignedKeyIndexList.$Properties instead.
+         */
+
+        /**
+         * Shape of a ADVSignedKeyIndexList.
+         * @typedef {Adv.ADVSignedKeyIndexList.$Properties} Adv.ADVSignedKeyIndexList.$Shape
+         */
+
+        /**
          * Constructs a new ADVSignedKeyIndexList.
          * @memberof Adv
          * @classdesc Represents a ADVSignedKeyIndexList.
-         * @implements IADVSignedKeyIndexList
          * @constructor
-         * @param {Adv.IADVSignedKeyIndexList=} [properties] Properties to set
+         * @param {Adv.ADVSignedKeyIndexList.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function ADVSignedKeyIndexList(properties) {
@@ -1249,8 +1305,12 @@ $root.Adv = (function() {
          * @function create
          * @memberof Adv.ADVSignedKeyIndexList
          * @static
-         * @param {Adv.IADVSignedKeyIndexList=} [properties] Properties to set
+         * @param {Adv.ADVSignedKeyIndexList.$Properties=} [properties] Properties to set
          * @returns {Adv.ADVSignedKeyIndexList} ADVSignedKeyIndexList instance
+         * @type {{
+         *   (properties: Adv.ADVSignedKeyIndexList.$Shape): Adv.ADVSignedKeyIndexList & Adv.ADVSignedKeyIndexList.$Shape;
+         *   (properties?: Adv.ADVSignedKeyIndexList.$Properties): Adv.ADVSignedKeyIndexList;
+         * }}
          */
         ADVSignedKeyIndexList.create = function create(properties) {
             return new ADVSignedKeyIndexList(properties);
@@ -1261,7 +1321,7 @@ $root.Adv = (function() {
          * @function encode
          * @memberof Adv.ADVSignedKeyIndexList
          * @static
-         * @param {Adv.IADVSignedKeyIndexList} message ADVSignedKeyIndexList message or plain object to encode
+         * @param {Adv.ADVSignedKeyIndexList.$Properties} message ADVSignedKeyIndexList message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1285,7 +1345,7 @@ $root.Adv = (function() {
          * @function encodeDelimited
          * @memberof Adv.ADVSignedKeyIndexList
          * @static
-         * @param {Adv.IADVSignedKeyIndexList} message ADVSignedKeyIndexList message or plain object to encode
+         * @param {Adv.ADVSignedKeyIndexList.$Properties} message ADVSignedKeyIndexList message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1300,7 +1360,7 @@ $root.Adv = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {Adv.ADVSignedKeyIndexList} ADVSignedKeyIndexList
+         * @returns {Adv.ADVSignedKeyIndexList & Adv.ADVSignedKeyIndexList.$Shape} ADVSignedKeyIndexList
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1358,7 +1418,7 @@ $root.Adv = (function() {
          * @memberof Adv.ADVSignedKeyIndexList
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {Adv.ADVSignedKeyIndexList} ADVSignedKeyIndexList
+         * @returns {Adv.ADVSignedKeyIndexList & Adv.ADVSignedKeyIndexList.$Shape} ADVSignedKeyIndexList
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1499,8 +1559,7 @@ $root.Adv = (function() {
 
         /**
          * Properties of a ADVKeyIndexList.
-         * @memberof Adv
-         * @interface IADVKeyIndexList
+         * @typedef {Object} Adv.ADVKeyIndexList.$Properties
          * @property {number|null} [rawId] ADVKeyIndexList rawId
          * @property {number|Long|null} [timestamp] ADVKeyIndexList timestamp
          * @property {number|null} [currentIndex] ADVKeyIndexList currentIndex
@@ -1510,12 +1569,24 @@ $root.Adv = (function() {
          */
 
         /**
+         * Properties of a ADVKeyIndexList.
+         * @memberof Adv
+         * @interface IADVKeyIndexList
+         * @augments Adv.ADVKeyIndexList.$Properties
+         * @deprecated Use Adv.ADVKeyIndexList.$Properties instead.
+         */
+
+        /**
+         * Shape of a ADVKeyIndexList.
+         * @typedef {Adv.ADVKeyIndexList.$Properties} Adv.ADVKeyIndexList.$Shape
+         */
+
+        /**
          * Constructs a new ADVKeyIndexList.
          * @memberof Adv
          * @classdesc Represents a ADVKeyIndexList.
-         * @implements IADVKeyIndexList
          * @constructor
-         * @param {Adv.IADVKeyIndexList=} [properties] Properties to set
+         * @param {Adv.ADVKeyIndexList.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function ADVKeyIndexList(properties) {
@@ -1598,8 +1669,12 @@ $root.Adv = (function() {
          * @function create
          * @memberof Adv.ADVKeyIndexList
          * @static
-         * @param {Adv.IADVKeyIndexList=} [properties] Properties to set
+         * @param {Adv.ADVKeyIndexList.$Properties=} [properties] Properties to set
          * @returns {Adv.ADVKeyIndexList} ADVKeyIndexList instance
+         * @type {{
+         *   (properties: Adv.ADVKeyIndexList.$Shape): Adv.ADVKeyIndexList & Adv.ADVKeyIndexList.$Shape;
+         *   (properties?: Adv.ADVKeyIndexList.$Properties): Adv.ADVKeyIndexList;
+         * }}
          */
         ADVKeyIndexList.create = function create(properties) {
             return new ADVKeyIndexList(properties);
@@ -1610,7 +1685,7 @@ $root.Adv = (function() {
          * @function encode
          * @memberof Adv.ADVKeyIndexList
          * @static
-         * @param {Adv.IADVKeyIndexList} message ADVKeyIndexList message or plain object to encode
+         * @param {Adv.ADVKeyIndexList.$Properties} message ADVKeyIndexList message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1642,7 +1717,7 @@ $root.Adv = (function() {
          * @function encodeDelimited
          * @memberof Adv.ADVKeyIndexList
          * @static
-         * @param {Adv.IADVKeyIndexList} message ADVKeyIndexList message or plain object to encode
+         * @param {Adv.ADVKeyIndexList.$Properties} message ADVKeyIndexList message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1657,7 +1732,7 @@ $root.Adv = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {Adv.ADVKeyIndexList} ADVKeyIndexList
+         * @returns {Adv.ADVKeyIndexList & Adv.ADVKeyIndexList.$Shape} ADVKeyIndexList
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1738,7 +1813,7 @@ $root.Adv = (function() {
          * @memberof Adv.ADVKeyIndexList
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {Adv.ADVKeyIndexList} ADVKeyIndexList
+         * @returns {Adv.ADVKeyIndexList & Adv.ADVKeyIndexList.$Shape} ADVKeyIndexList
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */

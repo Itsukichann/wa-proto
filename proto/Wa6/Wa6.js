@@ -22,22 +22,21 @@ $root.Wa6 = (function() {
 
         /**
          * Properties of a ClientPayload.
-         * @memberof Wa6
-         * @interface IClientPayload
+         * @typedef {Object} Wa6.ClientPayload.$Properties
          * @property {number|Long|null} [username] ClientPayload username
          * @property {boolean|null} [passive] ClientPayload passive
-         * @property {Wa6.ClientPayload.IUserAgent|null} [userAgent] ClientPayload userAgent
-         * @property {Wa6.ClientPayload.IWebInfo|null} [webInfo] ClientPayload webInfo
+         * @property {Wa6.ClientPayload.UserAgent.$Properties|null} [userAgent] ClientPayload userAgent
+         * @property {Wa6.ClientPayload.WebInfo.$Properties|null} [webInfo] ClientPayload webInfo
          * @property {string|null} [pushName] ClientPayload pushName
          * @property {number|null} [sessionId] ClientPayload sessionId
          * @property {boolean|null} [shortConnect] ClientPayload shortConnect
          * @property {Wa6.ClientPayload.ConnectType|null} [connectType] ClientPayload connectType
          * @property {Wa6.ClientPayload.ConnectReason|null} [connectReason] ClientPayload connectReason
          * @property {Array.<number>|null} [shards] ClientPayload shards
-         * @property {Wa6.ClientPayload.IDNSSource|null} [dnsSource] ClientPayload dnsSource
+         * @property {Wa6.ClientPayload.DNSSource.$Properties|null} [dnsSource] ClientPayload dnsSource
          * @property {number|null} [connectAttemptCount] ClientPayload connectAttemptCount
          * @property {number|null} [device] ClientPayload device
-         * @property {Wa6.ClientPayload.IDevicePairingRegistrationData|null} [devicePairingData] ClientPayload devicePairingData
+         * @property {Wa6.ClientPayload.DevicePairingRegistrationData.$Properties|null} [devicePairingData] ClientPayload devicePairingData
          * @property {Wa6.ClientPayload.Product|null} [product] ClientPayload product
          * @property {Uint8Array|null} [fbCat] ClientPayload fbCat
          * @property {Uint8Array|null} [fbUserAgent] ClientPayload fbUserAgent
@@ -50,7 +49,7 @@ $root.Wa6 = (function() {
          * @property {Uint8Array|null} [paddingBytes] ClientPayload paddingBytes
          * @property {number|null} [yearClass] ClientPayload yearClass
          * @property {number|null} [memClass] ClientPayload memClass
-         * @property {Wa6.ClientPayload.IInteropData|null} [interopData] ClientPayload interopData
+         * @property {Wa6.ClientPayload.InteropData.$Properties|null} [interopData] ClientPayload interopData
          * @property {Wa6.ClientPayload.TrafficAnonymization|null} [trafficAnonymization] ClientPayload trafficAnonymization
          * @property {boolean|null} [lidDbMigrated] ClientPayload lidDbMigrated
          * @property {Wa6.ClientPayload.AccountType|null} [accountType] ClientPayload accountType
@@ -64,12 +63,24 @@ $root.Wa6 = (function() {
          */
 
         /**
+         * Properties of a ClientPayload.
+         * @memberof Wa6
+         * @interface IClientPayload
+         * @augments Wa6.ClientPayload.$Properties
+         * @deprecated Use Wa6.ClientPayload.$Properties instead.
+         */
+
+        /**
+         * Shape of a ClientPayload.
+         * @typedef {Wa6.ClientPayload.$Properties} Wa6.ClientPayload.$Shape
+         */
+
+        /**
          * Constructs a new ClientPayload.
          * @memberof Wa6
          * @classdesc Represents a ClientPayload.
-         * @implements IClientPayload
          * @constructor
-         * @param {Wa6.IClientPayload=} [properties] Properties to set
+         * @param {Wa6.ClientPayload.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function ClientPayload(properties) {
@@ -99,7 +110,7 @@ $root.Wa6 = (function() {
 
         /**
          * ClientPayload userAgent.
-         * @member {Wa6.ClientPayload.IUserAgent|null|undefined} userAgent
+         * @member {Wa6.ClientPayload.UserAgent.$Properties|null|undefined} userAgent
          * @memberof Wa6.ClientPayload
          * @instance
          */
@@ -107,7 +118,7 @@ $root.Wa6 = (function() {
 
         /**
          * ClientPayload webInfo.
-         * @member {Wa6.ClientPayload.IWebInfo|null|undefined} webInfo
+         * @member {Wa6.ClientPayload.WebInfo.$Properties|null|undefined} webInfo
          * @memberof Wa6.ClientPayload
          * @instance
          */
@@ -163,7 +174,7 @@ $root.Wa6 = (function() {
 
         /**
          * ClientPayload dnsSource.
-         * @member {Wa6.ClientPayload.IDNSSource|null|undefined} dnsSource
+         * @member {Wa6.ClientPayload.DNSSource.$Properties|null|undefined} dnsSource
          * @memberof Wa6.ClientPayload
          * @instance
          */
@@ -187,7 +198,7 @@ $root.Wa6 = (function() {
 
         /**
          * ClientPayload devicePairingData.
-         * @member {Wa6.ClientPayload.IDevicePairingRegistrationData|null|undefined} devicePairingData
+         * @member {Wa6.ClientPayload.DevicePairingRegistrationData.$Properties|null|undefined} devicePairingData
          * @memberof Wa6.ClientPayload
          * @instance
          */
@@ -291,7 +302,7 @@ $root.Wa6 = (function() {
 
         /**
          * ClientPayload interopData.
-         * @member {Wa6.ClientPayload.IInteropData|null|undefined} interopData
+         * @member {Wa6.ClientPayload.InteropData.$Properties|null|undefined} interopData
          * @memberof Wa6.ClientPayload
          * @instance
          */
@@ -581,8 +592,12 @@ $root.Wa6 = (function() {
          * @function create
          * @memberof Wa6.ClientPayload
          * @static
-         * @param {Wa6.IClientPayload=} [properties] Properties to set
+         * @param {Wa6.ClientPayload.$Properties=} [properties] Properties to set
          * @returns {Wa6.ClientPayload} ClientPayload instance
+         * @type {{
+         *   (properties: Wa6.ClientPayload.$Shape): Wa6.ClientPayload & Wa6.ClientPayload.$Shape;
+         *   (properties?: Wa6.ClientPayload.$Properties): Wa6.ClientPayload;
+         * }}
          */
         ClientPayload.create = function create(properties) {
             return new ClientPayload(properties);
@@ -593,7 +608,7 @@ $root.Wa6 = (function() {
          * @function encode
          * @memberof Wa6.ClientPayload
          * @static
-         * @param {Wa6.IClientPayload} message ClientPayload message or plain object to encode
+         * @param {Wa6.ClientPayload.$Properties} message ClientPayload message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -688,7 +703,7 @@ $root.Wa6 = (function() {
          * @function encodeDelimited
          * @memberof Wa6.ClientPayload
          * @static
-         * @param {Wa6.IClientPayload} message ClientPayload message or plain object to encode
+         * @param {Wa6.ClientPayload.$Properties} message ClientPayload message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -703,7 +718,7 @@ $root.Wa6 = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {Wa6.ClientPayload} ClientPayload
+         * @returns {Wa6.ClientPayload & Wa6.ClientPayload.$Shape} ClientPayload
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1002,7 +1017,7 @@ $root.Wa6 = (function() {
          * @memberof Wa6.ClientPayload
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {Wa6.ClientPayload} ClientPayload
+         * @returns {Wa6.ClientPayload & Wa6.ClientPayload.$Shape} ClientPayload
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1912,20 +1927,31 @@ $root.Wa6 = (function() {
 
             /**
              * Properties of a DNSSource.
-             * @memberof Wa6.ClientPayload
-             * @interface IDNSSource
+             * @typedef {Object} Wa6.ClientPayload.DNSSource.$Properties
              * @property {Wa6.ClientPayload.DNSSource.DNSResolutionMethod|null} [dnsMethod] DNSSource dnsMethod
              * @property {boolean|null} [appCached] DNSSource appCached
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
             /**
+             * Properties of a DNSSource.
+             * @memberof Wa6.ClientPayload
+             * @interface IDNSSource
+             * @augments Wa6.ClientPayload.DNSSource.$Properties
+             * @deprecated Use Wa6.ClientPayload.DNSSource.$Properties instead.
+             */
+
+            /**
+             * Shape of a DNSSource.
+             * @typedef {Wa6.ClientPayload.DNSSource.$Properties} Wa6.ClientPayload.DNSSource.$Shape
+             */
+
+            /**
              * Constructs a new DNSSource.
              * @memberof Wa6.ClientPayload
              * @classdesc Represents a DNSSource.
-             * @implements IDNSSource
              * @constructor
-             * @param {Wa6.ClientPayload.IDNSSource=} [properties] Properties to set
+             * @param {Wa6.ClientPayload.DNSSource.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function DNSSource(properties) {
@@ -1971,8 +1997,12 @@ $root.Wa6 = (function() {
              * @function create
              * @memberof Wa6.ClientPayload.DNSSource
              * @static
-             * @param {Wa6.ClientPayload.IDNSSource=} [properties] Properties to set
+             * @param {Wa6.ClientPayload.DNSSource.$Properties=} [properties] Properties to set
              * @returns {Wa6.ClientPayload.DNSSource} DNSSource instance
+             * @type {{
+             *   (properties: Wa6.ClientPayload.DNSSource.$Shape): Wa6.ClientPayload.DNSSource & Wa6.ClientPayload.DNSSource.$Shape;
+             *   (properties?: Wa6.ClientPayload.DNSSource.$Properties): Wa6.ClientPayload.DNSSource;
+             * }}
              */
             DNSSource.create = function create(properties) {
                 return new DNSSource(properties);
@@ -1983,7 +2013,7 @@ $root.Wa6 = (function() {
              * @function encode
              * @memberof Wa6.ClientPayload.DNSSource
              * @static
-             * @param {Wa6.ClientPayload.IDNSSource} message DNSSource message or plain object to encode
+             * @param {Wa6.ClientPayload.DNSSource.$Properties} message DNSSource message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -2005,7 +2035,7 @@ $root.Wa6 = (function() {
              * @function encodeDelimited
              * @memberof Wa6.ClientPayload.DNSSource
              * @static
-             * @param {Wa6.ClientPayload.IDNSSource} message DNSSource message or plain object to encode
+             * @param {Wa6.ClientPayload.DNSSource.$Properties} message DNSSource message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -2020,7 +2050,7 @@ $root.Wa6 = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {Wa6.ClientPayload.DNSSource} DNSSource
+             * @returns {Wa6.ClientPayload.DNSSource & Wa6.ClientPayload.DNSSource.$Shape} DNSSource
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -2071,7 +2101,7 @@ $root.Wa6 = (function() {
              * @memberof Wa6.ClientPayload.DNSSource
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {Wa6.ClientPayload.DNSSource} DNSSource
+             * @returns {Wa6.ClientPayload.DNSSource & Wa6.ClientPayload.DNSSource.$Shape} DNSSource
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -2266,8 +2296,7 @@ $root.Wa6 = (function() {
 
             /**
              * Properties of a DevicePairingRegistrationData.
-             * @memberof Wa6.ClientPayload
-             * @interface IDevicePairingRegistrationData
+             * @typedef {Object} Wa6.ClientPayload.DevicePairingRegistrationData.$Properties
              * @property {Uint8Array|null} [eRegid] DevicePairingRegistrationData eRegid
              * @property {Uint8Array|null} [eKeytype] DevicePairingRegistrationData eKeytype
              * @property {Uint8Array|null} [eIdent] DevicePairingRegistrationData eIdent
@@ -2280,12 +2309,24 @@ $root.Wa6 = (function() {
              */
 
             /**
+             * Properties of a DevicePairingRegistrationData.
+             * @memberof Wa6.ClientPayload
+             * @interface IDevicePairingRegistrationData
+             * @augments Wa6.ClientPayload.DevicePairingRegistrationData.$Properties
+             * @deprecated Use Wa6.ClientPayload.DevicePairingRegistrationData.$Properties instead.
+             */
+
+            /**
+             * Shape of a DevicePairingRegistrationData.
+             * @typedef {Wa6.ClientPayload.DevicePairingRegistrationData.$Properties} Wa6.ClientPayload.DevicePairingRegistrationData.$Shape
+             */
+
+            /**
              * Constructs a new DevicePairingRegistrationData.
              * @memberof Wa6.ClientPayload
              * @classdesc Represents a DevicePairingRegistrationData.
-             * @implements IDevicePairingRegistrationData
              * @constructor
-             * @param {Wa6.ClientPayload.IDevicePairingRegistrationData=} [properties] Properties to set
+             * @param {Wa6.ClientPayload.DevicePairingRegistrationData.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function DevicePairingRegistrationData(properties) {
@@ -2415,8 +2456,12 @@ $root.Wa6 = (function() {
              * @function create
              * @memberof Wa6.ClientPayload.DevicePairingRegistrationData
              * @static
-             * @param {Wa6.ClientPayload.IDevicePairingRegistrationData=} [properties] Properties to set
+             * @param {Wa6.ClientPayload.DevicePairingRegistrationData.$Properties=} [properties] Properties to set
              * @returns {Wa6.ClientPayload.DevicePairingRegistrationData} DevicePairingRegistrationData instance
+             * @type {{
+             *   (properties: Wa6.ClientPayload.DevicePairingRegistrationData.$Shape): Wa6.ClientPayload.DevicePairingRegistrationData & Wa6.ClientPayload.DevicePairingRegistrationData.$Shape;
+             *   (properties?: Wa6.ClientPayload.DevicePairingRegistrationData.$Properties): Wa6.ClientPayload.DevicePairingRegistrationData;
+             * }}
              */
             DevicePairingRegistrationData.create = function create(properties) {
                 return new DevicePairingRegistrationData(properties);
@@ -2427,7 +2472,7 @@ $root.Wa6 = (function() {
              * @function encode
              * @memberof Wa6.ClientPayload.DevicePairingRegistrationData
              * @static
-             * @param {Wa6.ClientPayload.IDevicePairingRegistrationData} message DevicePairingRegistrationData message or plain object to encode
+             * @param {Wa6.ClientPayload.DevicePairingRegistrationData.$Properties} message DevicePairingRegistrationData message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -2461,7 +2506,7 @@ $root.Wa6 = (function() {
              * @function encodeDelimited
              * @memberof Wa6.ClientPayload.DevicePairingRegistrationData
              * @static
-             * @param {Wa6.ClientPayload.IDevicePairingRegistrationData} message DevicePairingRegistrationData message or plain object to encode
+             * @param {Wa6.ClientPayload.DevicePairingRegistrationData.$Properties} message DevicePairingRegistrationData message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -2476,7 +2521,7 @@ $root.Wa6 = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {Wa6.ClientPayload.DevicePairingRegistrationData} DevicePairingRegistrationData
+             * @returns {Wa6.ClientPayload.DevicePairingRegistrationData & Wa6.ClientPayload.DevicePairingRegistrationData.$Shape} DevicePairingRegistrationData
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -2569,7 +2614,7 @@ $root.Wa6 = (function() {
              * @memberof Wa6.ClientPayload.DevicePairingRegistrationData
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {Wa6.ClientPayload.DevicePairingRegistrationData} DevicePairingRegistrationData
+             * @returns {Wa6.ClientPayload.DevicePairingRegistrationData & Wa6.ClientPayload.DevicePairingRegistrationData.$Shape} DevicePairingRegistrationData
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -2801,8 +2846,7 @@ $root.Wa6 = (function() {
 
             /**
              * Properties of an InteropData.
-             * @memberof Wa6.ClientPayload
-             * @interface IInteropData
+             * @typedef {Object} Wa6.ClientPayload.InteropData.$Properties
              * @property {number|Long|null} [accountId] InteropData accountId
              * @property {Uint8Array|null} [token] InteropData token
              * @property {boolean|null} [enableReadReceipts] InteropData enableReadReceipts
@@ -2810,12 +2854,24 @@ $root.Wa6 = (function() {
              */
 
             /**
+             * Properties of an InteropData.
+             * @memberof Wa6.ClientPayload
+             * @interface IInteropData
+             * @augments Wa6.ClientPayload.InteropData.$Properties
+             * @deprecated Use Wa6.ClientPayload.InteropData.$Properties instead.
+             */
+
+            /**
+             * Shape of an InteropData.
+             * @typedef {Wa6.ClientPayload.InteropData.$Properties} Wa6.ClientPayload.InteropData.$Shape
+             */
+
+            /**
              * Constructs a new InteropData.
              * @memberof Wa6.ClientPayload
              * @classdesc Represents an InteropData.
-             * @implements IInteropData
              * @constructor
-             * @param {Wa6.ClientPayload.IInteropData=} [properties] Properties to set
+             * @param {Wa6.ClientPayload.InteropData.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function InteropData(properties) {
@@ -2875,8 +2931,12 @@ $root.Wa6 = (function() {
              * @function create
              * @memberof Wa6.ClientPayload.InteropData
              * @static
-             * @param {Wa6.ClientPayload.IInteropData=} [properties] Properties to set
+             * @param {Wa6.ClientPayload.InteropData.$Properties=} [properties] Properties to set
              * @returns {Wa6.ClientPayload.InteropData} InteropData instance
+             * @type {{
+             *   (properties: Wa6.ClientPayload.InteropData.$Shape): Wa6.ClientPayload.InteropData & Wa6.ClientPayload.InteropData.$Shape;
+             *   (properties?: Wa6.ClientPayload.InteropData.$Properties): Wa6.ClientPayload.InteropData;
+             * }}
              */
             InteropData.create = function create(properties) {
                 return new InteropData(properties);
@@ -2887,7 +2947,7 @@ $root.Wa6 = (function() {
              * @function encode
              * @memberof Wa6.ClientPayload.InteropData
              * @static
-             * @param {Wa6.ClientPayload.IInteropData} message InteropData message or plain object to encode
+             * @param {Wa6.ClientPayload.InteropData.$Properties} message InteropData message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -2911,7 +2971,7 @@ $root.Wa6 = (function() {
              * @function encodeDelimited
              * @memberof Wa6.ClientPayload.InteropData
              * @static
-             * @param {Wa6.ClientPayload.IInteropData} message InteropData message or plain object to encode
+             * @param {Wa6.ClientPayload.InteropData.$Properties} message InteropData message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -2926,7 +2986,7 @@ $root.Wa6 = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {Wa6.ClientPayload.InteropData} InteropData
+             * @returns {Wa6.ClientPayload.InteropData & Wa6.ClientPayload.InteropData.$Shape} InteropData
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -2984,7 +3044,7 @@ $root.Wa6 = (function() {
              * @memberof Wa6.ClientPayload.InteropData
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {Wa6.ClientPayload.InteropData} InteropData
+             * @returns {Wa6.ClientPayload.InteropData & Wa6.ClientPayload.InteropData.$Shape} InteropData
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -3163,10 +3223,9 @@ $root.Wa6 = (function() {
 
             /**
              * Properties of a UserAgent.
-             * @memberof Wa6.ClientPayload
-             * @interface IUserAgent
+             * @typedef {Object} Wa6.ClientPayload.UserAgent.$Properties
              * @property {Wa6.ClientPayload.UserAgent.Platform|null} [platform] UserAgent platform
-             * @property {Wa6.ClientPayload.UserAgent.IAppVersion|null} [appVersion] UserAgent appVersion
+             * @property {Wa6.ClientPayload.UserAgent.AppVersion.$Properties|null} [appVersion] UserAgent appVersion
              * @property {string|null} [mcc] UserAgent mcc
              * @property {string|null} [mnc] UserAgent mnc
              * @property {string|null} [osVersion] UserAgent osVersion
@@ -3186,12 +3245,24 @@ $root.Wa6 = (function() {
              */
 
             /**
+             * Properties of a UserAgent.
+             * @memberof Wa6.ClientPayload
+             * @interface IUserAgent
+             * @augments Wa6.ClientPayload.UserAgent.$Properties
+             * @deprecated Use Wa6.ClientPayload.UserAgent.$Properties instead.
+             */
+
+            /**
+             * Shape of a UserAgent.
+             * @typedef {Wa6.ClientPayload.UserAgent.$Properties} Wa6.ClientPayload.UserAgent.$Shape
+             */
+
+            /**
              * Constructs a new UserAgent.
              * @memberof Wa6.ClientPayload
              * @classdesc Represents a UserAgent.
-             * @implements IUserAgent
              * @constructor
-             * @param {Wa6.ClientPayload.IUserAgent=} [properties] Properties to set
+             * @param {Wa6.ClientPayload.UserAgent.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function UserAgent(properties) {
@@ -3211,7 +3282,7 @@ $root.Wa6 = (function() {
 
             /**
              * UserAgent appVersion.
-             * @member {Wa6.ClientPayload.UserAgent.IAppVersion|null|undefined} appVersion
+             * @member {Wa6.ClientPayload.UserAgent.AppVersion.$Properties|null|undefined} appVersion
              * @memberof Wa6.ClientPayload.UserAgent
              * @instance
              */
@@ -3447,8 +3518,12 @@ $root.Wa6 = (function() {
              * @function create
              * @memberof Wa6.ClientPayload.UserAgent
              * @static
-             * @param {Wa6.ClientPayload.IUserAgent=} [properties] Properties to set
+             * @param {Wa6.ClientPayload.UserAgent.$Properties=} [properties] Properties to set
              * @returns {Wa6.ClientPayload.UserAgent} UserAgent instance
+             * @type {{
+             *   (properties: Wa6.ClientPayload.UserAgent.$Shape): Wa6.ClientPayload.UserAgent & Wa6.ClientPayload.UserAgent.$Shape;
+             *   (properties?: Wa6.ClientPayload.UserAgent.$Properties): Wa6.ClientPayload.UserAgent;
+             * }}
              */
             UserAgent.create = function create(properties) {
                 return new UserAgent(properties);
@@ -3459,7 +3534,7 @@ $root.Wa6 = (function() {
              * @function encode
              * @memberof Wa6.ClientPayload.UserAgent
              * @static
-             * @param {Wa6.ClientPayload.IUserAgent} message UserAgent message or plain object to encode
+             * @param {Wa6.ClientPayload.UserAgent.$Properties} message UserAgent message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -3511,7 +3586,7 @@ $root.Wa6 = (function() {
              * @function encodeDelimited
              * @memberof Wa6.ClientPayload.UserAgent
              * @static
-             * @param {Wa6.ClientPayload.IUserAgent} message UserAgent message or plain object to encode
+             * @param {Wa6.ClientPayload.UserAgent.$Properties} message UserAgent message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -3526,7 +3601,7 @@ $root.Wa6 = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {Wa6.ClientPayload.UserAgent} UserAgent
+             * @returns {Wa6.ClientPayload.UserAgent & Wa6.ClientPayload.UserAgent.$Shape} UserAgent
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -3682,7 +3757,7 @@ $root.Wa6 = (function() {
              * @memberof Wa6.ClientPayload.UserAgent
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {Wa6.ClientPayload.UserAgent} UserAgent
+             * @returns {Wa6.ClientPayload.UserAgent & Wa6.ClientPayload.UserAgent.$Shape} UserAgent
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -4276,8 +4351,7 @@ $root.Wa6 = (function() {
 
                 /**
                  * Properties of an AppVersion.
-                 * @memberof Wa6.ClientPayload.UserAgent
-                 * @interface IAppVersion
+                 * @typedef {Object} Wa6.ClientPayload.UserAgent.AppVersion.$Properties
                  * @property {number|null} [primary] AppVersion primary
                  * @property {number|null} [secondary] AppVersion secondary
                  * @property {number|null} [tertiary] AppVersion tertiary
@@ -4287,12 +4361,24 @@ $root.Wa6 = (function() {
                  */
 
                 /**
+                 * Properties of an AppVersion.
+                 * @memberof Wa6.ClientPayload.UserAgent
+                 * @interface IAppVersion
+                 * @augments Wa6.ClientPayload.UserAgent.AppVersion.$Properties
+                 * @deprecated Use Wa6.ClientPayload.UserAgent.AppVersion.$Properties instead.
+                 */
+
+                /**
+                 * Shape of an AppVersion.
+                 * @typedef {Wa6.ClientPayload.UserAgent.AppVersion.$Properties} Wa6.ClientPayload.UserAgent.AppVersion.$Shape
+                 */
+
+                /**
                  * Constructs a new AppVersion.
                  * @memberof Wa6.ClientPayload.UserAgent
                  * @classdesc Represents an AppVersion.
-                 * @implements IAppVersion
                  * @constructor
-                 * @param {Wa6.ClientPayload.UserAgent.IAppVersion=} [properties] Properties to set
+                 * @param {Wa6.ClientPayload.UserAgent.AppVersion.$Properties=} [properties] Properties to set
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function AppVersion(properties) {
@@ -4380,8 +4466,12 @@ $root.Wa6 = (function() {
                  * @function create
                  * @memberof Wa6.ClientPayload.UserAgent.AppVersion
                  * @static
-                 * @param {Wa6.ClientPayload.UserAgent.IAppVersion=} [properties] Properties to set
+                 * @param {Wa6.ClientPayload.UserAgent.AppVersion.$Properties=} [properties] Properties to set
                  * @returns {Wa6.ClientPayload.UserAgent.AppVersion} AppVersion instance
+                 * @type {{
+                 *   (properties: Wa6.ClientPayload.UserAgent.AppVersion.$Shape): Wa6.ClientPayload.UserAgent.AppVersion & Wa6.ClientPayload.UserAgent.AppVersion.$Shape;
+                 *   (properties?: Wa6.ClientPayload.UserAgent.AppVersion.$Properties): Wa6.ClientPayload.UserAgent.AppVersion;
+                 * }}
                  */
                 AppVersion.create = function create(properties) {
                     return new AppVersion(properties);
@@ -4392,7 +4482,7 @@ $root.Wa6 = (function() {
                  * @function encode
                  * @memberof Wa6.ClientPayload.UserAgent.AppVersion
                  * @static
-                 * @param {Wa6.ClientPayload.UserAgent.IAppVersion} message AppVersion message or plain object to encode
+                 * @param {Wa6.ClientPayload.UserAgent.AppVersion.$Properties} message AppVersion message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -4420,7 +4510,7 @@ $root.Wa6 = (function() {
                  * @function encodeDelimited
                  * @memberof Wa6.ClientPayload.UserAgent.AppVersion
                  * @static
-                 * @param {Wa6.ClientPayload.UserAgent.IAppVersion} message AppVersion message or plain object to encode
+                 * @param {Wa6.ClientPayload.UserAgent.AppVersion.$Properties} message AppVersion message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -4435,7 +4525,7 @@ $root.Wa6 = (function() {
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                  * @param {number} [length] Message length if known beforehand
-                 * @returns {Wa6.ClientPayload.UserAgent.AppVersion} AppVersion
+                 * @returns {Wa6.ClientPayload.UserAgent.AppVersion & Wa6.ClientPayload.UserAgent.AppVersion.$Shape} AppVersion
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -4507,7 +4597,7 @@ $root.Wa6 = (function() {
                  * @memberof Wa6.ClientPayload.UserAgent.AppVersion
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {Wa6.ClientPayload.UserAgent.AppVersion} AppVersion
+                 * @returns {Wa6.ClientPayload.UserAgent.AppVersion & Wa6.ClientPayload.UserAgent.AppVersion.$Shape} AppVersion
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -4808,11 +4898,10 @@ $root.Wa6 = (function() {
 
             /**
              * Properties of a WebInfo.
-             * @memberof Wa6.ClientPayload
-             * @interface IWebInfo
+             * @typedef {Object} Wa6.ClientPayload.WebInfo.$Properties
              * @property {string|null} [refToken] WebInfo refToken
              * @property {string|null} [version] WebInfo version
-             * @property {Wa6.ClientPayload.WebInfo.IWebdPayload|null} [webdPayload] WebInfo webdPayload
+             * @property {Wa6.ClientPayload.WebInfo.WebdPayload.$Properties|null} [webdPayload] WebInfo webdPayload
              * @property {Wa6.ClientPayload.WebInfo.WebSubPlatform|null} [webSubPlatform] WebInfo webSubPlatform
              * @property {string|null} [browser] WebInfo browser
              * @property {string|null} [browserVersion] WebInfo browserVersion
@@ -4820,12 +4909,24 @@ $root.Wa6 = (function() {
              */
 
             /**
+             * Properties of a WebInfo.
+             * @memberof Wa6.ClientPayload
+             * @interface IWebInfo
+             * @augments Wa6.ClientPayload.WebInfo.$Properties
+             * @deprecated Use Wa6.ClientPayload.WebInfo.$Properties instead.
+             */
+
+            /**
+             * Shape of a WebInfo.
+             * @typedef {Wa6.ClientPayload.WebInfo.$Properties} Wa6.ClientPayload.WebInfo.$Shape
+             */
+
+            /**
              * Constructs a new WebInfo.
              * @memberof Wa6.ClientPayload
              * @classdesc Represents a WebInfo.
-             * @implements IWebInfo
              * @constructor
-             * @param {Wa6.ClientPayload.IWebInfo=} [properties] Properties to set
+             * @param {Wa6.ClientPayload.WebInfo.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function WebInfo(properties) {
@@ -4853,7 +4954,7 @@ $root.Wa6 = (function() {
 
             /**
              * WebInfo webdPayload.
-             * @member {Wa6.ClientPayload.WebInfo.IWebdPayload|null|undefined} webdPayload
+             * @member {Wa6.ClientPayload.WebInfo.WebdPayload.$Properties|null|undefined} webdPayload
              * @memberof Wa6.ClientPayload.WebInfo
              * @instance
              */
@@ -4927,8 +5028,12 @@ $root.Wa6 = (function() {
              * @function create
              * @memberof Wa6.ClientPayload.WebInfo
              * @static
-             * @param {Wa6.ClientPayload.IWebInfo=} [properties] Properties to set
+             * @param {Wa6.ClientPayload.WebInfo.$Properties=} [properties] Properties to set
              * @returns {Wa6.ClientPayload.WebInfo} WebInfo instance
+             * @type {{
+             *   (properties: Wa6.ClientPayload.WebInfo.$Shape): Wa6.ClientPayload.WebInfo & Wa6.ClientPayload.WebInfo.$Shape;
+             *   (properties?: Wa6.ClientPayload.WebInfo.$Properties): Wa6.ClientPayload.WebInfo;
+             * }}
              */
             WebInfo.create = function create(properties) {
                 return new WebInfo(properties);
@@ -4939,7 +5044,7 @@ $root.Wa6 = (function() {
              * @function encode
              * @memberof Wa6.ClientPayload.WebInfo
              * @static
-             * @param {Wa6.ClientPayload.IWebInfo} message WebInfo message or plain object to encode
+             * @param {Wa6.ClientPayload.WebInfo.$Properties} message WebInfo message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -4969,7 +5074,7 @@ $root.Wa6 = (function() {
              * @function encodeDelimited
              * @memberof Wa6.ClientPayload.WebInfo
              * @static
-             * @param {Wa6.ClientPayload.IWebInfo} message WebInfo message or plain object to encode
+             * @param {Wa6.ClientPayload.WebInfo.$Properties} message WebInfo message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -4984,7 +5089,7 @@ $root.Wa6 = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {Wa6.ClientPayload.WebInfo} WebInfo
+             * @returns {Wa6.ClientPayload.WebInfo & Wa6.ClientPayload.WebInfo.$Shape} WebInfo
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -5063,7 +5168,7 @@ $root.Wa6 = (function() {
              * @memberof Wa6.ClientPayload.WebInfo
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {Wa6.ClientPayload.WebInfo} WebInfo
+             * @returns {Wa6.ClientPayload.WebInfo & Wa6.ClientPayload.WebInfo.$Shape} WebInfo
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -5295,8 +5400,7 @@ $root.Wa6 = (function() {
 
                 /**
                  * Properties of a WebdPayload.
-                 * @memberof Wa6.ClientPayload.WebInfo
-                 * @interface IWebdPayload
+                 * @typedef {Object} Wa6.ClientPayload.WebInfo.WebdPayload.$Properties
                  * @property {boolean|null} [usesParticipantInKey] WebdPayload usesParticipantInKey
                  * @property {boolean|null} [supportsStarredMessages] WebdPayload supportsStarredMessages
                  * @property {boolean|null} [supportsDocumentMessages] WebdPayload supportsDocumentMessages
@@ -5312,12 +5416,24 @@ $root.Wa6 = (function() {
                  */
 
                 /**
+                 * Properties of a WebdPayload.
+                 * @memberof Wa6.ClientPayload.WebInfo
+                 * @interface IWebdPayload
+                 * @augments Wa6.ClientPayload.WebInfo.WebdPayload.$Properties
+                 * @deprecated Use Wa6.ClientPayload.WebInfo.WebdPayload.$Properties instead.
+                 */
+
+                /**
+                 * Shape of a WebdPayload.
+                 * @typedef {Wa6.ClientPayload.WebInfo.WebdPayload.$Properties} Wa6.ClientPayload.WebInfo.WebdPayload.$Shape
+                 */
+
+                /**
                  * Constructs a new WebdPayload.
                  * @memberof Wa6.ClientPayload.WebInfo
                  * @classdesc Represents a WebdPayload.
-                 * @implements IWebdPayload
                  * @constructor
-                 * @param {Wa6.ClientPayload.WebInfo.IWebdPayload=} [properties] Properties to set
+                 * @param {Wa6.ClientPayload.WebInfo.WebdPayload.$Properties=} [properties] Properties to set
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
                 function WebdPayload(properties) {
@@ -5489,8 +5605,12 @@ $root.Wa6 = (function() {
                  * @function create
                  * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
                  * @static
-                 * @param {Wa6.ClientPayload.WebInfo.IWebdPayload=} [properties] Properties to set
+                 * @param {Wa6.ClientPayload.WebInfo.WebdPayload.$Properties=} [properties] Properties to set
                  * @returns {Wa6.ClientPayload.WebInfo.WebdPayload} WebdPayload instance
+                 * @type {{
+                 *   (properties: Wa6.ClientPayload.WebInfo.WebdPayload.$Shape): Wa6.ClientPayload.WebInfo.WebdPayload & Wa6.ClientPayload.WebInfo.WebdPayload.$Shape;
+                 *   (properties?: Wa6.ClientPayload.WebInfo.WebdPayload.$Properties): Wa6.ClientPayload.WebInfo.WebdPayload;
+                 * }}
                  */
                 WebdPayload.create = function create(properties) {
                     return new WebdPayload(properties);
@@ -5501,7 +5621,7 @@ $root.Wa6 = (function() {
                  * @function encode
                  * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
                  * @static
-                 * @param {Wa6.ClientPayload.WebInfo.IWebdPayload} message WebdPayload message or plain object to encode
+                 * @param {Wa6.ClientPayload.WebInfo.WebdPayload.$Properties} message WebdPayload message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -5541,7 +5661,7 @@ $root.Wa6 = (function() {
                  * @function encodeDelimited
                  * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
                  * @static
-                 * @param {Wa6.ClientPayload.WebInfo.IWebdPayload} message WebdPayload message or plain object to encode
+                 * @param {Wa6.ClientPayload.WebInfo.WebdPayload.$Properties} message WebdPayload message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
@@ -5556,7 +5676,7 @@ $root.Wa6 = (function() {
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                  * @param {number} [length] Message length if known beforehand
-                 * @returns {Wa6.ClientPayload.WebInfo.WebdPayload} WebdPayload
+                 * @returns {Wa6.ClientPayload.WebInfo.WebdPayload & Wa6.ClientPayload.WebInfo.WebdPayload.$Shape} WebdPayload
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -5670,7 +5790,7 @@ $root.Wa6 = (function() {
                  * @memberof Wa6.ClientPayload.WebInfo.WebdPayload
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {Wa6.ClientPayload.WebInfo.WebdPayload} WebdPayload
+                 * @returns {Wa6.ClientPayload.WebInfo.WebdPayload & Wa6.ClientPayload.WebInfo.WebdPayload.$Shape} WebdPayload
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
@@ -5907,21 +6027,32 @@ $root.Wa6 = (function() {
 
         /**
          * Properties of a HandshakeMessage.
+         * @typedef {Object} Wa6.HandshakeMessage.$Properties
+         * @property {Wa6.HandshakeMessage.ClientHello.$Properties|null} [clientHello] HandshakeMessage clientHello
+         * @property {Wa6.HandshakeMessage.ServerHello.$Properties|null} [serverHello] HandshakeMessage serverHello
+         * @property {Wa6.HandshakeMessage.ClientFinish.$Properties|null} [clientFinish] HandshakeMessage clientFinish
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         */
+
+        /**
+         * Properties of a HandshakeMessage.
          * @memberof Wa6
          * @interface IHandshakeMessage
-         * @property {Wa6.HandshakeMessage.IClientHello|null} [clientHello] HandshakeMessage clientHello
-         * @property {Wa6.HandshakeMessage.IServerHello|null} [serverHello] HandshakeMessage serverHello
-         * @property {Wa6.HandshakeMessage.IClientFinish|null} [clientFinish] HandshakeMessage clientFinish
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @augments Wa6.HandshakeMessage.$Properties
+         * @deprecated Use Wa6.HandshakeMessage.$Properties instead.
+         */
+
+        /**
+         * Shape of a HandshakeMessage.
+         * @typedef {Wa6.HandshakeMessage.$Properties} Wa6.HandshakeMessage.$Shape
          */
 
         /**
          * Constructs a new HandshakeMessage.
          * @memberof Wa6
          * @classdesc Represents a HandshakeMessage.
-         * @implements IHandshakeMessage
          * @constructor
-         * @param {Wa6.IHandshakeMessage=} [properties] Properties to set
+         * @param {Wa6.HandshakeMessage.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
         function HandshakeMessage(properties) {
@@ -5933,7 +6064,7 @@ $root.Wa6 = (function() {
 
         /**
          * HandshakeMessage clientHello.
-         * @member {Wa6.HandshakeMessage.IClientHello|null|undefined} clientHello
+         * @member {Wa6.HandshakeMessage.ClientHello.$Properties|null|undefined} clientHello
          * @memberof Wa6.HandshakeMessage
          * @instance
          */
@@ -5941,7 +6072,7 @@ $root.Wa6 = (function() {
 
         /**
          * HandshakeMessage serverHello.
-         * @member {Wa6.HandshakeMessage.IServerHello|null|undefined} serverHello
+         * @member {Wa6.HandshakeMessage.ServerHello.$Properties|null|undefined} serverHello
          * @memberof Wa6.HandshakeMessage
          * @instance
          */
@@ -5949,7 +6080,7 @@ $root.Wa6 = (function() {
 
         /**
          * HandshakeMessage clientFinish.
-         * @member {Wa6.HandshakeMessage.IClientFinish|null|undefined} clientFinish
+         * @member {Wa6.HandshakeMessage.ClientFinish.$Properties|null|undefined} clientFinish
          * @memberof Wa6.HandshakeMessage
          * @instance
          */
@@ -5981,8 +6112,12 @@ $root.Wa6 = (function() {
          * @function create
          * @memberof Wa6.HandshakeMessage
          * @static
-         * @param {Wa6.IHandshakeMessage=} [properties] Properties to set
+         * @param {Wa6.HandshakeMessage.$Properties=} [properties] Properties to set
          * @returns {Wa6.HandshakeMessage} HandshakeMessage instance
+         * @type {{
+         *   (properties: Wa6.HandshakeMessage.$Shape): Wa6.HandshakeMessage & Wa6.HandshakeMessage.$Shape;
+         *   (properties?: Wa6.HandshakeMessage.$Properties): Wa6.HandshakeMessage;
+         * }}
          */
         HandshakeMessage.create = function create(properties) {
             return new HandshakeMessage(properties);
@@ -5993,7 +6128,7 @@ $root.Wa6 = (function() {
          * @function encode
          * @memberof Wa6.HandshakeMessage
          * @static
-         * @param {Wa6.IHandshakeMessage} message HandshakeMessage message or plain object to encode
+         * @param {Wa6.HandshakeMessage.$Properties} message HandshakeMessage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -6017,7 +6152,7 @@ $root.Wa6 = (function() {
          * @function encodeDelimited
          * @memberof Wa6.HandshakeMessage
          * @static
-         * @param {Wa6.IHandshakeMessage} message HandshakeMessage message or plain object to encode
+         * @param {Wa6.HandshakeMessage.$Properties} message HandshakeMessage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -6032,7 +6167,7 @@ $root.Wa6 = (function() {
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {Wa6.HandshakeMessage} HandshakeMessage
+         * @returns {Wa6.HandshakeMessage & Wa6.HandshakeMessage.$Shape} HandshakeMessage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -6090,7 +6225,7 @@ $root.Wa6 = (function() {
          * @memberof Wa6.HandshakeMessage
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {Wa6.HandshakeMessage} HandshakeMessage
+         * @returns {Wa6.HandshakeMessage & Wa6.HandshakeMessage.$Shape} HandshakeMessage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -6237,8 +6372,7 @@ $root.Wa6 = (function() {
 
             /**
              * Properties of a ClientFinish.
-             * @memberof Wa6.HandshakeMessage
-             * @interface IClientFinish
+             * @typedef {Object} Wa6.HandshakeMessage.ClientFinish.$Properties
              * @property {Uint8Array|null} ["static"] ClientFinish static
              * @property {Uint8Array|null} [payload] ClientFinish payload
              * @property {Uint8Array|null} [extendedCiphertext] ClientFinish extendedCiphertext
@@ -6248,12 +6382,24 @@ $root.Wa6 = (function() {
              */
 
             /**
+             * Properties of a ClientFinish.
+             * @memberof Wa6.HandshakeMessage
+             * @interface IClientFinish
+             * @augments Wa6.HandshakeMessage.ClientFinish.$Properties
+             * @deprecated Use Wa6.HandshakeMessage.ClientFinish.$Properties instead.
+             */
+
+            /**
+             * Shape of a ClientFinish.
+             * @typedef {Wa6.HandshakeMessage.ClientFinish.$Properties} Wa6.HandshakeMessage.ClientFinish.$Shape
+             */
+
+            /**
              * Constructs a new ClientFinish.
              * @memberof Wa6.HandshakeMessage
              * @classdesc Represents a ClientFinish.
-             * @implements IClientFinish
              * @constructor
-             * @param {Wa6.HandshakeMessage.IClientFinish=} [properties] Properties to set
+             * @param {Wa6.HandshakeMessage.ClientFinish.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function ClientFinish(properties) {
@@ -6341,8 +6487,12 @@ $root.Wa6 = (function() {
              * @function create
              * @memberof Wa6.HandshakeMessage.ClientFinish
              * @static
-             * @param {Wa6.HandshakeMessage.IClientFinish=} [properties] Properties to set
+             * @param {Wa6.HandshakeMessage.ClientFinish.$Properties=} [properties] Properties to set
              * @returns {Wa6.HandshakeMessage.ClientFinish} ClientFinish instance
+             * @type {{
+             *   (properties: Wa6.HandshakeMessage.ClientFinish.$Shape): Wa6.HandshakeMessage.ClientFinish & Wa6.HandshakeMessage.ClientFinish.$Shape;
+             *   (properties?: Wa6.HandshakeMessage.ClientFinish.$Properties): Wa6.HandshakeMessage.ClientFinish;
+             * }}
              */
             ClientFinish.create = function create(properties) {
                 return new ClientFinish(properties);
@@ -6353,7 +6503,7 @@ $root.Wa6 = (function() {
              * @function encode
              * @memberof Wa6.HandshakeMessage.ClientFinish
              * @static
-             * @param {Wa6.HandshakeMessage.IClientFinish} message ClientFinish message or plain object to encode
+             * @param {Wa6.HandshakeMessage.ClientFinish.$Properties} message ClientFinish message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -6381,7 +6531,7 @@ $root.Wa6 = (function() {
              * @function encodeDelimited
              * @memberof Wa6.HandshakeMessage.ClientFinish
              * @static
-             * @param {Wa6.HandshakeMessage.IClientFinish} message ClientFinish message or plain object to encode
+             * @param {Wa6.HandshakeMessage.ClientFinish.$Properties} message ClientFinish message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -6396,7 +6546,7 @@ $root.Wa6 = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {Wa6.HandshakeMessage.ClientFinish} ClientFinish
+             * @returns {Wa6.HandshakeMessage.ClientFinish & Wa6.HandshakeMessage.ClientFinish.$Shape} ClientFinish
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -6468,7 +6618,7 @@ $root.Wa6 = (function() {
              * @memberof Wa6.HandshakeMessage.ClientFinish
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {Wa6.HandshakeMessage.ClientFinish} ClientFinish
+             * @returns {Wa6.HandshakeMessage.ClientFinish & Wa6.HandshakeMessage.ClientFinish.$Shape} ClientFinish
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -6636,8 +6786,7 @@ $root.Wa6 = (function() {
 
             /**
              * Properties of a ClientHello.
-             * @memberof Wa6.HandshakeMessage
-             * @interface IClientHello
+             * @typedef {Object} Wa6.HandshakeMessage.ClientHello.$Properties
              * @property {Uint8Array|null} [ephemeral] ClientHello ephemeral
              * @property {Uint8Array|null} ["static"] ClientHello static
              * @property {Uint8Array|null} [payload] ClientHello payload
@@ -6652,12 +6801,24 @@ $root.Wa6 = (function() {
              */
 
             /**
+             * Properties of a ClientHello.
+             * @memberof Wa6.HandshakeMessage
+             * @interface IClientHello
+             * @augments Wa6.HandshakeMessage.ClientHello.$Properties
+             * @deprecated Use Wa6.HandshakeMessage.ClientHello.$Properties instead.
+             */
+
+            /**
+             * Shape of a ClientHello.
+             * @typedef {Wa6.HandshakeMessage.ClientHello.$Properties} Wa6.HandshakeMessage.ClientHello.$Shape
+             */
+
+            /**
              * Constructs a new ClientHello.
              * @memberof Wa6.HandshakeMessage
              * @classdesc Represents a ClientHello.
-             * @implements IClientHello
              * @constructor
-             * @param {Wa6.HandshakeMessage.IClientHello=} [properties] Properties to set
+             * @param {Wa6.HandshakeMessage.ClientHello.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function ClientHello(properties) {
@@ -6815,8 +6976,12 @@ $root.Wa6 = (function() {
              * @function create
              * @memberof Wa6.HandshakeMessage.ClientHello
              * @static
-             * @param {Wa6.HandshakeMessage.IClientHello=} [properties] Properties to set
+             * @param {Wa6.HandshakeMessage.ClientHello.$Properties=} [properties] Properties to set
              * @returns {Wa6.HandshakeMessage.ClientHello} ClientHello instance
+             * @type {{
+             *   (properties: Wa6.HandshakeMessage.ClientHello.$Shape): Wa6.HandshakeMessage.ClientHello & Wa6.HandshakeMessage.ClientHello.$Shape;
+             *   (properties?: Wa6.HandshakeMessage.ClientHello.$Properties): Wa6.HandshakeMessage.ClientHello;
+             * }}
              */
             ClientHello.create = function create(properties) {
                 return new ClientHello(properties);
@@ -6827,7 +6992,7 @@ $root.Wa6 = (function() {
              * @function encode
              * @memberof Wa6.HandshakeMessage.ClientHello
              * @static
-             * @param {Wa6.HandshakeMessage.IClientHello} message ClientHello message or plain object to encode
+             * @param {Wa6.HandshakeMessage.ClientHello.$Properties} message ClientHello message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -6865,7 +7030,7 @@ $root.Wa6 = (function() {
              * @function encodeDelimited
              * @memberof Wa6.HandshakeMessage.ClientHello
              * @static
-             * @param {Wa6.HandshakeMessage.IClientHello} message ClientHello message or plain object to encode
+             * @param {Wa6.HandshakeMessage.ClientHello.$Properties} message ClientHello message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -6880,7 +7045,7 @@ $root.Wa6 = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {Wa6.HandshakeMessage.ClientHello} ClientHello
+             * @returns {Wa6.HandshakeMessage.ClientHello & Wa6.HandshakeMessage.ClientHello.$Shape} ClientHello
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -6987,7 +7152,7 @@ $root.Wa6 = (function() {
              * @memberof Wa6.HandshakeMessage.ClientHello
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {Wa6.HandshakeMessage.ClientHello} ClientHello
+             * @returns {Wa6.HandshakeMessage.ClientHello & Wa6.HandshakeMessage.ClientHello.$Shape} ClientHello
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -7303,8 +7468,7 @@ $root.Wa6 = (function() {
 
             /**
              * Properties of a ServerHello.
-             * @memberof Wa6.HandshakeMessage
-             * @interface IServerHello
+             * @typedef {Object} Wa6.HandshakeMessage.ServerHello.$Properties
              * @property {Uint8Array|null} [ephemeral] ServerHello ephemeral
              * @property {Uint8Array|null} ["static"] ServerHello static
              * @property {Uint8Array|null} [payload] ServerHello payload
@@ -7315,12 +7479,24 @@ $root.Wa6 = (function() {
              */
 
             /**
+             * Properties of a ServerHello.
+             * @memberof Wa6.HandshakeMessage
+             * @interface IServerHello
+             * @augments Wa6.HandshakeMessage.ServerHello.$Properties
+             * @deprecated Use Wa6.HandshakeMessage.ServerHello.$Properties instead.
+             */
+
+            /**
+             * Shape of a ServerHello.
+             * @typedef {Wa6.HandshakeMessage.ServerHello.$Properties} Wa6.HandshakeMessage.ServerHello.$Shape
+             */
+
+            /**
              * Constructs a new ServerHello.
              * @memberof Wa6.HandshakeMessage
              * @classdesc Represents a ServerHello.
-             * @implements IServerHello
              * @constructor
-             * @param {Wa6.HandshakeMessage.IServerHello=} [properties] Properties to set
+             * @param {Wa6.HandshakeMessage.ServerHello.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function ServerHello(properties) {
@@ -7422,8 +7598,12 @@ $root.Wa6 = (function() {
              * @function create
              * @memberof Wa6.HandshakeMessage.ServerHello
              * @static
-             * @param {Wa6.HandshakeMessage.IServerHello=} [properties] Properties to set
+             * @param {Wa6.HandshakeMessage.ServerHello.$Properties=} [properties] Properties to set
              * @returns {Wa6.HandshakeMessage.ServerHello} ServerHello instance
+             * @type {{
+             *   (properties: Wa6.HandshakeMessage.ServerHello.$Shape): Wa6.HandshakeMessage.ServerHello & Wa6.HandshakeMessage.ServerHello.$Shape;
+             *   (properties?: Wa6.HandshakeMessage.ServerHello.$Properties): Wa6.HandshakeMessage.ServerHello;
+             * }}
              */
             ServerHello.create = function create(properties) {
                 return new ServerHello(properties);
@@ -7434,7 +7614,7 @@ $root.Wa6 = (function() {
              * @function encode
              * @memberof Wa6.HandshakeMessage.ServerHello
              * @static
-             * @param {Wa6.HandshakeMessage.IServerHello} message ServerHello message or plain object to encode
+             * @param {Wa6.HandshakeMessage.ServerHello.$Properties} message ServerHello message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -7464,7 +7644,7 @@ $root.Wa6 = (function() {
              * @function encodeDelimited
              * @memberof Wa6.HandshakeMessage.ServerHello
              * @static
-             * @param {Wa6.HandshakeMessage.IServerHello} message ServerHello message or plain object to encode
+             * @param {Wa6.HandshakeMessage.ServerHello.$Properties} message ServerHello message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
@@ -7479,7 +7659,7 @@ $root.Wa6 = (function() {
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {Wa6.HandshakeMessage.ServerHello} ServerHello
+             * @returns {Wa6.HandshakeMessage.ServerHello & Wa6.HandshakeMessage.ServerHello.$Shape} ServerHello
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
@@ -7558,7 +7738,7 @@ $root.Wa6 = (function() {
              * @memberof Wa6.HandshakeMessage.ServerHello
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {Wa6.HandshakeMessage.ServerHello} ServerHello
+             * @returns {Wa6.HandshakeMessage.ServerHello & Wa6.HandshakeMessage.ServerHello.$Shape} ServerHello
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
