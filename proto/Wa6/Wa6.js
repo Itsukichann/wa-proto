@@ -1632,7 +1632,9 @@ $root.Wa6 = (function() {
                 object.pairedPeripherals = [];
             }
             if (message.username != null && message.hasOwnProperty("username")) {
-                if (typeof message.username === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.username = typeof message.username === "number" ? BigInt(message.username) : $util.Long.fromBits(message.username.low >>> 0, message.username.high >>> 0, true).toBigInt();
+                else if (typeof message.username === "number")
                     object.username = options.longs === String ? String(message.username) : message.username;
                 else
                     object.username = options.longs === String ? $util.Long.prototype.toString.call(message.username) : options.longs === Number ? new $util.LongBits(message.username.low >>> 0, message.username.high >>> 0).toNumber(true) : message.username;
@@ -1735,7 +1737,9 @@ $root.Wa6 = (function() {
                     object._iosAppExtension = "iosAppExtension";
             }
             if (message.fbAppId != null && message.hasOwnProperty("fbAppId")) {
-                if (typeof message.fbAppId === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.fbAppId = typeof message.fbAppId === "number" ? BigInt(message.fbAppId) : $util.Long.fromBits(message.fbAppId.low >>> 0, message.fbAppId.high >>> 0, true).toBigInt();
+                else if (typeof message.fbAppId === "number")
                     object.fbAppId = options.longs === String ? String(message.fbAppId) : message.fbAppId;
                 else
                     object.fbAppId = options.longs === String ? $util.Long.prototype.toString.call(message.fbAppId) : options.longs === Number ? new $util.LongBits(message.fbAppId.low >>> 0, message.fbAppId.high >>> 0).toNumber(true) : message.fbAppId;
@@ -3137,7 +3141,9 @@ $root.Wa6 = (function() {
                     options = {};
                 var object = {};
                 if (message.accountId != null && message.hasOwnProperty("accountId")) {
-                    if (typeof message.accountId === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.accountId = typeof message.accountId === "number" ? BigInt(message.accountId) : $util.Long.fromBits(message.accountId.low >>> 0, message.accountId.high >>> 0, true).toBigInt();
+                    else if (typeof message.accountId === "number")
                         object.accountId = options.longs === String ? String(message.accountId) : message.accountId;
                     else
                         object.accountId = options.longs === String ? $util.Long.prototype.toString.call(message.accountId) : options.longs === Number ? new $util.LongBits(message.accountId.low >>> 0, message.accountId.high >>> 0).toNumber(true) : message.accountId;

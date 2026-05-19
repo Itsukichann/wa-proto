@@ -323,7 +323,9 @@ $root.E2E = (function() {
                     object._keyId = "keyId";
             }
             if (message.expiryTimestampMs != null && message.hasOwnProperty("expiryTimestampMs")) {
-                if (typeof message.expiryTimestampMs === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.expiryTimestampMs = typeof message.expiryTimestampMs === "number" ? BigInt(message.expiryTimestampMs) : $util.Long.fromBits(message.expiryTimestampMs.low >>> 0, message.expiryTimestampMs.high >>> 0, false).toBigInt();
+                else if (typeof message.expiryTimestampMs === "number")
                     object.expiryTimestampMs = options.longs === String ? String(message.expiryTimestampMs) : message.expiryTimestampMs;
                 else
                     object.expiryTimestampMs = options.longs === String ? $util.Long.prototype.toString.call(message.expiryTimestampMs) : options.longs === Number ? new $util.LongBits(message.expiryTimestampMs.low >>> 0, message.expiryTimestampMs.high >>> 0).toNumber() : message.expiryTimestampMs;
@@ -945,7 +947,9 @@ $root.E2E = (function() {
                     object._message = "message";
             }
             if (message.timestamp != null && message.hasOwnProperty("timestamp")) {
-                if (typeof message.timestamp === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.timestamp = typeof message.timestamp === "number" ? BigInt(message.timestamp) : $util.Long.fromBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0, false).toBigInt();
+                else if (typeof message.timestamp === "number")
                     object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
                 else
                     object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp;
@@ -1663,7 +1667,9 @@ $root.E2E = (function() {
                     object._label = "label";
             }
             if (message.labelTimestamp != null && message.hasOwnProperty("labelTimestamp")) {
-                if (typeof message.labelTimestamp === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.labelTimestamp = typeof message.labelTimestamp === "number" ? BigInt(message.labelTimestamp) : $util.Long.fromBits(message.labelTimestamp.low >>> 0, message.labelTimestamp.high >>> 0, false).toBigInt();
+                else if (typeof message.labelTimestamp === "number")
                     object.labelTimestamp = options.longs === String ? String(message.labelTimestamp) : message.labelTimestamp;
                 else
                     object.labelTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.labelTimestamp) : options.longs === Number ? new $util.LongBits(message.labelTimestamp.low >>> 0, message.labelTimestamp.high >>> 0).toNumber() : message.labelTimestamp;
@@ -2837,7 +2843,9 @@ $root.E2E = (function() {
                     object._width = "width";
             }
             if (message.fileLength != null && message.hasOwnProperty("fileLength")) {
-                if (typeof message.fileLength === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.fileLength = typeof message.fileLength === "number" ? BigInt(message.fileLength) : $util.Long.fromBits(message.fileLength.low >>> 0, message.fileLength.high >>> 0, true).toBigInt();
+                else if (typeof message.fileLength === "number")
                     object.fileLength = options.longs === String ? String(message.fileLength) : message.fileLength;
                 else
                     object.fileLength = options.longs === String ? $util.Long.prototype.toString.call(message.fileLength) : options.longs === Number ? new $util.LongBits(message.fileLength.low >>> 0, message.fileLength.high >>> 0).toNumber(true) : message.fileLength;
@@ -3474,7 +3482,9 @@ $root.E2E = (function() {
                     object._fileEncSha256 = "fileEncSha256";
             }
             if (message.fileLength != null && message.hasOwnProperty("fileLength")) {
-                if (typeof message.fileLength === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.fileLength = typeof message.fileLength === "number" ? BigInt(message.fileLength) : $util.Long.fromBits(message.fileLength.low >>> 0, message.fileLength.high >>> 0, true).toBigInt();
+                else if (typeof message.fileLength === "number")
                     object.fileLength = options.longs === String ? String(message.fileLength) : message.fileLength;
                 else
                     object.fileLength = options.longs === String ? $util.Long.prototype.toString.call(message.fileLength) : options.longs === Number ? new $util.LongBits(message.fileLength.low >>> 0, message.fileLength.high >>> 0).toNumber(true) : message.fileLength;
@@ -5449,7 +5459,9 @@ $root.E2E = (function() {
                     object._id = "id";
             }
             if (message.fileLength != null && message.hasOwnProperty("fileLength")) {
-                if (typeof message.fileLength === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.fileLength = typeof message.fileLength === "number" ? BigInt(message.fileLength) : $util.Long.fromBits(message.fileLength.low >>> 0, message.fileLength.high >>> 0, true).toBigInt();
+                else if (typeof message.fileLength === "number")
                     object.fileLength = options.longs === String ? String(message.fileLength) : message.fileLength;
                 else
                     object.fileLength = options.longs === String ? $util.Long.prototype.toString.call(message.fileLength) : options.longs === Number ? new $util.LongBits(message.fileLength.low >>> 0, message.fileLength.high >>> 0).toNumber(true) : message.fileLength;
@@ -5892,7 +5904,9 @@ $root.E2E = (function() {
                         object._mediaKey = "mediaKey";
                 }
                 if (message.mediaKeyTimestamp != null && message.hasOwnProperty("mediaKeyTimestamp")) {
-                    if (typeof message.mediaKeyTimestamp === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.mediaKeyTimestamp = typeof message.mediaKeyTimestamp === "number" ? BigInt(message.mediaKeyTimestamp) : $util.Long.fromBits(message.mediaKeyTimestamp.low >>> 0, message.mediaKeyTimestamp.high >>> 0, false).toBigInt();
+                    else if (typeof message.mediaKeyTimestamp === "number")
                         object.mediaKeyTimestamp = options.longs === String ? String(message.mediaKeyTimestamp) : message.mediaKeyTimestamp;
                     else
                         object.mediaKeyTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.mediaKeyTimestamp) : options.longs === Number ? new $util.LongBits(message.mediaKeyTimestamp.low >>> 0, message.mediaKeyTimestamp.high >>> 0).toNumber() : message.mediaKeyTimestamp;
@@ -6254,7 +6268,9 @@ $root.E2E = (function() {
                 options = {};
             var object = {};
             if (message.value != null && message.hasOwnProperty("value")) {
-                if (typeof message.value === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.value = typeof message.value === "number" ? BigInt(message.value) : $util.Long.fromBits(message.value.low >>> 0, message.value.high >>> 0, false).toBigInt();
+                else if (typeof message.value === "number")
                     object.value = options.longs === String ? String(message.value) : message.value;
                 else
                     object.value = options.longs === String ? $util.Long.prototype.toString.call(message.value) : options.longs === Number ? new $util.LongBits(message.value.low >>> 0, message.value.high >>> 0).toNumber() : message.value;
@@ -11609,7 +11625,9 @@ $root.E2E = (function() {
                     object._artworkMediaKey = "artworkMediaKey";
             }
             if (message.musicSongStartTimeInMs != null && message.hasOwnProperty("musicSongStartTimeInMs")) {
-                if (typeof message.musicSongStartTimeInMs === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.musicSongStartTimeInMs = typeof message.musicSongStartTimeInMs === "number" ? BigInt(message.musicSongStartTimeInMs) : $util.Long.fromBits(message.musicSongStartTimeInMs.low >>> 0, message.musicSongStartTimeInMs.high >>> 0, false).toBigInt();
+                else if (typeof message.musicSongStartTimeInMs === "number")
                     object.musicSongStartTimeInMs = options.longs === String ? String(message.musicSongStartTimeInMs) : message.musicSongStartTimeInMs;
                 else
                     object.musicSongStartTimeInMs = options.longs === String ? $util.Long.prototype.toString.call(message.musicSongStartTimeInMs) : options.longs === Number ? new $util.LongBits(message.musicSongStartTimeInMs.low >>> 0, message.musicSongStartTimeInMs.high >>> 0).toNumber() : message.musicSongStartTimeInMs;
@@ -11617,7 +11635,9 @@ $root.E2E = (function() {
                     object._musicSongStartTimeInMs = "musicSongStartTimeInMs";
             }
             if (message.derivedContentStartTimeInMs != null && message.hasOwnProperty("derivedContentStartTimeInMs")) {
-                if (typeof message.derivedContentStartTimeInMs === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.derivedContentStartTimeInMs = typeof message.derivedContentStartTimeInMs === "number" ? BigInt(message.derivedContentStartTimeInMs) : $util.Long.fromBits(message.derivedContentStartTimeInMs.low >>> 0, message.derivedContentStartTimeInMs.high >>> 0, false).toBigInt();
+                else if (typeof message.derivedContentStartTimeInMs === "number")
                     object.derivedContentStartTimeInMs = options.longs === String ? String(message.derivedContentStartTimeInMs) : message.derivedContentStartTimeInMs;
                 else
                     object.derivedContentStartTimeInMs = options.longs === String ? $util.Long.prototype.toString.call(message.derivedContentStartTimeInMs) : options.longs === Number ? new $util.LongBits(message.derivedContentStartTimeInMs.low >>> 0, message.derivedContentStartTimeInMs.high >>> 0).toNumber() : message.derivedContentStartTimeInMs;
@@ -11625,7 +11645,9 @@ $root.E2E = (function() {
                     object._derivedContentStartTimeInMs = "derivedContentStartTimeInMs";
             }
             if (message.overlapDurationInMs != null && message.hasOwnProperty("overlapDurationInMs")) {
-                if (typeof message.overlapDurationInMs === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.overlapDurationInMs = typeof message.overlapDurationInMs === "number" ? BigInt(message.overlapDurationInMs) : $util.Long.fromBits(message.overlapDurationInMs.low >>> 0, message.overlapDurationInMs.high >>> 0, false).toBigInt();
+                else if (typeof message.overlapDurationInMs === "number")
                     object.overlapDurationInMs = options.longs === String ? String(message.overlapDurationInMs) : message.overlapDurationInMs;
                 else
                     object.overlapDurationInMs = options.longs === String ? $util.Long.prototype.toString.call(message.overlapDurationInMs) : options.longs === Number ? new $util.LongBits(message.overlapDurationInMs.low >>> 0, message.overlapDurationInMs.high >>> 0).toNumber() : message.overlapDurationInMs;
@@ -12514,7 +12536,9 @@ $root.E2E = (function() {
                     object._senderKeyHash = "senderKeyHash";
             }
             if (message.senderTimestamp != null && message.hasOwnProperty("senderTimestamp")) {
-                if (typeof message.senderTimestamp === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.senderTimestamp = typeof message.senderTimestamp === "number" ? BigInt(message.senderTimestamp) : $util.Long.fromBits(message.senderTimestamp.low >>> 0, message.senderTimestamp.high >>> 0, true).toBigInt();
+                else if (typeof message.senderTimestamp === "number")
                     object.senderTimestamp = options.longs === String ? String(message.senderTimestamp) : message.senderTimestamp;
                 else
                     object.senderTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.senderTimestamp) : options.longs === Number ? new $util.LongBits(message.senderTimestamp.low >>> 0, message.senderTimestamp.high >>> 0).toNumber(true) : message.senderTimestamp;
@@ -12542,7 +12566,9 @@ $root.E2E = (function() {
                     object._recipientKeyHash = "recipientKeyHash";
             }
             if (message.recipientTimestamp != null && message.hasOwnProperty("recipientTimestamp")) {
-                if (typeof message.recipientTimestamp === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.recipientTimestamp = typeof message.recipientTimestamp === "number" ? BigInt(message.recipientTimestamp) : $util.Long.fromBits(message.recipientTimestamp.low >>> 0, message.recipientTimestamp.high >>> 0, true).toBigInt();
+                else if (typeof message.recipientTimestamp === "number")
                     object.recipientTimestamp = options.longs === String ? String(message.recipientTimestamp) : message.recipientTimestamp;
                 else
                     object.recipientTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.recipientTimestamp) : options.longs === Number ? new $util.LongBits(message.recipientTimestamp.low >>> 0, message.recipientTimestamp.high >>> 0).toNumber(true) : message.recipientTimestamp;
@@ -16981,7 +17007,9 @@ $root.E2E = (function() {
                     object._expiration = "expiration";
             }
             if (message.ephemeralSettingTimestamp != null && message.hasOwnProperty("ephemeralSettingTimestamp")) {
-                if (typeof message.ephemeralSettingTimestamp === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.ephemeralSettingTimestamp = typeof message.ephemeralSettingTimestamp === "number" ? BigInt(message.ephemeralSettingTimestamp) : $util.Long.fromBits(message.ephemeralSettingTimestamp.low >>> 0, message.ephemeralSettingTimestamp.high >>> 0, false).toBigInt();
+                else if (typeof message.ephemeralSettingTimestamp === "number")
                     object.ephemeralSettingTimestamp = options.longs === String ? String(message.ephemeralSettingTimestamp) : message.ephemeralSettingTimestamp;
                 else
                     object.ephemeralSettingTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.ephemeralSettingTimestamp) : options.longs === Number ? new $util.LongBits(message.ephemeralSettingTimestamp.low >>> 0, message.ephemeralSettingTimestamp.high >>> 0).toNumber() : message.ephemeralSettingTimestamp;
@@ -18284,6 +18312,8 @@ $root.E2E = (function() {
                         case 8:
                         case 9:
                         case 10:
+                        case 11:
+                        case 12:
                             break;
                         }
                     }
@@ -18362,6 +18392,14 @@ $root.E2E = (function() {
                     case 10:
                         message.pillType = 10;
                         break;
+                    case "SHOP":
+                    case 11:
+                        message.pillType = 11;
+                        break;
+                    case "ORDER":
+                    case 12:
+                        message.pillType = 12;
+                        break;
                     }
                     if (object.actionUrl != null)
                         message.actionUrl = String(object.actionUrl);
@@ -18437,6 +18475,8 @@ $root.E2E = (function() {
              * @property {number} BESTSELLERS=8 BESTSELLERS value
              * @property {number} MENU=9 MENU value
              * @property {number} ABOUT=10 ABOUT value
+             * @property {number} SHOP=11 SHOP value
+             * @property {number} ORDER=12 ORDER value
              */
             BusinessInteractionPills.PillType = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
@@ -18451,6 +18491,8 @@ $root.E2E = (function() {
                 values[valuesById[8] = "BESTSELLERS"] = 8;
                 values[valuesById[9] = "MENU"] = 9;
                 values[valuesById[10] = "ABOUT"] = 10;
+                values[valuesById[11] = "SHOP"] = 11;
+                values[valuesById[12] = "ORDER"] = 12;
                 return values;
             })();
 
@@ -19489,7 +19531,9 @@ $root.E2E = (function() {
                             object._stringData = "stringData";
                     }
                     if (message.intData != null && message.hasOwnProperty("intData")) {
-                        if (typeof message.intData === "number")
+                        if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                            object.intData = typeof message.intData === "number" ? BigInt(message.intData) : $util.Long.fromBits(message.intData.low >>> 0, message.intData.high >>> 0, false).toBigInt();
+                        else if (typeof message.intData === "number")
                             object.intData = options.longs === String ? String(message.intData) : message.intData;
                         else
                             object.intData = options.longs === String ? $util.Long.prototype.toString.call(message.intData) : options.longs === Number ? new $util.LongBits(message.intData.low >>> 0, message.intData.high >>> 0).toNumber() : message.intData;
@@ -23670,8 +23714,9 @@ $root.E2E = (function() {
          * @property {E2E.Message.PollAddOptionMessage.$Properties|null} [pollAddOptionMessage] Message pollAddOptionMessage
          * @property {E2E.Message.EventInviteMessage.$Properties|null} [eventInviteMessage] Message eventInviteMessage
          * @property {E2E.GroupRootKeyShare.$Properties|null} [groupRootKeyShare] Message groupRootKeyShare
-         * @property {E2E.Message.P2PPaymentReminderNotification.$Properties|null} [p2PPaymentReminderNotification] Message p2PPaymentReminderNotification
+         * @property {E2E.Message.PaymentReminderMessage.$Properties|null} [paymentReminderMessage] Message paymentReminderMessage
          * @property {E2E.Message.SplitPaymentMessage.$Properties|null} [splitPaymentMessage] Message splitPaymentMessage
+         * @property {E2E.Message.FutureProofMessage.$Properties|null} [newsletterAdminProfileStatusMessage] Message newsletterAdminProfileStatusMessage
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
@@ -23789,8 +23834,9 @@ $root.E2E = (function() {
          *   pollAddOptionMessage?: E2E.Message.PollAddOptionMessage.$Shape|null;
          *   eventInviteMessage?: E2E.Message.EventInviteMessage.$Shape|null;
          *   groupRootKeyShare?: E2E.GroupRootKeyShare.$Shape|null;
-         *   p2PPaymentReminderNotification?: E2E.Message.P2PPaymentReminderNotification.$Shape|null;
+         *   paymentReminderMessage?: E2E.Message.PaymentReminderMessage.$Shape|null;
          *   splitPaymentMessage?: E2E.Message.SplitPaymentMessage.$Shape|null;
+         *   newsletterAdminProfileStatusMessage?: E2E.Message.FutureProofMessage.$Shape|null;
          *   $unknowns?: Array.<Uint8Array>;
          * }} E2E.Message.$Shape
          */
@@ -24635,12 +24681,12 @@ $root.E2E = (function() {
         Message.prototype.groupRootKeyShare = null;
 
         /**
-         * Message p2PPaymentReminderNotification.
-         * @member {E2E.Message.P2PPaymentReminderNotification.$Properties|null|undefined} p2PPaymentReminderNotification
+         * Message paymentReminderMessage.
+         * @member {E2E.Message.PaymentReminderMessage.$Properties|null|undefined} paymentReminderMessage
          * @memberof E2E.Message
          * @instance
          */
-        Message.prototype.p2PPaymentReminderNotification = null;
+        Message.prototype.paymentReminderMessage = null;
 
         /**
          * Message splitPaymentMessage.
@@ -24649,6 +24695,14 @@ $root.E2E = (function() {
          * @instance
          */
         Message.prototype.splitPaymentMessage = null;
+
+        /**
+         * Message newsletterAdminProfileStatusMessage.
+         * @member {E2E.Message.FutureProofMessage.$Properties|null|undefined} newsletterAdminProfileStatusMessage
+         * @memberof E2E.Message
+         * @instance
+         */
+        Message.prototype.newsletterAdminProfileStatusMessage = null;
 
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
@@ -25272,14 +25326,20 @@ $root.E2E = (function() {
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(Message.prototype, "_p2PPaymentReminderNotification", {
-            get: $util.oneOfGetter($oneOfFields = ["p2PPaymentReminderNotification"]),
+        Object.defineProperty(Message.prototype, "_paymentReminderMessage", {
+            get: $util.oneOfGetter($oneOfFields = ["paymentReminderMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
         Object.defineProperty(Message.prototype, "_splitPaymentMessage", {
             get: $util.oneOfGetter($oneOfFields = ["splitPaymentMessage"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(Message.prototype, "_newsletterAdminProfileStatusMessage", {
+            get: $util.oneOfGetter($oneOfFields = ["newsletterAdminProfileStatusMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
@@ -25517,10 +25577,12 @@ $root.E2E = (function() {
                 $root.E2E.Message.EventInviteMessage.encode(message.eventInviteMessage, writer.uint32(/* id 122, wireType 2 =*/978).fork()).ldelim();
             if (message.groupRootKeyShare != null && Object.hasOwnProperty.call(message, "groupRootKeyShare"))
                 $root.E2E.GroupRootKeyShare.encode(message.groupRootKeyShare, writer.uint32(/* id 123, wireType 2 =*/986).fork()).ldelim();
-            if (message.p2PPaymentReminderNotification != null && Object.hasOwnProperty.call(message, "p2PPaymentReminderNotification"))
-                $root.E2E.Message.P2PPaymentReminderNotification.encode(message.p2PPaymentReminderNotification, writer.uint32(/* id 124, wireType 2 =*/994).fork()).ldelim();
+            if (message.paymentReminderMessage != null && Object.hasOwnProperty.call(message, "paymentReminderMessage"))
+                $root.E2E.Message.PaymentReminderMessage.encode(message.paymentReminderMessage, writer.uint32(/* id 124, wireType 2 =*/994).fork()).ldelim();
             if (message.splitPaymentMessage != null && Object.hasOwnProperty.call(message, "splitPaymentMessage"))
                 $root.E2E.Message.SplitPaymentMessage.encode(message.splitPaymentMessage, writer.uint32(/* id 125, wireType 2 =*/1002).fork()).ldelim();
+            if (message.newsletterAdminProfileStatusMessage != null && Object.hasOwnProperty.call(message, "newsletterAdminProfileStatusMessage"))
+                $root.E2E.Message.FutureProofMessage.encode(message.newsletterAdminProfileStatusMessage, writer.uint32(/* id 126, wireType 2 =*/1010).fork()).ldelim();
             if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -26292,8 +26354,8 @@ $root.E2E = (function() {
                 case 124: {
                         if (wireType !== 2)
                             break;
-                        message.p2PPaymentReminderNotification = $root.E2E.Message.P2PPaymentReminderNotification.decode(reader, reader.uint32(), undefined, _depth + 1, message.p2PPaymentReminderNotification);
-                        message._p2PPaymentReminderNotification = "p2PPaymentReminderNotification";
+                        message.paymentReminderMessage = $root.E2E.Message.PaymentReminderMessage.decode(reader, reader.uint32(), undefined, _depth + 1, message.paymentReminderMessage);
+                        message._paymentReminderMessage = "paymentReminderMessage";
                         continue;
                     }
                 case 125: {
@@ -26301,6 +26363,13 @@ $root.E2E = (function() {
                             break;
                         message.splitPaymentMessage = $root.E2E.Message.SplitPaymentMessage.decode(reader, reader.uint32(), undefined, _depth + 1, message.splitPaymentMessage);
                         message._splitPaymentMessage = "splitPaymentMessage";
+                        continue;
+                    }
+                case 126: {
+                        if (wireType !== 2)
+                            break;
+                        message.newsletterAdminProfileStatusMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), undefined, _depth + 1, message.newsletterAdminProfileStatusMessage);
+                        message._newsletterAdminProfileStatusMessage = "newsletterAdminProfileStatusMessage";
                         continue;
                     }
                 }
@@ -27166,12 +27235,12 @@ $root.E2E = (function() {
                         return "groupRootKeyShare." + error;
                 }
             }
-            if (message.p2PPaymentReminderNotification != null && message.hasOwnProperty("p2PPaymentReminderNotification")) {
-                properties._p2PPaymentReminderNotification = 1;
+            if (message.paymentReminderMessage != null && message.hasOwnProperty("paymentReminderMessage")) {
+                properties._paymentReminderMessage = 1;
                 {
-                    var error = $root.E2E.Message.P2PPaymentReminderNotification.verify(message.p2PPaymentReminderNotification, _depth + 1);
+                    var error = $root.E2E.Message.PaymentReminderMessage.verify(message.paymentReminderMessage, _depth + 1);
                     if (error)
-                        return "p2PPaymentReminderNotification." + error;
+                        return "paymentReminderMessage." + error;
                 }
             }
             if (message.splitPaymentMessage != null && message.hasOwnProperty("splitPaymentMessage")) {
@@ -27180,6 +27249,14 @@ $root.E2E = (function() {
                     var error = $root.E2E.Message.SplitPaymentMessage.verify(message.splitPaymentMessage, _depth + 1);
                     if (error)
                         return "splitPaymentMessage." + error;
+                }
+            }
+            if (message.newsletterAdminProfileStatusMessage != null && message.hasOwnProperty("newsletterAdminProfileStatusMessage")) {
+                properties._newsletterAdminProfileStatusMessage = 1;
+                {
+                    var error = $root.E2E.Message.FutureProofMessage.verify(message.newsletterAdminProfileStatusMessage, _depth + 1);
+                    if (error)
+                        return "newsletterAdminProfileStatusMessage." + error;
                 }
             }
             return null;
@@ -27713,15 +27790,20 @@ $root.E2E = (function() {
                     throw TypeError(".E2E.Message.groupRootKeyShare: object expected");
                 message.groupRootKeyShare = $root.E2E.GroupRootKeyShare.fromObject(object.groupRootKeyShare, _depth + 1);
             }
-            if (object.p2PPaymentReminderNotification != null) {
-                if (typeof object.p2PPaymentReminderNotification !== "object")
-                    throw TypeError(".E2E.Message.p2PPaymentReminderNotification: object expected");
-                message.p2PPaymentReminderNotification = $root.E2E.Message.P2PPaymentReminderNotification.fromObject(object.p2PPaymentReminderNotification, _depth + 1);
+            if (object.paymentReminderMessage != null) {
+                if (typeof object.paymentReminderMessage !== "object")
+                    throw TypeError(".E2E.Message.paymentReminderMessage: object expected");
+                message.paymentReminderMessage = $root.E2E.Message.PaymentReminderMessage.fromObject(object.paymentReminderMessage, _depth + 1);
             }
             if (object.splitPaymentMessage != null) {
                 if (typeof object.splitPaymentMessage !== "object")
                     throw TypeError(".E2E.Message.splitPaymentMessage: object expected");
                 message.splitPaymentMessage = $root.E2E.Message.SplitPaymentMessage.fromObject(object.splitPaymentMessage, _depth + 1);
+            }
+            if (object.newsletterAdminProfileStatusMessage != null) {
+                if (typeof object.newsletterAdminProfileStatusMessage !== "object")
+                    throw TypeError(".E2E.Message.newsletterAdminProfileStatusMessage: object expected");
+                message.newsletterAdminProfileStatusMessage = $root.E2E.Message.FutureProofMessage.fromObject(object.newsletterAdminProfileStatusMessage, _depth + 1);
             }
             return message;
         };
@@ -28254,15 +28336,20 @@ $root.E2E = (function() {
                 if (options.oneofs)
                     object._groupRootKeyShare = "groupRootKeyShare";
             }
-            if (message.p2PPaymentReminderNotification != null && message.hasOwnProperty("p2PPaymentReminderNotification")) {
-                object.p2PPaymentReminderNotification = $root.E2E.Message.P2PPaymentReminderNotification.toObject(message.p2PPaymentReminderNotification, options);
+            if (message.paymentReminderMessage != null && message.hasOwnProperty("paymentReminderMessage")) {
+                object.paymentReminderMessage = $root.E2E.Message.PaymentReminderMessage.toObject(message.paymentReminderMessage, options);
                 if (options.oneofs)
-                    object._p2PPaymentReminderNotification = "p2PPaymentReminderNotification";
+                    object._paymentReminderMessage = "paymentReminderMessage";
             }
             if (message.splitPaymentMessage != null && message.hasOwnProperty("splitPaymentMessage")) {
                 object.splitPaymentMessage = $root.E2E.Message.SplitPaymentMessage.toObject(message.splitPaymentMessage, options);
                 if (options.oneofs)
                     object._splitPaymentMessage = "splitPaymentMessage";
+            }
+            if (message.newsletterAdminProfileStatusMessage != null && message.hasOwnProperty("newsletterAdminProfileStatusMessage")) {
+                object.newsletterAdminProfileStatusMessage = $root.E2E.Message.FutureProofMessage.toObject(message.newsletterAdminProfileStatusMessage, options);
+                if (options.oneofs)
+                    object._newsletterAdminProfileStatusMessage = "newsletterAdminProfileStatusMessage";
             }
             return object;
         };
@@ -28905,7 +28992,9 @@ $root.E2E = (function() {
                         object.collectionNames[j] = message.collectionNames[j];
                 }
                 if (message.timestamp != null && message.hasOwnProperty("timestamp")) {
-                    if (typeof message.timestamp === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.timestamp = typeof message.timestamp === "number" ? BigInt(message.timestamp) : $util.Long.fromBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0, false).toBigInt();
+                    else if (typeof message.timestamp === "number")
                         object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
                     else
                         object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp;
@@ -29560,7 +29649,9 @@ $root.E2E = (function() {
                         object._fingerprint = "fingerprint";
                 }
                 if (message.timestamp != null && message.hasOwnProperty("timestamp")) {
-                    if (typeof message.timestamp === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.timestamp = typeof message.timestamp === "number" ? BigInt(message.timestamp) : $util.Long.fromBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0, false).toBigInt();
+                    else if (typeof message.timestamp === "number")
                         object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
                     else
                         object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp;
@@ -31492,7 +31583,9 @@ $root.E2E = (function() {
                         object._fileSha256 = "fileSha256";
                 }
                 if (message.fileLength != null && message.hasOwnProperty("fileLength")) {
-                    if (typeof message.fileLength === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.fileLength = typeof message.fileLength === "number" ? BigInt(message.fileLength) : $util.Long.fromBits(message.fileLength.low >>> 0, message.fileLength.high >>> 0, true).toBigInt();
+                    else if (typeof message.fileLength === "number")
                         object.fileLength = options.longs === String ? String(message.fileLength) : message.fileLength;
                     else
                         object.fileLength = options.longs === String ? $util.Long.prototype.toString.call(message.fileLength) : options.longs === Number ? new $util.LongBits(message.fileLength.low >>> 0, message.fileLength.high >>> 0).toNumber(true) : message.fileLength;
@@ -31525,7 +31618,9 @@ $root.E2E = (function() {
                         object._directPath = "directPath";
                 }
                 if (message.mediaKeyTimestamp != null && message.hasOwnProperty("mediaKeyTimestamp")) {
-                    if (typeof message.mediaKeyTimestamp === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.mediaKeyTimestamp = typeof message.mediaKeyTimestamp === "number" ? BigInt(message.mediaKeyTimestamp) : $util.Long.fromBits(message.mediaKeyTimestamp.low >>> 0, message.mediaKeyTimestamp.high >>> 0, false).toBigInt();
+                    else if (typeof message.mediaKeyTimestamp === "number")
                         object.mediaKeyTimestamp = options.longs === String ? String(message.mediaKeyTimestamp) : message.mediaKeyTimestamp;
                     else
                         object.mediaKeyTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.mediaKeyTimestamp) : options.longs === Number ? new $util.LongBits(message.mediaKeyTimestamp.low >>> 0, message.mediaKeyTimestamp.high >>> 0).toNumber() : message.mediaKeyTimestamp;
@@ -35186,7 +35281,9 @@ $root.E2E = (function() {
                         object._callOutcome = "callOutcome";
                 }
                 if (message.durationSecs != null && message.hasOwnProperty("durationSecs")) {
-                    if (typeof message.durationSecs === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.durationSecs = typeof message.durationSecs === "number" ? BigInt(message.durationSecs) : $util.Long.fromBits(message.durationSecs.low >>> 0, message.durationSecs.high >>> 0, false).toBigInt();
+                    else if (typeof message.durationSecs === "number")
                         object.durationSecs = options.longs === String ? String(message.durationSecs) : message.durationSecs;
                     else
                         object.durationSecs = options.longs === String ? $util.Long.prototype.toString.call(message.durationSecs) : options.longs === Number ? new $util.LongBits(message.durationSecs.low >>> 0, message.durationSecs.high >>> 0).toNumber() : message.durationSecs;
@@ -37915,7 +38012,9 @@ $root.E2E = (function() {
                     options = {};
                 var object = {};
                 if (message.settingTimestampMs != null && message.hasOwnProperty("settingTimestampMs")) {
-                    if (typeof message.settingTimestampMs === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.settingTimestampMs = typeof message.settingTimestampMs === "number" ? BigInt(message.settingTimestampMs) : $util.Long.fromBits(message.settingTimestampMs.low >>> 0, message.settingTimestampMs.high >>> 0, false).toBigInt();
+                    else if (typeof message.settingTimestampMs === "number")
                         object.settingTimestampMs = options.longs === String ? String(message.settingTimestampMs) : message.settingTimestampMs;
                     else
                         object.settingTimestampMs = options.longs === String ? $util.Long.prototype.toString.call(message.settingTimestampMs) : options.longs === Number ? new $util.LongBits(message.settingTimestampMs.low >>> 0, message.settingTimestampMs.high >>> 0).toNumber() : message.settingTimestampMs;
@@ -38408,7 +38507,9 @@ $root.E2E = (function() {
                         object._status = "status";
                 }
                 if (message.senderNotificationTimestampMs != null && message.hasOwnProperty("senderNotificationTimestampMs")) {
-                    if (typeof message.senderNotificationTimestampMs === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.senderNotificationTimestampMs = typeof message.senderNotificationTimestampMs === "number" ? BigInt(message.senderNotificationTimestampMs) : $util.Long.fromBits(message.senderNotificationTimestampMs.low >>> 0, message.senderNotificationTimestampMs.high >>> 0, false).toBigInt();
+                    else if (typeof message.senderNotificationTimestampMs === "number")
                         object.senderNotificationTimestampMs = options.longs === String ? String(message.senderNotificationTimestampMs) : message.senderNotificationTimestampMs;
                     else
                         object.senderNotificationTimestampMs = options.longs === String ? $util.Long.prototype.toString.call(message.senderNotificationTimestampMs) : options.longs === Number ? new $util.LongBits(message.senderNotificationTimestampMs.low >>> 0, message.senderNotificationTimestampMs.high >>> 0).toNumber() : message.senderNotificationTimestampMs;
@@ -41752,7 +41853,9 @@ $root.E2E = (function() {
                         object._fileSha256 = "fileSha256";
                 }
                 if (message.fileLength != null && message.hasOwnProperty("fileLength")) {
-                    if (typeof message.fileLength === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.fileLength = typeof message.fileLength === "number" ? BigInt(message.fileLength) : $util.Long.fromBits(message.fileLength.low >>> 0, message.fileLength.high >>> 0, true).toBigInt();
+                    else if (typeof message.fileLength === "number")
                         object.fileLength = options.longs === String ? String(message.fileLength) : message.fileLength;
                     else
                         object.fileLength = options.longs === String ? $util.Long.prototype.toString.call(message.fileLength) : options.longs === Number ? new $util.LongBits(message.fileLength.low >>> 0, message.fileLength.high >>> 0).toNumber(true) : message.fileLength;
@@ -41785,7 +41888,9 @@ $root.E2E = (function() {
                         object._directPath = "directPath";
                 }
                 if (message.mediaKeyTimestamp != null && message.hasOwnProperty("mediaKeyTimestamp")) {
-                    if (typeof message.mediaKeyTimestamp === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.mediaKeyTimestamp = typeof message.mediaKeyTimestamp === "number" ? BigInt(message.mediaKeyTimestamp) : $util.Long.fromBits(message.mediaKeyTimestamp.low >>> 0, message.mediaKeyTimestamp.high >>> 0, false).toBigInt();
+                    else if (typeof message.mediaKeyTimestamp === "number")
                         object.mediaKeyTimestamp = options.longs === String ? String(message.mediaKeyTimestamp) : message.mediaKeyTimestamp;
                     else
                         object.mediaKeyTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.mediaKeyTimestamp) : options.longs === Number ? new $util.LongBits(message.mediaKeyTimestamp.low >>> 0, message.mediaKeyTimestamp.high >>> 0).toNumber() : message.mediaKeyTimestamp;
@@ -42912,6 +43017,7 @@ $root.E2E = (function() {
              * @property {string|null} [caption] EventInviteMessage caption
              * @property {boolean|null} [isCanceled] EventInviteMessage isCanceled
              * @property {number|Long|null} [endTime] EventInviteMessage endTime
+             * @property {string|null} [callLink] EventInviteMessage callLink
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
@@ -42934,6 +43040,7 @@ $root.E2E = (function() {
              *   caption?: string|null;
              *   isCanceled?: boolean|null;
              *   endTime?: number|Long|null;
+             *   callLink?: string|null;
              *   $unknowns?: Array.<Uint8Array>;
              * }} E2E.Message.EventInviteMessage.$Shape
              */
@@ -43017,6 +43124,14 @@ $root.E2E = (function() {
              */
             EventInviteMessage.prototype.endTime = null;
 
+            /**
+             * EventInviteMessage callLink.
+             * @member {string|null|undefined} callLink
+             * @memberof E2E.Message.EventInviteMessage
+             * @instance
+             */
+            EventInviteMessage.prototype.callLink = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -43068,6 +43183,12 @@ $root.E2E = (function() {
                 set: $util.oneOfSetter($oneOfFields)
             });
 
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(EventInviteMessage.prototype, "_callLink", {
+                get: $util.oneOfGetter($oneOfFields = ["callLink"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
             /**
              * Creates a new EventInviteMessage instance using the specified properties.
              * @function create
@@ -43112,6 +43233,8 @@ $root.E2E = (function() {
                     writer.uint32(/* id 7, wireType 0 =*/56).bool(message.isCanceled);
                 if (message.endTime != null && Object.hasOwnProperty.call(message, "endTime"))
                     writer.uint32(/* id 8, wireType 0 =*/64).int64(message.endTime);
+                if (message.callLink != null && Object.hasOwnProperty.call(message, "callLink"))
+                    writer.uint32(/* id 9, wireType 2 =*/74).string(message.callLink);
                 if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -43215,6 +43338,13 @@ $root.E2E = (function() {
                             message._endTime = "endTime";
                             continue;
                         }
+                    case 9: {
+                            if (wireType !== 2)
+                                break;
+                            message.callLink = reader.string();
+                            message._callLink = "callLink";
+                            continue;
+                        }
                     }
                     reader.skipType(wireType, _depth, tag);
                     $util.makeProp(message, "$unknowns", false);
@@ -43300,6 +43430,11 @@ $root.E2E = (function() {
                     if (!$util.isInteger(message.endTime) && !(message.endTime && $util.isInteger(message.endTime.low) && $util.isInteger(message.endTime.high)))
                         return "endTime: integer|Long expected";
                 }
+                if (message.callLink != null && message.hasOwnProperty("callLink")) {
+                    properties._callLink = 1;
+                    if (!$util.isString(message.callLink))
+                        return "callLink: string expected";
+                }
                 return null;
             };
 
@@ -43355,6 +43490,8 @@ $root.E2E = (function() {
                         message.endTime = object.endTime;
                     else if (typeof object.endTime === "object")
                         message.endTime = new $util.LongBits(object.endTime.low >>> 0, object.endTime.high >>> 0).toNumber();
+                if (object.callLink != null)
+                    message.callLink = String(object.callLink);
                 return message;
             };
 
@@ -43392,7 +43529,9 @@ $root.E2E = (function() {
                         object._jpegThumbnail = "jpegThumbnail";
                 }
                 if (message.startTime != null && message.hasOwnProperty("startTime")) {
-                    if (typeof message.startTime === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.startTime = typeof message.startTime === "number" ? BigInt(message.startTime) : $util.Long.fromBits(message.startTime.low >>> 0, message.startTime.high >>> 0, false).toBigInt();
+                    else if (typeof message.startTime === "number")
                         object.startTime = options.longs === String ? String(message.startTime) : message.startTime;
                     else
                         object.startTime = options.longs === String ? $util.Long.prototype.toString.call(message.startTime) : options.longs === Number ? new $util.LongBits(message.startTime.low >>> 0, message.startTime.high >>> 0).toNumber() : message.startTime;
@@ -43410,12 +43549,19 @@ $root.E2E = (function() {
                         object._isCanceled = "isCanceled";
                 }
                 if (message.endTime != null && message.hasOwnProperty("endTime")) {
-                    if (typeof message.endTime === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.endTime = typeof message.endTime === "number" ? BigInt(message.endTime) : $util.Long.fromBits(message.endTime.low >>> 0, message.endTime.high >>> 0, false).toBigInt();
+                    else if (typeof message.endTime === "number")
                         object.endTime = options.longs === String ? String(message.endTime) : message.endTime;
                     else
                         object.endTime = options.longs === String ? $util.Long.prototype.toString.call(message.endTime) : options.longs === Number ? new $util.LongBits(message.endTime.low >>> 0, message.endTime.high >>> 0).toNumber() : message.endTime;
                     if (options.oneofs)
                         object._endTime = "endTime";
+                }
+                if (message.callLink != null && message.hasOwnProperty("callLink")) {
+                    object.callLink = message.callLink;
+                    if (options.oneofs)
+                        object._callLink = "callLink";
                 }
                 return object;
             };
@@ -44089,7 +44235,9 @@ $root.E2E = (function() {
                         object._joinLink = "joinLink";
                 }
                 if (message.startTime != null && message.hasOwnProperty("startTime")) {
-                    if (typeof message.startTime === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.startTime = typeof message.startTime === "number" ? BigInt(message.startTime) : $util.Long.fromBits(message.startTime.low >>> 0, message.startTime.high >>> 0, false).toBigInt();
+                    else if (typeof message.startTime === "number")
                         object.startTime = options.longs === String ? String(message.startTime) : message.startTime;
                     else
                         object.startTime = options.longs === String ? $util.Long.prototype.toString.call(message.startTime) : options.longs === Number ? new $util.LongBits(message.startTime.low >>> 0, message.startTime.high >>> 0).toNumber() : message.startTime;
@@ -44097,7 +44245,9 @@ $root.E2E = (function() {
                         object._startTime = "startTime";
                 }
                 if (message.endTime != null && message.hasOwnProperty("endTime")) {
-                    if (typeof message.endTime === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.endTime = typeof message.endTime === "number" ? BigInt(message.endTime) : $util.Long.fromBits(message.endTime.low >>> 0, message.endTime.high >>> 0, false).toBigInt();
+                    else if (typeof message.endTime === "number")
                         object.endTime = options.longs === String ? String(message.endTime) : message.endTime;
                     else
                         object.endTime = options.longs === String ? $util.Long.prototype.toString.call(message.endTime) : options.longs === Number ? new $util.LongBits(message.endTime.low >>> 0, message.endTime.high >>> 0).toNumber() : message.endTime;
@@ -44120,7 +44270,9 @@ $root.E2E = (function() {
                         object._hasReminder = "hasReminder";
                 }
                 if (message.reminderOffsetSec != null && message.hasOwnProperty("reminderOffsetSec")) {
-                    if (typeof message.reminderOffsetSec === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.reminderOffsetSec = typeof message.reminderOffsetSec === "number" ? BigInt(message.reminderOffsetSec) : $util.Long.fromBits(message.reminderOffsetSec.low >>> 0, message.reminderOffsetSec.high >>> 0, false).toBigInt();
+                    else if (typeof message.reminderOffsetSec === "number")
                         object.reminderOffsetSec = options.longs === String ? String(message.reminderOffsetSec) : message.reminderOffsetSec;
                     else
                         object.reminderOffsetSec = options.longs === String ? $util.Long.prototype.toString.call(message.reminderOffsetSec) : options.longs === Number ? new $util.LongBits(message.reminderOffsetSec.low >>> 0, message.reminderOffsetSec.high >>> 0).toNumber() : message.reminderOffsetSec;
@@ -44484,7 +44636,9 @@ $root.E2E = (function() {
                         object._response = "response";
                 }
                 if (message.timestampMs != null && message.hasOwnProperty("timestampMs")) {
-                    if (typeof message.timestampMs === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.timestampMs = typeof message.timestampMs === "number" ? BigInt(message.timestampMs) : $util.Long.fromBits(message.timestampMs.low >>> 0, message.timestampMs.high >>> 0, false).toBigInt();
+                    else if (typeof message.timestampMs === "number")
                         object.timestampMs = options.longs === String ? String(message.timestampMs) : message.timestampMs;
                     else
                         object.timestampMs = options.longs === String ? $util.Long.prototype.toString.call(message.timestampMs) : options.longs === Number ? new $util.LongBits(message.timestampMs.low >>> 0, message.timestampMs.high >>> 0).toNumber() : message.timestampMs;
@@ -46053,7 +46207,9 @@ $root.E2E = (function() {
                         object._mediaKey = "mediaKey";
                 }
                 if (message.mediaKeyTimestamp != null && message.hasOwnProperty("mediaKeyTimestamp")) {
-                    if (typeof message.mediaKeyTimestamp === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.mediaKeyTimestamp = typeof message.mediaKeyTimestamp === "number" ? BigInt(message.mediaKeyTimestamp) : $util.Long.fromBits(message.mediaKeyTimestamp.low >>> 0, message.mediaKeyTimestamp.high >>> 0, false).toBigInt();
+                    else if (typeof message.mediaKeyTimestamp === "number")
                         object.mediaKeyTimestamp = options.longs === String ? String(message.mediaKeyTimestamp) : message.mediaKeyTimestamp;
                     else
                         object.mediaKeyTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.mediaKeyTimestamp) : options.longs === Number ? new $util.LongBits(message.mediaKeyTimestamp.low >>> 0, message.mediaKeyTimestamp.high >>> 0).toNumber() : message.mediaKeyTimestamp;
@@ -46498,7 +46654,9 @@ $root.E2E = (function() {
                     options = {};
                 var object = {};
                 if (message.historyFromTimestamp != null && message.hasOwnProperty("historyFromTimestamp")) {
-                    if (typeof message.historyFromTimestamp === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.historyFromTimestamp = typeof message.historyFromTimestamp === "number" ? BigInt(message.historyFromTimestamp) : $util.Long.fromBits(message.historyFromTimestamp.low >>> 0, message.historyFromTimestamp.high >>> 0, true).toBigInt();
+                    else if (typeof message.historyFromTimestamp === "number")
                         object.historyFromTimestamp = options.longs === String ? String(message.historyFromTimestamp) : message.historyFromTimestamp;
                     else
                         object.historyFromTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.historyFromTimestamp) : options.longs === Number ? new $util.LongBits(message.historyFromTimestamp.low >>> 0, message.historyFromTimestamp.high >>> 0).toNumber(true) : message.historyFromTimestamp;
@@ -47636,7 +47794,9 @@ $root.E2E = (function() {
                         object._inviteCode = "inviteCode";
                 }
                 if (message.inviteExpiration != null && message.hasOwnProperty("inviteExpiration")) {
-                    if (typeof message.inviteExpiration === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.inviteExpiration = typeof message.inviteExpiration === "number" ? BigInt(message.inviteExpiration) : $util.Long.fromBits(message.inviteExpiration.low >>> 0, message.inviteExpiration.high >>> 0, false).toBigInt();
+                    else if (typeof message.inviteExpiration === "number")
                         object.inviteExpiration = options.longs === String ? String(message.inviteExpiration) : message.inviteExpiration;
                     else
                         object.inviteExpiration = options.longs === String ? $util.Long.prototype.toString.call(message.inviteExpiration) : options.longs === Number ? new $util.LongBits(message.inviteExpiration.low >>> 0, message.inviteExpiration.high >>> 0).toNumber() : message.inviteExpiration;
@@ -48904,7 +49064,9 @@ $root.E2E = (function() {
                                 object._currencyCode = "currencyCode";
                         }
                         if (message.amount1000 != null && message.hasOwnProperty("amount1000")) {
-                            if (typeof message.amount1000 === "number")
+                            if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                                object.amount1000 = typeof message.amount1000 === "number" ? BigInt(message.amount1000) : $util.Long.fromBits(message.amount1000.low >>> 0, message.amount1000.high >>> 0, false).toBigInt();
+                            else if (typeof message.amount1000 === "number")
                                 object.amount1000 = options.longs === String ? String(message.amount1000) : message.amount1000;
                             else
                                 object.amount1000 = options.longs === String ? $util.Long.prototype.toString.call(message.amount1000) : options.longs === Number ? new $util.LongBits(message.amount1000.low >>> 0, message.amount1000.high >>> 0).toNumber() : message.amount1000;
@@ -50058,7 +50220,9 @@ $root.E2E = (function() {
                                 options = {};
                             var object = {};
                             if (message.timestamp != null && message.hasOwnProperty("timestamp")) {
-                                if (typeof message.timestamp === "number")
+                                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                                    object.timestamp = typeof message.timestamp === "number" ? BigInt(message.timestamp) : $util.Long.fromBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0, false).toBigInt();
+                                else if (typeof message.timestamp === "number")
                                     object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
                                 else
                                     object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp;
@@ -51117,7 +51281,9 @@ $root.E2E = (function() {
                         object._fileSha256 = "fileSha256";
                 }
                 if (message.fileLength != null && message.hasOwnProperty("fileLength")) {
-                    if (typeof message.fileLength === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.fileLength = typeof message.fileLength === "number" ? BigInt(message.fileLength) : $util.Long.fromBits(message.fileLength.low >>> 0, message.fileLength.high >>> 0, true).toBigInt();
+                    else if (typeof message.fileLength === "number")
                         object.fileLength = options.longs === String ? String(message.fileLength) : message.fileLength;
                     else
                         object.fileLength = options.longs === String ? $util.Long.prototype.toString.call(message.fileLength) : options.longs === Number ? new $util.LongBits(message.fileLength.low >>> 0, message.fileLength.high >>> 0).toNumber(true) : message.fileLength;
@@ -51160,7 +51326,9 @@ $root.E2E = (function() {
                         object._progress = "progress";
                 }
                 if (message.oldestMsgInChunkTimestampSec != null && message.hasOwnProperty("oldestMsgInChunkTimestampSec")) {
-                    if (typeof message.oldestMsgInChunkTimestampSec === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.oldestMsgInChunkTimestampSec = typeof message.oldestMsgInChunkTimestampSec === "number" ? BigInt(message.oldestMsgInChunkTimestampSec) : $util.Long.fromBits(message.oldestMsgInChunkTimestampSec.low >>> 0, message.oldestMsgInChunkTimestampSec.high >>> 0, false).toBigInt();
+                    else if (typeof message.oldestMsgInChunkTimestampSec === "number")
                         object.oldestMsgInChunkTimestampSec = options.longs === String ? String(message.oldestMsgInChunkTimestampSec) : message.oldestMsgInChunkTimestampSec;
                     else
                         object.oldestMsgInChunkTimestampSec = options.longs === String ? $util.Long.prototype.toString.call(message.oldestMsgInChunkTimestampSec) : options.longs === Number ? new $util.LongBits(message.oldestMsgInChunkTimestampSec.low >>> 0, message.oldestMsgInChunkTimestampSec.high >>> 0).toNumber() : message.oldestMsgInChunkTimestampSec;
@@ -52542,7 +52710,9 @@ $root.E2E = (function() {
                         object._fileSha256 = "fileSha256";
                 }
                 if (message.fileLength != null && message.hasOwnProperty("fileLength")) {
-                    if (typeof message.fileLength === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.fileLength = typeof message.fileLength === "number" ? BigInt(message.fileLength) : $util.Long.fromBits(message.fileLength.low >>> 0, message.fileLength.high >>> 0, true).toBigInt();
+                    else if (typeof message.fileLength === "number")
                         object.fileLength = options.longs === String ? String(message.fileLength) : message.fileLength;
                     else
                         object.fileLength = options.longs === String ? $util.Long.prototype.toString.call(message.fileLength) : options.longs === Number ? new $util.LongBits(message.fileLength.low >>> 0, message.fileLength.high >>> 0).toNumber(true) : message.fileLength;
@@ -52580,7 +52750,9 @@ $root.E2E = (function() {
                         object._directPath = "directPath";
                 }
                 if (message.mediaKeyTimestamp != null && message.hasOwnProperty("mediaKeyTimestamp")) {
-                    if (typeof message.mediaKeyTimestamp === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.mediaKeyTimestamp = typeof message.mediaKeyTimestamp === "number" ? BigInt(message.mediaKeyTimestamp) : $util.Long.fromBits(message.mediaKeyTimestamp.low >>> 0, message.mediaKeyTimestamp.high >>> 0, false).toBigInt();
+                    else if (typeof message.mediaKeyTimestamp === "number")
                         object.mediaKeyTimestamp = options.longs === String ? String(message.mediaKeyTimestamp) : message.mediaKeyTimestamp;
                     else
                         object.mediaKeyTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.mediaKeyTimestamp) : options.longs === Number ? new $util.LongBits(message.mediaKeyTimestamp.low >>> 0, message.mediaKeyTimestamp.high >>> 0).toNumber() : message.mediaKeyTimestamp;
@@ -58523,7 +58695,9 @@ $root.E2E = (function() {
                         object._attachmentMediaKey = "attachmentMediaKey";
                 }
                 if (message.attachmentMediaKeyTimestamp != null && message.hasOwnProperty("attachmentMediaKeyTimestamp")) {
-                    if (typeof message.attachmentMediaKeyTimestamp === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.attachmentMediaKeyTimestamp = typeof message.attachmentMediaKeyTimestamp === "number" ? BigInt(message.attachmentMediaKeyTimestamp) : $util.Long.fromBits(message.attachmentMediaKeyTimestamp.low >>> 0, message.attachmentMediaKeyTimestamp.high >>> 0, false).toBigInt();
+                    else if (typeof message.attachmentMediaKeyTimestamp === "number")
                         object.attachmentMediaKeyTimestamp = options.longs === String ? String(message.attachmentMediaKeyTimestamp) : message.attachmentMediaKeyTimestamp;
                     else
                         object.attachmentMediaKeyTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.attachmentMediaKeyTimestamp) : options.longs === Number ? new $util.LongBits(message.attachmentMediaKeyTimestamp.low >>> 0, message.attachmentMediaKeyTimestamp.high >>> 0).toNumber() : message.attachmentMediaKeyTimestamp;
@@ -58927,7 +59101,9 @@ $root.E2E = (function() {
                         object._keepType = "keepType";
                 }
                 if (message.timestampMs != null && message.hasOwnProperty("timestampMs")) {
-                    if (typeof message.timestampMs === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.timestampMs = typeof message.timestampMs === "number" ? BigInt(message.timestampMs) : $util.Long.fromBits(message.timestampMs.low >>> 0, message.timestampMs.high >>> 0, false).toBigInt();
+                    else if (typeof message.timestampMs === "number")
                         object.timestampMs = options.longs === String ? String(message.timestampMs) : message.timestampMs;
                     else
                         object.timestampMs = options.longs === String ? $util.Long.prototype.toString.call(message.timestampMs) : options.longs === Number ? new $util.LongBits(message.timestampMs.low >>> 0, message.timestampMs.high >>> 0).toNumber() : message.timestampMs;
@@ -63287,7 +63463,9 @@ $root.E2E = (function() {
                         object._caption = "caption";
                 }
                 if (message.sequenceNumber != null && message.hasOwnProperty("sequenceNumber")) {
-                    if (typeof message.sequenceNumber === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.sequenceNumber = typeof message.sequenceNumber === "number" ? BigInt(message.sequenceNumber) : $util.Long.fromBits(message.sequenceNumber.low >>> 0, message.sequenceNumber.high >>> 0, false).toBigInt();
+                    else if (typeof message.sequenceNumber === "number")
                         object.sequenceNumber = options.longs === String ? String(message.sequenceNumber) : message.sequenceNumber;
                     else
                         object.sequenceNumber = options.longs === String ? $util.Long.prototype.toString.call(message.sequenceNumber) : options.longs === Number ? new $util.LongBits(message.sequenceNumber.low >>> 0, message.sequenceNumber.high >>> 0).toNumber() : message.sequenceNumber;
@@ -64462,7 +64640,9 @@ $root.E2E = (function() {
                         object._mediaKey = "mediaKey";
                 }
                 if (message.mediaKeyTimestamp != null && message.hasOwnProperty("mediaKeyTimestamp")) {
-                    if (typeof message.mediaKeyTimestamp === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.mediaKeyTimestamp = typeof message.mediaKeyTimestamp === "number" ? BigInt(message.mediaKeyTimestamp) : $util.Long.fromBits(message.mediaKeyTimestamp.low >>> 0, message.mediaKeyTimestamp.high >>> 0, false).toBigInt();
+                    else if (typeof message.mediaKeyTimestamp === "number")
                         object.mediaKeyTimestamp = options.longs === String ? String(message.mediaKeyTimestamp) : message.mediaKeyTimestamp;
                     else
                         object.mediaKeyTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.mediaKeyTimestamp) : options.longs === Number ? new $util.LongBits(message.mediaKeyTimestamp.low >>> 0, message.mediaKeyTimestamp.high >>> 0).toNumber() : message.mediaKeyTimestamp;
@@ -65013,7 +65193,9 @@ $root.E2E = (function() {
                         object._directPath = "directPath";
                 }
                 if (message.mediaKeyTimestamp != null && message.hasOwnProperty("mediaKeyTimestamp")) {
-                    if (typeof message.mediaKeyTimestamp === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.mediaKeyTimestamp = typeof message.mediaKeyTimestamp === "number" ? BigInt(message.mediaKeyTimestamp) : $util.Long.fromBits(message.mediaKeyTimestamp.low >>> 0, message.mediaKeyTimestamp.high >>> 0, false).toBigInt();
+                    else if (typeof message.mediaKeyTimestamp === "number")
                         object.mediaKeyTimestamp = options.longs === String ? String(message.mediaKeyTimestamp) : message.mediaKeyTimestamp;
                     else
                         object.mediaKeyTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.mediaKeyTimestamp) : options.longs === Number ? new $util.LongBits(message.mediaKeyTimestamp.low >>> 0, message.mediaKeyTimestamp.high >>> 0).toNumber() : message.mediaKeyTimestamp;
@@ -65446,7 +65628,9 @@ $root.E2E = (function() {
                         object.historyReceivers[j] = message.historyReceivers[j];
                 }
                 if (message.oldestMessageTimestampInWindow != null && message.hasOwnProperty("oldestMessageTimestampInWindow")) {
-                    if (typeof message.oldestMessageTimestampInWindow === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.oldestMessageTimestampInWindow = typeof message.oldestMessageTimestampInWindow === "number" ? BigInt(message.oldestMessageTimestampInWindow) : $util.Long.fromBits(message.oldestMessageTimestampInWindow.low >>> 0, message.oldestMessageTimestampInWindow.high >>> 0, false).toBigInt();
+                    else if (typeof message.oldestMessageTimestampInWindow === "number")
                         object.oldestMessageTimestampInWindow = options.longs === String ? String(message.oldestMessageTimestampInWindow) : message.oldestMessageTimestampInWindow;
                     else
                         object.oldestMessageTimestampInWindow = options.longs === String ? $util.Long.prototype.toString.call(message.oldestMessageTimestampInWindow) : options.longs === Number ? new $util.LongBits(message.oldestMessageTimestampInWindow.low >>> 0, message.oldestMessageTimestampInWindow.high >>> 0).toNumber() : message.oldestMessageTimestampInWindow;
@@ -65454,7 +65638,9 @@ $root.E2E = (function() {
                         object._oldestMessageTimestampInWindow = "oldestMessageTimestampInWindow";
                 }
                 if (message.messageCount != null && message.hasOwnProperty("messageCount")) {
-                    if (typeof message.messageCount === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.messageCount = typeof message.messageCount === "number" ? BigInt(message.messageCount) : $util.Long.fromBits(message.messageCount.low >>> 0, message.messageCount.high >>> 0, false).toBigInt();
+                    else if (typeof message.messageCount === "number")
                         object.messageCount = options.longs === String ? String(message.messageCount) : message.messageCount;
                     else
                         object.messageCount = options.longs === String ? $util.Long.prototype.toString.call(message.messageCount) : options.longs === Number ? new $util.LongBits(message.messageCount.low >>> 0, message.messageCount.high >>> 0).toNumber() : message.messageCount;
@@ -65467,7 +65653,9 @@ $root.E2E = (function() {
                         object.nonHistoryReceivers[j] = message.nonHistoryReceivers[j];
                 }
                 if (message.oldestMessageTimestampInBundle != null && message.hasOwnProperty("oldestMessageTimestampInBundle")) {
-                    if (typeof message.oldestMessageTimestampInBundle === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.oldestMessageTimestampInBundle = typeof message.oldestMessageTimestampInBundle === "number" ? BigInt(message.oldestMessageTimestampInBundle) : $util.Long.fromBits(message.oldestMessageTimestampInBundle.low >>> 0, message.oldestMessageTimestampInBundle.high >>> 0, false).toBigInt();
+                    else if (typeof message.oldestMessageTimestampInBundle === "number")
                         object.oldestMessageTimestampInBundle = options.longs === String ? String(message.oldestMessageTimestampInBundle) : message.oldestMessageTimestampInBundle;
                     else
                         object.oldestMessageTimestampInBundle = options.longs === String ? $util.Long.prototype.toString.call(message.oldestMessageTimestampInBundle) : options.longs === Number ? new $util.LongBits(message.oldestMessageTimestampInBundle.low >>> 0, message.oldestMessageTimestampInBundle.high >>> 0).toNumber() : message.oldestMessageTimestampInBundle;
@@ -66237,7 +66425,9 @@ $root.E2E = (function() {
                         object._caption = "caption";
                 }
                 if (message.inviteExpiration != null && message.hasOwnProperty("inviteExpiration")) {
-                    if (typeof message.inviteExpiration === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.inviteExpiration = typeof message.inviteExpiration === "number" ? BigInt(message.inviteExpiration) : $util.Long.fromBits(message.inviteExpiration.low >>> 0, message.inviteExpiration.high >>> 0, false).toBigInt();
+                    else if (typeof message.inviteExpiration === "number")
                         object.inviteExpiration = options.longs === String ? String(message.inviteExpiration) : message.inviteExpiration;
                     else
                         object.inviteExpiration = options.longs === String ? $util.Long.prototype.toString.call(message.inviteExpiration) : options.longs === Number ? new $util.LongBits(message.inviteExpiration.low >>> 0, message.inviteExpiration.high >>> 0).toNumber() : message.inviteExpiration;
@@ -67477,7 +67667,9 @@ $root.E2E = (function() {
                         object._token = "token";
                 }
                 if (message.totalAmount1000 != null && message.hasOwnProperty("totalAmount1000")) {
-                    if (typeof message.totalAmount1000 === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.totalAmount1000 = typeof message.totalAmount1000 === "number" ? BigInt(message.totalAmount1000) : $util.Long.fromBits(message.totalAmount1000.low >>> 0, message.totalAmount1000.high >>> 0, false).toBigInt();
+                    else if (typeof message.totalAmount1000 === "number")
                         object.totalAmount1000 = options.longs === String ? String(message.totalAmount1000) : message.totalAmount1000;
                     else
                         object.totalAmount1000 = options.longs === String ? $util.Long.prototype.toString.call(message.totalAmount1000) : options.longs === Number ? new $util.LongBits(message.totalAmount1000.low >>> 0, message.totalAmount1000.high >>> 0).toNumber() : message.totalAmount1000;
@@ -67566,775 +67758,6 @@ $root.E2E = (function() {
             })();
 
             return OrderMessage;
-        })();
-
-        Message.P2PPaymentReminderNotification = (function() {
-
-            /**
-             * Properties of a P2PPaymentReminderNotification.
-             * @typedef {Object} E2E.Message.P2PPaymentReminderNotification.$Properties
-             * @property {string|null} [reminderId] P2PPaymentReminderNotification reminderId
-             * @property {E2E.Money.$Properties|null} [amount] P2PPaymentReminderNotification amount
-             * @property {E2E.Message.P2PPaymentReminderNotification.ReminderFrequency|null} [frequency] P2PPaymentReminderNotification frequency
-             * @property {number|Long|null} [nextReminderTimestamp] P2PPaymentReminderNotification nextReminderTimestamp
-             * @property {number|Long|null} [expiryTimestamp] P2PPaymentReminderNotification expiryTimestamp
-             * @property {E2E.Message.P2PPaymentReminderNotification.ReminderState|null} [state] P2PPaymentReminderNotification state
-             * @property {string|null} [description] P2PPaymentReminderNotification description
-             * @property {string|null} [creatorJid] P2PPaymentReminderNotification creatorJid
-             * @property {string|null} [receiverJid] P2PPaymentReminderNotification receiverJid
-             * @property {string|null} [upiId] P2PPaymentReminderNotification upiId
-             * @property {number|Long|null} [createdTimestamp] P2PPaymentReminderNotification createdTimestamp
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
-             */
-
-            /**
-             * Properties of a P2PPaymentReminderNotification.
-             * @memberof E2E.Message
-             * @interface IP2PPaymentReminderNotification
-             * @augments E2E.Message.P2PPaymentReminderNotification.$Properties
-             * @deprecated Use E2E.Message.P2PPaymentReminderNotification.$Properties instead.
-             */
-
-            /**
-             * Shape of a P2PPaymentReminderNotification.
-             * @typedef {E2E.Message.P2PPaymentReminderNotification.$Properties} E2E.Message.P2PPaymentReminderNotification.$Shape
-             */
-
-            /**
-             * Constructs a new P2PPaymentReminderNotification.
-             * @memberof E2E.Message
-             * @classdesc Represents a P2PPaymentReminderNotification.
-             * @constructor
-             * @param {E2E.Message.P2PPaymentReminderNotification.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
-             */
-            function P2PPaymentReminderNotification(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * P2PPaymentReminderNotification reminderId.
-             * @member {string|null|undefined} reminderId
-             * @memberof E2E.Message.P2PPaymentReminderNotification
-             * @instance
-             */
-            P2PPaymentReminderNotification.prototype.reminderId = null;
-
-            /**
-             * P2PPaymentReminderNotification amount.
-             * @member {E2E.Money.$Properties|null|undefined} amount
-             * @memberof E2E.Message.P2PPaymentReminderNotification
-             * @instance
-             */
-            P2PPaymentReminderNotification.prototype.amount = null;
-
-            /**
-             * P2PPaymentReminderNotification frequency.
-             * @member {E2E.Message.P2PPaymentReminderNotification.ReminderFrequency|null|undefined} frequency
-             * @memberof E2E.Message.P2PPaymentReminderNotification
-             * @instance
-             */
-            P2PPaymentReminderNotification.prototype.frequency = null;
-
-            /**
-             * P2PPaymentReminderNotification nextReminderTimestamp.
-             * @member {number|Long|null|undefined} nextReminderTimestamp
-             * @memberof E2E.Message.P2PPaymentReminderNotification
-             * @instance
-             */
-            P2PPaymentReminderNotification.prototype.nextReminderTimestamp = null;
-
-            /**
-             * P2PPaymentReminderNotification expiryTimestamp.
-             * @member {number|Long|null|undefined} expiryTimestamp
-             * @memberof E2E.Message.P2PPaymentReminderNotification
-             * @instance
-             */
-            P2PPaymentReminderNotification.prototype.expiryTimestamp = null;
-
-            /**
-             * P2PPaymentReminderNotification state.
-             * @member {E2E.Message.P2PPaymentReminderNotification.ReminderState|null|undefined} state
-             * @memberof E2E.Message.P2PPaymentReminderNotification
-             * @instance
-             */
-            P2PPaymentReminderNotification.prototype.state = null;
-
-            /**
-             * P2PPaymentReminderNotification description.
-             * @member {string|null|undefined} description
-             * @memberof E2E.Message.P2PPaymentReminderNotification
-             * @instance
-             */
-            P2PPaymentReminderNotification.prototype.description = null;
-
-            /**
-             * P2PPaymentReminderNotification creatorJid.
-             * @member {string|null|undefined} creatorJid
-             * @memberof E2E.Message.P2PPaymentReminderNotification
-             * @instance
-             */
-            P2PPaymentReminderNotification.prototype.creatorJid = null;
-
-            /**
-             * P2PPaymentReminderNotification receiverJid.
-             * @member {string|null|undefined} receiverJid
-             * @memberof E2E.Message.P2PPaymentReminderNotification
-             * @instance
-             */
-            P2PPaymentReminderNotification.prototype.receiverJid = null;
-
-            /**
-             * P2PPaymentReminderNotification upiId.
-             * @member {string|null|undefined} upiId
-             * @memberof E2E.Message.P2PPaymentReminderNotification
-             * @instance
-             */
-            P2PPaymentReminderNotification.prototype.upiId = null;
-
-            /**
-             * P2PPaymentReminderNotification createdTimestamp.
-             * @member {number|Long|null|undefined} createdTimestamp
-             * @memberof E2E.Message.P2PPaymentReminderNotification
-             * @instance
-             */
-            P2PPaymentReminderNotification.prototype.createdTimestamp = null;
-
-            // OneOf field names bound to virtual getters and setters
-            var $oneOfFields;
-
-            // Virtual OneOf for proto3 optional field
-            Object.defineProperty(P2PPaymentReminderNotification.prototype, "_reminderId", {
-                get: $util.oneOfGetter($oneOfFields = ["reminderId"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            // Virtual OneOf for proto3 optional field
-            Object.defineProperty(P2PPaymentReminderNotification.prototype, "_amount", {
-                get: $util.oneOfGetter($oneOfFields = ["amount"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            // Virtual OneOf for proto3 optional field
-            Object.defineProperty(P2PPaymentReminderNotification.prototype, "_frequency", {
-                get: $util.oneOfGetter($oneOfFields = ["frequency"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            // Virtual OneOf for proto3 optional field
-            Object.defineProperty(P2PPaymentReminderNotification.prototype, "_nextReminderTimestamp", {
-                get: $util.oneOfGetter($oneOfFields = ["nextReminderTimestamp"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            // Virtual OneOf for proto3 optional field
-            Object.defineProperty(P2PPaymentReminderNotification.prototype, "_expiryTimestamp", {
-                get: $util.oneOfGetter($oneOfFields = ["expiryTimestamp"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            // Virtual OneOf for proto3 optional field
-            Object.defineProperty(P2PPaymentReminderNotification.prototype, "_state", {
-                get: $util.oneOfGetter($oneOfFields = ["state"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            // Virtual OneOf for proto3 optional field
-            Object.defineProperty(P2PPaymentReminderNotification.prototype, "_description", {
-                get: $util.oneOfGetter($oneOfFields = ["description"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            // Virtual OneOf for proto3 optional field
-            Object.defineProperty(P2PPaymentReminderNotification.prototype, "_creatorJid", {
-                get: $util.oneOfGetter($oneOfFields = ["creatorJid"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            // Virtual OneOf for proto3 optional field
-            Object.defineProperty(P2PPaymentReminderNotification.prototype, "_receiverJid", {
-                get: $util.oneOfGetter($oneOfFields = ["receiverJid"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            // Virtual OneOf for proto3 optional field
-            Object.defineProperty(P2PPaymentReminderNotification.prototype, "_upiId", {
-                get: $util.oneOfGetter($oneOfFields = ["upiId"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            // Virtual OneOf for proto3 optional field
-            Object.defineProperty(P2PPaymentReminderNotification.prototype, "_createdTimestamp", {
-                get: $util.oneOfGetter($oneOfFields = ["createdTimestamp"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * Creates a new P2PPaymentReminderNotification instance using the specified properties.
-             * @function create
-             * @memberof E2E.Message.P2PPaymentReminderNotification
-             * @static
-             * @param {E2E.Message.P2PPaymentReminderNotification.$Properties=} [properties] Properties to set
-             * @returns {E2E.Message.P2PPaymentReminderNotification} P2PPaymentReminderNotification instance
-             * @type {{
-             *   (properties: E2E.Message.P2PPaymentReminderNotification.$Shape): E2E.Message.P2PPaymentReminderNotification & E2E.Message.P2PPaymentReminderNotification.$Shape;
-             *   (properties?: E2E.Message.P2PPaymentReminderNotification.$Properties): E2E.Message.P2PPaymentReminderNotification;
-             * }}
-             */
-            P2PPaymentReminderNotification.create = function create(properties) {
-                return new P2PPaymentReminderNotification(properties);
-            };
-
-            /**
-             * Encodes the specified P2PPaymentReminderNotification message. Does not implicitly {@link E2E.Message.P2PPaymentReminderNotification.verify|verify} messages.
-             * @function encode
-             * @memberof E2E.Message.P2PPaymentReminderNotification
-             * @static
-             * @param {E2E.Message.P2PPaymentReminderNotification.$Properties} message P2PPaymentReminderNotification message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            P2PPaymentReminderNotification.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.reminderId != null && Object.hasOwnProperty.call(message, "reminderId"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.reminderId);
-                if (message.amount != null && Object.hasOwnProperty.call(message, "amount"))
-                    $root.E2E.Money.encode(message.amount, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                if (message.frequency != null && Object.hasOwnProperty.call(message, "frequency"))
-                    writer.uint32(/* id 3, wireType 0 =*/24).int32(message.frequency);
-                if (message.nextReminderTimestamp != null && Object.hasOwnProperty.call(message, "nextReminderTimestamp"))
-                    writer.uint32(/* id 4, wireType 0 =*/32).int64(message.nextReminderTimestamp);
-                if (message.expiryTimestamp != null && Object.hasOwnProperty.call(message, "expiryTimestamp"))
-                    writer.uint32(/* id 5, wireType 0 =*/40).int64(message.expiryTimestamp);
-                if (message.state != null && Object.hasOwnProperty.call(message, "state"))
-                    writer.uint32(/* id 6, wireType 0 =*/48).int32(message.state);
-                if (message.description != null && Object.hasOwnProperty.call(message, "description"))
-                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.description);
-                if (message.creatorJid != null && Object.hasOwnProperty.call(message, "creatorJid"))
-                    writer.uint32(/* id 8, wireType 2 =*/66).string(message.creatorJid);
-                if (message.receiverJid != null && Object.hasOwnProperty.call(message, "receiverJid"))
-                    writer.uint32(/* id 9, wireType 2 =*/74).string(message.receiverJid);
-                if (message.upiId != null && Object.hasOwnProperty.call(message, "upiId"))
-                    writer.uint32(/* id 10, wireType 2 =*/82).string(message.upiId);
-                if (message.createdTimestamp != null && Object.hasOwnProperty.call(message, "createdTimestamp"))
-                    writer.uint32(/* id 11, wireType 0 =*/88).int64(message.createdTimestamp);
-                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
-                    for (var i = 0; i < message.$unknowns.length; ++i)
-                        writer.raw(message.$unknowns[i]);
-                return writer;
-            };
-
-            /**
-             * Encodes the specified P2PPaymentReminderNotification message, length delimited. Does not implicitly {@link E2E.Message.P2PPaymentReminderNotification.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof E2E.Message.P2PPaymentReminderNotification
-             * @static
-             * @param {E2E.Message.P2PPaymentReminderNotification.$Properties} message P2PPaymentReminderNotification message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            P2PPaymentReminderNotification.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a P2PPaymentReminderNotification message from the specified reader or buffer.
-             * @function decode
-             * @memberof E2E.Message.P2PPaymentReminderNotification
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {E2E.Message.P2PPaymentReminderNotification & E2E.Message.P2PPaymentReminderNotification.$Shape} P2PPaymentReminderNotification
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            P2PPaymentReminderNotification.decode = function decode(reader, length, _end, _depth, _target) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                if (_depth === undefined)
-                    _depth = 0;
-                if (_depth > $Reader.recursionLimit)
-                    throw Error("max depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.P2PPaymentReminderNotification();
-                while (reader.pos < end) {
-                    var start = reader.pos;
-                    var tag = reader.tag();
-                    if (tag === _end) {
-                        _end = undefined;
-                        break;
-                    }
-                    var wireType = tag & 7;
-                    switch (tag >>>= 3) {
-                    case 1: {
-                            if (wireType !== 2)
-                                break;
-                            message.reminderId = reader.string();
-                            message._reminderId = "reminderId";
-                            continue;
-                        }
-                    case 2: {
-                            if (wireType !== 2)
-                                break;
-                            message.amount = $root.E2E.Money.decode(reader, reader.uint32(), undefined, _depth + 1, message.amount);
-                            message._amount = "amount";
-                            continue;
-                        }
-                    case 3: {
-                            if (wireType !== 0)
-                                break;
-                            message.frequency = reader.int32();
-                            message._frequency = "frequency";
-                            continue;
-                        }
-                    case 4: {
-                            if (wireType !== 0)
-                                break;
-                            message.nextReminderTimestamp = reader.int64();
-                            message._nextReminderTimestamp = "nextReminderTimestamp";
-                            continue;
-                        }
-                    case 5: {
-                            if (wireType !== 0)
-                                break;
-                            message.expiryTimestamp = reader.int64();
-                            message._expiryTimestamp = "expiryTimestamp";
-                            continue;
-                        }
-                    case 6: {
-                            if (wireType !== 0)
-                                break;
-                            message.state = reader.int32();
-                            message._state = "state";
-                            continue;
-                        }
-                    case 7: {
-                            if (wireType !== 2)
-                                break;
-                            message.description = reader.string();
-                            message._description = "description";
-                            continue;
-                        }
-                    case 8: {
-                            if (wireType !== 2)
-                                break;
-                            message.creatorJid = reader.string();
-                            message._creatorJid = "creatorJid";
-                            continue;
-                        }
-                    case 9: {
-                            if (wireType !== 2)
-                                break;
-                            message.receiverJid = reader.string();
-                            message._receiverJid = "receiverJid";
-                            continue;
-                        }
-                    case 10: {
-                            if (wireType !== 2)
-                                break;
-                            message.upiId = reader.string();
-                            message._upiId = "upiId";
-                            continue;
-                        }
-                    case 11: {
-                            if (wireType !== 0)
-                                break;
-                            message.createdTimestamp = reader.int64();
-                            message._createdTimestamp = "createdTimestamp";
-                            continue;
-                        }
-                    }
-                    reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
-                }
-                if (_end !== undefined)
-                    throw Error("missing end group");
-                return message;
-            };
-
-            /**
-             * Decodes a P2PPaymentReminderNotification message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof E2E.Message.P2PPaymentReminderNotification
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {E2E.Message.P2PPaymentReminderNotification & E2E.Message.P2PPaymentReminderNotification.$Shape} P2PPaymentReminderNotification
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            P2PPaymentReminderNotification.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a P2PPaymentReminderNotification message.
-             * @function verify
-             * @memberof E2E.Message.P2PPaymentReminderNotification
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            P2PPaymentReminderNotification.verify = function verify(message, _depth) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (_depth === undefined)
-                    _depth = 0;
-                if (_depth > $util.recursionLimit)
-                    return "max depth exceeded";
-                var properties = {};
-                if (message.reminderId != null && message.hasOwnProperty("reminderId")) {
-                    properties._reminderId = 1;
-                    if (!$util.isString(message.reminderId))
-                        return "reminderId: string expected";
-                }
-                if (message.amount != null && message.hasOwnProperty("amount")) {
-                    properties._amount = 1;
-                    {
-                        var error = $root.E2E.Money.verify(message.amount, _depth + 1);
-                        if (error)
-                            return "amount." + error;
-                    }
-                }
-                if (message.frequency != null && message.hasOwnProperty("frequency")) {
-                    properties._frequency = 1;
-                    switch (message.frequency) {
-                    default:
-                        return "frequency: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                        break;
-                    }
-                }
-                if (message.nextReminderTimestamp != null && message.hasOwnProperty("nextReminderTimestamp")) {
-                    properties._nextReminderTimestamp = 1;
-                    if (!$util.isInteger(message.nextReminderTimestamp) && !(message.nextReminderTimestamp && $util.isInteger(message.nextReminderTimestamp.low) && $util.isInteger(message.nextReminderTimestamp.high)))
-                        return "nextReminderTimestamp: integer|Long expected";
-                }
-                if (message.expiryTimestamp != null && message.hasOwnProperty("expiryTimestamp")) {
-                    properties._expiryTimestamp = 1;
-                    if (!$util.isInteger(message.expiryTimestamp) && !(message.expiryTimestamp && $util.isInteger(message.expiryTimestamp.low) && $util.isInteger(message.expiryTimestamp.high)))
-                        return "expiryTimestamp: integer|Long expected";
-                }
-                if (message.state != null && message.hasOwnProperty("state")) {
-                    properties._state = 1;
-                    switch (message.state) {
-                    default:
-                        return "state: enum value expected";
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                        break;
-                    }
-                }
-                if (message.description != null && message.hasOwnProperty("description")) {
-                    properties._description = 1;
-                    if (!$util.isString(message.description))
-                        return "description: string expected";
-                }
-                if (message.creatorJid != null && message.hasOwnProperty("creatorJid")) {
-                    properties._creatorJid = 1;
-                    if (!$util.isString(message.creatorJid))
-                        return "creatorJid: string expected";
-                }
-                if (message.receiverJid != null && message.hasOwnProperty("receiverJid")) {
-                    properties._receiverJid = 1;
-                    if (!$util.isString(message.receiverJid))
-                        return "receiverJid: string expected";
-                }
-                if (message.upiId != null && message.hasOwnProperty("upiId")) {
-                    properties._upiId = 1;
-                    if (!$util.isString(message.upiId))
-                        return "upiId: string expected";
-                }
-                if (message.createdTimestamp != null && message.hasOwnProperty("createdTimestamp")) {
-                    properties._createdTimestamp = 1;
-                    if (!$util.isInteger(message.createdTimestamp) && !(message.createdTimestamp && $util.isInteger(message.createdTimestamp.low) && $util.isInteger(message.createdTimestamp.high)))
-                        return "createdTimestamp: integer|Long expected";
-                }
-                return null;
-            };
-
-            /**
-             * Creates a P2PPaymentReminderNotification message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof E2E.Message.P2PPaymentReminderNotification
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {E2E.Message.P2PPaymentReminderNotification} P2PPaymentReminderNotification
-             */
-            P2PPaymentReminderNotification.fromObject = function fromObject(object, _depth) {
-                if (object instanceof $root.E2E.Message.P2PPaymentReminderNotification)
-                    return object;
-                if (_depth === undefined)
-                    _depth = 0;
-                if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
-                var message = new $root.E2E.Message.P2PPaymentReminderNotification();
-                if (object.reminderId != null)
-                    message.reminderId = String(object.reminderId);
-                if (object.amount != null) {
-                    if (typeof object.amount !== "object")
-                        throw TypeError(".E2E.Message.P2PPaymentReminderNotification.amount: object expected");
-                    message.amount = $root.E2E.Money.fromObject(object.amount, _depth + 1);
-                }
-                switch (object.frequency) {
-                default:
-                    if (typeof object.frequency === "number") {
-                        message.frequency = object.frequency;
-                        break;
-                    }
-                    break;
-                case "UNKNOWN_FREQUENCY":
-                case 0:
-                    message.frequency = 0;
-                    break;
-                case "WEEKLY":
-                case 1:
-                    message.frequency = 1;
-                    break;
-                case "BIWEEKLY":
-                case 2:
-                    message.frequency = 2;
-                    break;
-                case "MONTHLY":
-                case 3:
-                    message.frequency = 3;
-                    break;
-                case "CUSTOM":
-                case 4:
-                    message.frequency = 4;
-                    break;
-                }
-                if (object.nextReminderTimestamp != null)
-                    if ($util.Long)
-                        (message.nextReminderTimestamp = $util.Long.fromValue(object.nextReminderTimestamp)).unsigned = false;
-                    else if (typeof object.nextReminderTimestamp === "string")
-                        message.nextReminderTimestamp = parseInt(object.nextReminderTimestamp, 10);
-                    else if (typeof object.nextReminderTimestamp === "number")
-                        message.nextReminderTimestamp = object.nextReminderTimestamp;
-                    else if (typeof object.nextReminderTimestamp === "object")
-                        message.nextReminderTimestamp = new $util.LongBits(object.nextReminderTimestamp.low >>> 0, object.nextReminderTimestamp.high >>> 0).toNumber();
-                if (object.expiryTimestamp != null)
-                    if ($util.Long)
-                        (message.expiryTimestamp = $util.Long.fromValue(object.expiryTimestamp)).unsigned = false;
-                    else if (typeof object.expiryTimestamp === "string")
-                        message.expiryTimestamp = parseInt(object.expiryTimestamp, 10);
-                    else if (typeof object.expiryTimestamp === "number")
-                        message.expiryTimestamp = object.expiryTimestamp;
-                    else if (typeof object.expiryTimestamp === "object")
-                        message.expiryTimestamp = new $util.LongBits(object.expiryTimestamp.low >>> 0, object.expiryTimestamp.high >>> 0).toNumber();
-                switch (object.state) {
-                default:
-                    if (typeof object.state === "number") {
-                        message.state = object.state;
-                        break;
-                    }
-                    break;
-                case "UNKNOWN_STATE":
-                case 0:
-                    message.state = 0;
-                    break;
-                case "ACTIVE":
-                case 1:
-                    message.state = 1;
-                    break;
-                case "PAUSED":
-                case 2:
-                    message.state = 2;
-                    break;
-                case "STOPPED":
-                case 3:
-                    message.state = 3;
-                    break;
-                case "EXPIRED":
-                case 4:
-                    message.state = 4;
-                    break;
-                case "CANCELLED":
-                case 5:
-                    message.state = 5;
-                    break;
-                }
-                if (object.description != null)
-                    message.description = String(object.description);
-                if (object.creatorJid != null)
-                    message.creatorJid = String(object.creatorJid);
-                if (object.receiverJid != null)
-                    message.receiverJid = String(object.receiverJid);
-                if (object.upiId != null)
-                    message.upiId = String(object.upiId);
-                if (object.createdTimestamp != null)
-                    if ($util.Long)
-                        (message.createdTimestamp = $util.Long.fromValue(object.createdTimestamp)).unsigned = false;
-                    else if (typeof object.createdTimestamp === "string")
-                        message.createdTimestamp = parseInt(object.createdTimestamp, 10);
-                    else if (typeof object.createdTimestamp === "number")
-                        message.createdTimestamp = object.createdTimestamp;
-                    else if (typeof object.createdTimestamp === "object")
-                        message.createdTimestamp = new $util.LongBits(object.createdTimestamp.low >>> 0, object.createdTimestamp.high >>> 0).toNumber();
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a P2PPaymentReminderNotification message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof E2E.Message.P2PPaymentReminderNotification
-             * @static
-             * @param {E2E.Message.P2PPaymentReminderNotification} message P2PPaymentReminderNotification
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            P2PPaymentReminderNotification.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (message.reminderId != null && message.hasOwnProperty("reminderId")) {
-                    object.reminderId = message.reminderId;
-                    if (options.oneofs)
-                        object._reminderId = "reminderId";
-                }
-                if (message.amount != null && message.hasOwnProperty("amount")) {
-                    object.amount = $root.E2E.Money.toObject(message.amount, options);
-                    if (options.oneofs)
-                        object._amount = "amount";
-                }
-                if (message.frequency != null && message.hasOwnProperty("frequency")) {
-                    object.frequency = options.enums === String ? $root.E2E.Message.P2PPaymentReminderNotification.ReminderFrequency[message.frequency] === undefined ? message.frequency : $root.E2E.Message.P2PPaymentReminderNotification.ReminderFrequency[message.frequency] : message.frequency;
-                    if (options.oneofs)
-                        object._frequency = "frequency";
-                }
-                if (message.nextReminderTimestamp != null && message.hasOwnProperty("nextReminderTimestamp")) {
-                    if (typeof message.nextReminderTimestamp === "number")
-                        object.nextReminderTimestamp = options.longs === String ? String(message.nextReminderTimestamp) : message.nextReminderTimestamp;
-                    else
-                        object.nextReminderTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.nextReminderTimestamp) : options.longs === Number ? new $util.LongBits(message.nextReminderTimestamp.low >>> 0, message.nextReminderTimestamp.high >>> 0).toNumber() : message.nextReminderTimestamp;
-                    if (options.oneofs)
-                        object._nextReminderTimestamp = "nextReminderTimestamp";
-                }
-                if (message.expiryTimestamp != null && message.hasOwnProperty("expiryTimestamp")) {
-                    if (typeof message.expiryTimestamp === "number")
-                        object.expiryTimestamp = options.longs === String ? String(message.expiryTimestamp) : message.expiryTimestamp;
-                    else
-                        object.expiryTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.expiryTimestamp) : options.longs === Number ? new $util.LongBits(message.expiryTimestamp.low >>> 0, message.expiryTimestamp.high >>> 0).toNumber() : message.expiryTimestamp;
-                    if (options.oneofs)
-                        object._expiryTimestamp = "expiryTimestamp";
-                }
-                if (message.state != null && message.hasOwnProperty("state")) {
-                    object.state = options.enums === String ? $root.E2E.Message.P2PPaymentReminderNotification.ReminderState[message.state] === undefined ? message.state : $root.E2E.Message.P2PPaymentReminderNotification.ReminderState[message.state] : message.state;
-                    if (options.oneofs)
-                        object._state = "state";
-                }
-                if (message.description != null && message.hasOwnProperty("description")) {
-                    object.description = message.description;
-                    if (options.oneofs)
-                        object._description = "description";
-                }
-                if (message.creatorJid != null && message.hasOwnProperty("creatorJid")) {
-                    object.creatorJid = message.creatorJid;
-                    if (options.oneofs)
-                        object._creatorJid = "creatorJid";
-                }
-                if (message.receiverJid != null && message.hasOwnProperty("receiverJid")) {
-                    object.receiverJid = message.receiverJid;
-                    if (options.oneofs)
-                        object._receiverJid = "receiverJid";
-                }
-                if (message.upiId != null && message.hasOwnProperty("upiId")) {
-                    object.upiId = message.upiId;
-                    if (options.oneofs)
-                        object._upiId = "upiId";
-                }
-                if (message.createdTimestamp != null && message.hasOwnProperty("createdTimestamp")) {
-                    if (typeof message.createdTimestamp === "number")
-                        object.createdTimestamp = options.longs === String ? String(message.createdTimestamp) : message.createdTimestamp;
-                    else
-                        object.createdTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.createdTimestamp) : options.longs === Number ? new $util.LongBits(message.createdTimestamp.low >>> 0, message.createdTimestamp.high >>> 0).toNumber() : message.createdTimestamp;
-                    if (options.oneofs)
-                        object._createdTimestamp = "createdTimestamp";
-                }
-                return object;
-            };
-
-            /**
-             * Converts this P2PPaymentReminderNotification to JSON.
-             * @function toJSON
-             * @memberof E2E.Message.P2PPaymentReminderNotification
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            P2PPaymentReminderNotification.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            /**
-             * Gets the type url for P2PPaymentReminderNotification
-             * @function getTypeUrl
-             * @memberof E2E.Message.P2PPaymentReminderNotification
-             * @static
-             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
-             * @returns {string} The type url
-             */
-            P2PPaymentReminderNotification.getTypeUrl = function getTypeUrl(prefix) {
-                if (prefix === undefined)
-                    prefix = "type.googleapis.com";
-                return prefix + "/E2E.Message.P2PPaymentReminderNotification";
-            };
-
-            /**
-             * ReminderFrequency enum.
-             * @name E2E.Message.P2PPaymentReminderNotification.ReminderFrequency
-             * @enum {number}
-             * @property {number} UNKNOWN_FREQUENCY=0 UNKNOWN_FREQUENCY value
-             * @property {number} WEEKLY=1 WEEKLY value
-             * @property {number} BIWEEKLY=2 BIWEEKLY value
-             * @property {number} MONTHLY=3 MONTHLY value
-             * @property {number} CUSTOM=4 CUSTOM value
-             */
-            P2PPaymentReminderNotification.ReminderFrequency = (function() {
-                var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "UNKNOWN_FREQUENCY"] = 0;
-                values[valuesById[1] = "WEEKLY"] = 1;
-                values[valuesById[2] = "BIWEEKLY"] = 2;
-                values[valuesById[3] = "MONTHLY"] = 3;
-                values[valuesById[4] = "CUSTOM"] = 4;
-                return values;
-            })();
-
-            /**
-             * ReminderState enum.
-             * @name E2E.Message.P2PPaymentReminderNotification.ReminderState
-             * @enum {number}
-             * @property {number} UNKNOWN_STATE=0 UNKNOWN_STATE value
-             * @property {number} ACTIVE=1 ACTIVE value
-             * @property {number} PAUSED=2 PAUSED value
-             * @property {number} STOPPED=3 STOPPED value
-             * @property {number} EXPIRED=4 EXPIRED value
-             * @property {number} CANCELLED=5 CANCELLED value
-             */
-            P2PPaymentReminderNotification.ReminderState = (function() {
-                var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "UNKNOWN_STATE"] = 0;
-                values[valuesById[1] = "ACTIVE"] = 1;
-                values[valuesById[2] = "PAUSED"] = 2;
-                values[valuesById[3] = "STOPPED"] = 3;
-                values[valuesById[4] = "EXPIRED"] = 4;
-                values[valuesById[5] = "CANCELLED"] = 5;
-                return values;
-            })();
-
-            return P2PPaymentReminderNotification;
         })();
 
         Message.PaymentExtendedMetadata = (function() {
@@ -69038,7 +68461,9 @@ $root.E2E = (function() {
                         object._serviceType = "serviceType";
                 }
                 if (message.expiryTimestamp != null && message.hasOwnProperty("expiryTimestamp")) {
-                    if (typeof message.expiryTimestamp === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.expiryTimestamp = typeof message.expiryTimestamp === "number" ? BigInt(message.expiryTimestamp) : $util.Long.fromBits(message.expiryTimestamp.low >>> 0, message.expiryTimestamp.high >>> 0, false).toBigInt();
+                    else if (typeof message.expiryTimestamp === "number")
                         object.expiryTimestamp = options.longs === String ? String(message.expiryTimestamp) : message.expiryTimestamp;
                     else
                         object.expiryTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.expiryTimestamp) : options.longs === Number ? new $util.LongBits(message.expiryTimestamp.low >>> 0, message.expiryTimestamp.high >>> 0).toNumber() : message.expiryTimestamp;
@@ -70276,6 +69701,673 @@ $root.E2E = (function() {
             })();
 
             return PaymentLinkMetadata;
+        })();
+
+        Message.PaymentReminderMessage = (function() {
+
+            /**
+             * Properties of a PaymentReminderMessage.
+             * @typedef {Object} E2E.Message.PaymentReminderMessage.$Properties
+             * @property {string|null} [reminderId] PaymentReminderMessage reminderId
+             * @property {string|null} [instanceId] PaymentReminderMessage instanceId
+             * @property {string|null} [description] PaymentReminderMessage description
+             * @property {E2E.Message.PaymentReminderMessage.ReminderFrequency|null} [frequency] PaymentReminderMessage frequency
+             * @property {E2E.Message.PaymentReminderMessage.ReminderStatus|null} [status] PaymentReminderMessage status
+             * @property {string|null} [payeeVpa] PaymentReminderMessage payeeVpa
+             * @property {string|null} [payeeJid] PaymentReminderMessage payeeJid
+             * @property {string|null} [payerJid] PaymentReminderMessage payerJid
+             * @property {E2E.Money.$Properties|null} [amount] PaymentReminderMessage amount
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a PaymentReminderMessage.
+             * @memberof E2E.Message
+             * @interface IPaymentReminderMessage
+             * @augments E2E.Message.PaymentReminderMessage.$Properties
+             * @deprecated Use E2E.Message.PaymentReminderMessage.$Properties instead.
+             */
+
+            /**
+             * Shape of a PaymentReminderMessage.
+             * @typedef {E2E.Message.PaymentReminderMessage.$Properties} E2E.Message.PaymentReminderMessage.$Shape
+             */
+
+            /**
+             * Constructs a new PaymentReminderMessage.
+             * @memberof E2E.Message
+             * @classdesc Represents a PaymentReminderMessage.
+             * @constructor
+             * @param {E2E.Message.PaymentReminderMessage.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+            function PaymentReminderMessage(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * PaymentReminderMessage reminderId.
+             * @member {string|null|undefined} reminderId
+             * @memberof E2E.Message.PaymentReminderMessage
+             * @instance
+             */
+            PaymentReminderMessage.prototype.reminderId = null;
+
+            /**
+             * PaymentReminderMessage instanceId.
+             * @member {string|null|undefined} instanceId
+             * @memberof E2E.Message.PaymentReminderMessage
+             * @instance
+             */
+            PaymentReminderMessage.prototype.instanceId = null;
+
+            /**
+             * PaymentReminderMessage description.
+             * @member {string|null|undefined} description
+             * @memberof E2E.Message.PaymentReminderMessage
+             * @instance
+             */
+            PaymentReminderMessage.prototype.description = null;
+
+            /**
+             * PaymentReminderMessage frequency.
+             * @member {E2E.Message.PaymentReminderMessage.ReminderFrequency|null|undefined} frequency
+             * @memberof E2E.Message.PaymentReminderMessage
+             * @instance
+             */
+            PaymentReminderMessage.prototype.frequency = null;
+
+            /**
+             * PaymentReminderMessage status.
+             * @member {E2E.Message.PaymentReminderMessage.ReminderStatus|null|undefined} status
+             * @memberof E2E.Message.PaymentReminderMessage
+             * @instance
+             */
+            PaymentReminderMessage.prototype.status = null;
+
+            /**
+             * PaymentReminderMessage payeeVpa.
+             * @member {string|null|undefined} payeeVpa
+             * @memberof E2E.Message.PaymentReminderMessage
+             * @instance
+             */
+            PaymentReminderMessage.prototype.payeeVpa = null;
+
+            /**
+             * PaymentReminderMessage payeeJid.
+             * @member {string|null|undefined} payeeJid
+             * @memberof E2E.Message.PaymentReminderMessage
+             * @instance
+             */
+            PaymentReminderMessage.prototype.payeeJid = null;
+
+            /**
+             * PaymentReminderMessage payerJid.
+             * @member {string|null|undefined} payerJid
+             * @memberof E2E.Message.PaymentReminderMessage
+             * @instance
+             */
+            PaymentReminderMessage.prototype.payerJid = null;
+
+            /**
+             * PaymentReminderMessage amount.
+             * @member {E2E.Money.$Properties|null|undefined} amount
+             * @memberof E2E.Message.PaymentReminderMessage
+             * @instance
+             */
+            PaymentReminderMessage.prototype.amount = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(PaymentReminderMessage.prototype, "_reminderId", {
+                get: $util.oneOfGetter($oneOfFields = ["reminderId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(PaymentReminderMessage.prototype, "_instanceId", {
+                get: $util.oneOfGetter($oneOfFields = ["instanceId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(PaymentReminderMessage.prototype, "_description", {
+                get: $util.oneOfGetter($oneOfFields = ["description"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(PaymentReminderMessage.prototype, "_frequency", {
+                get: $util.oneOfGetter($oneOfFields = ["frequency"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(PaymentReminderMessage.prototype, "_status", {
+                get: $util.oneOfGetter($oneOfFields = ["status"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(PaymentReminderMessage.prototype, "_payeeVpa", {
+                get: $util.oneOfGetter($oneOfFields = ["payeeVpa"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(PaymentReminderMessage.prototype, "_payeeJid", {
+                get: $util.oneOfGetter($oneOfFields = ["payeeJid"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(PaymentReminderMessage.prototype, "_payerJid", {
+                get: $util.oneOfGetter($oneOfFields = ["payerJid"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(PaymentReminderMessage.prototype, "_amount", {
+                get: $util.oneOfGetter($oneOfFields = ["amount"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new PaymentReminderMessage instance using the specified properties.
+             * @function create
+             * @memberof E2E.Message.PaymentReminderMessage
+             * @static
+             * @param {E2E.Message.PaymentReminderMessage.$Properties=} [properties] Properties to set
+             * @returns {E2E.Message.PaymentReminderMessage} PaymentReminderMessage instance
+             * @type {{
+             *   (properties: E2E.Message.PaymentReminderMessage.$Shape): E2E.Message.PaymentReminderMessage & E2E.Message.PaymentReminderMessage.$Shape;
+             *   (properties?: E2E.Message.PaymentReminderMessage.$Properties): E2E.Message.PaymentReminderMessage;
+             * }}
+             */
+            PaymentReminderMessage.create = function create(properties) {
+                return new PaymentReminderMessage(properties);
+            };
+
+            /**
+             * Encodes the specified PaymentReminderMessage message. Does not implicitly {@link E2E.Message.PaymentReminderMessage.verify|verify} messages.
+             * @function encode
+             * @memberof E2E.Message.PaymentReminderMessage
+             * @static
+             * @param {E2E.Message.PaymentReminderMessage.$Properties} message PaymentReminderMessage message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            PaymentReminderMessage.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.reminderId != null && Object.hasOwnProperty.call(message, "reminderId"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.reminderId);
+                if (message.instanceId != null && Object.hasOwnProperty.call(message, "instanceId"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.instanceId);
+                if (message.description != null && Object.hasOwnProperty.call(message, "description"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.description);
+                if (message.frequency != null && Object.hasOwnProperty.call(message, "frequency"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).int32(message.frequency);
+                if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                    writer.uint32(/* id 5, wireType 0 =*/40).int32(message.status);
+                if (message.payeeVpa != null && Object.hasOwnProperty.call(message, "payeeVpa"))
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.payeeVpa);
+                if (message.payeeJid != null && Object.hasOwnProperty.call(message, "payeeJid"))
+                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.payeeJid);
+                if (message.payerJid != null && Object.hasOwnProperty.call(message, "payerJid"))
+                    writer.uint32(/* id 8, wireType 2 =*/66).string(message.payerJid);
+                if (message.amount != null && Object.hasOwnProperty.call(message, "amount"))
+                    $root.E2E.Money.encode(message.amount, writer.uint32(/* id 9, wireType 2 =*/74).fork()).ldelim();
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified PaymentReminderMessage message, length delimited. Does not implicitly {@link E2E.Message.PaymentReminderMessage.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof E2E.Message.PaymentReminderMessage
+             * @static
+             * @param {E2E.Message.PaymentReminderMessage.$Properties} message PaymentReminderMessage message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            PaymentReminderMessage.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a PaymentReminderMessage message from the specified reader or buffer.
+             * @function decode
+             * @memberof E2E.Message.PaymentReminderMessage
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {E2E.Message.PaymentReminderMessage & E2E.Message.PaymentReminderMessage.$Shape} PaymentReminderMessage
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            PaymentReminderMessage.decode = function decode(reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.PaymentReminderMessage();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.reminderId = reader.string();
+                            message._reminderId = "reminderId";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.instanceId = reader.string();
+                            message._instanceId = "instanceId";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 2)
+                                break;
+                            message.description = reader.string();
+                            message._description = "description";
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 0)
+                                break;
+                            message.frequency = reader.int32();
+                            message._frequency = "frequency";
+                            continue;
+                        }
+                    case 5: {
+                            if (wireType !== 0)
+                                break;
+                            message.status = reader.int32();
+                            message._status = "status";
+                            continue;
+                        }
+                    case 6: {
+                            if (wireType !== 2)
+                                break;
+                            message.payeeVpa = reader.string();
+                            message._payeeVpa = "payeeVpa";
+                            continue;
+                        }
+                    case 7: {
+                            if (wireType !== 2)
+                                break;
+                            message.payeeJid = reader.string();
+                            message._payeeJid = "payeeJid";
+                            continue;
+                        }
+                    case 8: {
+                            if (wireType !== 2)
+                                break;
+                            message.payerJid = reader.string();
+                            message._payerJid = "payerJid";
+                            continue;
+                        }
+                    case 9: {
+                            if (wireType !== 2)
+                                break;
+                            message.amount = $root.E2E.Money.decode(reader, reader.uint32(), undefined, _depth + 1, message.amount);
+                            message._amount = "amount";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
+                if (_end !== undefined)
+                    throw Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a PaymentReminderMessage message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof E2E.Message.PaymentReminderMessage
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {E2E.Message.PaymentReminderMessage & E2E.Message.PaymentReminderMessage.$Shape} PaymentReminderMessage
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            PaymentReminderMessage.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a PaymentReminderMessage message.
+             * @function verify
+             * @memberof E2E.Message.PaymentReminderMessage
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            PaymentReminderMessage.verify = function verify(message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.reminderId != null && message.hasOwnProperty("reminderId")) {
+                    properties._reminderId = 1;
+                    if (!$util.isString(message.reminderId))
+                        return "reminderId: string expected";
+                }
+                if (message.instanceId != null && message.hasOwnProperty("instanceId")) {
+                    properties._instanceId = 1;
+                    if (!$util.isString(message.instanceId))
+                        return "instanceId: string expected";
+                }
+                if (message.description != null && message.hasOwnProperty("description")) {
+                    properties._description = 1;
+                    if (!$util.isString(message.description))
+                        return "description: string expected";
+                }
+                if (message.frequency != null && message.hasOwnProperty("frequency")) {
+                    properties._frequency = 1;
+                    switch (message.frequency) {
+                    default:
+                        return "frequency: enum value expected";
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                        break;
+                    }
+                }
+                if (message.status != null && message.hasOwnProperty("status")) {
+                    properties._status = 1;
+                    switch (message.status) {
+                    default:
+                        return "status: enum value expected";
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                        break;
+                    }
+                }
+                if (message.payeeVpa != null && message.hasOwnProperty("payeeVpa")) {
+                    properties._payeeVpa = 1;
+                    if (!$util.isString(message.payeeVpa))
+                        return "payeeVpa: string expected";
+                }
+                if (message.payeeJid != null && message.hasOwnProperty("payeeJid")) {
+                    properties._payeeJid = 1;
+                    if (!$util.isString(message.payeeJid))
+                        return "payeeJid: string expected";
+                }
+                if (message.payerJid != null && message.hasOwnProperty("payerJid")) {
+                    properties._payerJid = 1;
+                    if (!$util.isString(message.payerJid))
+                        return "payerJid: string expected";
+                }
+                if (message.amount != null && message.hasOwnProperty("amount")) {
+                    properties._amount = 1;
+                    {
+                        var error = $root.E2E.Money.verify(message.amount, _depth + 1);
+                        if (error)
+                            return "amount." + error;
+                    }
+                }
+                return null;
+            };
+
+            /**
+             * Creates a PaymentReminderMessage message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof E2E.Message.PaymentReminderMessage
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {E2E.Message.PaymentReminderMessage} PaymentReminderMessage
+             */
+            PaymentReminderMessage.fromObject = function fromObject(object, _depth) {
+                if (object instanceof $root.E2E.Message.PaymentReminderMessage)
+                    return object;
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
+                var message = new $root.E2E.Message.PaymentReminderMessage();
+                if (object.reminderId != null)
+                    message.reminderId = String(object.reminderId);
+                if (object.instanceId != null)
+                    message.instanceId = String(object.instanceId);
+                if (object.description != null)
+                    message.description = String(object.description);
+                switch (object.frequency) {
+                default:
+                    if (typeof object.frequency === "number") {
+                        message.frequency = object.frequency;
+                        break;
+                    }
+                    break;
+                case "REMINDER_FREQUENCY_UNKNOWN":
+                case 0:
+                    message.frequency = 0;
+                    break;
+                case "WEEKLY":
+                case 1:
+                    message.frequency = 1;
+                    break;
+                case "BI_WEEKLY":
+                case 2:
+                    message.frequency = 2;
+                    break;
+                case "MONTHLY":
+                case 3:
+                    message.frequency = 3;
+                    break;
+                case "QUARTERLY":
+                case 4:
+                    message.frequency = 4;
+                    break;
+                }
+                switch (object.status) {
+                default:
+                    if (typeof object.status === "number") {
+                        message.status = object.status;
+                        break;
+                    }
+                    break;
+                case "REMINDER_STATUS_UNKNOWN":
+                case 0:
+                    message.status = 0;
+                    break;
+                case "ACTIVE":
+                case 1:
+                    message.status = 1;
+                    break;
+                case "CANCELLED_BY_CREATOR":
+                case 2:
+                    message.status = 2;
+                    break;
+                case "STOPPED_BY_RECEIVER":
+                case 3:
+                    message.status = 3;
+                    break;
+                case "EXPIRED":
+                case 4:
+                    message.status = 4;
+                    break;
+                case "PAID":
+                case 5:
+                    message.status = 5;
+                    break;
+                }
+                if (object.payeeVpa != null)
+                    message.payeeVpa = String(object.payeeVpa);
+                if (object.payeeJid != null)
+                    message.payeeJid = String(object.payeeJid);
+                if (object.payerJid != null)
+                    message.payerJid = String(object.payerJid);
+                if (object.amount != null) {
+                    if (typeof object.amount !== "object")
+                        throw TypeError(".E2E.Message.PaymentReminderMessage.amount: object expected");
+                    message.amount = $root.E2E.Money.fromObject(object.amount, _depth + 1);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a PaymentReminderMessage message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof E2E.Message.PaymentReminderMessage
+             * @static
+             * @param {E2E.Message.PaymentReminderMessage} message PaymentReminderMessage
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            PaymentReminderMessage.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (message.reminderId != null && message.hasOwnProperty("reminderId")) {
+                    object.reminderId = message.reminderId;
+                    if (options.oneofs)
+                        object._reminderId = "reminderId";
+                }
+                if (message.instanceId != null && message.hasOwnProperty("instanceId")) {
+                    object.instanceId = message.instanceId;
+                    if (options.oneofs)
+                        object._instanceId = "instanceId";
+                }
+                if (message.description != null && message.hasOwnProperty("description")) {
+                    object.description = message.description;
+                    if (options.oneofs)
+                        object._description = "description";
+                }
+                if (message.frequency != null && message.hasOwnProperty("frequency")) {
+                    object.frequency = options.enums === String ? $root.E2E.Message.PaymentReminderMessage.ReminderFrequency[message.frequency] === undefined ? message.frequency : $root.E2E.Message.PaymentReminderMessage.ReminderFrequency[message.frequency] : message.frequency;
+                    if (options.oneofs)
+                        object._frequency = "frequency";
+                }
+                if (message.status != null && message.hasOwnProperty("status")) {
+                    object.status = options.enums === String ? $root.E2E.Message.PaymentReminderMessage.ReminderStatus[message.status] === undefined ? message.status : $root.E2E.Message.PaymentReminderMessage.ReminderStatus[message.status] : message.status;
+                    if (options.oneofs)
+                        object._status = "status";
+                }
+                if (message.payeeVpa != null && message.hasOwnProperty("payeeVpa")) {
+                    object.payeeVpa = message.payeeVpa;
+                    if (options.oneofs)
+                        object._payeeVpa = "payeeVpa";
+                }
+                if (message.payeeJid != null && message.hasOwnProperty("payeeJid")) {
+                    object.payeeJid = message.payeeJid;
+                    if (options.oneofs)
+                        object._payeeJid = "payeeJid";
+                }
+                if (message.payerJid != null && message.hasOwnProperty("payerJid")) {
+                    object.payerJid = message.payerJid;
+                    if (options.oneofs)
+                        object._payerJid = "payerJid";
+                }
+                if (message.amount != null && message.hasOwnProperty("amount")) {
+                    object.amount = $root.E2E.Money.toObject(message.amount, options);
+                    if (options.oneofs)
+                        object._amount = "amount";
+                }
+                return object;
+            };
+
+            /**
+             * Converts this PaymentReminderMessage to JSON.
+             * @function toJSON
+             * @memberof E2E.Message.PaymentReminderMessage
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            PaymentReminderMessage.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for PaymentReminderMessage
+             * @function getTypeUrl
+             * @memberof E2E.Message.PaymentReminderMessage
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            PaymentReminderMessage.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/E2E.Message.PaymentReminderMessage";
+            };
+
+            /**
+             * ReminderFrequency enum.
+             * @name E2E.Message.PaymentReminderMessage.ReminderFrequency
+             * @enum {number}
+             * @property {number} REMINDER_FREQUENCY_UNKNOWN=0 REMINDER_FREQUENCY_UNKNOWN value
+             * @property {number} WEEKLY=1 WEEKLY value
+             * @property {number} BI_WEEKLY=2 BI_WEEKLY value
+             * @property {number} MONTHLY=3 MONTHLY value
+             * @property {number} QUARTERLY=4 QUARTERLY value
+             */
+            PaymentReminderMessage.ReminderFrequency = (function() {
+                var valuesById = {}, values = Object.create(valuesById);
+                values[valuesById[0] = "REMINDER_FREQUENCY_UNKNOWN"] = 0;
+                values[valuesById[1] = "WEEKLY"] = 1;
+                values[valuesById[2] = "BI_WEEKLY"] = 2;
+                values[valuesById[3] = "MONTHLY"] = 3;
+                values[valuesById[4] = "QUARTERLY"] = 4;
+                return values;
+            })();
+
+            /**
+             * ReminderStatus enum.
+             * @name E2E.Message.PaymentReminderMessage.ReminderStatus
+             * @enum {number}
+             * @property {number} REMINDER_STATUS_UNKNOWN=0 REMINDER_STATUS_UNKNOWN value
+             * @property {number} ACTIVE=1 ACTIVE value
+             * @property {number} CANCELLED_BY_CREATOR=2 CANCELLED_BY_CREATOR value
+             * @property {number} STOPPED_BY_RECEIVER=3 STOPPED_BY_RECEIVER value
+             * @property {number} EXPIRED=4 EXPIRED value
+             * @property {number} PAID=5 PAID value
+             */
+            PaymentReminderMessage.ReminderStatus = (function() {
+                var valuesById = {}, values = Object.create(valuesById);
+                values[valuesById[0] = "REMINDER_STATUS_UNKNOWN"] = 0;
+                values[valuesById[1] = "ACTIVE"] = 1;
+                values[valuesById[2] = "CANCELLED_BY_CREATOR"] = 2;
+                values[valuesById[3] = "STOPPED_BY_RECEIVER"] = 3;
+                values[valuesById[4] = "EXPIRED"] = 4;
+                values[valuesById[5] = "PAID"] = 5;
+                return values;
+            })();
+
+            return PaymentReminderMessage;
         })();
 
         Message.PeerDataOperationRequestMessage = (function() {
@@ -73501,7 +73593,9 @@ $root.E2E = (function() {
                             object._onDemandMsgCount = "onDemandMsgCount";
                     }
                     if (message.oldestMsgTimestampMs != null && message.hasOwnProperty("oldestMsgTimestampMs")) {
-                        if (typeof message.oldestMsgTimestampMs === "number")
+                        if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                            object.oldestMsgTimestampMs = typeof message.oldestMsgTimestampMs === "number" ? BigInt(message.oldestMsgTimestampMs) : $util.Long.fromBits(message.oldestMsgTimestampMs.low >>> 0, message.oldestMsgTimestampMs.high >>> 0, false).toBigInt();
+                        else if (typeof message.oldestMsgTimestampMs === "number")
                             object.oldestMsgTimestampMs = options.longs === String ? String(message.oldestMsgTimestampMs) : message.oldestMsgTimestampMs;
                         else
                             object.oldestMsgTimestampMs = options.longs === String ? $util.Long.prototype.toString.call(message.oldestMsgTimestampMs) : options.longs === Number ? new $util.LongBits(message.oldestMsgTimestampMs.low >>> 0, message.oldestMsgTimestampMs.high >>> 0).toNumber() : message.oldestMsgTimestampMs;
@@ -74631,7 +74725,9 @@ $root.E2E = (function() {
                             object._collectionName = "collectionName";
                     }
                     if (message.timestamp != null && message.hasOwnProperty("timestamp")) {
-                        if (typeof message.timestamp === "number")
+                        if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                            object.timestamp = typeof message.timestamp === "number" ? BigInt(message.timestamp) : $util.Long.fromBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0, false).toBigInt();
+                        else if (typeof message.timestamp === "number")
                             object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
                         else
                             object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp;
@@ -76162,7 +76258,9 @@ $root.E2E = (function() {
                                 object._campaignId = "campaignId";
                         }
                         if (message.timestampMs != null && message.hasOwnProperty("timestampMs")) {
-                            if (typeof message.timestampMs === "number")
+                            if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                                object.timestampMs = typeof message.timestampMs === "number" ? BigInt(message.timestampMs) : $util.Long.fromBits(message.timestampMs.low >>> 0, message.timestampMs.high >>> 0, false).toBigInt();
+                            else if (typeof message.timestampMs === "number")
                                 object.timestampMs = options.longs === String ? String(message.timestampMs) : message.timestampMs;
                             else
                                 object.timestampMs = options.longs === String ? $util.Long.prototype.toString.call(message.timestampMs) : options.longs === Number ? new $util.LongBits(message.timestampMs.low >>> 0, message.timestampMs.high >>> 0).toNumber() : message.timestampMs;
@@ -77686,7 +77784,9 @@ $root.E2E = (function() {
                                 object._directPath = "directPath";
                         }
                         if (message.mediaKeyTimestamp != null && message.hasOwnProperty("mediaKeyTimestamp")) {
-                            if (typeof message.mediaKeyTimestamp === "number")
+                            if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                                object.mediaKeyTimestamp = typeof message.mediaKeyTimestamp === "number" ? BigInt(message.mediaKeyTimestamp) : $util.Long.fromBits(message.mediaKeyTimestamp.low >>> 0, message.mediaKeyTimestamp.high >>> 0, false).toBigInt();
+                            else if (typeof message.mediaKeyTimestamp === "number")
                                 object.mediaKeyTimestamp = options.longs === String ? String(message.mediaKeyTimestamp) : message.mediaKeyTimestamp;
                             else
                                 object.mediaKeyTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.mediaKeyTimestamp) : options.longs === Number ? new $util.LongBits(message.mediaKeyTimestamp.low >>> 0, message.mediaKeyTimestamp.high >>> 0).toNumber() : message.mediaKeyTimestamp;
@@ -77694,7 +77794,9 @@ $root.E2E = (function() {
                                 object._mediaKeyTimestamp = "mediaKeyTimestamp";
                         }
                         if (message.fileLength != null && message.hasOwnProperty("fileLength")) {
-                            if (typeof message.fileLength === "number")
+                            if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                                object.fileLength = typeof message.fileLength === "number" ? BigInt(message.fileLength) : $util.Long.fromBits(message.fileLength.low >>> 0, message.fileLength.high >>> 0, true).toBigInt();
+                            else if (typeof message.fileLength === "number")
                                 object.fileLength = options.longs === String ? String(message.fileLength) : message.fileLength;
                             else
                                 object.fileLength = options.longs === String ? $util.Long.prototype.toString.call(message.fileLength) : options.longs === Number ? new $util.LongBits(message.fileLength.low >>> 0, message.fileLength.high >>> 0).toNumber(true) : message.fileLength;
@@ -79585,7 +79687,9 @@ $root.E2E = (function() {
                                     object._mediaKey = "mediaKey";
                             }
                             if (message.mediaKeyTimestampMs != null && message.hasOwnProperty("mediaKeyTimestampMs")) {
-                                if (typeof message.mediaKeyTimestampMs === "number")
+                                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                                    object.mediaKeyTimestampMs = typeof message.mediaKeyTimestampMs === "number" ? BigInt(message.mediaKeyTimestampMs) : $util.Long.fromBits(message.mediaKeyTimestampMs.low >>> 0, message.mediaKeyTimestampMs.high >>> 0, false).toBigInt();
+                                else if (typeof message.mediaKeyTimestampMs === "number")
                                     object.mediaKeyTimestampMs = options.longs === String ? String(message.mediaKeyTimestampMs) : message.mediaKeyTimestampMs;
                                 else
                                     object.mediaKeyTimestampMs = options.longs === String ? $util.Long.prototype.toString.call(message.mediaKeyTimestampMs) : options.longs === Number ? new $util.LongBits(message.mediaKeyTimestampMs.low >>> 0, message.mediaKeyTimestampMs.high >>> 0).toNumber() : message.mediaKeyTimestampMs;
@@ -81266,7 +81370,9 @@ $root.E2E = (function() {
                         object._type = "type";
                 }
                 if (message.senderTimestampMs != null && message.hasOwnProperty("senderTimestampMs")) {
-                    if (typeof message.senderTimestampMs === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.senderTimestampMs = typeof message.senderTimestampMs === "number" ? BigInt(message.senderTimestampMs) : $util.Long.fromBits(message.senderTimestampMs.low >>> 0, message.senderTimestampMs.high >>> 0, false).toBigInt();
+                    else if (typeof message.senderTimestampMs === "number")
                         object.senderTimestampMs = options.longs === String ? String(message.senderTimestampMs) : message.senderTimestampMs;
                     else
                         object.senderTimestampMs = options.longs === String ? $util.Long.prototype.toString.call(message.senderTimestampMs) : options.longs === Number ? new $util.LongBits(message.senderTimestampMs.low >>> 0, message.senderTimestampMs.high >>> 0).toNumber() : message.senderTimestampMs;
@@ -82588,7 +82694,9 @@ $root.E2E = (function() {
                         object._correctAnswer = "correctAnswer";
                 }
                 if (message.endTime != null && message.hasOwnProperty("endTime")) {
-                    if (typeof message.endTime === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.endTime = typeof message.endTime === "number" ? BigInt(message.endTime) : $util.Long.fromBits(message.endTime.low >>> 0, message.endTime.high >>> 0, false).toBigInt();
+                    else if (typeof message.endTime === "number")
                         object.endTime = options.longs === String ? String(message.endTime) : message.endTime;
                     else
                         object.endTime = options.longs === String ? $util.Long.prototype.toString.call(message.endTime) : options.longs === Number ? new $util.LongBits(message.endTime.low >>> 0, message.endTime.high >>> 0).toNumber() : message.endTime;
@@ -83901,7 +84009,9 @@ $root.E2E = (function() {
                             object._optionName = "optionName";
                     }
                     if (message.optionVoteCount != null && message.hasOwnProperty("optionVoteCount")) {
-                        if (typeof message.optionVoteCount === "number")
+                        if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                            object.optionVoteCount = typeof message.optionVoteCount === "number" ? BigInt(message.optionVoteCount) : $util.Long.fromBits(message.optionVoteCount.low >>> 0, message.optionVoteCount.high >>> 0, false).toBigInt();
+                        else if (typeof message.optionVoteCount === "number")
                             object.optionVoteCount = options.longs === String ? String(message.optionVoteCount) : message.optionVoteCount;
                         else
                             object.optionVoteCount = options.longs === String ? $util.Long.prototype.toString.call(message.optionVoteCount) : options.longs === Number ? new $util.LongBits(message.optionVoteCount.low >>> 0, message.optionVoteCount.high >>> 0).toNumber() : message.optionVoteCount;
@@ -84312,7 +84422,9 @@ $root.E2E = (function() {
                         object._metadata = "metadata";
                 }
                 if (message.senderTimestampMs != null && message.hasOwnProperty("senderTimestampMs")) {
-                    if (typeof message.senderTimestampMs === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.senderTimestampMs = typeof message.senderTimestampMs === "number" ? BigInt(message.senderTimestampMs) : $util.Long.fromBits(message.senderTimestampMs.low >>> 0, message.senderTimestampMs.high >>> 0, false).toBigInt();
+                    else if (typeof message.senderTimestampMs === "number")
                         object.senderTimestampMs = options.longs === String ? String(message.senderTimestampMs) : message.senderTimestampMs;
                     else
                         object.senderTimestampMs = options.longs === String ? $util.Long.prototype.toString.call(message.senderTimestampMs) : options.longs === Number ? new $util.LongBits(message.senderTimestampMs.low >>> 0, message.senderTimestampMs.high >>> 0).toNumber() : message.senderTimestampMs;
@@ -86249,7 +86361,9 @@ $root.E2E = (function() {
                             object._currencyCode = "currencyCode";
                     }
                     if (message.priceAmount1000 != null && message.hasOwnProperty("priceAmount1000")) {
-                        if (typeof message.priceAmount1000 === "number")
+                        if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                            object.priceAmount1000 = typeof message.priceAmount1000 === "number" ? BigInt(message.priceAmount1000) : $util.Long.fromBits(message.priceAmount1000.low >>> 0, message.priceAmount1000.high >>> 0, false).toBigInt();
+                        else if (typeof message.priceAmount1000 === "number")
                             object.priceAmount1000 = options.longs === String ? String(message.priceAmount1000) : message.priceAmount1000;
                         else
                             object.priceAmount1000 = options.longs === String ? $util.Long.prototype.toString.call(message.priceAmount1000) : options.longs === Number ? new $util.LongBits(message.priceAmount1000.low >>> 0, message.priceAmount1000.high >>> 0).toNumber() : message.priceAmount1000;
@@ -86277,7 +86391,9 @@ $root.E2E = (function() {
                             object._firstImageId = "firstImageId";
                     }
                     if (message.salePriceAmount1000 != null && message.hasOwnProperty("salePriceAmount1000")) {
-                        if (typeof message.salePriceAmount1000 === "number")
+                        if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                            object.salePriceAmount1000 = typeof message.salePriceAmount1000 === "number" ? BigInt(message.salePriceAmount1000) : $util.Long.fromBits(message.salePriceAmount1000.low >>> 0, message.salePriceAmount1000.high >>> 0, false).toBigInt();
+                        else if (typeof message.salePriceAmount1000 === "number")
                             object.salePriceAmount1000 = options.longs === String ? String(message.salePriceAmount1000) : message.salePriceAmount1000;
                         else
                             object.salePriceAmount1000 = options.longs === String ? $util.Long.prototype.toString.call(message.salePriceAmount1000) : options.longs === Number ? new $util.LongBits(message.salePriceAmount1000.low >>> 0, message.salePriceAmount1000.high >>> 0).toNumber() : message.salePriceAmount1000;
@@ -87687,7 +87803,9 @@ $root.E2E = (function() {
                         object._ephemeralExpiration = "ephemeralExpiration";
                 }
                 if (message.ephemeralSettingTimestamp != null && message.hasOwnProperty("ephemeralSettingTimestamp")) {
-                    if (typeof message.ephemeralSettingTimestamp === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.ephemeralSettingTimestamp = typeof message.ephemeralSettingTimestamp === "number" ? BigInt(message.ephemeralSettingTimestamp) : $util.Long.fromBits(message.ephemeralSettingTimestamp.low >>> 0, message.ephemeralSettingTimestamp.high >>> 0, false).toBigInt();
+                    else if (typeof message.ephemeralSettingTimestamp === "number")
                         object.ephemeralSettingTimestamp = options.longs === String ? String(message.ephemeralSettingTimestamp) : message.ephemeralSettingTimestamp;
                     else
                         object.ephemeralSettingTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.ephemeralSettingTimestamp) : options.longs === Number ? new $util.LongBits(message.ephemeralSettingTimestamp.low >>> 0, message.ephemeralSettingTimestamp.high >>> 0).toNumber() : message.ephemeralSettingTimestamp;
@@ -87730,7 +87848,9 @@ $root.E2E = (function() {
                         object._editedMessage = "editedMessage";
                 }
                 if (message.timestampMs != null && message.hasOwnProperty("timestampMs")) {
-                    if (typeof message.timestampMs === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.timestampMs = typeof message.timestampMs === "number" ? BigInt(message.timestampMs) : $util.Long.fromBits(message.timestampMs.low >>> 0, message.timestampMs.high >>> 0, false).toBigInt();
+                    else if (typeof message.timestampMs === "number")
                         object.timestampMs = options.longs === String ? String(message.timestampMs) : message.timestampMs;
                     else
                         object.timestampMs = options.longs === String ? $util.Long.prototype.toString.call(message.timestampMs) : options.longs === Number ? new $util.LongBits(message.timestampMs.low >>> 0, message.timestampMs.high >>> 0).toNumber() : message.timestampMs;
@@ -88555,7 +88675,9 @@ $root.E2E = (function() {
                         object._groupingKey = "groupingKey";
                 }
                 if (message.senderTimestampMs != null && message.hasOwnProperty("senderTimestampMs")) {
-                    if (typeof message.senderTimestampMs === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.senderTimestampMs = typeof message.senderTimestampMs === "number" ? BigInt(message.senderTimestampMs) : $util.Long.fromBits(message.senderTimestampMs.low >>> 0, message.senderTimestampMs.high >>> 0, false).toBigInt();
+                    else if (typeof message.senderTimestampMs === "number")
                         object.senderTimestampMs = options.longs === String ? String(message.senderTimestampMs) : message.senderTimestampMs;
                     else
                         object.senderTimestampMs = options.longs === String ? $util.Long.prototype.toString.call(message.senderTimestampMs) : options.longs === Number ? new $util.LongBits(message.senderTimestampMs.low >>> 0, message.senderTimestampMs.high >>> 0).toNumber() : message.senderTimestampMs;
@@ -89048,7 +89170,9 @@ $root.E2E = (function() {
                         object._currencyCodeIso4217 = "currencyCodeIso4217";
                 }
                 if (message.amount1000 != null && message.hasOwnProperty("amount1000")) {
-                    if (typeof message.amount1000 === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.amount1000 = typeof message.amount1000 === "number" ? BigInt(message.amount1000) : $util.Long.fromBits(message.amount1000.low >>> 0, message.amount1000.high >>> 0, true).toBigInt();
+                    else if (typeof message.amount1000 === "number")
                         object.amount1000 = options.longs === String ? String(message.amount1000) : message.amount1000;
                     else
                         object.amount1000 = options.longs === String ? $util.Long.prototype.toString.call(message.amount1000) : options.longs === Number ? new $util.LongBits(message.amount1000.low >>> 0, message.amount1000.high >>> 0).toNumber(true) : message.amount1000;
@@ -89066,7 +89190,9 @@ $root.E2E = (function() {
                         object._noteMessage = "noteMessage";
                 }
                 if (message.expiryTimestamp != null && message.hasOwnProperty("expiryTimestamp")) {
-                    if (typeof message.expiryTimestamp === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.expiryTimestamp = typeof message.expiryTimestamp === "number" ? BigInt(message.expiryTimestamp) : $util.Long.fromBits(message.expiryTimestamp.low >>> 0, message.expiryTimestamp.high >>> 0, false).toBigInt();
+                    else if (typeof message.expiryTimestamp === "number")
                         object.expiryTimestamp = options.longs === String ? String(message.expiryTimestamp) : message.expiryTimestamp;
                     else
                         object.expiryTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.expiryTimestamp) : options.longs === Number ? new $util.LongBits(message.expiryTimestamp.low >>> 0, message.expiryTimestamp.high >>> 0).toNumber() : message.expiryTimestamp;
@@ -90099,7 +90225,9 @@ $root.E2E = (function() {
                     options = {};
                 var object = {};
                 if (message.scheduledTimestampMs != null && message.hasOwnProperty("scheduledTimestampMs")) {
-                    if (typeof message.scheduledTimestampMs === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.scheduledTimestampMs = typeof message.scheduledTimestampMs === "number" ? BigInt(message.scheduledTimestampMs) : $util.Long.fromBits(message.scheduledTimestampMs.low >>> 0, message.scheduledTimestampMs.high >>> 0, false).toBigInt();
+                    else if (typeof message.scheduledTimestampMs === "number")
                         object.scheduledTimestampMs = options.longs === String ? String(message.scheduledTimestampMs) : message.scheduledTimestampMs;
                     else
                         object.scheduledTimestampMs = options.longs === String ? $util.Long.prototype.toString.call(message.scheduledTimestampMs) : options.longs === Number ? new $util.LongBits(message.scheduledTimestampMs.low >>> 0, message.scheduledTimestampMs.high >>> 0).toNumber() : message.scheduledTimestampMs;
@@ -92131,7 +92259,9 @@ $root.E2E = (function() {
                         object.participants[j] = $root.E2E.Message.SplitPaymentParticipant.toObject(message.participants[j], options);
                 }
                 if (message.createdAtMs != null && message.hasOwnProperty("createdAtMs")) {
-                    if (typeof message.createdAtMs === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.createdAtMs = typeof message.createdAtMs === "number" ? BigInt(message.createdAtMs) : $util.Long.fromBits(message.createdAtMs.low >>> 0, message.createdAtMs.high >>> 0, false).toBigInt();
+                    else if (typeof message.createdAtMs === "number")
                         object.createdAtMs = options.longs === String ? String(message.createdAtMs) : message.createdAtMs;
                     else
                         object.createdAtMs = options.longs === String ? $util.Long.prototype.toString.call(message.createdAtMs) : options.longs === Number ? new $util.LongBits(message.createdAtMs.low >>> 0, message.createdAtMs.high >>> 0).toNumber() : message.createdAtMs;
@@ -94982,7 +95112,9 @@ $root.E2E = (function() {
                         object._directPath = "directPath";
                 }
                 if (message.fileLength != null && message.hasOwnProperty("fileLength")) {
-                    if (typeof message.fileLength === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.fileLength = typeof message.fileLength === "number" ? BigInt(message.fileLength) : $util.Long.fromBits(message.fileLength.low >>> 0, message.fileLength.high >>> 0, true).toBigInt();
+                    else if (typeof message.fileLength === "number")
                         object.fileLength = options.longs === String ? String(message.fileLength) : message.fileLength;
                     else
                         object.fileLength = options.longs === String ? $util.Long.prototype.toString.call(message.fileLength) : options.longs === Number ? new $util.LongBits(message.fileLength.low >>> 0, message.fileLength.high >>> 0).toNumber(true) : message.fileLength;
@@ -94990,7 +95122,9 @@ $root.E2E = (function() {
                         object._fileLength = "fileLength";
                 }
                 if (message.mediaKeyTimestamp != null && message.hasOwnProperty("mediaKeyTimestamp")) {
-                    if (typeof message.mediaKeyTimestamp === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.mediaKeyTimestamp = typeof message.mediaKeyTimestamp === "number" ? BigInt(message.mediaKeyTimestamp) : $util.Long.fromBits(message.mediaKeyTimestamp.low >>> 0, message.mediaKeyTimestamp.high >>> 0, false).toBigInt();
+                    else if (typeof message.mediaKeyTimestamp === "number")
                         object.mediaKeyTimestamp = options.longs === String ? String(message.mediaKeyTimestamp) : message.mediaKeyTimestamp;
                     else
                         object.mediaKeyTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.mediaKeyTimestamp) : options.longs === Number ? new $util.LongBits(message.mediaKeyTimestamp.low >>> 0, message.mediaKeyTimestamp.high >>> 0).toNumber() : message.mediaKeyTimestamp;
@@ -95023,7 +95157,9 @@ $root.E2E = (function() {
                         object._contextInfo = "contextInfo";
                 }
                 if (message.stickerSentTs != null && message.hasOwnProperty("stickerSentTs")) {
-                    if (typeof message.stickerSentTs === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.stickerSentTs = typeof message.stickerSentTs === "number" ? BigInt(message.stickerSentTs) : $util.Long.fromBits(message.stickerSentTs.low >>> 0, message.stickerSentTs.high >>> 0, false).toBigInt();
+                    else if (typeof message.stickerSentTs === "number")
                         object.stickerSentTs = options.longs === String ? String(message.stickerSentTs) : message.stickerSentTs;
                     else
                         object.stickerSentTs = options.longs === String ? $util.Long.prototype.toString.call(message.stickerSentTs) : options.longs === Number ? new $util.LongBits(message.stickerSentTs.low >>> 0, message.stickerSentTs.high >>> 0).toNumber() : message.stickerSentTs;
@@ -96086,7 +96222,9 @@ $root.E2E = (function() {
                         object.stickers[j] = $root.E2E.Message.StickerPackMessage.Sticker.toObject(message.stickers[j], options);
                 }
                 if (message.fileLength != null && message.hasOwnProperty("fileLength")) {
-                    if (typeof message.fileLength === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.fileLength = typeof message.fileLength === "number" ? BigInt(message.fileLength) : $util.Long.fromBits(message.fileLength.low >>> 0, message.fileLength.high >>> 0, true).toBigInt();
+                    else if (typeof message.fileLength === "number")
                         object.fileLength = options.longs === String ? String(message.fileLength) : message.fileLength;
                     else
                         object.fileLength = options.longs === String ? $util.Long.prototype.toString.call(message.fileLength) : options.longs === Number ? new $util.LongBits(message.fileLength.low >>> 0, message.fileLength.high >>> 0).toNumber(true) : message.fileLength;
@@ -96129,7 +96267,9 @@ $root.E2E = (function() {
                         object._packDescription = "packDescription";
                 }
                 if (message.mediaKeyTimestamp != null && message.hasOwnProperty("mediaKeyTimestamp")) {
-                    if (typeof message.mediaKeyTimestamp === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.mediaKeyTimestamp = typeof message.mediaKeyTimestamp === "number" ? BigInt(message.mediaKeyTimestamp) : $util.Long.fromBits(message.mediaKeyTimestamp.low >>> 0, message.mediaKeyTimestamp.high >>> 0, false).toBigInt();
+                    else if (typeof message.mediaKeyTimestamp === "number")
                         object.mediaKeyTimestamp = options.longs === String ? String(message.mediaKeyTimestamp) : message.mediaKeyTimestamp;
                     else
                         object.mediaKeyTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.mediaKeyTimestamp) : options.longs === Number ? new $util.LongBits(message.mediaKeyTimestamp.low >>> 0, message.mediaKeyTimestamp.high >>> 0).toNumber() : message.mediaKeyTimestamp;
@@ -96172,7 +96312,9 @@ $root.E2E = (function() {
                         object._imageDataHash = "imageDataHash";
                 }
                 if (message.stickerPackSize != null && message.hasOwnProperty("stickerPackSize")) {
-                    if (typeof message.stickerPackSize === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.stickerPackSize = typeof message.stickerPackSize === "number" ? BigInt(message.stickerPackSize) : $util.Long.fromBits(message.stickerPackSize.low >>> 0, message.stickerPackSize.high >>> 0, true).toBigInt();
+                    else if (typeof message.stickerPackSize === "number")
                         object.stickerPackSize = options.longs === String ? String(message.stickerPackSize) : message.stickerPackSize;
                     else
                         object.stickerPackSize = options.longs === String ? $util.Long.prototype.toString.call(message.stickerPackSize) : options.longs === Number ? new $util.LongBits(message.stickerPackSize.low >>> 0, message.stickerPackSize.high >>> 0).toNumber(true) : message.stickerPackSize;
@@ -97019,7 +97161,9 @@ $root.E2E = (function() {
                         object._rmrSource = "rmrSource";
                 }
                 if (message.requestTimestamp != null && message.hasOwnProperty("requestTimestamp")) {
-                    if (typeof message.requestTimestamp === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.requestTimestamp = typeof message.requestTimestamp === "number" ? BigInt(message.requestTimestamp) : $util.Long.fromBits(message.requestTimestamp.low >>> 0, message.requestTimestamp.high >>> 0, false).toBigInt();
+                    else if (typeof message.requestTimestamp === "number")
                         object.requestTimestamp = options.longs === String ? String(message.requestTimestamp) : message.requestTimestamp;
                     else
                         object.requestTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.requestTimestamp) : options.longs === Number ? new $util.LongBits(message.requestTimestamp.low >>> 0, message.requestTimestamp.high >>> 0).toNumber() : message.requestTimestamp;
@@ -101055,7 +101199,9 @@ $root.E2E = (function() {
                         object._fileSha256 = "fileSha256";
                 }
                 if (message.fileLength != null && message.hasOwnProperty("fileLength")) {
-                    if (typeof message.fileLength === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.fileLength = typeof message.fileLength === "number" ? BigInt(message.fileLength) : $util.Long.fromBits(message.fileLength.low >>> 0, message.fileLength.high >>> 0, true).toBigInt();
+                    else if (typeof message.fileLength === "number")
                         object.fileLength = options.longs === String ? String(message.fileLength) : message.fileLength;
                     else
                         object.fileLength = options.longs === String ? $util.Long.prototype.toString.call(message.fileLength) : options.longs === Number ? new $util.LongBits(message.fileLength.low >>> 0, message.fileLength.high >>> 0).toNumber(true) : message.fileLength;
@@ -101108,7 +101254,9 @@ $root.E2E = (function() {
                         object._directPath = "directPath";
                 }
                 if (message.mediaKeyTimestamp != null && message.hasOwnProperty("mediaKeyTimestamp")) {
-                    if (typeof message.mediaKeyTimestamp === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.mediaKeyTimestamp = typeof message.mediaKeyTimestamp === "number" ? BigInt(message.mediaKeyTimestamp) : $util.Long.fromBits(message.mediaKeyTimestamp.low >>> 0, message.mediaKeyTimestamp.high >>> 0, false).toBigInt();
+                    else if (typeof message.mediaKeyTimestamp === "number")
                         object.mediaKeyTimestamp = options.longs === String ? String(message.mediaKeyTimestamp) : message.mediaKeyTimestamp;
                     else
                         object.mediaKeyTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.mediaKeyTimestamp) : options.longs === Number ? new $util.LongBits(message.mediaKeyTimestamp.low >>> 0, message.mediaKeyTimestamp.high >>> 0).toNumber() : message.mediaKeyTimestamp;
@@ -101181,7 +101329,9 @@ $root.E2E = (function() {
                         object._externalShareFullVideoDurationInSeconds = "externalShareFullVideoDurationInSeconds";
                 }
                 if (message.motionPhotoPresentationOffsetMs != null && message.hasOwnProperty("motionPhotoPresentationOffsetMs")) {
-                    if (typeof message.motionPhotoPresentationOffsetMs === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.motionPhotoPresentationOffsetMs = typeof message.motionPhotoPresentationOffsetMs === "number" ? BigInt(message.motionPhotoPresentationOffsetMs) : $util.Long.fromBits(message.motionPhotoPresentationOffsetMs.low >>> 0, message.motionPhotoPresentationOffsetMs.high >>> 0, true).toBigInt();
+                    else if (typeof message.motionPhotoPresentationOffsetMs === "number")
                         object.motionPhotoPresentationOffsetMs = options.longs === String ? String(message.motionPhotoPresentationOffsetMs) : message.motionPhotoPresentationOffsetMs;
                     else
                         object.motionPhotoPresentationOffsetMs = options.longs === String ? $util.Long.prototype.toString.call(message.motionPhotoPresentationOffsetMs) : options.longs === Number ? new $util.LongBits(message.motionPhotoPresentationOffsetMs.low >>> 0, message.motionPhotoPresentationOffsetMs.high >>> 0).toNumber(true) : message.motionPhotoPresentationOffsetMs;
@@ -101684,7 +101834,9 @@ $root.Protocol = (function() {
                     object._trigger = "trigger";
             }
             if (message.limitSharingSettingTimestamp != null && message.hasOwnProperty("limitSharingSettingTimestamp")) {
-                if (typeof message.limitSharingSettingTimestamp === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.limitSharingSettingTimestamp = typeof message.limitSharingSettingTimestamp === "number" ? BigInt(message.limitSharingSettingTimestamp) : $util.Long.fromBits(message.limitSharingSettingTimestamp.low >>> 0, message.limitSharingSettingTimestamp.high >>> 0, false).toBigInt();
+                else if (typeof message.limitSharingSettingTimestamp === "number")
                     object.limitSharingSettingTimestamp = options.longs === String ? String(message.limitSharingSettingTimestamp) : message.limitSharingSettingTimestamp;
                 else
                     object.limitSharingSettingTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.limitSharingSettingTimestamp) : options.longs === Number ? new $util.LongBits(message.limitSharingSettingTimestamp.low >>> 0, message.limitSharingSettingTimestamp.high >>> 0).toNumber() : message.limitSharingSettingTimestamp;
@@ -105861,7 +106013,9 @@ $root.AICommonDeprecated = (function() {
                     object._type = "type";
             }
             if (message.version != null && message.hasOwnProperty("version")) {
-                if (typeof message.version === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.version = typeof message.version === "number" ? BigInt(message.version) : $util.Long.fromBits(message.version.low >>> 0, message.version.high >>> 0, true).toBigInt();
+                else if (typeof message.version === "number")
                     object.version = options.longs === String ? String(message.version) : message.version;
                 else
                     object.version = options.longs === String ? $util.Long.prototype.toString.call(message.version) : options.longs === Number ? new $util.LongBits(message.version.low >>> 0, message.version.high >>> 0).toNumber(true) : message.version;
@@ -112651,7 +112805,9 @@ $root.AICommon = (function() {
                 object.conversationOptions = [];
             }
             if (message.lastFetchTime != null && message.hasOwnProperty("lastFetchTime")) {
-                if (typeof message.lastFetchTime === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.lastFetchTime = typeof message.lastFetchTime === "number" ? BigInt(message.lastFetchTime) : $util.Long.fromBits(message.lastFetchTime.low >>> 0, message.lastFetchTime.high >>> 0, false).toBigInt();
+                else if (typeof message.lastFetchTime === "number")
                     object.lastFetchTime = options.longs === String ? String(message.lastFetchTime) : message.lastFetchTime;
                 else
                     object.lastFetchTime = options.longs === String ? $util.Long.prototype.toString.call(message.lastFetchTime) : options.longs === Number ? new $util.LongBits(message.lastFetchTime.low >>> 0, message.lastFetchTime.high >>> 0).toNumber() : message.lastFetchTime;
@@ -114182,7 +114338,9 @@ $root.AICommon = (function() {
                     object._messageKey = "messageKey";
             }
             if (message.responseTimestampMs != null && message.hasOwnProperty("responseTimestampMs")) {
-                if (typeof message.responseTimestampMs === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.responseTimestampMs = typeof message.responseTimestampMs === "number" ? BigInt(message.responseTimestampMs) : $util.Long.fromBits(message.responseTimestampMs.low >>> 0, message.responseTimestampMs.high >>> 0, false).toBigInt();
+                else if (typeof message.responseTimestampMs === "number")
                     object.responseTimestampMs = options.longs === String ? String(message.responseTimestampMs) : message.responseTimestampMs;
                 else
                     object.responseTimestampMs = options.longs === String ? $util.Long.prototype.toString.call(message.responseTimestampMs) : options.longs === Number ? new $util.LongBits(message.responseTimestampMs.low >>> 0, message.responseTimestampMs.high >>> 0).toNumber() : message.responseTimestampMs;
@@ -115907,7 +116065,9 @@ $root.AICommon = (function() {
                     object._text = "text";
             }
             if (message.kindNegative != null && message.hasOwnProperty("kindNegative")) {
-                if (typeof message.kindNegative === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.kindNegative = typeof message.kindNegative === "number" ? BigInt(message.kindNegative) : $util.Long.fromBits(message.kindNegative.low >>> 0, message.kindNegative.high >>> 0, true).toBigInt();
+                else if (typeof message.kindNegative === "number")
                     object.kindNegative = options.longs === String ? String(message.kindNegative) : message.kindNegative;
                 else
                     object.kindNegative = options.longs === String ? $util.Long.prototype.toString.call(message.kindNegative) : options.longs === Number ? new $util.LongBits(message.kindNegative.low >>> 0, message.kindNegative.high >>> 0).toNumber(true) : message.kindNegative;
@@ -115915,7 +116075,9 @@ $root.AICommon = (function() {
                     object._kindNegative = "kindNegative";
             }
             if (message.kindPositive != null && message.hasOwnProperty("kindPositive")) {
-                if (typeof message.kindPositive === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.kindPositive = typeof message.kindPositive === "number" ? BigInt(message.kindPositive) : $util.Long.fromBits(message.kindPositive.low >>> 0, message.kindPositive.high >>> 0, true).toBigInt();
+                else if (typeof message.kindPositive === "number")
                     object.kindPositive = options.longs === String ? String(message.kindPositive) : message.kindPositive;
                 else
                     object.kindPositive = options.longs === String ? $util.Long.prototype.toString.call(message.kindPositive) : options.longs === Number ? new $util.LongBits(message.kindPositive.low >>> 0, message.kindPositive.high >>> 0).toNumber(true) : message.kindPositive;
@@ -129435,7 +129597,9 @@ $root.AICommon = (function() {
                         object._remainingQuota = "remainingQuota";
                 }
                 if (message.expirationTimestamp != null && message.hasOwnProperty("expirationTimestamp")) {
-                    if (typeof message.expirationTimestamp === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.expirationTimestamp = typeof message.expirationTimestamp === "number" ? BigInt(message.expirationTimestamp) : $util.Long.fromBits(message.expirationTimestamp.low >>> 0, message.expirationTimestamp.high >>> 0, true).toBigInt();
+                    else if (typeof message.expirationTimestamp === "number")
                         object.expirationTimestamp = options.longs === String ? String(message.expirationTimestamp) : message.expirationTimestamp;
                     else
                         object.expirationTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.expirationTimestamp) : options.longs === Number ? new $util.LongBits(message.expirationTimestamp.low >>> 0, message.expirationTimestamp.high >>> 0).toNumber(true) : message.expirationTimestamp;
@@ -130100,6 +130264,9 @@ $root.AICommon = (function() {
                     case 59:
                     case 60:
                     case 61:
+                    case 62:
+                    case 63:
+                    case 64:
                         break;
                     }
             }
@@ -130381,6 +130548,18 @@ $root.AICommon = (function() {
                     case 61:
                         message.capabilities[i] = 61;
                         break;
+                    case "UNIFIED_RESPONSE_AI_CONTENT_SEARCH_ENABLED":
+                    case 62:
+                        message.capabilities[i] = 62;
+                        break;
+                    case "UNIFIED_RESPONSE_MARKDOWN_LINKS_ENABLED":
+                    case 63:
+                        message.capabilities[i] = 63;
+                        break;
+                    case "AI_RICH_RESPONSE_MAPS_V2_ENABLED":
+                    case 64:
+                        message.capabilities[i] = 64;
+                        break;
                     }
             }
             return message;
@@ -130500,6 +130679,9 @@ $root.AICommon = (function() {
          * @property {number} AI_TAB_FORCE_CLIPPY=59 AI_TAB_FORCE_CLIPPY value
          * @property {number} UNIFIED_RESPONSE_EMBEDDED_SCREENS=60 UNIFIED_RESPONSE_EMBEDDED_SCREENS value
          * @property {number} AI_SUBSCRIPTION_ENABLED=61 AI_SUBSCRIPTION_ENABLED value
+         * @property {number} UNIFIED_RESPONSE_AI_CONTENT_SEARCH_ENABLED=62 UNIFIED_RESPONSE_AI_CONTENT_SEARCH_ENABLED value
+         * @property {number} UNIFIED_RESPONSE_MARKDOWN_LINKS_ENABLED=63 UNIFIED_RESPONSE_MARKDOWN_LINKS_ENABLED value
+         * @property {number} AI_RICH_RESPONSE_MAPS_V2_ENABLED=64 AI_RICH_RESPONSE_MAPS_V2_ENABLED value
          */
         BotCapabilityMetadata.BotCapabilityType = (function() {
             var valuesById = {}, values = Object.create(valuesById);
@@ -130565,6 +130747,9 @@ $root.AICommon = (function() {
             values[valuesById[59] = "AI_TAB_FORCE_CLIPPY"] = 59;
             values[valuesById[60] = "UNIFIED_RESPONSE_EMBEDDED_SCREENS"] = 60;
             values[valuesById[61] = "AI_SUBSCRIPTION_ENABLED"] = 61;
+            values[valuesById[62] = "UNIFIED_RESPONSE_AI_CONTENT_SEARCH_ENABLED"] = 62;
+            values[valuesById[63] = "UNIFIED_RESPONSE_MARKDOWN_LINKS_ENABLED"] = 63;
+            values[valuesById[64] = "AI_RICH_RESPONSE_MAPS_V2_ENABLED"] = 64;
             return values;
         })();
 
@@ -130884,7 +131069,9 @@ $root.AICommon = (function() {
                     object.stepsMetadata[j] = $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.toObject(message.stepsMetadata[j], options);
             }
             if (message.estimatedCompletionTime != null && message.hasOwnProperty("estimatedCompletionTime")) {
-                if (typeof message.estimatedCompletionTime === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.estimatedCompletionTime = typeof message.estimatedCompletionTime === "number" ? BigInt(message.estimatedCompletionTime) : $util.Long.fromBits(message.estimatedCompletionTime.low >>> 0, message.estimatedCompletionTime.high >>> 0, false).toBigInt();
+                else if (typeof message.estimatedCompletionTime === "number")
                     object.estimatedCompletionTime = options.longs === String ? String(message.estimatedCompletionTime) : message.estimatedCompletionTime;
                 else
                     object.estimatedCompletionTime = options.longs === String ? $util.Long.prototype.toString.call(message.estimatedCompletionTime) : options.longs === Number ? new $util.LongBits(message.estimatedCompletionTime.low >>> 0, message.estimatedCompletionTime.high >>> 0).toNumber() : message.estimatedCompletionTime;
@@ -133444,7 +133631,9 @@ $root.AICommon = (function() {
                     object._name = "name";
             }
             if (message.nextTriggerTimestamp != null && message.hasOwnProperty("nextTriggerTimestamp")) {
-                if (typeof message.nextTriggerTimestamp === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.nextTriggerTimestamp = typeof message.nextTriggerTimestamp === "number" ? BigInt(message.nextTriggerTimestamp) : $util.Long.fromBits(message.nextTriggerTimestamp.low >>> 0, message.nextTriggerTimestamp.high >>> 0, true).toBigInt();
+                else if (typeof message.nextTriggerTimestamp === "number")
                     object.nextTriggerTimestamp = options.longs === String ? String(message.nextTriggerTimestamp) : message.nextTriggerTimestamp;
                 else
                     object.nextTriggerTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.nextTriggerTimestamp) : options.longs === Number ? new $util.LongBits(message.nextTriggerTimestamp.low >>> 0, message.nextTriggerTimestamp.high >>> 0).toNumber(true) : message.nextTriggerTimestamp;
@@ -134250,7 +134439,9 @@ $root.AICommon = (function() {
                     object._directPath = "directPath";
             }
             if (message.mediaKeyTimestamp != null && message.hasOwnProperty("mediaKeyTimestamp")) {
-                if (typeof message.mediaKeyTimestamp === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.mediaKeyTimestamp = typeof message.mediaKeyTimestamp === "number" ? BigInt(message.mediaKeyTimestamp) : $util.Long.fromBits(message.mediaKeyTimestamp.low >>> 0, message.mediaKeyTimestamp.high >>> 0, false).toBigInt();
+                else if (typeof message.mediaKeyTimestamp === "number")
                     object.mediaKeyTimestamp = options.longs === String ? String(message.mediaKeyTimestamp) : message.mediaKeyTimestamp;
                 else
                     object.mediaKeyTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.mediaKeyTimestamp) : options.longs === Number ? new $util.LongBits(message.mediaKeyTimestamp.low >>> 0, message.mediaKeyTimestamp.high >>> 0).toNumber() : message.mediaKeyTimestamp;
@@ -141199,7 +141390,9 @@ $root.Adv = (function() {
                     object._rawId = "rawId";
             }
             if (message.timestamp != null && message.hasOwnProperty("timestamp")) {
-                if (typeof message.timestamp === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.timestamp = typeof message.timestamp === "number" ? BigInt(message.timestamp) : $util.Long.fromBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0, true).toBigInt();
+                else if (typeof message.timestamp === "number")
                     object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
                 else
                     object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber(true) : message.timestamp;
@@ -141991,7 +142184,9 @@ $root.Adv = (function() {
                     object._rawId = "rawId";
             }
             if (message.timestamp != null && message.hasOwnProperty("timestamp")) {
-                if (typeof message.timestamp === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.timestamp = typeof message.timestamp === "number" ? BigInt(message.timestamp) : $util.Long.fromBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0, true).toBigInt();
+                else if (typeof message.timestamp === "number")
                     object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
                 else
                     object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber(true) : message.timestamp;

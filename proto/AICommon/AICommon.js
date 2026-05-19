@@ -1223,7 +1223,9 @@ $root.AICommon = (function() {
                 object.conversationOptions = [];
             }
             if (message.lastFetchTime != null && message.hasOwnProperty("lastFetchTime")) {
-                if (typeof message.lastFetchTime === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.lastFetchTime = typeof message.lastFetchTime === "number" ? BigInt(message.lastFetchTime) : $util.Long.fromBits(message.lastFetchTime.low >>> 0, message.lastFetchTime.high >>> 0, false).toBigInt();
+                else if (typeof message.lastFetchTime === "number")
                     object.lastFetchTime = options.longs === String ? String(message.lastFetchTime) : message.lastFetchTime;
                 else
                     object.lastFetchTime = options.longs === String ? $util.Long.prototype.toString.call(message.lastFetchTime) : options.longs === Number ? new $util.LongBits(message.lastFetchTime.low >>> 0, message.lastFetchTime.high >>> 0).toNumber() : message.lastFetchTime;
@@ -2754,7 +2756,9 @@ $root.AICommon = (function() {
                     object._messageKey = "messageKey";
             }
             if (message.responseTimestampMs != null && message.hasOwnProperty("responseTimestampMs")) {
-                if (typeof message.responseTimestampMs === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.responseTimestampMs = typeof message.responseTimestampMs === "number" ? BigInt(message.responseTimestampMs) : $util.Long.fromBits(message.responseTimestampMs.low >>> 0, message.responseTimestampMs.high >>> 0, false).toBigInt();
+                else if (typeof message.responseTimestampMs === "number")
                     object.responseTimestampMs = options.longs === String ? String(message.responseTimestampMs) : message.responseTimestampMs;
                 else
                     object.responseTimestampMs = options.longs === String ? $util.Long.prototype.toString.call(message.responseTimestampMs) : options.longs === Number ? new $util.LongBits(message.responseTimestampMs.low >>> 0, message.responseTimestampMs.high >>> 0).toNumber() : message.responseTimestampMs;
@@ -4479,7 +4483,9 @@ $root.AICommon = (function() {
                     object._text = "text";
             }
             if (message.kindNegative != null && message.hasOwnProperty("kindNegative")) {
-                if (typeof message.kindNegative === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.kindNegative = typeof message.kindNegative === "number" ? BigInt(message.kindNegative) : $util.Long.fromBits(message.kindNegative.low >>> 0, message.kindNegative.high >>> 0, true).toBigInt();
+                else if (typeof message.kindNegative === "number")
                     object.kindNegative = options.longs === String ? String(message.kindNegative) : message.kindNegative;
                 else
                     object.kindNegative = options.longs === String ? $util.Long.prototype.toString.call(message.kindNegative) : options.longs === Number ? new $util.LongBits(message.kindNegative.low >>> 0, message.kindNegative.high >>> 0).toNumber(true) : message.kindNegative;
@@ -4487,7 +4493,9 @@ $root.AICommon = (function() {
                     object._kindNegative = "kindNegative";
             }
             if (message.kindPositive != null && message.hasOwnProperty("kindPositive")) {
-                if (typeof message.kindPositive === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.kindPositive = typeof message.kindPositive === "number" ? BigInt(message.kindPositive) : $util.Long.fromBits(message.kindPositive.low >>> 0, message.kindPositive.high >>> 0, true).toBigInt();
+                else if (typeof message.kindPositive === "number")
                     object.kindPositive = options.longs === String ? String(message.kindPositive) : message.kindPositive;
                 else
                     object.kindPositive = options.longs === String ? $util.Long.prototype.toString.call(message.kindPositive) : options.longs === Number ? new $util.LongBits(message.kindPositive.low >>> 0, message.kindPositive.high >>> 0).toNumber(true) : message.kindPositive;
@@ -18007,7 +18015,9 @@ $root.AICommon = (function() {
                         object._remainingQuota = "remainingQuota";
                 }
                 if (message.expirationTimestamp != null && message.hasOwnProperty("expirationTimestamp")) {
-                    if (typeof message.expirationTimestamp === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.expirationTimestamp = typeof message.expirationTimestamp === "number" ? BigInt(message.expirationTimestamp) : $util.Long.fromBits(message.expirationTimestamp.low >>> 0, message.expirationTimestamp.high >>> 0, true).toBigInt();
+                    else if (typeof message.expirationTimestamp === "number")
                         object.expirationTimestamp = options.longs === String ? String(message.expirationTimestamp) : message.expirationTimestamp;
                     else
                         object.expirationTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.expirationTimestamp) : options.longs === Number ? new $util.LongBits(message.expirationTimestamp.low >>> 0, message.expirationTimestamp.high >>> 0).toNumber(true) : message.expirationTimestamp;
@@ -18672,6 +18682,9 @@ $root.AICommon = (function() {
                     case 59:
                     case 60:
                     case 61:
+                    case 62:
+                    case 63:
+                    case 64:
                         break;
                     }
             }
@@ -18953,6 +18966,18 @@ $root.AICommon = (function() {
                     case 61:
                         message.capabilities[i] = 61;
                         break;
+                    case "UNIFIED_RESPONSE_AI_CONTENT_SEARCH_ENABLED":
+                    case 62:
+                        message.capabilities[i] = 62;
+                        break;
+                    case "UNIFIED_RESPONSE_MARKDOWN_LINKS_ENABLED":
+                    case 63:
+                        message.capabilities[i] = 63;
+                        break;
+                    case "AI_RICH_RESPONSE_MAPS_V2_ENABLED":
+                    case 64:
+                        message.capabilities[i] = 64;
+                        break;
                     }
             }
             return message;
@@ -19072,6 +19097,9 @@ $root.AICommon = (function() {
          * @property {number} AI_TAB_FORCE_CLIPPY=59 AI_TAB_FORCE_CLIPPY value
          * @property {number} UNIFIED_RESPONSE_EMBEDDED_SCREENS=60 UNIFIED_RESPONSE_EMBEDDED_SCREENS value
          * @property {number} AI_SUBSCRIPTION_ENABLED=61 AI_SUBSCRIPTION_ENABLED value
+         * @property {number} UNIFIED_RESPONSE_AI_CONTENT_SEARCH_ENABLED=62 UNIFIED_RESPONSE_AI_CONTENT_SEARCH_ENABLED value
+         * @property {number} UNIFIED_RESPONSE_MARKDOWN_LINKS_ENABLED=63 UNIFIED_RESPONSE_MARKDOWN_LINKS_ENABLED value
+         * @property {number} AI_RICH_RESPONSE_MAPS_V2_ENABLED=64 AI_RICH_RESPONSE_MAPS_V2_ENABLED value
          */
         BotCapabilityMetadata.BotCapabilityType = (function() {
             var valuesById = {}, values = Object.create(valuesById);
@@ -19137,6 +19165,9 @@ $root.AICommon = (function() {
             values[valuesById[59] = "AI_TAB_FORCE_CLIPPY"] = 59;
             values[valuesById[60] = "UNIFIED_RESPONSE_EMBEDDED_SCREENS"] = 60;
             values[valuesById[61] = "AI_SUBSCRIPTION_ENABLED"] = 61;
+            values[valuesById[62] = "UNIFIED_RESPONSE_AI_CONTENT_SEARCH_ENABLED"] = 62;
+            values[valuesById[63] = "UNIFIED_RESPONSE_MARKDOWN_LINKS_ENABLED"] = 63;
+            values[valuesById[64] = "AI_RICH_RESPONSE_MAPS_V2_ENABLED"] = 64;
             return values;
         })();
 
@@ -19456,7 +19487,9 @@ $root.AICommon = (function() {
                     object.stepsMetadata[j] = $root.AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.toObject(message.stepsMetadata[j], options);
             }
             if (message.estimatedCompletionTime != null && message.hasOwnProperty("estimatedCompletionTime")) {
-                if (typeof message.estimatedCompletionTime === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.estimatedCompletionTime = typeof message.estimatedCompletionTime === "number" ? BigInt(message.estimatedCompletionTime) : $util.Long.fromBits(message.estimatedCompletionTime.low >>> 0, message.estimatedCompletionTime.high >>> 0, false).toBigInt();
+                else if (typeof message.estimatedCompletionTime === "number")
                     object.estimatedCompletionTime = options.longs === String ? String(message.estimatedCompletionTime) : message.estimatedCompletionTime;
                 else
                     object.estimatedCompletionTime = options.longs === String ? $util.Long.prototype.toString.call(message.estimatedCompletionTime) : options.longs === Number ? new $util.LongBits(message.estimatedCompletionTime.low >>> 0, message.estimatedCompletionTime.high >>> 0).toNumber() : message.estimatedCompletionTime;
@@ -22016,7 +22049,9 @@ $root.AICommon = (function() {
                     object._name = "name";
             }
             if (message.nextTriggerTimestamp != null && message.hasOwnProperty("nextTriggerTimestamp")) {
-                if (typeof message.nextTriggerTimestamp === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.nextTriggerTimestamp = typeof message.nextTriggerTimestamp === "number" ? BigInt(message.nextTriggerTimestamp) : $util.Long.fromBits(message.nextTriggerTimestamp.low >>> 0, message.nextTriggerTimestamp.high >>> 0, true).toBigInt();
+                else if (typeof message.nextTriggerTimestamp === "number")
                     object.nextTriggerTimestamp = options.longs === String ? String(message.nextTriggerTimestamp) : message.nextTriggerTimestamp;
                 else
                     object.nextTriggerTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.nextTriggerTimestamp) : options.longs === Number ? new $util.LongBits(message.nextTriggerTimestamp.low >>> 0, message.nextTriggerTimestamp.high >>> 0).toNumber(true) : message.nextTriggerTimestamp;
@@ -22822,7 +22857,9 @@ $root.AICommon = (function() {
                     object._directPath = "directPath";
             }
             if (message.mediaKeyTimestamp != null && message.hasOwnProperty("mediaKeyTimestamp")) {
-                if (typeof message.mediaKeyTimestamp === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.mediaKeyTimestamp = typeof message.mediaKeyTimestamp === "number" ? BigInt(message.mediaKeyTimestamp) : $util.Long.fromBits(message.mediaKeyTimestamp.low >>> 0, message.mediaKeyTimestamp.high >>> 0, false).toBigInt();
+                else if (typeof message.mediaKeyTimestamp === "number")
                     object.mediaKeyTimestamp = options.longs === String ? String(message.mediaKeyTimestamp) : message.mediaKeyTimestamp;
                 else
                     object.mediaKeyTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.mediaKeyTimestamp) : options.longs === Number ? new $util.LongBits(message.mediaKeyTimestamp.low >>> 0, message.mediaKeyTimestamp.high >>> 0).toNumber() : message.mediaKeyTimestamp;
@@ -28988,7 +29025,9 @@ $root.Protocol = (function() {
                     object._trigger = "trigger";
             }
             if (message.limitSharingSettingTimestamp != null && message.hasOwnProperty("limitSharingSettingTimestamp")) {
-                if (typeof message.limitSharingSettingTimestamp === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.limitSharingSettingTimestamp = typeof message.limitSharingSettingTimestamp === "number" ? BigInt(message.limitSharingSettingTimestamp) : $util.Long.fromBits(message.limitSharingSettingTimestamp.low >>> 0, message.limitSharingSettingTimestamp.high >>> 0, false).toBigInt();
+                else if (typeof message.limitSharingSettingTimestamp === "number")
                     object.limitSharingSettingTimestamp = options.longs === String ? String(message.limitSharingSettingTimestamp) : message.limitSharingSettingTimestamp;
                 else
                     object.limitSharingSettingTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.limitSharingSettingTimestamp) : options.longs === Number ? new $util.LongBits(message.limitSharingSettingTimestamp.low >>> 0, message.limitSharingSettingTimestamp.high >>> 0).toNumber() : message.limitSharingSettingTimestamp;

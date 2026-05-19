@@ -4300,7 +4300,9 @@ $root.SyncAction = (function() {
                 options = {};
             var object = {};
             if (message.timestamp != null && message.hasOwnProperty("timestamp")) {
-                if (typeof message.timestamp === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.timestamp = typeof message.timestamp === "number" ? BigInt(message.timestamp) : $util.Long.fromBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0, false).toBigInt();
+                else if (typeof message.timestamp === "number")
                     object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
                 else
                     object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp;
@@ -6812,7 +6814,9 @@ $root.SyncAction = (function() {
                         object._category = "category";
                 }
                 if (message.version != null && message.hasOwnProperty("version")) {
-                    if (typeof message.version === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.version = typeof message.version === "number" ? BigInt(message.version) : $util.Long.fromBits(message.version.low >>> 0, message.version.high >>> 0, false).toBigInt();
+                    else if (typeof message.version === "number")
                         object.version = options.longs === String ? String(message.version) : message.version;
                     else
                         object.version = options.longs === String ? $util.Long.prototype.toString.call(message.version) : options.longs === Number ? new $util.LongBits(message.version.low >>> 0, message.version.high >>> 0).toNumber() : message.version;
@@ -6820,7 +6824,9 @@ $root.SyncAction = (function() {
                         object._version = "version";
                 }
                 if (message.updatedAtMs != null && message.hasOwnProperty("updatedAtMs")) {
-                    if (typeof message.updatedAtMs === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.updatedAtMs = typeof message.updatedAtMs === "number" ? BigInt(message.updatedAtMs) : $util.Long.fromBits(message.updatedAtMs.low >>> 0, message.updatedAtMs.high >>> 0, false).toBigInt();
+                    else if (typeof message.updatedAtMs === "number")
                         object.updatedAtMs = options.longs === String ? String(message.updatedAtMs) : message.updatedAtMs;
                     else
                         object.updatedAtMs = options.longs === String ? $util.Long.prototype.toString.call(message.updatedAtMs) : options.longs === Number ? new $util.LongBits(message.updatedAtMs.low >>> 0, message.updatedAtMs.high >>> 0).toNumber() : message.updatedAtMs;
@@ -8239,7 +8245,9 @@ $root.SyncAction = (function() {
                         object._reservedQuota = "reservedQuota";
                 }
                 if (message.scheduledTimestamp != null && message.hasOwnProperty("scheduledTimestamp")) {
-                    if (typeof message.scheduledTimestamp === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.scheduledTimestamp = typeof message.scheduledTimestamp === "number" ? BigInt(message.scheduledTimestamp) : $util.Long.fromBits(message.scheduledTimestamp.low >>> 0, message.scheduledTimestamp.high >>> 0, false).toBigInt();
+                    else if (typeof message.scheduledTimestamp === "number")
                         object.scheduledTimestamp = options.longs === String ? String(message.scheduledTimestamp) : message.scheduledTimestamp;
                     else
                         object.scheduledTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.scheduledTimestamp) : options.longs === Number ? new $util.LongBits(message.scheduledTimestamp.low >>> 0, message.scheduledTimestamp.high >>> 0).toNumber() : message.scheduledTimestamp;
@@ -8247,7 +8255,9 @@ $root.SyncAction = (function() {
                         object._scheduledTimestamp = "scheduledTimestamp";
                 }
                 if (message.createTimestamp != null && message.hasOwnProperty("createTimestamp")) {
-                    if (typeof message.createTimestamp === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.createTimestamp = typeof message.createTimestamp === "number" ? BigInt(message.createTimestamp) : $util.Long.fromBits(message.createTimestamp.low >>> 0, message.createTimestamp.high >>> 0, false).toBigInt();
+                    else if (typeof message.createTimestamp === "number")
                         object.createTimestamp = options.longs === String ? String(message.createTimestamp) : message.createTimestamp;
                     else
                         object.createTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.createTimestamp) : options.longs === Number ? new $util.LongBits(message.createTimestamp.low >>> 0, message.createTimestamp.high >>> 0).toNumber() : message.createTimestamp;
@@ -12388,7 +12398,9 @@ $root.SyncAction = (function() {
                         object._altPhoneNumbers = "altPhoneNumbers";
                 }
                 if (message.birthday != null && message.hasOwnProperty("birthday")) {
-                    if (typeof message.birthday === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.birthday = typeof message.birthday === "number" ? BigInt(message.birthday) : $util.Long.fromBits(message.birthday.low >>> 0, message.birthday.high >>> 0, false).toBigInt();
+                    else if (typeof message.birthday === "number")
                         object.birthday = options.longs === String ? String(message.birthday) : message.birthday;
                     else
                         object.birthday = options.longs === String ? $util.Long.prototype.toString.call(message.birthday) : options.longs === Number ? new $util.LongBits(message.birthday.low >>> 0, message.birthday.high >>> 0).toNumber() : message.birthday;
@@ -12411,7 +12423,9 @@ $root.SyncAction = (function() {
                         object._leadStage = "leadStage";
                 }
                 if (message.lastOrder != null && message.hasOwnProperty("lastOrder")) {
-                    if (typeof message.lastOrder === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.lastOrder = typeof message.lastOrder === "number" ? BigInt(message.lastOrder) : $util.Long.fromBits(message.lastOrder.low >>> 0, message.lastOrder.high >>> 0, false).toBigInt();
+                    else if (typeof message.lastOrder === "number")
                         object.lastOrder = options.longs === String ? String(message.lastOrder) : message.lastOrder;
                     else
                         object.lastOrder = options.longs === String ? $util.Long.prototype.toString.call(message.lastOrder) : options.longs === Number ? new $util.LongBits(message.lastOrder.low >>> 0, message.lastOrder.high >>> 0).toNumber() : message.lastOrder;
@@ -12419,7 +12433,9 @@ $root.SyncAction = (function() {
                         object._lastOrder = "lastOrder";
                 }
                 if (message.createdAt != null && message.hasOwnProperty("createdAt")) {
-                    if (typeof message.createdAt === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.createdAt = typeof message.createdAt === "number" ? BigInt(message.createdAt) : $util.Long.fromBits(message.createdAt.low >>> 0, message.createdAt.high >>> 0, false).toBigInt();
+                    else if (typeof message.createdAt === "number")
                         object.createdAt = options.longs === String ? String(message.createdAt) : message.createdAt;
                     else
                         object.createdAt = options.longs === String ? $util.Long.prototype.toString.call(message.createdAt) : options.longs === Number ? new $util.LongBits(message.createdAt.low >>> 0, message.createdAt.high >>> 0).toNumber() : message.createdAt;
@@ -12427,7 +12443,9 @@ $root.SyncAction = (function() {
                         object._createdAt = "createdAt";
                 }
                 if (message.modifiedAt != null && message.hasOwnProperty("modifiedAt")) {
-                    if (typeof message.modifiedAt === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.modifiedAt = typeof message.modifiedAt === "number" ? BigInt(message.modifiedAt) : $util.Long.fromBits(message.modifiedAt.low >>> 0, message.modifiedAt.high >>> 0, false).toBigInt();
+                    else if (typeof message.modifiedAt === "number")
                         object.modifiedAt = options.longs === String ? String(message.modifiedAt) : message.modifiedAt;
                     else
                         object.modifiedAt = options.longs === String ? $util.Long.prototype.toString.call(message.modifiedAt) : options.longs === Number ? new $util.LongBits(message.modifiedAt.low >>> 0, message.modifiedAt.high >>> 0).toNumber() : message.modifiedAt;
@@ -13289,7 +13307,9 @@ $root.SyncAction = (function() {
                         object._deleteMedia = "deleteMedia";
                 }
                 if (message.messageTimestamp != null && message.hasOwnProperty("messageTimestamp")) {
-                    if (typeof message.messageTimestamp === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.messageTimestamp = typeof message.messageTimestamp === "number" ? BigInt(message.messageTimestamp) : $util.Long.fromBits(message.messageTimestamp.low >>> 0, message.messageTimestamp.high >>> 0, false).toBigInt();
+                    else if (typeof message.messageTimestamp === "number")
                         object.messageTimestamp = options.longs === String ? String(message.messageTimestamp) : message.messageTimestamp;
                     else
                         object.messageTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.messageTimestamp) : options.longs === Number ? new $util.LongBits(message.messageTimestamp.low >>> 0, message.messageTimestamp.high >>> 0).toNumber() : message.messageTimestamp;
@@ -15836,7 +15856,9 @@ $root.SyncAction = (function() {
                         object._isImmutable = "isImmutable";
                 }
                 if (message.muteEndTimeMs != null && message.hasOwnProperty("muteEndTimeMs")) {
-                    if (typeof message.muteEndTimeMs === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.muteEndTimeMs = typeof message.muteEndTimeMs === "number" ? BigInt(message.muteEndTimeMs) : $util.Long.fromBits(message.muteEndTimeMs.low >>> 0, message.muteEndTimeMs.high >>> 0, false).toBigInt();
+                    else if (typeof message.muteEndTimeMs === "number")
                         object.muteEndTimeMs = options.longs === String ? String(message.muteEndTimeMs) : message.muteEndTimeMs;
                     else
                         object.muteEndTimeMs = options.longs === String ? $util.Long.prototype.toString.call(message.muteEndTimeMs) : options.longs === Number ? new $util.LongBits(message.muteEndTimeMs.low >>> 0, message.muteEndTimeMs.high >>> 0).toNumber() : message.muteEndTimeMs;
@@ -18075,7 +18097,9 @@ $root.SyncAction = (function() {
                         object._type = "type";
                 }
                 if (message.createdAt != null && message.hasOwnProperty("createdAt")) {
-                    if (typeof message.createdAt === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.createdAt = typeof message.createdAt === "number" ? BigInt(message.createdAt) : $util.Long.fromBits(message.createdAt.low >>> 0, message.createdAt.high >>> 0, false).toBigInt();
+                    else if (typeof message.createdAt === "number")
                         object.createdAt = options.longs === String ? String(message.createdAt) : message.createdAt;
                     else
                         object.createdAt = options.longs === String ? $util.Long.prototype.toString.call(message.createdAt) : options.longs === Number ? new $util.LongBits(message.createdAt.low >>> 0, message.createdAt.high >>> 0).toNumber() : message.createdAt;
@@ -18083,7 +18107,9 @@ $root.SyncAction = (function() {
                         object._createdAt = "createdAt";
                 }
                 if (message.lastSentAt != null && message.hasOwnProperty("lastSentAt")) {
-                    if (typeof message.lastSentAt === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.lastSentAt = typeof message.lastSentAt === "number" ? BigInt(message.lastSentAt) : $util.Long.fromBits(message.lastSentAt.low >>> 0, message.lastSentAt.high >>> 0, false).toBigInt();
+                    else if (typeof message.lastSentAt === "number")
                         object.lastSentAt = options.longs === String ? String(message.lastSentAt) : message.lastSentAt;
                     else
                         object.lastSentAt = options.longs === String ? $util.Long.prototype.toString.call(message.lastSentAt) : options.longs === Number ? new $util.LongBits(message.lastSentAt.low >>> 0, message.lastSentAt.high >>> 0).toNumber() : message.lastSentAt;
@@ -19795,7 +19821,9 @@ $root.SyncAction = (function() {
                         object._muted = "muted";
                 }
                 if (message.muteEndTimestamp != null && message.hasOwnProperty("muteEndTimestamp")) {
-                    if (typeof message.muteEndTimestamp === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.muteEndTimestamp = typeof message.muteEndTimestamp === "number" ? BigInt(message.muteEndTimestamp) : $util.Long.fromBits(message.muteEndTimestamp.low >>> 0, message.muteEndTimestamp.high >>> 0, false).toBigInt();
+                    else if (typeof message.muteEndTimestamp === "number")
                         object.muteEndTimestamp = options.longs === String ? String(message.muteEndTimestamp) : message.muteEndTimestamp;
                     else
                         object.muteEndTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.muteEndTimestamp) : options.longs === Number ? new $util.LongBits(message.muteEndTimestamp.low >>> 0, message.muteEndTimestamp.high >>> 0).toNumber() : message.muteEndTimestamp;
@@ -19808,7 +19836,9 @@ $root.SyncAction = (function() {
                         object._autoMuted = "autoMuted";
                 }
                 if (message.muteEveryoneMentionEndTimestamp != null && message.hasOwnProperty("muteEveryoneMentionEndTimestamp")) {
-                    if (typeof message.muteEveryoneMentionEndTimestamp === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.muteEveryoneMentionEndTimestamp = typeof message.muteEveryoneMentionEndTimestamp === "number" ? BigInt(message.muteEveryoneMentionEndTimestamp) : $util.Long.fromBits(message.muteEveryoneMentionEndTimestamp.low >>> 0, message.muteEveryoneMentionEndTimestamp.high >>> 0, false).toBigInt();
+                    else if (typeof message.muteEveryoneMentionEndTimestamp === "number")
                         object.muteEveryoneMentionEndTimestamp = options.longs === String ? String(message.muteEveryoneMentionEndTimestamp) : message.muteEveryoneMentionEndTimestamp;
                     else
                         object.muteEveryoneMentionEndTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.muteEveryoneMentionEndTimestamp) : options.longs === Number ? new $util.LongBits(message.muteEveryoneMentionEndTimestamp.low >>> 0, message.muteEveryoneMentionEndTimestamp.high >>> 0).toNumber() : message.muteEveryoneMentionEndTimestamp;
@@ -20748,7 +20778,9 @@ $root.SyncAction = (function() {
                         object._chatJid = "chatJid";
                 }
                 if (message.createdAt != null && message.hasOwnProperty("createdAt")) {
-                    if (typeof message.createdAt === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.createdAt = typeof message.createdAt === "number" ? BigInt(message.createdAt) : $util.Long.fromBits(message.createdAt.low >>> 0, message.createdAt.high >>> 0, false).toBigInt();
+                    else if (typeof message.createdAt === "number")
                         object.createdAt = options.longs === String ? String(message.createdAt) : message.createdAt;
                     else
                         object.createdAt = options.longs === String ? $util.Long.prototype.toString.call(message.createdAt) : options.longs === Number ? new $util.LongBits(message.createdAt.low >>> 0, message.createdAt.high >>> 0).toNumber() : message.createdAt;
@@ -25554,7 +25586,9 @@ $root.SyncAction = (function() {
                     options = {};
                 var object = {};
                 if (message.lastStickerSentTs != null && message.hasOwnProperty("lastStickerSentTs")) {
-                    if (typeof message.lastStickerSentTs === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.lastStickerSentTs = typeof message.lastStickerSentTs === "number" ? BigInt(message.lastStickerSentTs) : $util.Long.fromBits(message.lastStickerSentTs.low >>> 0, message.lastStickerSentTs.high >>> 0, false).toBigInt();
+                    else if (typeof message.lastStickerSentTs === "number")
                         object.lastStickerSentTs = options.longs === String ? String(message.lastStickerSentTs) : message.lastStickerSentTs;
                     else
                         object.lastStickerSentTs = options.longs === String ? $util.Long.prototype.toString.call(message.lastStickerSentTs) : options.longs === Number ? new $util.LongBits(message.lastStickerSentTs.low >>> 0, message.lastStickerSentTs.high >>> 0).toNumber() : message.lastStickerSentTs;
@@ -29342,7 +29376,9 @@ $root.SyncAction = (function() {
                         object._directPath = "directPath";
                 }
                 if (message.fileLength != null && message.hasOwnProperty("fileLength")) {
-                    if (typeof message.fileLength === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.fileLength = typeof message.fileLength === "number" ? BigInt(message.fileLength) : $util.Long.fromBits(message.fileLength.low >>> 0, message.fileLength.high >>> 0, true).toBigInt();
+                    else if (typeof message.fileLength === "number")
                         object.fileLength = options.longs === String ? String(message.fileLength) : message.fileLength;
                     else
                         object.fileLength = options.longs === String ? $util.Long.prototype.toString.call(message.fileLength) : options.longs === Number ? new $util.LongBits(message.fileLength.low >>> 0, message.fileLength.high >>> 0).toNumber(true) : message.fileLength;
@@ -29707,7 +29743,9 @@ $root.SyncAction = (function() {
                         object._isAutoRenewing = "isAutoRenewing";
                 }
                 if (message.expirationDate != null && message.hasOwnProperty("expirationDate")) {
-                    if (typeof message.expirationDate === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.expirationDate = typeof message.expirationDate === "number" ? BigInt(message.expirationDate) : $util.Long.fromBits(message.expirationDate.low >>> 0, message.expirationDate.high >>> 0, false).toBigInt();
+                    else if (typeof message.expirationDate === "number")
                         object.expirationDate = options.longs === String ? String(message.expirationDate) : message.expirationDate;
                     else
                         object.expirationDate = options.longs === String ? $util.Long.prototype.toString.call(message.expirationDate) : options.longs === Number ? new $util.LongBits(message.expirationDate.low >>> 0, message.expirationDate.high >>> 0).toNumber() : message.expirationDate;
@@ -30392,7 +30430,9 @@ $root.SyncAction = (function() {
                             object._limit = "limit";
                     }
                     if (message.expirationTime != null && message.hasOwnProperty("expirationTime")) {
-                        if (typeof message.expirationTime === "number")
+                        if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                            object.expirationTime = typeof message.expirationTime === "number" ? BigInt(message.expirationTime) : $util.Long.fromBits(message.expirationTime.low >>> 0, message.expirationTime.high >>> 0, false).toBigInt();
+                        else if (typeof message.expirationTime === "number")
                             object.expirationTime = options.longs === String ? String(message.expirationTime) : message.expirationTime;
                         else
                             object.expirationTime = options.longs === String ? $util.Long.prototype.toString.call(message.expirationTime) : options.longs === Number ? new $util.LongBits(message.expirationTime.low >>> 0, message.expirationTime.high >>> 0).toNumber() : message.expirationTime;
@@ -30906,7 +30946,9 @@ $root.SyncAction = (function() {
                             object._status = "status";
                     }
                     if (message.startTime != null && message.hasOwnProperty("startTime")) {
-                        if (typeof message.startTime === "number")
+                        if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                            object.startTime = typeof message.startTime === "number" ? BigInt(message.startTime) : $util.Long.fromBits(message.startTime.low >>> 0, message.startTime.high >>> 0, false).toBigInt();
+                        else if (typeof message.startTime === "number")
                             object.startTime = options.longs === String ? String(message.startTime) : message.startTime;
                         else
                             object.startTime = options.longs === String ? $util.Long.prototype.toString.call(message.startTime) : options.longs === Number ? new $util.LongBits(message.startTime.low >>> 0, message.startTime.high >>> 0).toNumber() : message.startTime;
@@ -30914,7 +30956,9 @@ $root.SyncAction = (function() {
                             object._startTime = "startTime";
                     }
                     if (message.endTime != null && message.hasOwnProperty("endTime")) {
-                        if (typeof message.endTime === "number")
+                        if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                            object.endTime = typeof message.endTime === "number" ? BigInt(message.endTime) : $util.Long.fromBits(message.endTime.low >>> 0, message.endTime.high >>> 0, false).toBigInt();
+                        else if (typeof message.endTime === "number")
                             object.endTime = options.longs === String ? String(message.endTime) : message.endTime;
                         else
                             object.endTime = options.longs === String ? $util.Long.prototype.toString.call(message.endTime) : options.longs === Number ? new $util.LongBits(message.endTime.low >>> 0, message.endTime.high >>> 0).toNumber() : message.endTime;
@@ -30932,7 +30976,9 @@ $root.SyncAction = (function() {
                             object._source = "source";
                     }
                     if (message.creationTime != null && message.hasOwnProperty("creationTime")) {
-                        if (typeof message.creationTime === "number")
+                        if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                            object.creationTime = typeof message.creationTime === "number" ? BigInt(message.creationTime) : $util.Long.fromBits(message.creationTime.low >>> 0, message.creationTime.high >>> 0, false).toBigInt();
+                        else if (typeof message.creationTime === "number")
                             object.creationTime = options.longs === String ? String(message.creationTime) : message.creationTime;
                         else
                             object.creationTime = options.longs === String ? $util.Long.prototype.toString.call(message.creationTime) : options.longs === Number ? new $util.LongBits(message.creationTime.low >>> 0, message.creationTime.high >>> 0).toNumber() : message.creationTime;
@@ -31245,7 +31291,9 @@ $root.SyncAction = (function() {
                         object._key = "key";
                 }
                 if (message.timestamp != null && message.hasOwnProperty("timestamp")) {
-                    if (typeof message.timestamp === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.timestamp = typeof message.timestamp === "number" ? BigInt(message.timestamp) : $util.Long.fromBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0, false).toBigInt();
+                    else if (typeof message.timestamp === "number")
                         object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
                     else
                         object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp;
@@ -31593,7 +31641,9 @@ $root.SyncAction = (function() {
                 if (options.arrays || options.defaults)
                     object.messages = [];
                 if (message.lastMessageTimestamp != null && message.hasOwnProperty("lastMessageTimestamp")) {
-                    if (typeof message.lastMessageTimestamp === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.lastMessageTimestamp = typeof message.lastMessageTimestamp === "number" ? BigInt(message.lastMessageTimestamp) : $util.Long.fromBits(message.lastMessageTimestamp.low >>> 0, message.lastMessageTimestamp.high >>> 0, false).toBigInt();
+                    else if (typeof message.lastMessageTimestamp === "number")
                         object.lastMessageTimestamp = options.longs === String ? String(message.lastMessageTimestamp) : message.lastMessageTimestamp;
                     else
                         object.lastMessageTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.lastMessageTimestamp) : options.longs === Number ? new $util.LongBits(message.lastMessageTimestamp.low >>> 0, message.lastMessageTimestamp.high >>> 0).toNumber() : message.lastMessageTimestamp;
@@ -31601,7 +31651,9 @@ $root.SyncAction = (function() {
                         object._lastMessageTimestamp = "lastMessageTimestamp";
                 }
                 if (message.lastSystemMessageTimestamp != null && message.hasOwnProperty("lastSystemMessageTimestamp")) {
-                    if (typeof message.lastSystemMessageTimestamp === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.lastSystemMessageTimestamp = typeof message.lastSystemMessageTimestamp === "number" ? BigInt(message.lastSystemMessageTimestamp) : $util.Long.fromBits(message.lastSystemMessageTimestamp.low >>> 0, message.lastSystemMessageTimestamp.high >>> 0, false).toBigInt();
+                    else if (typeof message.lastSystemMessageTimestamp === "number")
                         object.lastSystemMessageTimestamp = options.longs === String ? String(message.lastSystemMessageTimestamp) : message.lastSystemMessageTimestamp;
                     else
                         object.lastSystemMessageTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.lastSystemMessageTimestamp) : options.longs === Number ? new $util.LongBits(message.lastSystemMessageTimestamp.low >>> 0, message.lastSystemMessageTimestamp.high >>> 0).toNumber() : message.lastSystemMessageTimestamp;
@@ -34601,7 +34653,9 @@ $root.SyncAction = (function() {
                     object._silenceReason = "silenceReason";
             }
             if (message.duration != null && message.hasOwnProperty("duration")) {
-                if (typeof message.duration === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.duration = typeof message.duration === "number" ? BigInt(message.duration) : $util.Long.fromBits(message.duration.low >>> 0, message.duration.high >>> 0, false).toBigInt();
+                else if (typeof message.duration === "number")
                     object.duration = options.longs === String ? String(message.duration) : message.duration;
                 else
                     object.duration = options.longs === String ? $util.Long.prototype.toString.call(message.duration) : options.longs === Number ? new $util.LongBits(message.duration.low >>> 0, message.duration.high >>> 0).toNumber() : message.duration;
@@ -34609,7 +34663,9 @@ $root.SyncAction = (function() {
                     object._duration = "duration";
             }
             if (message.startTime != null && message.hasOwnProperty("startTime")) {
-                if (typeof message.startTime === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.startTime = typeof message.startTime === "number" ? BigInt(message.startTime) : $util.Long.fromBits(message.startTime.low >>> 0, message.startTime.high >>> 0, false).toBigInt();
+                else if (typeof message.startTime === "number")
                     object.startTime = options.longs === String ? String(message.startTime) : message.startTime;
                 else
                     object.startTime = options.longs === String ? $util.Long.prototype.toString.call(message.startTime) : options.longs === Number ? new $util.LongBits(message.startTime.low >>> 0, message.startTime.high >>> 0).toNumber() : message.startTime;
@@ -38476,7 +38532,9 @@ $root.DeviceCapabilities = (function() {
                     options = {};
                 var object = {};
                 if (message.chatDbMigrationTimestamp != null && message.hasOwnProperty("chatDbMigrationTimestamp")) {
-                    if (typeof message.chatDbMigrationTimestamp === "number")
+                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                        object.chatDbMigrationTimestamp = typeof message.chatDbMigrationTimestamp === "number" ? BigInt(message.chatDbMigrationTimestamp) : $util.Long.fromBits(message.chatDbMigrationTimestamp.low >>> 0, message.chatDbMigrationTimestamp.high >>> 0, true).toBigInt();
+                    else if (typeof message.chatDbMigrationTimestamp === "number")
                         object.chatDbMigrationTimestamp = options.longs === String ? String(message.chatDbMigrationTimestamp) : message.chatDbMigrationTimestamp;
                     else
                         object.chatDbMigrationTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.chatDbMigrationTimestamp) : options.longs === Number ? new $util.LongBits(message.chatDbMigrationTimestamp.low >>> 0, message.chatDbMigrationTimestamp.high >>> 0).toNumber(true) : message.chatDbMigrationTimestamp;
@@ -39165,7 +39223,9 @@ $root.Protocol = (function() {
                     object._trigger = "trigger";
             }
             if (message.limitSharingSettingTimestamp != null && message.hasOwnProperty("limitSharingSettingTimestamp")) {
-                if (typeof message.limitSharingSettingTimestamp === "number")
+                if (typeof BigInt !== "undefined" && options.longs === BigInt)
+                    object.limitSharingSettingTimestamp = typeof message.limitSharingSettingTimestamp === "number" ? BigInt(message.limitSharingSettingTimestamp) : $util.Long.fromBits(message.limitSharingSettingTimestamp.low >>> 0, message.limitSharingSettingTimestamp.high >>> 0, false).toBigInt();
+                else if (typeof message.limitSharingSettingTimestamp === "number")
                     object.limitSharingSettingTimestamp = options.longs === String ? String(message.limitSharingSettingTimestamp) : message.limitSharingSettingTimestamp;
                 else
                     object.limitSharingSettingTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.limitSharingSettingTimestamp) : options.longs === Number ? new $util.LongBits(message.limitSharingSettingTimestamp.low >>> 0, message.limitSharingSettingTimestamp.high >>> 0).toNumber() : message.limitSharingSettingTimestamp;
