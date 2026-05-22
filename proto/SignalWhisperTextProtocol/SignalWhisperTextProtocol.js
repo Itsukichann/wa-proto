@@ -1,4 +1,4 @@
-/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
+/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-mixed-operators, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
 "use strict";
 
 var $protobuf = require("protobufjs/minimal");
@@ -112,9 +112,13 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        DeviceConsistencyCodeMessage.encode = function encode(message, writer) {
+        DeviceConsistencyCodeMessage.encode = function encode(message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             if (message.generation != null && Object.hasOwnProperty.call(message, "generation"))
                 writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.generation);
             if (message.signature != null && Object.hasOwnProperty.call(message, "signature"))
@@ -135,7 +139,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         DeviceConsistencyCodeMessage.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
+            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
         /**
@@ -270,20 +274,18 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        DeviceConsistencyCodeMessage.toObject = function toObject(message, options) {
+        DeviceConsistencyCodeMessage.toObject = function toObject(message, options, _depth) {
             if (!options)
                 options = {};
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var object = {};
-            if (message.generation != null && message.hasOwnProperty("generation")) {
+            if (message.generation != null && message.hasOwnProperty("generation"))
                 object.generation = message.generation;
-                if (options.oneofs)
-                    object._generation = "generation";
-            }
-            if (message.signature != null && message.hasOwnProperty("signature")) {
+            if (message.signature != null && message.hasOwnProperty("signature"))
                 object.signature = options.bytes === String ? $util.base64.encode(message.signature, 0, message.signature.length) : options.bytes === Array ? Array.prototype.slice.call(message.signature) : message.signature;
-                if (options.oneofs)
-                    object._signature = "signature";
-            }
             return object;
         };
 
@@ -439,9 +441,13 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        SenderKeyDistributionMessage.encode = function encode(message, writer) {
+        SenderKeyDistributionMessage.encode = function encode(message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             if (message.id != null && Object.hasOwnProperty.call(message, "id"))
                 writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.id);
             if (message.iteration != null && Object.hasOwnProperty.call(message, "iteration"))
@@ -466,7 +472,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SenderKeyDistributionMessage.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
+            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
         /**
@@ -632,30 +638,22 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        SenderKeyDistributionMessage.toObject = function toObject(message, options) {
+        SenderKeyDistributionMessage.toObject = function toObject(message, options, _depth) {
             if (!options)
                 options = {};
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var object = {};
-            if (message.id != null && message.hasOwnProperty("id")) {
+            if (message.id != null && message.hasOwnProperty("id"))
                 object.id = message.id;
-                if (options.oneofs)
-                    object._id = "id";
-            }
-            if (message.iteration != null && message.hasOwnProperty("iteration")) {
+            if (message.iteration != null && message.hasOwnProperty("iteration"))
                 object.iteration = message.iteration;
-                if (options.oneofs)
-                    object._iteration = "iteration";
-            }
-            if (message.chainKey != null && message.hasOwnProperty("chainKey")) {
+            if (message.chainKey != null && message.hasOwnProperty("chainKey"))
                 object.chainKey = options.bytes === String ? $util.base64.encode(message.chainKey, 0, message.chainKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.chainKey) : message.chainKey;
-                if (options.oneofs)
-                    object._chainKey = "chainKey";
-            }
-            if (message.signingKey != null && message.hasOwnProperty("signingKey")) {
+            if (message.signingKey != null && message.hasOwnProperty("signingKey"))
                 object.signingKey = options.bytes === String ? $util.base64.encode(message.signingKey, 0, message.signingKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.signingKey) : message.signingKey;
-                if (options.oneofs)
-                    object._signingKey = "signingKey";
-            }
             return object;
         };
 
@@ -796,9 +794,13 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        SenderKeyMessage.encode = function encode(message, writer) {
+        SenderKeyMessage.encode = function encode(message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             if (message.id != null && Object.hasOwnProperty.call(message, "id"))
                 writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.id);
             if (message.iteration != null && Object.hasOwnProperty.call(message, "iteration"))
@@ -821,7 +823,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SenderKeyMessage.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
+            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
         /**
@@ -970,25 +972,20 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        SenderKeyMessage.toObject = function toObject(message, options) {
+        SenderKeyMessage.toObject = function toObject(message, options, _depth) {
             if (!options)
                 options = {};
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var object = {};
-            if (message.id != null && message.hasOwnProperty("id")) {
+            if (message.id != null && message.hasOwnProperty("id"))
                 object.id = message.id;
-                if (options.oneofs)
-                    object._id = "id";
-            }
-            if (message.iteration != null && message.hasOwnProperty("iteration")) {
+            if (message.iteration != null && message.hasOwnProperty("iteration"))
                 object.iteration = message.iteration;
-                if (options.oneofs)
-                    object._iteration = "iteration";
-            }
-            if (message.ciphertext != null && message.hasOwnProperty("ciphertext")) {
+            if (message.ciphertext != null && message.hasOwnProperty("ciphertext"))
                 object.ciphertext = options.bytes === String ? $util.base64.encode(message.ciphertext, 0, message.ciphertext.length) : options.bytes === Array ? Array.prototype.slice.call(message.ciphertext) : message.ciphertext;
-                if (options.oneofs)
-                    object._ciphertext = "ciphertext";
-            }
             return object;
         };
 
@@ -1159,9 +1156,13 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        KeyExchangeMessage.encode = function encode(message, writer) {
+        KeyExchangeMessage.encode = function encode(message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             if (message.id != null && Object.hasOwnProperty.call(message, "id"))
                 writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.id);
             if (message.baseKey != null && Object.hasOwnProperty.call(message, "baseKey"))
@@ -1188,7 +1189,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         KeyExchangeMessage.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
+            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
         /**
@@ -1374,35 +1375,24 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        KeyExchangeMessage.toObject = function toObject(message, options) {
+        KeyExchangeMessage.toObject = function toObject(message, options, _depth) {
             if (!options)
                 options = {};
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var object = {};
-            if (message.id != null && message.hasOwnProperty("id")) {
+            if (message.id != null && message.hasOwnProperty("id"))
                 object.id = message.id;
-                if (options.oneofs)
-                    object._id = "id";
-            }
-            if (message.baseKey != null && message.hasOwnProperty("baseKey")) {
+            if (message.baseKey != null && message.hasOwnProperty("baseKey"))
                 object.baseKey = options.bytes === String ? $util.base64.encode(message.baseKey, 0, message.baseKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.baseKey) : message.baseKey;
-                if (options.oneofs)
-                    object._baseKey = "baseKey";
-            }
-            if (message.ratchetKey != null && message.hasOwnProperty("ratchetKey")) {
+            if (message.ratchetKey != null && message.hasOwnProperty("ratchetKey"))
                 object.ratchetKey = options.bytes === String ? $util.base64.encode(message.ratchetKey, 0, message.ratchetKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.ratchetKey) : message.ratchetKey;
-                if (options.oneofs)
-                    object._ratchetKey = "ratchetKey";
-            }
-            if (message.identityKey != null && message.hasOwnProperty("identityKey")) {
+            if (message.identityKey != null && message.hasOwnProperty("identityKey"))
                 object.identityKey = options.bytes === String ? $util.base64.encode(message.identityKey, 0, message.identityKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.identityKey) : message.identityKey;
-                if (options.oneofs)
-                    object._identityKey = "identityKey";
-            }
-            if (message.baseKeySignature != null && message.hasOwnProperty("baseKeySignature")) {
+            if (message.baseKeySignature != null && message.hasOwnProperty("baseKeySignature"))
                 object.baseKeySignature = options.bytes === String ? $util.base64.encode(message.baseKeySignature, 0, message.baseKeySignature.length) : options.bytes === Array ? Array.prototype.slice.call(message.baseKeySignature) : message.baseKeySignature;
-                if (options.oneofs)
-                    object._baseKeySignature = "baseKeySignature";
-            }
             return object;
         };
 
@@ -1588,9 +1578,13 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        PreKeySignalMessage.encode = function encode(message, writer) {
+        PreKeySignalMessage.encode = function encode(message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             if (message.preKeyId != null && Object.hasOwnProperty.call(message, "preKeyId"))
                 writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.preKeyId);
             if (message.baseKey != null && Object.hasOwnProperty.call(message, "baseKey"))
@@ -1619,7 +1613,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         PreKeySignalMessage.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
+            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
         /**
@@ -1816,40 +1810,26 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        PreKeySignalMessage.toObject = function toObject(message, options) {
+        PreKeySignalMessage.toObject = function toObject(message, options, _depth) {
             if (!options)
                 options = {};
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var object = {};
-            if (message.preKeyId != null && message.hasOwnProperty("preKeyId")) {
+            if (message.preKeyId != null && message.hasOwnProperty("preKeyId"))
                 object.preKeyId = message.preKeyId;
-                if (options.oneofs)
-                    object._preKeyId = "preKeyId";
-            }
-            if (message.baseKey != null && message.hasOwnProperty("baseKey")) {
+            if (message.baseKey != null && message.hasOwnProperty("baseKey"))
                 object.baseKey = options.bytes === String ? $util.base64.encode(message.baseKey, 0, message.baseKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.baseKey) : message.baseKey;
-                if (options.oneofs)
-                    object._baseKey = "baseKey";
-            }
-            if (message.identityKey != null && message.hasOwnProperty("identityKey")) {
+            if (message.identityKey != null && message.hasOwnProperty("identityKey"))
                 object.identityKey = options.bytes === String ? $util.base64.encode(message.identityKey, 0, message.identityKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.identityKey) : message.identityKey;
-                if (options.oneofs)
-                    object._identityKey = "identityKey";
-            }
-            if (message.message != null && message.hasOwnProperty("message")) {
+            if (message.message != null && message.hasOwnProperty("message"))
                 object.message = options.bytes === String ? $util.base64.encode(message.message, 0, message.message.length) : options.bytes === Array ? Array.prototype.slice.call(message.message) : message.message;
-                if (options.oneofs)
-                    object._message = "message";
-            }
-            if (message.registrationId != null && message.hasOwnProperty("registrationId")) {
+            if (message.registrationId != null && message.hasOwnProperty("registrationId"))
                 object.registrationId = message.registrationId;
-                if (options.oneofs)
-                    object._registrationId = "registrationId";
-            }
-            if (message.signedPreKeyId != null && message.hasOwnProperty("signedPreKeyId")) {
+            if (message.signedPreKeyId != null && message.hasOwnProperty("signedPreKeyId"))
                 object.signedPreKeyId = message.signedPreKeyId;
-                if (options.oneofs)
-                    object._signedPreKeyId = "signedPreKeyId";
-            }
             return object;
         };
 
@@ -2005,9 +1985,13 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        SignalMessage.encode = function encode(message, writer) {
+        SignalMessage.encode = function encode(message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             if (message.ratchetKey != null && Object.hasOwnProperty.call(message, "ratchetKey"))
                 writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.ratchetKey);
             if (message.counter != null && Object.hasOwnProperty.call(message, "counter"))
@@ -2032,7 +2016,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SignalMessage.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
+            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
         /**
@@ -2198,30 +2182,22 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        SignalMessage.toObject = function toObject(message, options) {
+        SignalMessage.toObject = function toObject(message, options, _depth) {
             if (!options)
                 options = {};
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var object = {};
-            if (message.ratchetKey != null && message.hasOwnProperty("ratchetKey")) {
+            if (message.ratchetKey != null && message.hasOwnProperty("ratchetKey"))
                 object.ratchetKey = options.bytes === String ? $util.base64.encode(message.ratchetKey, 0, message.ratchetKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.ratchetKey) : message.ratchetKey;
-                if (options.oneofs)
-                    object._ratchetKey = "ratchetKey";
-            }
-            if (message.counter != null && message.hasOwnProperty("counter")) {
+            if (message.counter != null && message.hasOwnProperty("counter"))
                 object.counter = message.counter;
-                if (options.oneofs)
-                    object._counter = "counter";
-            }
-            if (message.previousCounter != null && message.hasOwnProperty("previousCounter")) {
+            if (message.previousCounter != null && message.hasOwnProperty("previousCounter"))
                 object.previousCounter = message.previousCounter;
-                if (options.oneofs)
-                    object._previousCounter = "previousCounter";
-            }
-            if (message.ciphertext != null && message.hasOwnProperty("ciphertext")) {
+            if (message.ciphertext != null && message.hasOwnProperty("ciphertext"))
                 object.ciphertext = options.bytes === String ? $util.base64.encode(message.ciphertext, 0, message.ciphertext.length) : options.bytes === Array ? Array.prototype.slice.call(message.ciphertext) : message.ciphertext;
-                if (options.oneofs)
-                    object._ciphertext = "ciphertext";
-            }
             return object;
         };
 

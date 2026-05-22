@@ -1,4 +1,4 @@
-/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
+/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-mixed-operators, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
 "use strict";
 
 var $protobuf = require("protobufjs/minimal");
@@ -112,9 +112,13 @@ $root.Ephemeral = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        EphemeralSetting.encode = function encode(message, writer) {
+        EphemeralSetting.encode = function encode(message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             if (message.duration != null && Object.hasOwnProperty.call(message, "duration"))
                 writer.uint32(/* id 1, wireType 5 =*/13).sfixed32(message.duration);
             if (message.timestamp != null && Object.hasOwnProperty.call(message, "timestamp"))
@@ -135,7 +139,7 @@ $root.Ephemeral = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         EphemeralSetting.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
+            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
         /**
@@ -255,7 +259,7 @@ $root.Ephemeral = (function() {
                 message.duration = object.duration | 0;
             if (object.timestamp != null)
                 if ($util.Long)
-                    (message.timestamp = $util.Long.fromValue(object.timestamp)).unsigned = false;
+                    message.timestamp = $util.Long.fromValue(object.timestamp, false);
                 else if (typeof object.timestamp === "string")
                     message.timestamp = parseInt(object.timestamp, 10);
                 else if (typeof object.timestamp === "number")
@@ -274,25 +278,23 @@ $root.Ephemeral = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        EphemeralSetting.toObject = function toObject(message, options) {
+        EphemeralSetting.toObject = function toObject(message, options, _depth) {
             if (!options)
                 options = {};
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var object = {};
-            if (message.duration != null && message.hasOwnProperty("duration")) {
+            if (message.duration != null && message.hasOwnProperty("duration"))
                 object.duration = message.duration;
-                if (options.oneofs)
-                    object._duration = "duration";
-            }
-            if (message.timestamp != null && message.hasOwnProperty("timestamp")) {
+            if (message.timestamp != null && message.hasOwnProperty("timestamp"))
                 if (typeof BigInt !== "undefined" && options.longs === BigInt)
                     object.timestamp = typeof message.timestamp === "number" ? BigInt(message.timestamp) : $util.Long.fromBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0, false).toBigInt();
                 else if (typeof message.timestamp === "number")
                     object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
                 else
                     object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp;
-                if (options.oneofs)
-                    object._timestamp = "timestamp";
-            }
             return object;
         };
 

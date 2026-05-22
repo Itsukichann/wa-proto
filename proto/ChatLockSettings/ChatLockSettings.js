@@ -1,4 +1,4 @@
-/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
+/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-mixed-operators, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
 "use strict";
 
 var $protobuf = require("protobufjs/minimal");
@@ -116,13 +116,17 @@ $root.ChatLockSettings = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        ChatLockSettings.encode = function encode(message, writer) {
+        ChatLockSettings.encode = function encode(message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             if (message.hideLockedChats != null && Object.hasOwnProperty.call(message, "hideLockedChats"))
                 writer.uint32(/* id 1, wireType 0 =*/8).bool(message.hideLockedChats);
             if (message.secretCode != null && Object.hasOwnProperty.call(message, "secretCode"))
-                $root.UserPassword.UserPassword.encode(message.secretCode, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                $root.UserPassword.UserPassword.encode(message.secretCode, writer.uint32(/* id 2, wireType 2 =*/18).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -139,7 +143,7 @@ $root.ChatLockSettings = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         ChatLockSettings.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
+            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
         /**
@@ -277,20 +281,18 @@ $root.ChatLockSettings = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        ChatLockSettings.toObject = function toObject(message, options) {
+        ChatLockSettings.toObject = function toObject(message, options, _depth) {
             if (!options)
                 options = {};
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var object = {};
-            if (message.hideLockedChats != null && message.hasOwnProperty("hideLockedChats")) {
+            if (message.hideLockedChats != null && message.hasOwnProperty("hideLockedChats"))
                 object.hideLockedChats = message.hideLockedChats;
-                if (options.oneofs)
-                    object._hideLockedChats = "hideLockedChats";
-            }
-            if (message.secretCode != null && message.hasOwnProperty("secretCode")) {
-                object.secretCode = $root.UserPassword.UserPassword.toObject(message.secretCode, options);
-                if (options.oneofs)
-                    object._secretCode = "secretCode";
-            }
+            if (message.secretCode != null && message.hasOwnProperty("secretCode"))
+                object.secretCode = $root.UserPassword.UserPassword.toObject(message.secretCode, options, _depth + 1);
             return object;
         };
 
@@ -459,16 +461,20 @@ $root.UserPassword = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        UserPassword.encode = function encode(message, writer) {
+        UserPassword.encode = function encode(message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             if (message.encoding != null && Object.hasOwnProperty.call(message, "encoding"))
                 writer.uint32(/* id 1, wireType 0 =*/8).int32(message.encoding);
             if (message.transformer != null && Object.hasOwnProperty.call(message, "transformer"))
                 writer.uint32(/* id 2, wireType 0 =*/16).int32(message.transformer);
             if (message.transformerArg != null && message.transformerArg.length)
                 for (var i = 0; i < message.transformerArg.length; ++i)
-                    $root.UserPassword.UserPassword.TransformerArg.encode(message.transformerArg[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                    $root.UserPassword.UserPassword.TransformerArg.encode(message.transformerArg[i], writer.uint32(/* id 3, wireType 2 =*/26).fork(), _depth + 1).ldelim();
             if (message.transformedData != null && Object.hasOwnProperty.call(message, "transformedData"))
                 writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.transformedData);
             if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
@@ -487,7 +493,7 @@ $root.UserPassword = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         UserPassword.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
+            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
         /**
@@ -706,32 +712,27 @@ $root.UserPassword = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        UserPassword.toObject = function toObject(message, options) {
+        UserPassword.toObject = function toObject(message, options, _depth) {
             if (!options)
                 options = {};
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var object = {};
             if (options.arrays || options.defaults)
                 object.transformerArg = [];
-            if (message.encoding != null && message.hasOwnProperty("encoding")) {
+            if (message.encoding != null && message.hasOwnProperty("encoding"))
                 object.encoding = options.enums === String ? $root.UserPassword.UserPassword.Encoding[message.encoding] === undefined ? message.encoding : $root.UserPassword.UserPassword.Encoding[message.encoding] : message.encoding;
-                if (options.oneofs)
-                    object._encoding = "encoding";
-            }
-            if (message.transformer != null && message.hasOwnProperty("transformer")) {
+            if (message.transformer != null && message.hasOwnProperty("transformer"))
                 object.transformer = options.enums === String ? $root.UserPassword.UserPassword.Transformer[message.transformer] === undefined ? message.transformer : $root.UserPassword.UserPassword.Transformer[message.transformer] : message.transformer;
-                if (options.oneofs)
-                    object._transformer = "transformer";
-            }
             if (message.transformerArg && message.transformerArg.length) {
                 object.transformerArg = Array(message.transformerArg.length);
                 for (var j = 0; j < message.transformerArg.length; ++j)
-                    object.transformerArg[j] = $root.UserPassword.UserPassword.TransformerArg.toObject(message.transformerArg[j], options);
+                    object.transformerArg[j] = $root.UserPassword.UserPassword.TransformerArg.toObject(message.transformerArg[j], options, _depth + 1);
             }
-            if (message.transformedData != null && message.hasOwnProperty("transformedData")) {
+            if (message.transformedData != null && message.hasOwnProperty("transformedData"))
                 object.transformedData = options.bytes === String ? $util.base64.encode(message.transformedData, 0, message.transformedData.length) : options.bytes === Array ? Array.prototype.slice.call(message.transformedData) : message.transformedData;
-                if (options.oneofs)
-                    object._transformedData = "transformedData";
-            }
             return object;
         };
 
@@ -888,13 +889,17 @@ $root.UserPassword = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            TransformerArg.encode = function encode(message, writer) {
+            TransformerArg.encode = function encode(message, writer, _depth) {
                 if (!writer)
                     writer = $Writer.create();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 if (message.key != null && Object.hasOwnProperty.call(message, "key"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.key);
                 if (message.value != null && Object.hasOwnProperty.call(message, "value"))
-                    $root.UserPassword.UserPassword.TransformerArg.Value.encode(message.value, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                    $root.UserPassword.UserPassword.TransformerArg.Value.encode(message.value, writer.uint32(/* id 2, wireType 2 =*/18).fork(), _depth + 1).ldelim();
                 if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -911,7 +916,7 @@ $root.UserPassword = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             TransformerArg.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
+                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
             };
 
             /**
@@ -1049,20 +1054,18 @@ $root.UserPassword = (function() {
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            TransformerArg.toObject = function toObject(message, options) {
+            TransformerArg.toObject = function toObject(message, options, _depth) {
                 if (!options)
                     options = {};
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var object = {};
-                if (message.key != null && message.hasOwnProperty("key")) {
+                if (message.key != null && message.hasOwnProperty("key"))
                     object.key = message.key;
-                    if (options.oneofs)
-                        object._key = "key";
-                }
-                if (message.value != null && message.hasOwnProperty("value")) {
-                    object.value = $root.UserPassword.UserPassword.TransformerArg.Value.toObject(message.value, options);
-                    if (options.oneofs)
-                        object._value = "value";
-                }
+                if (message.value != null && message.hasOwnProperty("value"))
+                    object.value = $root.UserPassword.UserPassword.TransformerArg.Value.toObject(message.value, options, _depth + 1);
                 return object;
             };
 
@@ -1191,9 +1194,13 @@ $root.UserPassword = (function() {
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
-                Value.encode = function encode(message, writer) {
+                Value.encode = function encode(message, writer, _depth) {
                     if (!writer)
                         writer = $Writer.create();
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw Error("max depth exceeded");
                     if (message.asBlob != null && Object.hasOwnProperty.call(message, "asBlob"))
                         writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.asBlob);
                     if (message.asUnsignedInteger != null && Object.hasOwnProperty.call(message, "asUnsignedInteger"))
@@ -1214,7 +1221,7 @@ $root.UserPassword = (function() {
                  * @returns {$protobuf.Writer} Writer
                  */
                 Value.encodeDelimited = function encodeDelimited(message, writer) {
-                    return this.encode(message, writer).ldelim();
+                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
                 };
 
                 /**
@@ -1351,9 +1358,13 @@ $root.UserPassword = (function() {
                  * @param {$protobuf.IConversionOptions} [options] Conversion options
                  * @returns {Object.<string,*>} Plain object
                  */
-                Value.toObject = function toObject(message, options) {
+                Value.toObject = function toObject(message, options, _depth) {
                     if (!options)
                         options = {};
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw Error("max depth exceeded");
                     var object = {};
                     if (message.asBlob != null && message.hasOwnProperty("asBlob")) {
                         object.asBlob = options.bytes === String ? $util.base64.encode(message.asBlob, 0, message.asBlob.length) : options.bytes === Array ? Array.prototype.slice.call(message.asBlob) : message.asBlob;

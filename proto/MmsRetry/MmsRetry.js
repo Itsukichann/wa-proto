@@ -1,4 +1,4 @@
-/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
+/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-mixed-operators, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
 "use strict";
 
 var $protobuf = require("protobufjs/minimal");
@@ -97,9 +97,13 @@ $root.MmsRetry = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        ServerErrorReceipt.encode = function encode(message, writer) {
+        ServerErrorReceipt.encode = function encode(message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             if (message.stanzaId != null && Object.hasOwnProperty.call(message, "stanzaId"))
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.stanzaId);
             if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
@@ -118,7 +122,7 @@ $root.MmsRetry = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         ServerErrorReceipt.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
+            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
         /**
@@ -236,15 +240,16 @@ $root.MmsRetry = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        ServerErrorReceipt.toObject = function toObject(message, options) {
+        ServerErrorReceipt.toObject = function toObject(message, options, _depth) {
             if (!options)
                 options = {};
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var object = {};
-            if (message.stanzaId != null && message.hasOwnProperty("stanzaId")) {
+            if (message.stanzaId != null && message.hasOwnProperty("stanzaId"))
                 object.stanzaId = message.stanzaId;
-                if (options.oneofs)
-                    object._stanzaId = "stanzaId";
-            }
             return object;
         };
 
@@ -400,9 +405,13 @@ $root.MmsRetry = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        MediaRetryNotification.encode = function encode(message, writer) {
+        MediaRetryNotification.encode = function encode(message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             if (message.stanzaId != null && Object.hasOwnProperty.call(message, "stanzaId"))
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.stanzaId);
             if (message.directPath != null && Object.hasOwnProperty.call(message, "directPath"))
@@ -427,7 +436,7 @@ $root.MmsRetry = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         MediaRetryNotification.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
+            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
         /**
@@ -619,30 +628,22 @@ $root.MmsRetry = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        MediaRetryNotification.toObject = function toObject(message, options) {
+        MediaRetryNotification.toObject = function toObject(message, options, _depth) {
             if (!options)
                 options = {};
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var object = {};
-            if (message.stanzaId != null && message.hasOwnProperty("stanzaId")) {
+            if (message.stanzaId != null && message.hasOwnProperty("stanzaId"))
                 object.stanzaId = message.stanzaId;
-                if (options.oneofs)
-                    object._stanzaId = "stanzaId";
-            }
-            if (message.directPath != null && message.hasOwnProperty("directPath")) {
+            if (message.directPath != null && message.hasOwnProperty("directPath"))
                 object.directPath = message.directPath;
-                if (options.oneofs)
-                    object._directPath = "directPath";
-            }
-            if (message.result != null && message.hasOwnProperty("result")) {
+            if (message.result != null && message.hasOwnProperty("result"))
                 object.result = options.enums === String ? $root.MmsRetry.MediaRetryNotification.ResultType[message.result] === undefined ? message.result : $root.MmsRetry.MediaRetryNotification.ResultType[message.result] : message.result;
-                if (options.oneofs)
-                    object._result = "result";
-            }
-            if (message.messageSecret != null && message.hasOwnProperty("messageSecret")) {
+            if (message.messageSecret != null && message.hasOwnProperty("messageSecret"))
                 object.messageSecret = options.bytes === String ? $util.base64.encode(message.messageSecret, 0, message.messageSecret.length) : options.bytes === Array ? Array.prototype.slice.call(message.messageSecret) : message.messageSecret;
-                if (options.oneofs)
-                    object._messageSecret = "messageSecret";
-            }
             return object;
         };
 

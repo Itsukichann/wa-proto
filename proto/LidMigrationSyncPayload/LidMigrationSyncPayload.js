@@ -1,4 +1,4 @@
-/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
+/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-mixed-operators, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
 "use strict";
 
 var $protobuf = require("protobufjs/minimal");
@@ -107,12 +107,16 @@ $root.LidMigrationSyncPayload = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        LIDMigrationMappingSyncPayload.encode = function encode(message, writer) {
+        LIDMigrationMappingSyncPayload.encode = function encode(message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             if (message.pnToLidMappings != null && message.pnToLidMappings.length)
                 for (var i = 0; i < message.pnToLidMappings.length; ++i)
-                    $root.LidMigrationSyncPayload.LIDMigrationMapping.encode(message.pnToLidMappings[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                    $root.LidMigrationSyncPayload.LIDMigrationMapping.encode(message.pnToLidMappings[i], writer.uint32(/* id 1, wireType 2 =*/10).fork(), _depth + 1).ldelim();
             if (message.chatDbMigrationTimestamp != null && Object.hasOwnProperty.call(message, "chatDbMigrationTimestamp"))
                 writer.uint32(/* id 2, wireType 0 =*/16).uint64(message.chatDbMigrationTimestamp);
             if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
@@ -131,7 +135,7 @@ $root.LidMigrationSyncPayload = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         LIDMigrationMappingSyncPayload.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
+            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
         /**
@@ -264,7 +268,7 @@ $root.LidMigrationSyncPayload = (function() {
             }
             if (object.chatDbMigrationTimestamp != null)
                 if ($util.Long)
-                    (message.chatDbMigrationTimestamp = $util.Long.fromValue(object.chatDbMigrationTimestamp)).unsigned = true;
+                    message.chatDbMigrationTimestamp = $util.Long.fromValue(object.chatDbMigrationTimestamp, true);
                 else if (typeof object.chatDbMigrationTimestamp === "string")
                     message.chatDbMigrationTimestamp = parseInt(object.chatDbMigrationTimestamp, 10);
                 else if (typeof object.chatDbMigrationTimestamp === "number")
@@ -283,27 +287,28 @@ $root.LidMigrationSyncPayload = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        LIDMigrationMappingSyncPayload.toObject = function toObject(message, options) {
+        LIDMigrationMappingSyncPayload.toObject = function toObject(message, options, _depth) {
             if (!options)
                 options = {};
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var object = {};
             if (options.arrays || options.defaults)
                 object.pnToLidMappings = [];
             if (message.pnToLidMappings && message.pnToLidMappings.length) {
                 object.pnToLidMappings = Array(message.pnToLidMappings.length);
                 for (var j = 0; j < message.pnToLidMappings.length; ++j)
-                    object.pnToLidMappings[j] = $root.LidMigrationSyncPayload.LIDMigrationMapping.toObject(message.pnToLidMappings[j], options);
+                    object.pnToLidMappings[j] = $root.LidMigrationSyncPayload.LIDMigrationMapping.toObject(message.pnToLidMappings[j], options, _depth + 1);
             }
-            if (message.chatDbMigrationTimestamp != null && message.hasOwnProperty("chatDbMigrationTimestamp")) {
+            if (message.chatDbMigrationTimestamp != null && message.hasOwnProperty("chatDbMigrationTimestamp"))
                 if (typeof BigInt !== "undefined" && options.longs === BigInt)
                     object.chatDbMigrationTimestamp = typeof message.chatDbMigrationTimestamp === "number" ? BigInt(message.chatDbMigrationTimestamp) : $util.Long.fromBits(message.chatDbMigrationTimestamp.low >>> 0, message.chatDbMigrationTimestamp.high >>> 0, true).toBigInt();
                 else if (typeof message.chatDbMigrationTimestamp === "number")
                     object.chatDbMigrationTimestamp = options.longs === String ? String(message.chatDbMigrationTimestamp) : message.chatDbMigrationTimestamp;
                 else
                     object.chatDbMigrationTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.chatDbMigrationTimestamp) : options.longs === Number ? new $util.LongBits(message.chatDbMigrationTimestamp.low >>> 0, message.chatDbMigrationTimestamp.high >>> 0).toNumber(true) : message.chatDbMigrationTimestamp;
-                if (options.oneofs)
-                    object._chatDbMigrationTimestamp = "chatDbMigrationTimestamp";
-            }
             return object;
         };
 
@@ -444,9 +449,13 @@ $root.LidMigrationSyncPayload = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        LIDMigrationMapping.encode = function encode(message, writer) {
+        LIDMigrationMapping.encode = function encode(message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             if (message.pn != null && Object.hasOwnProperty.call(message, "pn"))
                 writer.uint32(/* id 1, wireType 0 =*/8).uint64(message.pn);
             if (message.assignedLid != null && Object.hasOwnProperty.call(message, "assignedLid"))
@@ -469,7 +478,7 @@ $root.LidMigrationSyncPayload = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         LIDMigrationMapping.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
+            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
         /**
@@ -599,7 +608,7 @@ $root.LidMigrationSyncPayload = (function() {
             var message = new $root.LidMigrationSyncPayload.LIDMigrationMapping();
             if (object.pn != null)
                 if ($util.Long)
-                    (message.pn = $util.Long.fromValue(object.pn)).unsigned = true;
+                    message.pn = $util.Long.fromValue(object.pn, true);
                 else if (typeof object.pn === "string")
                     message.pn = parseInt(object.pn, 10);
                 else if (typeof object.pn === "number")
@@ -608,7 +617,7 @@ $root.LidMigrationSyncPayload = (function() {
                     message.pn = new $util.LongBits(object.pn.low >>> 0, object.pn.high >>> 0).toNumber(true);
             if (object.assignedLid != null)
                 if ($util.Long)
-                    (message.assignedLid = $util.Long.fromValue(object.assignedLid)).unsigned = true;
+                    message.assignedLid = $util.Long.fromValue(object.assignedLid, true);
                 else if (typeof object.assignedLid === "string")
                     message.assignedLid = parseInt(object.assignedLid, 10);
                 else if (typeof object.assignedLid === "number")
@@ -617,7 +626,7 @@ $root.LidMigrationSyncPayload = (function() {
                     message.assignedLid = new $util.LongBits(object.assignedLid.low >>> 0, object.assignedLid.high >>> 0).toNumber(true);
             if (object.latestLid != null)
                 if ($util.Long)
-                    (message.latestLid = $util.Long.fromValue(object.latestLid)).unsigned = true;
+                    message.latestLid = $util.Long.fromValue(object.latestLid, true);
                 else if (typeof object.latestLid === "string")
                     message.latestLid = parseInt(object.latestLid, 10);
                 else if (typeof object.latestLid === "number")
@@ -636,40 +645,35 @@ $root.LidMigrationSyncPayload = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        LIDMigrationMapping.toObject = function toObject(message, options) {
+        LIDMigrationMapping.toObject = function toObject(message, options, _depth) {
             if (!options)
                 options = {};
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var object = {};
-            if (message.pn != null && message.hasOwnProperty("pn")) {
+            if (message.pn != null && message.hasOwnProperty("pn"))
                 if (typeof BigInt !== "undefined" && options.longs === BigInt)
                     object.pn = typeof message.pn === "number" ? BigInt(message.pn) : $util.Long.fromBits(message.pn.low >>> 0, message.pn.high >>> 0, true).toBigInt();
                 else if (typeof message.pn === "number")
                     object.pn = options.longs === String ? String(message.pn) : message.pn;
                 else
                     object.pn = options.longs === String ? $util.Long.prototype.toString.call(message.pn) : options.longs === Number ? new $util.LongBits(message.pn.low >>> 0, message.pn.high >>> 0).toNumber(true) : message.pn;
-                if (options.oneofs)
-                    object._pn = "pn";
-            }
-            if (message.assignedLid != null && message.hasOwnProperty("assignedLid")) {
+            if (message.assignedLid != null && message.hasOwnProperty("assignedLid"))
                 if (typeof BigInt !== "undefined" && options.longs === BigInt)
                     object.assignedLid = typeof message.assignedLid === "number" ? BigInt(message.assignedLid) : $util.Long.fromBits(message.assignedLid.low >>> 0, message.assignedLid.high >>> 0, true).toBigInt();
                 else if (typeof message.assignedLid === "number")
                     object.assignedLid = options.longs === String ? String(message.assignedLid) : message.assignedLid;
                 else
                     object.assignedLid = options.longs === String ? $util.Long.prototype.toString.call(message.assignedLid) : options.longs === Number ? new $util.LongBits(message.assignedLid.low >>> 0, message.assignedLid.high >>> 0).toNumber(true) : message.assignedLid;
-                if (options.oneofs)
-                    object._assignedLid = "assignedLid";
-            }
-            if (message.latestLid != null && message.hasOwnProperty("latestLid")) {
+            if (message.latestLid != null && message.hasOwnProperty("latestLid"))
                 if (typeof BigInt !== "undefined" && options.longs === BigInt)
                     object.latestLid = typeof message.latestLid === "number" ? BigInt(message.latestLid) : $util.Long.fromBits(message.latestLid.low >>> 0, message.latestLid.high >>> 0, true).toBigInt();
                 else if (typeof message.latestLid === "number")
                     object.latestLid = options.longs === String ? String(message.latestLid) : message.latestLid;
                 else
                     object.latestLid = options.longs === String ? $util.Long.prototype.toString.call(message.latestLid) : options.longs === Number ? new $util.LongBits(message.latestLid.low >>> 0, message.latestLid.high >>> 0).toNumber(true) : message.latestLid;
-                if (options.oneofs)
-                    object._latestLid = "latestLid";
-            }
             return object;
         };
 

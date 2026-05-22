@@ -1,4 +1,4 @@
-/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
+/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-mixed-operators, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
 "use strict";
 
 var $protobuf = require("protobufjs/minimal");
@@ -142,9 +142,13 @@ $root.Protocol = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        LimitSharing.encode = function encode(message, writer) {
+        LimitSharing.encode = function encode(message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             if (message.sharingLimited != null && Object.hasOwnProperty.call(message, "sharingLimited"))
                 writer.uint32(/* id 1, wireType 0 =*/8).bool(message.sharingLimited);
             if (message.trigger != null && Object.hasOwnProperty.call(message, "trigger"))
@@ -169,7 +173,7 @@ $root.Protocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         LimitSharing.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
+            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
         /**
@@ -344,7 +348,7 @@ $root.Protocol = (function() {
             }
             if (object.limitSharingSettingTimestamp != null)
                 if ($util.Long)
-                    (message.limitSharingSettingTimestamp = $util.Long.fromValue(object.limitSharingSettingTimestamp)).unsigned = false;
+                    message.limitSharingSettingTimestamp = $util.Long.fromValue(object.limitSharingSettingTimestamp, false);
                 else if (typeof object.limitSharingSettingTimestamp === "string")
                     message.limitSharingSettingTimestamp = parseInt(object.limitSharingSettingTimestamp, 10);
                 else if (typeof object.limitSharingSettingTimestamp === "number")
@@ -365,35 +369,27 @@ $root.Protocol = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        LimitSharing.toObject = function toObject(message, options) {
+        LimitSharing.toObject = function toObject(message, options, _depth) {
             if (!options)
                 options = {};
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var object = {};
-            if (message.sharingLimited != null && message.hasOwnProperty("sharingLimited")) {
+            if (message.sharingLimited != null && message.hasOwnProperty("sharingLimited"))
                 object.sharingLimited = message.sharingLimited;
-                if (options.oneofs)
-                    object._sharingLimited = "sharingLimited";
-            }
-            if (message.trigger != null && message.hasOwnProperty("trigger")) {
+            if (message.trigger != null && message.hasOwnProperty("trigger"))
                 object.trigger = options.enums === String ? $root.Protocol.LimitSharing.TriggerType[message.trigger] === undefined ? message.trigger : $root.Protocol.LimitSharing.TriggerType[message.trigger] : message.trigger;
-                if (options.oneofs)
-                    object._trigger = "trigger";
-            }
-            if (message.limitSharingSettingTimestamp != null && message.hasOwnProperty("limitSharingSettingTimestamp")) {
+            if (message.limitSharingSettingTimestamp != null && message.hasOwnProperty("limitSharingSettingTimestamp"))
                 if (typeof BigInt !== "undefined" && options.longs === BigInt)
                     object.limitSharingSettingTimestamp = typeof message.limitSharingSettingTimestamp === "number" ? BigInt(message.limitSharingSettingTimestamp) : $util.Long.fromBits(message.limitSharingSettingTimestamp.low >>> 0, message.limitSharingSettingTimestamp.high >>> 0, false).toBigInt();
                 else if (typeof message.limitSharingSettingTimestamp === "number")
                     object.limitSharingSettingTimestamp = options.longs === String ? String(message.limitSharingSettingTimestamp) : message.limitSharingSettingTimestamp;
                 else
                     object.limitSharingSettingTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.limitSharingSettingTimestamp) : options.longs === Number ? new $util.LongBits(message.limitSharingSettingTimestamp.low >>> 0, message.limitSharingSettingTimestamp.high >>> 0).toNumber() : message.limitSharingSettingTimestamp;
-                if (options.oneofs)
-                    object._limitSharingSettingTimestamp = "limitSharingSettingTimestamp";
-            }
-            if (message.initiatedByMe != null && message.hasOwnProperty("initiatedByMe")) {
+            if (message.initiatedByMe != null && message.hasOwnProperty("initiatedByMe"))
                 object.initiatedByMe = message.initiatedByMe;
-                if (options.oneofs)
-                    object._initiatedByMe = "initiatedByMe";
-            }
             return object;
         };
 
@@ -567,9 +563,13 @@ $root.Protocol = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        MessageKey.encode = function encode(message, writer) {
+        MessageKey.encode = function encode(message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             if (message.remoteJid != null && Object.hasOwnProperty.call(message, "remoteJid"))
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.remoteJid);
             if (message.fromMe != null && Object.hasOwnProperty.call(message, "fromMe"))
@@ -594,7 +594,7 @@ $root.Protocol = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         MessageKey.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
+            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
         /**
@@ -754,30 +754,22 @@ $root.Protocol = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        MessageKey.toObject = function toObject(message, options) {
+        MessageKey.toObject = function toObject(message, options, _depth) {
             if (!options)
                 options = {};
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var object = {};
-            if (message.remoteJid != null && message.hasOwnProperty("remoteJid")) {
+            if (message.remoteJid != null && message.hasOwnProperty("remoteJid"))
                 object.remoteJid = message.remoteJid;
-                if (options.oneofs)
-                    object._remoteJid = "remoteJid";
-            }
-            if (message.fromMe != null && message.hasOwnProperty("fromMe")) {
+            if (message.fromMe != null && message.hasOwnProperty("fromMe"))
                 object.fromMe = message.fromMe;
-                if (options.oneofs)
-                    object._fromMe = "fromMe";
-            }
-            if (message.id != null && message.hasOwnProperty("id")) {
+            if (message.id != null && message.hasOwnProperty("id"))
                 object.id = message.id;
-                if (options.oneofs)
-                    object._id = "id";
-            }
-            if (message.participant != null && message.hasOwnProperty("participant")) {
+            if (message.participant != null && message.hasOwnProperty("participant"))
                 object.participant = message.participant;
-                if (options.oneofs)
-                    object._participant = "participant";
-            }
             return object;
         };
 

@@ -1,4 +1,4 @@
-/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
+/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-mixed-operators, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
 "use strict";
 
 var $protobuf = require("protobufjs/minimal");
@@ -97,11 +97,15 @@ $root.MdStorageChatRowOpaqueData = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        ChatRowOpaqueData.encode = function encode(message, writer) {
+        ChatRowOpaqueData.encode = function encode(message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             if (message.draftMessage != null && Object.hasOwnProperty.call(message, "draftMessage"))
-                $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.encode(message.draftMessage, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.encode(message.draftMessage, writer.uint32(/* id 1, wireType 2 =*/10).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -118,7 +122,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         ChatRowOpaqueData.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
+            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
         /**
@@ -242,15 +246,16 @@ $root.MdStorageChatRowOpaqueData = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        ChatRowOpaqueData.toObject = function toObject(message, options) {
+        ChatRowOpaqueData.toObject = function toObject(message, options, _depth) {
             if (!options)
                 options = {};
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var object = {};
-            if (message.draftMessage != null && message.hasOwnProperty("draftMessage")) {
-                object.draftMessage = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.toObject(message.draftMessage, options);
-                if (options.oneofs)
-                    object._draftMessage = "draftMessage";
-            }
+            if (message.draftMessage != null && message.hasOwnProperty("draftMessage"))
+                object.draftMessage = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.toObject(message.draftMessage, options, _depth + 1);
             return object;
         };
 
@@ -418,17 +423,21 @@ $root.MdStorageChatRowOpaqueData = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DraftMessage.encode = function encode(message, writer) {
+            DraftMessage.encode = function encode(message, writer, _depth) {
                 if (!writer)
                     writer = $Writer.create();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 if (message.text != null && Object.hasOwnProperty.call(message, "text"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.text);
                 if (message.omittedUrl != null && Object.hasOwnProperty.call(message, "omittedUrl"))
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.omittedUrl);
                 if (message.ctwaContextLinkData != null && Object.hasOwnProperty.call(message, "ctwaContextLinkData"))
-                    $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.encode(message.ctwaContextLinkData, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                    $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.encode(message.ctwaContextLinkData, writer.uint32(/* id 3, wireType 2 =*/26).fork(), _depth + 1).ldelim();
                 if (message.ctwaContext != null && Object.hasOwnProperty.call(message, "ctwaContext"))
-                    $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.encode(message.ctwaContext, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+                    $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.encode(message.ctwaContext, writer.uint32(/* id 4, wireType 2 =*/34).fork(), _depth + 1).ldelim();
                 if (message.timestamp != null && Object.hasOwnProperty.call(message, "timestamp"))
                     writer.uint32(/* id 5, wireType 0 =*/40).int64(message.timestamp);
                 if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
@@ -447,7 +456,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             DraftMessage.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
+                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
             };
 
             /**
@@ -621,7 +630,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                 }
                 if (object.timestamp != null)
                     if ($util.Long)
-                        (message.timestamp = $util.Long.fromValue(object.timestamp)).unsigned = false;
+                        message.timestamp = $util.Long.fromValue(object.timestamp, false);
                     else if (typeof object.timestamp === "string")
                         message.timestamp = parseInt(object.timestamp, 10);
                     else if (typeof object.timestamp === "number")
@@ -640,40 +649,29 @@ $root.MdStorageChatRowOpaqueData = (function() {
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            DraftMessage.toObject = function toObject(message, options) {
+            DraftMessage.toObject = function toObject(message, options, _depth) {
                 if (!options)
                     options = {};
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var object = {};
-                if (message.text != null && message.hasOwnProperty("text")) {
+                if (message.text != null && message.hasOwnProperty("text"))
                     object.text = message.text;
-                    if (options.oneofs)
-                        object._text = "text";
-                }
-                if (message.omittedUrl != null && message.hasOwnProperty("omittedUrl")) {
+                if (message.omittedUrl != null && message.hasOwnProperty("omittedUrl"))
                     object.omittedUrl = message.omittedUrl;
-                    if (options.oneofs)
-                        object._omittedUrl = "omittedUrl";
-                }
-                if (message.ctwaContextLinkData != null && message.hasOwnProperty("ctwaContextLinkData")) {
-                    object.ctwaContextLinkData = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.toObject(message.ctwaContextLinkData, options);
-                    if (options.oneofs)
-                        object._ctwaContextLinkData = "ctwaContextLinkData";
-                }
-                if (message.ctwaContext != null && message.hasOwnProperty("ctwaContext")) {
-                    object.ctwaContext = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.toObject(message.ctwaContext, options);
-                    if (options.oneofs)
-                        object._ctwaContext = "ctwaContext";
-                }
-                if (message.timestamp != null && message.hasOwnProperty("timestamp")) {
+                if (message.ctwaContextLinkData != null && message.hasOwnProperty("ctwaContextLinkData"))
+                    object.ctwaContextLinkData = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.toObject(message.ctwaContextLinkData, options, _depth + 1);
+                if (message.ctwaContext != null && message.hasOwnProperty("ctwaContext"))
+                    object.ctwaContext = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.toObject(message.ctwaContext, options, _depth + 1);
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
                     if (typeof BigInt !== "undefined" && options.longs === BigInt)
                         object.timestamp = typeof message.timestamp === "number" ? BigInt(message.timestamp) : $util.Long.fromBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0, false).toBigInt();
                     else if (typeof message.timestamp === "number")
                         object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
                     else
                         object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp;
-                    if (options.oneofs)
-                        object._timestamp = "timestamp";
-                }
                 return object;
             };
 
@@ -946,9 +944,13 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
-                CtwaContextData.encode = function encode(message, writer) {
+                CtwaContextData.encode = function encode(message, writer, _depth) {
                     if (!writer)
                         writer = $Writer.create();
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw Error("max depth exceeded");
                     if (message.conversionSource != null && Object.hasOwnProperty.call(message, "conversionSource"))
                         writer.uint32(/* id 1, wireType 2 =*/10).string(message.conversionSource);
                     if (message.conversionData != null && Object.hasOwnProperty.call(message, "conversionData"))
@@ -989,7 +991,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @returns {$protobuf.Writer} Writer
                  */
                 CtwaContextData.encodeDelimited = function encodeDelimited(message, writer) {
-                    return this.encode(message, writer).ldelim();
+                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
                 };
 
                 /**
@@ -1288,70 +1290,38 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @param {$protobuf.IConversionOptions} [options] Conversion options
                  * @returns {Object.<string,*>} Plain object
                  */
-                CtwaContextData.toObject = function toObject(message, options) {
+                CtwaContextData.toObject = function toObject(message, options, _depth) {
                     if (!options)
                         options = {};
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw Error("max depth exceeded");
                     var object = {};
-                    if (message.conversionSource != null && message.hasOwnProperty("conversionSource")) {
+                    if (message.conversionSource != null && message.hasOwnProperty("conversionSource"))
                         object.conversionSource = message.conversionSource;
-                        if (options.oneofs)
-                            object._conversionSource = "conversionSource";
-                    }
-                    if (message.conversionData != null && message.hasOwnProperty("conversionData")) {
+                    if (message.conversionData != null && message.hasOwnProperty("conversionData"))
                         object.conversionData = options.bytes === String ? $util.base64.encode(message.conversionData, 0, message.conversionData.length) : options.bytes === Array ? Array.prototype.slice.call(message.conversionData) : message.conversionData;
-                        if (options.oneofs)
-                            object._conversionData = "conversionData";
-                    }
-                    if (message.sourceUrl != null && message.hasOwnProperty("sourceUrl")) {
+                    if (message.sourceUrl != null && message.hasOwnProperty("sourceUrl"))
                         object.sourceUrl = message.sourceUrl;
-                        if (options.oneofs)
-                            object._sourceUrl = "sourceUrl";
-                    }
-                    if (message.sourceId != null && message.hasOwnProperty("sourceId")) {
+                    if (message.sourceId != null && message.hasOwnProperty("sourceId"))
                         object.sourceId = message.sourceId;
-                        if (options.oneofs)
-                            object._sourceId = "sourceId";
-                    }
-                    if (message.sourceType != null && message.hasOwnProperty("sourceType")) {
+                    if (message.sourceType != null && message.hasOwnProperty("sourceType"))
                         object.sourceType = message.sourceType;
-                        if (options.oneofs)
-                            object._sourceType = "sourceType";
-                    }
-                    if (message.title != null && message.hasOwnProperty("title")) {
+                    if (message.title != null && message.hasOwnProperty("title"))
                         object.title = message.title;
-                        if (options.oneofs)
-                            object._title = "title";
-                    }
-                    if (message.description != null && message.hasOwnProperty("description")) {
+                    if (message.description != null && message.hasOwnProperty("description"))
                         object.description = message.description;
-                        if (options.oneofs)
-                            object._description = "description";
-                    }
-                    if (message.thumbnail != null && message.hasOwnProperty("thumbnail")) {
+                    if (message.thumbnail != null && message.hasOwnProperty("thumbnail"))
                         object.thumbnail = message.thumbnail;
-                        if (options.oneofs)
-                            object._thumbnail = "thumbnail";
-                    }
-                    if (message.thumbnailUrl != null && message.hasOwnProperty("thumbnailUrl")) {
+                    if (message.thumbnailUrl != null && message.hasOwnProperty("thumbnailUrl"))
                         object.thumbnailUrl = message.thumbnailUrl;
-                        if (options.oneofs)
-                            object._thumbnailUrl = "thumbnailUrl";
-                    }
-                    if (message.mediaType != null && message.hasOwnProperty("mediaType")) {
+                    if (message.mediaType != null && message.hasOwnProperty("mediaType"))
                         object.mediaType = options.enums === String ? $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.ContextInfoExternalAdReplyInfoMediaType[message.mediaType] === undefined ? message.mediaType : $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.ContextInfoExternalAdReplyInfoMediaType[message.mediaType] : message.mediaType;
-                        if (options.oneofs)
-                            object._mediaType = "mediaType";
-                    }
-                    if (message.mediaUrl != null && message.hasOwnProperty("mediaUrl")) {
+                    if (message.mediaUrl != null && message.hasOwnProperty("mediaUrl"))
                         object.mediaUrl = message.mediaUrl;
-                        if (options.oneofs)
-                            object._mediaUrl = "mediaUrl";
-                    }
-                    if (message.isSuspiciousLink != null && message.hasOwnProperty("isSuspiciousLink")) {
+                    if (message.isSuspiciousLink != null && message.hasOwnProperty("isSuspiciousLink"))
                         object.isSuspiciousLink = message.isSuspiciousLink;
-                        if (options.oneofs)
-                            object._isSuspiciousLink = "isSuspiciousLink";
-                    }
                     return object;
                 };
 
@@ -1523,9 +1493,13 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
-                CtwaContextLinkData.encode = function encode(message, writer) {
+                CtwaContextLinkData.encode = function encode(message, writer, _depth) {
                     if (!writer)
                         writer = $Writer.create();
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw Error("max depth exceeded");
                     if (message.context != null && Object.hasOwnProperty.call(message, "context"))
                         writer.uint32(/* id 1, wireType 2 =*/10).string(message.context);
                     if (message.sourceUrl != null && Object.hasOwnProperty.call(message, "sourceUrl"))
@@ -1550,7 +1524,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @returns {$protobuf.Writer} Writer
                  */
                 CtwaContextLinkData.encodeDelimited = function encodeDelimited(message, writer) {
-                    return this.encode(message, writer).ldelim();
+                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
                 };
 
                 /**
@@ -1710,30 +1684,22 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @param {$protobuf.IConversionOptions} [options] Conversion options
                  * @returns {Object.<string,*>} Plain object
                  */
-                CtwaContextLinkData.toObject = function toObject(message, options) {
+                CtwaContextLinkData.toObject = function toObject(message, options, _depth) {
                     if (!options)
                         options = {};
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw Error("max depth exceeded");
                     var object = {};
-                    if (message.context != null && message.hasOwnProperty("context")) {
+                    if (message.context != null && message.hasOwnProperty("context"))
                         object.context = message.context;
-                        if (options.oneofs)
-                            object._context = "context";
-                    }
-                    if (message.sourceUrl != null && message.hasOwnProperty("sourceUrl")) {
+                    if (message.sourceUrl != null && message.hasOwnProperty("sourceUrl"))
                         object.sourceUrl = message.sourceUrl;
-                        if (options.oneofs)
-                            object._sourceUrl = "sourceUrl";
-                    }
-                    if (message.icebreaker != null && message.hasOwnProperty("icebreaker")) {
+                    if (message.icebreaker != null && message.hasOwnProperty("icebreaker"))
                         object.icebreaker = message.icebreaker;
-                        if (options.oneofs)
-                            object._icebreaker = "icebreaker";
-                    }
-                    if (message.phone != null && message.hasOwnProperty("phone")) {
+                    if (message.phone != null && message.hasOwnProperty("phone"))
                         object.phone = message.phone;
-                        if (options.oneofs)
-                            object._phone = "phone";
-                    }
                     return object;
                 };
 

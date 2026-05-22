@@ -1,4 +1,4 @@
-/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
+/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-mixed-operators, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars, default-case, jsdoc/require-param*/
 "use strict";
 
 var $protobuf = require("protobufjs/minimal");
@@ -244,29 +244,33 @@ $root.AICommonDeprecated = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        AIRichResponseSubMessage.encode = function encode(message, writer) {
+        AIRichResponseSubMessage.encode = function encode(message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             if (message.messageType != null && Object.hasOwnProperty.call(message, "messageType"))
                 writer.uint32(/* id 1, wireType 0 =*/8).int32(message.messageType);
             if (message.gridImageMetadata != null && Object.hasOwnProperty.call(message, "gridImageMetadata"))
-                $root.AICommonDeprecated.AIRichResponseGridImageMetadata.encode(message.gridImageMetadata, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                $root.AICommonDeprecated.AIRichResponseGridImageMetadata.encode(message.gridImageMetadata, writer.uint32(/* id 2, wireType 2 =*/18).fork(), _depth + 1).ldelim();
             if (message.messageText != null && Object.hasOwnProperty.call(message, "messageText"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.messageText);
             if (message.imageMetadata != null && Object.hasOwnProperty.call(message, "imageMetadata"))
-                $root.AICommonDeprecated.AIRichResponseInlineImageMetadata.encode(message.imageMetadata, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+                $root.AICommonDeprecated.AIRichResponseInlineImageMetadata.encode(message.imageMetadata, writer.uint32(/* id 4, wireType 2 =*/34).fork(), _depth + 1).ldelim();
             if (message.codeMetadata != null && Object.hasOwnProperty.call(message, "codeMetadata"))
-                $root.AICommonDeprecated.AIRichResponseCodeMetadata.encode(message.codeMetadata, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
+                $root.AICommonDeprecated.AIRichResponseCodeMetadata.encode(message.codeMetadata, writer.uint32(/* id 5, wireType 2 =*/42).fork(), _depth + 1).ldelim();
             if (message.tableMetadata != null && Object.hasOwnProperty.call(message, "tableMetadata"))
-                $root.AICommonDeprecated.AIRichResponseTableMetadata.encode(message.tableMetadata, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
+                $root.AICommonDeprecated.AIRichResponseTableMetadata.encode(message.tableMetadata, writer.uint32(/* id 6, wireType 2 =*/50).fork(), _depth + 1).ldelim();
             if (message.dynamicMetadata != null && Object.hasOwnProperty.call(message, "dynamicMetadata"))
-                $root.AICommonDeprecated.AIRichResponseDynamicMetadata.encode(message.dynamicMetadata, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
+                $root.AICommonDeprecated.AIRichResponseDynamicMetadata.encode(message.dynamicMetadata, writer.uint32(/* id 7, wireType 2 =*/58).fork(), _depth + 1).ldelim();
             if (message.latexMetadata != null && Object.hasOwnProperty.call(message, "latexMetadata"))
-                $root.AICommonDeprecated.AIRichResponseLatexMetadata.encode(message.latexMetadata, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
+                $root.AICommonDeprecated.AIRichResponseLatexMetadata.encode(message.latexMetadata, writer.uint32(/* id 8, wireType 2 =*/66).fork(), _depth + 1).ldelim();
             if (message.mapMetadata != null && Object.hasOwnProperty.call(message, "mapMetadata"))
-                $root.AICommonDeprecated.AIRichResponseMapMetadata.encode(message.mapMetadata, writer.uint32(/* id 9, wireType 2 =*/74).fork()).ldelim();
+                $root.AICommonDeprecated.AIRichResponseMapMetadata.encode(message.mapMetadata, writer.uint32(/* id 9, wireType 2 =*/74).fork(), _depth + 1).ldelim();
             if (message.contentItemsMetadata != null && Object.hasOwnProperty.call(message, "contentItemsMetadata"))
-                $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.encode(message.contentItemsMetadata, writer.uint32(/* id 10, wireType 2 =*/82).fork()).ldelim();
+                $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.encode(message.contentItemsMetadata, writer.uint32(/* id 10, wireType 2 =*/82).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -283,7 +287,7 @@ $root.AICommonDeprecated = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         AIRichResponseSubMessage.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
+            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
         /**
@@ -634,60 +638,34 @@ $root.AICommonDeprecated = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        AIRichResponseSubMessage.toObject = function toObject(message, options) {
+        AIRichResponseSubMessage.toObject = function toObject(message, options, _depth) {
             if (!options)
                 options = {};
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var object = {};
-            if (message.messageType != null && message.hasOwnProperty("messageType")) {
+            if (message.messageType != null && message.hasOwnProperty("messageType"))
                 object.messageType = options.enums === String ? $root.AICommonDeprecated.AIRichResponseSubMessageType[message.messageType] === undefined ? message.messageType : $root.AICommonDeprecated.AIRichResponseSubMessageType[message.messageType] : message.messageType;
-                if (options.oneofs)
-                    object._messageType = "messageType";
-            }
-            if (message.gridImageMetadata != null && message.hasOwnProperty("gridImageMetadata")) {
-                object.gridImageMetadata = $root.AICommonDeprecated.AIRichResponseGridImageMetadata.toObject(message.gridImageMetadata, options);
-                if (options.oneofs)
-                    object._gridImageMetadata = "gridImageMetadata";
-            }
-            if (message.messageText != null && message.hasOwnProperty("messageText")) {
+            if (message.gridImageMetadata != null && message.hasOwnProperty("gridImageMetadata"))
+                object.gridImageMetadata = $root.AICommonDeprecated.AIRichResponseGridImageMetadata.toObject(message.gridImageMetadata, options, _depth + 1);
+            if (message.messageText != null && message.hasOwnProperty("messageText"))
                 object.messageText = message.messageText;
-                if (options.oneofs)
-                    object._messageText = "messageText";
-            }
-            if (message.imageMetadata != null && message.hasOwnProperty("imageMetadata")) {
-                object.imageMetadata = $root.AICommonDeprecated.AIRichResponseInlineImageMetadata.toObject(message.imageMetadata, options);
-                if (options.oneofs)
-                    object._imageMetadata = "imageMetadata";
-            }
-            if (message.codeMetadata != null && message.hasOwnProperty("codeMetadata")) {
-                object.codeMetadata = $root.AICommonDeprecated.AIRichResponseCodeMetadata.toObject(message.codeMetadata, options);
-                if (options.oneofs)
-                    object._codeMetadata = "codeMetadata";
-            }
-            if (message.tableMetadata != null && message.hasOwnProperty("tableMetadata")) {
-                object.tableMetadata = $root.AICommonDeprecated.AIRichResponseTableMetadata.toObject(message.tableMetadata, options);
-                if (options.oneofs)
-                    object._tableMetadata = "tableMetadata";
-            }
-            if (message.dynamicMetadata != null && message.hasOwnProperty("dynamicMetadata")) {
-                object.dynamicMetadata = $root.AICommonDeprecated.AIRichResponseDynamicMetadata.toObject(message.dynamicMetadata, options);
-                if (options.oneofs)
-                    object._dynamicMetadata = "dynamicMetadata";
-            }
-            if (message.latexMetadata != null && message.hasOwnProperty("latexMetadata")) {
-                object.latexMetadata = $root.AICommonDeprecated.AIRichResponseLatexMetadata.toObject(message.latexMetadata, options);
-                if (options.oneofs)
-                    object._latexMetadata = "latexMetadata";
-            }
-            if (message.mapMetadata != null && message.hasOwnProperty("mapMetadata")) {
-                object.mapMetadata = $root.AICommonDeprecated.AIRichResponseMapMetadata.toObject(message.mapMetadata, options);
-                if (options.oneofs)
-                    object._mapMetadata = "mapMetadata";
-            }
-            if (message.contentItemsMetadata != null && message.hasOwnProperty("contentItemsMetadata")) {
-                object.contentItemsMetadata = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.toObject(message.contentItemsMetadata, options);
-                if (options.oneofs)
-                    object._contentItemsMetadata = "contentItemsMetadata";
-            }
+            if (message.imageMetadata != null && message.hasOwnProperty("imageMetadata"))
+                object.imageMetadata = $root.AICommonDeprecated.AIRichResponseInlineImageMetadata.toObject(message.imageMetadata, options, _depth + 1);
+            if (message.codeMetadata != null && message.hasOwnProperty("codeMetadata"))
+                object.codeMetadata = $root.AICommonDeprecated.AIRichResponseCodeMetadata.toObject(message.codeMetadata, options, _depth + 1);
+            if (message.tableMetadata != null && message.hasOwnProperty("tableMetadata"))
+                object.tableMetadata = $root.AICommonDeprecated.AIRichResponseTableMetadata.toObject(message.tableMetadata, options, _depth + 1);
+            if (message.dynamicMetadata != null && message.hasOwnProperty("dynamicMetadata"))
+                object.dynamicMetadata = $root.AICommonDeprecated.AIRichResponseDynamicMetadata.toObject(message.dynamicMetadata, options, _depth + 1);
+            if (message.latexMetadata != null && message.hasOwnProperty("latexMetadata"))
+                object.latexMetadata = $root.AICommonDeprecated.AIRichResponseLatexMetadata.toObject(message.latexMetadata, options, _depth + 1);
+            if (message.mapMetadata != null && message.hasOwnProperty("mapMetadata"))
+                object.mapMetadata = $root.AICommonDeprecated.AIRichResponseMapMetadata.toObject(message.mapMetadata, options, _depth + 1);
+            if (message.contentItemsMetadata != null && message.hasOwnProperty("contentItemsMetadata"))
+                object.contentItemsMetadata = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.toObject(message.contentItemsMetadata, options, _depth + 1);
             return object;
         };
 
@@ -812,12 +790,16 @@ $root.AICommonDeprecated = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        AIRichResponseContentItemsMetadata.encode = function encode(message, writer) {
+        AIRichResponseContentItemsMetadata.encode = function encode(message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             if (message.itemsMetadata != null && message.itemsMetadata.length)
                 for (var i = 0; i < message.itemsMetadata.length; ++i)
-                    $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.encode(message.itemsMetadata[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                    $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.encode(message.itemsMetadata[i], writer.uint32(/* id 1, wireType 2 =*/10).fork(), _depth + 1).ldelim();
             if (message.contentType != null && Object.hasOwnProperty.call(message, "contentType"))
                 writer.uint32(/* id 2, wireType 0 =*/16).int32(message.contentType);
             if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
@@ -836,7 +818,7 @@ $root.AICommonDeprecated = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         AIRichResponseContentItemsMetadata.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
+            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
         /**
@@ -1000,22 +982,23 @@ $root.AICommonDeprecated = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        AIRichResponseContentItemsMetadata.toObject = function toObject(message, options) {
+        AIRichResponseContentItemsMetadata.toObject = function toObject(message, options, _depth) {
             if (!options)
                 options = {};
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var object = {};
             if (options.arrays || options.defaults)
                 object.itemsMetadata = [];
             if (message.itemsMetadata && message.itemsMetadata.length) {
                 object.itemsMetadata = Array(message.itemsMetadata.length);
                 for (var j = 0; j < message.itemsMetadata.length; ++j)
-                    object.itemsMetadata[j] = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.toObject(message.itemsMetadata[j], options);
+                    object.itemsMetadata[j] = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.toObject(message.itemsMetadata[j], options, _depth + 1);
             }
-            if (message.contentType != null && message.hasOwnProperty("contentType")) {
+            if (message.contentType != null && message.hasOwnProperty("contentType"))
                 object.contentType = options.enums === String ? $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.ContentType[message.contentType] === undefined ? message.contentType : $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.ContentType[message.contentType] : message.contentType;
-                if (options.oneofs)
-                    object._contentType = "contentType";
-            }
             return object;
         };
 
@@ -1134,11 +1117,15 @@ $root.AICommonDeprecated = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            AIRichResponseContentItemMetadata.encode = function encode(message, writer) {
+            AIRichResponseContentItemMetadata.encode = function encode(message, writer, _depth) {
                 if (!writer)
                     writer = $Writer.create();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 if (message.reelItem != null && Object.hasOwnProperty.call(message, "reelItem"))
-                    $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.encode(message.reelItem, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                    $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.encode(message.reelItem, writer.uint32(/* id 1, wireType 2 =*/10).fork(), _depth + 1).ldelim();
                 if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -1155,7 +1142,7 @@ $root.AICommonDeprecated = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             AIRichResponseContentItemMetadata.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
+                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
             };
 
             /**
@@ -1279,12 +1266,16 @@ $root.AICommonDeprecated = (function() {
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            AIRichResponseContentItemMetadata.toObject = function toObject(message, options) {
+            AIRichResponseContentItemMetadata.toObject = function toObject(message, options, _depth) {
                 if (!options)
                     options = {};
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var object = {};
                 if (message.reelItem != null && message.hasOwnProperty("reelItem")) {
-                    object.reelItem = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.toObject(message.reelItem, options);
+                    object.reelItem = $root.AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.toObject(message.reelItem, options, _depth + 1);
                     if (options.oneofs)
                         object.aIRichResponseContentItem = "reelItem";
                 }
@@ -1443,9 +1434,13 @@ $root.AICommonDeprecated = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            AIRichResponseReelItem.encode = function encode(message, writer) {
+            AIRichResponseReelItem.encode = function encode(message, writer, _depth) {
                 if (!writer)
                     writer = $Writer.create();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 if (message.title != null && Object.hasOwnProperty.call(message, "title"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.title);
                 if (message.profileIconUrl != null && Object.hasOwnProperty.call(message, "profileIconUrl"))
@@ -1470,7 +1465,7 @@ $root.AICommonDeprecated = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             AIRichResponseReelItem.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
+                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
             };
 
             /**
@@ -1630,30 +1625,22 @@ $root.AICommonDeprecated = (function() {
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            AIRichResponseReelItem.toObject = function toObject(message, options) {
+            AIRichResponseReelItem.toObject = function toObject(message, options, _depth) {
                 if (!options)
                     options = {};
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var object = {};
-                if (message.title != null && message.hasOwnProperty("title")) {
+                if (message.title != null && message.hasOwnProperty("title"))
                     object.title = message.title;
-                    if (options.oneofs)
-                        object._title = "title";
-                }
-                if (message.profileIconUrl != null && message.hasOwnProperty("profileIconUrl")) {
+                if (message.profileIconUrl != null && message.hasOwnProperty("profileIconUrl"))
                     object.profileIconUrl = message.profileIconUrl;
-                    if (options.oneofs)
-                        object._profileIconUrl = "profileIconUrl";
-                }
-                if (message.thumbnailUrl != null && message.hasOwnProperty("thumbnailUrl")) {
+                if (message.thumbnailUrl != null && message.hasOwnProperty("thumbnailUrl"))
                     object.thumbnailUrl = message.thumbnailUrl;
-                    if (options.oneofs)
-                        object._thumbnailUrl = "thumbnailUrl";
-                }
-                if (message.videoUrl != null && message.hasOwnProperty("videoUrl")) {
+                if (message.videoUrl != null && message.hasOwnProperty("videoUrl"))
                     object.videoUrl = message.videoUrl;
-                    if (options.oneofs)
-                        object._videoUrl = "videoUrl";
-                }
                 return object;
             };
 
@@ -1851,9 +1838,13 @@ $root.AICommonDeprecated = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        AIRichResponseMapMetadata.encode = function encode(message, writer) {
+        AIRichResponseMapMetadata.encode = function encode(message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             if (message.centerLatitude != null && Object.hasOwnProperty.call(message, "centerLatitude"))
                 writer.uint32(/* id 1, wireType 1 =*/9).double(message.centerLatitude);
             if (message.centerLongitude != null && Object.hasOwnProperty.call(message, "centerLongitude"))
@@ -1864,7 +1855,7 @@ $root.AICommonDeprecated = (function() {
                 writer.uint32(/* id 4, wireType 1 =*/33).double(message.longitudeDelta);
             if (message.annotations != null && message.annotations.length)
                 for (var i = 0; i < message.annotations.length; ++i)
-                    $root.AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.encode(message.annotations[i], writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
+                    $root.AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.encode(message.annotations[i], writer.uint32(/* id 5, wireType 2 =*/42).fork(), _depth + 1).ldelim();
             if (message.showInfoList != null && Object.hasOwnProperty.call(message, "showInfoList"))
                 writer.uint32(/* id 6, wireType 0 =*/48).bool(message.showInfoList);
             if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
@@ -1883,7 +1874,7 @@ $root.AICommonDeprecated = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         AIRichResponseMapMetadata.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
+            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
         /**
@@ -2084,42 +2075,31 @@ $root.AICommonDeprecated = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        AIRichResponseMapMetadata.toObject = function toObject(message, options) {
+        AIRichResponseMapMetadata.toObject = function toObject(message, options, _depth) {
             if (!options)
                 options = {};
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var object = {};
             if (options.arrays || options.defaults)
                 object.annotations = [];
-            if (message.centerLatitude != null && message.hasOwnProperty("centerLatitude")) {
+            if (message.centerLatitude != null && message.hasOwnProperty("centerLatitude"))
                 object.centerLatitude = options.json && !isFinite(message.centerLatitude) ? String(message.centerLatitude) : message.centerLatitude;
-                if (options.oneofs)
-                    object._centerLatitude = "centerLatitude";
-            }
-            if (message.centerLongitude != null && message.hasOwnProperty("centerLongitude")) {
+            if (message.centerLongitude != null && message.hasOwnProperty("centerLongitude"))
                 object.centerLongitude = options.json && !isFinite(message.centerLongitude) ? String(message.centerLongitude) : message.centerLongitude;
-                if (options.oneofs)
-                    object._centerLongitude = "centerLongitude";
-            }
-            if (message.latitudeDelta != null && message.hasOwnProperty("latitudeDelta")) {
+            if (message.latitudeDelta != null && message.hasOwnProperty("latitudeDelta"))
                 object.latitudeDelta = options.json && !isFinite(message.latitudeDelta) ? String(message.latitudeDelta) : message.latitudeDelta;
-                if (options.oneofs)
-                    object._latitudeDelta = "latitudeDelta";
-            }
-            if (message.longitudeDelta != null && message.hasOwnProperty("longitudeDelta")) {
+            if (message.longitudeDelta != null && message.hasOwnProperty("longitudeDelta"))
                 object.longitudeDelta = options.json && !isFinite(message.longitudeDelta) ? String(message.longitudeDelta) : message.longitudeDelta;
-                if (options.oneofs)
-                    object._longitudeDelta = "longitudeDelta";
-            }
             if (message.annotations && message.annotations.length) {
                 object.annotations = Array(message.annotations.length);
                 for (var j = 0; j < message.annotations.length; ++j)
-                    object.annotations[j] = $root.AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.toObject(message.annotations[j], options);
+                    object.annotations[j] = $root.AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.toObject(message.annotations[j], options, _depth + 1);
             }
-            if (message.showInfoList != null && message.hasOwnProperty("showInfoList")) {
+            if (message.showInfoList != null && message.hasOwnProperty("showInfoList"))
                 object.showInfoList = message.showInfoList;
-                if (options.oneofs)
-                    object._showInfoList = "showInfoList";
-            }
             return object;
         };
 
@@ -2287,9 +2267,13 @@ $root.AICommonDeprecated = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            AIRichResponseMapAnnotation.encode = function encode(message, writer) {
+            AIRichResponseMapAnnotation.encode = function encode(message, writer, _depth) {
                 if (!writer)
                     writer = $Writer.create();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 if (message.annotationNumber != null && Object.hasOwnProperty.call(message, "annotationNumber"))
                     writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.annotationNumber);
                 if (message.latitude != null && Object.hasOwnProperty.call(message, "latitude"))
@@ -2316,7 +2300,7 @@ $root.AICommonDeprecated = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             AIRichResponseMapAnnotation.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
+                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
             };
 
             /**
@@ -2490,35 +2474,24 @@ $root.AICommonDeprecated = (function() {
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            AIRichResponseMapAnnotation.toObject = function toObject(message, options) {
+            AIRichResponseMapAnnotation.toObject = function toObject(message, options, _depth) {
                 if (!options)
                     options = {};
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var object = {};
-                if (message.annotationNumber != null && message.hasOwnProperty("annotationNumber")) {
+                if (message.annotationNumber != null && message.hasOwnProperty("annotationNumber"))
                     object.annotationNumber = message.annotationNumber;
-                    if (options.oneofs)
-                        object._annotationNumber = "annotationNumber";
-                }
-                if (message.latitude != null && message.hasOwnProperty("latitude")) {
+                if (message.latitude != null && message.hasOwnProperty("latitude"))
                     object.latitude = options.json && !isFinite(message.latitude) ? String(message.latitude) : message.latitude;
-                    if (options.oneofs)
-                        object._latitude = "latitude";
-                }
-                if (message.longitude != null && message.hasOwnProperty("longitude")) {
+                if (message.longitude != null && message.hasOwnProperty("longitude"))
                     object.longitude = options.json && !isFinite(message.longitude) ? String(message.longitude) : message.longitude;
-                    if (options.oneofs)
-                        object._longitude = "longitude";
-                }
-                if (message.title != null && message.hasOwnProperty("title")) {
+                if (message.title != null && message.hasOwnProperty("title"))
                     object.title = message.title;
-                    if (options.oneofs)
-                        object._title = "title";
-                }
-                if (message.body != null && message.hasOwnProperty("body")) {
+                if (message.body != null && message.hasOwnProperty("body"))
                     object.body = message.body;
-                    if (options.oneofs)
-                        object._body = "body";
-                }
                 return object;
             };
 
@@ -2642,14 +2615,18 @@ $root.AICommonDeprecated = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        AIRichResponseLatexMetadata.encode = function encode(message, writer) {
+        AIRichResponseLatexMetadata.encode = function encode(message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             if (message.text != null && Object.hasOwnProperty.call(message, "text"))
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.text);
             if (message.expressions != null && message.expressions.length)
                 for (var i = 0; i < message.expressions.length; ++i)
-                    $root.AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.encode(message.expressions[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                    $root.AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.encode(message.expressions[i], writer.uint32(/* id 2, wireType 2 =*/18).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -2666,7 +2643,7 @@ $root.AICommonDeprecated = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         AIRichResponseLatexMetadata.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
+            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
         /**
@@ -2811,21 +2788,22 @@ $root.AICommonDeprecated = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        AIRichResponseLatexMetadata.toObject = function toObject(message, options) {
+        AIRichResponseLatexMetadata.toObject = function toObject(message, options, _depth) {
             if (!options)
                 options = {};
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var object = {};
             if (options.arrays || options.defaults)
                 object.expressions = [];
-            if (message.text != null && message.hasOwnProperty("text")) {
+            if (message.text != null && message.hasOwnProperty("text"))
                 object.text = message.text;
-                if (options.oneofs)
-                    object._text = "text";
-            }
             if (message.expressions && message.expressions.length) {
                 object.expressions = Array(message.expressions.length);
                 for (var j = 0; j < message.expressions.length; ++j)
-                    object.expressions[j] = $root.AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.toObject(message.expressions[j], options);
+                    object.expressions[j] = $root.AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.toObject(message.expressions[j], options, _depth + 1);
             }
             return object;
         };
@@ -3054,9 +3032,13 @@ $root.AICommonDeprecated = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            AIRichResponseLatexExpression.encode = function encode(message, writer) {
+            AIRichResponseLatexExpression.encode = function encode(message, writer, _depth) {
                 if (!writer)
                     writer = $Writer.create();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 if (message.latexExpression != null && Object.hasOwnProperty.call(message, "latexExpression"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.latexExpression);
                 if (message.url != null && Object.hasOwnProperty.call(message, "url"))
@@ -3091,7 +3073,7 @@ $root.AICommonDeprecated = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             AIRichResponseLatexExpression.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
+                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
             };
 
             /**
@@ -3321,55 +3303,32 @@ $root.AICommonDeprecated = (function() {
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            AIRichResponseLatexExpression.toObject = function toObject(message, options) {
+            AIRichResponseLatexExpression.toObject = function toObject(message, options, _depth) {
                 if (!options)
                     options = {};
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var object = {};
-                if (message.latexExpression != null && message.hasOwnProperty("latexExpression")) {
+                if (message.latexExpression != null && message.hasOwnProperty("latexExpression"))
                     object.latexExpression = message.latexExpression;
-                    if (options.oneofs)
-                        object._latexExpression = "latexExpression";
-                }
-                if (message.url != null && message.hasOwnProperty("url")) {
+                if (message.url != null && message.hasOwnProperty("url"))
                     object.url = message.url;
-                    if (options.oneofs)
-                        object._url = "url";
-                }
-                if (message.width != null && message.hasOwnProperty("width")) {
+                if (message.width != null && message.hasOwnProperty("width"))
                     object.width = options.json && !isFinite(message.width) ? String(message.width) : message.width;
-                    if (options.oneofs)
-                        object._width = "width";
-                }
-                if (message.height != null && message.hasOwnProperty("height")) {
+                if (message.height != null && message.hasOwnProperty("height"))
                     object.height = options.json && !isFinite(message.height) ? String(message.height) : message.height;
-                    if (options.oneofs)
-                        object._height = "height";
-                }
-                if (message.fontHeight != null && message.hasOwnProperty("fontHeight")) {
+                if (message.fontHeight != null && message.hasOwnProperty("fontHeight"))
                     object.fontHeight = options.json && !isFinite(message.fontHeight) ? String(message.fontHeight) : message.fontHeight;
-                    if (options.oneofs)
-                        object._fontHeight = "fontHeight";
-                }
-                if (message.imageTopPadding != null && message.hasOwnProperty("imageTopPadding")) {
+                if (message.imageTopPadding != null && message.hasOwnProperty("imageTopPadding"))
                     object.imageTopPadding = options.json && !isFinite(message.imageTopPadding) ? String(message.imageTopPadding) : message.imageTopPadding;
-                    if (options.oneofs)
-                        object._imageTopPadding = "imageTopPadding";
-                }
-                if (message.imageLeadingPadding != null && message.hasOwnProperty("imageLeadingPadding")) {
+                if (message.imageLeadingPadding != null && message.hasOwnProperty("imageLeadingPadding"))
                     object.imageLeadingPadding = options.json && !isFinite(message.imageLeadingPadding) ? String(message.imageLeadingPadding) : message.imageLeadingPadding;
-                    if (options.oneofs)
-                        object._imageLeadingPadding = "imageLeadingPadding";
-                }
-                if (message.imageBottomPadding != null && message.hasOwnProperty("imageBottomPadding")) {
+                if (message.imageBottomPadding != null && message.hasOwnProperty("imageBottomPadding"))
                     object.imageBottomPadding = options.json && !isFinite(message.imageBottomPadding) ? String(message.imageBottomPadding) : message.imageBottomPadding;
-                    if (options.oneofs)
-                        object._imageBottomPadding = "imageBottomPadding";
-                }
-                if (message.imageTrailingPadding != null && message.hasOwnProperty("imageTrailingPadding")) {
+                if (message.imageTrailingPadding != null && message.hasOwnProperty("imageTrailingPadding"))
                     object.imageTrailingPadding = options.json && !isFinite(message.imageTrailingPadding) ? String(message.imageTrailingPadding) : message.imageTrailingPadding;
-                    if (options.oneofs)
-                        object._imageTrailingPadding = "imageTrailingPadding";
-                }
                 return object;
             };
 
@@ -3528,9 +3487,13 @@ $root.AICommonDeprecated = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        AIRichResponseDynamicMetadata.encode = function encode(message, writer) {
+        AIRichResponseDynamicMetadata.encode = function encode(message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             if (message.type != null && Object.hasOwnProperty.call(message, "type"))
                 writer.uint32(/* id 1, wireType 0 =*/8).int32(message.type);
             if (message.version != null && Object.hasOwnProperty.call(message, "version"))
@@ -3555,7 +3518,7 @@ $root.AICommonDeprecated = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         AIRichResponseDynamicMetadata.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
+            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
         /**
@@ -3723,7 +3686,7 @@ $root.AICommonDeprecated = (function() {
             }
             if (object.version != null)
                 if ($util.Long)
-                    (message.version = $util.Long.fromValue(object.version)).unsigned = true;
+                    message.version = $util.Long.fromValue(object.version, true);
                 else if (typeof object.version === "string")
                     message.version = parseInt(object.version, 10);
                 else if (typeof object.version === "number")
@@ -3746,35 +3709,27 @@ $root.AICommonDeprecated = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        AIRichResponseDynamicMetadata.toObject = function toObject(message, options) {
+        AIRichResponseDynamicMetadata.toObject = function toObject(message, options, _depth) {
             if (!options)
                 options = {};
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var object = {};
-            if (message.type != null && message.hasOwnProperty("type")) {
+            if (message.type != null && message.hasOwnProperty("type"))
                 object.type = options.enums === String ? $root.AICommonDeprecated.AIRichResponseDynamicMetadata.AIRichResponseDynamicMetadataType[message.type] === undefined ? message.type : $root.AICommonDeprecated.AIRichResponseDynamicMetadata.AIRichResponseDynamicMetadataType[message.type] : message.type;
-                if (options.oneofs)
-                    object._type = "type";
-            }
-            if (message.version != null && message.hasOwnProperty("version")) {
+            if (message.version != null && message.hasOwnProperty("version"))
                 if (typeof BigInt !== "undefined" && options.longs === BigInt)
                     object.version = typeof message.version === "number" ? BigInt(message.version) : $util.Long.fromBits(message.version.low >>> 0, message.version.high >>> 0, true).toBigInt();
                 else if (typeof message.version === "number")
                     object.version = options.longs === String ? String(message.version) : message.version;
                 else
                     object.version = options.longs === String ? $util.Long.prototype.toString.call(message.version) : options.longs === Number ? new $util.LongBits(message.version.low >>> 0, message.version.high >>> 0).toNumber(true) : message.version;
-                if (options.oneofs)
-                    object._version = "version";
-            }
-            if (message.url != null && message.hasOwnProperty("url")) {
+            if (message.url != null && message.hasOwnProperty("url"))
                 object.url = message.url;
-                if (options.oneofs)
-                    object._url = "url";
-            }
-            if (message.loopCount != null && message.hasOwnProperty("loopCount")) {
+            if (message.loopCount != null && message.hasOwnProperty("loopCount"))
                 object.loopCount = message.loopCount;
-                if (options.oneofs)
-                    object._loopCount = "loopCount";
-            }
             return object;
         };
 
@@ -3911,12 +3866,16 @@ $root.AICommonDeprecated = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        AIRichResponseTableMetadata.encode = function encode(message, writer) {
+        AIRichResponseTableMetadata.encode = function encode(message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             if (message.rows != null && message.rows.length)
                 for (var i = 0; i < message.rows.length; ++i)
-                    $root.AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.encode(message.rows[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                    $root.AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.encode(message.rows[i], writer.uint32(/* id 1, wireType 2 =*/10).fork(), _depth + 1).ldelim();
             if (message.title != null && Object.hasOwnProperty.call(message, "title"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.title);
             if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
@@ -3935,7 +3894,7 @@ $root.AICommonDeprecated = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         AIRichResponseTableMetadata.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
+            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
         /**
@@ -4080,22 +4039,23 @@ $root.AICommonDeprecated = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        AIRichResponseTableMetadata.toObject = function toObject(message, options) {
+        AIRichResponseTableMetadata.toObject = function toObject(message, options, _depth) {
             if (!options)
                 options = {};
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var object = {};
             if (options.arrays || options.defaults)
                 object.rows = [];
             if (message.rows && message.rows.length) {
                 object.rows = Array(message.rows.length);
                 for (var j = 0; j < message.rows.length; ++j)
-                    object.rows[j] = $root.AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.toObject(message.rows[j], options);
+                    object.rows[j] = $root.AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.toObject(message.rows[j], options, _depth + 1);
             }
-            if (message.title != null && message.hasOwnProperty("title")) {
+            if (message.title != null && message.hasOwnProperty("title"))
                 object.title = message.title;
-                if (options.oneofs)
-                    object._title = "title";
-            }
             return object;
         };
 
@@ -4213,9 +4173,13 @@ $root.AICommonDeprecated = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            AIRichResponseTableRow.encode = function encode(message, writer) {
+            AIRichResponseTableRow.encode = function encode(message, writer, _depth) {
                 if (!writer)
                     writer = $Writer.create();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 if (message.items != null && message.items.length)
                     for (var i = 0; i < message.items.length; ++i)
                         writer.uint32(/* id 1, wireType 2 =*/10).string(message.items[i]);
@@ -4237,7 +4201,7 @@ $root.AICommonDeprecated = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             AIRichResponseTableRow.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
+                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
             };
 
             /**
@@ -4377,9 +4341,13 @@ $root.AICommonDeprecated = (function() {
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            AIRichResponseTableRow.toObject = function toObject(message, options) {
+            AIRichResponseTableRow.toObject = function toObject(message, options, _depth) {
                 if (!options)
                     options = {};
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var object = {};
                 if (options.arrays || options.defaults)
                     object.items = [];
@@ -4388,11 +4356,8 @@ $root.AICommonDeprecated = (function() {
                     for (var j = 0; j < message.items.length; ++j)
                         object.items[j] = message.items[j];
                 }
-                if (message.isHeading != null && message.hasOwnProperty("isHeading")) {
+                if (message.isHeading != null && message.hasOwnProperty("isHeading"))
                     object.isHeading = message.isHeading;
-                    if (options.oneofs)
-                        object._isHeading = "isHeading";
-                }
                 return object;
             };
 
@@ -4516,14 +4481,18 @@ $root.AICommonDeprecated = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        AIRichResponseCodeMetadata.encode = function encode(message, writer) {
+        AIRichResponseCodeMetadata.encode = function encode(message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             if (message.codeLanguage != null && Object.hasOwnProperty.call(message, "codeLanguage"))
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.codeLanguage);
             if (message.codeBlocks != null && message.codeBlocks.length)
                 for (var i = 0; i < message.codeBlocks.length; ++i)
-                    $root.AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.encode(message.codeBlocks[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                    $root.AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.encode(message.codeBlocks[i], writer.uint32(/* id 2, wireType 2 =*/18).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -4540,7 +4509,7 @@ $root.AICommonDeprecated = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         AIRichResponseCodeMetadata.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
+            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
         /**
@@ -4685,21 +4654,22 @@ $root.AICommonDeprecated = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        AIRichResponseCodeMetadata.toObject = function toObject(message, options) {
+        AIRichResponseCodeMetadata.toObject = function toObject(message, options, _depth) {
             if (!options)
                 options = {};
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var object = {};
             if (options.arrays || options.defaults)
                 object.codeBlocks = [];
-            if (message.codeLanguage != null && message.hasOwnProperty("codeLanguage")) {
+            if (message.codeLanguage != null && message.hasOwnProperty("codeLanguage"))
                 object.codeLanguage = message.codeLanguage;
-                if (options.oneofs)
-                    object._codeLanguage = "codeLanguage";
-            }
             if (message.codeBlocks && message.codeBlocks.length) {
                 object.codeBlocks = Array(message.codeBlocks.length);
                 for (var j = 0; j < message.codeBlocks.length; ++j)
-                    object.codeBlocks[j] = $root.AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.toObject(message.codeBlocks[j], options);
+                    object.codeBlocks[j] = $root.AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.toObject(message.codeBlocks[j], options, _depth + 1);
             }
             return object;
         };
@@ -4823,9 +4793,13 @@ $root.AICommonDeprecated = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            AIRichResponseCodeBlock.encode = function encode(message, writer) {
+            AIRichResponseCodeBlock.encode = function encode(message, writer, _depth) {
                 if (!writer)
                     writer = $Writer.create();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 if (message.highlightType != null && Object.hasOwnProperty.call(message, "highlightType"))
                     writer.uint32(/* id 1, wireType 0 =*/8).int32(message.highlightType);
                 if (message.codeContent != null && Object.hasOwnProperty.call(message, "codeContent"))
@@ -4846,7 +4820,7 @@ $root.AICommonDeprecated = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             AIRichResponseCodeBlock.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
+                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
             };
 
             /**
@@ -5017,20 +4991,18 @@ $root.AICommonDeprecated = (function() {
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            AIRichResponseCodeBlock.toObject = function toObject(message, options) {
+            AIRichResponseCodeBlock.toObject = function toObject(message, options, _depth) {
                 if (!options)
                     options = {};
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var object = {};
-                if (message.highlightType != null && message.hasOwnProperty("highlightType")) {
+                if (message.highlightType != null && message.hasOwnProperty("highlightType"))
                     object.highlightType = options.enums === String ? $root.AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeHighlightType[message.highlightType] === undefined ? message.highlightType : $root.AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeHighlightType[message.highlightType] : message.highlightType;
-                    if (options.oneofs)
-                        object._highlightType = "highlightType";
-                }
-                if (message.codeContent != null && message.hasOwnProperty("codeContent")) {
+                if (message.codeContent != null && message.hasOwnProperty("codeContent"))
                     object.codeContent = message.codeContent;
-                    if (options.oneofs)
-                        object._codeContent = "codeContent";
-                }
                 return object;
             };
 
@@ -5211,11 +5183,15 @@ $root.AICommonDeprecated = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        AIRichResponseInlineImageMetadata.encode = function encode(message, writer) {
+        AIRichResponseInlineImageMetadata.encode = function encode(message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             if (message.imageUrl != null && Object.hasOwnProperty.call(message, "imageUrl"))
-                $root.AICommonDeprecated.AIRichResponseImageURL.encode(message.imageUrl, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                $root.AICommonDeprecated.AIRichResponseImageURL.encode(message.imageUrl, writer.uint32(/* id 1, wireType 2 =*/10).fork(), _depth + 1).ldelim();
             if (message.imageText != null && Object.hasOwnProperty.call(message, "imageText"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.imageText);
             if (message.alignment != null && Object.hasOwnProperty.call(message, "alignment"))
@@ -5238,7 +5214,7 @@ $root.AICommonDeprecated = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         AIRichResponseInlineImageMetadata.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
+            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
         /**
@@ -5428,30 +5404,22 @@ $root.AICommonDeprecated = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        AIRichResponseInlineImageMetadata.toObject = function toObject(message, options) {
+        AIRichResponseInlineImageMetadata.toObject = function toObject(message, options, _depth) {
             if (!options)
                 options = {};
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var object = {};
-            if (message.imageUrl != null && message.hasOwnProperty("imageUrl")) {
-                object.imageUrl = $root.AICommonDeprecated.AIRichResponseImageURL.toObject(message.imageUrl, options);
-                if (options.oneofs)
-                    object._imageUrl = "imageUrl";
-            }
-            if (message.imageText != null && message.hasOwnProperty("imageText")) {
+            if (message.imageUrl != null && message.hasOwnProperty("imageUrl"))
+                object.imageUrl = $root.AICommonDeprecated.AIRichResponseImageURL.toObject(message.imageUrl, options, _depth + 1);
+            if (message.imageText != null && message.hasOwnProperty("imageText"))
                 object.imageText = message.imageText;
-                if (options.oneofs)
-                    object._imageText = "imageText";
-            }
-            if (message.alignment != null && message.hasOwnProperty("alignment")) {
+            if (message.alignment != null && message.hasOwnProperty("alignment"))
                 object.alignment = options.enums === String ? $root.AICommonDeprecated.AIRichResponseInlineImageMetadata.AIRichResponseImageAlignment[message.alignment] === undefined ? message.alignment : $root.AICommonDeprecated.AIRichResponseInlineImageMetadata.AIRichResponseImageAlignment[message.alignment] : message.alignment;
-                if (options.oneofs)
-                    object._alignment = "alignment";
-            }
-            if (message.tapLinkUrl != null && message.hasOwnProperty("tapLinkUrl")) {
+            if (message.tapLinkUrl != null && message.hasOwnProperty("tapLinkUrl"))
                 object.tapLinkUrl = message.tapLinkUrl;
-                if (options.oneofs)
-                    object._tapLinkUrl = "tapLinkUrl";
-            }
             return object;
         };
 
@@ -5588,14 +5556,18 @@ $root.AICommonDeprecated = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        AIRichResponseGridImageMetadata.encode = function encode(message, writer) {
+        AIRichResponseGridImageMetadata.encode = function encode(message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             if (message.gridImageUrl != null && Object.hasOwnProperty.call(message, "gridImageUrl"))
-                $root.AICommonDeprecated.AIRichResponseImageURL.encode(message.gridImageUrl, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                $root.AICommonDeprecated.AIRichResponseImageURL.encode(message.gridImageUrl, writer.uint32(/* id 1, wireType 2 =*/10).fork(), _depth + 1).ldelim();
             if (message.imageUrls != null && message.imageUrls.length)
                 for (var i = 0; i < message.imageUrls.length; ++i)
-                    $root.AICommonDeprecated.AIRichResponseImageURL.encode(message.imageUrls[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                    $root.AICommonDeprecated.AIRichResponseImageURL.encode(message.imageUrls[i], writer.uint32(/* id 2, wireType 2 =*/18).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -5612,7 +5584,7 @@ $root.AICommonDeprecated = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         AIRichResponseGridImageMetadata.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
+            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
         /**
@@ -5763,21 +5735,22 @@ $root.AICommonDeprecated = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        AIRichResponseGridImageMetadata.toObject = function toObject(message, options) {
+        AIRichResponseGridImageMetadata.toObject = function toObject(message, options, _depth) {
             if (!options)
                 options = {};
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var object = {};
             if (options.arrays || options.defaults)
                 object.imageUrls = [];
-            if (message.gridImageUrl != null && message.hasOwnProperty("gridImageUrl")) {
-                object.gridImageUrl = $root.AICommonDeprecated.AIRichResponseImageURL.toObject(message.gridImageUrl, options);
-                if (options.oneofs)
-                    object._gridImageUrl = "gridImageUrl";
-            }
+            if (message.gridImageUrl != null && message.hasOwnProperty("gridImageUrl"))
+                object.gridImageUrl = $root.AICommonDeprecated.AIRichResponseImageURL.toObject(message.gridImageUrl, options, _depth + 1);
             if (message.imageUrls && message.imageUrls.length) {
                 object.imageUrls = Array(message.imageUrls.length);
                 for (var j = 0; j < message.imageUrls.length; ++j)
-                    object.imageUrls[j] = $root.AICommonDeprecated.AIRichResponseImageURL.toObject(message.imageUrls[j], options);
+                    object.imageUrls[j] = $root.AICommonDeprecated.AIRichResponseImageURL.toObject(message.imageUrls[j], options, _depth + 1);
             }
             return object;
         };
@@ -5919,9 +5892,13 @@ $root.AICommonDeprecated = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        AIRichResponseImageURL.encode = function encode(message, writer) {
+        AIRichResponseImageURL.encode = function encode(message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             if (message.imagePreviewUrl != null && Object.hasOwnProperty.call(message, "imagePreviewUrl"))
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.imagePreviewUrl);
             if (message.imageHighResUrl != null && Object.hasOwnProperty.call(message, "imageHighResUrl"))
@@ -5944,7 +5921,7 @@ $root.AICommonDeprecated = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         AIRichResponseImageURL.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
+            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
         /**
@@ -6090,25 +6067,20 @@ $root.AICommonDeprecated = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        AIRichResponseImageURL.toObject = function toObject(message, options) {
+        AIRichResponseImageURL.toObject = function toObject(message, options, _depth) {
             if (!options)
                 options = {};
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var object = {};
-            if (message.imagePreviewUrl != null && message.hasOwnProperty("imagePreviewUrl")) {
+            if (message.imagePreviewUrl != null && message.hasOwnProperty("imagePreviewUrl"))
                 object.imagePreviewUrl = message.imagePreviewUrl;
-                if (options.oneofs)
-                    object._imagePreviewUrl = "imagePreviewUrl";
-            }
-            if (message.imageHighResUrl != null && message.hasOwnProperty("imageHighResUrl")) {
+            if (message.imageHighResUrl != null && message.hasOwnProperty("imageHighResUrl"))
                 object.imageHighResUrl = message.imageHighResUrl;
-                if (options.oneofs)
-                    object._imageHighResUrl = "imageHighResUrl";
-            }
-            if (message.sourceUrl != null && message.hasOwnProperty("sourceUrl")) {
+            if (message.sourceUrl != null && message.hasOwnProperty("sourceUrl"))
                 object.sourceUrl = message.sourceUrl;
-                if (options.oneofs)
-                    object._sourceUrl = "sourceUrl";
-            }
             return object;
         };
 
@@ -6368,25 +6340,29 @@ $root.StatusAttributions = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        StatusAttribution.encode = function encode(message, writer) {
+        StatusAttribution.encode = function encode(message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             if (message.type != null && Object.hasOwnProperty.call(message, "type"))
                 writer.uint32(/* id 1, wireType 0 =*/8).int32(message.type);
             if (message.actionUrl != null && Object.hasOwnProperty.call(message, "actionUrl"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.actionUrl);
             if (message.statusReshare != null && Object.hasOwnProperty.call(message, "statusReshare"))
-                $root.StatusAttributions.StatusAttribution.StatusReshare.encode(message.statusReshare, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                $root.StatusAttributions.StatusAttribution.StatusReshare.encode(message.statusReshare, writer.uint32(/* id 3, wireType 2 =*/26).fork(), _depth + 1).ldelim();
             if (message.externalShare != null && Object.hasOwnProperty.call(message, "externalShare"))
-                $root.StatusAttributions.StatusAttribution.ExternalShare.encode(message.externalShare, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+                $root.StatusAttributions.StatusAttribution.ExternalShare.encode(message.externalShare, writer.uint32(/* id 4, wireType 2 =*/34).fork(), _depth + 1).ldelim();
             if (message.music != null && Object.hasOwnProperty.call(message, "music"))
-                $root.StatusAttributions.StatusAttribution.Music.encode(message.music, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
+                $root.StatusAttributions.StatusAttribution.Music.encode(message.music, writer.uint32(/* id 5, wireType 2 =*/42).fork(), _depth + 1).ldelim();
             if (message.groupStatus != null && Object.hasOwnProperty.call(message, "groupStatus"))
-                $root.StatusAttributions.StatusAttribution.GroupStatus.encode(message.groupStatus, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
+                $root.StatusAttributions.StatusAttribution.GroupStatus.encode(message.groupStatus, writer.uint32(/* id 6, wireType 2 =*/50).fork(), _depth + 1).ldelim();
             if (message.rlAttribution != null && Object.hasOwnProperty.call(message, "rlAttribution"))
-                $root.StatusAttributions.StatusAttribution.RLAttribution.encode(message.rlAttribution, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
+                $root.StatusAttributions.StatusAttribution.RLAttribution.encode(message.rlAttribution, writer.uint32(/* id 7, wireType 2 =*/58).fork(), _depth + 1).ldelim();
             if (message.aiCreatedAttribution != null && Object.hasOwnProperty.call(message, "aiCreatedAttribution"))
-                $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.encode(message.aiCreatedAttribution, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
+                $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.encode(message.aiCreatedAttribution, writer.uint32(/* id 8, wireType 2 =*/66).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -6403,7 +6379,7 @@ $root.StatusAttributions = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         StatusAttribution.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
+            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
         /**
@@ -6734,47 +6710,45 @@ $root.StatusAttributions = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        StatusAttribution.toObject = function toObject(message, options) {
+        StatusAttribution.toObject = function toObject(message, options, _depth) {
             if (!options)
                 options = {};
+            if (_depth === undefined)
+                _depth = 0;
+            if (_depth > $util.recursionLimit)
+                throw Error("max depth exceeded");
             var object = {};
-            if (message.type != null && message.hasOwnProperty("type")) {
+            if (message.type != null && message.hasOwnProperty("type"))
                 object.type = options.enums === String ? $root.StatusAttributions.StatusAttribution.Type[message.type] === undefined ? message.type : $root.StatusAttributions.StatusAttribution.Type[message.type] : message.type;
-                if (options.oneofs)
-                    object._type = "type";
-            }
-            if (message.actionUrl != null && message.hasOwnProperty("actionUrl")) {
+            if (message.actionUrl != null && message.hasOwnProperty("actionUrl"))
                 object.actionUrl = message.actionUrl;
-                if (options.oneofs)
-                    object._actionUrl = "actionUrl";
-            }
             if (message.statusReshare != null && message.hasOwnProperty("statusReshare")) {
-                object.statusReshare = $root.StatusAttributions.StatusAttribution.StatusReshare.toObject(message.statusReshare, options);
+                object.statusReshare = $root.StatusAttributions.StatusAttribution.StatusReshare.toObject(message.statusReshare, options, _depth + 1);
                 if (options.oneofs)
                     object.attributionData = "statusReshare";
             }
             if (message.externalShare != null && message.hasOwnProperty("externalShare")) {
-                object.externalShare = $root.StatusAttributions.StatusAttribution.ExternalShare.toObject(message.externalShare, options);
+                object.externalShare = $root.StatusAttributions.StatusAttribution.ExternalShare.toObject(message.externalShare, options, _depth + 1);
                 if (options.oneofs)
                     object.attributionData = "externalShare";
             }
             if (message.music != null && message.hasOwnProperty("music")) {
-                object.music = $root.StatusAttributions.StatusAttribution.Music.toObject(message.music, options);
+                object.music = $root.StatusAttributions.StatusAttribution.Music.toObject(message.music, options, _depth + 1);
                 if (options.oneofs)
                     object.attributionData = "music";
             }
             if (message.groupStatus != null && message.hasOwnProperty("groupStatus")) {
-                object.groupStatus = $root.StatusAttributions.StatusAttribution.GroupStatus.toObject(message.groupStatus, options);
+                object.groupStatus = $root.StatusAttributions.StatusAttribution.GroupStatus.toObject(message.groupStatus, options, _depth + 1);
                 if (options.oneofs)
                     object.attributionData = "groupStatus";
             }
             if (message.rlAttribution != null && message.hasOwnProperty("rlAttribution")) {
-                object.rlAttribution = $root.StatusAttributions.StatusAttribution.RLAttribution.toObject(message.rlAttribution, options);
+                object.rlAttribution = $root.StatusAttributions.StatusAttribution.RLAttribution.toObject(message.rlAttribution, options, _depth + 1);
                 if (options.oneofs)
                     object.attributionData = "rlAttribution";
             }
             if (message.aiCreatedAttribution != null && message.hasOwnProperty("aiCreatedAttribution")) {
-                object.aiCreatedAttribution = $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.toObject(message.aiCreatedAttribution, options);
+                object.aiCreatedAttribution = $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.toObject(message.aiCreatedAttribution, options, _depth + 1);
                 if (options.oneofs)
                     object.attributionData = "aiCreatedAttribution";
             }
@@ -6885,9 +6859,13 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            AiCreatedAttribution.encode = function encode(message, writer) {
+            AiCreatedAttribution.encode = function encode(message, writer, _depth) {
                 if (!writer)
                     writer = $Writer.create();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 if (message.source != null && Object.hasOwnProperty.call(message, "source"))
                     writer.uint32(/* id 1, wireType 0 =*/8).int32(message.source);
                 if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
@@ -6906,7 +6884,7 @@ $root.StatusAttributions = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             AiCreatedAttribution.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
+                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
             };
 
             /**
@@ -7043,15 +7021,16 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            AiCreatedAttribution.toObject = function toObject(message, options) {
+            AiCreatedAttribution.toObject = function toObject(message, options, _depth) {
                 if (!options)
                     options = {};
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var object = {};
-                if (message.source != null && message.hasOwnProperty("source")) {
+                if (message.source != null && message.hasOwnProperty("source"))
                     object.source = options.enums === String ? $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.Source[message.source] === undefined ? message.source : $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.Source[message.source] : message.source;
-                    if (options.oneofs)
-                        object._source = "source";
-                }
                 return object;
             };
 
@@ -7221,9 +7200,13 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            ExternalShare.encode = function encode(message, writer) {
+            ExternalShare.encode = function encode(message, writer, _depth) {
                 if (!writer)
                     writer = $Writer.create();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 if (message.actionUrl != null && Object.hasOwnProperty.call(message, "actionUrl"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.actionUrl);
                 if (message.source != null && Object.hasOwnProperty.call(message, "source"))
@@ -7248,7 +7231,7 @@ $root.StatusAttributions = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ExternalShare.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
+                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
             };
 
             /**
@@ -7482,30 +7465,22 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            ExternalShare.toObject = function toObject(message, options) {
+            ExternalShare.toObject = function toObject(message, options, _depth) {
                 if (!options)
                     options = {};
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var object = {};
-                if (message.actionUrl != null && message.hasOwnProperty("actionUrl")) {
+                if (message.actionUrl != null && message.hasOwnProperty("actionUrl"))
                     object.actionUrl = message.actionUrl;
-                    if (options.oneofs)
-                        object._actionUrl = "actionUrl";
-                }
-                if (message.source != null && message.hasOwnProperty("source")) {
+                if (message.source != null && message.hasOwnProperty("source"))
                     object.source = options.enums === String ? $root.StatusAttributions.StatusAttribution.ExternalShare.Source[message.source] === undefined ? message.source : $root.StatusAttributions.StatusAttribution.ExternalShare.Source[message.source] : message.source;
-                    if (options.oneofs)
-                        object._source = "source";
-                }
-                if (message.duration != null && message.hasOwnProperty("duration")) {
+                if (message.duration != null && message.hasOwnProperty("duration"))
                     object.duration = message.duration;
-                    if (options.oneofs)
-                        object._duration = "duration";
-                }
-                if (message.actionFallbackUrl != null && message.hasOwnProperty("actionFallbackUrl")) {
+                if (message.actionFallbackUrl != null && message.hasOwnProperty("actionFallbackUrl"))
                     object.actionFallbackUrl = message.actionFallbackUrl;
-                    if (options.oneofs)
-                        object._actionFallbackUrl = "actionFallbackUrl";
-                }
                 return object;
             };
 
@@ -7652,9 +7627,13 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            GroupStatus.encode = function encode(message, writer) {
+            GroupStatus.encode = function encode(message, writer, _depth) {
                 if (!writer)
                     writer = $Writer.create();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 if (message.authorJid != null && Object.hasOwnProperty.call(message, "authorJid"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.authorJid);
                 if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
@@ -7673,7 +7652,7 @@ $root.StatusAttributions = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GroupStatus.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
+                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
             };
 
             /**
@@ -7791,15 +7770,16 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            GroupStatus.toObject = function toObject(message, options) {
+            GroupStatus.toObject = function toObject(message, options, _depth) {
                 if (!options)
                     options = {};
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var object = {};
-                if (message.authorJid != null && message.hasOwnProperty("authorJid")) {
+                if (message.authorJid != null && message.hasOwnProperty("authorJid"))
                     object.authorJid = message.authorJid;
-                    if (options.oneofs)
-                        object._authorJid = "authorJid";
-                }
                 return object;
             };
 
@@ -7985,9 +7965,13 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            Music.encode = function encode(message, writer) {
+            Music.encode = function encode(message, writer, _depth) {
                 if (!writer)
                     writer = $Writer.create();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 if (message.authorName != null && Object.hasOwnProperty.call(message, "authorName"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.authorName);
                 if (message.songId != null && Object.hasOwnProperty.call(message, "songId"))
@@ -8016,7 +8000,7 @@ $root.StatusAttributions = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Music.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
+                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
             };
 
             /**
@@ -8204,40 +8188,26 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            Music.toObject = function toObject(message, options) {
+            Music.toObject = function toObject(message, options, _depth) {
                 if (!options)
                     options = {};
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var object = {};
-                if (message.authorName != null && message.hasOwnProperty("authorName")) {
+                if (message.authorName != null && message.hasOwnProperty("authorName"))
                     object.authorName = message.authorName;
-                    if (options.oneofs)
-                        object._authorName = "authorName";
-                }
-                if (message.songId != null && message.hasOwnProperty("songId")) {
+                if (message.songId != null && message.hasOwnProperty("songId"))
                     object.songId = message.songId;
-                    if (options.oneofs)
-                        object._songId = "songId";
-                }
-                if (message.title != null && message.hasOwnProperty("title")) {
+                if (message.title != null && message.hasOwnProperty("title"))
                     object.title = message.title;
-                    if (options.oneofs)
-                        object._title = "title";
-                }
-                if (message.author != null && message.hasOwnProperty("author")) {
+                if (message.author != null && message.hasOwnProperty("author"))
                     object.author = message.author;
-                    if (options.oneofs)
-                        object._author = "author";
-                }
-                if (message.artistAttribution != null && message.hasOwnProperty("artistAttribution")) {
+                if (message.artistAttribution != null && message.hasOwnProperty("artistAttribution"))
                     object.artistAttribution = message.artistAttribution;
-                    if (options.oneofs)
-                        object._artistAttribution = "artistAttribution";
-                }
-                if (message.isExplicit != null && message.hasOwnProperty("isExplicit")) {
+                if (message.isExplicit != null && message.hasOwnProperty("isExplicit"))
                     object.isExplicit = message.isExplicit;
-                    if (options.oneofs)
-                        object._isExplicit = "isExplicit";
-                }
                 return object;
             };
 
@@ -8348,9 +8318,13 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            RLAttribution.encode = function encode(message, writer) {
+            RLAttribution.encode = function encode(message, writer, _depth) {
                 if (!writer)
                     writer = $Writer.create();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 if (message.source != null && Object.hasOwnProperty.call(message, "source"))
                     writer.uint32(/* id 1, wireType 0 =*/8).int32(message.source);
                 if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
@@ -8369,7 +8343,7 @@ $root.StatusAttributions = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             RLAttribution.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
+                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
             };
 
             /**
@@ -8516,15 +8490,16 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            RLAttribution.toObject = function toObject(message, options) {
+            RLAttribution.toObject = function toObject(message, options, _depth) {
                 if (!options)
                     options = {};
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var object = {};
-                if (message.source != null && message.hasOwnProperty("source")) {
+                if (message.source != null && message.hasOwnProperty("source"))
                     object.source = options.enums === String ? $root.StatusAttributions.StatusAttribution.RLAttribution.Source[message.source] === undefined ? message.source : $root.StatusAttributions.StatusAttribution.RLAttribution.Source[message.source] : message.source;
-                    if (options.oneofs)
-                        object._source = "source";
-                }
                 return object;
             };
 
@@ -8668,13 +8643,17 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            StatusReshare.encode = function encode(message, writer) {
+            StatusReshare.encode = function encode(message, writer, _depth) {
                 if (!writer)
                     writer = $Writer.create();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 if (message.source != null && Object.hasOwnProperty.call(message, "source"))
                     writer.uint32(/* id 1, wireType 0 =*/8).int32(message.source);
                 if (message.metadata != null && Object.hasOwnProperty.call(message, "metadata"))
-                    $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.encode(message.metadata, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                    $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.encode(message.metadata, writer.uint32(/* id 2, wireType 2 =*/18).fork(), _depth + 1).ldelim();
                 if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -8691,7 +8670,7 @@ $root.StatusAttributions = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             StatusReshare.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
+                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
             };
 
             /**
@@ -8863,20 +8842,18 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            StatusReshare.toObject = function toObject(message, options) {
+            StatusReshare.toObject = function toObject(message, options, _depth) {
                 if (!options)
                     options = {};
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
                 var object = {};
-                if (message.source != null && message.hasOwnProperty("source")) {
+                if (message.source != null && message.hasOwnProperty("source"))
                     object.source = options.enums === String ? $root.StatusAttributions.StatusAttribution.StatusReshare.Source[message.source] === undefined ? message.source : $root.StatusAttributions.StatusAttribution.StatusReshare.Source[message.source] : message.source;
-                    if (options.oneofs)
-                        object._source = "source";
-                }
-                if (message.metadata != null && message.hasOwnProperty("metadata")) {
-                    object.metadata = $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.toObject(message.metadata, options);
-                    if (options.oneofs)
-                        object._metadata = "metadata";
-                }
+                if (message.metadata != null && message.hasOwnProperty("metadata"))
+                    object.metadata = $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.toObject(message.metadata, options, _depth + 1);
                 return object;
             };
 
@@ -9029,9 +9006,13 @@ $root.StatusAttributions = (function() {
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
-                Metadata.encode = function encode(message, writer) {
+                Metadata.encode = function encode(message, writer, _depth) {
                     if (!writer)
                         writer = $Writer.create();
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw Error("max depth exceeded");
                     if (message.duration != null && Object.hasOwnProperty.call(message, "duration"))
                         writer.uint32(/* id 1, wireType 0 =*/8).int32(message.duration);
                     if (message.channelJid != null && Object.hasOwnProperty.call(message, "channelJid"))
@@ -9056,7 +9037,7 @@ $root.StatusAttributions = (function() {
                  * @returns {$protobuf.Writer} Writer
                  */
                 Metadata.encodeDelimited = function encodeDelimited(message, writer) {
-                    return this.encode(message, writer).ldelim();
+                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
                 };
 
                 /**
@@ -9216,30 +9197,22 @@ $root.StatusAttributions = (function() {
                  * @param {$protobuf.IConversionOptions} [options] Conversion options
                  * @returns {Object.<string,*>} Plain object
                  */
-                Metadata.toObject = function toObject(message, options) {
+                Metadata.toObject = function toObject(message, options, _depth) {
                     if (!options)
                         options = {};
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw Error("max depth exceeded");
                     var object = {};
-                    if (message.duration != null && message.hasOwnProperty("duration")) {
+                    if (message.duration != null && message.hasOwnProperty("duration"))
                         object.duration = message.duration;
-                        if (options.oneofs)
-                            object._duration = "duration";
-                    }
-                    if (message.channelJid != null && message.hasOwnProperty("channelJid")) {
+                    if (message.channelJid != null && message.hasOwnProperty("channelJid"))
                         object.channelJid = message.channelJid;
-                        if (options.oneofs)
-                            object._channelJid = "channelJid";
-                    }
-                    if (message.channelMessageId != null && message.hasOwnProperty("channelMessageId")) {
+                    if (message.channelMessageId != null && message.hasOwnProperty("channelMessageId"))
                         object.channelMessageId = message.channelMessageId;
-                        if (options.oneofs)
-                            object._channelMessageId = "channelMessageId";
-                    }
-                    if (message.hasMultipleReshares != null && message.hasOwnProperty("hasMultipleReshares")) {
+                    if (message.hasMultipleReshares != null && message.hasOwnProperty("hasMultipleReshares"))
                         object.hasMultipleReshares = message.hasMultipleReshares;
-                        if (options.oneofs)
-                            object._hasMultipleReshares = "hasMultipleReshares";
-                    }
                     return object;
                 };
 
