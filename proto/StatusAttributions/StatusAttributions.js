@@ -318,8 +318,10 @@ $root.StatusAttributions = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -455,6 +457,8 @@ $root.StatusAttributions = (function() {
         StatusAttribution.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.StatusAttributions.StatusAttribution)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".StatusAttributions.StatusAttribution: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -519,32 +523,32 @@ $root.StatusAttributions = (function() {
             if (object.actionUrl != null)
                 message.actionUrl = String(object.actionUrl);
             if (object.statusReshare != null) {
-                if (typeof object.statusReshare !== "object")
+                if (!$util.isObject(object.statusReshare))
                     throw TypeError(".StatusAttributions.StatusAttribution.statusReshare: object expected");
                 message.statusReshare = $root.StatusAttributions.StatusAttribution.StatusReshare.fromObject(object.statusReshare, _depth + 1);
             }
             if (object.externalShare != null) {
-                if (typeof object.externalShare !== "object")
+                if (!$util.isObject(object.externalShare))
                     throw TypeError(".StatusAttributions.StatusAttribution.externalShare: object expected");
                 message.externalShare = $root.StatusAttributions.StatusAttribution.ExternalShare.fromObject(object.externalShare, _depth + 1);
             }
             if (object.music != null) {
-                if (typeof object.music !== "object")
+                if (!$util.isObject(object.music))
                     throw TypeError(".StatusAttributions.StatusAttribution.music: object expected");
                 message.music = $root.StatusAttributions.StatusAttribution.Music.fromObject(object.music, _depth + 1);
             }
             if (object.groupStatus != null) {
-                if (typeof object.groupStatus !== "object")
+                if (!$util.isObject(object.groupStatus))
                     throw TypeError(".StatusAttributions.StatusAttribution.groupStatus: object expected");
                 message.groupStatus = $root.StatusAttributions.StatusAttribution.GroupStatus.fromObject(object.groupStatus, _depth + 1);
             }
             if (object.rlAttribution != null) {
-                if (typeof object.rlAttribution !== "object")
+                if (!$util.isObject(object.rlAttribution))
                     throw TypeError(".StatusAttributions.StatusAttribution.rlAttribution: object expected");
                 message.rlAttribution = $root.StatusAttributions.StatusAttribution.RLAttribution.fromObject(object.rlAttribution, _depth + 1);
             }
             if (object.aiCreatedAttribution != null) {
-                if (typeof object.aiCreatedAttribution !== "object")
+                if (!$util.isObject(object.aiCreatedAttribution))
                     throw TypeError(".StatusAttributions.StatusAttribution.aiCreatedAttribution: object expected");
                 message.aiCreatedAttribution = $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.fromObject(object.aiCreatedAttribution, _depth + 1);
             }
@@ -774,8 +778,10 @@ $root.StatusAttributions = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -838,6 +844,8 @@ $root.StatusAttributions = (function() {
             AiCreatedAttribution.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.StatusAttributions.StatusAttribution.AiCreatedAttribution)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".StatusAttributions.StatusAttribution.AiCreatedAttribution: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -1142,8 +1150,10 @@ $root.StatusAttributions = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -1232,6 +1242,8 @@ $root.StatusAttributions = (function() {
             ExternalShare.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.StatusAttributions.StatusAttribution.ExternalShare)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".StatusAttributions.StatusAttribution.ExternalShare: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -1542,8 +1554,10 @@ $root.StatusAttributions = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -1601,6 +1615,8 @@ $root.StatusAttributions = (function() {
             GroupStatus.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.StatusAttributions.StatusAttribution.GroupStatus)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".StatusAttributions.StatusAttribution.GroupStatus: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -1925,8 +1941,10 @@ $root.StatusAttributions = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -2009,6 +2027,8 @@ $root.StatusAttributions = (function() {
             Music.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.StatusAttributions.StatusAttribution.Music)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".StatusAttributions.StatusAttribution.Music: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -2233,8 +2253,10 @@ $root.StatusAttributions = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -2299,6 +2321,8 @@ $root.StatusAttributions = (function() {
             RLAttribution.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.StatusAttributions.StatusAttribution.RLAttribution)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".StatusAttributions.StatusAttribution.RLAttribution: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -2567,8 +2591,10 @@ $root.StatusAttributions = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -2642,6 +2668,8 @@ $root.StatusAttributions = (function() {
             StatusReshare.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.StatusAttributions.StatusAttribution.StatusReshare)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".StatusAttributions.StatusAttribution.StatusReshare: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -2676,7 +2704,7 @@ $root.StatusAttributions = (function() {
                     break;
                 }
                 if (object.metadata != null) {
-                    if (typeof object.metadata !== "object")
+                    if (!$util.isObject(object.metadata))
                         throw TypeError(".StatusAttributions.StatusAttribution.StatusReshare.metadata: object expected");
                     message.metadata = $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.fromObject(object.metadata, _depth + 1);
                 }
@@ -2948,8 +2976,10 @@ $root.StatusAttributions = (function() {
                             }
                         }
                         reader.skipType(wireType, _depth, tag);
-                        $util.makeProp(message, "$unknowns", false);
-                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                        if (!reader.discardUnknown) {
+                            $util.makeProp(message, "$unknowns", false);
+                            (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                        }
                     }
                     if (_end !== undefined)
                         throw Error("missing end group");
@@ -3022,6 +3052,8 @@ $root.StatusAttributions = (function() {
                 Metadata.fromObject = function fromObject(object, _depth) {
                     if (object instanceof $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata)
                         return object;
+                    if (!$util.isObject(object))
+                        throw TypeError(".StatusAttributions.StatusAttribution.StatusReshare.Metadata: object expected");
                     if (_depth === undefined)
                         _depth = 0;
                     if (_depth > $util.recursionLimit)

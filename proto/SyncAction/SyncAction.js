@@ -402,8 +402,10 @@ $root.SyncAction = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -526,6 +528,8 @@ $root.SyncAction = (function() {
         PatchDebugData.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.SyncAction.PatchDebugData)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".SyncAction.PatchDebugData: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -954,8 +958,10 @@ $root.SyncAction = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -1031,6 +1037,8 @@ $root.SyncAction = (function() {
         SyncActionData.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.SyncAction.SyncActionData)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".SyncAction.SyncActionData: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -1042,7 +1050,7 @@ $root.SyncAction = (function() {
                 else if (object.index.length >= 0)
                     message.index = object.index;
             if (object.value != null) {
-                if (typeof object.value !== "object")
+                if (!$util.isObject(object.value))
                     throw TypeError(".SyncAction.SyncActionData.value: object expected");
                 message.value = $root.SyncAction.SyncActionValue.fromObject(object.value, _depth + 1);
             }
@@ -3184,8 +3192,10 @@ $root.SyncAction = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -3859,6 +3869,8 @@ $root.SyncAction = (function() {
         SyncActionValue.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.SyncAction.SyncActionValue)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".SyncAction.SyncActionValue: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -3874,387 +3886,387 @@ $root.SyncAction = (function() {
                 else if (typeof object.timestamp === "object")
                     message.timestamp = new $util.LongBits(object.timestamp.low >>> 0, object.timestamp.high >>> 0).toNumber();
             if (object.starAction != null) {
-                if (typeof object.starAction !== "object")
+                if (!$util.isObject(object.starAction))
                     throw TypeError(".SyncAction.SyncActionValue.starAction: object expected");
                 message.starAction = $root.SyncAction.SyncActionValue.StarAction.fromObject(object.starAction, _depth + 1);
             }
             if (object.contactAction != null) {
-                if (typeof object.contactAction !== "object")
+                if (!$util.isObject(object.contactAction))
                     throw TypeError(".SyncAction.SyncActionValue.contactAction: object expected");
                 message.contactAction = $root.SyncAction.SyncActionValue.ContactAction.fromObject(object.contactAction, _depth + 1);
             }
             if (object.muteAction != null) {
-                if (typeof object.muteAction !== "object")
+                if (!$util.isObject(object.muteAction))
                     throw TypeError(".SyncAction.SyncActionValue.muteAction: object expected");
                 message.muteAction = $root.SyncAction.SyncActionValue.MuteAction.fromObject(object.muteAction, _depth + 1);
             }
             if (object.pinAction != null) {
-                if (typeof object.pinAction !== "object")
+                if (!$util.isObject(object.pinAction))
                     throw TypeError(".SyncAction.SyncActionValue.pinAction: object expected");
                 message.pinAction = $root.SyncAction.SyncActionValue.PinAction.fromObject(object.pinAction, _depth + 1);
             }
             if (object.pushNameSetting != null) {
-                if (typeof object.pushNameSetting !== "object")
+                if (!$util.isObject(object.pushNameSetting))
                     throw TypeError(".SyncAction.SyncActionValue.pushNameSetting: object expected");
                 message.pushNameSetting = $root.SyncAction.SyncActionValue.PushNameSetting.fromObject(object.pushNameSetting, _depth + 1);
             }
             if (object.quickReplyAction != null) {
-                if (typeof object.quickReplyAction !== "object")
+                if (!$util.isObject(object.quickReplyAction))
                     throw TypeError(".SyncAction.SyncActionValue.quickReplyAction: object expected");
                 message.quickReplyAction = $root.SyncAction.SyncActionValue.QuickReplyAction.fromObject(object.quickReplyAction, _depth + 1);
             }
             if (object.recentEmojiWeightsAction != null) {
-                if (typeof object.recentEmojiWeightsAction !== "object")
+                if (!$util.isObject(object.recentEmojiWeightsAction))
                     throw TypeError(".SyncAction.SyncActionValue.recentEmojiWeightsAction: object expected");
                 message.recentEmojiWeightsAction = $root.SyncAction.SyncActionValue.RecentEmojiWeightsAction.fromObject(object.recentEmojiWeightsAction, _depth + 1);
             }
             if (object.labelEditAction != null) {
-                if (typeof object.labelEditAction !== "object")
+                if (!$util.isObject(object.labelEditAction))
                     throw TypeError(".SyncAction.SyncActionValue.labelEditAction: object expected");
                 message.labelEditAction = $root.SyncAction.SyncActionValue.LabelEditAction.fromObject(object.labelEditAction, _depth + 1);
             }
             if (object.labelAssociationAction != null) {
-                if (typeof object.labelAssociationAction !== "object")
+                if (!$util.isObject(object.labelAssociationAction))
                     throw TypeError(".SyncAction.SyncActionValue.labelAssociationAction: object expected");
                 message.labelAssociationAction = $root.SyncAction.SyncActionValue.LabelAssociationAction.fromObject(object.labelAssociationAction, _depth + 1);
             }
             if (object.localeSetting != null) {
-                if (typeof object.localeSetting !== "object")
+                if (!$util.isObject(object.localeSetting))
                     throw TypeError(".SyncAction.SyncActionValue.localeSetting: object expected");
                 message.localeSetting = $root.SyncAction.SyncActionValue.LocaleSetting.fromObject(object.localeSetting, _depth + 1);
             }
             if (object.archiveChatAction != null) {
-                if (typeof object.archiveChatAction !== "object")
+                if (!$util.isObject(object.archiveChatAction))
                     throw TypeError(".SyncAction.SyncActionValue.archiveChatAction: object expected");
                 message.archiveChatAction = $root.SyncAction.SyncActionValue.ArchiveChatAction.fromObject(object.archiveChatAction, _depth + 1);
             }
             if (object.deleteMessageForMeAction != null) {
-                if (typeof object.deleteMessageForMeAction !== "object")
+                if (!$util.isObject(object.deleteMessageForMeAction))
                     throw TypeError(".SyncAction.SyncActionValue.deleteMessageForMeAction: object expected");
                 message.deleteMessageForMeAction = $root.SyncAction.SyncActionValue.DeleteMessageForMeAction.fromObject(object.deleteMessageForMeAction, _depth + 1);
             }
             if (object.keyExpiration != null) {
-                if (typeof object.keyExpiration !== "object")
+                if (!$util.isObject(object.keyExpiration))
                     throw TypeError(".SyncAction.SyncActionValue.keyExpiration: object expected");
                 message.keyExpiration = $root.SyncAction.SyncActionValue.KeyExpiration.fromObject(object.keyExpiration, _depth + 1);
             }
             if (object.markChatAsReadAction != null) {
-                if (typeof object.markChatAsReadAction !== "object")
+                if (!$util.isObject(object.markChatAsReadAction))
                     throw TypeError(".SyncAction.SyncActionValue.markChatAsReadAction: object expected");
                 message.markChatAsReadAction = $root.SyncAction.SyncActionValue.MarkChatAsReadAction.fromObject(object.markChatAsReadAction, _depth + 1);
             }
             if (object.clearChatAction != null) {
-                if (typeof object.clearChatAction !== "object")
+                if (!$util.isObject(object.clearChatAction))
                     throw TypeError(".SyncAction.SyncActionValue.clearChatAction: object expected");
                 message.clearChatAction = $root.SyncAction.SyncActionValue.ClearChatAction.fromObject(object.clearChatAction, _depth + 1);
             }
             if (object.deleteChatAction != null) {
-                if (typeof object.deleteChatAction !== "object")
+                if (!$util.isObject(object.deleteChatAction))
                     throw TypeError(".SyncAction.SyncActionValue.deleteChatAction: object expected");
                 message.deleteChatAction = $root.SyncAction.SyncActionValue.DeleteChatAction.fromObject(object.deleteChatAction, _depth + 1);
             }
             if (object.unarchiveChatsSetting != null) {
-                if (typeof object.unarchiveChatsSetting !== "object")
+                if (!$util.isObject(object.unarchiveChatsSetting))
                     throw TypeError(".SyncAction.SyncActionValue.unarchiveChatsSetting: object expected");
                 message.unarchiveChatsSetting = $root.SyncAction.SyncActionValue.UnarchiveChatsSetting.fromObject(object.unarchiveChatsSetting, _depth + 1);
             }
             if (object.primaryFeature != null) {
-                if (typeof object.primaryFeature !== "object")
+                if (!$util.isObject(object.primaryFeature))
                     throw TypeError(".SyncAction.SyncActionValue.primaryFeature: object expected");
                 message.primaryFeature = $root.SyncAction.SyncActionValue.PrimaryFeature.fromObject(object.primaryFeature, _depth + 1);
             }
             if (object.androidUnsupportedActions != null) {
-                if (typeof object.androidUnsupportedActions !== "object")
+                if (!$util.isObject(object.androidUnsupportedActions))
                     throw TypeError(".SyncAction.SyncActionValue.androidUnsupportedActions: object expected");
                 message.androidUnsupportedActions = $root.SyncAction.SyncActionValue.AndroidUnsupportedActions.fromObject(object.androidUnsupportedActions, _depth + 1);
             }
             if (object.agentAction != null) {
-                if (typeof object.agentAction !== "object")
+                if (!$util.isObject(object.agentAction))
                     throw TypeError(".SyncAction.SyncActionValue.agentAction: object expected");
                 message.agentAction = $root.SyncAction.SyncActionValue.AgentAction.fromObject(object.agentAction, _depth + 1);
             }
             if (object.subscriptionAction != null) {
-                if (typeof object.subscriptionAction !== "object")
+                if (!$util.isObject(object.subscriptionAction))
                     throw TypeError(".SyncAction.SyncActionValue.subscriptionAction: object expected");
                 message.subscriptionAction = $root.SyncAction.SyncActionValue.SubscriptionAction.fromObject(object.subscriptionAction, _depth + 1);
             }
             if (object.userStatusMuteAction != null) {
-                if (typeof object.userStatusMuteAction !== "object")
+                if (!$util.isObject(object.userStatusMuteAction))
                     throw TypeError(".SyncAction.SyncActionValue.userStatusMuteAction: object expected");
                 message.userStatusMuteAction = $root.SyncAction.SyncActionValue.UserStatusMuteAction.fromObject(object.userStatusMuteAction, _depth + 1);
             }
             if (object.timeFormatAction != null) {
-                if (typeof object.timeFormatAction !== "object")
+                if (!$util.isObject(object.timeFormatAction))
                     throw TypeError(".SyncAction.SyncActionValue.timeFormatAction: object expected");
                 message.timeFormatAction = $root.SyncAction.SyncActionValue.TimeFormatAction.fromObject(object.timeFormatAction, _depth + 1);
             }
             if (object.nuxAction != null) {
-                if (typeof object.nuxAction !== "object")
+                if (!$util.isObject(object.nuxAction))
                     throw TypeError(".SyncAction.SyncActionValue.nuxAction: object expected");
                 message.nuxAction = $root.SyncAction.SyncActionValue.NuxAction.fromObject(object.nuxAction, _depth + 1);
             }
             if (object.primaryVersionAction != null) {
-                if (typeof object.primaryVersionAction !== "object")
+                if (!$util.isObject(object.primaryVersionAction))
                     throw TypeError(".SyncAction.SyncActionValue.primaryVersionAction: object expected");
                 message.primaryVersionAction = $root.SyncAction.SyncActionValue.PrimaryVersionAction.fromObject(object.primaryVersionAction, _depth + 1);
             }
             if (object.stickerAction != null) {
-                if (typeof object.stickerAction !== "object")
+                if (!$util.isObject(object.stickerAction))
                     throw TypeError(".SyncAction.SyncActionValue.stickerAction: object expected");
                 message.stickerAction = $root.SyncAction.SyncActionValue.StickerAction.fromObject(object.stickerAction, _depth + 1);
             }
             if (object.removeRecentStickerAction != null) {
-                if (typeof object.removeRecentStickerAction !== "object")
+                if (!$util.isObject(object.removeRecentStickerAction))
                     throw TypeError(".SyncAction.SyncActionValue.removeRecentStickerAction: object expected");
                 message.removeRecentStickerAction = $root.SyncAction.SyncActionValue.RemoveRecentStickerAction.fromObject(object.removeRecentStickerAction, _depth + 1);
             }
             if (object.chatAssignment != null) {
-                if (typeof object.chatAssignment !== "object")
+                if (!$util.isObject(object.chatAssignment))
                     throw TypeError(".SyncAction.SyncActionValue.chatAssignment: object expected");
                 message.chatAssignment = $root.SyncAction.SyncActionValue.ChatAssignmentAction.fromObject(object.chatAssignment, _depth + 1);
             }
             if (object.chatAssignmentOpenedStatus != null) {
-                if (typeof object.chatAssignmentOpenedStatus !== "object")
+                if (!$util.isObject(object.chatAssignmentOpenedStatus))
                     throw TypeError(".SyncAction.SyncActionValue.chatAssignmentOpenedStatus: object expected");
                 message.chatAssignmentOpenedStatus = $root.SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction.fromObject(object.chatAssignmentOpenedStatus, _depth + 1);
             }
             if (object.pnForLidChatAction != null) {
-                if (typeof object.pnForLidChatAction !== "object")
+                if (!$util.isObject(object.pnForLidChatAction))
                     throw TypeError(".SyncAction.SyncActionValue.pnForLidChatAction: object expected");
                 message.pnForLidChatAction = $root.SyncAction.SyncActionValue.PnForLidChatAction.fromObject(object.pnForLidChatAction, _depth + 1);
             }
             if (object.marketingMessageAction != null) {
-                if (typeof object.marketingMessageAction !== "object")
+                if (!$util.isObject(object.marketingMessageAction))
                     throw TypeError(".SyncAction.SyncActionValue.marketingMessageAction: object expected");
                 message.marketingMessageAction = $root.SyncAction.SyncActionValue.MarketingMessageAction.fromObject(object.marketingMessageAction, _depth + 1);
             }
             if (object.marketingMessageBroadcastAction != null) {
-                if (typeof object.marketingMessageBroadcastAction !== "object")
+                if (!$util.isObject(object.marketingMessageBroadcastAction))
                     throw TypeError(".SyncAction.SyncActionValue.marketingMessageBroadcastAction: object expected");
                 message.marketingMessageBroadcastAction = $root.SyncAction.SyncActionValue.MarketingMessageBroadcastAction.fromObject(object.marketingMessageBroadcastAction, _depth + 1);
             }
             if (object.externalWebBetaAction != null) {
-                if (typeof object.externalWebBetaAction !== "object")
+                if (!$util.isObject(object.externalWebBetaAction))
                     throw TypeError(".SyncAction.SyncActionValue.externalWebBetaAction: object expected");
                 message.externalWebBetaAction = $root.SyncAction.SyncActionValue.ExternalWebBetaAction.fromObject(object.externalWebBetaAction, _depth + 1);
             }
             if (object.privacySettingRelayAllCalls != null) {
-                if (typeof object.privacySettingRelayAllCalls !== "object")
+                if (!$util.isObject(object.privacySettingRelayAllCalls))
                     throw TypeError(".SyncAction.SyncActionValue.privacySettingRelayAllCalls: object expected");
                 message.privacySettingRelayAllCalls = $root.SyncAction.SyncActionValue.PrivacySettingRelayAllCalls.fromObject(object.privacySettingRelayAllCalls, _depth + 1);
             }
             if (object.callLogAction != null) {
-                if (typeof object.callLogAction !== "object")
+                if (!$util.isObject(object.callLogAction))
                     throw TypeError(".SyncAction.SyncActionValue.callLogAction: object expected");
                 message.callLogAction = $root.SyncAction.SyncActionValue.CallLogAction.fromObject(object.callLogAction, _depth + 1);
             }
             if (object.ugcBot != null) {
-                if (typeof object.ugcBot !== "object")
+                if (!$util.isObject(object.ugcBot))
                     throw TypeError(".SyncAction.SyncActionValue.ugcBot: object expected");
                 message.ugcBot = $root.SyncAction.SyncActionValue.UGCBot.fromObject(object.ugcBot, _depth + 1);
             }
             if (object.statusPrivacy != null) {
-                if (typeof object.statusPrivacy !== "object")
+                if (!$util.isObject(object.statusPrivacy))
                     throw TypeError(".SyncAction.SyncActionValue.statusPrivacy: object expected");
                 message.statusPrivacy = $root.SyncAction.SyncActionValue.StatusPrivacyAction.fromObject(object.statusPrivacy, _depth + 1);
             }
             if (object.botWelcomeRequestAction != null) {
-                if (typeof object.botWelcomeRequestAction !== "object")
+                if (!$util.isObject(object.botWelcomeRequestAction))
                     throw TypeError(".SyncAction.SyncActionValue.botWelcomeRequestAction: object expected");
                 message.botWelcomeRequestAction = $root.SyncAction.SyncActionValue.BotWelcomeRequestAction.fromObject(object.botWelcomeRequestAction, _depth + 1);
             }
             if (object.deleteIndividualCallLog != null) {
-                if (typeof object.deleteIndividualCallLog !== "object")
+                if (!$util.isObject(object.deleteIndividualCallLog))
                     throw TypeError(".SyncAction.SyncActionValue.deleteIndividualCallLog: object expected");
                 message.deleteIndividualCallLog = $root.SyncAction.SyncActionValue.DeleteIndividualCallLogAction.fromObject(object.deleteIndividualCallLog, _depth + 1);
             }
             if (object.labelReorderingAction != null) {
-                if (typeof object.labelReorderingAction !== "object")
+                if (!$util.isObject(object.labelReorderingAction))
                     throw TypeError(".SyncAction.SyncActionValue.labelReorderingAction: object expected");
                 message.labelReorderingAction = $root.SyncAction.SyncActionValue.LabelReorderingAction.fromObject(object.labelReorderingAction, _depth + 1);
             }
             if (object.paymentInfoAction != null) {
-                if (typeof object.paymentInfoAction !== "object")
+                if (!$util.isObject(object.paymentInfoAction))
                     throw TypeError(".SyncAction.SyncActionValue.paymentInfoAction: object expected");
                 message.paymentInfoAction = $root.SyncAction.SyncActionValue.PaymentInfoAction.fromObject(object.paymentInfoAction, _depth + 1);
             }
             if (object.customPaymentMethodsAction != null) {
-                if (typeof object.customPaymentMethodsAction !== "object")
+                if (!$util.isObject(object.customPaymentMethodsAction))
                     throw TypeError(".SyncAction.SyncActionValue.customPaymentMethodsAction: object expected");
                 message.customPaymentMethodsAction = $root.SyncAction.SyncActionValue.CustomPaymentMethodsAction.fromObject(object.customPaymentMethodsAction, _depth + 1);
             }
             if (object.lockChatAction != null) {
-                if (typeof object.lockChatAction !== "object")
+                if (!$util.isObject(object.lockChatAction))
                     throw TypeError(".SyncAction.SyncActionValue.lockChatAction: object expected");
                 message.lockChatAction = $root.SyncAction.SyncActionValue.LockChatAction.fromObject(object.lockChatAction, _depth + 1);
             }
             if (object.chatLockSettings != null) {
-                if (typeof object.chatLockSettings !== "object")
+                if (!$util.isObject(object.chatLockSettings))
                     throw TypeError(".SyncAction.SyncActionValue.chatLockSettings: object expected");
                 message.chatLockSettings = $root.ChatLockSettings.ChatLockSettings.fromObject(object.chatLockSettings, _depth + 1);
             }
             if (object.wamoUserIdentifierAction != null) {
-                if (typeof object.wamoUserIdentifierAction !== "object")
+                if (!$util.isObject(object.wamoUserIdentifierAction))
                     throw TypeError(".SyncAction.SyncActionValue.wamoUserIdentifierAction: object expected");
                 message.wamoUserIdentifierAction = $root.SyncAction.SyncActionValue.WamoUserIdentifierAction.fromObject(object.wamoUserIdentifierAction, _depth + 1);
             }
             if (object.privacySettingDisableLinkPreviewsAction != null) {
-                if (typeof object.privacySettingDisableLinkPreviewsAction !== "object")
+                if (!$util.isObject(object.privacySettingDisableLinkPreviewsAction))
                     throw TypeError(".SyncAction.SyncActionValue.privacySettingDisableLinkPreviewsAction: object expected");
                 message.privacySettingDisableLinkPreviewsAction = $root.SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction.fromObject(object.privacySettingDisableLinkPreviewsAction, _depth + 1);
             }
             if (object.deviceCapabilities != null) {
-                if (typeof object.deviceCapabilities !== "object")
+                if (!$util.isObject(object.deviceCapabilities))
                     throw TypeError(".SyncAction.SyncActionValue.deviceCapabilities: object expected");
                 message.deviceCapabilities = $root.DeviceCapabilities.DeviceCapabilities.fromObject(object.deviceCapabilities, _depth + 1);
             }
             if (object.noteEditAction != null) {
-                if (typeof object.noteEditAction !== "object")
+                if (!$util.isObject(object.noteEditAction))
                     throw TypeError(".SyncAction.SyncActionValue.noteEditAction: object expected");
                 message.noteEditAction = $root.SyncAction.SyncActionValue.NoteEditAction.fromObject(object.noteEditAction, _depth + 1);
             }
             if (object.favoritesAction != null) {
-                if (typeof object.favoritesAction !== "object")
+                if (!$util.isObject(object.favoritesAction))
                     throw TypeError(".SyncAction.SyncActionValue.favoritesAction: object expected");
                 message.favoritesAction = $root.SyncAction.SyncActionValue.FavoritesAction.fromObject(object.favoritesAction, _depth + 1);
             }
             if (object.merchantPaymentPartnerAction != null) {
-                if (typeof object.merchantPaymentPartnerAction !== "object")
+                if (!$util.isObject(object.merchantPaymentPartnerAction))
                     throw TypeError(".SyncAction.SyncActionValue.merchantPaymentPartnerAction: object expected");
                 message.merchantPaymentPartnerAction = $root.SyncAction.SyncActionValue.MerchantPaymentPartnerAction.fromObject(object.merchantPaymentPartnerAction, _depth + 1);
             }
             if (object.waffleAccountLinkStateAction != null) {
-                if (typeof object.waffleAccountLinkStateAction !== "object")
+                if (!$util.isObject(object.waffleAccountLinkStateAction))
                     throw TypeError(".SyncAction.SyncActionValue.waffleAccountLinkStateAction: object expected");
                 message.waffleAccountLinkStateAction = $root.SyncAction.SyncActionValue.WaffleAccountLinkStateAction.fromObject(object.waffleAccountLinkStateAction, _depth + 1);
             }
             if (object.usernameChatStartMode != null) {
-                if (typeof object.usernameChatStartMode !== "object")
+                if (!$util.isObject(object.usernameChatStartMode))
                     throw TypeError(".SyncAction.SyncActionValue.usernameChatStartMode: object expected");
                 message.usernameChatStartMode = $root.SyncAction.SyncActionValue.UsernameChatStartModeAction.fromObject(object.usernameChatStartMode, _depth + 1);
             }
             if (object.notificationActivitySettingAction != null) {
-                if (typeof object.notificationActivitySettingAction !== "object")
+                if (!$util.isObject(object.notificationActivitySettingAction))
                     throw TypeError(".SyncAction.SyncActionValue.notificationActivitySettingAction: object expected");
                 message.notificationActivitySettingAction = $root.SyncAction.SyncActionValue.NotificationActivitySettingAction.fromObject(object.notificationActivitySettingAction, _depth + 1);
             }
             if (object.lidContactAction != null) {
-                if (typeof object.lidContactAction !== "object")
+                if (!$util.isObject(object.lidContactAction))
                     throw TypeError(".SyncAction.SyncActionValue.lidContactAction: object expected");
                 message.lidContactAction = $root.SyncAction.SyncActionValue.LidContactAction.fromObject(object.lidContactAction, _depth + 1);
             }
             if (object.ctwaPerCustomerDataSharingAction != null) {
-                if (typeof object.ctwaPerCustomerDataSharingAction !== "object")
+                if (!$util.isObject(object.ctwaPerCustomerDataSharingAction))
                     throw TypeError(".SyncAction.SyncActionValue.ctwaPerCustomerDataSharingAction: object expected");
                 message.ctwaPerCustomerDataSharingAction = $root.SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction.fromObject(object.ctwaPerCustomerDataSharingAction, _depth + 1);
             }
             if (object.paymentTosAction != null) {
-                if (typeof object.paymentTosAction !== "object")
+                if (!$util.isObject(object.paymentTosAction))
                     throw TypeError(".SyncAction.SyncActionValue.paymentTosAction: object expected");
                 message.paymentTosAction = $root.SyncAction.SyncActionValue.PaymentTosAction.fromObject(object.paymentTosAction, _depth + 1);
             }
             if (object.privacySettingChannelsPersonalisedRecommendationAction != null) {
-                if (typeof object.privacySettingChannelsPersonalisedRecommendationAction !== "object")
+                if (!$util.isObject(object.privacySettingChannelsPersonalisedRecommendationAction))
                     throw TypeError(".SyncAction.SyncActionValue.privacySettingChannelsPersonalisedRecommendationAction: object expected");
                 message.privacySettingChannelsPersonalisedRecommendationAction = $root.SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction.fromObject(object.privacySettingChannelsPersonalisedRecommendationAction, _depth + 1);
             }
             if (object.detectedOutcomesStatusAction != null) {
-                if (typeof object.detectedOutcomesStatusAction !== "object")
+                if (!$util.isObject(object.detectedOutcomesStatusAction))
                     throw TypeError(".SyncAction.SyncActionValue.detectedOutcomesStatusAction: object expected");
                 message.detectedOutcomesStatusAction = $root.SyncAction.SyncActionValue.DetectedOutcomesStatusAction.fromObject(object.detectedOutcomesStatusAction, _depth + 1);
             }
             if (object.maibaAiFeaturesControlAction != null) {
-                if (typeof object.maibaAiFeaturesControlAction !== "object")
+                if (!$util.isObject(object.maibaAiFeaturesControlAction))
                     throw TypeError(".SyncAction.SyncActionValue.maibaAiFeaturesControlAction: object expected");
                 message.maibaAiFeaturesControlAction = $root.SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.fromObject(object.maibaAiFeaturesControlAction, _depth + 1);
             }
             if (object.businessBroadcastListAction != null) {
-                if (typeof object.businessBroadcastListAction !== "object")
+                if (!$util.isObject(object.businessBroadcastListAction))
                     throw TypeError(".SyncAction.SyncActionValue.businessBroadcastListAction: object expected");
                 message.businessBroadcastListAction = $root.SyncAction.SyncActionValue.BusinessBroadcastListAction.fromObject(object.businessBroadcastListAction, _depth + 1);
             }
             if (object.musicUserIdAction != null) {
-                if (typeof object.musicUserIdAction !== "object")
+                if (!$util.isObject(object.musicUserIdAction))
                     throw TypeError(".SyncAction.SyncActionValue.musicUserIdAction: object expected");
                 message.musicUserIdAction = $root.SyncAction.SyncActionValue.MusicUserIdAction.fromObject(object.musicUserIdAction, _depth + 1);
             }
             if (object.statusPostOptInNotificationPreferencesAction != null) {
-                if (typeof object.statusPostOptInNotificationPreferencesAction !== "object")
+                if (!$util.isObject(object.statusPostOptInNotificationPreferencesAction))
                     throw TypeError(".SyncAction.SyncActionValue.statusPostOptInNotificationPreferencesAction: object expected");
                 message.statusPostOptInNotificationPreferencesAction = $root.SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction.fromObject(object.statusPostOptInNotificationPreferencesAction, _depth + 1);
             }
             if (object.avatarUpdatedAction != null) {
-                if (typeof object.avatarUpdatedAction !== "object")
+                if (!$util.isObject(object.avatarUpdatedAction))
                     throw TypeError(".SyncAction.SyncActionValue.avatarUpdatedAction: object expected");
                 message.avatarUpdatedAction = $root.SyncAction.SyncActionValue.AvatarUpdatedAction.fromObject(object.avatarUpdatedAction, _depth + 1);
             }
             if (object.privateProcessingSettingAction != null) {
-                if (typeof object.privateProcessingSettingAction !== "object")
+                if (!$util.isObject(object.privateProcessingSettingAction))
                     throw TypeError(".SyncAction.SyncActionValue.privateProcessingSettingAction: object expected");
                 message.privateProcessingSettingAction = $root.SyncAction.SyncActionValue.PrivateProcessingSettingAction.fromObject(object.privateProcessingSettingAction, _depth + 1);
             }
             if (object.newsletterSavedInterestsAction != null) {
-                if (typeof object.newsletterSavedInterestsAction !== "object")
+                if (!$util.isObject(object.newsletterSavedInterestsAction))
                     throw TypeError(".SyncAction.SyncActionValue.newsletterSavedInterestsAction: object expected");
                 message.newsletterSavedInterestsAction = $root.SyncAction.SyncActionValue.NewsletterSavedInterestsAction.fromObject(object.newsletterSavedInterestsAction, _depth + 1);
             }
             if (object.aiThreadRenameAction != null) {
-                if (typeof object.aiThreadRenameAction !== "object")
+                if (!$util.isObject(object.aiThreadRenameAction))
                     throw TypeError(".SyncAction.SyncActionValue.aiThreadRenameAction: object expected");
                 message.aiThreadRenameAction = $root.SyncAction.SyncActionValue.AiThreadRenameAction.fromObject(object.aiThreadRenameAction, _depth + 1);
             }
             if (object.interactiveMessageAction != null) {
-                if (typeof object.interactiveMessageAction !== "object")
+                if (!$util.isObject(object.interactiveMessageAction))
                     throw TypeError(".SyncAction.SyncActionValue.interactiveMessageAction: object expected");
                 message.interactiveMessageAction = $root.SyncAction.SyncActionValue.InteractiveMessageAction.fromObject(object.interactiveMessageAction, _depth + 1);
             }
             if (object.settingsSyncAction != null) {
-                if (typeof object.settingsSyncAction !== "object")
+                if (!$util.isObject(object.settingsSyncAction))
                     throw TypeError(".SyncAction.SyncActionValue.settingsSyncAction: object expected");
                 message.settingsSyncAction = $root.SyncAction.SyncActionValue.SettingsSyncAction.fromObject(object.settingsSyncAction, _depth + 1);
             }
             if (object.outContactAction != null) {
-                if (typeof object.outContactAction !== "object")
+                if (!$util.isObject(object.outContactAction))
                     throw TypeError(".SyncAction.SyncActionValue.outContactAction: object expected");
                 message.outContactAction = $root.SyncAction.SyncActionValue.OutContactAction.fromObject(object.outContactAction, _depth + 1);
             }
             if (object.nctSaltSyncAction != null) {
-                if (typeof object.nctSaltSyncAction !== "object")
+                if (!$util.isObject(object.nctSaltSyncAction))
                     throw TypeError(".SyncAction.SyncActionValue.nctSaltSyncAction: object expected");
                 message.nctSaltSyncAction = $root.SyncAction.SyncActionValue.NctSaltSyncAction.fromObject(object.nctSaltSyncAction, _depth + 1);
             }
             if (object.businessBroadcastCampaignAction != null) {
-                if (typeof object.businessBroadcastCampaignAction !== "object")
+                if (!$util.isObject(object.businessBroadcastCampaignAction))
                     throw TypeError(".SyncAction.SyncActionValue.businessBroadcastCampaignAction: object expected");
                 message.businessBroadcastCampaignAction = $root.SyncAction.SyncActionValue.BusinessBroadcastCampaignAction.fromObject(object.businessBroadcastCampaignAction, _depth + 1);
             }
             if (object.businessBroadcastInsightsAction != null) {
-                if (typeof object.businessBroadcastInsightsAction !== "object")
+                if (!$util.isObject(object.businessBroadcastInsightsAction))
                     throw TypeError(".SyncAction.SyncActionValue.businessBroadcastInsightsAction: object expected");
                 message.businessBroadcastInsightsAction = $root.SyncAction.SyncActionValue.BusinessBroadcastInsightsAction.fromObject(object.businessBroadcastInsightsAction, _depth + 1);
             }
             if (object.customerDataAction != null) {
-                if (typeof object.customerDataAction !== "object")
+                if (!$util.isObject(object.customerDataAction))
                     throw TypeError(".SyncAction.SyncActionValue.customerDataAction: object expected");
                 message.customerDataAction = $root.SyncAction.SyncActionValue.CustomerDataAction.fromObject(object.customerDataAction, _depth + 1);
             }
             if (object.subscriptionsSyncV2Action != null) {
-                if (typeof object.subscriptionsSyncV2Action !== "object")
+                if (!$util.isObject(object.subscriptionsSyncV2Action))
                     throw TypeError(".SyncAction.SyncActionValue.subscriptionsSyncV2Action: object expected");
                 message.subscriptionsSyncV2Action = $root.SyncAction.SyncActionValue.SubscriptionsSyncV2Action.fromObject(object.subscriptionsSyncV2Action, _depth + 1);
             }
             if (object.threadPinAction != null) {
-                if (typeof object.threadPinAction !== "object")
+                if (!$util.isObject(object.threadPinAction))
                     throw TypeError(".SyncAction.SyncActionValue.threadPinAction: object expected");
                 message.threadPinAction = $root.SyncAction.SyncActionValue.ThreadPinAction.fromObject(object.threadPinAction, _depth + 1);
             }
             if (object.autoOrganizeBusinessChatSetting != null) {
-                if (typeof object.autoOrganizeBusinessChatSetting !== "object")
+                if (!$util.isObject(object.autoOrganizeBusinessChatSetting))
                     throw TypeError(".SyncAction.SyncActionValue.autoOrganizeBusinessChatSetting: object expected");
                 message.autoOrganizeBusinessChatSetting = $root.SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting.fromObject(object.autoOrganizeBusinessChatSetting, _depth + 1);
             }
             if (object.bizAiSettingsNudgeAction != null) {
-                if (typeof object.bizAiSettingsNudgeAction !== "object")
+                if (!$util.isObject(object.bizAiSettingsNudgeAction))
                     throw TypeError(".SyncAction.SyncActionValue.bizAiSettingsNudgeAction: object expected");
                 message.bizAiSettingsNudgeAction = $root.SyncAction.SyncActionValue.BizAISettingsNudgeAction.fromObject(object.bizAiSettingsNudgeAction, _depth + 1);
             }
@@ -4659,8 +4671,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -4728,6 +4742,8 @@ $root.SyncAction = (function() {
             AgentAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.AgentAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.AgentAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -4940,8 +4956,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -4999,6 +5017,8 @@ $root.SyncAction = (function() {
             AiThreadRenameAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.AiThreadRenameAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.AiThreadRenameAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -5203,8 +5223,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -5262,6 +5284,8 @@ $root.SyncAction = (function() {
             AndroidUnsupportedActions.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.AndroidUnsupportedActions)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.AndroidUnsupportedActions: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -5490,8 +5514,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -5557,6 +5583,8 @@ $root.SyncAction = (function() {
             ArchiveChatAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.ArchiveChatAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.ArchiveChatAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -5565,7 +5593,7 @@ $root.SyncAction = (function() {
                 if (object.archived != null)
                     message.archived = Boolean(object.archived);
                 if (object.messageRange != null) {
-                    if (typeof object.messageRange !== "object")
+                    if (!$util.isObject(object.messageRange))
                         throw TypeError(".SyncAction.SyncActionValue.ArchiveChatAction.messageRange: object expected");
                     message.messageRange = $root.SyncAction.SyncActionValue.SyncActionMessageRange.fromObject(object.messageRange, _depth + 1);
                 }
@@ -5768,8 +5796,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -5827,6 +5857,8 @@ $root.SyncAction = (function() {
             AutoOrganizeBusinessChatSetting.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -6052,8 +6084,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -6126,6 +6160,8 @@ $root.SyncAction = (function() {
             AvatarUpdatedAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.AvatarUpdatedAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.AvatarUpdatedAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -6156,7 +6192,7 @@ $root.SyncAction = (function() {
                         throw TypeError(".SyncAction.SyncActionValue.AvatarUpdatedAction.recentAvatarStickers: array expected");
                     message.recentAvatarStickers = Array(object.recentAvatarStickers.length);
                     for (var i = 0; i < object.recentAvatarStickers.length; ++i) {
-                        if (typeof object.recentAvatarStickers[i] !== "object")
+                        if (!$util.isObject(object.recentAvatarStickers[i]))
                             throw TypeError(".SyncAction.SyncActionValue.AvatarUpdatedAction.recentAvatarStickers: object expected");
                         message.recentAvatarStickers[i] = $root.SyncAction.SyncActionValue.StickerAction.fromObject(object.recentAvatarStickers[i], _depth + 1);
                     }
@@ -6429,8 +6465,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -6507,6 +6545,8 @@ $root.SyncAction = (function() {
             BizAISettingsNudgeAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.BizAISettingsNudgeAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.BizAISettingsNudgeAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -6795,8 +6835,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -6854,6 +6896,8 @@ $root.SyncAction = (function() {
             BotWelcomeRequestAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.BotWelcomeRequestAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.BotWelcomeRequestAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -7082,8 +7126,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -7146,6 +7192,8 @@ $root.SyncAction = (function() {
             BroadcastListParticipant.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.BroadcastListParticipant)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.BroadcastListParticipant: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -7354,8 +7402,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -7413,6 +7463,8 @@ $root.SyncAction = (function() {
             BusinessBroadcastAssociationAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.BusinessBroadcastAssociationAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.BusinessBroadcastAssociationAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -7809,8 +7861,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -7916,6 +7970,8 @@ $root.SyncAction = (function() {
             BusinessBroadcastCampaignAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.BusinessBroadcastCampaignAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.BusinessBroadcastCampaignAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -8318,8 +8374,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -8397,6 +8455,8 @@ $root.SyncAction = (function() {
             BusinessBroadcastInsightsAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.BusinessBroadcastInsightsAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.BusinessBroadcastInsightsAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -8707,8 +8767,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -8792,6 +8854,8 @@ $root.SyncAction = (function() {
             BusinessBroadcastListAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.BusinessBroadcastListAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.BusinessBroadcastListAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -8804,7 +8868,7 @@ $root.SyncAction = (function() {
                         throw TypeError(".SyncAction.SyncActionValue.BusinessBroadcastListAction.participants: array expected");
                     message.participants = Array(object.participants.length);
                     for (var i = 0; i < object.participants.length; ++i) {
-                        if (typeof object.participants[i] !== "object")
+                        if (!$util.isObject(object.participants[i]))
                             throw TypeError(".SyncAction.SyncActionValue.BusinessBroadcastListAction.participants: object expected");
                         message.participants[i] = $root.SyncAction.SyncActionValue.BroadcastListParticipant.fromObject(object.participants[i], _depth + 1);
                     }
@@ -9035,8 +9099,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -9097,13 +9163,15 @@ $root.SyncAction = (function() {
             CallLogAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.CallLogAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.CallLogAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     throw Error("max depth exceeded");
                 var message = new $root.SyncAction.SyncActionValue.CallLogAction();
                 if (object.callLogRecord != null) {
-                    if (typeof object.callLogRecord !== "object")
+                    if (!$util.isObject(object.callLogRecord))
                         throw TypeError(".SyncAction.SyncActionValue.CallLogAction.callLogRecord: object expected");
                     message.callLogRecord = $root.SyncAction.CallLogRecord.fromObject(object.callLogRecord, _depth + 1);
                 }
@@ -9304,8 +9372,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -9363,6 +9433,8 @@ $root.SyncAction = (function() {
             ChatAssignmentAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.ChatAssignmentAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.ChatAssignmentAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -9567,8 +9639,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -9626,6 +9700,8 @@ $root.SyncAction = (function() {
             ChatAssignmentOpenedStatusAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -9830,8 +9906,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -9892,13 +9970,15 @@ $root.SyncAction = (function() {
             ClearChatAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.ClearChatAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.ClearChatAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     throw Error("max depth exceeded");
                 var message = new $root.SyncAction.SyncActionValue.ClearChatAction();
                 if (object.messageRange != null) {
-                    if (typeof object.messageRange !== "object")
+                    if (!$util.isObject(object.messageRange))
                         throw TypeError(".SyncAction.SyncActionValue.ClearChatAction.messageRange: object expected");
                     message.messageRange = $root.SyncAction.SyncActionValue.SyncActionMessageRange.fromObject(object.messageRange, _depth + 1);
                 }
@@ -10219,8 +10299,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -10303,6 +10385,8 @@ $root.SyncAction = (function() {
             ContactAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.ContactAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.ContactAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -10527,8 +10611,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -10586,6 +10672,8 @@ $root.SyncAction = (function() {
             CtwaPerCustomerDataSharingAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -10859,8 +10947,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -10937,6 +11027,8 @@ $root.SyncAction = (function() {
             CustomPaymentMethod.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.CustomPaymentMethod)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.CustomPaymentMethod: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -10953,7 +11045,7 @@ $root.SyncAction = (function() {
                         throw TypeError(".SyncAction.SyncActionValue.CustomPaymentMethod.metadata: array expected");
                     message.metadata = Array(object.metadata.length);
                     for (var i = 0; i < object.metadata.length; ++i) {
-                        if (typeof object.metadata[i] !== "object")
+                        if (!$util.isObject(object.metadata[i]))
                             throw TypeError(".SyncAction.SyncActionValue.CustomPaymentMethod.metadata: object expected");
                         message.metadata[i] = $root.SyncAction.SyncActionValue.CustomPaymentMethodMetadata.fromObject(object.metadata[i], _depth + 1);
                     }
@@ -11190,8 +11282,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -11254,6 +11348,8 @@ $root.SyncAction = (function() {
             CustomPaymentMethodMetadata.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.CustomPaymentMethodMetadata)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.CustomPaymentMethodMetadata: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -11456,8 +11552,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -11518,6 +11616,8 @@ $root.SyncAction = (function() {
             CustomPaymentMethodsAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.CustomPaymentMethodsAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.CustomPaymentMethodsAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -11528,7 +11628,7 @@ $root.SyncAction = (function() {
                         throw TypeError(".SyncAction.SyncActionValue.CustomPaymentMethodsAction.customPaymentMethods: array expected");
                     message.customPaymentMethods = Array(object.customPaymentMethods.length);
                     for (var i = 0; i < object.customPaymentMethods.length; ++i) {
-                        if (typeof object.customPaymentMethods[i] !== "object")
+                        if (!$util.isObject(object.customPaymentMethods[i]))
                             throw TypeError(".SyncAction.SyncActionValue.CustomPaymentMethodsAction.customPaymentMethods: object expected");
                         message.customPaymentMethods[i] = $root.SyncAction.SyncActionValue.CustomPaymentMethod.fromObject(object.customPaymentMethods[i], _depth + 1);
                     }
@@ -11975,8 +12075,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -12084,6 +12186,8 @@ $root.SyncAction = (function() {
             CustomerDataAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.CustomerDataAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.CustomerDataAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -12376,8 +12480,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -12438,13 +12544,15 @@ $root.SyncAction = (function() {
             DeleteChatAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.DeleteChatAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.DeleteChatAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     throw Error("max depth exceeded");
                 var message = new $root.SyncAction.SyncActionValue.DeleteChatAction();
                 if (object.messageRange != null) {
-                    if (typeof object.messageRange !== "object")
+                    if (!$util.isObject(object.messageRange))
                         throw TypeError(".SyncAction.SyncActionValue.DeleteChatAction.messageRange: object expected");
                     message.messageRange = $root.SyncAction.SyncActionValue.SyncActionMessageRange.fromObject(object.messageRange, _depth + 1);
                 }
@@ -12669,8 +12777,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -12733,6 +12843,8 @@ $root.SyncAction = (function() {
             DeleteIndividualCallLogAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.DeleteIndividualCallLogAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.DeleteIndividualCallLogAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -12965,8 +13077,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -13029,6 +13143,8 @@ $root.SyncAction = (function() {
             DeleteMessageForMeAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.DeleteMessageForMeAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.DeleteMessageForMeAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -13249,8 +13365,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -13308,6 +13426,8 @@ $root.SyncAction = (function() {
             DetectedOutcomesStatusAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.DetectedOutcomesStatusAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.DetectedOutcomesStatusAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -13512,8 +13632,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -13571,6 +13693,8 @@ $root.SyncAction = (function() {
             ExternalWebBetaAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.ExternalWebBetaAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.ExternalWebBetaAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -13769,8 +13893,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -13831,6 +13957,8 @@ $root.SyncAction = (function() {
             FavoritesAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.FavoritesAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.FavoritesAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -13841,7 +13969,7 @@ $root.SyncAction = (function() {
                         throw TypeError(".SyncAction.SyncActionValue.FavoritesAction.favorites: array expected");
                     message.favorites = Array(object.favorites.length);
                     for (var i = 0; i < object.favorites.length; ++i) {
-                        if (typeof object.favorites[i] !== "object")
+                        if (!$util.isObject(object.favorites[i]))
                             throw TypeError(".SyncAction.SyncActionValue.FavoritesAction.favorites: object expected");
                         message.favorites[i] = $root.SyncAction.SyncActionValue.FavoritesAction.Favorite.fromObject(object.favorites[i], _depth + 1);
                     }
@@ -14045,8 +14173,10 @@ $root.SyncAction = (function() {
                             }
                         }
                         reader.skipType(wireType, _depth, tag);
-                        $util.makeProp(message, "$unknowns", false);
-                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                        if (!reader.discardUnknown) {
+                            $util.makeProp(message, "$unknowns", false);
+                            (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                        }
                     }
                     if (_end !== undefined)
                         throw Error("missing end group");
@@ -14104,6 +14234,8 @@ $root.SyncAction = (function() {
                 Favorite.fromObject = function fromObject(object, _depth) {
                     if (object instanceof $root.SyncAction.SyncActionValue.FavoritesAction.Favorite)
                         return object;
+                    if (!$util.isObject(object))
+                        throw TypeError(".SyncAction.SyncActionValue.FavoritesAction.Favorite: object expected");
                     if (_depth === undefined)
                         _depth = 0;
                     if (_depth > $util.recursionLimit)
@@ -14335,8 +14467,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -14403,6 +14537,8 @@ $root.SyncAction = (function() {
             InteractiveMessageAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.InteractiveMessageAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.InteractiveMessageAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -14633,8 +14769,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -14692,6 +14830,8 @@ $root.SyncAction = (function() {
             KeyExpiration.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.KeyExpiration)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.KeyExpiration: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -14917,8 +15057,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -14985,6 +15127,8 @@ $root.SyncAction = (function() {
             LabelAssociationAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.LabelAssociationAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.LabelAssociationAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -14997,7 +15141,7 @@ $root.SyncAction = (function() {
                         throw TypeError(".SyncAction.SyncActionValue.LabelAssociationAction.modelMetaData: array expected");
                     message.modelMetaData = Array(object.modelMetaData.length);
                     for (var i = 0; i < object.modelMetaData.length; ++i) {
-                        if (typeof object.modelMetaData[i] !== "object")
+                        if (!$util.isObject(object.modelMetaData[i]))
                             throw TypeError(".SyncAction.SyncActionValue.LabelAssociationAction.modelMetaData: object expected");
                         message.modelMetaData[i] = $root.SyncAction.SyncActionValue.ModelMetadata.fromObject(object.modelMetaData[i], _depth + 1);
                     }
@@ -15398,8 +15542,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -15516,6 +15662,8 @@ $root.SyncAction = (function() {
             LabelEditAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.LabelEditAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.LabelEditAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -15881,8 +16029,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -15941,6 +16091,8 @@ $root.SyncAction = (function() {
             LabelReorderingAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.LabelReorderingAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.LabelReorderingAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -16203,8 +16355,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -16272,6 +16426,8 @@ $root.SyncAction = (function() {
             LidContactAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.LidContactAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.LidContactAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -16484,8 +16640,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -16543,6 +16701,8 @@ $root.SyncAction = (function() {
             LocaleSetting.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.LocaleSetting)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.LocaleSetting: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -16747,8 +16907,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -16806,6 +16968,8 @@ $root.SyncAction = (function() {
             LockChatAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.LockChatAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.LockChatAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -17010,8 +17174,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -17075,6 +17241,8 @@ $root.SyncAction = (function() {
             MaibaAIFeaturesControlAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.MaibaAIFeaturesControlAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.MaibaAIFeaturesControlAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -17337,8 +17505,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -17404,6 +17574,8 @@ $root.SyncAction = (function() {
             MarkChatAsReadAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.MarkChatAsReadAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.MarkChatAsReadAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -17412,7 +17584,7 @@ $root.SyncAction = (function() {
                 if (object.read != null)
                     message.read = Boolean(object.read);
                 if (object.messageRange != null) {
-                    if (typeof object.messageRange !== "object")
+                    if (!$util.isObject(object.messageRange))
                         throw TypeError(".SyncAction.SyncActionValue.MarkChatAsReadAction.messageRange: object expected");
                     message.messageRange = $root.SyncAction.SyncActionValue.SyncActionMessageRange.fromObject(object.messageRange, _depth + 1);
                 }
@@ -17759,8 +17931,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -17852,6 +18026,8 @@ $root.SyncAction = (function() {
             MarketingMessageAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.MarketingMessageAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.MarketingMessageAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -18126,8 +18302,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -18185,6 +18363,8 @@ $root.SyncAction = (function() {
             MarketingMessageBroadcastAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.MarketingMessageBroadcastAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.MarketingMessageBroadcastAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -18461,8 +18641,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -18540,6 +18722,8 @@ $root.SyncAction = (function() {
             MerchantPaymentPartnerAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.MerchantPaymentPartnerAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.MerchantPaymentPartnerAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -18832,8 +19016,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -18901,6 +19087,8 @@ $root.SyncAction = (function() {
             ModelMetadata.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.ModelMetadata)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.ModelMetadata: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -19156,8 +19344,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -19223,6 +19413,8 @@ $root.SyncAction = (function() {
             MusicUserIdAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.MusicUserIdAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.MusicUserIdAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -19231,7 +19423,7 @@ $root.SyncAction = (function() {
                 if (object.musicUserId != null)
                     message.musicUserId = String(object.musicUserId);
                 if (object.musicUserIdMap) {
-                    if (typeof object.musicUserIdMap !== "object")
+                    if (!$util.isObject(object.musicUserIdMap))
                         throw TypeError(".SyncAction.SyncActionValue.MusicUserIdAction.musicUserIdMap: object expected");
                     message.musicUserIdMap = {};
                     for (var keys = Object.keys(object.musicUserIdMap), i = 0; i < keys.length; ++i) {
@@ -19520,8 +19712,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -19594,6 +19788,8 @@ $root.SyncAction = (function() {
             MuteAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.MuteAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.MuteAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -19834,8 +20030,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -19893,6 +20091,8 @@ $root.SyncAction = (function() {
             NctSaltSyncAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.NctSaltSyncAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.NctSaltSyncAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -20100,8 +20300,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -20159,6 +20361,8 @@ $root.SyncAction = (function() {
             NewsletterSavedInterestsAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.NewsletterSavedInterestsAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.NewsletterSavedInterestsAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -20459,8 +20663,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -20543,6 +20749,8 @@ $root.SyncAction = (function() {
             NoteEditAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.NoteEditAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.NoteEditAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -20803,8 +21011,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -20869,6 +21079,8 @@ $root.SyncAction = (function() {
             NotificationActivitySettingAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.NotificationActivitySettingAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.NotificationActivitySettingAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -21113,8 +21325,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -21172,6 +21386,8 @@ $root.SyncAction = (function() {
             NuxAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.NuxAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.NuxAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -21400,8 +21616,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -21464,6 +21682,8 @@ $root.SyncAction = (function() {
             OutContactAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.OutContactAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.OutContactAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -21672,8 +21892,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -21731,6 +21953,8 @@ $root.SyncAction = (function() {
             PaymentInfoAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.PaymentInfoAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.PaymentInfoAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -21959,8 +22183,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -22027,6 +22253,8 @@ $root.SyncAction = (function() {
             PaymentTosAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.PaymentTosAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.PaymentTosAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -22257,8 +22485,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -22316,6 +22546,8 @@ $root.SyncAction = (function() {
             PinAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.PinAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.PinAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -22520,8 +22752,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -22579,6 +22813,8 @@ $root.SyncAction = (function() {
             PnForLidChatAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.PnForLidChatAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.PnForLidChatAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -22777,8 +23013,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -22837,6 +23075,8 @@ $root.SyncAction = (function() {
             PrimaryFeature.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.PrimaryFeature)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.PrimaryFeature: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -23051,8 +23291,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -23110,6 +23352,8 @@ $root.SyncAction = (function() {
             PrimaryVersionAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.PrimaryVersionAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.PrimaryVersionAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -23314,8 +23558,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -23373,6 +23619,8 @@ $root.SyncAction = (function() {
             PrivacySettingChannelsPersonalisedRecommendationAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -23577,8 +23825,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -23636,6 +23886,8 @@ $root.SyncAction = (function() {
             PrivacySettingDisableLinkPreviewsAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -23840,8 +24092,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -23899,6 +24153,8 @@ $root.SyncAction = (function() {
             PrivacySettingRelayAllCalls.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.PrivacySettingRelayAllCalls)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.PrivacySettingRelayAllCalls: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -24103,8 +24359,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -24168,6 +24426,8 @@ $root.SyncAction = (function() {
             PrivateProcessingSettingAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.PrivateProcessingSettingAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.PrivateProcessingSettingAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -24406,8 +24666,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -24465,6 +24727,8 @@ $root.SyncAction = (function() {
             PushNameSetting.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.PushNameSetting)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.PushNameSetting: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -24783,8 +25047,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -24871,6 +25137,8 @@ $root.SyncAction = (function() {
             QuickReplyAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.QuickReplyAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.QuickReplyAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -25109,8 +25377,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -25171,6 +25441,8 @@ $root.SyncAction = (function() {
             RecentEmojiWeightsAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.RecentEmojiWeightsAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.RecentEmojiWeightsAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -25181,7 +25453,7 @@ $root.SyncAction = (function() {
                         throw TypeError(".SyncAction.SyncActionValue.RecentEmojiWeightsAction.weights: array expected");
                     message.weights = Array(object.weights.length);
                     for (var i = 0; i < object.weights.length; ++i) {
-                        if (typeof object.weights[i] !== "object")
+                        if (!$util.isObject(object.weights[i]))
                             throw TypeError(".SyncAction.SyncActionValue.RecentEmojiWeightsAction.weights: object expected");
                         message.weights[i] = $root.SyncAction.RecentEmojiWeight.fromObject(object.weights[i], _depth + 1);
                     }
@@ -25388,8 +25660,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -25447,6 +25721,8 @@ $root.SyncAction = (function() {
             RemoveRecentStickerAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.RemoveRecentStickerAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.RemoveRecentStickerAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -26431,8 +26707,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -26670,6 +26948,8 @@ $root.SyncAction = (function() {
             SettingsSyncAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.SettingsSyncAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.SettingsSyncAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -27196,8 +27476,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -27255,6 +27537,8 @@ $root.SyncAction = (function() {
             StarAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.StarAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.StarAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -27459,8 +27743,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -27518,6 +27804,8 @@ $root.SyncAction = (function() {
             StatusPostOptInNotificationPreferencesAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -27844,8 +28132,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -27952,6 +28242,8 @@ $root.SyncAction = (function() {
             StatusPrivacyAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.StatusPrivacyAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.StatusPrivacyAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -28001,7 +28293,7 @@ $root.SyncAction = (function() {
                         throw TypeError(".SyncAction.SyncActionValue.StatusPrivacyAction.customLists: array expected");
                     message.customLists = Array(object.customLists.length);
                     for (var i = 0; i < object.customLists.length; ++i) {
-                        if (typeof object.customLists[i] !== "object")
+                        if (!$util.isObject(object.customLists[i]))
                             throw TypeError(".SyncAction.SyncActionValue.StatusPrivacyAction.customLists: object expected");
                         message.customLists[i] = $root.SyncAction.SyncActionValue.StatusPrivacyAction.CustomList.fromObject(object.customLists[i], _depth + 1);
                     }
@@ -28350,8 +28642,10 @@ $root.SyncAction = (function() {
                             }
                         }
                         reader.skipType(wireType, _depth, tag);
-                        $util.makeProp(message, "$unknowns", false);
-                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                        if (!reader.discardUnknown) {
+                            $util.makeProp(message, "$unknowns", false);
+                            (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                        }
                     }
                     if (_end !== undefined)
                         throw Error("missing end group");
@@ -28431,6 +28725,8 @@ $root.SyncAction = (function() {
                 CustomList.fromObject = function fromObject(object, _depth) {
                     if (object instanceof $root.SyncAction.SyncActionValue.StatusPrivacyAction.CustomList)
                         return object;
+                    if (!$util.isObject(object))
+                        throw TypeError(".SyncAction.SyncActionValue.StatusPrivacyAction.CustomList: object expected");
                     if (_depth === undefined)
                         _depth = 0;
                     if (_depth > $util.recursionLimit)
@@ -28972,8 +29268,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -29091,6 +29389,8 @@ $root.SyncAction = (function() {
             StickerAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.StickerAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.StickerAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -29409,8 +29709,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -29478,6 +29780,8 @@ $root.SyncAction = (function() {
             SubscriptionAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.SubscriptionAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.SubscriptionAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -29717,8 +30021,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -29788,6 +30094,8 @@ $root.SyncAction = (function() {
             SubscriptionsSyncV2Action.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.SubscriptionsSyncV2Action)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.SubscriptionsSyncV2Action: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -29798,7 +30106,7 @@ $root.SyncAction = (function() {
                         throw TypeError(".SyncAction.SyncActionValue.SubscriptionsSyncV2Action.subscriptions: array expected");
                     message.subscriptions = Array(object.subscriptions.length);
                     for (var i = 0; i < object.subscriptions.length; ++i) {
-                        if (typeof object.subscriptions[i] !== "object")
+                        if (!$util.isObject(object.subscriptions[i]))
                             throw TypeError(".SyncAction.SyncActionValue.SubscriptionsSyncV2Action.subscriptions: object expected");
                         message.subscriptions[i] = $root.SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo.fromObject(object.subscriptions[i], _depth + 1);
                     }
@@ -29808,7 +30116,7 @@ $root.SyncAction = (function() {
                         throw TypeError(".SyncAction.SyncActionValue.SubscriptionsSyncV2Action.paidFeature: array expected");
                     message.paidFeature = Array(object.paidFeature.length);
                     for (var i = 0; i < object.paidFeature.length; ++i) {
-                        if (typeof object.paidFeature[i] !== "object")
+                        if (!$util.isObject(object.paidFeature[i]))
                             throw TypeError(".SyncAction.SyncActionValue.SubscriptionsSyncV2Action.paidFeature: object expected");
                         message.paidFeature[i] = $root.SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature.fromObject(object.paidFeature[i], _depth + 1);
                     }
@@ -30091,8 +30399,10 @@ $root.SyncAction = (function() {
                             }
                         }
                         reader.skipType(wireType, _depth, tag);
-                        $util.makeProp(message, "$unknowns", false);
-                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                        if (!reader.discardUnknown) {
+                            $util.makeProp(message, "$unknowns", false);
+                            (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                        }
                     }
                     if (_end !== undefined)
                         throw Error("missing end group");
@@ -30165,6 +30475,8 @@ $root.SyncAction = (function() {
                 PaidFeature.fromObject = function fromObject(object, _depth) {
                     if (object instanceof $root.SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature)
                         return object;
+                    if (!$util.isObject(object))
+                        throw TypeError(".SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature: object expected");
                     if (_depth === undefined)
                         _depth = 0;
                     if (_depth > $util.recursionLimit)
@@ -30561,8 +30873,10 @@ $root.SyncAction = (function() {
                             }
                         }
                         reader.skipType(wireType, _depth, tag);
-                        $util.makeProp(message, "$unknowns", false);
-                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                        if (!reader.discardUnknown) {
+                            $util.makeProp(message, "$unknowns", false);
+                            (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                        }
                     }
                     if (_end !== undefined)
                         throw Error("missing end group");
@@ -30655,6 +30969,8 @@ $root.SyncAction = (function() {
                 SubscriptionInfo.fromObject = function fromObject(object, _depth) {
                     if (object instanceof $root.SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo)
                         return object;
+                    if (!$util.isObject(object))
+                        throw TypeError(".SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo: object expected");
                     if (_depth === undefined)
                         _depth = 0;
                     if (_depth > $util.recursionLimit)
@@ -30950,8 +31266,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -31017,13 +31335,15 @@ $root.SyncAction = (function() {
             SyncActionMessage.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.SyncActionMessage)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.SyncActionMessage: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     throw Error("max depth exceeded");
                 var message = new $root.SyncAction.SyncActionValue.SyncActionMessage();
                 if (object.key != null) {
-                    if (typeof object.key !== "object")
+                    if (!$util.isObject(object.key))
                         throw TypeError(".SyncAction.SyncActionValue.SyncActionMessage.key: object expected");
                     message.key = $root.Protocol.MessageKey.fromObject(object.key, _depth + 1);
                 }
@@ -31285,8 +31605,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -31358,6 +31680,8 @@ $root.SyncAction = (function() {
             SyncActionMessageRange.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.SyncActionMessageRange)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.SyncActionMessageRange: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -31386,7 +31710,7 @@ $root.SyncAction = (function() {
                         throw TypeError(".SyncAction.SyncActionValue.SyncActionMessageRange.messages: array expected");
                     message.messages = Array(object.messages.length);
                     for (var i = 0; i < object.messages.length; ++i) {
-                        if (typeof object.messages[i] !== "object")
+                        if (!$util.isObject(object.messages[i]))
                             throw TypeError(".SyncAction.SyncActionValue.SyncActionMessageRange.messages: object expected");
                         message.messages[i] = $root.SyncAction.SyncActionValue.SyncActionMessage.fromObject(object.messages[i], _depth + 1);
                     }
@@ -31607,8 +31931,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -31666,6 +31992,8 @@ $root.SyncAction = (function() {
             ThreadPinAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.ThreadPinAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.ThreadPinAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -31870,8 +32198,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -31929,6 +32259,8 @@ $root.SyncAction = (function() {
             TimeFormatAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.TimeFormatAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.TimeFormatAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -32133,8 +32465,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -32192,6 +32526,8 @@ $root.SyncAction = (function() {
             UGCBot.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.UGCBot)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.UGCBot: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -32399,8 +32735,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -32458,6 +32796,8 @@ $root.SyncAction = (function() {
             UnarchiveChatsSetting.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.UnarchiveChatsSetting)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.UnarchiveChatsSetting: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -32662,8 +33002,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -32721,6 +33063,8 @@ $root.SyncAction = (function() {
             UserStatusMuteAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.UserStatusMuteAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.UserStatusMuteAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -32925,8 +33269,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -32989,6 +33335,8 @@ $root.SyncAction = (function() {
             UsernameChatStartModeAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.UsernameChatStartModeAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.UsernameChatStartModeAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -33221,8 +33569,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -33286,6 +33636,8 @@ $root.SyncAction = (function() {
             WaffleAccountLinkStateAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.WaffleAccountLinkStateAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.WaffleAccountLinkStateAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -33524,8 +33876,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -33583,6 +33937,8 @@ $root.SyncAction = (function() {
             WamoUserIdentifierAction.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.SyncActionValue.WamoUserIdentifierAction)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.SyncActionValue.WamoUserIdentifierAction: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -34123,8 +34479,10 @@ $root.SyncAction = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -34283,6 +34641,8 @@ $root.SyncAction = (function() {
         CallLogRecord.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.SyncAction.CallLogRecord)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".SyncAction.CallLogRecord: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -34405,7 +34765,7 @@ $root.SyncAction = (function() {
                     throw TypeError(".SyncAction.CallLogRecord.participants: array expected");
                 message.participants = Array(object.participants.length);
                 for (var i = 0; i < object.participants.length; ++i) {
-                    if (typeof object.participants[i] !== "object")
+                    if (!$util.isObject(object.participants[i]))
                         throw TypeError(".SyncAction.CallLogRecord.participants: object expected");
                     message.participants[i] = $root.SyncAction.CallLogRecord.ParticipantInfo.fromObject(object.participants[i], _depth + 1);
                 }
@@ -34739,8 +35099,10 @@ $root.SyncAction = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -34817,6 +35179,8 @@ $root.SyncAction = (function() {
             ParticipantInfo.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.SyncAction.CallLogRecord.ParticipantInfo)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".SyncAction.CallLogRecord.ParticipantInfo: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -35120,8 +35484,10 @@ $root.SyncAction = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -35184,6 +35550,8 @@ $root.SyncAction = (function() {
         RecentEmojiWeight.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.SyncAction.RecentEmojiWeight)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".SyncAction.RecentEmojiWeight: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -35632,8 +36000,10 @@ $root.ChatLockSettings = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -35699,6 +36069,8 @@ $root.ChatLockSettings = (function() {
         ChatLockSettings.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.ChatLockSettings.ChatLockSettings)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".ChatLockSettings.ChatLockSettings: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -35707,7 +36079,7 @@ $root.ChatLockSettings = (function() {
             if (object.hideLockedChats != null)
                 message.hideLockedChats = Boolean(object.hideLockedChats);
             if (object.secretCode != null) {
-                if (typeof object.secretCode !== "object")
+                if (!$util.isObject(object.secretCode))
                     throw TypeError(".ChatLockSettings.ChatLockSettings.secretCode: object expected");
                 message.secretCode = $root.UserPassword.UserPassword.fromObject(object.secretCode, _depth + 1);
             }
@@ -35997,8 +36369,10 @@ $root.UserPassword = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -36086,6 +36460,8 @@ $root.UserPassword = (function() {
         UserPassword.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.UserPassword.UserPassword)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".UserPassword.UserPassword: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -36132,7 +36508,7 @@ $root.UserPassword = (function() {
                     throw TypeError(".UserPassword.UserPassword.transformerArg: array expected");
                 message.transformerArg = Array(object.transformerArg.length);
                 for (var i = 0; i < object.transformerArg.length; ++i) {
-                    if (typeof object.transformerArg[i] !== "object")
+                    if (!$util.isObject(object.transformerArg[i]))
                         throw TypeError(".UserPassword.UserPassword.transformerArg: object expected");
                     message.transformerArg[i] = $root.UserPassword.UserPassword.TransformerArg.fromObject(object.transformerArg[i], _depth + 1);
                 }
@@ -36405,8 +36781,10 @@ $root.UserPassword = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -36472,6 +36850,8 @@ $root.UserPassword = (function() {
             TransformerArg.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.UserPassword.UserPassword.TransformerArg)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".UserPassword.UserPassword.TransformerArg: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -36480,7 +36860,7 @@ $root.UserPassword = (function() {
                 if (object.key != null)
                     message.key = String(object.key);
                 if (object.value != null) {
-                    if (typeof object.value !== "object")
+                    if (!$util.isObject(object.value))
                         throw TypeError(".UserPassword.UserPassword.TransformerArg.value: object expected");
                     message.value = $root.UserPassword.UserPassword.TransformerArg.Value.fromObject(object.value, _depth + 1);
                 }
@@ -36710,8 +37090,10 @@ $root.UserPassword = (function() {
                             }
                         }
                         reader.skipType(wireType, _depth, tag);
-                        $util.makeProp(message, "$unknowns", false);
-                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                        if (!reader.discardUnknown) {
+                            $util.makeProp(message, "$unknowns", false);
+                            (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                        }
                     }
                     if (_end !== undefined)
                         throw Error("missing end group");
@@ -36776,6 +37158,8 @@ $root.UserPassword = (function() {
                 Value.fromObject = function fromObject(object, _depth) {
                     if (object instanceof $root.UserPassword.UserPassword.TransformerArg.Value)
                         return object;
+                    if (!$util.isObject(object))
+                        throw TypeError(".UserPassword.UserPassword.TransformerArg.Value: object expected");
                     if (_depth === undefined)
                         _depth = 0;
                     if (_depth > $util.recursionLimit)
@@ -37131,8 +37515,10 @@ $root.DeviceCapabilities = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -37239,6 +37625,8 @@ $root.DeviceCapabilities = (function() {
         DeviceCapabilities.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.DeviceCapabilities.DeviceCapabilities)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".DeviceCapabilities.DeviceCapabilities: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -37265,17 +37653,17 @@ $root.DeviceCapabilities = (function() {
                 break;
             }
             if (object.lidMigration != null) {
-                if (typeof object.lidMigration !== "object")
+                if (!$util.isObject(object.lidMigration))
                     throw TypeError(".DeviceCapabilities.DeviceCapabilities.lidMigration: object expected");
                 message.lidMigration = $root.DeviceCapabilities.DeviceCapabilities.LIDMigration.fromObject(object.lidMigration, _depth + 1);
             }
             if (object.businessBroadcast != null) {
-                if (typeof object.businessBroadcast !== "object")
+                if (!$util.isObject(object.businessBroadcast))
                     throw TypeError(".DeviceCapabilities.DeviceCapabilities.businessBroadcast: object expected");
                 message.businessBroadcast = $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.fromObject(object.businessBroadcast, _depth + 1);
             }
             if (object.userHasAvatar != null) {
-                if (typeof object.userHasAvatar !== "object")
+                if (!$util.isObject(object.userHasAvatar))
                     throw TypeError(".DeviceCapabilities.DeviceCapabilities.userHasAvatar: object expected");
                 message.userHasAvatar = $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar.fromObject(object.userHasAvatar, _depth + 1);
             }
@@ -37300,7 +37688,7 @@ $root.DeviceCapabilities = (function() {
                 break;
             }
             if (object.aiThread != null) {
-                if (typeof object.aiThread !== "object")
+                if (!$util.isObject(object.aiThread))
                     throw TypeError(".DeviceCapabilities.DeviceCapabilities.aiThread: object expected");
                 message.aiThread = $root.DeviceCapabilities.DeviceCapabilities.AiThread.fromObject(object.aiThread, _depth + 1);
             }
@@ -37508,8 +37896,10 @@ $root.DeviceCapabilities = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -37573,6 +37963,8 @@ $root.DeviceCapabilities = (function() {
             AiThread.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.DeviceCapabilities.DeviceCapabilities.AiThread)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".DeviceCapabilities.DeviceCapabilities.AiThread: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -37907,8 +38299,10 @@ $root.DeviceCapabilities = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -37986,6 +38380,8 @@ $root.DeviceCapabilities = (function() {
             BusinessBroadcast.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.DeviceCapabilities.DeviceCapabilities.BusinessBroadcast)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".DeviceCapabilities.DeviceCapabilities.BusinessBroadcast: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -38222,8 +38618,10 @@ $root.DeviceCapabilities = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -38281,6 +38679,8 @@ $root.DeviceCapabilities = (function() {
             LIDMigration.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.DeviceCapabilities.DeviceCapabilities.LIDMigration)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".DeviceCapabilities.DeviceCapabilities.LIDMigration: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -38513,8 +38913,10 @@ $root.DeviceCapabilities = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -38572,6 +38974,8 @@ $root.DeviceCapabilities = (function() {
             UserHasAvatar.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.DeviceCapabilities.DeviceCapabilities.UserHasAvatar)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".DeviceCapabilities.DeviceCapabilities.UserHasAvatar: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -38863,8 +39267,10 @@ $root.Protocol = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -38944,6 +39350,8 @@ $root.Protocol = (function() {
         LimitSharing.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Protocol.LimitSharing)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".Protocol.LimitSharing: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -39284,8 +39692,10 @@ $root.Protocol = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -39358,6 +39768,8 @@ $root.Protocol = (function() {
         MessageKey.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Protocol.MessageKey)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".Protocol.MessageKey: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)

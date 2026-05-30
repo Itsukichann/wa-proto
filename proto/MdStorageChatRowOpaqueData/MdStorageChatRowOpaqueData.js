@@ -162,8 +162,10 @@ $root.MdStorageChatRowOpaqueData = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -224,13 +226,15 @@ $root.MdStorageChatRowOpaqueData = (function() {
         ChatRowOpaqueData.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".MdStorageChatRowOpaqueData.ChatRowOpaqueData: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 throw Error("max depth exceeded");
             var message = new $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData();
             if (object.draftMessage != null) {
-                if (typeof object.draftMessage !== "object")
+                if (!$util.isObject(object.draftMessage))
                     throw TypeError(".MdStorageChatRowOpaqueData.ChatRowOpaqueData.draftMessage: object expected");
                 message.draftMessage = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.fromObject(object.draftMessage, _depth + 1);
             }
@@ -524,8 +528,10 @@ $root.MdStorageChatRowOpaqueData = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -609,6 +615,8 @@ $root.MdStorageChatRowOpaqueData = (function() {
             DraftMessage.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -619,12 +627,12 @@ $root.MdStorageChatRowOpaqueData = (function() {
                 if (object.omittedUrl != null)
                     message.omittedUrl = String(object.omittedUrl);
                 if (object.ctwaContextLinkData != null) {
-                    if (typeof object.ctwaContextLinkData !== "object")
+                    if (!$util.isObject(object.ctwaContextLinkData))
                         throw TypeError(".MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.ctwaContextLinkData: object expected");
                     message.ctwaContextLinkData = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.fromObject(object.ctwaContextLinkData, _depth + 1);
                 }
                 if (object.ctwaContext != null) {
-                    if (typeof object.ctwaContext !== "object")
+                    if (!$util.isObject(object.ctwaContext))
                         throw TypeError(".MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.ctwaContext: object expected");
                     message.ctwaContext = $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.fromObject(object.ctwaContext, _depth + 1);
                 }
@@ -1108,8 +1116,10 @@ $root.MdStorageChatRowOpaqueData = (function() {
                             }
                         }
                         reader.skipType(wireType, _depth, tag);
-                        $util.makeProp(message, "$unknowns", false);
-                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                        if (!reader.discardUnknown) {
+                            $util.makeProp(message, "$unknowns", false);
+                            (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                        }
                     }
                     if (_end !== undefined)
                         throw Error("missing end group");
@@ -1228,6 +1238,8 @@ $root.MdStorageChatRowOpaqueData = (function() {
                 CtwaContextData.fromObject = function fromObject(object, _depth) {
                     if (object instanceof $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData)
                         return object;
+                    if (!$util.isObject(object))
+                        throw TypeError(".MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData: object expected");
                     if (_depth === undefined)
                         _depth = 0;
                     if (_depth > $util.recursionLimit)
@@ -1585,8 +1597,10 @@ $root.MdStorageChatRowOpaqueData = (function() {
                             }
                         }
                         reader.skipType(wireType, _depth, tag);
-                        $util.makeProp(message, "$unknowns", false);
-                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                        if (!reader.discardUnknown) {
+                            $util.makeProp(message, "$unknowns", false);
+                            (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                        }
                     }
                     if (_end !== undefined)
                         throw Error("missing end group");
@@ -1659,6 +1673,8 @@ $root.MdStorageChatRowOpaqueData = (function() {
                 CtwaContextLinkData.fromObject = function fromObject(object, _depth) {
                     if (object instanceof $root.MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData)
                         return object;
+                    if (!$util.isObject(object))
+                        throw TypeError(".MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData: object expected");
                     if (_depth === undefined)
                         _depth = 0;
                     if (_depth > $util.recursionLimit)

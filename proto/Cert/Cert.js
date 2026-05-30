@@ -186,8 +186,10 @@ $root.Cert = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -256,18 +258,20 @@ $root.Cert = (function() {
         CertChain.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Cert.CertChain)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".Cert.CertChain: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 throw Error("max depth exceeded");
             var message = new $root.Cert.CertChain();
             if (object.leaf != null) {
-                if (typeof object.leaf !== "object")
+                if (!$util.isObject(object.leaf))
                     throw TypeError(".Cert.CertChain.leaf: object expected");
                 message.leaf = $root.Cert.CertChain.NoiseCertificate.fromObject(object.leaf, _depth + 1);
             }
             if (object.intermediate != null) {
-                if (typeof object.intermediate !== "object")
+                if (!$util.isObject(object.intermediate))
                     throw TypeError(".Cert.CertChain.intermediate: object expected");
                 message.intermediate = $root.Cert.CertChain.NoiseCertificate.fromObject(object.intermediate, _depth + 1);
             }
@@ -491,8 +495,10 @@ $root.Cert = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -555,6 +561,8 @@ $root.Cert = (function() {
             NoiseCertificate.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.Cert.CertChain.NoiseCertificate)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".Cert.CertChain.NoiseCertificate: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -862,8 +870,10 @@ $root.Cert = (function() {
                             }
                         }
                         reader.skipType(wireType, _depth, tag);
-                        $util.makeProp(message, "$unknowns", false);
-                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                        if (!reader.discardUnknown) {
+                            $util.makeProp(message, "$unknowns", false);
+                            (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                        }
                     }
                     if (_end !== undefined)
                         throw Error("missing end group");
@@ -941,6 +951,8 @@ $root.Cert = (function() {
                 Details.fromObject = function fromObject(object, _depth) {
                     if (object instanceof $root.Cert.CertChain.NoiseCertificate.Details)
                         return object;
+                    if (!$util.isObject(object))
+                        throw TypeError(".Cert.CertChain.NoiseCertificate.Details: object expected");
                     if (_depth === undefined)
                         _depth = 0;
                     if (_depth > $util.recursionLimit)
@@ -1218,8 +1230,10 @@ $root.Cert = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -1282,6 +1296,8 @@ $root.Cert = (function() {
         NoiseCertificate.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Cert.NoiseCertificate)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".Cert.NoiseCertificate: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -1589,8 +1605,10 @@ $root.Cert = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -1668,6 +1686,8 @@ $root.Cert = (function() {
             Details.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.Cert.NoiseCertificate.Details)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".Cert.NoiseCertificate.Details: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)

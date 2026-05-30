@@ -277,8 +277,10 @@ $root.Reporting = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -365,6 +367,8 @@ $root.Reporting = (function() {
         Field.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Reporting.Field)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".Reporting.Field: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -379,13 +383,13 @@ $root.Reporting = (function() {
             if (object.isMessage != null)
                 message.isMessage = Boolean(object.isMessage);
             if (object.subfield) {
-                if (typeof object.subfield !== "object")
+                if (!$util.isObject(object.subfield))
                     throw TypeError(".Reporting.Field.subfield: object expected");
                 message.subfield = {};
                 for (var keys = Object.keys(object.subfield), i = 0; i < keys.length; ++i) {
                     if (keys[i] === "__proto__")
                         $util.makeProp(message.subfield, keys[i]);
-                    if (typeof object.subfield[keys[i]] !== "object")
+                    if (!$util.isObject(object.subfield[keys[i]]))
                         throw TypeError(".Reporting.Field.subfield: object expected");
                     message.subfield[keys[i]] = $root.Reporting.Field.fromObject(object.subfield[keys[i]], _depth + 1);
                 }
@@ -647,8 +651,10 @@ $root.Reporting = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -720,19 +726,21 @@ $root.Reporting = (function() {
         Config.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Reporting.Config)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".Reporting.Config: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 throw Error("max depth exceeded");
             var message = new $root.Reporting.Config();
             if (object.field) {
-                if (typeof object.field !== "object")
+                if (!$util.isObject(object.field))
                     throw TypeError(".Reporting.Config.field: object expected");
                 message.field = {};
                 for (var keys = Object.keys(object.field), i = 0; i < keys.length; ++i) {
                     if (keys[i] === "__proto__")
                         $util.makeProp(message.field, keys[i]);
-                    if (typeof object.field[keys[i]] !== "object")
+                    if (!$util.isObject(object.field[keys[i]]))
                         throw TypeError(".Reporting.Config.field: object expected");
                     message.field[keys[i]] = $root.Reporting.Field.fromObject(object.field[keys[i]], _depth + 1);
                 }
@@ -1019,8 +1027,10 @@ $root.Reporting = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -1093,6 +1103,8 @@ $root.Reporting = (function() {
         Reportable.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Reporting.Reportable)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".Reporting.Reportable: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)

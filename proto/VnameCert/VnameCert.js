@@ -330,8 +330,10 @@ $root.VnameCert = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -443,6 +445,8 @@ $root.VnameCert = (function() {
         BizIdentityInfo.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.VnameCert.BizIdentityInfo)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".VnameCert.BizIdentityInfo: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -469,7 +473,7 @@ $root.VnameCert = (function() {
                 break;
             }
             if (object.vnameCert != null) {
-                if (typeof object.vnameCert !== "object")
+                if (!$util.isObject(object.vnameCert))
                     throw TypeError(".VnameCert.BizIdentityInfo.vnameCert: object expected");
                 message.vnameCert = $root.VnameCert.VerifiedNameCertificate.fromObject(object.vnameCert, _depth + 1);
             }
@@ -888,8 +892,10 @@ $root.VnameCert = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -976,6 +982,8 @@ $root.VnameCert = (function() {
         BizAccountLinkInfo.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.VnameCert.BizAccountLinkInfo)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".VnameCert.BizAccountLinkInfo: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -1294,8 +1302,10 @@ $root.VnameCert = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -1361,13 +1371,15 @@ $root.VnameCert = (function() {
         BizAccountPayload.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.VnameCert.BizAccountPayload)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".VnameCert.BizAccountPayload: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 throw Error("max depth exceeded");
             var message = new $root.VnameCert.BizAccountPayload();
             if (object.vnameCert != null) {
-                if (typeof object.vnameCert !== "object")
+                if (!$util.isObject(object.vnameCert))
                     throw TypeError(".VnameCert.BizAccountPayload.vnameCert: object expected");
                 message.vnameCert = $root.VnameCert.VerifiedNameCertificate.fromObject(object.vnameCert, _depth + 1);
             }
@@ -1623,8 +1635,10 @@ $root.VnameCert = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -1692,6 +1706,8 @@ $root.VnameCert = (function() {
         VerifiedNameCertificate.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.VnameCert.VerifiedNameCertificate)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".VnameCert.VerifiedNameCertificate: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -2003,8 +2019,10 @@ $root.VnameCert = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -2086,6 +2104,8 @@ $root.VnameCert = (function() {
             Details.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.VnameCert.VerifiedNameCertificate.Details)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".VnameCert.VerifiedNameCertificate.Details: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -2109,7 +2129,7 @@ $root.VnameCert = (function() {
                         throw TypeError(".VnameCert.VerifiedNameCertificate.Details.localizedNames: array expected");
                     message.localizedNames = Array(object.localizedNames.length);
                     for (var i = 0; i < object.localizedNames.length; ++i) {
-                        if (typeof object.localizedNames[i] !== "object")
+                        if (!$util.isObject(object.localizedNames[i]))
                             throw TypeError(".VnameCert.VerifiedNameCertificate.Details.localizedNames: object expected");
                         message.localizedNames[i] = $root.VnameCert.LocalizedName.fromObject(object.localizedNames[i], _depth + 1);
                     }
@@ -2394,8 +2414,10 @@ $root.VnameCert = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -2463,6 +2485,8 @@ $root.VnameCert = (function() {
         LocalizedName.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.VnameCert.LocalizedName)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".VnameCert.LocalizedName: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)

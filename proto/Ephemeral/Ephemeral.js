@@ -186,8 +186,10 @@ $root.Ephemeral = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -250,6 +252,8 @@ $root.Ephemeral = (function() {
         EphemeralSetting.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Ephemeral.EphemeralSetting)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".Ephemeral.EphemeralSetting: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)

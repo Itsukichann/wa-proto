@@ -183,8 +183,10 @@ $root.LidMigrationSyncPayload = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -251,6 +253,8 @@ $root.LidMigrationSyncPayload = (function() {
         LIDMigrationMappingSyncPayload.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.LidMigrationSyncPayload.LIDMigrationMappingSyncPayload)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".LidMigrationSyncPayload.LIDMigrationMappingSyncPayload: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -261,7 +265,7 @@ $root.LidMigrationSyncPayload = (function() {
                     throw TypeError(".LidMigrationSyncPayload.LIDMigrationMappingSyncPayload.pnToLidMappings: array expected");
                 message.pnToLidMappings = Array(object.pnToLidMappings.length);
                 for (var i = 0; i < object.pnToLidMappings.length; ++i) {
-                    if (typeof object.pnToLidMappings[i] !== "object")
+                    if (!$util.isObject(object.pnToLidMappings[i]))
                         throw TypeError(".LidMigrationSyncPayload.LIDMigrationMappingSyncPayload.pnToLidMappings: object expected");
                     message.pnToLidMappings[i] = $root.LidMigrationSyncPayload.LIDMigrationMapping.fromObject(object.pnToLidMappings[i], _depth + 1);
                 }
@@ -532,8 +536,10 @@ $root.LidMigrationSyncPayload = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -601,6 +607,8 @@ $root.LidMigrationSyncPayload = (function() {
         LIDMigrationMapping.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.LidMigrationSyncPayload.LIDMigrationMapping)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".LidMigrationSyncPayload.LIDMigrationMapping: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)

@@ -162,8 +162,10 @@ $root.MmsRetry = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -221,6 +223,8 @@ $root.MmsRetry = (function() {
         ServerErrorReceipt.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.MmsRetry.ServerErrorReceipt)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".MmsRetry.ServerErrorReceipt: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -497,8 +501,10 @@ $root.MmsRetry = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -578,6 +584,8 @@ $root.MmsRetry = (function() {
         MediaRetryNotification.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.MmsRetry.MediaRetryNotification)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".MmsRetry.MediaRetryNotification: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)

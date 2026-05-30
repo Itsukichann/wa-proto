@@ -234,8 +234,10 @@ $root.Protocol = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -315,6 +317,8 @@ $root.Protocol = (function() {
         LimitSharing.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Protocol.LimitSharing)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".Protocol.LimitSharing: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -655,8 +659,10 @@ $root.Protocol = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -729,6 +735,8 @@ $root.Protocol = (function() {
         MessageKey.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Protocol.MessageKey)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".Protocol.MessageKey: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)

@@ -186,8 +186,10 @@ $root.SignalWhisperTextProtocol = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -250,6 +252,8 @@ $root.SignalWhisperTextProtocol = (function() {
         DeviceConsistencyCodeMessage.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.SignalWhisperTextProtocol.DeviceConsistencyCodeMessage)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".SignalWhisperTextProtocol.DeviceConsistencyCodeMessage: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -533,8 +537,10 @@ $root.SignalWhisperTextProtocol = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -607,6 +613,8 @@ $root.SignalWhisperTextProtocol = (function() {
         SenderKeyDistributionMessage.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.SignalWhisperTextProtocol.SenderKeyDistributionMessage)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".SignalWhisperTextProtocol.SenderKeyDistributionMessage: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -877,8 +885,10 @@ $root.SignalWhisperTextProtocol = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -946,6 +956,8 @@ $root.SignalWhisperTextProtocol = (function() {
         SenderKeyMessage.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.SignalWhisperTextProtocol.SenderKeyMessage)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".SignalWhisperTextProtocol.SenderKeyMessage: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -1257,8 +1269,10 @@ $root.SignalWhisperTextProtocol = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -1336,6 +1350,8 @@ $root.SignalWhisperTextProtocol = (function() {
         KeyExchangeMessage.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.SignalWhisperTextProtocol.KeyExchangeMessage)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".SignalWhisperTextProtocol.KeyExchangeMessage: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -1688,8 +1704,10 @@ $root.SignalWhisperTextProtocol = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -1772,6 +1790,8 @@ $root.SignalWhisperTextProtocol = (function() {
         PreKeySignalMessage.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.SignalWhisperTextProtocol.PreKeySignalMessage)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".SignalWhisperTextProtocol.PreKeySignalMessage: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -2077,8 +2097,10 @@ $root.SignalWhisperTextProtocol = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -2151,6 +2173,8 @@ $root.SignalWhisperTextProtocol = (function() {
         SignalMessage.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.SignalWhisperTextProtocol.SignalMessage)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".SignalWhisperTextProtocol.SignalMessage: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)

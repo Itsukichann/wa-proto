@@ -190,8 +190,10 @@ $root.ChatLockSettings = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -257,6 +259,8 @@ $root.ChatLockSettings = (function() {
         ChatLockSettings.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.ChatLockSettings.ChatLockSettings)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".ChatLockSettings.ChatLockSettings: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -265,7 +269,7 @@ $root.ChatLockSettings = (function() {
             if (object.hideLockedChats != null)
                 message.hideLockedChats = Boolean(object.hideLockedChats);
             if (object.secretCode != null) {
-                if (typeof object.secretCode !== "object")
+                if (!$util.isObject(object.secretCode))
                     throw TypeError(".ChatLockSettings.ChatLockSettings.secretCode: object expected");
                 message.secretCode = $root.UserPassword.UserPassword.fromObject(object.secretCode, _depth + 1);
             }
@@ -555,8 +559,10 @@ $root.UserPassword = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -644,6 +650,8 @@ $root.UserPassword = (function() {
         UserPassword.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.UserPassword.UserPassword)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".UserPassword.UserPassword: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -690,7 +698,7 @@ $root.UserPassword = (function() {
                     throw TypeError(".UserPassword.UserPassword.transformerArg: array expected");
                 message.transformerArg = Array(object.transformerArg.length);
                 for (var i = 0; i < object.transformerArg.length; ++i) {
-                    if (typeof object.transformerArg[i] !== "object")
+                    if (!$util.isObject(object.transformerArg[i]))
                         throw TypeError(".UserPassword.UserPassword.transformerArg: object expected");
                     message.transformerArg[i] = $root.UserPassword.UserPassword.TransformerArg.fromObject(object.transformerArg[i], _depth + 1);
                 }
@@ -963,8 +971,10 @@ $root.UserPassword = (function() {
                         }
                     }
                     reader.skipType(wireType, _depth, tag);
-                    $util.makeProp(message, "$unknowns", false);
-                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
                 }
                 if (_end !== undefined)
                     throw Error("missing end group");
@@ -1030,6 +1040,8 @@ $root.UserPassword = (function() {
             TransformerArg.fromObject = function fromObject(object, _depth) {
                 if (object instanceof $root.UserPassword.UserPassword.TransformerArg)
                     return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".UserPassword.UserPassword.TransformerArg: object expected");
                 if (_depth === undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
@@ -1038,7 +1050,7 @@ $root.UserPassword = (function() {
                 if (object.key != null)
                     message.key = String(object.key);
                 if (object.value != null) {
-                    if (typeof object.value !== "object")
+                    if (!$util.isObject(object.value))
                         throw TypeError(".UserPassword.UserPassword.TransformerArg.value: object expected");
                     message.value = $root.UserPassword.UserPassword.TransformerArg.Value.fromObject(object.value, _depth + 1);
                 }
@@ -1268,8 +1280,10 @@ $root.UserPassword = (function() {
                             }
                         }
                         reader.skipType(wireType, _depth, tag);
-                        $util.makeProp(message, "$unknowns", false);
-                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                        if (!reader.discardUnknown) {
+                            $util.makeProp(message, "$unknowns", false);
+                            (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                        }
                     }
                     if (_end !== undefined)
                         throw Error("missing end group");
@@ -1334,6 +1348,8 @@ $root.UserPassword = (function() {
                 Value.fromObject = function fromObject(object, _depth) {
                     if (object instanceof $root.UserPassword.UserPassword.TransformerArg.Value)
                         return object;
+                    if (!$util.isObject(object))
+                        throw TypeError(".UserPassword.UserPassword.TransformerArg.Value: object expected");
                     if (_depth === undefined)
                         _depth = 0;
                     if (_depth > $util.recursionLimit)

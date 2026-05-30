@@ -351,8 +351,10 @@ $root.ServerSync = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -466,13 +468,15 @@ $root.ServerSync = (function() {
         SyncdPatch.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.ServerSync.SyncdPatch)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".ServerSync.SyncdPatch: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 throw Error("max depth exceeded");
             var message = new $root.ServerSync.SyncdPatch();
             if (object.version != null) {
-                if (typeof object.version !== "object")
+                if (!$util.isObject(object.version))
                     throw TypeError(".ServerSync.SyncdPatch.version: object expected");
                 message.version = $root.ServerSync.SyncdVersion.fromObject(object.version, _depth + 1);
             }
@@ -481,13 +485,13 @@ $root.ServerSync = (function() {
                     throw TypeError(".ServerSync.SyncdPatch.mutations: array expected");
                 message.mutations = Array(object.mutations.length);
                 for (var i = 0; i < object.mutations.length; ++i) {
-                    if (typeof object.mutations[i] !== "object")
+                    if (!$util.isObject(object.mutations[i]))
                         throw TypeError(".ServerSync.SyncdPatch.mutations: object expected");
                     message.mutations[i] = $root.ServerSync.SyncdMutation.fromObject(object.mutations[i], _depth + 1);
                 }
             }
             if (object.externalMutations != null) {
-                if (typeof object.externalMutations !== "object")
+                if (!$util.isObject(object.externalMutations))
                     throw TypeError(".ServerSync.SyncdPatch.externalMutations: object expected");
                 message.externalMutations = $root.ServerSync.ExternalBlobReference.fromObject(object.externalMutations, _depth + 1);
             }
@@ -502,12 +506,12 @@ $root.ServerSync = (function() {
                 else if (object.patchMac.length >= 0)
                     message.patchMac = object.patchMac;
             if (object.keyId != null) {
-                if (typeof object.keyId !== "object")
+                if (!$util.isObject(object.keyId))
                     throw TypeError(".ServerSync.SyncdPatch.keyId: object expected");
                 message.keyId = $root.ServerSync.KeyId.fromObject(object.keyId, _depth + 1);
             }
             if (object.exitCode != null) {
-                if (typeof object.exitCode !== "object")
+                if (!$util.isObject(object.exitCode))
                     throw TypeError(".ServerSync.SyncdPatch.exitCode: object expected");
                 message.exitCode = $root.ServerSync.ExitCode.fromObject(object.exitCode, _depth + 1);
             }
@@ -760,8 +764,10 @@ $root.ServerSync = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -832,6 +838,8 @@ $root.ServerSync = (function() {
         SyncdMutation.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.ServerSync.SyncdMutation)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".ServerSync.SyncdMutation: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -854,7 +862,7 @@ $root.ServerSync = (function() {
                 break;
             }
             if (object.record != null) {
-                if (typeof object.record !== "object")
+                if (!$util.isObject(object.record))
                     throw TypeError(".ServerSync.SyncdMutation.record: object expected");
                 message.record = $root.ServerSync.SyncdRecord.fromObject(object.record, _depth + 1);
             }
@@ -1065,8 +1073,10 @@ $root.ServerSync = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -1127,6 +1137,8 @@ $root.ServerSync = (function() {
         SyncdMutations.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.ServerSync.SyncdMutations)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".ServerSync.SyncdMutations: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -1137,7 +1149,7 @@ $root.ServerSync = (function() {
                     throw TypeError(".ServerSync.SyncdMutations.mutations: array expected");
                 message.mutations = Array(object.mutations.length);
                 for (var i = 0; i < object.mutations.length; ++i) {
-                    if (typeof object.mutations[i] !== "object")
+                    if (!$util.isObject(object.mutations[i]))
                         throw TypeError(".ServerSync.SyncdMutations.mutations: object expected");
                     message.mutations[i] = $root.ServerSync.SyncdMutation.fromObject(object.mutations[i], _depth + 1);
                 }
@@ -1413,8 +1425,10 @@ $root.ServerSync = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -1497,13 +1511,15 @@ $root.ServerSync = (function() {
         SyncdSnapshot.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.ServerSync.SyncdSnapshot)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".ServerSync.SyncdSnapshot: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 throw Error("max depth exceeded");
             var message = new $root.ServerSync.SyncdSnapshot();
             if (object.version != null) {
-                if (typeof object.version !== "object")
+                if (!$util.isObject(object.version))
                     throw TypeError(".ServerSync.SyncdSnapshot.version: object expected");
                 message.version = $root.ServerSync.SyncdVersion.fromObject(object.version, _depth + 1);
             }
@@ -1512,7 +1528,7 @@ $root.ServerSync = (function() {
                     throw TypeError(".ServerSync.SyncdSnapshot.records: array expected");
                 message.records = Array(object.records.length);
                 for (var i = 0; i < object.records.length; ++i) {
-                    if (typeof object.records[i] !== "object")
+                    if (!$util.isObject(object.records[i]))
                         throw TypeError(".ServerSync.SyncdSnapshot.records: object expected");
                     message.records[i] = $root.ServerSync.SyncdRecord.fromObject(object.records[i], _depth + 1);
                 }
@@ -1523,7 +1539,7 @@ $root.ServerSync = (function() {
                 else if (object.mac.length >= 0)
                     message.mac = object.mac;
             if (object.keyId != null) {
-                if (typeof object.keyId !== "object")
+                if (!$util.isObject(object.keyId))
                     throw TypeError(".ServerSync.SyncdSnapshot.keyId: object expected");
                 message.keyId = $root.ServerSync.KeyId.fromObject(object.keyId, _depth + 1);
             }
@@ -1855,8 +1871,10 @@ $root.ServerSync = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -1939,6 +1957,8 @@ $root.ServerSync = (function() {
         ExternalBlobReference.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.ServerSync.ExternalBlobReference)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".ServerSync.ExternalBlobReference: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -2232,8 +2252,10 @@ $root.ServerSync = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -2310,23 +2332,25 @@ $root.ServerSync = (function() {
         SyncdRecord.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.ServerSync.SyncdRecord)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".ServerSync.SyncdRecord: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 throw Error("max depth exceeded");
             var message = new $root.ServerSync.SyncdRecord();
             if (object.index != null) {
-                if (typeof object.index !== "object")
+                if (!$util.isObject(object.index))
                     throw TypeError(".ServerSync.SyncdRecord.index: object expected");
                 message.index = $root.ServerSync.SyncdIndex.fromObject(object.index, _depth + 1);
             }
             if (object.value != null) {
-                if (typeof object.value !== "object")
+                if (!$util.isObject(object.value))
                     throw TypeError(".ServerSync.SyncdRecord.value: object expected");
                 message.value = $root.ServerSync.SyncdValue.fromObject(object.value, _depth + 1);
             }
             if (object.keyId != null) {
-                if (typeof object.keyId !== "object")
+                if (!$util.isObject(object.keyId))
                     throw TypeError(".ServerSync.SyncdRecord.keyId: object expected");
                 message.keyId = $root.ServerSync.KeyId.fromObject(object.keyId, _depth + 1);
             }
@@ -2531,8 +2555,10 @@ $root.ServerSync = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -2590,6 +2616,8 @@ $root.ServerSync = (function() {
         KeyId.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.ServerSync.KeyId)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".ServerSync.KeyId: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -2797,8 +2825,10 @@ $root.ServerSync = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -2856,6 +2886,8 @@ $root.ServerSync = (function() {
         SyncdValue.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.ServerSync.SyncdValue)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".ServerSync.SyncdValue: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -3063,8 +3095,10 @@ $root.ServerSync = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -3122,6 +3156,8 @@ $root.ServerSync = (function() {
         SyncdIndex.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.ServerSync.SyncdIndex)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".ServerSync.SyncdIndex: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -3353,8 +3389,10 @@ $root.ServerSync = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -3417,6 +3455,8 @@ $root.ServerSync = (function() {
         ExitCode.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.ServerSync.ExitCode)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".ServerSync.ExitCode: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -3637,8 +3677,10 @@ $root.ServerSync = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -3696,6 +3738,8 @@ $root.ServerSync = (function() {
         SyncdVersion.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.ServerSync.SyncdVersion)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".ServerSync.SyncdVersion: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)

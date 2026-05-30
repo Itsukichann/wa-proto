@@ -210,8 +210,10 @@ $root.Adv = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -285,6 +287,8 @@ $root.Adv = (function() {
         ADVSignedDeviceIdentityHMAC.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Adv.ADVSignedDeviceIdentityHMAC)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".Adv.ADVSignedDeviceIdentityHMAC: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -593,8 +597,10 @@ $root.Adv = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -667,6 +673,8 @@ $root.Adv = (function() {
         ADVSignedDeviceIdentity.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Adv.ADVSignedDeviceIdentity)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".Adv.ADVSignedDeviceIdentity: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -991,8 +999,10 @@ $root.Adv = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -1082,6 +1092,8 @@ $root.Adv = (function() {
         ADVDeviceIdentity.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Adv.ADVDeviceIdentity)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".Adv.ADVDeviceIdentity: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -1398,8 +1410,10 @@ $root.Adv = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -1467,6 +1481,8 @@ $root.Adv = (function() {
         ADVSignedKeyIndexList.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Adv.ADVSignedKeyIndexList)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".Adv.ADVSignedKeyIndexList: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
@@ -1792,8 +1808,10 @@ $root.Adv = (function() {
                     }
                 }
                 reader.skipType(wireType, _depth, tag);
-                $util.makeProp(message, "$unknowns", false);
-                (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                if (!reader.discardUnknown) {
+                    $util.makeProp(message, "$unknowns", false);
+                    (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                }
             }
             if (_end !== undefined)
                 throw Error("missing end group");
@@ -1879,6 +1897,8 @@ $root.Adv = (function() {
         ADVKeyIndexList.fromObject = function fromObject(object, _depth) {
             if (object instanceof $root.Adv.ADVKeyIndexList)
                 return object;
+            if (!$util.isObject(object))
+                throw TypeError(".Adv.ADVKeyIndexList: object expected");
             if (_depth === undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
