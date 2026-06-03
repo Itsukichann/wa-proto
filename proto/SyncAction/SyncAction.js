@@ -14898,7 +14898,7 @@ $root.SyncAction = (function() {
              * Properties of a LabelAssociationAction.
              * @typedef {Object} SyncAction.SyncActionValue.LabelAssociationAction.$Properties
              * @property {boolean|null} [labeled] LabelAssociationAction labeled
-             * @property {Array.<SyncAction.SyncActionValue.ModelMetadata.$Properties>|null} [modelMetaData] LabelAssociationAction modelMetaData
+             * @property {string|null} [modelMetaData] LabelAssociationAction modelMetaData
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
@@ -14924,7 +14924,6 @@ $root.SyncAction = (function() {
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
             function LabelAssociationAction(properties) {
-                this.modelMetaData = [];
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null && keys[i] !== "__proto__")
@@ -14941,11 +14940,11 @@ $root.SyncAction = (function() {
 
             /**
              * LabelAssociationAction modelMetaData.
-             * @member {Array.<SyncAction.SyncActionValue.ModelMetadata.$Properties>} modelMetaData
+             * @member {string|null|undefined} modelMetaData
              * @memberof SyncAction.SyncActionValue.LabelAssociationAction
              * @instance
              */
-            LabelAssociationAction.prototype.modelMetaData = $util.emptyArray;
+            LabelAssociationAction.prototype.modelMetaData = null;
 
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
@@ -14953,6 +14952,12 @@ $root.SyncAction = (function() {
             // Virtual OneOf for proto3 optional field
             Object.defineProperty(LabelAssociationAction.prototype, "_labeled", {
                 get: $util.oneOfGetter($oneOfFields = ["labeled"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(LabelAssociationAction.prototype, "_modelMetaData", {
+                get: $util.oneOfGetter($oneOfFields = ["modelMetaData"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -14990,9 +14995,8 @@ $root.SyncAction = (function() {
                     throw Error("max depth exceeded");
                 if (message.labeled != null && Object.hasOwnProperty.call(message, "labeled"))
                     writer.uint32(/* id 1, wireType 0 =*/8).bool(message.labeled);
-                if (message.modelMetaData != null && message.modelMetaData.length)
-                    for (var i = 0; i < message.modelMetaData.length; ++i)
-                        $root.SyncAction.SyncActionValue.ModelMetadata.encode(message.modelMetaData[i], writer.uint32(/* id 2, wireType 2 =*/18).fork(), _depth + 1).ldelim();
+                if (message.modelMetaData != null && Object.hasOwnProperty.call(message, "modelMetaData"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.modelMetaData);
                 if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -15050,9 +15054,8 @@ $root.SyncAction = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            if (!(message.modelMetaData && message.modelMetaData.length))
-                                message.modelMetaData = [];
-                            message.modelMetaData.push($root.SyncAction.SyncActionValue.ModelMetadata.decode(reader, reader.uint32(), undefined, _depth + 1));
+                            message.modelMetaData = reader.string();
+                            message._modelMetaData = "modelMetaData";
                             continue;
                         }
                     }
@@ -15105,13 +15108,9 @@ $root.SyncAction = (function() {
                         return "labeled: boolean expected";
                 }
                 if (message.modelMetaData != null && message.hasOwnProperty("modelMetaData")) {
-                    if (!Array.isArray(message.modelMetaData))
-                        return "modelMetaData: array expected";
-                    for (var i = 0; i < message.modelMetaData.length; ++i) {
-                        var error = $root.SyncAction.SyncActionValue.ModelMetadata.verify(message.modelMetaData[i], _depth + 1);
-                        if (error)
-                            return "modelMetaData." + error;
-                    }
+                    properties._modelMetaData = 1;
+                    if (!$util.isString(message.modelMetaData))
+                        return "modelMetaData: string expected";
                 }
                 return null;
             };
@@ -15136,16 +15135,8 @@ $root.SyncAction = (function() {
                 var message = new $root.SyncAction.SyncActionValue.LabelAssociationAction();
                 if (object.labeled != null)
                     message.labeled = Boolean(object.labeled);
-                if (object.modelMetaData) {
-                    if (!Array.isArray(object.modelMetaData))
-                        throw TypeError(".SyncAction.SyncActionValue.LabelAssociationAction.modelMetaData: array expected");
-                    message.modelMetaData = Array(object.modelMetaData.length);
-                    for (var i = 0; i < object.modelMetaData.length; ++i) {
-                        if (!$util.isObject(object.modelMetaData[i]))
-                            throw TypeError(".SyncAction.SyncActionValue.LabelAssociationAction.modelMetaData: object expected");
-                        message.modelMetaData[i] = $root.SyncAction.SyncActionValue.ModelMetadata.fromObject(object.modelMetaData[i], _depth + 1);
-                    }
-                }
+                if (object.modelMetaData != null)
+                    message.modelMetaData = String(object.modelMetaData);
                 return message;
             };
 
@@ -15166,15 +15157,10 @@ $root.SyncAction = (function() {
                 if (_depth > $util.recursionLimit)
                     throw Error("max depth exceeded");
                 var object = {};
-                if (options.arrays || options.defaults)
-                    object.modelMetaData = [];
                 if (message.labeled != null && message.hasOwnProperty("labeled"))
                     object.labeled = message.labeled;
-                if (message.modelMetaData && message.modelMetaData.length) {
-                    object.modelMetaData = Array(message.modelMetaData.length);
-                    for (var j = 0; j < message.modelMetaData.length; ++j)
-                        object.modelMetaData[j] = $root.SyncAction.SyncActionValue.ModelMetadata.toObject(message.modelMetaData[j], options, _depth + 1);
-                }
+                if (message.modelMetaData != null && message.hasOwnProperty("modelMetaData"))
+                    object.modelMetaData = message.modelMetaData;
                 return object;
             };
 
@@ -17036,6 +17022,7 @@ $root.SyncAction = (function() {
              * Properties of a MaibaAIFeaturesControlAction.
              * @typedef {Object} SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.$Properties
              * @property {SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.MaibaAIFeatureStatus|null} [aiFeatureStatus] MaibaAIFeaturesControlAction aiFeatureStatus
+             * @property {SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.MaibaAIReplyMode|null} [aiReplyMode] MaibaAIFeaturesControlAction aiReplyMode
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
@@ -17075,12 +17062,26 @@ $root.SyncAction = (function() {
              */
             MaibaAIFeaturesControlAction.prototype.aiFeatureStatus = null;
 
+            /**
+             * MaibaAIFeaturesControlAction aiReplyMode.
+             * @member {SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.MaibaAIReplyMode|null|undefined} aiReplyMode
+             * @memberof SyncAction.SyncActionValue.MaibaAIFeaturesControlAction
+             * @instance
+             */
+            MaibaAIFeaturesControlAction.prototype.aiReplyMode = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
             // Virtual OneOf for proto3 optional field
             Object.defineProperty(MaibaAIFeaturesControlAction.prototype, "_aiFeatureStatus", {
                 get: $util.oneOfGetter($oneOfFields = ["aiFeatureStatus"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(MaibaAIFeaturesControlAction.prototype, "_aiReplyMode", {
+                get: $util.oneOfGetter($oneOfFields = ["aiReplyMode"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -17118,6 +17119,8 @@ $root.SyncAction = (function() {
                     throw Error("max depth exceeded");
                 if (message.aiFeatureStatus != null && Object.hasOwnProperty.call(message, "aiFeatureStatus"))
                     writer.uint32(/* id 1, wireType 0 =*/8).int32(message.aiFeatureStatus);
+                if (message.aiReplyMode != null && Object.hasOwnProperty.call(message, "aiReplyMode"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).int32(message.aiReplyMode);
                 if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -17170,6 +17173,13 @@ $root.SyncAction = (function() {
                                 break;
                             message.aiFeatureStatus = reader.int32();
                             message._aiFeatureStatus = "aiFeatureStatus";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 0)
+                                break;
+                            message.aiReplyMode = reader.int32();
+                            message._aiReplyMode = "aiReplyMode";
                             continue;
                         }
                     }
@@ -17227,6 +17237,17 @@ $root.SyncAction = (function() {
                         break;
                     }
                 }
+                if (message.aiReplyMode != null && message.hasOwnProperty("aiReplyMode")) {
+                    properties._aiReplyMode = 1;
+                    switch (message.aiReplyMode) {
+                    default:
+                        return "aiReplyMode: enum value expected";
+                    case 0:
+                    case 1:
+                    case 2:
+                        break;
+                    }
+                }
                 return null;
             };
 
@@ -17268,6 +17289,26 @@ $root.SyncAction = (function() {
                     message.aiFeatureStatus = 2;
                     break;
                 }
+                switch (object.aiReplyMode) {
+                default:
+                    if (typeof object.aiReplyMode === "number") {
+                        message.aiReplyMode = object.aiReplyMode;
+                        break;
+                    }
+                    break;
+                case "MUTED":
+                case 0:
+                    message.aiReplyMode = 0;
+                    break;
+                case "AI_AGENT":
+                case 1:
+                    message.aiReplyMode = 1;
+                    break;
+                case "SUGGESTIONS":
+                case 2:
+                    message.aiReplyMode = 2;
+                    break;
+                }
                 return message;
             };
 
@@ -17290,6 +17331,8 @@ $root.SyncAction = (function() {
                 var object = {};
                 if (message.aiFeatureStatus != null && message.hasOwnProperty("aiFeatureStatus"))
                     object.aiFeatureStatus = options.enums === String ? $root.SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.MaibaAIFeatureStatus[message.aiFeatureStatus] === undefined ? message.aiFeatureStatus : $root.SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.MaibaAIFeatureStatus[message.aiFeatureStatus] : message.aiFeatureStatus;
+                if (message.aiReplyMode != null && message.hasOwnProperty("aiReplyMode"))
+                    object.aiReplyMode = options.enums === String ? $root.SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.MaibaAIReplyMode[message.aiReplyMode] === undefined ? message.aiReplyMode : $root.SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.MaibaAIReplyMode[message.aiReplyMode] : message.aiReplyMode;
                 return object;
             };
 
@@ -17331,6 +17374,22 @@ $root.SyncAction = (function() {
                 values[valuesById[0] = "ENABLED"] = 0;
                 values[valuesById[1] = "ENABLED_HAS_LEARNING"] = 1;
                 values[valuesById[2] = "DISABLED"] = 2;
+                return values;
+            })();
+
+            /**
+             * MaibaAIReplyMode enum.
+             * @name SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.MaibaAIReplyMode
+             * @enum {number}
+             * @property {number} MUTED=0 MUTED value
+             * @property {number} AI_AGENT=1 AI_AGENT value
+             * @property {number} SUGGESTIONS=2 SUGGESTIONS value
+             */
+            MaibaAIFeaturesControlAction.MaibaAIReplyMode = (function() {
+                var valuesById = {}, values = Object.create(valuesById);
+                values[valuesById[0] = "MUTED"] = 0;
+                values[valuesById[1] = "AI_AGENT"] = 1;
+                values[valuesById[2] = "SUGGESTIONS"] = 2;
                 return values;
             })();
 
@@ -18822,339 +18881,6 @@ $root.SyncAction = (function() {
             })();
 
             return MerchantPaymentPartnerAction;
-        })();
-
-        SyncActionValue.ModelMetadata = (function() {
-
-            /**
-             * Properties of a ModelMetadata.
-             * @typedef {Object} SyncAction.SyncActionValue.ModelMetadata.$Properties
-             * @property {string|null} [modelName] ModelMetadata modelName
-             * @property {boolean|null} [isLatestModel] ModelMetadata isLatestModel
-             * @property {boolean|null} [isDetected] ModelMetadata isDetected
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
-             */
-
-            /**
-             * Properties of a ModelMetadata.
-             * @memberof SyncAction.SyncActionValue
-             * @interface IModelMetadata
-             * @augments SyncAction.SyncActionValue.ModelMetadata.$Properties
-             * @deprecated Use SyncAction.SyncActionValue.ModelMetadata.$Properties instead.
-             */
-
-            /**
-             * Shape of a ModelMetadata.
-             * @typedef {SyncAction.SyncActionValue.ModelMetadata.$Properties} SyncAction.SyncActionValue.ModelMetadata.$Shape
-             */
-
-            /**
-             * Constructs a new ModelMetadata.
-             * @memberof SyncAction.SyncActionValue
-             * @classdesc Represents a ModelMetadata.
-             * @constructor
-             * @param {SyncAction.SyncActionValue.ModelMetadata.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
-             */
-            function ModelMetadata(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * ModelMetadata modelName.
-             * @member {string|null|undefined} modelName
-             * @memberof SyncAction.SyncActionValue.ModelMetadata
-             * @instance
-             */
-            ModelMetadata.prototype.modelName = null;
-
-            /**
-             * ModelMetadata isLatestModel.
-             * @member {boolean|null|undefined} isLatestModel
-             * @memberof SyncAction.SyncActionValue.ModelMetadata
-             * @instance
-             */
-            ModelMetadata.prototype.isLatestModel = null;
-
-            /**
-             * ModelMetadata isDetected.
-             * @member {boolean|null|undefined} isDetected
-             * @memberof SyncAction.SyncActionValue.ModelMetadata
-             * @instance
-             */
-            ModelMetadata.prototype.isDetected = null;
-
-            // OneOf field names bound to virtual getters and setters
-            var $oneOfFields;
-
-            // Virtual OneOf for proto3 optional field
-            Object.defineProperty(ModelMetadata.prototype, "_modelName", {
-                get: $util.oneOfGetter($oneOfFields = ["modelName"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            // Virtual OneOf for proto3 optional field
-            Object.defineProperty(ModelMetadata.prototype, "_isLatestModel", {
-                get: $util.oneOfGetter($oneOfFields = ["isLatestModel"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            // Virtual OneOf for proto3 optional field
-            Object.defineProperty(ModelMetadata.prototype, "_isDetected", {
-                get: $util.oneOfGetter($oneOfFields = ["isDetected"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
-
-            /**
-             * Creates a new ModelMetadata instance using the specified properties.
-             * @function create
-             * @memberof SyncAction.SyncActionValue.ModelMetadata
-             * @static
-             * @param {SyncAction.SyncActionValue.ModelMetadata.$Properties=} [properties] Properties to set
-             * @returns {SyncAction.SyncActionValue.ModelMetadata} ModelMetadata instance
-             * @type {{
-             *   (properties: SyncAction.SyncActionValue.ModelMetadata.$Shape): SyncAction.SyncActionValue.ModelMetadata & SyncAction.SyncActionValue.ModelMetadata.$Shape;
-             *   (properties?: SyncAction.SyncActionValue.ModelMetadata.$Properties): SyncAction.SyncActionValue.ModelMetadata;
-             * }}
-             */
-            ModelMetadata.create = function create(properties) {
-                return new ModelMetadata(properties);
-            };
-
-            /**
-             * Encodes the specified ModelMetadata message. Does not implicitly {@link SyncAction.SyncActionValue.ModelMetadata.verify|verify} messages.
-             * @function encode
-             * @memberof SyncAction.SyncActionValue.ModelMetadata
-             * @static
-             * @param {SyncAction.SyncActionValue.ModelMetadata.$Properties} message ModelMetadata message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            ModelMetadata.encode = function encode(message, writer, _depth) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (_depth === undefined)
-                    _depth = 0;
-                if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
-                if (message.modelName != null && Object.hasOwnProperty.call(message, "modelName"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.modelName);
-                if (message.isLatestModel != null && Object.hasOwnProperty.call(message, "isLatestModel"))
-                    writer.uint32(/* id 2, wireType 0 =*/16).bool(message.isLatestModel);
-                if (message.isDetected != null && Object.hasOwnProperty.call(message, "isDetected"))
-                    writer.uint32(/* id 3, wireType 0 =*/24).bool(message.isDetected);
-                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
-                    for (var i = 0; i < message.$unknowns.length; ++i)
-                        writer.raw(message.$unknowns[i]);
-                return writer;
-            };
-
-            /**
-             * Encodes the specified ModelMetadata message, length delimited. Does not implicitly {@link SyncAction.SyncActionValue.ModelMetadata.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof SyncAction.SyncActionValue.ModelMetadata
-             * @static
-             * @param {SyncAction.SyncActionValue.ModelMetadata.$Properties} message ModelMetadata message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            ModelMetadata.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
-            };
-
-            /**
-             * Decodes a ModelMetadata message from the specified reader or buffer.
-             * @function decode
-             * @memberof SyncAction.SyncActionValue.ModelMetadata
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {SyncAction.SyncActionValue.ModelMetadata & SyncAction.SyncActionValue.ModelMetadata.$Shape} ModelMetadata
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            ModelMetadata.decode = function decode(reader, length, _end, _depth, _target) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                if (_depth === undefined)
-                    _depth = 0;
-                if (_depth > $Reader.recursionLimit)
-                    throw Error("max depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.SyncAction.SyncActionValue.ModelMetadata();
-                while (reader.pos < end) {
-                    var start = reader.pos;
-                    var tag = reader.tag();
-                    if (tag === _end) {
-                        _end = undefined;
-                        break;
-                    }
-                    var wireType = tag & 7;
-                    switch (tag >>>= 3) {
-                    case 1: {
-                            if (wireType !== 2)
-                                break;
-                            message.modelName = reader.string();
-                            message._modelName = "modelName";
-                            continue;
-                        }
-                    case 2: {
-                            if (wireType !== 0)
-                                break;
-                            message.isLatestModel = reader.bool();
-                            message._isLatestModel = "isLatestModel";
-                            continue;
-                        }
-                    case 3: {
-                            if (wireType !== 0)
-                                break;
-                            message.isDetected = reader.bool();
-                            message._isDetected = "isDetected";
-                            continue;
-                        }
-                    }
-                    reader.skipType(wireType, _depth, tag);
-                    if (!reader.discardUnknown) {
-                        $util.makeProp(message, "$unknowns", false);
-                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
-                    }
-                }
-                if (_end !== undefined)
-                    throw Error("missing end group");
-                return message;
-            };
-
-            /**
-             * Decodes a ModelMetadata message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof SyncAction.SyncActionValue.ModelMetadata
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {SyncAction.SyncActionValue.ModelMetadata & SyncAction.SyncActionValue.ModelMetadata.$Shape} ModelMetadata
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            ModelMetadata.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a ModelMetadata message.
-             * @function verify
-             * @memberof SyncAction.SyncActionValue.ModelMetadata
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            ModelMetadata.verify = function verify(message, _depth) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (_depth === undefined)
-                    _depth = 0;
-                if (_depth > $util.recursionLimit)
-                    return "max depth exceeded";
-                var properties = {};
-                if (message.modelName != null && message.hasOwnProperty("modelName")) {
-                    properties._modelName = 1;
-                    if (!$util.isString(message.modelName))
-                        return "modelName: string expected";
-                }
-                if (message.isLatestModel != null && message.hasOwnProperty("isLatestModel")) {
-                    properties._isLatestModel = 1;
-                    if (typeof message.isLatestModel !== "boolean")
-                        return "isLatestModel: boolean expected";
-                }
-                if (message.isDetected != null && message.hasOwnProperty("isDetected")) {
-                    properties._isDetected = 1;
-                    if (typeof message.isDetected !== "boolean")
-                        return "isDetected: boolean expected";
-                }
-                return null;
-            };
-
-            /**
-             * Creates a ModelMetadata message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof SyncAction.SyncActionValue.ModelMetadata
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {SyncAction.SyncActionValue.ModelMetadata} ModelMetadata
-             */
-            ModelMetadata.fromObject = function fromObject(object, _depth) {
-                if (object instanceof $root.SyncAction.SyncActionValue.ModelMetadata)
-                    return object;
-                if (!$util.isObject(object))
-                    throw TypeError(".SyncAction.SyncActionValue.ModelMetadata: object expected");
-                if (_depth === undefined)
-                    _depth = 0;
-                if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
-                var message = new $root.SyncAction.SyncActionValue.ModelMetadata();
-                if (object.modelName != null)
-                    message.modelName = String(object.modelName);
-                if (object.isLatestModel != null)
-                    message.isLatestModel = Boolean(object.isLatestModel);
-                if (object.isDetected != null)
-                    message.isDetected = Boolean(object.isDetected);
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a ModelMetadata message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof SyncAction.SyncActionValue.ModelMetadata
-             * @static
-             * @param {SyncAction.SyncActionValue.ModelMetadata} message ModelMetadata
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            ModelMetadata.toObject = function toObject(message, options, _depth) {
-                if (!options)
-                    options = {};
-                if (_depth === undefined)
-                    _depth = 0;
-                if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
-                var object = {};
-                if (message.modelName != null && message.hasOwnProperty("modelName"))
-                    object.modelName = message.modelName;
-                if (message.isLatestModel != null && message.hasOwnProperty("isLatestModel"))
-                    object.isLatestModel = message.isLatestModel;
-                if (message.isDetected != null && message.hasOwnProperty("isDetected"))
-                    object.isDetected = message.isDetected;
-                return object;
-            };
-
-            /**
-             * Converts this ModelMetadata to JSON.
-             * @function toJSON
-             * @memberof SyncAction.SyncActionValue.ModelMetadata
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            ModelMetadata.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            /**
-             * Gets the type url for ModelMetadata
-             * @function getTypeUrl
-             * @memberof SyncAction.SyncActionValue.ModelMetadata
-             * @static
-             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
-             * @returns {string} The type url
-             */
-            ModelMetadata.getTypeUrl = function getTypeUrl(prefix) {
-                if (prefix === undefined)
-                    prefix = "type.googleapis.com";
-                return prefix + "/SyncAction.SyncActionValue.ModelMetadata";
-            };
-
-            return ModelMetadata;
         })();
 
         SyncActionValue.MusicUserIdAction = (function() {

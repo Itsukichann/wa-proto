@@ -77,6 +77,7 @@ $root.MdStorageMsgRowOpaqueData = (function() {
          * @property {string|null} [sharableEventInviteCaption] MsgOpaqueData sharableEventInviteCaption
          * @property {boolean|null} [sharableEventInviteIsCanceled] MsgOpaqueData sharableEventInviteIsCanceled
          * @property {Uint8Array|null} [sharableEventInviteJpegThumbnail] MsgOpaqueData sharableEventInviteJpegThumbnail
+         * @property {string|null} [sharableEventInviteCallLink] MsgOpaqueData sharableEventInviteCallLink
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
@@ -541,6 +542,14 @@ $root.MdStorageMsgRowOpaqueData = (function() {
          */
         MsgOpaqueData.prototype.sharableEventInviteJpegThumbnail = null;
 
+        /**
+         * MsgOpaqueData sharableEventInviteCallLink.
+         * @member {string|null|undefined} sharableEventInviteCallLink
+         * @memberof MdStorageMsgRowOpaqueData.MsgOpaqueData
+         * @instance
+         */
+        MsgOpaqueData.prototype.sharableEventInviteCallLink = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -862,6 +871,12 @@ $root.MdStorageMsgRowOpaqueData = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(MsgOpaqueData.prototype, "_sharableEventInviteCallLink", {
+            get: $util.oneOfGetter($oneOfFields = ["sharableEventInviteCallLink"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new MsgOpaqueData instance using the specified properties.
          * @function create
@@ -1003,6 +1018,8 @@ $root.MdStorageMsgRowOpaqueData = (function() {
                 writer.uint32(/* id 58, wireType 0 =*/464).bool(message.sharableEventInviteIsCanceled);
             if (message.sharableEventInviteJpegThumbnail != null && Object.hasOwnProperty.call(message, "sharableEventInviteJpegThumbnail"))
                 writer.uint32(/* id 59, wireType 2 =*/474).bytes(message.sharableEventInviteJpegThumbnail);
+            if (message.sharableEventInviteCallLink != null && Object.hasOwnProperty.call(message, "sharableEventInviteCallLink"))
+                writer.uint32(/* id 60, wireType 2 =*/482).string(message.sharableEventInviteCallLink);
             if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -1429,6 +1446,13 @@ $root.MdStorageMsgRowOpaqueData = (function() {
                         message._sharableEventInviteJpegThumbnail = "sharableEventInviteJpegThumbnail";
                         continue;
                     }
+                case 60: {
+                        if (wireType !== 2)
+                            break;
+                        message.sharableEventInviteCallLink = reader.string();
+                        message._sharableEventInviteCallLink = "sharableEventInviteCallLink";
+                        continue;
+                    }
                 }
                 reader.skipType(wireType, _depth, tag);
                 if (!reader.discardUnknown) {
@@ -1767,6 +1791,11 @@ $root.MdStorageMsgRowOpaqueData = (function() {
                 if (!(message.sharableEventInviteJpegThumbnail && typeof message.sharableEventInviteJpegThumbnail.length === "number" || $util.isString(message.sharableEventInviteJpegThumbnail)))
                     return "sharableEventInviteJpegThumbnail: buffer expected";
             }
+            if (message.sharableEventInviteCallLink != null && message.hasOwnProperty("sharableEventInviteCallLink")) {
+                properties._sharableEventInviteCallLink = 1;
+                if (!$util.isString(message.sharableEventInviteCallLink))
+                    return "sharableEventInviteCallLink: string expected";
+            }
             return null;
         };
 
@@ -2014,6 +2043,8 @@ $root.MdStorageMsgRowOpaqueData = (function() {
                     $util.base64.decode(object.sharableEventInviteJpegThumbnail, message.sharableEventInviteJpegThumbnail = $util.newBuffer($util.base64.length(object.sharableEventInviteJpegThumbnail)), 0);
                 else if (object.sharableEventInviteJpegThumbnail.length >= 0)
                     message.sharableEventInviteJpegThumbnail = object.sharableEventInviteJpegThumbnail;
+            if (object.sharableEventInviteCallLink != null)
+                message.sharableEventInviteCallLink = String(object.sharableEventInviteCallLink);
             return message;
         };
 
@@ -2177,6 +2208,8 @@ $root.MdStorageMsgRowOpaqueData = (function() {
                 object.sharableEventInviteIsCanceled = message.sharableEventInviteIsCanceled;
             if (message.sharableEventInviteJpegThumbnail != null && message.hasOwnProperty("sharableEventInviteJpegThumbnail"))
                 object.sharableEventInviteJpegThumbnail = options.bytes === String ? $util.base64.encode(message.sharableEventInviteJpegThumbnail, 0, message.sharableEventInviteJpegThumbnail.length) : options.bytes === Array ? Array.prototype.slice.call(message.sharableEventInviteJpegThumbnail) : message.sharableEventInviteJpegThumbnail;
+            if (message.sharableEventInviteCallLink != null && message.hasOwnProperty("sharableEventInviteCallLink"))
+                object.sharableEventInviteCallLink = message.sharableEventInviteCallLink;
             return object;
         };
 
@@ -21803,6 +21836,8 @@ $root.E2E = (function() {
              * @property {string|null} [businessJid] BusinessInteractionPills businessJid
              * @property {Array.<E2E.ContextInfo.BusinessInteractionPills.Pill.$Properties>|null} [pills] BusinessInteractionPills pills
              * @property {E2E.ContextInfo.BusinessInteractionPills.EntryPoint|null} [entryPoint] BusinessInteractionPills entryPoint
+             * @property {Uint8Array|null} [signedPayload] BusinessInteractionPills signedPayload
+             * @property {AICommon.BotSignatureVerificationMetadata.$Properties|null} [signatureEnvelope] BusinessInteractionPills signatureEnvelope
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
@@ -21859,6 +21894,22 @@ $root.E2E = (function() {
              */
             BusinessInteractionPills.prototype.entryPoint = null;
 
+            /**
+             * BusinessInteractionPills signedPayload.
+             * @member {Uint8Array|null|undefined} signedPayload
+             * @memberof E2E.ContextInfo.BusinessInteractionPills
+             * @instance
+             */
+            BusinessInteractionPills.prototype.signedPayload = null;
+
+            /**
+             * BusinessInteractionPills signatureEnvelope.
+             * @member {AICommon.BotSignatureVerificationMetadata.$Properties|null|undefined} signatureEnvelope
+             * @memberof E2E.ContextInfo.BusinessInteractionPills
+             * @instance
+             */
+            BusinessInteractionPills.prototype.signatureEnvelope = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -21871,6 +21922,18 @@ $root.E2E = (function() {
             // Virtual OneOf for proto3 optional field
             Object.defineProperty(BusinessInteractionPills.prototype, "_entryPoint", {
                 get: $util.oneOfGetter($oneOfFields = ["entryPoint"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(BusinessInteractionPills.prototype, "_signedPayload", {
+                get: $util.oneOfGetter($oneOfFields = ["signedPayload"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(BusinessInteractionPills.prototype, "_signatureEnvelope", {
+                get: $util.oneOfGetter($oneOfFields = ["signatureEnvelope"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -21913,6 +21976,10 @@ $root.E2E = (function() {
                         $root.E2E.ContextInfo.BusinessInteractionPills.Pill.encode(message.pills[i], writer.uint32(/* id 2, wireType 2 =*/18).fork(), _depth + 1).ldelim();
                 if (message.entryPoint != null && Object.hasOwnProperty.call(message, "entryPoint"))
                     writer.uint32(/* id 3, wireType 0 =*/24).int32(message.entryPoint);
+                if (message.signedPayload != null && Object.hasOwnProperty.call(message, "signedPayload"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.signedPayload);
+                if (message.signatureEnvelope != null && Object.hasOwnProperty.call(message, "signatureEnvelope"))
+                    $root.AICommon.BotSignatureVerificationMetadata.encode(message.signatureEnvelope, writer.uint32(/* id 5, wireType 2 =*/42).fork(), _depth + 1).ldelim();
                 if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -21980,6 +22047,20 @@ $root.E2E = (function() {
                                 break;
                             message.entryPoint = reader.int32();
                             message._entryPoint = "entryPoint";
+                            continue;
+                        }
+                    case 4: {
+                            if (wireType !== 2)
+                                break;
+                            message.signedPayload = reader.bytes();
+                            message._signedPayload = "signedPayload";
+                            continue;
+                        }
+                    case 5: {
+                            if (wireType !== 2)
+                                break;
+                            message.signatureEnvelope = $root.AICommon.BotSignatureVerificationMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.signatureEnvelope);
+                            message._signatureEnvelope = "signatureEnvelope";
                             continue;
                         }
                     }
@@ -22054,6 +22135,19 @@ $root.E2E = (function() {
                         break;
                     }
                 }
+                if (message.signedPayload != null && message.hasOwnProperty("signedPayload")) {
+                    properties._signedPayload = 1;
+                    if (!(message.signedPayload && typeof message.signedPayload.length === "number" || $util.isString(message.signedPayload)))
+                        return "signedPayload: buffer expected";
+                }
+                if (message.signatureEnvelope != null && message.hasOwnProperty("signatureEnvelope")) {
+                    properties._signatureEnvelope = 1;
+                    {
+                        var error = $root.AICommon.BotSignatureVerificationMetadata.verify(message.signatureEnvelope, _depth + 1);
+                        if (error)
+                            return "signatureEnvelope." + error;
+                    }
+                }
                 return null;
             };
 
@@ -22119,6 +22213,16 @@ $root.E2E = (function() {
                     message.entryPoint = 5;
                     break;
                 }
+                if (object.signedPayload != null)
+                    if (typeof object.signedPayload === "string")
+                        $util.base64.decode(object.signedPayload, message.signedPayload = $util.newBuffer($util.base64.length(object.signedPayload)), 0);
+                    else if (object.signedPayload.length >= 0)
+                        message.signedPayload = object.signedPayload;
+                if (object.signatureEnvelope != null) {
+                    if (!$util.isObject(object.signatureEnvelope))
+                        throw TypeError(".E2E.ContextInfo.BusinessInteractionPills.signatureEnvelope: object expected");
+                    message.signatureEnvelope = $root.AICommon.BotSignatureVerificationMetadata.fromObject(object.signatureEnvelope, _depth + 1);
+                }
                 return message;
             };
 
@@ -22150,6 +22254,10 @@ $root.E2E = (function() {
                 }
                 if (message.entryPoint != null && message.hasOwnProperty("entryPoint"))
                     object.entryPoint = options.enums === String ? $root.E2E.ContextInfo.BusinessInteractionPills.EntryPoint[message.entryPoint] === undefined ? message.entryPoint : $root.E2E.ContextInfo.BusinessInteractionPills.EntryPoint[message.entryPoint] : message.entryPoint;
+                if (message.signedPayload != null && message.hasOwnProperty("signedPayload"))
+                    object.signedPayload = options.bytes === String ? $util.base64.encode(message.signedPayload, 0, message.signedPayload.length) : options.bytes === Array ? Array.prototype.slice.call(message.signedPayload) : message.signedPayload;
+                if (message.signatureEnvelope != null && message.hasOwnProperty("signatureEnvelope"))
+                    object.signatureEnvelope = $root.AICommon.BotSignatureVerificationMetadata.toObject(message.signatureEnvelope, options, _depth + 1);
                 return object;
             };
 
@@ -22608,6 +22716,320 @@ $root.E2E = (function() {
                 values[valuesById[11] = "SHOP"] = 11;
                 values[valuesById[12] = "ORDER"] = 12;
                 return values;
+            })();
+
+            BusinessInteractionPills.SignedPayload = (function() {
+
+                /**
+                 * Properties of a SignedPayload.
+                 * @typedef {Object} E2E.ContextInfo.BusinessInteractionPills.SignedPayload.$Properties
+                 * @property {string|null} [verifiedName] SignedPayload verifiedName
+                 * @property {Array.<E2E.ContextInfo.BusinessInteractionPills.Pill.$Properties>|null} [pills] SignedPayload pills
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 */
+
+                /**
+                 * Properties of a SignedPayload.
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills
+                 * @interface ISignedPayload
+                 * @augments E2E.ContextInfo.BusinessInteractionPills.SignedPayload.$Properties
+                 * @deprecated Use E2E.ContextInfo.BusinessInteractionPills.SignedPayload.$Properties instead.
+                 */
+
+                /**
+                 * Shape of a SignedPayload.
+                 * @typedef {E2E.ContextInfo.BusinessInteractionPills.SignedPayload.$Properties} E2E.ContextInfo.BusinessInteractionPills.SignedPayload.$Shape
+                 */
+
+                /**
+                 * Constructs a new SignedPayload.
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills
+                 * @classdesc Represents a SignedPayload.
+                 * @constructor
+                 * @param {E2E.ContextInfo.BusinessInteractionPills.SignedPayload.$Properties=} [properties] Properties to set
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 */
+                function SignedPayload(properties) {
+                    this.pills = [];
+                    if (properties)
+                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                                this[keys[i]] = properties[keys[i]];
+                }
+
+                /**
+                 * SignedPayload verifiedName.
+                 * @member {string|null|undefined} verifiedName
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills.SignedPayload
+                 * @instance
+                 */
+                SignedPayload.prototype.verifiedName = null;
+
+                /**
+                 * SignedPayload pills.
+                 * @member {Array.<E2E.ContextInfo.BusinessInteractionPills.Pill.$Properties>} pills
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills.SignedPayload
+                 * @instance
+                 */
+                SignedPayload.prototype.pills = $util.emptyArray;
+
+                // OneOf field names bound to virtual getters and setters
+                var $oneOfFields;
+
+                // Virtual OneOf for proto3 optional field
+                Object.defineProperty(SignedPayload.prototype, "_verifiedName", {
+                    get: $util.oneOfGetter($oneOfFields = ["verifiedName"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                /**
+                 * Creates a new SignedPayload instance using the specified properties.
+                 * @function create
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills.SignedPayload
+                 * @static
+                 * @param {E2E.ContextInfo.BusinessInteractionPills.SignedPayload.$Properties=} [properties] Properties to set
+                 * @returns {E2E.ContextInfo.BusinessInteractionPills.SignedPayload} SignedPayload instance
+                 * @type {{
+                 *   (properties: E2E.ContextInfo.BusinessInteractionPills.SignedPayload.$Shape): E2E.ContextInfo.BusinessInteractionPills.SignedPayload & E2E.ContextInfo.BusinessInteractionPills.SignedPayload.$Shape;
+                 *   (properties?: E2E.ContextInfo.BusinessInteractionPills.SignedPayload.$Properties): E2E.ContextInfo.BusinessInteractionPills.SignedPayload;
+                 * }}
+                 */
+                SignedPayload.create = function create(properties) {
+                    return new SignedPayload(properties);
+                };
+
+                /**
+                 * Encodes the specified SignedPayload message. Does not implicitly {@link E2E.ContextInfo.BusinessInteractionPills.SignedPayload.verify|verify} messages.
+                 * @function encode
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills.SignedPayload
+                 * @static
+                 * @param {E2E.ContextInfo.BusinessInteractionPills.SignedPayload.$Properties} message SignedPayload message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                SignedPayload.encode = function encode(message, writer, _depth) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw Error("max depth exceeded");
+                    if (message.verifiedName != null && Object.hasOwnProperty.call(message, "verifiedName"))
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.verifiedName);
+                    if (message.pills != null && message.pills.length)
+                        for (var i = 0; i < message.pills.length; ++i)
+                            $root.E2E.ContextInfo.BusinessInteractionPills.Pill.encode(message.pills[i], writer.uint32(/* id 2, wireType 2 =*/18).fork(), _depth + 1).ldelim();
+                    if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                        for (var i = 0; i < message.$unknowns.length; ++i)
+                            writer.raw(message.$unknowns[i]);
+                    return writer;
+                };
+
+                /**
+                 * Encodes the specified SignedPayload message, length delimited. Does not implicitly {@link E2E.ContextInfo.BusinessInteractionPills.SignedPayload.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills.SignedPayload
+                 * @static
+                 * @param {E2E.ContextInfo.BusinessInteractionPills.SignedPayload.$Properties} message SignedPayload message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                SignedPayload.encodeDelimited = function encodeDelimited(message, writer) {
+                    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                };
+
+                /**
+                 * Decodes a SignedPayload message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills.SignedPayload
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {E2E.ContextInfo.BusinessInteractionPills.SignedPayload & E2E.ContextInfo.BusinessInteractionPills.SignedPayload.$Shape} SignedPayload
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                SignedPayload.decode = function decode(reader, length, _end, _depth, _target) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $Reader.recursionLimit)
+                        throw Error("max depth exceeded");
+                    var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.ContextInfo.BusinessInteractionPills.SignedPayload();
+                    while (reader.pos < end) {
+                        var start = reader.pos;
+                        var tag = reader.tag();
+                        if (tag === _end) {
+                            _end = undefined;
+                            break;
+                        }
+                        var wireType = tag & 7;
+                        switch (tag >>>= 3) {
+                        case 1: {
+                                if (wireType !== 2)
+                                    break;
+                                message.verifiedName = reader.string();
+                                message._verifiedName = "verifiedName";
+                                continue;
+                            }
+                        case 2: {
+                                if (wireType !== 2)
+                                    break;
+                                if (!(message.pills && message.pills.length))
+                                    message.pills = [];
+                                message.pills.push($root.E2E.ContextInfo.BusinessInteractionPills.Pill.decode(reader, reader.uint32(), undefined, _depth + 1));
+                                continue;
+                            }
+                        }
+                        reader.skipType(wireType, _depth, tag);
+                        if (!reader.discardUnknown) {
+                            $util.makeProp(message, "$unknowns", false);
+                            (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                        }
+                    }
+                    if (_end !== undefined)
+                        throw Error("missing end group");
+                    return message;
+                };
+
+                /**
+                 * Decodes a SignedPayload message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills.SignedPayload
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {E2E.ContextInfo.BusinessInteractionPills.SignedPayload & E2E.ContextInfo.BusinessInteractionPills.SignedPayload.$Shape} SignedPayload
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                SignedPayload.decodeDelimited = function decodeDelimited(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+
+                /**
+                 * Verifies a SignedPayload message.
+                 * @function verify
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills.SignedPayload
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                SignedPayload.verify = function verify(message, _depth) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        return "max depth exceeded";
+                    var properties = {};
+                    if (message.verifiedName != null && message.hasOwnProperty("verifiedName")) {
+                        properties._verifiedName = 1;
+                        if (!$util.isString(message.verifiedName))
+                            return "verifiedName: string expected";
+                    }
+                    if (message.pills != null && message.hasOwnProperty("pills")) {
+                        if (!Array.isArray(message.pills))
+                            return "pills: array expected";
+                        for (var i = 0; i < message.pills.length; ++i) {
+                            var error = $root.E2E.ContextInfo.BusinessInteractionPills.Pill.verify(message.pills[i], _depth + 1);
+                            if (error)
+                                return "pills." + error;
+                        }
+                    }
+                    return null;
+                };
+
+                /**
+                 * Creates a SignedPayload message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills.SignedPayload
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {E2E.ContextInfo.BusinessInteractionPills.SignedPayload} SignedPayload
+                 */
+                SignedPayload.fromObject = function fromObject(object, _depth) {
+                    if (object instanceof $root.E2E.ContextInfo.BusinessInteractionPills.SignedPayload)
+                        return object;
+                    if (!$util.isObject(object))
+                        throw TypeError(".E2E.ContextInfo.BusinessInteractionPills.SignedPayload: object expected");
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw Error("max depth exceeded");
+                    var message = new $root.E2E.ContextInfo.BusinessInteractionPills.SignedPayload();
+                    if (object.verifiedName != null)
+                        message.verifiedName = String(object.verifiedName);
+                    if (object.pills) {
+                        if (!Array.isArray(object.pills))
+                            throw TypeError(".E2E.ContextInfo.BusinessInteractionPills.SignedPayload.pills: array expected");
+                        message.pills = Array(object.pills.length);
+                        for (var i = 0; i < object.pills.length; ++i) {
+                            if (!$util.isObject(object.pills[i]))
+                                throw TypeError(".E2E.ContextInfo.BusinessInteractionPills.SignedPayload.pills: object expected");
+                            message.pills[i] = $root.E2E.ContextInfo.BusinessInteractionPills.Pill.fromObject(object.pills[i], _depth + 1);
+                        }
+                    }
+                    return message;
+                };
+
+                /**
+                 * Creates a plain object from a SignedPayload message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills.SignedPayload
+                 * @static
+                 * @param {E2E.ContextInfo.BusinessInteractionPills.SignedPayload} message SignedPayload
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                SignedPayload.toObject = function toObject(message, options, _depth) {
+                    if (!options)
+                        options = {};
+                    if (_depth === undefined)
+                        _depth = 0;
+                    if (_depth > $util.recursionLimit)
+                        throw Error("max depth exceeded");
+                    var object = {};
+                    if (options.arrays || options.defaults)
+                        object.pills = [];
+                    if (message.verifiedName != null && message.hasOwnProperty("verifiedName"))
+                        object.verifiedName = message.verifiedName;
+                    if (message.pills && message.pills.length) {
+                        object.pills = Array(message.pills.length);
+                        for (var j = 0; j < message.pills.length; ++j)
+                            object.pills[j] = $root.E2E.ContextInfo.BusinessInteractionPills.Pill.toObject(message.pills[j], options, _depth + 1);
+                    }
+                    return object;
+                };
+
+                /**
+                 * Converts this SignedPayload to JSON.
+                 * @function toJSON
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills.SignedPayload
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                SignedPayload.prototype.toJSON = function toJSON() {
+                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+
+                /**
+                 * Gets the type url for SignedPayload
+                 * @function getTypeUrl
+                 * @memberof E2E.ContextInfo.BusinessInteractionPills.SignedPayload
+                 * @static
+                 * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+                 * @returns {string} The type url
+                 */
+                SignedPayload.getTypeUrl = function getTypeUrl(prefix) {
+                    if (prefix === undefined)
+                        prefix = "type.googleapis.com";
+                    return prefix + "/E2E.ContextInfo.BusinessInteractionPills.SignedPayload";
+                };
+
+                return SignedPayload;
             })();
 
             return BusinessInteractionPills;
@@ -27774,6 +28196,7 @@ $root.E2E = (function() {
          * @property {E2E.Message.PaymentReminderMessage.$Properties|null} [paymentReminderMessage] Message paymentReminderMessage
          * @property {E2E.Message.SplitPaymentMessage.$Properties|null} [splitPaymentMessage] Message splitPaymentMessage
          * @property {E2E.Message.FutureProofMessage.$Properties|null} [newsletterAdminProfileStatusMessage] Message newsletterAdminProfileStatusMessage
+         * @property {E2E.Message.RootSecretDistributeMessage.$Properties|null} [rootSecretDistributeMessage] Message rootSecretDistributeMessage
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
 
@@ -27894,6 +28317,7 @@ $root.E2E = (function() {
          *   paymentReminderMessage?: E2E.Message.PaymentReminderMessage.$Shape|null;
          *   splitPaymentMessage?: E2E.Message.SplitPaymentMessage.$Shape|null;
          *   newsletterAdminProfileStatusMessage?: E2E.Message.FutureProofMessage.$Shape|null;
+         *   rootSecretDistributeMessage?: E2E.Message.RootSecretDistributeMessage.$Shape|null;
          *   $unknowns?: Array.<Uint8Array>;
          * }} E2E.Message.$Shape
          */
@@ -28761,6 +29185,14 @@ $root.E2E = (function() {
          */
         Message.prototype.newsletterAdminProfileStatusMessage = null;
 
+        /**
+         * Message rootSecretDistributeMessage.
+         * @member {E2E.Message.RootSecretDistributeMessage.$Properties|null|undefined} rootSecretDistributeMessage
+         * @memberof E2E.Message
+         * @instance
+         */
+        Message.prototype.rootSecretDistributeMessage = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
@@ -29400,6 +29832,12 @@ $root.E2E = (function() {
             set: $util.oneOfSetter($oneOfFields)
         });
 
+        // Virtual OneOf for proto3 optional field
+        Object.defineProperty(Message.prototype, "_rootSecretDistributeMessage", {
+            get: $util.oneOfGetter($oneOfFields = ["rootSecretDistributeMessage"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
         /**
          * Creates a new Message instance using the specified properties.
          * @function create
@@ -29644,6 +30082,8 @@ $root.E2E = (function() {
                 $root.E2E.Message.SplitPaymentMessage.encode(message.splitPaymentMessage, writer.uint32(/* id 125, wireType 2 =*/1002).fork(), _depth + 1).ldelim();
             if (message.newsletterAdminProfileStatusMessage != null && Object.hasOwnProperty.call(message, "newsletterAdminProfileStatusMessage"))
                 $root.E2E.Message.FutureProofMessage.encode(message.newsletterAdminProfileStatusMessage, writer.uint32(/* id 126, wireType 2 =*/1010).fork(), _depth + 1).ldelim();
+            if (message.rootSecretDistributeMessage != null && Object.hasOwnProperty.call(message, "rootSecretDistributeMessage"))
+                $root.E2E.Message.RootSecretDistributeMessage.encode(message.rootSecretDistributeMessage, writer.uint32(/* id 127, wireType 2 =*/1018).fork(), _depth + 1).ldelim();
             if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
@@ -30431,6 +30871,13 @@ $root.E2E = (function() {
                             break;
                         message.newsletterAdminProfileStatusMessage = $root.E2E.Message.FutureProofMessage.decode(reader, reader.uint32(), undefined, _depth + 1, message.newsletterAdminProfileStatusMessage);
                         message._newsletterAdminProfileStatusMessage = "newsletterAdminProfileStatusMessage";
+                        continue;
+                    }
+                case 127: {
+                        if (wireType !== 2)
+                            break;
+                        message.rootSecretDistributeMessage = $root.E2E.Message.RootSecretDistributeMessage.decode(reader, reader.uint32(), undefined, _depth + 1, message.rootSecretDistributeMessage);
+                        message._rootSecretDistributeMessage = "rootSecretDistributeMessage";
                         continue;
                     }
                 }
@@ -31322,6 +31769,14 @@ $root.E2E = (function() {
                         return "newsletterAdminProfileStatusMessage." + error;
                 }
             }
+            if (message.rootSecretDistributeMessage != null && message.hasOwnProperty("rootSecretDistributeMessage")) {
+                properties._rootSecretDistributeMessage = 1;
+                {
+                    var error = $root.E2E.Message.RootSecretDistributeMessage.verify(message.rootSecretDistributeMessage, _depth + 1);
+                    if (error)
+                        return "rootSecretDistributeMessage." + error;
+                }
+            }
             return null;
         };
 
@@ -31870,6 +32325,11 @@ $root.E2E = (function() {
                     throw TypeError(".E2E.Message.newsletterAdminProfileStatusMessage: object expected");
                 message.newsletterAdminProfileStatusMessage = $root.E2E.Message.FutureProofMessage.fromObject(object.newsletterAdminProfileStatusMessage, _depth + 1);
             }
+            if (object.rootSecretDistributeMessage != null) {
+                if (!$util.isObject(object.rootSecretDistributeMessage))
+                    throw TypeError(".E2E.Message.rootSecretDistributeMessage: object expected");
+                message.rootSecretDistributeMessage = $root.E2E.Message.RootSecretDistributeMessage.fromObject(object.rootSecretDistributeMessage, _depth + 1);
+            }
             return message;
         };
 
@@ -32102,6 +32562,8 @@ $root.E2E = (function() {
                 object.splitPaymentMessage = $root.E2E.Message.SplitPaymentMessage.toObject(message.splitPaymentMessage, options, _depth + 1);
             if (message.newsletterAdminProfileStatusMessage != null && message.hasOwnProperty("newsletterAdminProfileStatusMessage"))
                 object.newsletterAdminProfileStatusMessage = $root.E2E.Message.FutureProofMessage.toObject(message.newsletterAdminProfileStatusMessage, options, _depth + 1);
+            if (message.rootSecretDistributeMessage != null && message.hasOwnProperty("rootSecretDistributeMessage"))
+                object.rootSecretDistributeMessage = $root.E2E.Message.RootSecretDistributeMessage.toObject(message.rootSecretDistributeMessage, options, _depth + 1);
             return object;
         };
 
@@ -85381,6 +85843,7 @@ $root.E2E = (function() {
              * @typedef {Object} E2E.Message.PollAddOptionMessage.$Properties
              * @property {Protocol.MessageKey.$Properties|null} [pollCreationMessageKey] PollAddOptionMessage pollCreationMessageKey
              * @property {E2E.Message.PollCreationMessage.Option.$Properties|null} [addOption] PollAddOptionMessage addOption
+             * @property {E2E.Message.PollUpdateMessageMetadata.$Properties|null} [metadata] PollAddOptionMessage metadata
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
@@ -85428,6 +85891,14 @@ $root.E2E = (function() {
              */
             PollAddOptionMessage.prototype.addOption = null;
 
+            /**
+             * PollAddOptionMessage metadata.
+             * @member {E2E.Message.PollUpdateMessageMetadata.$Properties|null|undefined} metadata
+             * @memberof E2E.Message.PollAddOptionMessage
+             * @instance
+             */
+            PollAddOptionMessage.prototype.metadata = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
@@ -85440,6 +85911,12 @@ $root.E2E = (function() {
             // Virtual OneOf for proto3 optional field
             Object.defineProperty(PollAddOptionMessage.prototype, "_addOption", {
                 get: $util.oneOfGetter($oneOfFields = ["addOption"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(PollAddOptionMessage.prototype, "_metadata", {
+                get: $util.oneOfGetter($oneOfFields = ["metadata"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -85479,6 +85956,8 @@ $root.E2E = (function() {
                     $root.Protocol.MessageKey.encode(message.pollCreationMessageKey, writer.uint32(/* id 1, wireType 2 =*/10).fork(), _depth + 1).ldelim();
                 if (message.addOption != null && Object.hasOwnProperty.call(message, "addOption"))
                     $root.E2E.Message.PollCreationMessage.Option.encode(message.addOption, writer.uint32(/* id 2, wireType 2 =*/18).fork(), _depth + 1).ldelim();
+                if (message.metadata != null && Object.hasOwnProperty.call(message, "metadata"))
+                    $root.E2E.Message.PollUpdateMessageMetadata.encode(message.metadata, writer.uint32(/* id 3, wireType 2 =*/26).fork(), _depth + 1).ldelim();
                 if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -85538,6 +86017,13 @@ $root.E2E = (function() {
                                 break;
                             message.addOption = $root.E2E.Message.PollCreationMessage.Option.decode(reader, reader.uint32(), undefined, _depth + 1, message.addOption);
                             message._addOption = "addOption";
+                            continue;
+                        }
+                    case 3: {
+                            if (wireType !== 2)
+                                break;
+                            message.metadata = $root.E2E.Message.PollUpdateMessageMetadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.metadata);
+                            message._metadata = "metadata";
                             continue;
                         }
                     }
@@ -85600,6 +86086,14 @@ $root.E2E = (function() {
                             return "addOption." + error;
                     }
                 }
+                if (message.metadata != null && message.hasOwnProperty("metadata")) {
+                    properties._metadata = 1;
+                    {
+                        var error = $root.E2E.Message.PollUpdateMessageMetadata.verify(message.metadata, _depth + 1);
+                        if (error)
+                            return "metadata." + error;
+                    }
+                }
                 return null;
             };
 
@@ -85631,6 +86125,11 @@ $root.E2E = (function() {
                         throw TypeError(".E2E.Message.PollAddOptionMessage.addOption: object expected");
                     message.addOption = $root.E2E.Message.PollCreationMessage.Option.fromObject(object.addOption, _depth + 1);
                 }
+                if (object.metadata != null) {
+                    if (!$util.isObject(object.metadata))
+                        throw TypeError(".E2E.Message.PollAddOptionMessage.metadata: object expected");
+                    message.metadata = $root.E2E.Message.PollUpdateMessageMetadata.fromObject(object.metadata, _depth + 1);
+                }
                 return message;
             };
 
@@ -85655,6 +86154,8 @@ $root.E2E = (function() {
                     object.pollCreationMessageKey = $root.Protocol.MessageKey.toObject(message.pollCreationMessageKey, options, _depth + 1);
                 if (message.addOption != null && message.hasOwnProperty("addOption"))
                     object.addOption = $root.E2E.Message.PollCreationMessage.Option.toObject(message.addOption, options, _depth + 1);
+                if (message.metadata != null && message.hasOwnProperty("metadata"))
+                    object.metadata = $root.E2E.Message.PollUpdateMessageMetadata.toObject(message.metadata, options, _depth + 1);
                 return object;
             };
 
@@ -88140,6 +88641,8 @@ $root.E2E = (function() {
             /**
              * Properties of a PollUpdateMessageMetadata.
              * @typedef {Object} E2E.Message.PollUpdateMessageMetadata.$Properties
+             * @property {Uint8Array|null} [pollNameHash] PollUpdateMessageMetadata pollNameHash
+             * @property {string|null} [lastEditStanzaId] PollUpdateMessageMetadata lastEditStanzaId
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
 
@@ -88170,6 +88673,37 @@ $root.E2E = (function() {
                         if (properties[keys[i]] != null && keys[i] !== "__proto__")
                             this[keys[i]] = properties[keys[i]];
             }
+
+            /**
+             * PollUpdateMessageMetadata pollNameHash.
+             * @member {Uint8Array|null|undefined} pollNameHash
+             * @memberof E2E.Message.PollUpdateMessageMetadata
+             * @instance
+             */
+            PollUpdateMessageMetadata.prototype.pollNameHash = null;
+
+            /**
+             * PollUpdateMessageMetadata lastEditStanzaId.
+             * @member {string|null|undefined} lastEditStanzaId
+             * @memberof E2E.Message.PollUpdateMessageMetadata
+             * @instance
+             */
+            PollUpdateMessageMetadata.prototype.lastEditStanzaId = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(PollUpdateMessageMetadata.prototype, "_pollNameHash", {
+                get: $util.oneOfGetter($oneOfFields = ["pollNameHash"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(PollUpdateMessageMetadata.prototype, "_lastEditStanzaId", {
+                get: $util.oneOfGetter($oneOfFields = ["lastEditStanzaId"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
 
             /**
              * Creates a new PollUpdateMessageMetadata instance using the specified properties.
@@ -88203,6 +88737,10 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     throw Error("max depth exceeded");
+                if (message.pollNameHash != null && Object.hasOwnProperty.call(message, "pollNameHash"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.pollNameHash);
+                if (message.lastEditStanzaId != null && Object.hasOwnProperty.call(message, "lastEditStanzaId"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.lastEditStanzaId);
                 if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -88248,7 +88786,24 @@ $root.E2E = (function() {
                         _end = undefined;
                         break;
                     }
-                    reader.skipType(tag & 7, _depth, tag);
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.pollNameHash = reader.bytes();
+                            message._pollNameHash = "pollNameHash";
+                            continue;
+                        }
+                    case 2: {
+                            if (wireType !== 2)
+                                break;
+                            message.lastEditStanzaId = reader.string();
+                            message._lastEditStanzaId = "lastEditStanzaId";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
                     if (!reader.discardUnknown) {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
@@ -88290,6 +88845,17 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     return "max depth exceeded";
+                var properties = {};
+                if (message.pollNameHash != null && message.hasOwnProperty("pollNameHash")) {
+                    properties._pollNameHash = 1;
+                    if (!(message.pollNameHash && typeof message.pollNameHash.length === "number" || $util.isString(message.pollNameHash)))
+                        return "pollNameHash: buffer expected";
+                }
+                if (message.lastEditStanzaId != null && message.hasOwnProperty("lastEditStanzaId")) {
+                    properties._lastEditStanzaId = 1;
+                    if (!$util.isString(message.lastEditStanzaId))
+                        return "lastEditStanzaId: string expected";
+                }
                 return null;
             };
 
@@ -88310,7 +88876,15 @@ $root.E2E = (function() {
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     throw Error("max depth exceeded");
-                return new $root.E2E.Message.PollUpdateMessageMetadata();
+                var message = new $root.E2E.Message.PollUpdateMessageMetadata();
+                if (object.pollNameHash != null)
+                    if (typeof object.pollNameHash === "string")
+                        $util.base64.decode(object.pollNameHash, message.pollNameHash = $util.newBuffer($util.base64.length(object.pollNameHash)), 0);
+                    else if (object.pollNameHash.length >= 0)
+                        message.pollNameHash = object.pollNameHash;
+                if (object.lastEditStanzaId != null)
+                    message.lastEditStanzaId = String(object.lastEditStanzaId);
+                return message;
             };
 
             /**
@@ -88322,8 +88896,19 @@ $root.E2E = (function() {
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            PollUpdateMessageMetadata.toObject = function toObject() {
-                return {};
+            PollUpdateMessageMetadata.toObject = function toObject(message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
+                var object = {};
+                if (message.pollNameHash != null && message.hasOwnProperty("pollNameHash"))
+                    object.pollNameHash = options.bytes === String ? $util.base64.encode(message.pollNameHash, 0, message.pollNameHash.length) : options.bytes === Array ? Array.prototype.slice.call(message.pollNameHash) : message.pollNameHash;
+                if (message.lastEditStanzaId != null && message.hasOwnProperty("lastEditStanzaId"))
+                    object.lastEditStanzaId = message.lastEditStanzaId;
+                return object;
             };
 
             /**
@@ -93560,6 +94145,273 @@ $root.E2E = (function() {
             })();
 
             return RequestWelcomeMessageMetadata;
+        })();
+
+        Message.RootSecretDistributeMessage = (function() {
+
+            /**
+             * Properties of a RootSecretDistributeMessage.
+             * @typedef {Object} E2E.Message.RootSecretDistributeMessage.$Properties
+             * @property {string|null} [chatJid] RootSecretDistributeMessage chatJid
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+
+            /**
+             * Properties of a RootSecretDistributeMessage.
+             * @memberof E2E.Message
+             * @interface IRootSecretDistributeMessage
+             * @augments E2E.Message.RootSecretDistributeMessage.$Properties
+             * @deprecated Use E2E.Message.RootSecretDistributeMessage.$Properties instead.
+             */
+
+            /**
+             * Shape of a RootSecretDistributeMessage.
+             * @typedef {E2E.Message.RootSecretDistributeMessage.$Properties} E2E.Message.RootSecretDistributeMessage.$Shape
+             */
+
+            /**
+             * Constructs a new RootSecretDistributeMessage.
+             * @memberof E2E.Message
+             * @classdesc Represents a RootSecretDistributeMessage.
+             * @constructor
+             * @param {E2E.Message.RootSecretDistributeMessage.$Properties=} [properties] Properties to set
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             */
+            function RootSecretDistributeMessage(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * RootSecretDistributeMessage chatJid.
+             * @member {string|null|undefined} chatJid
+             * @memberof E2E.Message.RootSecretDistributeMessage
+             * @instance
+             */
+            RootSecretDistributeMessage.prototype.chatJid = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(RootSecretDistributeMessage.prototype, "_chatJid", {
+                get: $util.oneOfGetter($oneOfFields = ["chatJid"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new RootSecretDistributeMessage instance using the specified properties.
+             * @function create
+             * @memberof E2E.Message.RootSecretDistributeMessage
+             * @static
+             * @param {E2E.Message.RootSecretDistributeMessage.$Properties=} [properties] Properties to set
+             * @returns {E2E.Message.RootSecretDistributeMessage} RootSecretDistributeMessage instance
+             * @type {{
+             *   (properties: E2E.Message.RootSecretDistributeMessage.$Shape): E2E.Message.RootSecretDistributeMessage & E2E.Message.RootSecretDistributeMessage.$Shape;
+             *   (properties?: E2E.Message.RootSecretDistributeMessage.$Properties): E2E.Message.RootSecretDistributeMessage;
+             * }}
+             */
+            RootSecretDistributeMessage.create = function create(properties) {
+                return new RootSecretDistributeMessage(properties);
+            };
+
+            /**
+             * Encodes the specified RootSecretDistributeMessage message. Does not implicitly {@link E2E.Message.RootSecretDistributeMessage.verify|verify} messages.
+             * @function encode
+             * @memberof E2E.Message.RootSecretDistributeMessage
+             * @static
+             * @param {E2E.Message.RootSecretDistributeMessage.$Properties} message RootSecretDistributeMessage message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RootSecretDistributeMessage.encode = function encode(message, writer, _depth) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
+                if (message.chatJid != null && Object.hasOwnProperty.call(message, "chatJid"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.chatJid);
+                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    for (var i = 0; i < message.$unknowns.length; ++i)
+                        writer.raw(message.$unknowns[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RootSecretDistributeMessage message, length delimited. Does not implicitly {@link E2E.Message.RootSecretDistributeMessage.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof E2E.Message.RootSecretDistributeMessage
+             * @static
+             * @param {E2E.Message.RootSecretDistributeMessage.$Properties} message RootSecretDistributeMessage message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RootSecretDistributeMessage.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            };
+
+            /**
+             * Decodes a RootSecretDistributeMessage message from the specified reader or buffer.
+             * @function decode
+             * @memberof E2E.Message.RootSecretDistributeMessage
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {E2E.Message.RootSecretDistributeMessage & E2E.Message.RootSecretDistributeMessage.$Shape} RootSecretDistributeMessage
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RootSecretDistributeMessage.decode = function decode(reader, length, _end, _depth, _target) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $Reader.recursionLimit)
+                    throw Error("max depth exceeded");
+                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.E2E.Message.RootSecretDistributeMessage();
+                while (reader.pos < end) {
+                    var start = reader.pos;
+                    var tag = reader.tag();
+                    if (tag === _end) {
+                        _end = undefined;
+                        break;
+                    }
+                    var wireType = tag & 7;
+                    switch (tag >>>= 3) {
+                    case 1: {
+                            if (wireType !== 2)
+                                break;
+                            message.chatJid = reader.string();
+                            message._chatJid = "chatJid";
+                            continue;
+                        }
+                    }
+                    reader.skipType(wireType, _depth, tag);
+                    if (!reader.discardUnknown) {
+                        $util.makeProp(message, "$unknowns", false);
+                        (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
+                    }
+                }
+                if (_end !== undefined)
+                    throw Error("missing end group");
+                return message;
+            };
+
+            /**
+             * Decodes a RootSecretDistributeMessage message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof E2E.Message.RootSecretDistributeMessage
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {E2E.Message.RootSecretDistributeMessage & E2E.Message.RootSecretDistributeMessage.$Shape} RootSecretDistributeMessage
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RootSecretDistributeMessage.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a RootSecretDistributeMessage message.
+             * @function verify
+             * @memberof E2E.Message.RootSecretDistributeMessage
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RootSecretDistributeMessage.verify = function verify(message, _depth) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    return "max depth exceeded";
+                var properties = {};
+                if (message.chatJid != null && message.hasOwnProperty("chatJid")) {
+                    properties._chatJid = 1;
+                    if (!$util.isString(message.chatJid))
+                        return "chatJid: string expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a RootSecretDistributeMessage message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof E2E.Message.RootSecretDistributeMessage
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {E2E.Message.RootSecretDistributeMessage} RootSecretDistributeMessage
+             */
+            RootSecretDistributeMessage.fromObject = function fromObject(object, _depth) {
+                if (object instanceof $root.E2E.Message.RootSecretDistributeMessage)
+                    return object;
+                if (!$util.isObject(object))
+                    throw TypeError(".E2E.Message.RootSecretDistributeMessage: object expected");
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
+                var message = new $root.E2E.Message.RootSecretDistributeMessage();
+                if (object.chatJid != null)
+                    message.chatJid = String(object.chatJid);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a RootSecretDistributeMessage message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof E2E.Message.RootSecretDistributeMessage
+             * @static
+             * @param {E2E.Message.RootSecretDistributeMessage} message RootSecretDistributeMessage
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RootSecretDistributeMessage.toObject = function toObject(message, options, _depth) {
+                if (!options)
+                    options = {};
+                if (_depth === undefined)
+                    _depth = 0;
+                if (_depth > $util.recursionLimit)
+                    throw Error("max depth exceeded");
+                var object = {};
+                if (message.chatJid != null && message.hasOwnProperty("chatJid"))
+                    object.chatJid = message.chatJid;
+                return object;
+            };
+
+            /**
+             * Converts this RootSecretDistributeMessage to JSON.
+             * @function toJSON
+             * @memberof E2E.Message.RootSecretDistributeMessage
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RootSecretDistributeMessage.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the type url for RootSecretDistributeMessage
+             * @function getTypeUrl
+             * @memberof E2E.Message.RootSecretDistributeMessage
+             * @static
+             * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
+             * @returns {string} The type url
+             */
+            RootSecretDistributeMessage.getTypeUrl = function getTypeUrl(prefix) {
+                if (prefix === undefined)
+                    prefix = "type.googleapis.com";
+                return prefix + "/E2E.Message.RootSecretDistributeMessage";
+            };
+
+            return RootSecretDistributeMessage;
         })();
 
         Message.ScheduledCallCreationMessage = (function() {
@@ -141289,6 +142141,7 @@ $root.AICommon = (function() {
                 case 0:
                 case 1:
                 case 2:
+                case 3:
                     break;
                 }
             }
@@ -141345,6 +142198,10 @@ $root.AICommon = (function() {
             case "WA_TEE_BOT_MSG":
             case 2:
                 message.useCase = 2;
+                break;
+            case "P2P_PILLS":
+            case 3:
+                message.useCase = 3;
                 break;
             }
             if (object.signature != null)
@@ -141430,12 +142287,14 @@ $root.AICommon = (function() {
          * @property {number} UNSPECIFIED=0 UNSPECIFIED value
          * @property {number} WA_BOT_MSG=1 WA_BOT_MSG value
          * @property {number} WA_TEE_BOT_MSG=2 WA_TEE_BOT_MSG value
+         * @property {number} P2P_PILLS=3 P2P_PILLS value
          */
         BotSignatureVerificationUseCaseProof.BotSignatureUseCase = (function() {
             var valuesById = {}, values = Object.create(valuesById);
             values[valuesById[0] = "UNSPECIFIED"] = 0;
             values[valuesById[1] = "WA_BOT_MSG"] = 1;
             values[valuesById[2] = "WA_TEE_BOT_MSG"] = 2;
+            values[valuesById[3] = "P2P_PILLS"] = 3;
             return values;
         })();
 
