@@ -5,6 +5,7 @@ var $protobuf = require("protobufjs/minimal");
 
 // Common aliases
 var $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.util;
+var $Object = $util.global.Object, $undefined = $util.global.undefined, $Error = $util.global.Error, $TypeError = $util.global.TypeError, $String = $util.global.String, $Boolean = $util.global.Boolean;
 
 // Exported root namespace
 var $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
@@ -68,12 +69,12 @@ $root.StatusAttributions = (function() {
          * @param {StatusAttributions.StatusAttribution.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
-        function StatusAttribution(properties) {
+        var StatusAttribution = function (properties) {
             if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
-        }
+        };
 
         /**
          * StatusAttribution type.
@@ -143,13 +144,13 @@ $root.StatusAttributions = (function() {
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(StatusAttribution.prototype, "_type", {
+        $Object.defineProperty(StatusAttribution.prototype, "_type", {
             get: $util.oneOfGetter($oneOfFields = ["type"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(StatusAttribution.prototype, "_actionUrl", {
+        $Object.defineProperty(StatusAttribution.prototype, "_actionUrl", {
             get: $util.oneOfGetter($oneOfFields = ["actionUrl"]),
             set: $util.oneOfSetter($oneOfFields)
         });
@@ -160,7 +161,7 @@ $root.StatusAttributions = (function() {
          * @memberof StatusAttributions.StatusAttribution
          * @instance
          */
-        Object.defineProperty(StatusAttribution.prototype, "attributionData", {
+        $Object.defineProperty(StatusAttribution.prototype, "attributionData", {
             get: $util.oneOfGetter($oneOfFields = ["statusReshare", "externalShare", "music", "groupStatus", "rlAttribution", "aiCreatedAttribution"]),
             set: $util.oneOfSetter($oneOfFields)
         });
@@ -177,7 +178,7 @@ $root.StatusAttributions = (function() {
          *   (properties?: StatusAttributions.StatusAttribution.$Properties): StatusAttributions.StatusAttribution;
          * }}
          */
-        StatusAttribution.create = function create(properties) {
+        StatusAttribution.create = function(properties) {
             return new StatusAttribution(properties);
         };
 
@@ -190,30 +191,30 @@ $root.StatusAttributions = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        StatusAttribution.encode = function encode(message, writer, _depth) {
+        StatusAttribution.encode = function (message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
-            if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                throw $Error("max depth exceeded");
+            if (message.type != null && $Object.hasOwnProperty.call(message, "type"))
                 writer.uint32(/* id 1, wireType 0 =*/8).int32(message.type);
-            if (message.actionUrl != null && Object.hasOwnProperty.call(message, "actionUrl"))
+            if (message.actionUrl != null && $Object.hasOwnProperty.call(message, "actionUrl"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.actionUrl);
-            if (message.statusReshare != null && Object.hasOwnProperty.call(message, "statusReshare"))
+            if (message.statusReshare != null && $Object.hasOwnProperty.call(message, "statusReshare"))
                 $root.StatusAttributions.StatusAttribution.StatusReshare.encode(message.statusReshare, writer.uint32(/* id 3, wireType 2 =*/26).fork(), _depth + 1).ldelim();
-            if (message.externalShare != null && Object.hasOwnProperty.call(message, "externalShare"))
+            if (message.externalShare != null && $Object.hasOwnProperty.call(message, "externalShare"))
                 $root.StatusAttributions.StatusAttribution.ExternalShare.encode(message.externalShare, writer.uint32(/* id 4, wireType 2 =*/34).fork(), _depth + 1).ldelim();
-            if (message.music != null && Object.hasOwnProperty.call(message, "music"))
+            if (message.music != null && $Object.hasOwnProperty.call(message, "music"))
                 $root.StatusAttributions.StatusAttribution.Music.encode(message.music, writer.uint32(/* id 5, wireType 2 =*/42).fork(), _depth + 1).ldelim();
-            if (message.groupStatus != null && Object.hasOwnProperty.call(message, "groupStatus"))
+            if (message.groupStatus != null && $Object.hasOwnProperty.call(message, "groupStatus"))
                 $root.StatusAttributions.StatusAttribution.GroupStatus.encode(message.groupStatus, writer.uint32(/* id 6, wireType 2 =*/50).fork(), _depth + 1).ldelim();
-            if (message.rlAttribution != null && Object.hasOwnProperty.call(message, "rlAttribution"))
+            if (message.rlAttribution != null && $Object.hasOwnProperty.call(message, "rlAttribution"))
                 $root.StatusAttributions.StatusAttribution.RLAttribution.encode(message.rlAttribution, writer.uint32(/* id 7, wireType 2 =*/58).fork(), _depth + 1).ldelim();
-            if (message.aiCreatedAttribution != null && Object.hasOwnProperty.call(message, "aiCreatedAttribution"))
+            if (message.aiCreatedAttribution != null && $Object.hasOwnProperty.call(message, "aiCreatedAttribution"))
                 $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.encode(message.aiCreatedAttribution, writer.uint32(/* id 8, wireType 2 =*/66).fork(), _depth + 1).ldelim();
-            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
             return writer;
@@ -228,7 +229,7 @@ $root.StatusAttributions = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        StatusAttribution.encodeDelimited = function encodeDelimited(message, writer) {
+        StatusAttribution.encodeDelimited = function(message, writer) {
             return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
@@ -243,19 +244,19 @@ $root.StatusAttributions = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        StatusAttribution.decode = function decode(reader, length, _end, _depth, _target) {
+        StatusAttribution.decode = function (reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
-                throw Error("max depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution();
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution();
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
                 if (tag === _end) {
-                    _end = undefined;
+                    _end = $undefined;
                     break;
                 }
                 var wireType = tag & 7;
@@ -277,42 +278,42 @@ $root.StatusAttributions = (function() {
                 case 3: {
                         if (wireType !== 2)
                             break;
-                        message.statusReshare = $root.StatusAttributions.StatusAttribution.StatusReshare.decode(reader, reader.uint32(), undefined, _depth + 1, message.statusReshare);
+                        message.statusReshare = $root.StatusAttributions.StatusAttribution.StatusReshare.decode(reader, reader.uint32(), $undefined, _depth + 1, message.statusReshare);
                         message.attributionData = "statusReshare";
                         continue;
                     }
                 case 4: {
                         if (wireType !== 2)
                             break;
-                        message.externalShare = $root.StatusAttributions.StatusAttribution.ExternalShare.decode(reader, reader.uint32(), undefined, _depth + 1, message.externalShare);
+                        message.externalShare = $root.StatusAttributions.StatusAttribution.ExternalShare.decode(reader, reader.uint32(), $undefined, _depth + 1, message.externalShare);
                         message.attributionData = "externalShare";
                         continue;
                     }
                 case 5: {
                         if (wireType !== 2)
                             break;
-                        message.music = $root.StatusAttributions.StatusAttribution.Music.decode(reader, reader.uint32(), undefined, _depth + 1, message.music);
+                        message.music = $root.StatusAttributions.StatusAttribution.Music.decode(reader, reader.uint32(), $undefined, _depth + 1, message.music);
                         message.attributionData = "music";
                         continue;
                     }
                 case 6: {
                         if (wireType !== 2)
                             break;
-                        message.groupStatus = $root.StatusAttributions.StatusAttribution.GroupStatus.decode(reader, reader.uint32(), undefined, _depth + 1, message.groupStatus);
+                        message.groupStatus = $root.StatusAttributions.StatusAttribution.GroupStatus.decode(reader, reader.uint32(), $undefined, _depth + 1, message.groupStatus);
                         message.attributionData = "groupStatus";
                         continue;
                     }
                 case 7: {
                         if (wireType !== 2)
                             break;
-                        message.rlAttribution = $root.StatusAttributions.StatusAttribution.RLAttribution.decode(reader, reader.uint32(), undefined, _depth + 1, message.rlAttribution);
+                        message.rlAttribution = $root.StatusAttributions.StatusAttribution.RLAttribution.decode(reader, reader.uint32(), $undefined, _depth + 1, message.rlAttribution);
                         message.attributionData = "rlAttribution";
                         continue;
                     }
                 case 8: {
                         if (wireType !== 2)
                             break;
-                        message.aiCreatedAttribution = $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.decode(reader, reader.uint32(), undefined, _depth + 1, message.aiCreatedAttribution);
+                        message.aiCreatedAttribution = $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.decode(reader, reader.uint32(), $undefined, _depth + 1, message.aiCreatedAttribution);
                         message.attributionData = "aiCreatedAttribution";
                         continue;
                     }
@@ -323,8 +324,8 @@ $root.StatusAttributions = (function() {
                     (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
             }
-            if (_end !== undefined)
-                throw Error("missing end group");
+            if (_end !== $undefined)
+                throw $Error("missing end group");
             return message;
         };
 
@@ -338,7 +339,7 @@ $root.StatusAttributions = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        StatusAttribution.decodeDelimited = function decodeDelimited(reader) {
+        StatusAttribution.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
@@ -352,15 +353,15 @@ $root.StatusAttributions = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        StatusAttribution.verify = function verify(message, _depth) {
+        StatusAttribution.verify = function (message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 return "max depth exceeded";
             var properties = {};
-            if (message.type != null && message.hasOwnProperty("type")) {
+            if (message.type != null && $Object.hasOwnProperty.call(message, "type")) {
                 properties._type = 1;
                 switch (message.type) {
                 default:
@@ -380,12 +381,12 @@ $root.StatusAttributions = (function() {
                     break;
                 }
             }
-            if (message.actionUrl != null && message.hasOwnProperty("actionUrl")) {
+            if (message.actionUrl != null && $Object.hasOwnProperty.call(message, "actionUrl")) {
                 properties._actionUrl = 1;
                 if (!$util.isString(message.actionUrl))
                     return "actionUrl: string expected";
             }
-            if (message.statusReshare != null && message.hasOwnProperty("statusReshare")) {
+            if (message.statusReshare != null && $Object.hasOwnProperty.call(message, "statusReshare")) {
                 properties.attributionData = 1;
                 {
                     var error = $root.StatusAttributions.StatusAttribution.StatusReshare.verify(message.statusReshare, _depth + 1);
@@ -393,7 +394,7 @@ $root.StatusAttributions = (function() {
                         return "statusReshare." + error;
                 }
             }
-            if (message.externalShare != null && message.hasOwnProperty("externalShare")) {
+            if (message.externalShare != null && $Object.hasOwnProperty.call(message, "externalShare")) {
                 if (properties.attributionData === 1)
                     return "attributionData: multiple values";
                 properties.attributionData = 1;
@@ -403,7 +404,7 @@ $root.StatusAttributions = (function() {
                         return "externalShare." + error;
                 }
             }
-            if (message.music != null && message.hasOwnProperty("music")) {
+            if (message.music != null && $Object.hasOwnProperty.call(message, "music")) {
                 if (properties.attributionData === 1)
                     return "attributionData: multiple values";
                 properties.attributionData = 1;
@@ -413,7 +414,7 @@ $root.StatusAttributions = (function() {
                         return "music." + error;
                 }
             }
-            if (message.groupStatus != null && message.hasOwnProperty("groupStatus")) {
+            if (message.groupStatus != null && $Object.hasOwnProperty.call(message, "groupStatus")) {
                 if (properties.attributionData === 1)
                     return "attributionData: multiple values";
                 properties.attributionData = 1;
@@ -423,7 +424,7 @@ $root.StatusAttributions = (function() {
                         return "groupStatus." + error;
                 }
             }
-            if (message.rlAttribution != null && message.hasOwnProperty("rlAttribution")) {
+            if (message.rlAttribution != null && $Object.hasOwnProperty.call(message, "rlAttribution")) {
                 if (properties.attributionData === 1)
                     return "attributionData: multiple values";
                 properties.attributionData = 1;
@@ -433,7 +434,7 @@ $root.StatusAttributions = (function() {
                         return "rlAttribution." + error;
                 }
             }
-            if (message.aiCreatedAttribution != null && message.hasOwnProperty("aiCreatedAttribution")) {
+            if (message.aiCreatedAttribution != null && $Object.hasOwnProperty.call(message, "aiCreatedAttribution")) {
                 if (properties.attributionData === 1)
                     return "attributionData: multiple values";
                 properties.attributionData = 1;
@@ -454,15 +455,15 @@ $root.StatusAttributions = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {StatusAttributions.StatusAttribution} StatusAttribution
          */
-        StatusAttribution.fromObject = function fromObject(object, _depth) {
+        StatusAttribution.fromObject = function (object, _depth) {
             if (object instanceof $root.StatusAttributions.StatusAttribution)
                 return object;
             if (!$util.isObject(object))
-                throw TypeError(".StatusAttributions.StatusAttribution: object expected");
-            if (_depth === undefined)
+                throw $TypeError(".StatusAttributions.StatusAttribution: object expected");
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var message = new $root.StatusAttributions.StatusAttribution();
             switch (object.type) {
             default:
@@ -521,35 +522,35 @@ $root.StatusAttributions = (function() {
                 break;
             }
             if (object.actionUrl != null)
-                message.actionUrl = String(object.actionUrl);
+                message.actionUrl = $String(object.actionUrl);
             if (object.statusReshare != null) {
                 if (!$util.isObject(object.statusReshare))
-                    throw TypeError(".StatusAttributions.StatusAttribution.statusReshare: object expected");
+                    throw $TypeError(".StatusAttributions.StatusAttribution.statusReshare: object expected");
                 message.statusReshare = $root.StatusAttributions.StatusAttribution.StatusReshare.fromObject(object.statusReshare, _depth + 1);
             }
             if (object.externalShare != null) {
                 if (!$util.isObject(object.externalShare))
-                    throw TypeError(".StatusAttributions.StatusAttribution.externalShare: object expected");
+                    throw $TypeError(".StatusAttributions.StatusAttribution.externalShare: object expected");
                 message.externalShare = $root.StatusAttributions.StatusAttribution.ExternalShare.fromObject(object.externalShare, _depth + 1);
             }
             if (object.music != null) {
                 if (!$util.isObject(object.music))
-                    throw TypeError(".StatusAttributions.StatusAttribution.music: object expected");
+                    throw $TypeError(".StatusAttributions.StatusAttribution.music: object expected");
                 message.music = $root.StatusAttributions.StatusAttribution.Music.fromObject(object.music, _depth + 1);
             }
             if (object.groupStatus != null) {
                 if (!$util.isObject(object.groupStatus))
-                    throw TypeError(".StatusAttributions.StatusAttribution.groupStatus: object expected");
+                    throw $TypeError(".StatusAttributions.StatusAttribution.groupStatus: object expected");
                 message.groupStatus = $root.StatusAttributions.StatusAttribution.GroupStatus.fromObject(object.groupStatus, _depth + 1);
             }
             if (object.rlAttribution != null) {
                 if (!$util.isObject(object.rlAttribution))
-                    throw TypeError(".StatusAttributions.StatusAttribution.rlAttribution: object expected");
+                    throw $TypeError(".StatusAttributions.StatusAttribution.rlAttribution: object expected");
                 message.rlAttribution = $root.StatusAttributions.StatusAttribution.RLAttribution.fromObject(object.rlAttribution, _depth + 1);
             }
             if (object.aiCreatedAttribution != null) {
                 if (!$util.isObject(object.aiCreatedAttribution))
-                    throw TypeError(".StatusAttributions.StatusAttribution.aiCreatedAttribution: object expected");
+                    throw $TypeError(".StatusAttributions.StatusAttribution.aiCreatedAttribution: object expected");
                 message.aiCreatedAttribution = $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.fromObject(object.aiCreatedAttribution, _depth + 1);
             }
             return message;
@@ -564,44 +565,44 @@ $root.StatusAttributions = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        StatusAttribution.toObject = function toObject(message, options, _depth) {
+        StatusAttribution.toObject = function (message, options, _depth) {
             if (!options)
                 options = {};
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var object = {};
-            if (message.type != null && message.hasOwnProperty("type"))
-                object.type = options.enums === String ? $root.StatusAttributions.StatusAttribution.Type[message.type] === undefined ? message.type : $root.StatusAttributions.StatusAttribution.Type[message.type] : message.type;
-            if (message.actionUrl != null && message.hasOwnProperty("actionUrl"))
+            if (message.type != null && $Object.hasOwnProperty.call(message, "type"))
+                object.type = options.enums === $String ? $root.StatusAttributions.StatusAttribution.Type[message.type] === $undefined ? message.type : $root.StatusAttributions.StatusAttribution.Type[message.type] : message.type;
+            if (message.actionUrl != null && $Object.hasOwnProperty.call(message, "actionUrl"))
                 object.actionUrl = message.actionUrl;
-            if (message.statusReshare != null && message.hasOwnProperty("statusReshare")) {
+            if (message.statusReshare != null && $Object.hasOwnProperty.call(message, "statusReshare")) {
                 object.statusReshare = $root.StatusAttributions.StatusAttribution.StatusReshare.toObject(message.statusReshare, options, _depth + 1);
                 if (options.oneofs)
                     object.attributionData = "statusReshare";
             }
-            if (message.externalShare != null && message.hasOwnProperty("externalShare")) {
+            if (message.externalShare != null && $Object.hasOwnProperty.call(message, "externalShare")) {
                 object.externalShare = $root.StatusAttributions.StatusAttribution.ExternalShare.toObject(message.externalShare, options, _depth + 1);
                 if (options.oneofs)
                     object.attributionData = "externalShare";
             }
-            if (message.music != null && message.hasOwnProperty("music")) {
+            if (message.music != null && $Object.hasOwnProperty.call(message, "music")) {
                 object.music = $root.StatusAttributions.StatusAttribution.Music.toObject(message.music, options, _depth + 1);
                 if (options.oneofs)
                     object.attributionData = "music";
             }
-            if (message.groupStatus != null && message.hasOwnProperty("groupStatus")) {
+            if (message.groupStatus != null && $Object.hasOwnProperty.call(message, "groupStatus")) {
                 object.groupStatus = $root.StatusAttributions.StatusAttribution.GroupStatus.toObject(message.groupStatus, options, _depth + 1);
                 if (options.oneofs)
                     object.attributionData = "groupStatus";
             }
-            if (message.rlAttribution != null && message.hasOwnProperty("rlAttribution")) {
+            if (message.rlAttribution != null && $Object.hasOwnProperty.call(message, "rlAttribution")) {
                 object.rlAttribution = $root.StatusAttributions.StatusAttribution.RLAttribution.toObject(message.rlAttribution, options, _depth + 1);
                 if (options.oneofs)
                     object.attributionData = "rlAttribution";
             }
-            if (message.aiCreatedAttribution != null && message.hasOwnProperty("aiCreatedAttribution")) {
+            if (message.aiCreatedAttribution != null && $Object.hasOwnProperty.call(message, "aiCreatedAttribution")) {
                 object.aiCreatedAttribution = $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.toObject(message.aiCreatedAttribution, options, _depth + 1);
                 if (options.oneofs)
                     object.attributionData = "aiCreatedAttribution";
@@ -616,8 +617,8 @@ $root.StatusAttributions = (function() {
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        StatusAttribution.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        StatusAttribution.prototype.toJSON = function() {
+            return StatusAttribution.toObject(this, $protobuf.util.toJSONOptions);
         };
 
         /**
@@ -628,8 +629,8 @@ $root.StatusAttributions = (function() {
          * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
          * @returns {string} The type url
          */
-        StatusAttribution.getTypeUrl = function getTypeUrl(prefix) {
-            if (prefix === undefined)
+        StatusAttribution.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
                 prefix = "type.googleapis.com";
             return prefix + "/StatusAttributions.StatusAttribution";
         };
@@ -664,12 +665,12 @@ $root.StatusAttributions = (function() {
              * @param {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
-            function AiCreatedAttribution(properties) {
+            var AiCreatedAttribution = function (properties) {
                 if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null && keys[i] !== "__proto__")
                             this[keys[i]] = properties[keys[i]];
-            }
+            };
 
             /**
              * AiCreatedAttribution source.
@@ -683,7 +684,7 @@ $root.StatusAttributions = (function() {
             var $oneOfFields;
 
             // Virtual OneOf for proto3 optional field
-            Object.defineProperty(AiCreatedAttribution.prototype, "_source", {
+            $Object.defineProperty(AiCreatedAttribution.prototype, "_source", {
                 get: $util.oneOfGetter($oneOfFields = ["source"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
@@ -700,7 +701,7 @@ $root.StatusAttributions = (function() {
              *   (properties?: StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties): StatusAttributions.StatusAttribution.AiCreatedAttribution;
              * }}
              */
-            AiCreatedAttribution.create = function create(properties) {
+            AiCreatedAttribution.create = function(properties) {
                 return new AiCreatedAttribution(properties);
             };
 
@@ -713,16 +714,16 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            AiCreatedAttribution.encode = function encode(message, writer, _depth) {
+            AiCreatedAttribution.encode = function (message, writer, _depth) {
                 if (!writer)
                     writer = $Writer.create();
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
-                if (message.source != null && Object.hasOwnProperty.call(message, "source"))
+                    throw $Error("max depth exceeded");
+                if (message.source != null && $Object.hasOwnProperty.call(message, "source"))
                     writer.uint32(/* id 1, wireType 0 =*/8).int32(message.source);
-                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
                 return writer;
@@ -737,7 +738,7 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            AiCreatedAttribution.encodeDelimited = function encodeDelimited(message, writer) {
+            AiCreatedAttribution.encodeDelimited = function(message, writer) {
                 return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
             };
 
@@ -752,19 +753,19 @@ $root.StatusAttributions = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            AiCreatedAttribution.decode = function decode(reader, length, _end, _depth, _target) {
+            AiCreatedAttribution.decode = function (reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
-                    throw Error("max depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.AiCreatedAttribution();
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.AiCreatedAttribution();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
                     if (tag === _end) {
-                        _end = undefined;
+                        _end = $undefined;
                         break;
                     }
                     var wireType = tag & 7;
@@ -783,8 +784,8 @@ $root.StatusAttributions = (function() {
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
                 }
-                if (_end !== undefined)
-                    throw Error("missing end group");
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
                 return message;
             };
 
@@ -798,7 +799,7 @@ $root.StatusAttributions = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            AiCreatedAttribution.decodeDelimited = function decodeDelimited(reader) {
+            AiCreatedAttribution.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
@@ -812,15 +813,15 @@ $root.StatusAttributions = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            AiCreatedAttribution.verify = function verify(message, _depth) {
+            AiCreatedAttribution.verify = function (message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     return "max depth exceeded";
                 var properties = {};
-                if (message.source != null && message.hasOwnProperty("source")) {
+                if (message.source != null && $Object.hasOwnProperty.call(message, "source")) {
                     properties._source = 1;
                     switch (message.source) {
                     default:
@@ -841,15 +842,15 @@ $root.StatusAttributions = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {StatusAttributions.StatusAttribution.AiCreatedAttribution} AiCreatedAttribution
              */
-            AiCreatedAttribution.fromObject = function fromObject(object, _depth) {
+            AiCreatedAttribution.fromObject = function (object, _depth) {
                 if (object instanceof $root.StatusAttributions.StatusAttribution.AiCreatedAttribution)
                     return object;
                 if (!$util.isObject(object))
-                    throw TypeError(".StatusAttributions.StatusAttribution.AiCreatedAttribution: object expected");
-                if (_depth === undefined)
+                    throw $TypeError(".StatusAttributions.StatusAttribution.AiCreatedAttribution: object expected");
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
+                    throw $Error("max depth exceeded");
                 var message = new $root.StatusAttributions.StatusAttribution.AiCreatedAttribution();
                 switch (object.source) {
                 default:
@@ -879,16 +880,16 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            AiCreatedAttribution.toObject = function toObject(message, options, _depth) {
+            AiCreatedAttribution.toObject = function (message, options, _depth) {
                 if (!options)
                     options = {};
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
+                    throw $Error("max depth exceeded");
                 var object = {};
-                if (message.source != null && message.hasOwnProperty("source"))
-                    object.source = options.enums === String ? $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.Source[message.source] === undefined ? message.source : $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.Source[message.source] : message.source;
+                if (message.source != null && $Object.hasOwnProperty.call(message, "source"))
+                    object.source = options.enums === $String ? $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.Source[message.source] === $undefined ? message.source : $root.StatusAttributions.StatusAttribution.AiCreatedAttribution.Source[message.source] : message.source;
                 return object;
             };
 
@@ -899,8 +900,8 @@ $root.StatusAttributions = (function() {
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            AiCreatedAttribution.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            AiCreatedAttribution.prototype.toJSON = function() {
+                return AiCreatedAttribution.toObject(this, $protobuf.util.toJSONOptions);
             };
 
             /**
@@ -911,8 +912,8 @@ $root.StatusAttributions = (function() {
              * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
              * @returns {string} The type url
              */
-            AiCreatedAttribution.getTypeUrl = function getTypeUrl(prefix) {
-                if (prefix === undefined)
+            AiCreatedAttribution.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
                     prefix = "type.googleapis.com";
                 return prefix + "/StatusAttributions.StatusAttribution.AiCreatedAttribution";
             };
@@ -925,7 +926,7 @@ $root.StatusAttributions = (function() {
              * @property {number} STATUS_MIMICRY=1 STATUS_MIMICRY value
              */
             AiCreatedAttribution.Source = (function() {
-                var valuesById = {}, values = Object.create(valuesById);
+                var valuesById = {}, values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "STATUS_MIMICRY"] = 1;
                 return values;
@@ -967,12 +968,12 @@ $root.StatusAttributions = (function() {
              * @param {StatusAttributions.StatusAttribution.ExternalShare.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
-            function ExternalShare(properties) {
+            var ExternalShare = function (properties) {
                 if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null && keys[i] !== "__proto__")
                             this[keys[i]] = properties[keys[i]];
-            }
+            };
 
             /**
              * ExternalShare actionUrl.
@@ -1010,25 +1011,25 @@ $root.StatusAttributions = (function() {
             var $oneOfFields;
 
             // Virtual OneOf for proto3 optional field
-            Object.defineProperty(ExternalShare.prototype, "_actionUrl", {
+            $Object.defineProperty(ExternalShare.prototype, "_actionUrl", {
                 get: $util.oneOfGetter($oneOfFields = ["actionUrl"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
             // Virtual OneOf for proto3 optional field
-            Object.defineProperty(ExternalShare.prototype, "_source", {
+            $Object.defineProperty(ExternalShare.prototype, "_source", {
                 get: $util.oneOfGetter($oneOfFields = ["source"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
             // Virtual OneOf for proto3 optional field
-            Object.defineProperty(ExternalShare.prototype, "_duration", {
+            $Object.defineProperty(ExternalShare.prototype, "_duration", {
                 get: $util.oneOfGetter($oneOfFields = ["duration"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
             // Virtual OneOf for proto3 optional field
-            Object.defineProperty(ExternalShare.prototype, "_actionFallbackUrl", {
+            $Object.defineProperty(ExternalShare.prototype, "_actionFallbackUrl", {
                 get: $util.oneOfGetter($oneOfFields = ["actionFallbackUrl"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
@@ -1045,7 +1046,7 @@ $root.StatusAttributions = (function() {
              *   (properties?: StatusAttributions.StatusAttribution.ExternalShare.$Properties): StatusAttributions.StatusAttribution.ExternalShare;
              * }}
              */
-            ExternalShare.create = function create(properties) {
+            ExternalShare.create = function(properties) {
                 return new ExternalShare(properties);
             };
 
@@ -1058,22 +1059,22 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            ExternalShare.encode = function encode(message, writer, _depth) {
+            ExternalShare.encode = function (message, writer, _depth) {
                 if (!writer)
                     writer = $Writer.create();
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
-                if (message.actionUrl != null && Object.hasOwnProperty.call(message, "actionUrl"))
+                    throw $Error("max depth exceeded");
+                if (message.actionUrl != null && $Object.hasOwnProperty.call(message, "actionUrl"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.actionUrl);
-                if (message.source != null && Object.hasOwnProperty.call(message, "source"))
+                if (message.source != null && $Object.hasOwnProperty.call(message, "source"))
                     writer.uint32(/* id 2, wireType 0 =*/16).int32(message.source);
-                if (message.duration != null && Object.hasOwnProperty.call(message, "duration"))
+                if (message.duration != null && $Object.hasOwnProperty.call(message, "duration"))
                     writer.uint32(/* id 3, wireType 0 =*/24).int32(message.duration);
-                if (message.actionFallbackUrl != null && Object.hasOwnProperty.call(message, "actionFallbackUrl"))
+                if (message.actionFallbackUrl != null && $Object.hasOwnProperty.call(message, "actionFallbackUrl"))
                     writer.uint32(/* id 4, wireType 2 =*/34).string(message.actionFallbackUrl);
-                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
                 return writer;
@@ -1088,7 +1089,7 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            ExternalShare.encodeDelimited = function encodeDelimited(message, writer) {
+            ExternalShare.encodeDelimited = function(message, writer) {
                 return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
             };
 
@@ -1103,19 +1104,19 @@ $root.StatusAttributions = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            ExternalShare.decode = function decode(reader, length, _end, _depth, _target) {
+            ExternalShare.decode = function (reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
-                    throw Error("max depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.ExternalShare();
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.ExternalShare();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
                     if (tag === _end) {
-                        _end = undefined;
+                        _end = $undefined;
                         break;
                     }
                     var wireType = tag & 7;
@@ -1155,8 +1156,8 @@ $root.StatusAttributions = (function() {
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
                 }
-                if (_end !== undefined)
-                    throw Error("missing end group");
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
                 return message;
             };
 
@@ -1170,7 +1171,7 @@ $root.StatusAttributions = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            ExternalShare.decodeDelimited = function decodeDelimited(reader) {
+            ExternalShare.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
@@ -1184,20 +1185,20 @@ $root.StatusAttributions = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            ExternalShare.verify = function verify(message, _depth) {
+            ExternalShare.verify = function (message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     return "max depth exceeded";
                 var properties = {};
-                if (message.actionUrl != null && message.hasOwnProperty("actionUrl")) {
+                if (message.actionUrl != null && $Object.hasOwnProperty.call(message, "actionUrl")) {
                     properties._actionUrl = 1;
                     if (!$util.isString(message.actionUrl))
                         return "actionUrl: string expected";
                 }
-                if (message.source != null && message.hasOwnProperty("source")) {
+                if (message.source != null && $Object.hasOwnProperty.call(message, "source")) {
                     properties._source = 1;
                     switch (message.source) {
                     default:
@@ -1218,12 +1219,12 @@ $root.StatusAttributions = (function() {
                         break;
                     }
                 }
-                if (message.duration != null && message.hasOwnProperty("duration")) {
+                if (message.duration != null && $Object.hasOwnProperty.call(message, "duration")) {
                     properties._duration = 1;
                     if (!$util.isInteger(message.duration))
                         return "duration: integer expected";
                 }
-                if (message.actionFallbackUrl != null && message.hasOwnProperty("actionFallbackUrl")) {
+                if (message.actionFallbackUrl != null && $Object.hasOwnProperty.call(message, "actionFallbackUrl")) {
                     properties._actionFallbackUrl = 1;
                     if (!$util.isString(message.actionFallbackUrl))
                         return "actionFallbackUrl: string expected";
@@ -1239,18 +1240,18 @@ $root.StatusAttributions = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {StatusAttributions.StatusAttribution.ExternalShare} ExternalShare
              */
-            ExternalShare.fromObject = function fromObject(object, _depth) {
+            ExternalShare.fromObject = function (object, _depth) {
                 if (object instanceof $root.StatusAttributions.StatusAttribution.ExternalShare)
                     return object;
                 if (!$util.isObject(object))
-                    throw TypeError(".StatusAttributions.StatusAttribution.ExternalShare: object expected");
-                if (_depth === undefined)
+                    throw $TypeError(".StatusAttributions.StatusAttribution.ExternalShare: object expected");
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
+                    throw $Error("max depth exceeded");
                 var message = new $root.StatusAttributions.StatusAttribution.ExternalShare();
                 if (object.actionUrl != null)
-                    message.actionUrl = String(object.actionUrl);
+                    message.actionUrl = $String(object.actionUrl);
                 switch (object.source) {
                 default:
                     if (typeof object.source === "number") {
@@ -1314,7 +1315,7 @@ $root.StatusAttributions = (function() {
                 if (object.duration != null)
                     message.duration = object.duration | 0;
                 if (object.actionFallbackUrl != null)
-                    message.actionFallbackUrl = String(object.actionFallbackUrl);
+                    message.actionFallbackUrl = $String(object.actionFallbackUrl);
                 return message;
             };
 
@@ -1327,21 +1328,21 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            ExternalShare.toObject = function toObject(message, options, _depth) {
+            ExternalShare.toObject = function (message, options, _depth) {
                 if (!options)
                     options = {};
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
+                    throw $Error("max depth exceeded");
                 var object = {};
-                if (message.actionUrl != null && message.hasOwnProperty("actionUrl"))
+                if (message.actionUrl != null && $Object.hasOwnProperty.call(message, "actionUrl"))
                     object.actionUrl = message.actionUrl;
-                if (message.source != null && message.hasOwnProperty("source"))
-                    object.source = options.enums === String ? $root.StatusAttributions.StatusAttribution.ExternalShare.Source[message.source] === undefined ? message.source : $root.StatusAttributions.StatusAttribution.ExternalShare.Source[message.source] : message.source;
-                if (message.duration != null && message.hasOwnProperty("duration"))
+                if (message.source != null && $Object.hasOwnProperty.call(message, "source"))
+                    object.source = options.enums === $String ? $root.StatusAttributions.StatusAttribution.ExternalShare.Source[message.source] === $undefined ? message.source : $root.StatusAttributions.StatusAttribution.ExternalShare.Source[message.source] : message.source;
+                if (message.duration != null && $Object.hasOwnProperty.call(message, "duration"))
                     object.duration = message.duration;
-                if (message.actionFallbackUrl != null && message.hasOwnProperty("actionFallbackUrl"))
+                if (message.actionFallbackUrl != null && $Object.hasOwnProperty.call(message, "actionFallbackUrl"))
                     object.actionFallbackUrl = message.actionFallbackUrl;
                 return object;
             };
@@ -1353,8 +1354,8 @@ $root.StatusAttributions = (function() {
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            ExternalShare.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            ExternalShare.prototype.toJSON = function() {
+                return ExternalShare.toObject(this, $protobuf.util.toJSONOptions);
             };
 
             /**
@@ -1365,8 +1366,8 @@ $root.StatusAttributions = (function() {
              * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
              * @returns {string} The type url
              */
-            ExternalShare.getTypeUrl = function getTypeUrl(prefix) {
-                if (prefix === undefined)
+            ExternalShare.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
                     prefix = "type.googleapis.com";
                 return prefix + "/StatusAttributions.StatusAttribution.ExternalShare";
             };
@@ -1390,7 +1391,7 @@ $root.StatusAttributions = (function() {
              * @property {number} SHAZAM=12 SHAZAM value
              */
             ExternalShare.Source = (function() {
-                var valuesById = {}, values = Object.create(valuesById);
+                var valuesById = {}, values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "INSTAGRAM"] = 1;
                 values[valuesById[2] = "FACEBOOK"] = 2;
@@ -1440,12 +1441,12 @@ $root.StatusAttributions = (function() {
              * @param {StatusAttributions.StatusAttribution.GroupStatus.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
-            function GroupStatus(properties) {
+            var GroupStatus = function (properties) {
                 if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null && keys[i] !== "__proto__")
                             this[keys[i]] = properties[keys[i]];
-            }
+            };
 
             /**
              * GroupStatus authorJid.
@@ -1459,7 +1460,7 @@ $root.StatusAttributions = (function() {
             var $oneOfFields;
 
             // Virtual OneOf for proto3 optional field
-            Object.defineProperty(GroupStatus.prototype, "_authorJid", {
+            $Object.defineProperty(GroupStatus.prototype, "_authorJid", {
                 get: $util.oneOfGetter($oneOfFields = ["authorJid"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
@@ -1476,7 +1477,7 @@ $root.StatusAttributions = (function() {
              *   (properties?: StatusAttributions.StatusAttribution.GroupStatus.$Properties): StatusAttributions.StatusAttribution.GroupStatus;
              * }}
              */
-            GroupStatus.create = function create(properties) {
+            GroupStatus.create = function(properties) {
                 return new GroupStatus(properties);
             };
 
@@ -1489,16 +1490,16 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            GroupStatus.encode = function encode(message, writer, _depth) {
+            GroupStatus.encode = function (message, writer, _depth) {
                 if (!writer)
                     writer = $Writer.create();
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
-                if (message.authorJid != null && Object.hasOwnProperty.call(message, "authorJid"))
+                    throw $Error("max depth exceeded");
+                if (message.authorJid != null && $Object.hasOwnProperty.call(message, "authorJid"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.authorJid);
-                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
                 return writer;
@@ -1513,7 +1514,7 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            GroupStatus.encodeDelimited = function encodeDelimited(message, writer) {
+            GroupStatus.encodeDelimited = function(message, writer) {
                 return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
             };
 
@@ -1528,19 +1529,19 @@ $root.StatusAttributions = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GroupStatus.decode = function decode(reader, length, _end, _depth, _target) {
+            GroupStatus.decode = function (reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
-                    throw Error("max depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.GroupStatus();
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.GroupStatus();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
                     if (tag === _end) {
-                        _end = undefined;
+                        _end = $undefined;
                         break;
                     }
                     var wireType = tag & 7;
@@ -1559,8 +1560,8 @@ $root.StatusAttributions = (function() {
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
                 }
-                if (_end !== undefined)
-                    throw Error("missing end group");
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
                 return message;
             };
 
@@ -1574,7 +1575,7 @@ $root.StatusAttributions = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GroupStatus.decodeDelimited = function decodeDelimited(reader) {
+            GroupStatus.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
@@ -1588,15 +1589,15 @@ $root.StatusAttributions = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            GroupStatus.verify = function verify(message, _depth) {
+            GroupStatus.verify = function (message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     return "max depth exceeded";
                 var properties = {};
-                if (message.authorJid != null && message.hasOwnProperty("authorJid")) {
+                if (message.authorJid != null && $Object.hasOwnProperty.call(message, "authorJid")) {
                     properties._authorJid = 1;
                     if (!$util.isString(message.authorJid))
                         return "authorJid: string expected";
@@ -1612,18 +1613,18 @@ $root.StatusAttributions = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {StatusAttributions.StatusAttribution.GroupStatus} GroupStatus
              */
-            GroupStatus.fromObject = function fromObject(object, _depth) {
+            GroupStatus.fromObject = function (object, _depth) {
                 if (object instanceof $root.StatusAttributions.StatusAttribution.GroupStatus)
                     return object;
                 if (!$util.isObject(object))
-                    throw TypeError(".StatusAttributions.StatusAttribution.GroupStatus: object expected");
-                if (_depth === undefined)
+                    throw $TypeError(".StatusAttributions.StatusAttribution.GroupStatus: object expected");
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
+                    throw $Error("max depth exceeded");
                 var message = new $root.StatusAttributions.StatusAttribution.GroupStatus();
                 if (object.authorJid != null)
-                    message.authorJid = String(object.authorJid);
+                    message.authorJid = $String(object.authorJid);
                 return message;
             };
 
@@ -1636,15 +1637,15 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            GroupStatus.toObject = function toObject(message, options, _depth) {
+            GroupStatus.toObject = function (message, options, _depth) {
                 if (!options)
                     options = {};
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
+                    throw $Error("max depth exceeded");
                 var object = {};
-                if (message.authorJid != null && message.hasOwnProperty("authorJid"))
+                if (message.authorJid != null && $Object.hasOwnProperty.call(message, "authorJid"))
                     object.authorJid = message.authorJid;
                 return object;
             };
@@ -1656,8 +1657,8 @@ $root.StatusAttributions = (function() {
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            GroupStatus.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            GroupStatus.prototype.toJSON = function() {
+                return GroupStatus.toObject(this, $protobuf.util.toJSONOptions);
             };
 
             /**
@@ -1668,8 +1669,8 @@ $root.StatusAttributions = (function() {
              * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
              * @returns {string} The type url
              */
-            GroupStatus.getTypeUrl = function getTypeUrl(prefix) {
-                if (prefix === undefined)
+            GroupStatus.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
                     prefix = "type.googleapis.com";
                 return prefix + "/StatusAttributions.StatusAttribution.GroupStatus";
             };
@@ -1712,12 +1713,12 @@ $root.StatusAttributions = (function() {
              * @param {StatusAttributions.StatusAttribution.Music.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
-            function Music(properties) {
+            var Music = function (properties) {
                 if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null && keys[i] !== "__proto__")
                             this[keys[i]] = properties[keys[i]];
-            }
+            };
 
             /**
              * Music authorName.
@@ -1771,37 +1772,37 @@ $root.StatusAttributions = (function() {
             var $oneOfFields;
 
             // Virtual OneOf for proto3 optional field
-            Object.defineProperty(Music.prototype, "_authorName", {
+            $Object.defineProperty(Music.prototype, "_authorName", {
                 get: $util.oneOfGetter($oneOfFields = ["authorName"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
             // Virtual OneOf for proto3 optional field
-            Object.defineProperty(Music.prototype, "_songId", {
+            $Object.defineProperty(Music.prototype, "_songId", {
                 get: $util.oneOfGetter($oneOfFields = ["songId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
             // Virtual OneOf for proto3 optional field
-            Object.defineProperty(Music.prototype, "_title", {
+            $Object.defineProperty(Music.prototype, "_title", {
                 get: $util.oneOfGetter($oneOfFields = ["title"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
             // Virtual OneOf for proto3 optional field
-            Object.defineProperty(Music.prototype, "_author", {
+            $Object.defineProperty(Music.prototype, "_author", {
                 get: $util.oneOfGetter($oneOfFields = ["author"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
             // Virtual OneOf for proto3 optional field
-            Object.defineProperty(Music.prototype, "_artistAttribution", {
+            $Object.defineProperty(Music.prototype, "_artistAttribution", {
                 get: $util.oneOfGetter($oneOfFields = ["artistAttribution"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
             // Virtual OneOf for proto3 optional field
-            Object.defineProperty(Music.prototype, "_isExplicit", {
+            $Object.defineProperty(Music.prototype, "_isExplicit", {
                 get: $util.oneOfGetter($oneOfFields = ["isExplicit"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
@@ -1818,7 +1819,7 @@ $root.StatusAttributions = (function() {
              *   (properties?: StatusAttributions.StatusAttribution.Music.$Properties): StatusAttributions.StatusAttribution.Music;
              * }}
              */
-            Music.create = function create(properties) {
+            Music.create = function(properties) {
                 return new Music(properties);
             };
 
@@ -1831,26 +1832,26 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            Music.encode = function encode(message, writer, _depth) {
+            Music.encode = function (message, writer, _depth) {
                 if (!writer)
                     writer = $Writer.create();
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
-                if (message.authorName != null && Object.hasOwnProperty.call(message, "authorName"))
+                    throw $Error("max depth exceeded");
+                if (message.authorName != null && $Object.hasOwnProperty.call(message, "authorName"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.authorName);
-                if (message.songId != null && Object.hasOwnProperty.call(message, "songId"))
+                if (message.songId != null && $Object.hasOwnProperty.call(message, "songId"))
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.songId);
-                if (message.title != null && Object.hasOwnProperty.call(message, "title"))
+                if (message.title != null && $Object.hasOwnProperty.call(message, "title"))
                     writer.uint32(/* id 3, wireType 2 =*/26).string(message.title);
-                if (message.author != null && Object.hasOwnProperty.call(message, "author"))
+                if (message.author != null && $Object.hasOwnProperty.call(message, "author"))
                     writer.uint32(/* id 4, wireType 2 =*/34).string(message.author);
-                if (message.artistAttribution != null && Object.hasOwnProperty.call(message, "artistAttribution"))
+                if (message.artistAttribution != null && $Object.hasOwnProperty.call(message, "artistAttribution"))
                     writer.uint32(/* id 5, wireType 2 =*/42).string(message.artistAttribution);
-                if (message.isExplicit != null && Object.hasOwnProperty.call(message, "isExplicit"))
+                if (message.isExplicit != null && $Object.hasOwnProperty.call(message, "isExplicit"))
                     writer.uint32(/* id 6, wireType 0 =*/48).bool(message.isExplicit);
-                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
                 return writer;
@@ -1865,7 +1866,7 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            Music.encodeDelimited = function encodeDelimited(message, writer) {
+            Music.encodeDelimited = function(message, writer) {
                 return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
             };
 
@@ -1880,19 +1881,19 @@ $root.StatusAttributions = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Music.decode = function decode(reader, length, _end, _depth, _target) {
+            Music.decode = function (reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
-                    throw Error("max depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.Music();
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.Music();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
                     if (tag === _end) {
-                        _end = undefined;
+                        _end = $undefined;
                         break;
                     }
                     var wireType = tag & 7;
@@ -1946,8 +1947,8 @@ $root.StatusAttributions = (function() {
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
                 }
-                if (_end !== undefined)
-                    throw Error("missing end group");
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
                 return message;
             };
 
@@ -1961,7 +1962,7 @@ $root.StatusAttributions = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Music.decodeDelimited = function decodeDelimited(reader) {
+            Music.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
@@ -1975,40 +1976,40 @@ $root.StatusAttributions = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            Music.verify = function verify(message, _depth) {
+            Music.verify = function (message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     return "max depth exceeded";
                 var properties = {};
-                if (message.authorName != null && message.hasOwnProperty("authorName")) {
+                if (message.authorName != null && $Object.hasOwnProperty.call(message, "authorName")) {
                     properties._authorName = 1;
                     if (!$util.isString(message.authorName))
                         return "authorName: string expected";
                 }
-                if (message.songId != null && message.hasOwnProperty("songId")) {
+                if (message.songId != null && $Object.hasOwnProperty.call(message, "songId")) {
                     properties._songId = 1;
                     if (!$util.isString(message.songId))
                         return "songId: string expected";
                 }
-                if (message.title != null && message.hasOwnProperty("title")) {
+                if (message.title != null && $Object.hasOwnProperty.call(message, "title")) {
                     properties._title = 1;
                     if (!$util.isString(message.title))
                         return "title: string expected";
                 }
-                if (message.author != null && message.hasOwnProperty("author")) {
+                if (message.author != null && $Object.hasOwnProperty.call(message, "author")) {
                     properties._author = 1;
                     if (!$util.isString(message.author))
                         return "author: string expected";
                 }
-                if (message.artistAttribution != null && message.hasOwnProperty("artistAttribution")) {
+                if (message.artistAttribution != null && $Object.hasOwnProperty.call(message, "artistAttribution")) {
                     properties._artistAttribution = 1;
                     if (!$util.isString(message.artistAttribution))
                         return "artistAttribution: string expected";
                 }
-                if (message.isExplicit != null && message.hasOwnProperty("isExplicit")) {
+                if (message.isExplicit != null && $Object.hasOwnProperty.call(message, "isExplicit")) {
                     properties._isExplicit = 1;
                     if (typeof message.isExplicit !== "boolean")
                         return "isExplicit: boolean expected";
@@ -2024,28 +2025,28 @@ $root.StatusAttributions = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {StatusAttributions.StatusAttribution.Music} Music
              */
-            Music.fromObject = function fromObject(object, _depth) {
+            Music.fromObject = function (object, _depth) {
                 if (object instanceof $root.StatusAttributions.StatusAttribution.Music)
                     return object;
                 if (!$util.isObject(object))
-                    throw TypeError(".StatusAttributions.StatusAttribution.Music: object expected");
-                if (_depth === undefined)
+                    throw $TypeError(".StatusAttributions.StatusAttribution.Music: object expected");
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
+                    throw $Error("max depth exceeded");
                 var message = new $root.StatusAttributions.StatusAttribution.Music();
                 if (object.authorName != null)
-                    message.authorName = String(object.authorName);
+                    message.authorName = $String(object.authorName);
                 if (object.songId != null)
-                    message.songId = String(object.songId);
+                    message.songId = $String(object.songId);
                 if (object.title != null)
-                    message.title = String(object.title);
+                    message.title = $String(object.title);
                 if (object.author != null)
-                    message.author = String(object.author);
+                    message.author = $String(object.author);
                 if (object.artistAttribution != null)
-                    message.artistAttribution = String(object.artistAttribution);
+                    message.artistAttribution = $String(object.artistAttribution);
                 if (object.isExplicit != null)
-                    message.isExplicit = Boolean(object.isExplicit);
+                    message.isExplicit = $Boolean(object.isExplicit);
                 return message;
             };
 
@@ -2058,25 +2059,25 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            Music.toObject = function toObject(message, options, _depth) {
+            Music.toObject = function (message, options, _depth) {
                 if (!options)
                     options = {};
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
+                    throw $Error("max depth exceeded");
                 var object = {};
-                if (message.authorName != null && message.hasOwnProperty("authorName"))
+                if (message.authorName != null && $Object.hasOwnProperty.call(message, "authorName"))
                     object.authorName = message.authorName;
-                if (message.songId != null && message.hasOwnProperty("songId"))
+                if (message.songId != null && $Object.hasOwnProperty.call(message, "songId"))
                     object.songId = message.songId;
-                if (message.title != null && message.hasOwnProperty("title"))
+                if (message.title != null && $Object.hasOwnProperty.call(message, "title"))
                     object.title = message.title;
-                if (message.author != null && message.hasOwnProperty("author"))
+                if (message.author != null && $Object.hasOwnProperty.call(message, "author"))
                     object.author = message.author;
-                if (message.artistAttribution != null && message.hasOwnProperty("artistAttribution"))
+                if (message.artistAttribution != null && $Object.hasOwnProperty.call(message, "artistAttribution"))
                     object.artistAttribution = message.artistAttribution;
-                if (message.isExplicit != null && message.hasOwnProperty("isExplicit"))
+                if (message.isExplicit != null && $Object.hasOwnProperty.call(message, "isExplicit"))
                     object.isExplicit = message.isExplicit;
                 return object;
             };
@@ -2088,8 +2089,8 @@ $root.StatusAttributions = (function() {
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            Music.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            Music.prototype.toJSON = function() {
+                return Music.toObject(this, $protobuf.util.toJSONOptions);
             };
 
             /**
@@ -2100,8 +2101,8 @@ $root.StatusAttributions = (function() {
              * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
              * @returns {string} The type url
              */
-            Music.getTypeUrl = function getTypeUrl(prefix) {
-                if (prefix === undefined)
+            Music.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
                     prefix = "type.googleapis.com";
                 return prefix + "/StatusAttributions.StatusAttribution.Music";
             };
@@ -2139,12 +2140,12 @@ $root.StatusAttributions = (function() {
              * @param {StatusAttributions.StatusAttribution.RLAttribution.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
-            function RLAttribution(properties) {
+            var RLAttribution = function (properties) {
                 if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null && keys[i] !== "__proto__")
                             this[keys[i]] = properties[keys[i]];
-            }
+            };
 
             /**
              * RLAttribution source.
@@ -2158,7 +2159,7 @@ $root.StatusAttributions = (function() {
             var $oneOfFields;
 
             // Virtual OneOf for proto3 optional field
-            Object.defineProperty(RLAttribution.prototype, "_source", {
+            $Object.defineProperty(RLAttribution.prototype, "_source", {
                 get: $util.oneOfGetter($oneOfFields = ["source"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
@@ -2175,7 +2176,7 @@ $root.StatusAttributions = (function() {
              *   (properties?: StatusAttributions.StatusAttribution.RLAttribution.$Properties): StatusAttributions.StatusAttribution.RLAttribution;
              * }}
              */
-            RLAttribution.create = function create(properties) {
+            RLAttribution.create = function(properties) {
                 return new RLAttribution(properties);
             };
 
@@ -2188,16 +2189,16 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            RLAttribution.encode = function encode(message, writer, _depth) {
+            RLAttribution.encode = function (message, writer, _depth) {
                 if (!writer)
                     writer = $Writer.create();
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
-                if (message.source != null && Object.hasOwnProperty.call(message, "source"))
+                    throw $Error("max depth exceeded");
+                if (message.source != null && $Object.hasOwnProperty.call(message, "source"))
                     writer.uint32(/* id 1, wireType 0 =*/8).int32(message.source);
-                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
                 return writer;
@@ -2212,7 +2213,7 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            RLAttribution.encodeDelimited = function encodeDelimited(message, writer) {
+            RLAttribution.encodeDelimited = function(message, writer) {
                 return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
             };
 
@@ -2227,19 +2228,19 @@ $root.StatusAttributions = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            RLAttribution.decode = function decode(reader, length, _end, _depth, _target) {
+            RLAttribution.decode = function (reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
-                    throw Error("max depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.RLAttribution();
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.RLAttribution();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
                     if (tag === _end) {
-                        _end = undefined;
+                        _end = $undefined;
                         break;
                     }
                     var wireType = tag & 7;
@@ -2258,8 +2259,8 @@ $root.StatusAttributions = (function() {
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
                 }
-                if (_end !== undefined)
-                    throw Error("missing end group");
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
                 return message;
             };
 
@@ -2273,7 +2274,7 @@ $root.StatusAttributions = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            RLAttribution.decodeDelimited = function decodeDelimited(reader) {
+            RLAttribution.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
@@ -2287,15 +2288,15 @@ $root.StatusAttributions = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            RLAttribution.verify = function verify(message, _depth) {
+            RLAttribution.verify = function (message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     return "max depth exceeded";
                 var properties = {};
-                if (message.source != null && message.hasOwnProperty("source")) {
+                if (message.source != null && $Object.hasOwnProperty.call(message, "source")) {
                     properties._source = 1;
                     switch (message.source) {
                     default:
@@ -2318,15 +2319,15 @@ $root.StatusAttributions = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {StatusAttributions.StatusAttribution.RLAttribution} RLAttribution
              */
-            RLAttribution.fromObject = function fromObject(object, _depth) {
+            RLAttribution.fromObject = function (object, _depth) {
                 if (object instanceof $root.StatusAttributions.StatusAttribution.RLAttribution)
                     return object;
                 if (!$util.isObject(object))
-                    throw TypeError(".StatusAttributions.StatusAttribution.RLAttribution: object expected");
-                if (_depth === undefined)
+                    throw $TypeError(".StatusAttributions.StatusAttribution.RLAttribution: object expected");
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
+                    throw $Error("max depth exceeded");
                 var message = new $root.StatusAttributions.StatusAttribution.RLAttribution();
                 switch (object.source) {
                 default:
@@ -2364,16 +2365,16 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            RLAttribution.toObject = function toObject(message, options, _depth) {
+            RLAttribution.toObject = function (message, options, _depth) {
                 if (!options)
                     options = {};
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
+                    throw $Error("max depth exceeded");
                 var object = {};
-                if (message.source != null && message.hasOwnProperty("source"))
-                    object.source = options.enums === String ? $root.StatusAttributions.StatusAttribution.RLAttribution.Source[message.source] === undefined ? message.source : $root.StatusAttributions.StatusAttribution.RLAttribution.Source[message.source] : message.source;
+                if (message.source != null && $Object.hasOwnProperty.call(message, "source"))
+                    object.source = options.enums === $String ? $root.StatusAttributions.StatusAttribution.RLAttribution.Source[message.source] === $undefined ? message.source : $root.StatusAttributions.StatusAttribution.RLAttribution.Source[message.source] : message.source;
                 return object;
             };
 
@@ -2384,8 +2385,8 @@ $root.StatusAttributions = (function() {
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            RLAttribution.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            RLAttribution.prototype.toJSON = function() {
+                return RLAttribution.toObject(this, $protobuf.util.toJSONOptions);
             };
 
             /**
@@ -2396,8 +2397,8 @@ $root.StatusAttributions = (function() {
              * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
              * @returns {string} The type url
              */
-            RLAttribution.getTypeUrl = function getTypeUrl(prefix) {
-                if (prefix === undefined)
+            RLAttribution.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
                     prefix = "type.googleapis.com";
                 return prefix + "/StatusAttributions.StatusAttribution.RLAttribution";
             };
@@ -2412,7 +2413,7 @@ $root.StatusAttributions = (function() {
              * @property {number} HYPERNOVA_GLASSES=3 HYPERNOVA_GLASSES value
              */
             RLAttribution.Source = (function() {
-                var valuesById = {}, values = Object.create(valuesById);
+                var valuesById = {}, values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "RAY_BAN_META_GLASSES"] = 1;
                 values[valuesById[2] = "OAKLEY_META_GLASSES"] = 2;
@@ -2454,12 +2455,12 @@ $root.StatusAttributions = (function() {
              * @param {StatusAttributions.StatusAttribution.StatusReshare.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
-            function StatusReshare(properties) {
+            var StatusReshare = function (properties) {
                 if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null && keys[i] !== "__proto__")
                             this[keys[i]] = properties[keys[i]];
-            }
+            };
 
             /**
              * StatusReshare source.
@@ -2481,13 +2482,13 @@ $root.StatusAttributions = (function() {
             var $oneOfFields;
 
             // Virtual OneOf for proto3 optional field
-            Object.defineProperty(StatusReshare.prototype, "_source", {
+            $Object.defineProperty(StatusReshare.prototype, "_source", {
                 get: $util.oneOfGetter($oneOfFields = ["source"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
             // Virtual OneOf for proto3 optional field
-            Object.defineProperty(StatusReshare.prototype, "_metadata", {
+            $Object.defineProperty(StatusReshare.prototype, "_metadata", {
                 get: $util.oneOfGetter($oneOfFields = ["metadata"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
@@ -2504,7 +2505,7 @@ $root.StatusAttributions = (function() {
              *   (properties?: StatusAttributions.StatusAttribution.StatusReshare.$Properties): StatusAttributions.StatusAttribution.StatusReshare;
              * }}
              */
-            StatusReshare.create = function create(properties) {
+            StatusReshare.create = function(properties) {
                 return new StatusReshare(properties);
             };
 
@@ -2517,18 +2518,18 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            StatusReshare.encode = function encode(message, writer, _depth) {
+            StatusReshare.encode = function (message, writer, _depth) {
                 if (!writer)
                     writer = $Writer.create();
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
-                if (message.source != null && Object.hasOwnProperty.call(message, "source"))
+                    throw $Error("max depth exceeded");
+                if (message.source != null && $Object.hasOwnProperty.call(message, "source"))
                     writer.uint32(/* id 1, wireType 0 =*/8).int32(message.source);
-                if (message.metadata != null && Object.hasOwnProperty.call(message, "metadata"))
+                if (message.metadata != null && $Object.hasOwnProperty.call(message, "metadata"))
                     $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.encode(message.metadata, writer.uint32(/* id 2, wireType 2 =*/18).fork(), _depth + 1).ldelim();
-                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
                 return writer;
@@ -2543,7 +2544,7 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            StatusReshare.encodeDelimited = function encodeDelimited(message, writer) {
+            StatusReshare.encodeDelimited = function(message, writer) {
                 return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
             };
 
@@ -2558,19 +2559,19 @@ $root.StatusAttributions = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            StatusReshare.decode = function decode(reader, length, _end, _depth, _target) {
+            StatusReshare.decode = function (reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
-                    throw Error("max depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.StatusReshare();
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.StatusReshare();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
                     if (tag === _end) {
-                        _end = undefined;
+                        _end = $undefined;
                         break;
                     }
                     var wireType = tag & 7;
@@ -2585,7 +2586,7 @@ $root.StatusAttributions = (function() {
                     case 2: {
                             if (wireType !== 2)
                                 break;
-                            message.metadata = $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.decode(reader, reader.uint32(), undefined, _depth + 1, message.metadata);
+                            message.metadata = $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.decode(reader, reader.uint32(), $undefined, _depth + 1, message.metadata);
                             message._metadata = "metadata";
                             continue;
                         }
@@ -2596,8 +2597,8 @@ $root.StatusAttributions = (function() {
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
                 }
-                if (_end !== undefined)
-                    throw Error("missing end group");
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
                 return message;
             };
 
@@ -2611,7 +2612,7 @@ $root.StatusAttributions = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            StatusReshare.decodeDelimited = function decodeDelimited(reader) {
+            StatusReshare.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
@@ -2625,15 +2626,15 @@ $root.StatusAttributions = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            StatusReshare.verify = function verify(message, _depth) {
+            StatusReshare.verify = function (message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     return "max depth exceeded";
                 var properties = {};
-                if (message.source != null && message.hasOwnProperty("source")) {
+                if (message.source != null && $Object.hasOwnProperty.call(message, "source")) {
                     properties._source = 1;
                     switch (message.source) {
                     default:
@@ -2646,7 +2647,7 @@ $root.StatusAttributions = (function() {
                         break;
                     }
                 }
-                if (message.metadata != null && message.hasOwnProperty("metadata")) {
+                if (message.metadata != null && $Object.hasOwnProperty.call(message, "metadata")) {
                     properties._metadata = 1;
                     {
                         var error = $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.verify(message.metadata, _depth + 1);
@@ -2665,15 +2666,15 @@ $root.StatusAttributions = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {StatusAttributions.StatusAttribution.StatusReshare} StatusReshare
              */
-            StatusReshare.fromObject = function fromObject(object, _depth) {
+            StatusReshare.fromObject = function (object, _depth) {
                 if (object instanceof $root.StatusAttributions.StatusAttribution.StatusReshare)
                     return object;
                 if (!$util.isObject(object))
-                    throw TypeError(".StatusAttributions.StatusAttribution.StatusReshare: object expected");
-                if (_depth === undefined)
+                    throw $TypeError(".StatusAttributions.StatusAttribution.StatusReshare: object expected");
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
+                    throw $Error("max depth exceeded");
                 var message = new $root.StatusAttributions.StatusAttribution.StatusReshare();
                 switch (object.source) {
                 default:
@@ -2705,7 +2706,7 @@ $root.StatusAttributions = (function() {
                 }
                 if (object.metadata != null) {
                     if (!$util.isObject(object.metadata))
-                        throw TypeError(".StatusAttributions.StatusAttribution.StatusReshare.metadata: object expected");
+                        throw $TypeError(".StatusAttributions.StatusAttribution.StatusReshare.metadata: object expected");
                     message.metadata = $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.fromObject(object.metadata, _depth + 1);
                 }
                 return message;
@@ -2720,17 +2721,17 @@ $root.StatusAttributions = (function() {
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            StatusReshare.toObject = function toObject(message, options, _depth) {
+            StatusReshare.toObject = function (message, options, _depth) {
                 if (!options)
                     options = {};
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
+                    throw $Error("max depth exceeded");
                 var object = {};
-                if (message.source != null && message.hasOwnProperty("source"))
-                    object.source = options.enums === String ? $root.StatusAttributions.StatusAttribution.StatusReshare.Source[message.source] === undefined ? message.source : $root.StatusAttributions.StatusAttribution.StatusReshare.Source[message.source] : message.source;
-                if (message.metadata != null && message.hasOwnProperty("metadata"))
+                if (message.source != null && $Object.hasOwnProperty.call(message, "source"))
+                    object.source = options.enums === $String ? $root.StatusAttributions.StatusAttribution.StatusReshare.Source[message.source] === $undefined ? message.source : $root.StatusAttributions.StatusAttribution.StatusReshare.Source[message.source] : message.source;
+                if (message.metadata != null && $Object.hasOwnProperty.call(message, "metadata"))
                     object.metadata = $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata.toObject(message.metadata, options, _depth + 1);
                 return object;
             };
@@ -2742,8 +2743,8 @@ $root.StatusAttributions = (function() {
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            StatusReshare.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            StatusReshare.prototype.toJSON = function() {
+                return StatusReshare.toObject(this, $protobuf.util.toJSONOptions);
             };
 
             /**
@@ -2754,8 +2755,8 @@ $root.StatusAttributions = (function() {
              * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
              * @returns {string} The type url
              */
-            StatusReshare.getTypeUrl = function getTypeUrl(prefix) {
-                if (prefix === undefined)
+            StatusReshare.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
                     prefix = "type.googleapis.com";
                 return prefix + "/StatusAttributions.StatusAttribution.StatusReshare";
             };
@@ -2793,12 +2794,12 @@ $root.StatusAttributions = (function() {
                  * @param {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties=} [properties] Properties to set
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
-                function Metadata(properties) {
+                var Metadata = function (properties) {
                     if (properties)
-                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                             if (properties[keys[i]] != null && keys[i] !== "__proto__")
                                 this[keys[i]] = properties[keys[i]];
-                }
+                };
 
                 /**
                  * Metadata duration.
@@ -2836,25 +2837,25 @@ $root.StatusAttributions = (function() {
                 var $oneOfFields;
 
                 // Virtual OneOf for proto3 optional field
-                Object.defineProperty(Metadata.prototype, "_duration", {
+                $Object.defineProperty(Metadata.prototype, "_duration", {
                     get: $util.oneOfGetter($oneOfFields = ["duration"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
                 // Virtual OneOf for proto3 optional field
-                Object.defineProperty(Metadata.prototype, "_channelJid", {
+                $Object.defineProperty(Metadata.prototype, "_channelJid", {
                     get: $util.oneOfGetter($oneOfFields = ["channelJid"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
                 // Virtual OneOf for proto3 optional field
-                Object.defineProperty(Metadata.prototype, "_channelMessageId", {
+                $Object.defineProperty(Metadata.prototype, "_channelMessageId", {
                     get: $util.oneOfGetter($oneOfFields = ["channelMessageId"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
                 // Virtual OneOf for proto3 optional field
-                Object.defineProperty(Metadata.prototype, "_hasMultipleReshares", {
+                $Object.defineProperty(Metadata.prototype, "_hasMultipleReshares", {
                     get: $util.oneOfGetter($oneOfFields = ["hasMultipleReshares"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
@@ -2871,7 +2872,7 @@ $root.StatusAttributions = (function() {
                  *   (properties?: StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties): StatusAttributions.StatusAttribution.StatusReshare.Metadata;
                  * }}
                  */
-                Metadata.create = function create(properties) {
+                Metadata.create = function(properties) {
                     return new Metadata(properties);
                 };
 
@@ -2884,22 +2885,22 @@ $root.StatusAttributions = (function() {
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
-                Metadata.encode = function encode(message, writer, _depth) {
+                Metadata.encode = function (message, writer, _depth) {
                     if (!writer)
                         writer = $Writer.create();
-                    if (_depth === undefined)
+                    if (_depth === $undefined)
                         _depth = 0;
                     if (_depth > $util.recursionLimit)
-                        throw Error("max depth exceeded");
-                    if (message.duration != null && Object.hasOwnProperty.call(message, "duration"))
+                        throw $Error("max depth exceeded");
+                    if (message.duration != null && $Object.hasOwnProperty.call(message, "duration"))
                         writer.uint32(/* id 1, wireType 0 =*/8).int32(message.duration);
-                    if (message.channelJid != null && Object.hasOwnProperty.call(message, "channelJid"))
+                    if (message.channelJid != null && $Object.hasOwnProperty.call(message, "channelJid"))
                         writer.uint32(/* id 2, wireType 2 =*/18).string(message.channelJid);
-                    if (message.channelMessageId != null && Object.hasOwnProperty.call(message, "channelMessageId"))
+                    if (message.channelMessageId != null && $Object.hasOwnProperty.call(message, "channelMessageId"))
                         writer.uint32(/* id 3, wireType 0 =*/24).int32(message.channelMessageId);
-                    if (message.hasMultipleReshares != null && Object.hasOwnProperty.call(message, "hasMultipleReshares"))
+                    if (message.hasMultipleReshares != null && $Object.hasOwnProperty.call(message, "hasMultipleReshares"))
                         writer.uint32(/* id 4, wireType 0 =*/32).bool(message.hasMultipleReshares);
-                    if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                         for (var i = 0; i < message.$unknowns.length; ++i)
                             writer.raw(message.$unknowns[i]);
                     return writer;
@@ -2914,7 +2915,7 @@ $root.StatusAttributions = (function() {
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
-                Metadata.encodeDelimited = function encodeDelimited(message, writer) {
+                Metadata.encodeDelimited = function(message, writer) {
                     return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
                 };
 
@@ -2929,19 +2930,19 @@ $root.StatusAttributions = (function() {
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                Metadata.decode = function decode(reader, length, _end, _depth, _target) {
+                Metadata.decode = function (reader, length, _end, _depth, _target) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
-                    if (_depth === undefined)
+                    if (_depth === $undefined)
                         _depth = 0;
                     if (_depth > $Reader.recursionLimit)
-                        throw Error("max depth exceeded");
-                    var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata();
+                        throw $Error("max depth exceeded");
+                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata();
                     while (reader.pos < end) {
                         var start = reader.pos;
                         var tag = reader.tag();
                         if (tag === _end) {
-                            _end = undefined;
+                            _end = $undefined;
                             break;
                         }
                         var wireType = tag & 7;
@@ -2981,8 +2982,8 @@ $root.StatusAttributions = (function() {
                             (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                         }
                     }
-                    if (_end !== undefined)
-                        throw Error("missing end group");
+                    if (_end !== $undefined)
+                        throw $Error("missing end group");
                     return message;
                 };
 
@@ -2996,7 +2997,7 @@ $root.StatusAttributions = (function() {
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                Metadata.decodeDelimited = function decodeDelimited(reader) {
+                Metadata.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
                     return this.decode(reader, reader.uint32());
@@ -3010,30 +3011,30 @@ $root.StatusAttributions = (function() {
                  * @param {Object.<string,*>} message Plain object to verify
                  * @returns {string|null} `null` if valid, otherwise the reason why it is not
                  */
-                Metadata.verify = function verify(message, _depth) {
+                Metadata.verify = function (message, _depth) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    if (_depth === undefined)
+                    if (_depth === $undefined)
                         _depth = 0;
                     if (_depth > $util.recursionLimit)
                         return "max depth exceeded";
                     var properties = {};
-                    if (message.duration != null && message.hasOwnProperty("duration")) {
+                    if (message.duration != null && $Object.hasOwnProperty.call(message, "duration")) {
                         properties._duration = 1;
                         if (!$util.isInteger(message.duration))
                             return "duration: integer expected";
                     }
-                    if (message.channelJid != null && message.hasOwnProperty("channelJid")) {
+                    if (message.channelJid != null && $Object.hasOwnProperty.call(message, "channelJid")) {
                         properties._channelJid = 1;
                         if (!$util.isString(message.channelJid))
                             return "channelJid: string expected";
                     }
-                    if (message.channelMessageId != null && message.hasOwnProperty("channelMessageId")) {
+                    if (message.channelMessageId != null && $Object.hasOwnProperty.call(message, "channelMessageId")) {
                         properties._channelMessageId = 1;
                         if (!$util.isInteger(message.channelMessageId))
                             return "channelMessageId: integer expected";
                     }
-                    if (message.hasMultipleReshares != null && message.hasOwnProperty("hasMultipleReshares")) {
+                    if (message.hasMultipleReshares != null && $Object.hasOwnProperty.call(message, "hasMultipleReshares")) {
                         properties._hasMultipleReshares = 1;
                         if (typeof message.hasMultipleReshares !== "boolean")
                             return "hasMultipleReshares: boolean expected";
@@ -3049,24 +3050,24 @@ $root.StatusAttributions = (function() {
                  * @param {Object.<string,*>} object Plain object
                  * @returns {StatusAttributions.StatusAttribution.StatusReshare.Metadata} Metadata
                  */
-                Metadata.fromObject = function fromObject(object, _depth) {
+                Metadata.fromObject = function (object, _depth) {
                     if (object instanceof $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata)
                         return object;
                     if (!$util.isObject(object))
-                        throw TypeError(".StatusAttributions.StatusAttribution.StatusReshare.Metadata: object expected");
-                    if (_depth === undefined)
+                        throw $TypeError(".StatusAttributions.StatusAttribution.StatusReshare.Metadata: object expected");
+                    if (_depth === $undefined)
                         _depth = 0;
                     if (_depth > $util.recursionLimit)
-                        throw Error("max depth exceeded");
+                        throw $Error("max depth exceeded");
                     var message = new $root.StatusAttributions.StatusAttribution.StatusReshare.Metadata();
                     if (object.duration != null)
                         message.duration = object.duration | 0;
                     if (object.channelJid != null)
-                        message.channelJid = String(object.channelJid);
+                        message.channelJid = $String(object.channelJid);
                     if (object.channelMessageId != null)
                         message.channelMessageId = object.channelMessageId | 0;
                     if (object.hasMultipleReshares != null)
-                        message.hasMultipleReshares = Boolean(object.hasMultipleReshares);
+                        message.hasMultipleReshares = $Boolean(object.hasMultipleReshares);
                     return message;
                 };
 
@@ -3079,21 +3080,21 @@ $root.StatusAttributions = (function() {
                  * @param {$protobuf.IConversionOptions} [options] Conversion options
                  * @returns {Object.<string,*>} Plain object
                  */
-                Metadata.toObject = function toObject(message, options, _depth) {
+                Metadata.toObject = function (message, options, _depth) {
                     if (!options)
                         options = {};
-                    if (_depth === undefined)
+                    if (_depth === $undefined)
                         _depth = 0;
                     if (_depth > $util.recursionLimit)
-                        throw Error("max depth exceeded");
+                        throw $Error("max depth exceeded");
                     var object = {};
-                    if (message.duration != null && message.hasOwnProperty("duration"))
+                    if (message.duration != null && $Object.hasOwnProperty.call(message, "duration"))
                         object.duration = message.duration;
-                    if (message.channelJid != null && message.hasOwnProperty("channelJid"))
+                    if (message.channelJid != null && $Object.hasOwnProperty.call(message, "channelJid"))
                         object.channelJid = message.channelJid;
-                    if (message.channelMessageId != null && message.hasOwnProperty("channelMessageId"))
+                    if (message.channelMessageId != null && $Object.hasOwnProperty.call(message, "channelMessageId"))
                         object.channelMessageId = message.channelMessageId;
-                    if (message.hasMultipleReshares != null && message.hasOwnProperty("hasMultipleReshares"))
+                    if (message.hasMultipleReshares != null && $Object.hasOwnProperty.call(message, "hasMultipleReshares"))
                         object.hasMultipleReshares = message.hasMultipleReshares;
                     return object;
                 };
@@ -3105,8 +3106,8 @@ $root.StatusAttributions = (function() {
                  * @instance
                  * @returns {Object.<string,*>} JSON object
                  */
-                Metadata.prototype.toJSON = function toJSON() {
-                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                Metadata.prototype.toJSON = function() {
+                    return Metadata.toObject(this, $protobuf.util.toJSONOptions);
                 };
 
                 /**
@@ -3117,8 +3118,8 @@ $root.StatusAttributions = (function() {
                  * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
                  * @returns {string} The type url
                  */
-                Metadata.getTypeUrl = function getTypeUrl(prefix) {
-                    if (prefix === undefined)
+                Metadata.getTypeUrl = function(prefix) {
+                    if (prefix === $undefined)
                         prefix = "type.googleapis.com";
                     return prefix + "/StatusAttributions.StatusAttribution.StatusReshare.Metadata";
                 };
@@ -3137,7 +3138,7 @@ $root.StatusAttributions = (function() {
              * @property {number} FORWARD=4 FORWARD value
              */
             StatusReshare.Source = (function() {
-                var valuesById = {}, values = Object.create(valuesById);
+                var valuesById = {}, values = $Object.create(valuesById);
                 values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "INTERNAL_RESHARE"] = 1;
                 values[valuesById[2] = "MENTION_RESHARE"] = 2;
@@ -3167,7 +3168,7 @@ $root.StatusAttributions = (function() {
          * @property {number} PAID_PARTNERSHIP=11 PAID_PARTNERSHIP value
          */
         StatusAttribution.Type = (function() {
-            var valuesById = {}, values = Object.create(valuesById);
+            var valuesById = {}, values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN"] = 0;
             values[valuesById[1] = "RESHARE"] = 1;
             values[valuesById[2] = "EXTERNAL_SHARE"] = 2;

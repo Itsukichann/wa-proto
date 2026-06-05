@@ -5,6 +5,7 @@ var $protobuf = require("protobufjs/minimal");
 
 // Common aliases
 var $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.util;
+var $Object = $util.global.Object, $undefined = $util.global.undefined, $Error = $util.global.Error, $TypeError = $util.global.TypeError, $String = $util.global.String, $Array = $util.global.Array, $parseInt = $util.global.parseInt, $BigInt = $util.global.BigInt, $Number = $util.global.Number;
 
 // Exported root namespace
 var $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
@@ -50,12 +51,12 @@ $root.Adv = (function() {
          * @param {Adv.ADVSignedDeviceIdentityHMAC.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
-        function ADVSignedDeviceIdentityHMAC(properties) {
+        var ADVSignedDeviceIdentityHMAC = function (properties) {
             if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
-        }
+        };
 
         /**
          * ADVSignedDeviceIdentityHMAC details.
@@ -85,19 +86,19 @@ $root.Adv = (function() {
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(ADVSignedDeviceIdentityHMAC.prototype, "_details", {
+        $Object.defineProperty(ADVSignedDeviceIdentityHMAC.prototype, "_details", {
             get: $util.oneOfGetter($oneOfFields = ["details"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(ADVSignedDeviceIdentityHMAC.prototype, "_hmac", {
+        $Object.defineProperty(ADVSignedDeviceIdentityHMAC.prototype, "_hmac", {
             get: $util.oneOfGetter($oneOfFields = ["hmac"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(ADVSignedDeviceIdentityHMAC.prototype, "_accountType", {
+        $Object.defineProperty(ADVSignedDeviceIdentityHMAC.prototype, "_accountType", {
             get: $util.oneOfGetter($oneOfFields = ["accountType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
@@ -114,7 +115,7 @@ $root.Adv = (function() {
          *   (properties?: Adv.ADVSignedDeviceIdentityHMAC.$Properties): Adv.ADVSignedDeviceIdentityHMAC;
          * }}
          */
-        ADVSignedDeviceIdentityHMAC.create = function create(properties) {
+        ADVSignedDeviceIdentityHMAC.create = function(properties) {
             return new ADVSignedDeviceIdentityHMAC(properties);
         };
 
@@ -127,20 +128,20 @@ $root.Adv = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        ADVSignedDeviceIdentityHMAC.encode = function encode(message, writer, _depth) {
+        ADVSignedDeviceIdentityHMAC.encode = function (message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
-            if (message.details != null && Object.hasOwnProperty.call(message, "details"))
+                throw $Error("max depth exceeded");
+            if (message.details != null && $Object.hasOwnProperty.call(message, "details"))
                 writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.details);
-            if (message.hmac != null && Object.hasOwnProperty.call(message, "hmac"))
+            if (message.hmac != null && $Object.hasOwnProperty.call(message, "hmac"))
                 writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.hmac);
-            if (message.accountType != null && Object.hasOwnProperty.call(message, "accountType"))
+            if (message.accountType != null && $Object.hasOwnProperty.call(message, "accountType"))
                 writer.uint32(/* id 3, wireType 0 =*/24).int32(message.accountType);
-            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
             return writer;
@@ -155,7 +156,7 @@ $root.Adv = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        ADVSignedDeviceIdentityHMAC.encodeDelimited = function encodeDelimited(message, writer) {
+        ADVSignedDeviceIdentityHMAC.encodeDelimited = function(message, writer) {
             return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
@@ -170,19 +171,19 @@ $root.Adv = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ADVSignedDeviceIdentityHMAC.decode = function decode(reader, length, _end, _depth, _target) {
+        ADVSignedDeviceIdentityHMAC.decode = function (reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
-                throw Error("max depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Adv.ADVSignedDeviceIdentityHMAC();
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Adv.ADVSignedDeviceIdentityHMAC();
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
                 if (tag === _end) {
-                    _end = undefined;
+                    _end = $undefined;
                     break;
                 }
                 var wireType = tag & 7;
@@ -215,8 +216,8 @@ $root.Adv = (function() {
                     (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
             }
-            if (_end !== undefined)
-                throw Error("missing end group");
+            if (_end !== $undefined)
+                throw $Error("missing end group");
             return message;
         };
 
@@ -230,7 +231,7 @@ $root.Adv = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ADVSignedDeviceIdentityHMAC.decodeDelimited = function decodeDelimited(reader) {
+        ADVSignedDeviceIdentityHMAC.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
@@ -244,25 +245,25 @@ $root.Adv = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        ADVSignedDeviceIdentityHMAC.verify = function verify(message, _depth) {
+        ADVSignedDeviceIdentityHMAC.verify = function (message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 return "max depth exceeded";
             var properties = {};
-            if (message.details != null && message.hasOwnProperty("details")) {
+            if (message.details != null && $Object.hasOwnProperty.call(message, "details")) {
                 properties._details = 1;
                 if (!(message.details && typeof message.details.length === "number" || $util.isString(message.details)))
                     return "details: buffer expected";
             }
-            if (message.hmac != null && message.hasOwnProperty("hmac")) {
+            if (message.hmac != null && $Object.hasOwnProperty.call(message, "hmac")) {
                 properties._hmac = 1;
                 if (!(message.hmac && typeof message.hmac.length === "number" || $util.isString(message.hmac)))
                     return "hmac: buffer expected";
             }
-            if (message.accountType != null && message.hasOwnProperty("accountType")) {
+            if (message.accountType != null && $Object.hasOwnProperty.call(message, "accountType")) {
                 properties._accountType = 1;
                 switch (message.accountType) {
                 default:
@@ -284,15 +285,15 @@ $root.Adv = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Adv.ADVSignedDeviceIdentityHMAC} ADVSignedDeviceIdentityHMAC
          */
-        ADVSignedDeviceIdentityHMAC.fromObject = function fromObject(object, _depth) {
+        ADVSignedDeviceIdentityHMAC.fromObject = function (object, _depth) {
             if (object instanceof $root.Adv.ADVSignedDeviceIdentityHMAC)
                 return object;
             if (!$util.isObject(object))
-                throw TypeError(".Adv.ADVSignedDeviceIdentityHMAC: object expected");
-            if (_depth === undefined)
+                throw $TypeError(".Adv.ADVSignedDeviceIdentityHMAC: object expected");
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var message = new $root.Adv.ADVSignedDeviceIdentityHMAC();
             if (object.details != null)
                 if (typeof object.details === "string")
@@ -336,20 +337,20 @@ $root.Adv = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        ADVSignedDeviceIdentityHMAC.toObject = function toObject(message, options, _depth) {
+        ADVSignedDeviceIdentityHMAC.toObject = function (message, options, _depth) {
             if (!options)
                 options = {};
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var object = {};
-            if (message.details != null && message.hasOwnProperty("details"))
-                object.details = options.bytes === String ? $util.base64.encode(message.details, 0, message.details.length) : options.bytes === Array ? Array.prototype.slice.call(message.details) : message.details;
-            if (message.hmac != null && message.hasOwnProperty("hmac"))
-                object.hmac = options.bytes === String ? $util.base64.encode(message.hmac, 0, message.hmac.length) : options.bytes === Array ? Array.prototype.slice.call(message.hmac) : message.hmac;
-            if (message.accountType != null && message.hasOwnProperty("accountType"))
-                object.accountType = options.enums === String ? $root.Adv.ADVEncryptionType[message.accountType] === undefined ? message.accountType : $root.Adv.ADVEncryptionType[message.accountType] : message.accountType;
+            if (message.details != null && $Object.hasOwnProperty.call(message, "details"))
+                object.details = options.bytes === $String ? $util.base64.encode(message.details, 0, message.details.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.details) : message.details;
+            if (message.hmac != null && $Object.hasOwnProperty.call(message, "hmac"))
+                object.hmac = options.bytes === $String ? $util.base64.encode(message.hmac, 0, message.hmac.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.hmac) : message.hmac;
+            if (message.accountType != null && $Object.hasOwnProperty.call(message, "accountType"))
+                object.accountType = options.enums === $String ? $root.Adv.ADVEncryptionType[message.accountType] === $undefined ? message.accountType : $root.Adv.ADVEncryptionType[message.accountType] : message.accountType;
             return object;
         };
 
@@ -360,8 +361,8 @@ $root.Adv = (function() {
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        ADVSignedDeviceIdentityHMAC.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        ADVSignedDeviceIdentityHMAC.prototype.toJSON = function() {
+            return ADVSignedDeviceIdentityHMAC.toObject(this, $protobuf.util.toJSONOptions);
         };
 
         /**
@@ -372,8 +373,8 @@ $root.Adv = (function() {
          * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
          * @returns {string} The type url
          */
-        ADVSignedDeviceIdentityHMAC.getTypeUrl = function getTypeUrl(prefix) {
-            if (prefix === undefined)
+        ADVSignedDeviceIdentityHMAC.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
                 prefix = "type.googleapis.com";
             return prefix + "/Adv.ADVSignedDeviceIdentityHMAC";
         };
@@ -414,12 +415,12 @@ $root.Adv = (function() {
          * @param {Adv.ADVSignedDeviceIdentity.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
-        function ADVSignedDeviceIdentity(properties) {
+        var ADVSignedDeviceIdentity = function (properties) {
             if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
-        }
+        };
 
         /**
          * ADVSignedDeviceIdentity details.
@@ -457,25 +458,25 @@ $root.Adv = (function() {
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(ADVSignedDeviceIdentity.prototype, "_details", {
+        $Object.defineProperty(ADVSignedDeviceIdentity.prototype, "_details", {
             get: $util.oneOfGetter($oneOfFields = ["details"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(ADVSignedDeviceIdentity.prototype, "_accountSignatureKey", {
+        $Object.defineProperty(ADVSignedDeviceIdentity.prototype, "_accountSignatureKey", {
             get: $util.oneOfGetter($oneOfFields = ["accountSignatureKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(ADVSignedDeviceIdentity.prototype, "_accountSignature", {
+        $Object.defineProperty(ADVSignedDeviceIdentity.prototype, "_accountSignature", {
             get: $util.oneOfGetter($oneOfFields = ["accountSignature"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(ADVSignedDeviceIdentity.prototype, "_deviceSignature", {
+        $Object.defineProperty(ADVSignedDeviceIdentity.prototype, "_deviceSignature", {
             get: $util.oneOfGetter($oneOfFields = ["deviceSignature"]),
             set: $util.oneOfSetter($oneOfFields)
         });
@@ -492,7 +493,7 @@ $root.Adv = (function() {
          *   (properties?: Adv.ADVSignedDeviceIdentity.$Properties): Adv.ADVSignedDeviceIdentity;
          * }}
          */
-        ADVSignedDeviceIdentity.create = function create(properties) {
+        ADVSignedDeviceIdentity.create = function(properties) {
             return new ADVSignedDeviceIdentity(properties);
         };
 
@@ -505,22 +506,22 @@ $root.Adv = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        ADVSignedDeviceIdentity.encode = function encode(message, writer, _depth) {
+        ADVSignedDeviceIdentity.encode = function (message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
-            if (message.details != null && Object.hasOwnProperty.call(message, "details"))
+                throw $Error("max depth exceeded");
+            if (message.details != null && $Object.hasOwnProperty.call(message, "details"))
                 writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.details);
-            if (message.accountSignatureKey != null && Object.hasOwnProperty.call(message, "accountSignatureKey"))
+            if (message.accountSignatureKey != null && $Object.hasOwnProperty.call(message, "accountSignatureKey"))
                 writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.accountSignatureKey);
-            if (message.accountSignature != null && Object.hasOwnProperty.call(message, "accountSignature"))
+            if (message.accountSignature != null && $Object.hasOwnProperty.call(message, "accountSignature"))
                 writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.accountSignature);
-            if (message.deviceSignature != null && Object.hasOwnProperty.call(message, "deviceSignature"))
+            if (message.deviceSignature != null && $Object.hasOwnProperty.call(message, "deviceSignature"))
                 writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.deviceSignature);
-            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
             return writer;
@@ -535,7 +536,7 @@ $root.Adv = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        ADVSignedDeviceIdentity.encodeDelimited = function encodeDelimited(message, writer) {
+        ADVSignedDeviceIdentity.encodeDelimited = function(message, writer) {
             return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
@@ -550,19 +551,19 @@ $root.Adv = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ADVSignedDeviceIdentity.decode = function decode(reader, length, _end, _depth, _target) {
+        ADVSignedDeviceIdentity.decode = function (reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
-                throw Error("max depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Adv.ADVSignedDeviceIdentity();
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Adv.ADVSignedDeviceIdentity();
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
                 if (tag === _end) {
-                    _end = undefined;
+                    _end = $undefined;
                     break;
                 }
                 var wireType = tag & 7;
@@ -602,8 +603,8 @@ $root.Adv = (function() {
                     (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
             }
-            if (_end !== undefined)
-                throw Error("missing end group");
+            if (_end !== $undefined)
+                throw $Error("missing end group");
             return message;
         };
 
@@ -617,7 +618,7 @@ $root.Adv = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ADVSignedDeviceIdentity.decodeDelimited = function decodeDelimited(reader) {
+        ADVSignedDeviceIdentity.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
@@ -631,30 +632,30 @@ $root.Adv = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        ADVSignedDeviceIdentity.verify = function verify(message, _depth) {
+        ADVSignedDeviceIdentity.verify = function (message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 return "max depth exceeded";
             var properties = {};
-            if (message.details != null && message.hasOwnProperty("details")) {
+            if (message.details != null && $Object.hasOwnProperty.call(message, "details")) {
                 properties._details = 1;
                 if (!(message.details && typeof message.details.length === "number" || $util.isString(message.details)))
                     return "details: buffer expected";
             }
-            if (message.accountSignatureKey != null && message.hasOwnProperty("accountSignatureKey")) {
+            if (message.accountSignatureKey != null && $Object.hasOwnProperty.call(message, "accountSignatureKey")) {
                 properties._accountSignatureKey = 1;
                 if (!(message.accountSignatureKey && typeof message.accountSignatureKey.length === "number" || $util.isString(message.accountSignatureKey)))
                     return "accountSignatureKey: buffer expected";
             }
-            if (message.accountSignature != null && message.hasOwnProperty("accountSignature")) {
+            if (message.accountSignature != null && $Object.hasOwnProperty.call(message, "accountSignature")) {
                 properties._accountSignature = 1;
                 if (!(message.accountSignature && typeof message.accountSignature.length === "number" || $util.isString(message.accountSignature)))
                     return "accountSignature: buffer expected";
             }
-            if (message.deviceSignature != null && message.hasOwnProperty("deviceSignature")) {
+            if (message.deviceSignature != null && $Object.hasOwnProperty.call(message, "deviceSignature")) {
                 properties._deviceSignature = 1;
                 if (!(message.deviceSignature && typeof message.deviceSignature.length === "number" || $util.isString(message.deviceSignature)))
                     return "deviceSignature: buffer expected";
@@ -670,15 +671,15 @@ $root.Adv = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Adv.ADVSignedDeviceIdentity} ADVSignedDeviceIdentity
          */
-        ADVSignedDeviceIdentity.fromObject = function fromObject(object, _depth) {
+        ADVSignedDeviceIdentity.fromObject = function (object, _depth) {
             if (object instanceof $root.Adv.ADVSignedDeviceIdentity)
                 return object;
             if (!$util.isObject(object))
-                throw TypeError(".Adv.ADVSignedDeviceIdentity: object expected");
-            if (_depth === undefined)
+                throw $TypeError(".Adv.ADVSignedDeviceIdentity: object expected");
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var message = new $root.Adv.ADVSignedDeviceIdentity();
             if (object.details != null)
                 if (typeof object.details === "string")
@@ -712,22 +713,22 @@ $root.Adv = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        ADVSignedDeviceIdentity.toObject = function toObject(message, options, _depth) {
+        ADVSignedDeviceIdentity.toObject = function (message, options, _depth) {
             if (!options)
                 options = {};
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var object = {};
-            if (message.details != null && message.hasOwnProperty("details"))
-                object.details = options.bytes === String ? $util.base64.encode(message.details, 0, message.details.length) : options.bytes === Array ? Array.prototype.slice.call(message.details) : message.details;
-            if (message.accountSignatureKey != null && message.hasOwnProperty("accountSignatureKey"))
-                object.accountSignatureKey = options.bytes === String ? $util.base64.encode(message.accountSignatureKey, 0, message.accountSignatureKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.accountSignatureKey) : message.accountSignatureKey;
-            if (message.accountSignature != null && message.hasOwnProperty("accountSignature"))
-                object.accountSignature = options.bytes === String ? $util.base64.encode(message.accountSignature, 0, message.accountSignature.length) : options.bytes === Array ? Array.prototype.slice.call(message.accountSignature) : message.accountSignature;
-            if (message.deviceSignature != null && message.hasOwnProperty("deviceSignature"))
-                object.deviceSignature = options.bytes === String ? $util.base64.encode(message.deviceSignature, 0, message.deviceSignature.length) : options.bytes === Array ? Array.prototype.slice.call(message.deviceSignature) : message.deviceSignature;
+            if (message.details != null && $Object.hasOwnProperty.call(message, "details"))
+                object.details = options.bytes === $String ? $util.base64.encode(message.details, 0, message.details.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.details) : message.details;
+            if (message.accountSignatureKey != null && $Object.hasOwnProperty.call(message, "accountSignatureKey"))
+                object.accountSignatureKey = options.bytes === $String ? $util.base64.encode(message.accountSignatureKey, 0, message.accountSignatureKey.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.accountSignatureKey) : message.accountSignatureKey;
+            if (message.accountSignature != null && $Object.hasOwnProperty.call(message, "accountSignature"))
+                object.accountSignature = options.bytes === $String ? $util.base64.encode(message.accountSignature, 0, message.accountSignature.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.accountSignature) : message.accountSignature;
+            if (message.deviceSignature != null && $Object.hasOwnProperty.call(message, "deviceSignature"))
+                object.deviceSignature = options.bytes === $String ? $util.base64.encode(message.deviceSignature, 0, message.deviceSignature.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.deviceSignature) : message.deviceSignature;
             return object;
         };
 
@@ -738,8 +739,8 @@ $root.Adv = (function() {
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        ADVSignedDeviceIdentity.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        ADVSignedDeviceIdentity.prototype.toJSON = function() {
+            return ADVSignedDeviceIdentity.toObject(this, $protobuf.util.toJSONOptions);
         };
 
         /**
@@ -750,8 +751,8 @@ $root.Adv = (function() {
          * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
          * @returns {string} The type url
          */
-        ADVSignedDeviceIdentity.getTypeUrl = function getTypeUrl(prefix) {
-            if (prefix === undefined)
+        ADVSignedDeviceIdentity.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
                 prefix = "type.googleapis.com";
             return prefix + "/Adv.ADVSignedDeviceIdentity";
         };
@@ -793,12 +794,12 @@ $root.Adv = (function() {
          * @param {Adv.ADVDeviceIdentity.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
-        function ADVDeviceIdentity(properties) {
+        var ADVDeviceIdentity = function (properties) {
             if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
-        }
+        };
 
         /**
          * ADVDeviceIdentity rawId.
@@ -844,31 +845,31 @@ $root.Adv = (function() {
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(ADVDeviceIdentity.prototype, "_rawId", {
+        $Object.defineProperty(ADVDeviceIdentity.prototype, "_rawId", {
             get: $util.oneOfGetter($oneOfFields = ["rawId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(ADVDeviceIdentity.prototype, "_timestamp", {
+        $Object.defineProperty(ADVDeviceIdentity.prototype, "_timestamp", {
             get: $util.oneOfGetter($oneOfFields = ["timestamp"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(ADVDeviceIdentity.prototype, "_keyIndex", {
+        $Object.defineProperty(ADVDeviceIdentity.prototype, "_keyIndex", {
             get: $util.oneOfGetter($oneOfFields = ["keyIndex"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(ADVDeviceIdentity.prototype, "_accountType", {
+        $Object.defineProperty(ADVDeviceIdentity.prototype, "_accountType", {
             get: $util.oneOfGetter($oneOfFields = ["accountType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(ADVDeviceIdentity.prototype, "_deviceType", {
+        $Object.defineProperty(ADVDeviceIdentity.prototype, "_deviceType", {
             get: $util.oneOfGetter($oneOfFields = ["deviceType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
@@ -885,7 +886,7 @@ $root.Adv = (function() {
          *   (properties?: Adv.ADVDeviceIdentity.$Properties): Adv.ADVDeviceIdentity;
          * }}
          */
-        ADVDeviceIdentity.create = function create(properties) {
+        ADVDeviceIdentity.create = function(properties) {
             return new ADVDeviceIdentity(properties);
         };
 
@@ -898,24 +899,24 @@ $root.Adv = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        ADVDeviceIdentity.encode = function encode(message, writer, _depth) {
+        ADVDeviceIdentity.encode = function (message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
-            if (message.rawId != null && Object.hasOwnProperty.call(message, "rawId"))
+                throw $Error("max depth exceeded");
+            if (message.rawId != null && $Object.hasOwnProperty.call(message, "rawId"))
                 writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.rawId);
-            if (message.timestamp != null && Object.hasOwnProperty.call(message, "timestamp"))
+            if (message.timestamp != null && $Object.hasOwnProperty.call(message, "timestamp"))
                 writer.uint32(/* id 2, wireType 0 =*/16).uint64(message.timestamp);
-            if (message.keyIndex != null && Object.hasOwnProperty.call(message, "keyIndex"))
+            if (message.keyIndex != null && $Object.hasOwnProperty.call(message, "keyIndex"))
                 writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.keyIndex);
-            if (message.accountType != null && Object.hasOwnProperty.call(message, "accountType"))
+            if (message.accountType != null && $Object.hasOwnProperty.call(message, "accountType"))
                 writer.uint32(/* id 4, wireType 0 =*/32).int32(message.accountType);
-            if (message.deviceType != null && Object.hasOwnProperty.call(message, "deviceType"))
+            if (message.deviceType != null && $Object.hasOwnProperty.call(message, "deviceType"))
                 writer.uint32(/* id 5, wireType 0 =*/40).int32(message.deviceType);
-            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
             return writer;
@@ -930,7 +931,7 @@ $root.Adv = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        ADVDeviceIdentity.encodeDelimited = function encodeDelimited(message, writer) {
+        ADVDeviceIdentity.encodeDelimited = function(message, writer) {
             return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
@@ -945,19 +946,19 @@ $root.Adv = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ADVDeviceIdentity.decode = function decode(reader, length, _end, _depth, _target) {
+        ADVDeviceIdentity.decode = function (reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
-                throw Error("max depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Adv.ADVDeviceIdentity();
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Adv.ADVDeviceIdentity();
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
                 if (tag === _end) {
-                    _end = undefined;
+                    _end = $undefined;
                     break;
                 }
                 var wireType = tag & 7;
@@ -1004,8 +1005,8 @@ $root.Adv = (function() {
                     (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
             }
-            if (_end !== undefined)
-                throw Error("missing end group");
+            if (_end !== $undefined)
+                throw $Error("missing end group");
             return message;
         };
 
@@ -1019,7 +1020,7 @@ $root.Adv = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ADVDeviceIdentity.decodeDelimited = function decodeDelimited(reader) {
+        ADVDeviceIdentity.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
@@ -1033,30 +1034,30 @@ $root.Adv = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        ADVDeviceIdentity.verify = function verify(message, _depth) {
+        ADVDeviceIdentity.verify = function (message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 return "max depth exceeded";
             var properties = {};
-            if (message.rawId != null && message.hasOwnProperty("rawId")) {
+            if (message.rawId != null && $Object.hasOwnProperty.call(message, "rawId")) {
                 properties._rawId = 1;
                 if (!$util.isInteger(message.rawId))
                     return "rawId: integer expected";
             }
-            if (message.timestamp != null && message.hasOwnProperty("timestamp")) {
+            if (message.timestamp != null && $Object.hasOwnProperty.call(message, "timestamp")) {
                 properties._timestamp = 1;
                 if (!$util.isInteger(message.timestamp) && !(message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high)))
                     return "timestamp: integer|Long expected";
             }
-            if (message.keyIndex != null && message.hasOwnProperty("keyIndex")) {
+            if (message.keyIndex != null && $Object.hasOwnProperty.call(message, "keyIndex")) {
                 properties._keyIndex = 1;
                 if (!$util.isInteger(message.keyIndex))
                     return "keyIndex: integer expected";
             }
-            if (message.accountType != null && message.hasOwnProperty("accountType")) {
+            if (message.accountType != null && $Object.hasOwnProperty.call(message, "accountType")) {
                 properties._accountType = 1;
                 switch (message.accountType) {
                 default:
@@ -1067,7 +1068,7 @@ $root.Adv = (function() {
                     break;
                 }
             }
-            if (message.deviceType != null && message.hasOwnProperty("deviceType")) {
+            if (message.deviceType != null && $Object.hasOwnProperty.call(message, "deviceType")) {
                 properties._deviceType = 1;
                 switch (message.deviceType) {
                 default:
@@ -1089,15 +1090,15 @@ $root.Adv = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Adv.ADVDeviceIdentity} ADVDeviceIdentity
          */
-        ADVDeviceIdentity.fromObject = function fromObject(object, _depth) {
+        ADVDeviceIdentity.fromObject = function (object, _depth) {
             if (object instanceof $root.Adv.ADVDeviceIdentity)
                 return object;
             if (!$util.isObject(object))
-                throw TypeError(".Adv.ADVDeviceIdentity: object expected");
-            if (_depth === undefined)
+                throw $TypeError(".Adv.ADVDeviceIdentity: object expected");
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var message = new $root.Adv.ADVDeviceIdentity();
             if (object.rawId != null)
                 message.rawId = object.rawId >>> 0;
@@ -1105,7 +1106,7 @@ $root.Adv = (function() {
                 if ($util.Long)
                     message.timestamp = $util.Long.fromValue(object.timestamp, true);
                 else if (typeof object.timestamp === "string")
-                    message.timestamp = parseInt(object.timestamp, 10);
+                    message.timestamp = $parseInt(object.timestamp, 10);
                 else if (typeof object.timestamp === "number")
                     message.timestamp = object.timestamp;
                 else if (typeof object.timestamp === "object")
@@ -1164,29 +1165,29 @@ $root.Adv = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        ADVDeviceIdentity.toObject = function toObject(message, options, _depth) {
+        ADVDeviceIdentity.toObject = function (message, options, _depth) {
             if (!options)
                 options = {};
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var object = {};
-            if (message.rawId != null && message.hasOwnProperty("rawId"))
+            if (message.rawId != null && $Object.hasOwnProperty.call(message, "rawId"))
                 object.rawId = message.rawId;
-            if (message.timestamp != null && message.hasOwnProperty("timestamp"))
-                if (typeof BigInt !== "undefined" && options.longs === BigInt)
-                    object.timestamp = typeof message.timestamp === "number" ? BigInt(message.timestamp) : $util.Long.fromBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0, true).toBigInt();
+            if (message.timestamp != null && $Object.hasOwnProperty.call(message, "timestamp"))
+                if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                    object.timestamp = typeof message.timestamp === "number" ? $BigInt(message.timestamp) : $util.Long.fromBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0, true).toBigInt();
                 else if (typeof message.timestamp === "number")
-                    object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
+                    object.timestamp = options.longs === $String ? $String(message.timestamp) : message.timestamp;
                 else
-                    object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber(true) : message.timestamp;
-            if (message.keyIndex != null && message.hasOwnProperty("keyIndex"))
+                    object.timestamp = options.longs === $String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === $Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber(true) : message.timestamp;
+            if (message.keyIndex != null && $Object.hasOwnProperty.call(message, "keyIndex"))
                 object.keyIndex = message.keyIndex;
-            if (message.accountType != null && message.hasOwnProperty("accountType"))
-                object.accountType = options.enums === String ? $root.Adv.ADVEncryptionType[message.accountType] === undefined ? message.accountType : $root.Adv.ADVEncryptionType[message.accountType] : message.accountType;
-            if (message.deviceType != null && message.hasOwnProperty("deviceType"))
-                object.deviceType = options.enums === String ? $root.Adv.ADVEncryptionType[message.deviceType] === undefined ? message.deviceType : $root.Adv.ADVEncryptionType[message.deviceType] : message.deviceType;
+            if (message.accountType != null && $Object.hasOwnProperty.call(message, "accountType"))
+                object.accountType = options.enums === $String ? $root.Adv.ADVEncryptionType[message.accountType] === $undefined ? message.accountType : $root.Adv.ADVEncryptionType[message.accountType] : message.accountType;
+            if (message.deviceType != null && $Object.hasOwnProperty.call(message, "deviceType"))
+                object.deviceType = options.enums === $String ? $root.Adv.ADVEncryptionType[message.deviceType] === $undefined ? message.deviceType : $root.Adv.ADVEncryptionType[message.deviceType] : message.deviceType;
             return object;
         };
 
@@ -1197,8 +1198,8 @@ $root.Adv = (function() {
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        ADVDeviceIdentity.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        ADVDeviceIdentity.prototype.toJSON = function() {
+            return ADVDeviceIdentity.toObject(this, $protobuf.util.toJSONOptions);
         };
 
         /**
@@ -1209,8 +1210,8 @@ $root.Adv = (function() {
          * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
          * @returns {string} The type url
          */
-        ADVDeviceIdentity.getTypeUrl = function getTypeUrl(prefix) {
-            if (prefix === undefined)
+        ADVDeviceIdentity.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
                 prefix = "type.googleapis.com";
             return prefix + "/Adv.ADVDeviceIdentity";
         };
@@ -1250,12 +1251,12 @@ $root.Adv = (function() {
          * @param {Adv.ADVSignedKeyIndexList.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
-        function ADVSignedKeyIndexList(properties) {
+        var ADVSignedKeyIndexList = function (properties) {
             if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
-        }
+        };
 
         /**
          * ADVSignedKeyIndexList details.
@@ -1285,19 +1286,19 @@ $root.Adv = (function() {
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(ADVSignedKeyIndexList.prototype, "_details", {
+        $Object.defineProperty(ADVSignedKeyIndexList.prototype, "_details", {
             get: $util.oneOfGetter($oneOfFields = ["details"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(ADVSignedKeyIndexList.prototype, "_accountSignature", {
+        $Object.defineProperty(ADVSignedKeyIndexList.prototype, "_accountSignature", {
             get: $util.oneOfGetter($oneOfFields = ["accountSignature"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(ADVSignedKeyIndexList.prototype, "_accountSignatureKey", {
+        $Object.defineProperty(ADVSignedKeyIndexList.prototype, "_accountSignatureKey", {
             get: $util.oneOfGetter($oneOfFields = ["accountSignatureKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
@@ -1314,7 +1315,7 @@ $root.Adv = (function() {
          *   (properties?: Adv.ADVSignedKeyIndexList.$Properties): Adv.ADVSignedKeyIndexList;
          * }}
          */
-        ADVSignedKeyIndexList.create = function create(properties) {
+        ADVSignedKeyIndexList.create = function(properties) {
             return new ADVSignedKeyIndexList(properties);
         };
 
@@ -1327,20 +1328,20 @@ $root.Adv = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        ADVSignedKeyIndexList.encode = function encode(message, writer, _depth) {
+        ADVSignedKeyIndexList.encode = function (message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
-            if (message.details != null && Object.hasOwnProperty.call(message, "details"))
+                throw $Error("max depth exceeded");
+            if (message.details != null && $Object.hasOwnProperty.call(message, "details"))
                 writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.details);
-            if (message.accountSignature != null && Object.hasOwnProperty.call(message, "accountSignature"))
+            if (message.accountSignature != null && $Object.hasOwnProperty.call(message, "accountSignature"))
                 writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.accountSignature);
-            if (message.accountSignatureKey != null && Object.hasOwnProperty.call(message, "accountSignatureKey"))
+            if (message.accountSignatureKey != null && $Object.hasOwnProperty.call(message, "accountSignatureKey"))
                 writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.accountSignatureKey);
-            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
             return writer;
@@ -1355,7 +1356,7 @@ $root.Adv = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        ADVSignedKeyIndexList.encodeDelimited = function encodeDelimited(message, writer) {
+        ADVSignedKeyIndexList.encodeDelimited = function(message, writer) {
             return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
@@ -1370,19 +1371,19 @@ $root.Adv = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ADVSignedKeyIndexList.decode = function decode(reader, length, _end, _depth, _target) {
+        ADVSignedKeyIndexList.decode = function (reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
-                throw Error("max depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Adv.ADVSignedKeyIndexList();
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Adv.ADVSignedKeyIndexList();
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
                 if (tag === _end) {
-                    _end = undefined;
+                    _end = $undefined;
                     break;
                 }
                 var wireType = tag & 7;
@@ -1415,8 +1416,8 @@ $root.Adv = (function() {
                     (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
             }
-            if (_end !== undefined)
-                throw Error("missing end group");
+            if (_end !== $undefined)
+                throw $Error("missing end group");
             return message;
         };
 
@@ -1430,7 +1431,7 @@ $root.Adv = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ADVSignedKeyIndexList.decodeDelimited = function decodeDelimited(reader) {
+        ADVSignedKeyIndexList.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
@@ -1444,25 +1445,25 @@ $root.Adv = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        ADVSignedKeyIndexList.verify = function verify(message, _depth) {
+        ADVSignedKeyIndexList.verify = function (message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 return "max depth exceeded";
             var properties = {};
-            if (message.details != null && message.hasOwnProperty("details")) {
+            if (message.details != null && $Object.hasOwnProperty.call(message, "details")) {
                 properties._details = 1;
                 if (!(message.details && typeof message.details.length === "number" || $util.isString(message.details)))
                     return "details: buffer expected";
             }
-            if (message.accountSignature != null && message.hasOwnProperty("accountSignature")) {
+            if (message.accountSignature != null && $Object.hasOwnProperty.call(message, "accountSignature")) {
                 properties._accountSignature = 1;
                 if (!(message.accountSignature && typeof message.accountSignature.length === "number" || $util.isString(message.accountSignature)))
                     return "accountSignature: buffer expected";
             }
-            if (message.accountSignatureKey != null && message.hasOwnProperty("accountSignatureKey")) {
+            if (message.accountSignatureKey != null && $Object.hasOwnProperty.call(message, "accountSignatureKey")) {
                 properties._accountSignatureKey = 1;
                 if (!(message.accountSignatureKey && typeof message.accountSignatureKey.length === "number" || $util.isString(message.accountSignatureKey)))
                     return "accountSignatureKey: buffer expected";
@@ -1478,15 +1479,15 @@ $root.Adv = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Adv.ADVSignedKeyIndexList} ADVSignedKeyIndexList
          */
-        ADVSignedKeyIndexList.fromObject = function fromObject(object, _depth) {
+        ADVSignedKeyIndexList.fromObject = function (object, _depth) {
             if (object instanceof $root.Adv.ADVSignedKeyIndexList)
                 return object;
             if (!$util.isObject(object))
-                throw TypeError(".Adv.ADVSignedKeyIndexList: object expected");
-            if (_depth === undefined)
+                throw $TypeError(".Adv.ADVSignedKeyIndexList: object expected");
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var message = new $root.Adv.ADVSignedKeyIndexList();
             if (object.details != null)
                 if (typeof object.details === "string")
@@ -1515,20 +1516,20 @@ $root.Adv = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        ADVSignedKeyIndexList.toObject = function toObject(message, options, _depth) {
+        ADVSignedKeyIndexList.toObject = function (message, options, _depth) {
             if (!options)
                 options = {};
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var object = {};
-            if (message.details != null && message.hasOwnProperty("details"))
-                object.details = options.bytes === String ? $util.base64.encode(message.details, 0, message.details.length) : options.bytes === Array ? Array.prototype.slice.call(message.details) : message.details;
-            if (message.accountSignature != null && message.hasOwnProperty("accountSignature"))
-                object.accountSignature = options.bytes === String ? $util.base64.encode(message.accountSignature, 0, message.accountSignature.length) : options.bytes === Array ? Array.prototype.slice.call(message.accountSignature) : message.accountSignature;
-            if (message.accountSignatureKey != null && message.hasOwnProperty("accountSignatureKey"))
-                object.accountSignatureKey = options.bytes === String ? $util.base64.encode(message.accountSignatureKey, 0, message.accountSignatureKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.accountSignatureKey) : message.accountSignatureKey;
+            if (message.details != null && $Object.hasOwnProperty.call(message, "details"))
+                object.details = options.bytes === $String ? $util.base64.encode(message.details, 0, message.details.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.details) : message.details;
+            if (message.accountSignature != null && $Object.hasOwnProperty.call(message, "accountSignature"))
+                object.accountSignature = options.bytes === $String ? $util.base64.encode(message.accountSignature, 0, message.accountSignature.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.accountSignature) : message.accountSignature;
+            if (message.accountSignatureKey != null && $Object.hasOwnProperty.call(message, "accountSignatureKey"))
+                object.accountSignatureKey = options.bytes === $String ? $util.base64.encode(message.accountSignatureKey, 0, message.accountSignatureKey.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.accountSignatureKey) : message.accountSignatureKey;
             return object;
         };
 
@@ -1539,8 +1540,8 @@ $root.Adv = (function() {
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        ADVSignedKeyIndexList.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        ADVSignedKeyIndexList.prototype.toJSON = function() {
+            return ADVSignedKeyIndexList.toObject(this, $protobuf.util.toJSONOptions);
         };
 
         /**
@@ -1551,8 +1552,8 @@ $root.Adv = (function() {
          * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
          * @returns {string} The type url
          */
-        ADVSignedKeyIndexList.getTypeUrl = function getTypeUrl(prefix) {
-            if (prefix === undefined)
+        ADVSignedKeyIndexList.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
                 prefix = "type.googleapis.com";
             return prefix + "/Adv.ADVSignedKeyIndexList";
         };
@@ -1594,13 +1595,13 @@ $root.Adv = (function() {
          * @param {Adv.ADVKeyIndexList.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
-        function ADVKeyIndexList(properties) {
+        var ADVKeyIndexList = function (properties) {
             this.validIndexes = [];
             if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
-        }
+        };
 
         /**
          * ADVKeyIndexList rawId.
@@ -1646,25 +1647,25 @@ $root.Adv = (function() {
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(ADVKeyIndexList.prototype, "_rawId", {
+        $Object.defineProperty(ADVKeyIndexList.prototype, "_rawId", {
             get: $util.oneOfGetter($oneOfFields = ["rawId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(ADVKeyIndexList.prototype, "_timestamp", {
+        $Object.defineProperty(ADVKeyIndexList.prototype, "_timestamp", {
             get: $util.oneOfGetter($oneOfFields = ["timestamp"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(ADVKeyIndexList.prototype, "_currentIndex", {
+        $Object.defineProperty(ADVKeyIndexList.prototype, "_currentIndex", {
             get: $util.oneOfGetter($oneOfFields = ["currentIndex"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(ADVKeyIndexList.prototype, "_accountType", {
+        $Object.defineProperty(ADVKeyIndexList.prototype, "_accountType", {
             get: $util.oneOfGetter($oneOfFields = ["accountType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
@@ -1681,7 +1682,7 @@ $root.Adv = (function() {
          *   (properties?: Adv.ADVKeyIndexList.$Properties): Adv.ADVKeyIndexList;
          * }}
          */
-        ADVKeyIndexList.create = function create(properties) {
+        ADVKeyIndexList.create = function(properties) {
             return new ADVKeyIndexList(properties);
         };
 
@@ -1694,18 +1695,18 @@ $root.Adv = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        ADVKeyIndexList.encode = function encode(message, writer, _depth) {
+        ADVKeyIndexList.encode = function (message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
-            if (message.rawId != null && Object.hasOwnProperty.call(message, "rawId"))
+                throw $Error("max depth exceeded");
+            if (message.rawId != null && $Object.hasOwnProperty.call(message, "rawId"))
                 writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.rawId);
-            if (message.timestamp != null && Object.hasOwnProperty.call(message, "timestamp"))
+            if (message.timestamp != null && $Object.hasOwnProperty.call(message, "timestamp"))
                 writer.uint32(/* id 2, wireType 0 =*/16).uint64(message.timestamp);
-            if (message.currentIndex != null && Object.hasOwnProperty.call(message, "currentIndex"))
+            if (message.currentIndex != null && $Object.hasOwnProperty.call(message, "currentIndex"))
                 writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.currentIndex);
             if (message.validIndexes != null && message.validIndexes.length) {
                 writer.uint32(/* id 4, wireType 2 =*/34).fork();
@@ -1713,9 +1714,9 @@ $root.Adv = (function() {
                     writer.uint32(message.validIndexes[i]);
                 writer.ldelim();
             }
-            if (message.accountType != null && Object.hasOwnProperty.call(message, "accountType"))
+            if (message.accountType != null && $Object.hasOwnProperty.call(message, "accountType"))
                 writer.uint32(/* id 5, wireType 0 =*/40).int32(message.accountType);
-            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
             return writer;
@@ -1730,7 +1731,7 @@ $root.Adv = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        ADVKeyIndexList.encodeDelimited = function encodeDelimited(message, writer) {
+        ADVKeyIndexList.encodeDelimited = function(message, writer) {
             return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
@@ -1745,19 +1746,19 @@ $root.Adv = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ADVKeyIndexList.decode = function decode(reader, length, _end, _depth, _target) {
+        ADVKeyIndexList.decode = function (reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
-                throw Error("max depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Adv.ADVKeyIndexList();
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Adv.ADVKeyIndexList();
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
                 if (tag === _end) {
-                    _end = undefined;
+                    _end = $undefined;
                     break;
                 }
                 var wireType = tag & 7;
@@ -1813,8 +1814,8 @@ $root.Adv = (function() {
                     (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
             }
-            if (_end !== undefined)
-                throw Error("missing end group");
+            if (_end !== $undefined)
+                throw $Error("missing end group");
             return message;
         };
 
@@ -1828,7 +1829,7 @@ $root.Adv = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ADVKeyIndexList.decodeDelimited = function decodeDelimited(reader) {
+        ADVKeyIndexList.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
@@ -1842,37 +1843,37 @@ $root.Adv = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        ADVKeyIndexList.verify = function verify(message, _depth) {
+        ADVKeyIndexList.verify = function (message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 return "max depth exceeded";
             var properties = {};
-            if (message.rawId != null && message.hasOwnProperty("rawId")) {
+            if (message.rawId != null && $Object.hasOwnProperty.call(message, "rawId")) {
                 properties._rawId = 1;
                 if (!$util.isInteger(message.rawId))
                     return "rawId: integer expected";
             }
-            if (message.timestamp != null && message.hasOwnProperty("timestamp")) {
+            if (message.timestamp != null && $Object.hasOwnProperty.call(message, "timestamp")) {
                 properties._timestamp = 1;
                 if (!$util.isInteger(message.timestamp) && !(message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high)))
                     return "timestamp: integer|Long expected";
             }
-            if (message.currentIndex != null && message.hasOwnProperty("currentIndex")) {
+            if (message.currentIndex != null && $Object.hasOwnProperty.call(message, "currentIndex")) {
                 properties._currentIndex = 1;
                 if (!$util.isInteger(message.currentIndex))
                     return "currentIndex: integer expected";
             }
-            if (message.validIndexes != null && message.hasOwnProperty("validIndexes")) {
-                if (!Array.isArray(message.validIndexes))
+            if (message.validIndexes != null && $Object.hasOwnProperty.call(message, "validIndexes")) {
+                if (!$Array.isArray(message.validIndexes))
                     return "validIndexes: array expected";
                 for (var i = 0; i < message.validIndexes.length; ++i)
                     if (!$util.isInteger(message.validIndexes[i]))
                         return "validIndexes: integer[] expected";
             }
-            if (message.accountType != null && message.hasOwnProperty("accountType")) {
+            if (message.accountType != null && $Object.hasOwnProperty.call(message, "accountType")) {
                 properties._accountType = 1;
                 switch (message.accountType) {
                 default:
@@ -1894,15 +1895,15 @@ $root.Adv = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Adv.ADVKeyIndexList} ADVKeyIndexList
          */
-        ADVKeyIndexList.fromObject = function fromObject(object, _depth) {
+        ADVKeyIndexList.fromObject = function (object, _depth) {
             if (object instanceof $root.Adv.ADVKeyIndexList)
                 return object;
             if (!$util.isObject(object))
-                throw TypeError(".Adv.ADVKeyIndexList: object expected");
-            if (_depth === undefined)
+                throw $TypeError(".Adv.ADVKeyIndexList: object expected");
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var message = new $root.Adv.ADVKeyIndexList();
             if (object.rawId != null)
                 message.rawId = object.rawId >>> 0;
@@ -1910,7 +1911,7 @@ $root.Adv = (function() {
                 if ($util.Long)
                     message.timestamp = $util.Long.fromValue(object.timestamp, true);
                 else if (typeof object.timestamp === "string")
-                    message.timestamp = parseInt(object.timestamp, 10);
+                    message.timestamp = $parseInt(object.timestamp, 10);
                 else if (typeof object.timestamp === "number")
                     message.timestamp = object.timestamp;
                 else if (typeof object.timestamp === "object")
@@ -1918,9 +1919,9 @@ $root.Adv = (function() {
             if (object.currentIndex != null)
                 message.currentIndex = object.currentIndex >>> 0;
             if (object.validIndexes) {
-                if (!Array.isArray(object.validIndexes))
-                    throw TypeError(".Adv.ADVKeyIndexList.validIndexes: array expected");
-                message.validIndexes = Array(object.validIndexes.length);
+                if (!$Array.isArray(object.validIndexes))
+                    throw $TypeError(".Adv.ADVKeyIndexList.validIndexes: array expected");
+                message.validIndexes = $Array(object.validIndexes.length);
                 for (var i = 0; i < object.validIndexes.length; ++i)
                     message.validIndexes[i] = object.validIndexes[i] >>> 0;
             }
@@ -1956,34 +1957,34 @@ $root.Adv = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        ADVKeyIndexList.toObject = function toObject(message, options, _depth) {
+        ADVKeyIndexList.toObject = function (message, options, _depth) {
             if (!options)
                 options = {};
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var object = {};
             if (options.arrays || options.defaults)
                 object.validIndexes = [];
-            if (message.rawId != null && message.hasOwnProperty("rawId"))
+            if (message.rawId != null && $Object.hasOwnProperty.call(message, "rawId"))
                 object.rawId = message.rawId;
-            if (message.timestamp != null && message.hasOwnProperty("timestamp"))
-                if (typeof BigInt !== "undefined" && options.longs === BigInt)
-                    object.timestamp = typeof message.timestamp === "number" ? BigInt(message.timestamp) : $util.Long.fromBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0, true).toBigInt();
+            if (message.timestamp != null && $Object.hasOwnProperty.call(message, "timestamp"))
+                if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                    object.timestamp = typeof message.timestamp === "number" ? $BigInt(message.timestamp) : $util.Long.fromBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0, true).toBigInt();
                 else if (typeof message.timestamp === "number")
-                    object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
+                    object.timestamp = options.longs === $String ? $String(message.timestamp) : message.timestamp;
                 else
-                    object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber(true) : message.timestamp;
-            if (message.currentIndex != null && message.hasOwnProperty("currentIndex"))
+                    object.timestamp = options.longs === $String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === $Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber(true) : message.timestamp;
+            if (message.currentIndex != null && $Object.hasOwnProperty.call(message, "currentIndex"))
                 object.currentIndex = message.currentIndex;
             if (message.validIndexes && message.validIndexes.length) {
-                object.validIndexes = Array(message.validIndexes.length);
+                object.validIndexes = $Array(message.validIndexes.length);
                 for (var j = 0; j < message.validIndexes.length; ++j)
                     object.validIndexes[j] = message.validIndexes[j];
             }
-            if (message.accountType != null && message.hasOwnProperty("accountType"))
-                object.accountType = options.enums === String ? $root.Adv.ADVEncryptionType[message.accountType] === undefined ? message.accountType : $root.Adv.ADVEncryptionType[message.accountType] : message.accountType;
+            if (message.accountType != null && $Object.hasOwnProperty.call(message, "accountType"))
+                object.accountType = options.enums === $String ? $root.Adv.ADVEncryptionType[message.accountType] === $undefined ? message.accountType : $root.Adv.ADVEncryptionType[message.accountType] : message.accountType;
             return object;
         };
 
@@ -1994,8 +1995,8 @@ $root.Adv = (function() {
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        ADVKeyIndexList.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        ADVKeyIndexList.prototype.toJSON = function() {
+            return ADVKeyIndexList.toObject(this, $protobuf.util.toJSONOptions);
         };
 
         /**
@@ -2006,8 +2007,8 @@ $root.Adv = (function() {
          * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
          * @returns {string} The type url
          */
-        ADVKeyIndexList.getTypeUrl = function getTypeUrl(prefix) {
-            if (prefix === undefined)
+        ADVKeyIndexList.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
                 prefix = "type.googleapis.com";
             return prefix + "/Adv.ADVKeyIndexList";
         };
@@ -2024,7 +2025,7 @@ $root.Adv = (function() {
      * @property {number} NON_E2EE=2 NON_E2EE value
      */
     Adv.ADVEncryptionType = (function() {
-        var valuesById = {}, values = Object.create(valuesById);
+        var valuesById = {}, values = $Object.create(valuesById);
         values[valuesById[0] = "E2EE"] = 0;
         values[valuesById[1] = "HOSTED"] = 1;
         values[valuesById[2] = "NON_E2EE"] = 2;

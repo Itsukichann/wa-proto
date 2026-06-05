@@ -5,6 +5,7 @@ var $protobuf = require("protobufjs/minimal");
 
 // Common aliases
 var $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.util;
+var $Object = $util.global.Object, $undefined = $util.global.undefined, $Error = $util.global.Error, $TypeError = $util.global.TypeError, $Boolean = $util.global.Boolean, $parseInt = $util.global.parseInt, $String = $util.global.String, $BigInt = $util.global.BigInt, $Number = $util.global.Number, $Array = $util.global.Array;
 
 // Exported root namespace
 var $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
@@ -55,12 +56,12 @@ $root.VnameCert = (function() {
          * @param {VnameCert.BizIdentityInfo.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
-        function BizIdentityInfo(properties) {
+        var BizIdentityInfo = function (properties) {
             if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
-        }
+        };
 
         /**
          * BizIdentityInfo vlevel.
@@ -130,49 +131,49 @@ $root.VnameCert = (function() {
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(BizIdentityInfo.prototype, "_vlevel", {
+        $Object.defineProperty(BizIdentityInfo.prototype, "_vlevel", {
             get: $util.oneOfGetter($oneOfFields = ["vlevel"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(BizIdentityInfo.prototype, "_vnameCert", {
+        $Object.defineProperty(BizIdentityInfo.prototype, "_vnameCert", {
             get: $util.oneOfGetter($oneOfFields = ["vnameCert"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(BizIdentityInfo.prototype, "_signed", {
+        $Object.defineProperty(BizIdentityInfo.prototype, "_signed", {
             get: $util.oneOfGetter($oneOfFields = ["signed"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(BizIdentityInfo.prototype, "_revoked", {
+        $Object.defineProperty(BizIdentityInfo.prototype, "_revoked", {
             get: $util.oneOfGetter($oneOfFields = ["revoked"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(BizIdentityInfo.prototype, "_hostStorage", {
+        $Object.defineProperty(BizIdentityInfo.prototype, "_hostStorage", {
             get: $util.oneOfGetter($oneOfFields = ["hostStorage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(BizIdentityInfo.prototype, "_actualActors", {
+        $Object.defineProperty(BizIdentityInfo.prototype, "_actualActors", {
             get: $util.oneOfGetter($oneOfFields = ["actualActors"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(BizIdentityInfo.prototype, "_privacyModeTs", {
+        $Object.defineProperty(BizIdentityInfo.prototype, "_privacyModeTs", {
             get: $util.oneOfGetter($oneOfFields = ["privacyModeTs"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(BizIdentityInfo.prototype, "_featureControls", {
+        $Object.defineProperty(BizIdentityInfo.prototype, "_featureControls", {
             get: $util.oneOfGetter($oneOfFields = ["featureControls"]),
             set: $util.oneOfSetter($oneOfFields)
         });
@@ -189,7 +190,7 @@ $root.VnameCert = (function() {
          *   (properties?: VnameCert.BizIdentityInfo.$Properties): VnameCert.BizIdentityInfo;
          * }}
          */
-        BizIdentityInfo.create = function create(properties) {
+        BizIdentityInfo.create = function(properties) {
             return new BizIdentityInfo(properties);
         };
 
@@ -202,30 +203,30 @@ $root.VnameCert = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        BizIdentityInfo.encode = function encode(message, writer, _depth) {
+        BizIdentityInfo.encode = function (message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
-            if (message.vlevel != null && Object.hasOwnProperty.call(message, "vlevel"))
+                throw $Error("max depth exceeded");
+            if (message.vlevel != null && $Object.hasOwnProperty.call(message, "vlevel"))
                 writer.uint32(/* id 1, wireType 0 =*/8).int32(message.vlevel);
-            if (message.vnameCert != null && Object.hasOwnProperty.call(message, "vnameCert"))
+            if (message.vnameCert != null && $Object.hasOwnProperty.call(message, "vnameCert"))
                 $root.VnameCert.VerifiedNameCertificate.encode(message.vnameCert, writer.uint32(/* id 2, wireType 2 =*/18).fork(), _depth + 1).ldelim();
-            if (message.signed != null && Object.hasOwnProperty.call(message, "signed"))
+            if (message.signed != null && $Object.hasOwnProperty.call(message, "signed"))
                 writer.uint32(/* id 3, wireType 0 =*/24).bool(message.signed);
-            if (message.revoked != null && Object.hasOwnProperty.call(message, "revoked"))
+            if (message.revoked != null && $Object.hasOwnProperty.call(message, "revoked"))
                 writer.uint32(/* id 4, wireType 0 =*/32).bool(message.revoked);
-            if (message.hostStorage != null && Object.hasOwnProperty.call(message, "hostStorage"))
+            if (message.hostStorage != null && $Object.hasOwnProperty.call(message, "hostStorage"))
                 writer.uint32(/* id 5, wireType 0 =*/40).int32(message.hostStorage);
-            if (message.actualActors != null && Object.hasOwnProperty.call(message, "actualActors"))
+            if (message.actualActors != null && $Object.hasOwnProperty.call(message, "actualActors"))
                 writer.uint32(/* id 6, wireType 0 =*/48).int32(message.actualActors);
-            if (message.privacyModeTs != null && Object.hasOwnProperty.call(message, "privacyModeTs"))
+            if (message.privacyModeTs != null && $Object.hasOwnProperty.call(message, "privacyModeTs"))
                 writer.uint32(/* id 7, wireType 0 =*/56).uint64(message.privacyModeTs);
-            if (message.featureControls != null && Object.hasOwnProperty.call(message, "featureControls"))
+            if (message.featureControls != null && $Object.hasOwnProperty.call(message, "featureControls"))
                 writer.uint32(/* id 8, wireType 0 =*/64).uint64(message.featureControls);
-            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
             return writer;
@@ -240,7 +241,7 @@ $root.VnameCert = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        BizIdentityInfo.encodeDelimited = function encodeDelimited(message, writer) {
+        BizIdentityInfo.encodeDelimited = function(message, writer) {
             return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
@@ -255,19 +256,19 @@ $root.VnameCert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BizIdentityInfo.decode = function decode(reader, length, _end, _depth, _target) {
+        BizIdentityInfo.decode = function (reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
-                throw Error("max depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.VnameCert.BizIdentityInfo();
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.VnameCert.BizIdentityInfo();
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
                 if (tag === _end) {
-                    _end = undefined;
+                    _end = $undefined;
                     break;
                 }
                 var wireType = tag & 7;
@@ -282,7 +283,7 @@ $root.VnameCert = (function() {
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.vnameCert = $root.VnameCert.VerifiedNameCertificate.decode(reader, reader.uint32(), undefined, _depth + 1, message.vnameCert);
+                        message.vnameCert = $root.VnameCert.VerifiedNameCertificate.decode(reader, reader.uint32(), $undefined, _depth + 1, message.vnameCert);
                         message._vnameCert = "vnameCert";
                         continue;
                     }
@@ -335,8 +336,8 @@ $root.VnameCert = (function() {
                     (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
             }
-            if (_end !== undefined)
-                throw Error("missing end group");
+            if (_end !== $undefined)
+                throw $Error("missing end group");
             return message;
         };
 
@@ -350,7 +351,7 @@ $root.VnameCert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BizIdentityInfo.decodeDelimited = function decodeDelimited(reader) {
+        BizIdentityInfo.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
@@ -364,15 +365,15 @@ $root.VnameCert = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BizIdentityInfo.verify = function verify(message, _depth) {
+        BizIdentityInfo.verify = function (message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 return "max depth exceeded";
             var properties = {};
-            if (message.vlevel != null && message.hasOwnProperty("vlevel")) {
+            if (message.vlevel != null && $Object.hasOwnProperty.call(message, "vlevel")) {
                 properties._vlevel = 1;
                 switch (message.vlevel) {
                 default:
@@ -383,7 +384,7 @@ $root.VnameCert = (function() {
                     break;
                 }
             }
-            if (message.vnameCert != null && message.hasOwnProperty("vnameCert")) {
+            if (message.vnameCert != null && $Object.hasOwnProperty.call(message, "vnameCert")) {
                 properties._vnameCert = 1;
                 {
                     var error = $root.VnameCert.VerifiedNameCertificate.verify(message.vnameCert, _depth + 1);
@@ -391,17 +392,17 @@ $root.VnameCert = (function() {
                         return "vnameCert." + error;
                 }
             }
-            if (message.signed != null && message.hasOwnProperty("signed")) {
+            if (message.signed != null && $Object.hasOwnProperty.call(message, "signed")) {
                 properties._signed = 1;
                 if (typeof message.signed !== "boolean")
                     return "signed: boolean expected";
             }
-            if (message.revoked != null && message.hasOwnProperty("revoked")) {
+            if (message.revoked != null && $Object.hasOwnProperty.call(message, "revoked")) {
                 properties._revoked = 1;
                 if (typeof message.revoked !== "boolean")
                     return "revoked: boolean expected";
             }
-            if (message.hostStorage != null && message.hasOwnProperty("hostStorage")) {
+            if (message.hostStorage != null && $Object.hasOwnProperty.call(message, "hostStorage")) {
                 properties._hostStorage = 1;
                 switch (message.hostStorage) {
                 default:
@@ -411,7 +412,7 @@ $root.VnameCert = (function() {
                     break;
                 }
             }
-            if (message.actualActors != null && message.hasOwnProperty("actualActors")) {
+            if (message.actualActors != null && $Object.hasOwnProperty.call(message, "actualActors")) {
                 properties._actualActors = 1;
                 switch (message.actualActors) {
                 default:
@@ -421,12 +422,12 @@ $root.VnameCert = (function() {
                     break;
                 }
             }
-            if (message.privacyModeTs != null && message.hasOwnProperty("privacyModeTs")) {
+            if (message.privacyModeTs != null && $Object.hasOwnProperty.call(message, "privacyModeTs")) {
                 properties._privacyModeTs = 1;
                 if (!$util.isInteger(message.privacyModeTs) && !(message.privacyModeTs && $util.isInteger(message.privacyModeTs.low) && $util.isInteger(message.privacyModeTs.high)))
                     return "privacyModeTs: integer|Long expected";
             }
-            if (message.featureControls != null && message.hasOwnProperty("featureControls")) {
+            if (message.featureControls != null && $Object.hasOwnProperty.call(message, "featureControls")) {
                 properties._featureControls = 1;
                 if (!$util.isInteger(message.featureControls) && !(message.featureControls && $util.isInteger(message.featureControls.low) && $util.isInteger(message.featureControls.high)))
                     return "featureControls: integer|Long expected";
@@ -442,15 +443,15 @@ $root.VnameCert = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {VnameCert.BizIdentityInfo} BizIdentityInfo
          */
-        BizIdentityInfo.fromObject = function fromObject(object, _depth) {
+        BizIdentityInfo.fromObject = function (object, _depth) {
             if (object instanceof $root.VnameCert.BizIdentityInfo)
                 return object;
             if (!$util.isObject(object))
-                throw TypeError(".VnameCert.BizIdentityInfo: object expected");
-            if (_depth === undefined)
+                throw $TypeError(".VnameCert.BizIdentityInfo: object expected");
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var message = new $root.VnameCert.BizIdentityInfo();
             switch (object.vlevel) {
             default:
@@ -474,13 +475,13 @@ $root.VnameCert = (function() {
             }
             if (object.vnameCert != null) {
                 if (!$util.isObject(object.vnameCert))
-                    throw TypeError(".VnameCert.BizIdentityInfo.vnameCert: object expected");
+                    throw $TypeError(".VnameCert.BizIdentityInfo.vnameCert: object expected");
                 message.vnameCert = $root.VnameCert.VerifiedNameCertificate.fromObject(object.vnameCert, _depth + 1);
             }
             if (object.signed != null)
-                message.signed = Boolean(object.signed);
+                message.signed = $Boolean(object.signed);
             if (object.revoked != null)
-                message.revoked = Boolean(object.revoked);
+                message.revoked = $Boolean(object.revoked);
             switch (object.hostStorage) {
             default:
                 if (typeof object.hostStorage === "number") {
@@ -517,7 +518,7 @@ $root.VnameCert = (function() {
                 if ($util.Long)
                     message.privacyModeTs = $util.Long.fromValue(object.privacyModeTs, true);
                 else if (typeof object.privacyModeTs === "string")
-                    message.privacyModeTs = parseInt(object.privacyModeTs, 10);
+                    message.privacyModeTs = $parseInt(object.privacyModeTs, 10);
                 else if (typeof object.privacyModeTs === "number")
                     message.privacyModeTs = object.privacyModeTs;
                 else if (typeof object.privacyModeTs === "object")
@@ -526,7 +527,7 @@ $root.VnameCert = (function() {
                 if ($util.Long)
                     message.featureControls = $util.Long.fromValue(object.featureControls, true);
                 else if (typeof object.featureControls === "string")
-                    message.featureControls = parseInt(object.featureControls, 10);
+                    message.featureControls = $parseInt(object.featureControls, 10);
                 else if (typeof object.featureControls === "number")
                     message.featureControls = object.featureControls;
                 else if (typeof object.featureControls === "object")
@@ -543,40 +544,40 @@ $root.VnameCert = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        BizIdentityInfo.toObject = function toObject(message, options, _depth) {
+        BizIdentityInfo.toObject = function (message, options, _depth) {
             if (!options)
                 options = {};
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var object = {};
-            if (message.vlevel != null && message.hasOwnProperty("vlevel"))
-                object.vlevel = options.enums === String ? $root.VnameCert.BizIdentityInfo.VerifiedLevelValue[message.vlevel] === undefined ? message.vlevel : $root.VnameCert.BizIdentityInfo.VerifiedLevelValue[message.vlevel] : message.vlevel;
-            if (message.vnameCert != null && message.hasOwnProperty("vnameCert"))
+            if (message.vlevel != null && $Object.hasOwnProperty.call(message, "vlevel"))
+                object.vlevel = options.enums === $String ? $root.VnameCert.BizIdentityInfo.VerifiedLevelValue[message.vlevel] === $undefined ? message.vlevel : $root.VnameCert.BizIdentityInfo.VerifiedLevelValue[message.vlevel] : message.vlevel;
+            if (message.vnameCert != null && $Object.hasOwnProperty.call(message, "vnameCert"))
                 object.vnameCert = $root.VnameCert.VerifiedNameCertificate.toObject(message.vnameCert, options, _depth + 1);
-            if (message.signed != null && message.hasOwnProperty("signed"))
+            if (message.signed != null && $Object.hasOwnProperty.call(message, "signed"))
                 object.signed = message.signed;
-            if (message.revoked != null && message.hasOwnProperty("revoked"))
+            if (message.revoked != null && $Object.hasOwnProperty.call(message, "revoked"))
                 object.revoked = message.revoked;
-            if (message.hostStorage != null && message.hasOwnProperty("hostStorage"))
-                object.hostStorage = options.enums === String ? $root.VnameCert.BizIdentityInfo.HostStorageType[message.hostStorage] === undefined ? message.hostStorage : $root.VnameCert.BizIdentityInfo.HostStorageType[message.hostStorage] : message.hostStorage;
-            if (message.actualActors != null && message.hasOwnProperty("actualActors"))
-                object.actualActors = options.enums === String ? $root.VnameCert.BizIdentityInfo.ActualActorsType[message.actualActors] === undefined ? message.actualActors : $root.VnameCert.BizIdentityInfo.ActualActorsType[message.actualActors] : message.actualActors;
-            if (message.privacyModeTs != null && message.hasOwnProperty("privacyModeTs"))
-                if (typeof BigInt !== "undefined" && options.longs === BigInt)
-                    object.privacyModeTs = typeof message.privacyModeTs === "number" ? BigInt(message.privacyModeTs) : $util.Long.fromBits(message.privacyModeTs.low >>> 0, message.privacyModeTs.high >>> 0, true).toBigInt();
+            if (message.hostStorage != null && $Object.hasOwnProperty.call(message, "hostStorage"))
+                object.hostStorage = options.enums === $String ? $root.VnameCert.BizIdentityInfo.HostStorageType[message.hostStorage] === $undefined ? message.hostStorage : $root.VnameCert.BizIdentityInfo.HostStorageType[message.hostStorage] : message.hostStorage;
+            if (message.actualActors != null && $Object.hasOwnProperty.call(message, "actualActors"))
+                object.actualActors = options.enums === $String ? $root.VnameCert.BizIdentityInfo.ActualActorsType[message.actualActors] === $undefined ? message.actualActors : $root.VnameCert.BizIdentityInfo.ActualActorsType[message.actualActors] : message.actualActors;
+            if (message.privacyModeTs != null && $Object.hasOwnProperty.call(message, "privacyModeTs"))
+                if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                    object.privacyModeTs = typeof message.privacyModeTs === "number" ? $BigInt(message.privacyModeTs) : $util.Long.fromBits(message.privacyModeTs.low >>> 0, message.privacyModeTs.high >>> 0, true).toBigInt();
                 else if (typeof message.privacyModeTs === "number")
-                    object.privacyModeTs = options.longs === String ? String(message.privacyModeTs) : message.privacyModeTs;
+                    object.privacyModeTs = options.longs === $String ? $String(message.privacyModeTs) : message.privacyModeTs;
                 else
-                    object.privacyModeTs = options.longs === String ? $util.Long.prototype.toString.call(message.privacyModeTs) : options.longs === Number ? new $util.LongBits(message.privacyModeTs.low >>> 0, message.privacyModeTs.high >>> 0).toNumber(true) : message.privacyModeTs;
-            if (message.featureControls != null && message.hasOwnProperty("featureControls"))
-                if (typeof BigInt !== "undefined" && options.longs === BigInt)
-                    object.featureControls = typeof message.featureControls === "number" ? BigInt(message.featureControls) : $util.Long.fromBits(message.featureControls.low >>> 0, message.featureControls.high >>> 0, true).toBigInt();
+                    object.privacyModeTs = options.longs === $String ? $util.Long.prototype.toString.call(message.privacyModeTs) : options.longs === $Number ? new $util.LongBits(message.privacyModeTs.low >>> 0, message.privacyModeTs.high >>> 0).toNumber(true) : message.privacyModeTs;
+            if (message.featureControls != null && $Object.hasOwnProperty.call(message, "featureControls"))
+                if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                    object.featureControls = typeof message.featureControls === "number" ? $BigInt(message.featureControls) : $util.Long.fromBits(message.featureControls.low >>> 0, message.featureControls.high >>> 0, true).toBigInt();
                 else if (typeof message.featureControls === "number")
-                    object.featureControls = options.longs === String ? String(message.featureControls) : message.featureControls;
+                    object.featureControls = options.longs === $String ? $String(message.featureControls) : message.featureControls;
                 else
-                    object.featureControls = options.longs === String ? $util.Long.prototype.toString.call(message.featureControls) : options.longs === Number ? new $util.LongBits(message.featureControls.low >>> 0, message.featureControls.high >>> 0).toNumber(true) : message.featureControls;
+                    object.featureControls = options.longs === $String ? $util.Long.prototype.toString.call(message.featureControls) : options.longs === $Number ? new $util.LongBits(message.featureControls.low >>> 0, message.featureControls.high >>> 0).toNumber(true) : message.featureControls;
             return object;
         };
 
@@ -587,8 +588,8 @@ $root.VnameCert = (function() {
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        BizIdentityInfo.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        BizIdentityInfo.prototype.toJSON = function() {
+            return BizIdentityInfo.toObject(this, $protobuf.util.toJSONOptions);
         };
 
         /**
@@ -599,8 +600,8 @@ $root.VnameCert = (function() {
          * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
          * @returns {string} The type url
          */
-        BizIdentityInfo.getTypeUrl = function getTypeUrl(prefix) {
-            if (prefix === undefined)
+        BizIdentityInfo.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
                 prefix = "type.googleapis.com";
             return prefix + "/VnameCert.BizIdentityInfo";
         };
@@ -613,7 +614,7 @@ $root.VnameCert = (function() {
          * @property {number} BSP=1 BSP value
          */
         BizIdentityInfo.ActualActorsType = (function() {
-            var valuesById = {}, values = Object.create(valuesById);
+            var valuesById = {}, values = $Object.create(valuesById);
             values[valuesById[0] = "SELF"] = 0;
             values[valuesById[1] = "BSP"] = 1;
             return values;
@@ -627,7 +628,7 @@ $root.VnameCert = (function() {
          * @property {number} FACEBOOK=1 FACEBOOK value
          */
         BizIdentityInfo.HostStorageType = (function() {
-            var valuesById = {}, values = Object.create(valuesById);
+            var valuesById = {}, values = $Object.create(valuesById);
             values[valuesById[0] = "ON_PREMISE"] = 0;
             values[valuesById[1] = "FACEBOOK"] = 1;
             return values;
@@ -642,7 +643,7 @@ $root.VnameCert = (function() {
          * @property {number} HIGH=2 HIGH value
          */
         BizIdentityInfo.VerifiedLevelValue = (function() {
-            var valuesById = {}, values = Object.create(valuesById);
+            var valuesById = {}, values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN"] = 0;
             values[valuesById[1] = "LOW"] = 1;
             values[valuesById[2] = "HIGH"] = 2;
@@ -686,12 +687,12 @@ $root.VnameCert = (function() {
          * @param {VnameCert.BizAccountLinkInfo.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
-        function BizAccountLinkInfo(properties) {
+        var BizAccountLinkInfo = function (properties) {
             if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
-        }
+        };
 
         /**
          * BizAccountLinkInfo whatsappBizAcctFbid.
@@ -737,31 +738,31 @@ $root.VnameCert = (function() {
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(BizAccountLinkInfo.prototype, "_whatsappBizAcctFbid", {
+        $Object.defineProperty(BizAccountLinkInfo.prototype, "_whatsappBizAcctFbid", {
             get: $util.oneOfGetter($oneOfFields = ["whatsappBizAcctFbid"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(BizAccountLinkInfo.prototype, "_whatsappAcctNumber", {
+        $Object.defineProperty(BizAccountLinkInfo.prototype, "_whatsappAcctNumber", {
             get: $util.oneOfGetter($oneOfFields = ["whatsappAcctNumber"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(BizAccountLinkInfo.prototype, "_issueTime", {
+        $Object.defineProperty(BizAccountLinkInfo.prototype, "_issueTime", {
             get: $util.oneOfGetter($oneOfFields = ["issueTime"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(BizAccountLinkInfo.prototype, "_hostStorage", {
+        $Object.defineProperty(BizAccountLinkInfo.prototype, "_hostStorage", {
             get: $util.oneOfGetter($oneOfFields = ["hostStorage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(BizAccountLinkInfo.prototype, "_accountType", {
+        $Object.defineProperty(BizAccountLinkInfo.prototype, "_accountType", {
             get: $util.oneOfGetter($oneOfFields = ["accountType"]),
             set: $util.oneOfSetter($oneOfFields)
         });
@@ -778,7 +779,7 @@ $root.VnameCert = (function() {
          *   (properties?: VnameCert.BizAccountLinkInfo.$Properties): VnameCert.BizAccountLinkInfo;
          * }}
          */
-        BizAccountLinkInfo.create = function create(properties) {
+        BizAccountLinkInfo.create = function(properties) {
             return new BizAccountLinkInfo(properties);
         };
 
@@ -791,24 +792,24 @@ $root.VnameCert = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        BizAccountLinkInfo.encode = function encode(message, writer, _depth) {
+        BizAccountLinkInfo.encode = function (message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
-            if (message.whatsappBizAcctFbid != null && Object.hasOwnProperty.call(message, "whatsappBizAcctFbid"))
+                throw $Error("max depth exceeded");
+            if (message.whatsappBizAcctFbid != null && $Object.hasOwnProperty.call(message, "whatsappBizAcctFbid"))
                 writer.uint32(/* id 1, wireType 0 =*/8).uint64(message.whatsappBizAcctFbid);
-            if (message.whatsappAcctNumber != null && Object.hasOwnProperty.call(message, "whatsappAcctNumber"))
+            if (message.whatsappAcctNumber != null && $Object.hasOwnProperty.call(message, "whatsappAcctNumber"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.whatsappAcctNumber);
-            if (message.issueTime != null && Object.hasOwnProperty.call(message, "issueTime"))
+            if (message.issueTime != null && $Object.hasOwnProperty.call(message, "issueTime"))
                 writer.uint32(/* id 3, wireType 0 =*/24).uint64(message.issueTime);
-            if (message.hostStorage != null && Object.hasOwnProperty.call(message, "hostStorage"))
+            if (message.hostStorage != null && $Object.hasOwnProperty.call(message, "hostStorage"))
                 writer.uint32(/* id 4, wireType 0 =*/32).int32(message.hostStorage);
-            if (message.accountType != null && Object.hasOwnProperty.call(message, "accountType"))
+            if (message.accountType != null && $Object.hasOwnProperty.call(message, "accountType"))
                 writer.uint32(/* id 5, wireType 0 =*/40).int32(message.accountType);
-            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
             return writer;
@@ -823,7 +824,7 @@ $root.VnameCert = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        BizAccountLinkInfo.encodeDelimited = function encodeDelimited(message, writer) {
+        BizAccountLinkInfo.encodeDelimited = function(message, writer) {
             return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
@@ -838,19 +839,19 @@ $root.VnameCert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BizAccountLinkInfo.decode = function decode(reader, length, _end, _depth, _target) {
+        BizAccountLinkInfo.decode = function (reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
-                throw Error("max depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.VnameCert.BizAccountLinkInfo();
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.VnameCert.BizAccountLinkInfo();
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
                 if (tag === _end) {
-                    _end = undefined;
+                    _end = $undefined;
                     break;
                 }
                 var wireType = tag & 7;
@@ -897,8 +898,8 @@ $root.VnameCert = (function() {
                     (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
             }
-            if (_end !== undefined)
-                throw Error("missing end group");
+            if (_end !== $undefined)
+                throw $Error("missing end group");
             return message;
         };
 
@@ -912,7 +913,7 @@ $root.VnameCert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BizAccountLinkInfo.decodeDelimited = function decodeDelimited(reader) {
+        BizAccountLinkInfo.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
@@ -926,30 +927,30 @@ $root.VnameCert = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BizAccountLinkInfo.verify = function verify(message, _depth) {
+        BizAccountLinkInfo.verify = function (message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 return "max depth exceeded";
             var properties = {};
-            if (message.whatsappBizAcctFbid != null && message.hasOwnProperty("whatsappBizAcctFbid")) {
+            if (message.whatsappBizAcctFbid != null && $Object.hasOwnProperty.call(message, "whatsappBizAcctFbid")) {
                 properties._whatsappBizAcctFbid = 1;
                 if (!$util.isInteger(message.whatsappBizAcctFbid) && !(message.whatsappBizAcctFbid && $util.isInteger(message.whatsappBizAcctFbid.low) && $util.isInteger(message.whatsappBizAcctFbid.high)))
                     return "whatsappBizAcctFbid: integer|Long expected";
             }
-            if (message.whatsappAcctNumber != null && message.hasOwnProperty("whatsappAcctNumber")) {
+            if (message.whatsappAcctNumber != null && $Object.hasOwnProperty.call(message, "whatsappAcctNumber")) {
                 properties._whatsappAcctNumber = 1;
                 if (!$util.isString(message.whatsappAcctNumber))
                     return "whatsappAcctNumber: string expected";
             }
-            if (message.issueTime != null && message.hasOwnProperty("issueTime")) {
+            if (message.issueTime != null && $Object.hasOwnProperty.call(message, "issueTime")) {
                 properties._issueTime = 1;
                 if (!$util.isInteger(message.issueTime) && !(message.issueTime && $util.isInteger(message.issueTime.low) && $util.isInteger(message.issueTime.high)))
                     return "issueTime: integer|Long expected";
             }
-            if (message.hostStorage != null && message.hasOwnProperty("hostStorage")) {
+            if (message.hostStorage != null && $Object.hasOwnProperty.call(message, "hostStorage")) {
                 properties._hostStorage = 1;
                 switch (message.hostStorage) {
                 default:
@@ -959,7 +960,7 @@ $root.VnameCert = (function() {
                     break;
                 }
             }
-            if (message.accountType != null && message.hasOwnProperty("accountType")) {
+            if (message.accountType != null && $Object.hasOwnProperty.call(message, "accountType")) {
                 properties._accountType = 1;
                 switch (message.accountType) {
                 default:
@@ -979,32 +980,32 @@ $root.VnameCert = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {VnameCert.BizAccountLinkInfo} BizAccountLinkInfo
          */
-        BizAccountLinkInfo.fromObject = function fromObject(object, _depth) {
+        BizAccountLinkInfo.fromObject = function (object, _depth) {
             if (object instanceof $root.VnameCert.BizAccountLinkInfo)
                 return object;
             if (!$util.isObject(object))
-                throw TypeError(".VnameCert.BizAccountLinkInfo: object expected");
-            if (_depth === undefined)
+                throw $TypeError(".VnameCert.BizAccountLinkInfo: object expected");
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var message = new $root.VnameCert.BizAccountLinkInfo();
             if (object.whatsappBizAcctFbid != null)
                 if ($util.Long)
                     message.whatsappBizAcctFbid = $util.Long.fromValue(object.whatsappBizAcctFbid, true);
                 else if (typeof object.whatsappBizAcctFbid === "string")
-                    message.whatsappBizAcctFbid = parseInt(object.whatsappBizAcctFbid, 10);
+                    message.whatsappBizAcctFbid = $parseInt(object.whatsappBizAcctFbid, 10);
                 else if (typeof object.whatsappBizAcctFbid === "number")
                     message.whatsappBizAcctFbid = object.whatsappBizAcctFbid;
                 else if (typeof object.whatsappBizAcctFbid === "object")
                     message.whatsappBizAcctFbid = new $util.LongBits(object.whatsappBizAcctFbid.low >>> 0, object.whatsappBizAcctFbid.high >>> 0).toNumber(true);
             if (object.whatsappAcctNumber != null)
-                message.whatsappAcctNumber = String(object.whatsappAcctNumber);
+                message.whatsappAcctNumber = $String(object.whatsappAcctNumber);
             if (object.issueTime != null)
                 if ($util.Long)
                     message.issueTime = $util.Long.fromValue(object.issueTime, true);
                 else if (typeof object.issueTime === "string")
-                    message.issueTime = parseInt(object.issueTime, 10);
+                    message.issueTime = $parseInt(object.issueTime, 10);
                 else if (typeof object.issueTime === "number")
                     message.issueTime = object.issueTime;
                 else if (typeof object.issueTime === "object")
@@ -1049,34 +1050,34 @@ $root.VnameCert = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        BizAccountLinkInfo.toObject = function toObject(message, options, _depth) {
+        BizAccountLinkInfo.toObject = function (message, options, _depth) {
             if (!options)
                 options = {};
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var object = {};
-            if (message.whatsappBizAcctFbid != null && message.hasOwnProperty("whatsappBizAcctFbid"))
-                if (typeof BigInt !== "undefined" && options.longs === BigInt)
-                    object.whatsappBizAcctFbid = typeof message.whatsappBizAcctFbid === "number" ? BigInt(message.whatsappBizAcctFbid) : $util.Long.fromBits(message.whatsappBizAcctFbid.low >>> 0, message.whatsappBizAcctFbid.high >>> 0, true).toBigInt();
+            if (message.whatsappBizAcctFbid != null && $Object.hasOwnProperty.call(message, "whatsappBizAcctFbid"))
+                if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                    object.whatsappBizAcctFbid = typeof message.whatsappBizAcctFbid === "number" ? $BigInt(message.whatsappBizAcctFbid) : $util.Long.fromBits(message.whatsappBizAcctFbid.low >>> 0, message.whatsappBizAcctFbid.high >>> 0, true).toBigInt();
                 else if (typeof message.whatsappBizAcctFbid === "number")
-                    object.whatsappBizAcctFbid = options.longs === String ? String(message.whatsappBizAcctFbid) : message.whatsappBizAcctFbid;
+                    object.whatsappBizAcctFbid = options.longs === $String ? $String(message.whatsappBizAcctFbid) : message.whatsappBizAcctFbid;
                 else
-                    object.whatsappBizAcctFbid = options.longs === String ? $util.Long.prototype.toString.call(message.whatsappBizAcctFbid) : options.longs === Number ? new $util.LongBits(message.whatsappBizAcctFbid.low >>> 0, message.whatsappBizAcctFbid.high >>> 0).toNumber(true) : message.whatsappBizAcctFbid;
-            if (message.whatsappAcctNumber != null && message.hasOwnProperty("whatsappAcctNumber"))
+                    object.whatsappBizAcctFbid = options.longs === $String ? $util.Long.prototype.toString.call(message.whatsappBizAcctFbid) : options.longs === $Number ? new $util.LongBits(message.whatsappBizAcctFbid.low >>> 0, message.whatsappBizAcctFbid.high >>> 0).toNumber(true) : message.whatsappBizAcctFbid;
+            if (message.whatsappAcctNumber != null && $Object.hasOwnProperty.call(message, "whatsappAcctNumber"))
                 object.whatsappAcctNumber = message.whatsappAcctNumber;
-            if (message.issueTime != null && message.hasOwnProperty("issueTime"))
-                if (typeof BigInt !== "undefined" && options.longs === BigInt)
-                    object.issueTime = typeof message.issueTime === "number" ? BigInt(message.issueTime) : $util.Long.fromBits(message.issueTime.low >>> 0, message.issueTime.high >>> 0, true).toBigInt();
+            if (message.issueTime != null && $Object.hasOwnProperty.call(message, "issueTime"))
+                if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                    object.issueTime = typeof message.issueTime === "number" ? $BigInt(message.issueTime) : $util.Long.fromBits(message.issueTime.low >>> 0, message.issueTime.high >>> 0, true).toBigInt();
                 else if (typeof message.issueTime === "number")
-                    object.issueTime = options.longs === String ? String(message.issueTime) : message.issueTime;
+                    object.issueTime = options.longs === $String ? $String(message.issueTime) : message.issueTime;
                 else
-                    object.issueTime = options.longs === String ? $util.Long.prototype.toString.call(message.issueTime) : options.longs === Number ? new $util.LongBits(message.issueTime.low >>> 0, message.issueTime.high >>> 0).toNumber(true) : message.issueTime;
-            if (message.hostStorage != null && message.hasOwnProperty("hostStorage"))
-                object.hostStorage = options.enums === String ? $root.VnameCert.BizAccountLinkInfo.HostStorageType[message.hostStorage] === undefined ? message.hostStorage : $root.VnameCert.BizAccountLinkInfo.HostStorageType[message.hostStorage] : message.hostStorage;
-            if (message.accountType != null && message.hasOwnProperty("accountType"))
-                object.accountType = options.enums === String ? $root.VnameCert.BizAccountLinkInfo.AccountType[message.accountType] === undefined ? message.accountType : $root.VnameCert.BizAccountLinkInfo.AccountType[message.accountType] : message.accountType;
+                    object.issueTime = options.longs === $String ? $util.Long.prototype.toString.call(message.issueTime) : options.longs === $Number ? new $util.LongBits(message.issueTime.low >>> 0, message.issueTime.high >>> 0).toNumber(true) : message.issueTime;
+            if (message.hostStorage != null && $Object.hasOwnProperty.call(message, "hostStorage"))
+                object.hostStorage = options.enums === $String ? $root.VnameCert.BizAccountLinkInfo.HostStorageType[message.hostStorage] === $undefined ? message.hostStorage : $root.VnameCert.BizAccountLinkInfo.HostStorageType[message.hostStorage] : message.hostStorage;
+            if (message.accountType != null && $Object.hasOwnProperty.call(message, "accountType"))
+                object.accountType = options.enums === $String ? $root.VnameCert.BizAccountLinkInfo.AccountType[message.accountType] === $undefined ? message.accountType : $root.VnameCert.BizAccountLinkInfo.AccountType[message.accountType] : message.accountType;
             return object;
         };
 
@@ -1087,8 +1088,8 @@ $root.VnameCert = (function() {
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        BizAccountLinkInfo.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        BizAccountLinkInfo.prototype.toJSON = function() {
+            return BizAccountLinkInfo.toObject(this, $protobuf.util.toJSONOptions);
         };
 
         /**
@@ -1099,8 +1100,8 @@ $root.VnameCert = (function() {
          * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
          * @returns {string} The type url
          */
-        BizAccountLinkInfo.getTypeUrl = function getTypeUrl(prefix) {
-            if (prefix === undefined)
+        BizAccountLinkInfo.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
                 prefix = "type.googleapis.com";
             return prefix + "/VnameCert.BizAccountLinkInfo";
         };
@@ -1112,7 +1113,7 @@ $root.VnameCert = (function() {
          * @property {number} ENTERPRISE=0 ENTERPRISE value
          */
         BizAccountLinkInfo.AccountType = (function() {
-            var valuesById = {}, values = Object.create(valuesById);
+            var valuesById = {}, values = $Object.create(valuesById);
             values[valuesById[0] = "ENTERPRISE"] = 0;
             return values;
         })();
@@ -1125,7 +1126,7 @@ $root.VnameCert = (function() {
          * @property {number} FACEBOOK=1 FACEBOOK value
          */
         BizAccountLinkInfo.HostStorageType = (function() {
-            var valuesById = {}, values = Object.create(valuesById);
+            var valuesById = {}, values = $Object.create(valuesById);
             values[valuesById[0] = "ON_PREMISE"] = 0;
             values[valuesById[1] = "FACEBOOK"] = 1;
             return values;
@@ -1165,12 +1166,12 @@ $root.VnameCert = (function() {
          * @param {VnameCert.BizAccountPayload.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
-        function BizAccountPayload(properties) {
+        var BizAccountPayload = function (properties) {
             if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
-        }
+        };
 
         /**
          * BizAccountPayload vnameCert.
@@ -1192,13 +1193,13 @@ $root.VnameCert = (function() {
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(BizAccountPayload.prototype, "_vnameCert", {
+        $Object.defineProperty(BizAccountPayload.prototype, "_vnameCert", {
             get: $util.oneOfGetter($oneOfFields = ["vnameCert"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(BizAccountPayload.prototype, "_bizAcctLinkInfo", {
+        $Object.defineProperty(BizAccountPayload.prototype, "_bizAcctLinkInfo", {
             get: $util.oneOfGetter($oneOfFields = ["bizAcctLinkInfo"]),
             set: $util.oneOfSetter($oneOfFields)
         });
@@ -1215,7 +1216,7 @@ $root.VnameCert = (function() {
          *   (properties?: VnameCert.BizAccountPayload.$Properties): VnameCert.BizAccountPayload;
          * }}
          */
-        BizAccountPayload.create = function create(properties) {
+        BizAccountPayload.create = function(properties) {
             return new BizAccountPayload(properties);
         };
 
@@ -1228,18 +1229,18 @@ $root.VnameCert = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        BizAccountPayload.encode = function encode(message, writer, _depth) {
+        BizAccountPayload.encode = function (message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
-            if (message.vnameCert != null && Object.hasOwnProperty.call(message, "vnameCert"))
+                throw $Error("max depth exceeded");
+            if (message.vnameCert != null && $Object.hasOwnProperty.call(message, "vnameCert"))
                 $root.VnameCert.VerifiedNameCertificate.encode(message.vnameCert, writer.uint32(/* id 1, wireType 2 =*/10).fork(), _depth + 1).ldelim();
-            if (message.bizAcctLinkInfo != null && Object.hasOwnProperty.call(message, "bizAcctLinkInfo"))
+            if (message.bizAcctLinkInfo != null && $Object.hasOwnProperty.call(message, "bizAcctLinkInfo"))
                 writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.bizAcctLinkInfo);
-            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
             return writer;
@@ -1254,7 +1255,7 @@ $root.VnameCert = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        BizAccountPayload.encodeDelimited = function encodeDelimited(message, writer) {
+        BizAccountPayload.encodeDelimited = function(message, writer) {
             return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
@@ -1269,19 +1270,19 @@ $root.VnameCert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BizAccountPayload.decode = function decode(reader, length, _end, _depth, _target) {
+        BizAccountPayload.decode = function (reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
-                throw Error("max depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.VnameCert.BizAccountPayload();
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.VnameCert.BizAccountPayload();
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
                 if (tag === _end) {
-                    _end = undefined;
+                    _end = $undefined;
                     break;
                 }
                 var wireType = tag & 7;
@@ -1289,7 +1290,7 @@ $root.VnameCert = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.vnameCert = $root.VnameCert.VerifiedNameCertificate.decode(reader, reader.uint32(), undefined, _depth + 1, message.vnameCert);
+                        message.vnameCert = $root.VnameCert.VerifiedNameCertificate.decode(reader, reader.uint32(), $undefined, _depth + 1, message.vnameCert);
                         message._vnameCert = "vnameCert";
                         continue;
                     }
@@ -1307,8 +1308,8 @@ $root.VnameCert = (function() {
                     (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
             }
-            if (_end !== undefined)
-                throw Error("missing end group");
+            if (_end !== $undefined)
+                throw $Error("missing end group");
             return message;
         };
 
@@ -1322,7 +1323,7 @@ $root.VnameCert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        BizAccountPayload.decodeDelimited = function decodeDelimited(reader) {
+        BizAccountPayload.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
@@ -1336,15 +1337,15 @@ $root.VnameCert = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        BizAccountPayload.verify = function verify(message, _depth) {
+        BizAccountPayload.verify = function (message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 return "max depth exceeded";
             var properties = {};
-            if (message.vnameCert != null && message.hasOwnProperty("vnameCert")) {
+            if (message.vnameCert != null && $Object.hasOwnProperty.call(message, "vnameCert")) {
                 properties._vnameCert = 1;
                 {
                     var error = $root.VnameCert.VerifiedNameCertificate.verify(message.vnameCert, _depth + 1);
@@ -1352,7 +1353,7 @@ $root.VnameCert = (function() {
                         return "vnameCert." + error;
                 }
             }
-            if (message.bizAcctLinkInfo != null && message.hasOwnProperty("bizAcctLinkInfo")) {
+            if (message.bizAcctLinkInfo != null && $Object.hasOwnProperty.call(message, "bizAcctLinkInfo")) {
                 properties._bizAcctLinkInfo = 1;
                 if (!(message.bizAcctLinkInfo && typeof message.bizAcctLinkInfo.length === "number" || $util.isString(message.bizAcctLinkInfo)))
                     return "bizAcctLinkInfo: buffer expected";
@@ -1368,19 +1369,19 @@ $root.VnameCert = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {VnameCert.BizAccountPayload} BizAccountPayload
          */
-        BizAccountPayload.fromObject = function fromObject(object, _depth) {
+        BizAccountPayload.fromObject = function (object, _depth) {
             if (object instanceof $root.VnameCert.BizAccountPayload)
                 return object;
             if (!$util.isObject(object))
-                throw TypeError(".VnameCert.BizAccountPayload: object expected");
-            if (_depth === undefined)
+                throw $TypeError(".VnameCert.BizAccountPayload: object expected");
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var message = new $root.VnameCert.BizAccountPayload();
             if (object.vnameCert != null) {
                 if (!$util.isObject(object.vnameCert))
-                    throw TypeError(".VnameCert.BizAccountPayload.vnameCert: object expected");
+                    throw $TypeError(".VnameCert.BizAccountPayload.vnameCert: object expected");
                 message.vnameCert = $root.VnameCert.VerifiedNameCertificate.fromObject(object.vnameCert, _depth + 1);
             }
             if (object.bizAcctLinkInfo != null)
@@ -1400,18 +1401,18 @@ $root.VnameCert = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        BizAccountPayload.toObject = function toObject(message, options, _depth) {
+        BizAccountPayload.toObject = function (message, options, _depth) {
             if (!options)
                 options = {};
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var object = {};
-            if (message.vnameCert != null && message.hasOwnProperty("vnameCert"))
+            if (message.vnameCert != null && $Object.hasOwnProperty.call(message, "vnameCert"))
                 object.vnameCert = $root.VnameCert.VerifiedNameCertificate.toObject(message.vnameCert, options, _depth + 1);
-            if (message.bizAcctLinkInfo != null && message.hasOwnProperty("bizAcctLinkInfo"))
-                object.bizAcctLinkInfo = options.bytes === String ? $util.base64.encode(message.bizAcctLinkInfo, 0, message.bizAcctLinkInfo.length) : options.bytes === Array ? Array.prototype.slice.call(message.bizAcctLinkInfo) : message.bizAcctLinkInfo;
+            if (message.bizAcctLinkInfo != null && $Object.hasOwnProperty.call(message, "bizAcctLinkInfo"))
+                object.bizAcctLinkInfo = options.bytes === $String ? $util.base64.encode(message.bizAcctLinkInfo, 0, message.bizAcctLinkInfo.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.bizAcctLinkInfo) : message.bizAcctLinkInfo;
             return object;
         };
 
@@ -1422,8 +1423,8 @@ $root.VnameCert = (function() {
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        BizAccountPayload.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        BizAccountPayload.prototype.toJSON = function() {
+            return BizAccountPayload.toObject(this, $protobuf.util.toJSONOptions);
         };
 
         /**
@@ -1434,8 +1435,8 @@ $root.VnameCert = (function() {
          * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
          * @returns {string} The type url
          */
-        BizAccountPayload.getTypeUrl = function getTypeUrl(prefix) {
-            if (prefix === undefined)
+        BizAccountPayload.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
                 prefix = "type.googleapis.com";
             return prefix + "/VnameCert.BizAccountPayload";
         };
@@ -1475,12 +1476,12 @@ $root.VnameCert = (function() {
          * @param {VnameCert.VerifiedNameCertificate.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
-        function VerifiedNameCertificate(properties) {
+        var VerifiedNameCertificate = function (properties) {
             if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
-        }
+        };
 
         /**
          * VerifiedNameCertificate details.
@@ -1510,19 +1511,19 @@ $root.VnameCert = (function() {
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(VerifiedNameCertificate.prototype, "_details", {
+        $Object.defineProperty(VerifiedNameCertificate.prototype, "_details", {
             get: $util.oneOfGetter($oneOfFields = ["details"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(VerifiedNameCertificate.prototype, "_signature", {
+        $Object.defineProperty(VerifiedNameCertificate.prototype, "_signature", {
             get: $util.oneOfGetter($oneOfFields = ["signature"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(VerifiedNameCertificate.prototype, "_serverSignature", {
+        $Object.defineProperty(VerifiedNameCertificate.prototype, "_serverSignature", {
             get: $util.oneOfGetter($oneOfFields = ["serverSignature"]),
             set: $util.oneOfSetter($oneOfFields)
         });
@@ -1539,7 +1540,7 @@ $root.VnameCert = (function() {
          *   (properties?: VnameCert.VerifiedNameCertificate.$Properties): VnameCert.VerifiedNameCertificate;
          * }}
          */
-        VerifiedNameCertificate.create = function create(properties) {
+        VerifiedNameCertificate.create = function(properties) {
             return new VerifiedNameCertificate(properties);
         };
 
@@ -1552,20 +1553,20 @@ $root.VnameCert = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        VerifiedNameCertificate.encode = function encode(message, writer, _depth) {
+        VerifiedNameCertificate.encode = function (message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
-            if (message.details != null && Object.hasOwnProperty.call(message, "details"))
+                throw $Error("max depth exceeded");
+            if (message.details != null && $Object.hasOwnProperty.call(message, "details"))
                 writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.details);
-            if (message.signature != null && Object.hasOwnProperty.call(message, "signature"))
+            if (message.signature != null && $Object.hasOwnProperty.call(message, "signature"))
                 writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.signature);
-            if (message.serverSignature != null && Object.hasOwnProperty.call(message, "serverSignature"))
+            if (message.serverSignature != null && $Object.hasOwnProperty.call(message, "serverSignature"))
                 writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.serverSignature);
-            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
             return writer;
@@ -1580,7 +1581,7 @@ $root.VnameCert = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        VerifiedNameCertificate.encodeDelimited = function encodeDelimited(message, writer) {
+        VerifiedNameCertificate.encodeDelimited = function(message, writer) {
             return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
@@ -1595,19 +1596,19 @@ $root.VnameCert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        VerifiedNameCertificate.decode = function decode(reader, length, _end, _depth, _target) {
+        VerifiedNameCertificate.decode = function (reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
-                throw Error("max depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.VnameCert.VerifiedNameCertificate();
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.VnameCert.VerifiedNameCertificate();
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
                 if (tag === _end) {
-                    _end = undefined;
+                    _end = $undefined;
                     break;
                 }
                 var wireType = tag & 7;
@@ -1640,8 +1641,8 @@ $root.VnameCert = (function() {
                     (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
             }
-            if (_end !== undefined)
-                throw Error("missing end group");
+            if (_end !== $undefined)
+                throw $Error("missing end group");
             return message;
         };
 
@@ -1655,7 +1656,7 @@ $root.VnameCert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        VerifiedNameCertificate.decodeDelimited = function decodeDelimited(reader) {
+        VerifiedNameCertificate.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
@@ -1669,25 +1670,25 @@ $root.VnameCert = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        VerifiedNameCertificate.verify = function verify(message, _depth) {
+        VerifiedNameCertificate.verify = function (message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 return "max depth exceeded";
             var properties = {};
-            if (message.details != null && message.hasOwnProperty("details")) {
+            if (message.details != null && $Object.hasOwnProperty.call(message, "details")) {
                 properties._details = 1;
                 if (!(message.details && typeof message.details.length === "number" || $util.isString(message.details)))
                     return "details: buffer expected";
             }
-            if (message.signature != null && message.hasOwnProperty("signature")) {
+            if (message.signature != null && $Object.hasOwnProperty.call(message, "signature")) {
                 properties._signature = 1;
                 if (!(message.signature && typeof message.signature.length === "number" || $util.isString(message.signature)))
                     return "signature: buffer expected";
             }
-            if (message.serverSignature != null && message.hasOwnProperty("serverSignature")) {
+            if (message.serverSignature != null && $Object.hasOwnProperty.call(message, "serverSignature")) {
                 properties._serverSignature = 1;
                 if (!(message.serverSignature && typeof message.serverSignature.length === "number" || $util.isString(message.serverSignature)))
                     return "serverSignature: buffer expected";
@@ -1703,15 +1704,15 @@ $root.VnameCert = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {VnameCert.VerifiedNameCertificate} VerifiedNameCertificate
          */
-        VerifiedNameCertificate.fromObject = function fromObject(object, _depth) {
+        VerifiedNameCertificate.fromObject = function (object, _depth) {
             if (object instanceof $root.VnameCert.VerifiedNameCertificate)
                 return object;
             if (!$util.isObject(object))
-                throw TypeError(".VnameCert.VerifiedNameCertificate: object expected");
-            if (_depth === undefined)
+                throw $TypeError(".VnameCert.VerifiedNameCertificate: object expected");
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var message = new $root.VnameCert.VerifiedNameCertificate();
             if (object.details != null)
                 if (typeof object.details === "string")
@@ -1740,20 +1741,20 @@ $root.VnameCert = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        VerifiedNameCertificate.toObject = function toObject(message, options, _depth) {
+        VerifiedNameCertificate.toObject = function (message, options, _depth) {
             if (!options)
                 options = {};
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var object = {};
-            if (message.details != null && message.hasOwnProperty("details"))
-                object.details = options.bytes === String ? $util.base64.encode(message.details, 0, message.details.length) : options.bytes === Array ? Array.prototype.slice.call(message.details) : message.details;
-            if (message.signature != null && message.hasOwnProperty("signature"))
-                object.signature = options.bytes === String ? $util.base64.encode(message.signature, 0, message.signature.length) : options.bytes === Array ? Array.prototype.slice.call(message.signature) : message.signature;
-            if (message.serverSignature != null && message.hasOwnProperty("serverSignature"))
-                object.serverSignature = options.bytes === String ? $util.base64.encode(message.serverSignature, 0, message.serverSignature.length) : options.bytes === Array ? Array.prototype.slice.call(message.serverSignature) : message.serverSignature;
+            if (message.details != null && $Object.hasOwnProperty.call(message, "details"))
+                object.details = options.bytes === $String ? $util.base64.encode(message.details, 0, message.details.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.details) : message.details;
+            if (message.signature != null && $Object.hasOwnProperty.call(message, "signature"))
+                object.signature = options.bytes === $String ? $util.base64.encode(message.signature, 0, message.signature.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.signature) : message.signature;
+            if (message.serverSignature != null && $Object.hasOwnProperty.call(message, "serverSignature"))
+                object.serverSignature = options.bytes === $String ? $util.base64.encode(message.serverSignature, 0, message.serverSignature.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.serverSignature) : message.serverSignature;
             return object;
         };
 
@@ -1764,8 +1765,8 @@ $root.VnameCert = (function() {
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        VerifiedNameCertificate.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        VerifiedNameCertificate.prototype.toJSON = function() {
+            return VerifiedNameCertificate.toObject(this, $protobuf.util.toJSONOptions);
         };
 
         /**
@@ -1776,8 +1777,8 @@ $root.VnameCert = (function() {
          * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
          * @returns {string} The type url
          */
-        VerifiedNameCertificate.getTypeUrl = function getTypeUrl(prefix) {
-            if (prefix === undefined)
+        VerifiedNameCertificate.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
                 prefix = "type.googleapis.com";
             return prefix + "/VnameCert.VerifiedNameCertificate";
         };
@@ -1816,13 +1817,13 @@ $root.VnameCert = (function() {
              * @param {VnameCert.VerifiedNameCertificate.Details.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
-            function Details(properties) {
+            var Details = function (properties) {
                 this.localizedNames = [];
                 if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null && keys[i] !== "__proto__")
                             this[keys[i]] = properties[keys[i]];
-            }
+            };
 
             /**
              * Details serial.
@@ -1868,25 +1869,25 @@ $root.VnameCert = (function() {
             var $oneOfFields;
 
             // Virtual OneOf for proto3 optional field
-            Object.defineProperty(Details.prototype, "_serial", {
+            $Object.defineProperty(Details.prototype, "_serial", {
                 get: $util.oneOfGetter($oneOfFields = ["serial"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
             // Virtual OneOf for proto3 optional field
-            Object.defineProperty(Details.prototype, "_issuer", {
+            $Object.defineProperty(Details.prototype, "_issuer", {
                 get: $util.oneOfGetter($oneOfFields = ["issuer"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
             // Virtual OneOf for proto3 optional field
-            Object.defineProperty(Details.prototype, "_verifiedName", {
+            $Object.defineProperty(Details.prototype, "_verifiedName", {
                 get: $util.oneOfGetter($oneOfFields = ["verifiedName"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
             // Virtual OneOf for proto3 optional field
-            Object.defineProperty(Details.prototype, "_issueTime", {
+            $Object.defineProperty(Details.prototype, "_issueTime", {
                 get: $util.oneOfGetter($oneOfFields = ["issueTime"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
@@ -1903,7 +1904,7 @@ $root.VnameCert = (function() {
              *   (properties?: VnameCert.VerifiedNameCertificate.Details.$Properties): VnameCert.VerifiedNameCertificate.Details;
              * }}
              */
-            Details.create = function create(properties) {
+            Details.create = function(properties) {
                 return new Details(properties);
             };
 
@@ -1916,25 +1917,25 @@ $root.VnameCert = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            Details.encode = function encode(message, writer, _depth) {
+            Details.encode = function (message, writer, _depth) {
                 if (!writer)
                     writer = $Writer.create();
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
-                if (message.serial != null && Object.hasOwnProperty.call(message, "serial"))
+                    throw $Error("max depth exceeded");
+                if (message.serial != null && $Object.hasOwnProperty.call(message, "serial"))
                     writer.uint32(/* id 1, wireType 0 =*/8).uint64(message.serial);
-                if (message.issuer != null && Object.hasOwnProperty.call(message, "issuer"))
+                if (message.issuer != null && $Object.hasOwnProperty.call(message, "issuer"))
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.issuer);
-                if (message.verifiedName != null && Object.hasOwnProperty.call(message, "verifiedName"))
+                if (message.verifiedName != null && $Object.hasOwnProperty.call(message, "verifiedName"))
                     writer.uint32(/* id 4, wireType 2 =*/34).string(message.verifiedName);
                 if (message.localizedNames != null && message.localizedNames.length)
                     for (var i = 0; i < message.localizedNames.length; ++i)
                         $root.VnameCert.LocalizedName.encode(message.localizedNames[i], writer.uint32(/* id 8, wireType 2 =*/66).fork(), _depth + 1).ldelim();
-                if (message.issueTime != null && Object.hasOwnProperty.call(message, "issueTime"))
+                if (message.issueTime != null && $Object.hasOwnProperty.call(message, "issueTime"))
                     writer.uint32(/* id 10, wireType 0 =*/80).uint64(message.issueTime);
-                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
                 return writer;
@@ -1949,7 +1950,7 @@ $root.VnameCert = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            Details.encodeDelimited = function encodeDelimited(message, writer) {
+            Details.encodeDelimited = function(message, writer) {
                 return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
             };
 
@@ -1964,19 +1965,19 @@ $root.VnameCert = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Details.decode = function decode(reader, length, _end, _depth, _target) {
+            Details.decode = function (reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
-                    throw Error("max depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.VnameCert.VerifiedNameCertificate.Details();
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.VnameCert.VerifiedNameCertificate.Details();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
                     if (tag === _end) {
-                        _end = undefined;
+                        _end = $undefined;
                         break;
                     }
                     var wireType = tag & 7;
@@ -2007,7 +2008,7 @@ $root.VnameCert = (function() {
                                 break;
                             if (!(message.localizedNames && message.localizedNames.length))
                                 message.localizedNames = [];
-                            message.localizedNames.push($root.VnameCert.LocalizedName.decode(reader, reader.uint32(), undefined, _depth + 1));
+                            message.localizedNames.push($root.VnameCert.LocalizedName.decode(reader, reader.uint32(), $undefined, _depth + 1));
                             continue;
                         }
                     case 10: {
@@ -2024,8 +2025,8 @@ $root.VnameCert = (function() {
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
                 }
-                if (_end !== undefined)
-                    throw Error("missing end group");
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
                 return message;
             };
 
@@ -2039,7 +2040,7 @@ $root.VnameCert = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Details.decodeDelimited = function decodeDelimited(reader) {
+            Details.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
@@ -2053,31 +2054,31 @@ $root.VnameCert = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            Details.verify = function verify(message, _depth) {
+            Details.verify = function (message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     return "max depth exceeded";
                 var properties = {};
-                if (message.serial != null && message.hasOwnProperty("serial")) {
+                if (message.serial != null && $Object.hasOwnProperty.call(message, "serial")) {
                     properties._serial = 1;
                     if (!$util.isInteger(message.serial) && !(message.serial && $util.isInteger(message.serial.low) && $util.isInteger(message.serial.high)))
                         return "serial: integer|Long expected";
                 }
-                if (message.issuer != null && message.hasOwnProperty("issuer")) {
+                if (message.issuer != null && $Object.hasOwnProperty.call(message, "issuer")) {
                     properties._issuer = 1;
                     if (!$util.isString(message.issuer))
                         return "issuer: string expected";
                 }
-                if (message.verifiedName != null && message.hasOwnProperty("verifiedName")) {
+                if (message.verifiedName != null && $Object.hasOwnProperty.call(message, "verifiedName")) {
                     properties._verifiedName = 1;
                     if (!$util.isString(message.verifiedName))
                         return "verifiedName: string expected";
                 }
-                if (message.localizedNames != null && message.hasOwnProperty("localizedNames")) {
-                    if (!Array.isArray(message.localizedNames))
+                if (message.localizedNames != null && $Object.hasOwnProperty.call(message, "localizedNames")) {
+                    if (!$Array.isArray(message.localizedNames))
                         return "localizedNames: array expected";
                     for (var i = 0; i < message.localizedNames.length; ++i) {
                         var error = $root.VnameCert.LocalizedName.verify(message.localizedNames[i], _depth + 1);
@@ -2085,7 +2086,7 @@ $root.VnameCert = (function() {
                             return "localizedNames." + error;
                     }
                 }
-                if (message.issueTime != null && message.hasOwnProperty("issueTime")) {
+                if (message.issueTime != null && $Object.hasOwnProperty.call(message, "issueTime")) {
                     properties._issueTime = 1;
                     if (!$util.isInteger(message.issueTime) && !(message.issueTime && $util.isInteger(message.issueTime.low) && $util.isInteger(message.issueTime.high)))
                         return "issueTime: integer|Long expected";
@@ -2101,36 +2102,36 @@ $root.VnameCert = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {VnameCert.VerifiedNameCertificate.Details} Details
              */
-            Details.fromObject = function fromObject(object, _depth) {
+            Details.fromObject = function (object, _depth) {
                 if (object instanceof $root.VnameCert.VerifiedNameCertificate.Details)
                     return object;
                 if (!$util.isObject(object))
-                    throw TypeError(".VnameCert.VerifiedNameCertificate.Details: object expected");
-                if (_depth === undefined)
+                    throw $TypeError(".VnameCert.VerifiedNameCertificate.Details: object expected");
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
+                    throw $Error("max depth exceeded");
                 var message = new $root.VnameCert.VerifiedNameCertificate.Details();
                 if (object.serial != null)
                     if ($util.Long)
                         message.serial = $util.Long.fromValue(object.serial, true);
                     else if (typeof object.serial === "string")
-                        message.serial = parseInt(object.serial, 10);
+                        message.serial = $parseInt(object.serial, 10);
                     else if (typeof object.serial === "number")
                         message.serial = object.serial;
                     else if (typeof object.serial === "object")
                         message.serial = new $util.LongBits(object.serial.low >>> 0, object.serial.high >>> 0).toNumber(true);
                 if (object.issuer != null)
-                    message.issuer = String(object.issuer);
+                    message.issuer = $String(object.issuer);
                 if (object.verifiedName != null)
-                    message.verifiedName = String(object.verifiedName);
+                    message.verifiedName = $String(object.verifiedName);
                 if (object.localizedNames) {
-                    if (!Array.isArray(object.localizedNames))
-                        throw TypeError(".VnameCert.VerifiedNameCertificate.Details.localizedNames: array expected");
-                    message.localizedNames = Array(object.localizedNames.length);
+                    if (!$Array.isArray(object.localizedNames))
+                        throw $TypeError(".VnameCert.VerifiedNameCertificate.Details.localizedNames: array expected");
+                    message.localizedNames = $Array(object.localizedNames.length);
                     for (var i = 0; i < object.localizedNames.length; ++i) {
                         if (!$util.isObject(object.localizedNames[i]))
-                            throw TypeError(".VnameCert.VerifiedNameCertificate.Details.localizedNames: object expected");
+                            throw $TypeError(".VnameCert.VerifiedNameCertificate.Details.localizedNames: object expected");
                         message.localizedNames[i] = $root.VnameCert.LocalizedName.fromObject(object.localizedNames[i], _depth + 1);
                     }
                 }
@@ -2138,7 +2139,7 @@ $root.VnameCert = (function() {
                     if ($util.Long)
                         message.issueTime = $util.Long.fromValue(object.issueTime, true);
                     else if (typeof object.issueTime === "string")
-                        message.issueTime = parseInt(object.issueTime, 10);
+                        message.issueTime = $parseInt(object.issueTime, 10);
                     else if (typeof object.issueTime === "number")
                         message.issueTime = object.issueTime;
                     else if (typeof object.issueTime === "object")
@@ -2155,39 +2156,39 @@ $root.VnameCert = (function() {
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            Details.toObject = function toObject(message, options, _depth) {
+            Details.toObject = function (message, options, _depth) {
                 if (!options)
                     options = {};
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
+                    throw $Error("max depth exceeded");
                 var object = {};
                 if (options.arrays || options.defaults)
                     object.localizedNames = [];
-                if (message.serial != null && message.hasOwnProperty("serial"))
-                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
-                        object.serial = typeof message.serial === "number" ? BigInt(message.serial) : $util.Long.fromBits(message.serial.low >>> 0, message.serial.high >>> 0, true).toBigInt();
+                if (message.serial != null && $Object.hasOwnProperty.call(message, "serial"))
+                    if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                        object.serial = typeof message.serial === "number" ? $BigInt(message.serial) : $util.Long.fromBits(message.serial.low >>> 0, message.serial.high >>> 0, true).toBigInt();
                     else if (typeof message.serial === "number")
-                        object.serial = options.longs === String ? String(message.serial) : message.serial;
+                        object.serial = options.longs === $String ? $String(message.serial) : message.serial;
                     else
-                        object.serial = options.longs === String ? $util.Long.prototype.toString.call(message.serial) : options.longs === Number ? new $util.LongBits(message.serial.low >>> 0, message.serial.high >>> 0).toNumber(true) : message.serial;
-                if (message.issuer != null && message.hasOwnProperty("issuer"))
+                        object.serial = options.longs === $String ? $util.Long.prototype.toString.call(message.serial) : options.longs === $Number ? new $util.LongBits(message.serial.low >>> 0, message.serial.high >>> 0).toNumber(true) : message.serial;
+                if (message.issuer != null && $Object.hasOwnProperty.call(message, "issuer"))
                     object.issuer = message.issuer;
-                if (message.verifiedName != null && message.hasOwnProperty("verifiedName"))
+                if (message.verifiedName != null && $Object.hasOwnProperty.call(message, "verifiedName"))
                     object.verifiedName = message.verifiedName;
                 if (message.localizedNames && message.localizedNames.length) {
-                    object.localizedNames = Array(message.localizedNames.length);
+                    object.localizedNames = $Array(message.localizedNames.length);
                     for (var j = 0; j < message.localizedNames.length; ++j)
                         object.localizedNames[j] = $root.VnameCert.LocalizedName.toObject(message.localizedNames[j], options, _depth + 1);
                 }
-                if (message.issueTime != null && message.hasOwnProperty("issueTime"))
-                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
-                        object.issueTime = typeof message.issueTime === "number" ? BigInt(message.issueTime) : $util.Long.fromBits(message.issueTime.low >>> 0, message.issueTime.high >>> 0, true).toBigInt();
+                if (message.issueTime != null && $Object.hasOwnProperty.call(message, "issueTime"))
+                    if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                        object.issueTime = typeof message.issueTime === "number" ? $BigInt(message.issueTime) : $util.Long.fromBits(message.issueTime.low >>> 0, message.issueTime.high >>> 0, true).toBigInt();
                     else if (typeof message.issueTime === "number")
-                        object.issueTime = options.longs === String ? String(message.issueTime) : message.issueTime;
+                        object.issueTime = options.longs === $String ? $String(message.issueTime) : message.issueTime;
                     else
-                        object.issueTime = options.longs === String ? $util.Long.prototype.toString.call(message.issueTime) : options.longs === Number ? new $util.LongBits(message.issueTime.low >>> 0, message.issueTime.high >>> 0).toNumber(true) : message.issueTime;
+                        object.issueTime = options.longs === $String ? $util.Long.prototype.toString.call(message.issueTime) : options.longs === $Number ? new $util.LongBits(message.issueTime.low >>> 0, message.issueTime.high >>> 0).toNumber(true) : message.issueTime;
                 return object;
             };
 
@@ -2198,8 +2199,8 @@ $root.VnameCert = (function() {
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            Details.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            Details.prototype.toJSON = function() {
+                return Details.toObject(this, $protobuf.util.toJSONOptions);
             };
 
             /**
@@ -2210,8 +2211,8 @@ $root.VnameCert = (function() {
              * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
              * @returns {string} The type url
              */
-            Details.getTypeUrl = function getTypeUrl(prefix) {
-                if (prefix === undefined)
+            Details.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
                     prefix = "type.googleapis.com";
                 return prefix + "/VnameCert.VerifiedNameCertificate.Details";
             };
@@ -2254,12 +2255,12 @@ $root.VnameCert = (function() {
          * @param {VnameCert.LocalizedName.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
-        function LocalizedName(properties) {
+        var LocalizedName = function (properties) {
             if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
-        }
+        };
 
         /**
          * LocalizedName lg.
@@ -2289,19 +2290,19 @@ $root.VnameCert = (function() {
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(LocalizedName.prototype, "_lg", {
+        $Object.defineProperty(LocalizedName.prototype, "_lg", {
             get: $util.oneOfGetter($oneOfFields = ["lg"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(LocalizedName.prototype, "_lc", {
+        $Object.defineProperty(LocalizedName.prototype, "_lc", {
             get: $util.oneOfGetter($oneOfFields = ["lc"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(LocalizedName.prototype, "_verifiedName", {
+        $Object.defineProperty(LocalizedName.prototype, "_verifiedName", {
             get: $util.oneOfGetter($oneOfFields = ["verifiedName"]),
             set: $util.oneOfSetter($oneOfFields)
         });
@@ -2318,7 +2319,7 @@ $root.VnameCert = (function() {
          *   (properties?: VnameCert.LocalizedName.$Properties): VnameCert.LocalizedName;
          * }}
          */
-        LocalizedName.create = function create(properties) {
+        LocalizedName.create = function(properties) {
             return new LocalizedName(properties);
         };
 
@@ -2331,20 +2332,20 @@ $root.VnameCert = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        LocalizedName.encode = function encode(message, writer, _depth) {
+        LocalizedName.encode = function (message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
-            if (message.lg != null && Object.hasOwnProperty.call(message, "lg"))
+                throw $Error("max depth exceeded");
+            if (message.lg != null && $Object.hasOwnProperty.call(message, "lg"))
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.lg);
-            if (message.lc != null && Object.hasOwnProperty.call(message, "lc"))
+            if (message.lc != null && $Object.hasOwnProperty.call(message, "lc"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.lc);
-            if (message.verifiedName != null && Object.hasOwnProperty.call(message, "verifiedName"))
+            if (message.verifiedName != null && $Object.hasOwnProperty.call(message, "verifiedName"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.verifiedName);
-            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
             return writer;
@@ -2359,7 +2360,7 @@ $root.VnameCert = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        LocalizedName.encodeDelimited = function encodeDelimited(message, writer) {
+        LocalizedName.encodeDelimited = function(message, writer) {
             return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
@@ -2374,19 +2375,19 @@ $root.VnameCert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        LocalizedName.decode = function decode(reader, length, _end, _depth, _target) {
+        LocalizedName.decode = function (reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
-                throw Error("max depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.VnameCert.LocalizedName();
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.VnameCert.LocalizedName();
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
                 if (tag === _end) {
-                    _end = undefined;
+                    _end = $undefined;
                     break;
                 }
                 var wireType = tag & 7;
@@ -2419,8 +2420,8 @@ $root.VnameCert = (function() {
                     (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
             }
-            if (_end !== undefined)
-                throw Error("missing end group");
+            if (_end !== $undefined)
+                throw $Error("missing end group");
             return message;
         };
 
@@ -2434,7 +2435,7 @@ $root.VnameCert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        LocalizedName.decodeDelimited = function decodeDelimited(reader) {
+        LocalizedName.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
@@ -2448,25 +2449,25 @@ $root.VnameCert = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        LocalizedName.verify = function verify(message, _depth) {
+        LocalizedName.verify = function (message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 return "max depth exceeded";
             var properties = {};
-            if (message.lg != null && message.hasOwnProperty("lg")) {
+            if (message.lg != null && $Object.hasOwnProperty.call(message, "lg")) {
                 properties._lg = 1;
                 if (!$util.isString(message.lg))
                     return "lg: string expected";
             }
-            if (message.lc != null && message.hasOwnProperty("lc")) {
+            if (message.lc != null && $Object.hasOwnProperty.call(message, "lc")) {
                 properties._lc = 1;
                 if (!$util.isString(message.lc))
                     return "lc: string expected";
             }
-            if (message.verifiedName != null && message.hasOwnProperty("verifiedName")) {
+            if (message.verifiedName != null && $Object.hasOwnProperty.call(message, "verifiedName")) {
                 properties._verifiedName = 1;
                 if (!$util.isString(message.verifiedName))
                     return "verifiedName: string expected";
@@ -2482,22 +2483,22 @@ $root.VnameCert = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {VnameCert.LocalizedName} LocalizedName
          */
-        LocalizedName.fromObject = function fromObject(object, _depth) {
+        LocalizedName.fromObject = function (object, _depth) {
             if (object instanceof $root.VnameCert.LocalizedName)
                 return object;
             if (!$util.isObject(object))
-                throw TypeError(".VnameCert.LocalizedName: object expected");
-            if (_depth === undefined)
+                throw $TypeError(".VnameCert.LocalizedName: object expected");
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var message = new $root.VnameCert.LocalizedName();
             if (object.lg != null)
-                message.lg = String(object.lg);
+                message.lg = $String(object.lg);
             if (object.lc != null)
-                message.lc = String(object.lc);
+                message.lc = $String(object.lc);
             if (object.verifiedName != null)
-                message.verifiedName = String(object.verifiedName);
+                message.verifiedName = $String(object.verifiedName);
             return message;
         };
 
@@ -2510,19 +2511,19 @@ $root.VnameCert = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        LocalizedName.toObject = function toObject(message, options, _depth) {
+        LocalizedName.toObject = function (message, options, _depth) {
             if (!options)
                 options = {};
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var object = {};
-            if (message.lg != null && message.hasOwnProperty("lg"))
+            if (message.lg != null && $Object.hasOwnProperty.call(message, "lg"))
                 object.lg = message.lg;
-            if (message.lc != null && message.hasOwnProperty("lc"))
+            if (message.lc != null && $Object.hasOwnProperty.call(message, "lc"))
                 object.lc = message.lc;
-            if (message.verifiedName != null && message.hasOwnProperty("verifiedName"))
+            if (message.verifiedName != null && $Object.hasOwnProperty.call(message, "verifiedName"))
                 object.verifiedName = message.verifiedName;
             return object;
         };
@@ -2534,8 +2535,8 @@ $root.VnameCert = (function() {
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        LocalizedName.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        LocalizedName.prototype.toJSON = function() {
+            return LocalizedName.toObject(this, $protobuf.util.toJSONOptions);
         };
 
         /**
@@ -2546,8 +2547,8 @@ $root.VnameCert = (function() {
          * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
          * @returns {string} The type url
          */
-        LocalizedName.getTypeUrl = function getTypeUrl(prefix) {
-            if (prefix === undefined)
+        LocalizedName.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
                 prefix = "type.googleapis.com";
             return prefix + "/VnameCert.LocalizedName";
         };

@@ -5,6 +5,7 @@ var $protobuf = require("protobufjs/minimal");
 
 // Common aliases
 var $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.util;
+var $Object = $util.global.Object, $undefined = $util.global.undefined, $Error = $util.global.Error, $TypeError = $util.global.TypeError, $Boolean = $util.global.Boolean, $parseInt = $util.global.parseInt, $String = $util.global.String, $BigInt = $util.global.BigInt, $Number = $util.global.Number;
 
 // Exported root namespace
 var $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
@@ -51,12 +52,12 @@ $root.Protocol = (function() {
          * @param {Protocol.LimitSharing.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
-        function LimitSharing(properties) {
+        var LimitSharing = function (properties) {
             if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
-        }
+        };
 
         /**
          * LimitSharing sharingLimited.
@@ -94,25 +95,25 @@ $root.Protocol = (function() {
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(LimitSharing.prototype, "_sharingLimited", {
+        $Object.defineProperty(LimitSharing.prototype, "_sharingLimited", {
             get: $util.oneOfGetter($oneOfFields = ["sharingLimited"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(LimitSharing.prototype, "_trigger", {
+        $Object.defineProperty(LimitSharing.prototype, "_trigger", {
             get: $util.oneOfGetter($oneOfFields = ["trigger"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(LimitSharing.prototype, "_limitSharingSettingTimestamp", {
+        $Object.defineProperty(LimitSharing.prototype, "_limitSharingSettingTimestamp", {
             get: $util.oneOfGetter($oneOfFields = ["limitSharingSettingTimestamp"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(LimitSharing.prototype, "_initiatedByMe", {
+        $Object.defineProperty(LimitSharing.prototype, "_initiatedByMe", {
             get: $util.oneOfGetter($oneOfFields = ["initiatedByMe"]),
             set: $util.oneOfSetter($oneOfFields)
         });
@@ -129,7 +130,7 @@ $root.Protocol = (function() {
          *   (properties?: Protocol.LimitSharing.$Properties): Protocol.LimitSharing;
          * }}
          */
-        LimitSharing.create = function create(properties) {
+        LimitSharing.create = function(properties) {
             return new LimitSharing(properties);
         };
 
@@ -142,22 +143,22 @@ $root.Protocol = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        LimitSharing.encode = function encode(message, writer, _depth) {
+        LimitSharing.encode = function (message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
-            if (message.sharingLimited != null && Object.hasOwnProperty.call(message, "sharingLimited"))
+                throw $Error("max depth exceeded");
+            if (message.sharingLimited != null && $Object.hasOwnProperty.call(message, "sharingLimited"))
                 writer.uint32(/* id 1, wireType 0 =*/8).bool(message.sharingLimited);
-            if (message.trigger != null && Object.hasOwnProperty.call(message, "trigger"))
+            if (message.trigger != null && $Object.hasOwnProperty.call(message, "trigger"))
                 writer.uint32(/* id 2, wireType 0 =*/16).int32(message.trigger);
-            if (message.limitSharingSettingTimestamp != null && Object.hasOwnProperty.call(message, "limitSharingSettingTimestamp"))
+            if (message.limitSharingSettingTimestamp != null && $Object.hasOwnProperty.call(message, "limitSharingSettingTimestamp"))
                 writer.uint32(/* id 3, wireType 0 =*/24).int64(message.limitSharingSettingTimestamp);
-            if (message.initiatedByMe != null && Object.hasOwnProperty.call(message, "initiatedByMe"))
+            if (message.initiatedByMe != null && $Object.hasOwnProperty.call(message, "initiatedByMe"))
                 writer.uint32(/* id 4, wireType 0 =*/32).bool(message.initiatedByMe);
-            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
             return writer;
@@ -172,7 +173,7 @@ $root.Protocol = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        LimitSharing.encodeDelimited = function encodeDelimited(message, writer) {
+        LimitSharing.encodeDelimited = function(message, writer) {
             return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
@@ -187,19 +188,19 @@ $root.Protocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        LimitSharing.decode = function decode(reader, length, _end, _depth, _target) {
+        LimitSharing.decode = function (reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
-                throw Error("max depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Protocol.LimitSharing();
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Protocol.LimitSharing();
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
                 if (tag === _end) {
-                    _end = undefined;
+                    _end = $undefined;
                     break;
                 }
                 var wireType = tag & 7;
@@ -239,8 +240,8 @@ $root.Protocol = (function() {
                     (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
             }
-            if (_end !== undefined)
-                throw Error("missing end group");
+            if (_end !== $undefined)
+                throw $Error("missing end group");
             return message;
         };
 
@@ -254,7 +255,7 @@ $root.Protocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        LimitSharing.decodeDelimited = function decodeDelimited(reader) {
+        LimitSharing.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
@@ -268,20 +269,20 @@ $root.Protocol = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        LimitSharing.verify = function verify(message, _depth) {
+        LimitSharing.verify = function (message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 return "max depth exceeded";
             var properties = {};
-            if (message.sharingLimited != null && message.hasOwnProperty("sharingLimited")) {
+            if (message.sharingLimited != null && $Object.hasOwnProperty.call(message, "sharingLimited")) {
                 properties._sharingLimited = 1;
                 if (typeof message.sharingLimited !== "boolean")
                     return "sharingLimited: boolean expected";
             }
-            if (message.trigger != null && message.hasOwnProperty("trigger")) {
+            if (message.trigger != null && $Object.hasOwnProperty.call(message, "trigger")) {
                 properties._trigger = 1;
                 switch (message.trigger) {
                 default:
@@ -293,12 +294,12 @@ $root.Protocol = (function() {
                     break;
                 }
             }
-            if (message.limitSharingSettingTimestamp != null && message.hasOwnProperty("limitSharingSettingTimestamp")) {
+            if (message.limitSharingSettingTimestamp != null && $Object.hasOwnProperty.call(message, "limitSharingSettingTimestamp")) {
                 properties._limitSharingSettingTimestamp = 1;
                 if (!$util.isInteger(message.limitSharingSettingTimestamp) && !(message.limitSharingSettingTimestamp && $util.isInteger(message.limitSharingSettingTimestamp.low) && $util.isInteger(message.limitSharingSettingTimestamp.high)))
                     return "limitSharingSettingTimestamp: integer|Long expected";
             }
-            if (message.initiatedByMe != null && message.hasOwnProperty("initiatedByMe")) {
+            if (message.initiatedByMe != null && $Object.hasOwnProperty.call(message, "initiatedByMe")) {
                 properties._initiatedByMe = 1;
                 if (typeof message.initiatedByMe !== "boolean")
                     return "initiatedByMe: boolean expected";
@@ -314,18 +315,18 @@ $root.Protocol = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Protocol.LimitSharing} LimitSharing
          */
-        LimitSharing.fromObject = function fromObject(object, _depth) {
+        LimitSharing.fromObject = function (object, _depth) {
             if (object instanceof $root.Protocol.LimitSharing)
                 return object;
             if (!$util.isObject(object))
-                throw TypeError(".Protocol.LimitSharing: object expected");
-            if (_depth === undefined)
+                throw $TypeError(".Protocol.LimitSharing: object expected");
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var message = new $root.Protocol.LimitSharing();
             if (object.sharingLimited != null)
-                message.sharingLimited = Boolean(object.sharingLimited);
+                message.sharingLimited = $Boolean(object.sharingLimited);
             switch (object.trigger) {
             default:
                 if (typeof object.trigger === "number") {
@@ -354,13 +355,13 @@ $root.Protocol = (function() {
                 if ($util.Long)
                     message.limitSharingSettingTimestamp = $util.Long.fromValue(object.limitSharingSettingTimestamp, false);
                 else if (typeof object.limitSharingSettingTimestamp === "string")
-                    message.limitSharingSettingTimestamp = parseInt(object.limitSharingSettingTimestamp, 10);
+                    message.limitSharingSettingTimestamp = $parseInt(object.limitSharingSettingTimestamp, 10);
                 else if (typeof object.limitSharingSettingTimestamp === "number")
                     message.limitSharingSettingTimestamp = object.limitSharingSettingTimestamp;
                 else if (typeof object.limitSharingSettingTimestamp === "object")
                     message.limitSharingSettingTimestamp = new $util.LongBits(object.limitSharingSettingTimestamp.low >>> 0, object.limitSharingSettingTimestamp.high >>> 0).toNumber();
             if (object.initiatedByMe != null)
-                message.initiatedByMe = Boolean(object.initiatedByMe);
+                message.initiatedByMe = $Boolean(object.initiatedByMe);
             return message;
         };
 
@@ -373,26 +374,26 @@ $root.Protocol = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        LimitSharing.toObject = function toObject(message, options, _depth) {
+        LimitSharing.toObject = function (message, options, _depth) {
             if (!options)
                 options = {};
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var object = {};
-            if (message.sharingLimited != null && message.hasOwnProperty("sharingLimited"))
+            if (message.sharingLimited != null && $Object.hasOwnProperty.call(message, "sharingLimited"))
                 object.sharingLimited = message.sharingLimited;
-            if (message.trigger != null && message.hasOwnProperty("trigger"))
-                object.trigger = options.enums === String ? $root.Protocol.LimitSharing.TriggerType[message.trigger] === undefined ? message.trigger : $root.Protocol.LimitSharing.TriggerType[message.trigger] : message.trigger;
-            if (message.limitSharingSettingTimestamp != null && message.hasOwnProperty("limitSharingSettingTimestamp"))
-                if (typeof BigInt !== "undefined" && options.longs === BigInt)
-                    object.limitSharingSettingTimestamp = typeof message.limitSharingSettingTimestamp === "number" ? BigInt(message.limitSharingSettingTimestamp) : $util.Long.fromBits(message.limitSharingSettingTimestamp.low >>> 0, message.limitSharingSettingTimestamp.high >>> 0, false).toBigInt();
+            if (message.trigger != null && $Object.hasOwnProperty.call(message, "trigger"))
+                object.trigger = options.enums === $String ? $root.Protocol.LimitSharing.TriggerType[message.trigger] === $undefined ? message.trigger : $root.Protocol.LimitSharing.TriggerType[message.trigger] : message.trigger;
+            if (message.limitSharingSettingTimestamp != null && $Object.hasOwnProperty.call(message, "limitSharingSettingTimestamp"))
+                if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                    object.limitSharingSettingTimestamp = typeof message.limitSharingSettingTimestamp === "number" ? $BigInt(message.limitSharingSettingTimestamp) : $util.Long.fromBits(message.limitSharingSettingTimestamp.low >>> 0, message.limitSharingSettingTimestamp.high >>> 0, false).toBigInt();
                 else if (typeof message.limitSharingSettingTimestamp === "number")
-                    object.limitSharingSettingTimestamp = options.longs === String ? String(message.limitSharingSettingTimestamp) : message.limitSharingSettingTimestamp;
+                    object.limitSharingSettingTimestamp = options.longs === $String ? $String(message.limitSharingSettingTimestamp) : message.limitSharingSettingTimestamp;
                 else
-                    object.limitSharingSettingTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.limitSharingSettingTimestamp) : options.longs === Number ? new $util.LongBits(message.limitSharingSettingTimestamp.low >>> 0, message.limitSharingSettingTimestamp.high >>> 0).toNumber() : message.limitSharingSettingTimestamp;
-            if (message.initiatedByMe != null && message.hasOwnProperty("initiatedByMe"))
+                    object.limitSharingSettingTimestamp = options.longs === $String ? $util.Long.prototype.toString.call(message.limitSharingSettingTimestamp) : options.longs === $Number ? new $util.LongBits(message.limitSharingSettingTimestamp.low >>> 0, message.limitSharingSettingTimestamp.high >>> 0).toNumber() : message.limitSharingSettingTimestamp;
+            if (message.initiatedByMe != null && $Object.hasOwnProperty.call(message, "initiatedByMe"))
                 object.initiatedByMe = message.initiatedByMe;
             return object;
         };
@@ -404,8 +405,8 @@ $root.Protocol = (function() {
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        LimitSharing.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        LimitSharing.prototype.toJSON = function() {
+            return LimitSharing.toObject(this, $protobuf.util.toJSONOptions);
         };
 
         /**
@@ -416,8 +417,8 @@ $root.Protocol = (function() {
          * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
          * @returns {string} The type url
          */
-        LimitSharing.getTypeUrl = function getTypeUrl(prefix) {
-            if (prefix === undefined)
+        LimitSharing.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
                 prefix = "type.googleapis.com";
             return prefix + "/Protocol.LimitSharing";
         };
@@ -432,7 +433,7 @@ $root.Protocol = (function() {
          * @property {number} UNKNOWN_GROUP=3 UNKNOWN_GROUP value
          */
         LimitSharing.TriggerType = (function() {
-            var valuesById = {}, values = Object.create(valuesById);
+            var valuesById = {}, values = $Object.create(valuesById);
             values[valuesById[0] = "UNKNOWN"] = 0;
             values[valuesById[1] = "CHAT_SETTING"] = 1;
             values[valuesById[2] = "BIZ_SUPPORTS_FB_HOSTING"] = 2;
@@ -476,12 +477,12 @@ $root.Protocol = (function() {
          * @param {Protocol.MessageKey.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
-        function MessageKey(properties) {
+        var MessageKey = function (properties) {
             if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
-        }
+        };
 
         /**
          * MessageKey remoteJid.
@@ -519,25 +520,25 @@ $root.Protocol = (function() {
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(MessageKey.prototype, "_remoteJid", {
+        $Object.defineProperty(MessageKey.prototype, "_remoteJid", {
             get: $util.oneOfGetter($oneOfFields = ["remoteJid"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(MessageKey.prototype, "_fromMe", {
+        $Object.defineProperty(MessageKey.prototype, "_fromMe", {
             get: $util.oneOfGetter($oneOfFields = ["fromMe"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(MessageKey.prototype, "_id", {
+        $Object.defineProperty(MessageKey.prototype, "_id", {
             get: $util.oneOfGetter($oneOfFields = ["id"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(MessageKey.prototype, "_participant", {
+        $Object.defineProperty(MessageKey.prototype, "_participant", {
             get: $util.oneOfGetter($oneOfFields = ["participant"]),
             set: $util.oneOfSetter($oneOfFields)
         });
@@ -554,7 +555,7 @@ $root.Protocol = (function() {
          *   (properties?: Protocol.MessageKey.$Properties): Protocol.MessageKey;
          * }}
          */
-        MessageKey.create = function create(properties) {
+        MessageKey.create = function(properties) {
             return new MessageKey(properties);
         };
 
@@ -567,22 +568,22 @@ $root.Protocol = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        MessageKey.encode = function encode(message, writer, _depth) {
+        MessageKey.encode = function (message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
-            if (message.remoteJid != null && Object.hasOwnProperty.call(message, "remoteJid"))
+                throw $Error("max depth exceeded");
+            if (message.remoteJid != null && $Object.hasOwnProperty.call(message, "remoteJid"))
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.remoteJid);
-            if (message.fromMe != null && Object.hasOwnProperty.call(message, "fromMe"))
+            if (message.fromMe != null && $Object.hasOwnProperty.call(message, "fromMe"))
                 writer.uint32(/* id 2, wireType 0 =*/16).bool(message.fromMe);
-            if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+            if (message.id != null && $Object.hasOwnProperty.call(message, "id"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.id);
-            if (message.participant != null && Object.hasOwnProperty.call(message, "participant"))
+            if (message.participant != null && $Object.hasOwnProperty.call(message, "participant"))
                 writer.uint32(/* id 4, wireType 2 =*/34).string(message.participant);
-            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
             return writer;
@@ -597,7 +598,7 @@ $root.Protocol = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        MessageKey.encodeDelimited = function encodeDelimited(message, writer) {
+        MessageKey.encodeDelimited = function(message, writer) {
             return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
@@ -612,19 +613,19 @@ $root.Protocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        MessageKey.decode = function decode(reader, length, _end, _depth, _target) {
+        MessageKey.decode = function (reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
-                throw Error("max depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Protocol.MessageKey();
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Protocol.MessageKey();
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
                 if (tag === _end) {
-                    _end = undefined;
+                    _end = $undefined;
                     break;
                 }
                 var wireType = tag & 7;
@@ -664,8 +665,8 @@ $root.Protocol = (function() {
                     (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
             }
-            if (_end !== undefined)
-                throw Error("missing end group");
+            if (_end !== $undefined)
+                throw $Error("missing end group");
             return message;
         };
 
@@ -679,7 +680,7 @@ $root.Protocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        MessageKey.decodeDelimited = function decodeDelimited(reader) {
+        MessageKey.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
@@ -693,30 +694,30 @@ $root.Protocol = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        MessageKey.verify = function verify(message, _depth) {
+        MessageKey.verify = function (message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 return "max depth exceeded";
             var properties = {};
-            if (message.remoteJid != null && message.hasOwnProperty("remoteJid")) {
+            if (message.remoteJid != null && $Object.hasOwnProperty.call(message, "remoteJid")) {
                 properties._remoteJid = 1;
                 if (!$util.isString(message.remoteJid))
                     return "remoteJid: string expected";
             }
-            if (message.fromMe != null && message.hasOwnProperty("fromMe")) {
+            if (message.fromMe != null && $Object.hasOwnProperty.call(message, "fromMe")) {
                 properties._fromMe = 1;
                 if (typeof message.fromMe !== "boolean")
                     return "fromMe: boolean expected";
             }
-            if (message.id != null && message.hasOwnProperty("id")) {
+            if (message.id != null && $Object.hasOwnProperty.call(message, "id")) {
                 properties._id = 1;
                 if (!$util.isString(message.id))
                     return "id: string expected";
             }
-            if (message.participant != null && message.hasOwnProperty("participant")) {
+            if (message.participant != null && $Object.hasOwnProperty.call(message, "participant")) {
                 properties._participant = 1;
                 if (!$util.isString(message.participant))
                     return "participant: string expected";
@@ -732,24 +733,24 @@ $root.Protocol = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Protocol.MessageKey} MessageKey
          */
-        MessageKey.fromObject = function fromObject(object, _depth) {
+        MessageKey.fromObject = function (object, _depth) {
             if (object instanceof $root.Protocol.MessageKey)
                 return object;
             if (!$util.isObject(object))
-                throw TypeError(".Protocol.MessageKey: object expected");
-            if (_depth === undefined)
+                throw $TypeError(".Protocol.MessageKey: object expected");
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var message = new $root.Protocol.MessageKey();
             if (object.remoteJid != null)
-                message.remoteJid = String(object.remoteJid);
+                message.remoteJid = $String(object.remoteJid);
             if (object.fromMe != null)
-                message.fromMe = Boolean(object.fromMe);
+                message.fromMe = $Boolean(object.fromMe);
             if (object.id != null)
-                message.id = String(object.id);
+                message.id = $String(object.id);
             if (object.participant != null)
-                message.participant = String(object.participant);
+                message.participant = $String(object.participant);
             return message;
         };
 
@@ -762,21 +763,21 @@ $root.Protocol = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        MessageKey.toObject = function toObject(message, options, _depth) {
+        MessageKey.toObject = function (message, options, _depth) {
             if (!options)
                 options = {};
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var object = {};
-            if (message.remoteJid != null && message.hasOwnProperty("remoteJid"))
+            if (message.remoteJid != null && $Object.hasOwnProperty.call(message, "remoteJid"))
                 object.remoteJid = message.remoteJid;
-            if (message.fromMe != null && message.hasOwnProperty("fromMe"))
+            if (message.fromMe != null && $Object.hasOwnProperty.call(message, "fromMe"))
                 object.fromMe = message.fromMe;
-            if (message.id != null && message.hasOwnProperty("id"))
+            if (message.id != null && $Object.hasOwnProperty.call(message, "id"))
                 object.id = message.id;
-            if (message.participant != null && message.hasOwnProperty("participant"))
+            if (message.participant != null && $Object.hasOwnProperty.call(message, "participant"))
                 object.participant = message.participant;
             return object;
         };
@@ -788,8 +789,8 @@ $root.Protocol = (function() {
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        MessageKey.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        MessageKey.prototype.toJSON = function() {
+            return MessageKey.toObject(this, $protobuf.util.toJSONOptions);
         };
 
         /**
@@ -800,8 +801,8 @@ $root.Protocol = (function() {
          * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
          * @returns {string} The type url
          */
-        MessageKey.getTypeUrl = function getTypeUrl(prefix) {
-            if (prefix === undefined)
+        MessageKey.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
                 prefix = "type.googleapis.com";
             return prefix + "/Protocol.MessageKey";
         };

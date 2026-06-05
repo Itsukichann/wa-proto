@@ -5,6 +5,7 @@ var $protobuf = require("protobufjs/minimal");
 
 // Common aliases
 var $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.util;
+var $Object = $util.global.Object, $undefined = $util.global.undefined, $Error = $util.global.Error, $TypeError = $util.global.TypeError, $Boolean = $util.global.Boolean;
 
 // Exported root namespace
 var $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
@@ -52,13 +53,13 @@ $root.Reporting = (function() {
          * @param {Reporting.Field.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
-        function Field(properties) {
+        var Field = function (properties) {
             this.subfield = {};
             if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
-        }
+        };
 
         /**
          * Field minVersion.
@@ -104,25 +105,25 @@ $root.Reporting = (function() {
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(Field.prototype, "_minVersion", {
+        $Object.defineProperty(Field.prototype, "_minVersion", {
             get: $util.oneOfGetter($oneOfFields = ["minVersion"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(Field.prototype, "_maxVersion", {
+        $Object.defineProperty(Field.prototype, "_maxVersion", {
             get: $util.oneOfGetter($oneOfFields = ["maxVersion"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(Field.prototype, "_notReportableMinVersion", {
+        $Object.defineProperty(Field.prototype, "_notReportableMinVersion", {
             get: $util.oneOfGetter($oneOfFields = ["notReportableMinVersion"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(Field.prototype, "_isMessage", {
+        $Object.defineProperty(Field.prototype, "_isMessage", {
             get: $util.oneOfGetter($oneOfFields = ["isMessage"]),
             set: $util.oneOfSetter($oneOfFields)
         });
@@ -139,7 +140,7 @@ $root.Reporting = (function() {
          *   (properties?: Reporting.Field.$Properties): Reporting.Field;
          * }}
          */
-        Field.create = function create(properties) {
+        Field.create = function(properties) {
             return new Field(properties);
         };
 
@@ -152,27 +153,27 @@ $root.Reporting = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        Field.encode = function encode(message, writer, _depth) {
+        Field.encode = function (message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
-            if (message.minVersion != null && Object.hasOwnProperty.call(message, "minVersion"))
+                throw $Error("max depth exceeded");
+            if (message.minVersion != null && $Object.hasOwnProperty.call(message, "minVersion"))
                 writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.minVersion);
-            if (message.maxVersion != null && Object.hasOwnProperty.call(message, "maxVersion"))
+            if (message.maxVersion != null && $Object.hasOwnProperty.call(message, "maxVersion"))
                 writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.maxVersion);
-            if (message.notReportableMinVersion != null && Object.hasOwnProperty.call(message, "notReportableMinVersion"))
+            if (message.notReportableMinVersion != null && $Object.hasOwnProperty.call(message, "notReportableMinVersion"))
                 writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.notReportableMinVersion);
-            if (message.isMessage != null && Object.hasOwnProperty.call(message, "isMessage"))
+            if (message.isMessage != null && $Object.hasOwnProperty.call(message, "isMessage"))
                 writer.uint32(/* id 4, wireType 0 =*/32).bool(message.isMessage);
-            if (message.subfield != null && Object.hasOwnProperty.call(message, "subfield"))
-                for (var keys = Object.keys(message.subfield), i = 0; i < keys.length; ++i) {
+            if (message.subfield != null && $Object.hasOwnProperty.call(message, "subfield"))
+                for (var keys = $Object.keys(message.subfield), i = 0; i < keys.length; ++i) {
                     writer.uint32(/* id 5, wireType 2 =*/42).fork().uint32(/* id 1, wireType 0 =*/8).uint32(keys[i]);
                     $root.Reporting.Field.encode(message.subfield[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork(), _depth + 1).ldelim().ldelim();
                 }
-            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
             return writer;
@@ -187,7 +188,7 @@ $root.Reporting = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        Field.encodeDelimited = function encodeDelimited(message, writer) {
+        Field.encodeDelimited = function(message, writer) {
             return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
@@ -202,19 +203,19 @@ $root.Reporting = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        Field.decode = function decode(reader, length, _end, _depth, _target) {
+        Field.decode = function (reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
-                throw Error("max depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Reporting.Field(), key, value;
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Reporting.Field(), key, value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
                 if (tag === _end) {
-                    _end = undefined;
+                    _end = $undefined;
                     break;
                 }
                 var wireType = tag & 7;
@@ -267,7 +268,7 @@ $root.Reporting = (function() {
                             case 2:
                                 if (wireType !== 2)
                                     break;
-                                value = $root.Reporting.Field.decode(reader, reader.uint32(), undefined, _depth + 1);
+                                value = $root.Reporting.Field.decode(reader, reader.uint32(), $undefined, _depth + 1);
                                 continue;
                             }
                             reader.skipType(wireType, _depth, tag2);
@@ -282,8 +283,8 @@ $root.Reporting = (function() {
                     (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
             }
-            if (_end !== undefined)
-                throw Error("missing end group");
+            if (_end !== $undefined)
+                throw $Error("missing end group");
             return message;
         };
 
@@ -297,7 +298,7 @@ $root.Reporting = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        Field.decodeDelimited = function decodeDelimited(reader) {
+        Field.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
@@ -311,38 +312,38 @@ $root.Reporting = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        Field.verify = function verify(message, _depth) {
+        Field.verify = function (message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 return "max depth exceeded";
             var properties = {};
-            if (message.minVersion != null && message.hasOwnProperty("minVersion")) {
+            if (message.minVersion != null && $Object.hasOwnProperty.call(message, "minVersion")) {
                 properties._minVersion = 1;
                 if (!$util.isInteger(message.minVersion))
                     return "minVersion: integer expected";
             }
-            if (message.maxVersion != null && message.hasOwnProperty("maxVersion")) {
+            if (message.maxVersion != null && $Object.hasOwnProperty.call(message, "maxVersion")) {
                 properties._maxVersion = 1;
                 if (!$util.isInteger(message.maxVersion))
                     return "maxVersion: integer expected";
             }
-            if (message.notReportableMinVersion != null && message.hasOwnProperty("notReportableMinVersion")) {
+            if (message.notReportableMinVersion != null && $Object.hasOwnProperty.call(message, "notReportableMinVersion")) {
                 properties._notReportableMinVersion = 1;
                 if (!$util.isInteger(message.notReportableMinVersion))
                     return "notReportableMinVersion: integer expected";
             }
-            if (message.isMessage != null && message.hasOwnProperty("isMessage")) {
+            if (message.isMessage != null && $Object.hasOwnProperty.call(message, "isMessage")) {
                 properties._isMessage = 1;
                 if (typeof message.isMessage !== "boolean")
                     return "isMessage: boolean expected";
             }
-            if (message.subfield != null && message.hasOwnProperty("subfield")) {
+            if (message.subfield != null && $Object.hasOwnProperty.call(message, "subfield")) {
                 if (!$util.isObject(message.subfield))
                     return "subfield: object expected";
-                var key = Object.keys(message.subfield);
+                var key = $Object.keys(message.subfield);
                 for (var i = 0; i < key.length; ++i) {
                     if (!$util.key32Re.test(key[i]))
                         return "subfield: integer key{k:uint32} expected";
@@ -364,15 +365,15 @@ $root.Reporting = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Reporting.Field} Field
          */
-        Field.fromObject = function fromObject(object, _depth) {
+        Field.fromObject = function (object, _depth) {
             if (object instanceof $root.Reporting.Field)
                 return object;
             if (!$util.isObject(object))
-                throw TypeError(".Reporting.Field: object expected");
-            if (_depth === undefined)
+                throw $TypeError(".Reporting.Field: object expected");
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var message = new $root.Reporting.Field();
             if (object.minVersion != null)
                 message.minVersion = object.minVersion >>> 0;
@@ -381,16 +382,16 @@ $root.Reporting = (function() {
             if (object.notReportableMinVersion != null)
                 message.notReportableMinVersion = object.notReportableMinVersion >>> 0;
             if (object.isMessage != null)
-                message.isMessage = Boolean(object.isMessage);
+                message.isMessage = $Boolean(object.isMessage);
             if (object.subfield) {
                 if (!$util.isObject(object.subfield))
-                    throw TypeError(".Reporting.Field.subfield: object expected");
+                    throw $TypeError(".Reporting.Field.subfield: object expected");
                 message.subfield = {};
-                for (var keys = Object.keys(object.subfield), i = 0; i < keys.length; ++i) {
+                for (var keys = $Object.keys(object.subfield), i = 0; i < keys.length; ++i) {
                     if (keys[i] === "__proto__")
                         $util.makeProp(message.subfield, keys[i]);
                     if (!$util.isObject(object.subfield[keys[i]]))
-                        throw TypeError(".Reporting.Field.subfield: object expected");
+                        throw $TypeError(".Reporting.Field.subfield: object expected");
                     message.subfield[keys[i]] = $root.Reporting.Field.fromObject(object.subfield[keys[i]], _depth + 1);
                 }
             }
@@ -406,26 +407,26 @@ $root.Reporting = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        Field.toObject = function toObject(message, options, _depth) {
+        Field.toObject = function (message, options, _depth) {
             if (!options)
                 options = {};
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var object = {};
             if (options.objects || options.defaults)
                 object.subfield = {};
-            if (message.minVersion != null && message.hasOwnProperty("minVersion"))
+            if (message.minVersion != null && $Object.hasOwnProperty.call(message, "minVersion"))
                 object.minVersion = message.minVersion;
-            if (message.maxVersion != null && message.hasOwnProperty("maxVersion"))
+            if (message.maxVersion != null && $Object.hasOwnProperty.call(message, "maxVersion"))
                 object.maxVersion = message.maxVersion;
-            if (message.notReportableMinVersion != null && message.hasOwnProperty("notReportableMinVersion"))
+            if (message.notReportableMinVersion != null && $Object.hasOwnProperty.call(message, "notReportableMinVersion"))
                 object.notReportableMinVersion = message.notReportableMinVersion;
-            if (message.isMessage != null && message.hasOwnProperty("isMessage"))
+            if (message.isMessage != null && $Object.hasOwnProperty.call(message, "isMessage"))
                 object.isMessage = message.isMessage;
             var keys2;
-            if (message.subfield && (keys2 = Object.keys(message.subfield)).length) {
+            if (message.subfield && (keys2 = $Object.keys(message.subfield)).length) {
                 object.subfield = {};
                 for (var j = 0; j < keys2.length; ++j) {
                     if (keys2[j] === "__proto__")
@@ -443,8 +444,8 @@ $root.Reporting = (function() {
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        Field.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        Field.prototype.toJSON = function() {
+            return Field.toObject(this, $protobuf.util.toJSONOptions);
         };
 
         /**
@@ -455,8 +456,8 @@ $root.Reporting = (function() {
          * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
          * @returns {string} The type url
          */
-        Field.getTypeUrl = function getTypeUrl(prefix) {
-            if (prefix === undefined)
+        Field.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
                 prefix = "type.googleapis.com";
             return prefix + "/Reporting.Field";
         };
@@ -495,13 +496,13 @@ $root.Reporting = (function() {
          * @param {Reporting.Config.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
-        function Config(properties) {
+        var Config = function (properties) {
             this.field = {};
             if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
-        }
+        };
 
         /**
          * Config field.
@@ -523,7 +524,7 @@ $root.Reporting = (function() {
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(Config.prototype, "_version", {
+        $Object.defineProperty(Config.prototype, "_version", {
             get: $util.oneOfGetter($oneOfFields = ["version"]),
             set: $util.oneOfSetter($oneOfFields)
         });
@@ -540,7 +541,7 @@ $root.Reporting = (function() {
          *   (properties?: Reporting.Config.$Properties): Reporting.Config;
          * }}
          */
-        Config.create = function create(properties) {
+        Config.create = function(properties) {
             return new Config(properties);
         };
 
@@ -553,21 +554,21 @@ $root.Reporting = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        Config.encode = function encode(message, writer, _depth) {
+        Config.encode = function (message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
-            if (message.field != null && Object.hasOwnProperty.call(message, "field"))
-                for (var keys = Object.keys(message.field), i = 0; i < keys.length; ++i) {
+                throw $Error("max depth exceeded");
+            if (message.field != null && $Object.hasOwnProperty.call(message, "field"))
+                for (var keys = $Object.keys(message.field), i = 0; i < keys.length; ++i) {
                     writer.uint32(/* id 1, wireType 2 =*/10).fork().uint32(/* id 1, wireType 0 =*/8).uint32(keys[i]);
                     $root.Reporting.Field.encode(message.field[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork(), _depth + 1).ldelim().ldelim();
                 }
-            if (message.version != null && Object.hasOwnProperty.call(message, "version"))
+            if (message.version != null && $Object.hasOwnProperty.call(message, "version"))
                 writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.version);
-            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
             return writer;
@@ -582,7 +583,7 @@ $root.Reporting = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        Config.encodeDelimited = function encodeDelimited(message, writer) {
+        Config.encodeDelimited = function(message, writer) {
             return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
@@ -597,19 +598,19 @@ $root.Reporting = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        Config.decode = function decode(reader, length, _end, _depth, _target) {
+        Config.decode = function (reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
-                throw Error("max depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Reporting.Config(), key, value;
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Reporting.Config(), key, value;
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
                 if (tag === _end) {
-                    _end = undefined;
+                    _end = $undefined;
                     break;
                 }
                 var wireType = tag & 7;
@@ -634,7 +635,7 @@ $root.Reporting = (function() {
                             case 2:
                                 if (wireType !== 2)
                                     break;
-                                value = $root.Reporting.Field.decode(reader, reader.uint32(), undefined, _depth + 1);
+                                value = $root.Reporting.Field.decode(reader, reader.uint32(), $undefined, _depth + 1);
                                 continue;
                             }
                             reader.skipType(wireType, _depth, tag2);
@@ -656,8 +657,8 @@ $root.Reporting = (function() {
                     (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
             }
-            if (_end !== undefined)
-                throw Error("missing end group");
+            if (_end !== $undefined)
+                throw $Error("missing end group");
             return message;
         };
 
@@ -671,7 +672,7 @@ $root.Reporting = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        Config.decodeDelimited = function decodeDelimited(reader) {
+        Config.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
@@ -685,18 +686,18 @@ $root.Reporting = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        Config.verify = function verify(message, _depth) {
+        Config.verify = function (message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 return "max depth exceeded";
             var properties = {};
-            if (message.field != null && message.hasOwnProperty("field")) {
+            if (message.field != null && $Object.hasOwnProperty.call(message, "field")) {
                 if (!$util.isObject(message.field))
                     return "field: object expected";
-                var key = Object.keys(message.field);
+                var key = $Object.keys(message.field);
                 for (var i = 0; i < key.length; ++i) {
                     if (!$util.key32Re.test(key[i]))
                         return "field: integer key{k:uint32} expected";
@@ -707,7 +708,7 @@ $root.Reporting = (function() {
                     }
                 }
             }
-            if (message.version != null && message.hasOwnProperty("version")) {
+            if (message.version != null && $Object.hasOwnProperty.call(message, "version")) {
                 properties._version = 1;
                 if (!$util.isInteger(message.version))
                     return "version: integer expected";
@@ -723,25 +724,25 @@ $root.Reporting = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Reporting.Config} Config
          */
-        Config.fromObject = function fromObject(object, _depth) {
+        Config.fromObject = function (object, _depth) {
             if (object instanceof $root.Reporting.Config)
                 return object;
             if (!$util.isObject(object))
-                throw TypeError(".Reporting.Config: object expected");
-            if (_depth === undefined)
+                throw $TypeError(".Reporting.Config: object expected");
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var message = new $root.Reporting.Config();
             if (object.field) {
                 if (!$util.isObject(object.field))
-                    throw TypeError(".Reporting.Config.field: object expected");
+                    throw $TypeError(".Reporting.Config.field: object expected");
                 message.field = {};
-                for (var keys = Object.keys(object.field), i = 0; i < keys.length; ++i) {
+                for (var keys = $Object.keys(object.field), i = 0; i < keys.length; ++i) {
                     if (keys[i] === "__proto__")
                         $util.makeProp(message.field, keys[i]);
                     if (!$util.isObject(object.field[keys[i]]))
-                        throw TypeError(".Reporting.Config.field: object expected");
+                        throw $TypeError(".Reporting.Config.field: object expected");
                     message.field[keys[i]] = $root.Reporting.Field.fromObject(object.field[keys[i]], _depth + 1);
                 }
             }
@@ -759,18 +760,18 @@ $root.Reporting = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        Config.toObject = function toObject(message, options, _depth) {
+        Config.toObject = function (message, options, _depth) {
             if (!options)
                 options = {};
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var object = {};
             if (options.objects || options.defaults)
                 object.field = {};
             var keys2;
-            if (message.field && (keys2 = Object.keys(message.field)).length) {
+            if (message.field && (keys2 = $Object.keys(message.field)).length) {
                 object.field = {};
                 for (var j = 0; j < keys2.length; ++j) {
                     if (keys2[j] === "__proto__")
@@ -778,7 +779,7 @@ $root.Reporting = (function() {
                     object.field[keys2[j]] = $root.Reporting.Field.toObject(message.field[keys2[j]], options, _depth + 1);
                 }
             }
-            if (message.version != null && message.hasOwnProperty("version"))
+            if (message.version != null && $Object.hasOwnProperty.call(message, "version"))
                 object.version = message.version;
             return object;
         };
@@ -790,8 +791,8 @@ $root.Reporting = (function() {
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        Config.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        Config.prototype.toJSON = function() {
+            return Config.toObject(this, $protobuf.util.toJSONOptions);
         };
 
         /**
@@ -802,8 +803,8 @@ $root.Reporting = (function() {
          * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
          * @returns {string} The type url
          */
-        Config.getTypeUrl = function getTypeUrl(prefix) {
-            if (prefix === undefined)
+        Config.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
                 prefix = "type.googleapis.com";
             return prefix + "/Reporting.Config";
         };
@@ -844,12 +845,12 @@ $root.Reporting = (function() {
          * @param {Reporting.Reportable.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
-        function Reportable(properties) {
+        var Reportable = function (properties) {
             if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
-        }
+        };
 
         /**
          * Reportable minVersion.
@@ -887,25 +888,25 @@ $root.Reporting = (function() {
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(Reportable.prototype, "_minVersion", {
+        $Object.defineProperty(Reportable.prototype, "_minVersion", {
             get: $util.oneOfGetter($oneOfFields = ["minVersion"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(Reportable.prototype, "_maxVersion", {
+        $Object.defineProperty(Reportable.prototype, "_maxVersion", {
             get: $util.oneOfGetter($oneOfFields = ["maxVersion"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(Reportable.prototype, "_notReportableMinVersion", {
+        $Object.defineProperty(Reportable.prototype, "_notReportableMinVersion", {
             get: $util.oneOfGetter($oneOfFields = ["notReportableMinVersion"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(Reportable.prototype, "_never", {
+        $Object.defineProperty(Reportable.prototype, "_never", {
             get: $util.oneOfGetter($oneOfFields = ["never"]),
             set: $util.oneOfSetter($oneOfFields)
         });
@@ -922,7 +923,7 @@ $root.Reporting = (function() {
          *   (properties?: Reporting.Reportable.$Properties): Reporting.Reportable;
          * }}
          */
-        Reportable.create = function create(properties) {
+        Reportable.create = function(properties) {
             return new Reportable(properties);
         };
 
@@ -935,22 +936,22 @@ $root.Reporting = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        Reportable.encode = function encode(message, writer, _depth) {
+        Reportable.encode = function (message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
-            if (message.minVersion != null && Object.hasOwnProperty.call(message, "minVersion"))
+                throw $Error("max depth exceeded");
+            if (message.minVersion != null && $Object.hasOwnProperty.call(message, "minVersion"))
                 writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.minVersion);
-            if (message.maxVersion != null && Object.hasOwnProperty.call(message, "maxVersion"))
+            if (message.maxVersion != null && $Object.hasOwnProperty.call(message, "maxVersion"))
                 writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.maxVersion);
-            if (message.notReportableMinVersion != null && Object.hasOwnProperty.call(message, "notReportableMinVersion"))
+            if (message.notReportableMinVersion != null && $Object.hasOwnProperty.call(message, "notReportableMinVersion"))
                 writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.notReportableMinVersion);
-            if (message.never != null && Object.hasOwnProperty.call(message, "never"))
+            if (message.never != null && $Object.hasOwnProperty.call(message, "never"))
                 writer.uint32(/* id 4, wireType 0 =*/32).bool(message.never);
-            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
             return writer;
@@ -965,7 +966,7 @@ $root.Reporting = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        Reportable.encodeDelimited = function encodeDelimited(message, writer) {
+        Reportable.encodeDelimited = function(message, writer) {
             return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
@@ -980,19 +981,19 @@ $root.Reporting = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        Reportable.decode = function decode(reader, length, _end, _depth, _target) {
+        Reportable.decode = function (reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
-                throw Error("max depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Reporting.Reportable();
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Reporting.Reportable();
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
                 if (tag === _end) {
-                    _end = undefined;
+                    _end = $undefined;
                     break;
                 }
                 var wireType = tag & 7;
@@ -1032,8 +1033,8 @@ $root.Reporting = (function() {
                     (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
             }
-            if (_end !== undefined)
-                throw Error("missing end group");
+            if (_end !== $undefined)
+                throw $Error("missing end group");
             return message;
         };
 
@@ -1047,7 +1048,7 @@ $root.Reporting = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        Reportable.decodeDelimited = function decodeDelimited(reader) {
+        Reportable.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
@@ -1061,30 +1062,30 @@ $root.Reporting = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        Reportable.verify = function verify(message, _depth) {
+        Reportable.verify = function (message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 return "max depth exceeded";
             var properties = {};
-            if (message.minVersion != null && message.hasOwnProperty("minVersion")) {
+            if (message.minVersion != null && $Object.hasOwnProperty.call(message, "minVersion")) {
                 properties._minVersion = 1;
                 if (!$util.isInteger(message.minVersion))
                     return "minVersion: integer expected";
             }
-            if (message.maxVersion != null && message.hasOwnProperty("maxVersion")) {
+            if (message.maxVersion != null && $Object.hasOwnProperty.call(message, "maxVersion")) {
                 properties._maxVersion = 1;
                 if (!$util.isInteger(message.maxVersion))
                     return "maxVersion: integer expected";
             }
-            if (message.notReportableMinVersion != null && message.hasOwnProperty("notReportableMinVersion")) {
+            if (message.notReportableMinVersion != null && $Object.hasOwnProperty.call(message, "notReportableMinVersion")) {
                 properties._notReportableMinVersion = 1;
                 if (!$util.isInteger(message.notReportableMinVersion))
                     return "notReportableMinVersion: integer expected";
             }
-            if (message.never != null && message.hasOwnProperty("never")) {
+            if (message.never != null && $Object.hasOwnProperty.call(message, "never")) {
                 properties._never = 1;
                 if (typeof message.never !== "boolean")
                     return "never: boolean expected";
@@ -1100,15 +1101,15 @@ $root.Reporting = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Reporting.Reportable} Reportable
          */
-        Reportable.fromObject = function fromObject(object, _depth) {
+        Reportable.fromObject = function (object, _depth) {
             if (object instanceof $root.Reporting.Reportable)
                 return object;
             if (!$util.isObject(object))
-                throw TypeError(".Reporting.Reportable: object expected");
-            if (_depth === undefined)
+                throw $TypeError(".Reporting.Reportable: object expected");
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var message = new $root.Reporting.Reportable();
             if (object.minVersion != null)
                 message.minVersion = object.minVersion >>> 0;
@@ -1117,7 +1118,7 @@ $root.Reporting = (function() {
             if (object.notReportableMinVersion != null)
                 message.notReportableMinVersion = object.notReportableMinVersion >>> 0;
             if (object.never != null)
-                message.never = Boolean(object.never);
+                message.never = $Boolean(object.never);
             return message;
         };
 
@@ -1130,21 +1131,21 @@ $root.Reporting = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        Reportable.toObject = function toObject(message, options, _depth) {
+        Reportable.toObject = function (message, options, _depth) {
             if (!options)
                 options = {};
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var object = {};
-            if (message.minVersion != null && message.hasOwnProperty("minVersion"))
+            if (message.minVersion != null && $Object.hasOwnProperty.call(message, "minVersion"))
                 object.minVersion = message.minVersion;
-            if (message.maxVersion != null && message.hasOwnProperty("maxVersion"))
+            if (message.maxVersion != null && $Object.hasOwnProperty.call(message, "maxVersion"))
                 object.maxVersion = message.maxVersion;
-            if (message.notReportableMinVersion != null && message.hasOwnProperty("notReportableMinVersion"))
+            if (message.notReportableMinVersion != null && $Object.hasOwnProperty.call(message, "notReportableMinVersion"))
                 object.notReportableMinVersion = message.notReportableMinVersion;
-            if (message.never != null && message.hasOwnProperty("never"))
+            if (message.never != null && $Object.hasOwnProperty.call(message, "never"))
                 object.never = message.never;
             return object;
         };
@@ -1156,8 +1157,8 @@ $root.Reporting = (function() {
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        Reportable.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        Reportable.prototype.toJSON = function() {
+            return Reportable.toObject(this, $protobuf.util.toJSONOptions);
         };
 
         /**
@@ -1168,8 +1169,8 @@ $root.Reporting = (function() {
          * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
          * @returns {string} The type url
          */
-        Reportable.getTypeUrl = function getTypeUrl(prefix) {
-            if (prefix === undefined)
+        Reportable.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
                 prefix = "type.googleapis.com";
             return prefix + "/Reporting.Reportable";
         };

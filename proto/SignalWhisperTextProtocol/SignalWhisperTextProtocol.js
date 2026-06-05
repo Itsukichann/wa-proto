@@ -5,6 +5,7 @@ var $protobuf = require("protobufjs/minimal");
 
 // Common aliases
 var $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.util;
+var $Object = $util.global.Object, $undefined = $util.global.undefined, $Error = $util.global.Error, $TypeError = $util.global.TypeError, $String = $util.global.String, $Array = $util.global.Array;
 
 // Exported root namespace
 var $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
@@ -49,12 +50,12 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {SignalWhisperTextProtocol.DeviceConsistencyCodeMessage.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
-        function DeviceConsistencyCodeMessage(properties) {
+        var DeviceConsistencyCodeMessage = function (properties) {
             if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
-        }
+        };
 
         /**
          * DeviceConsistencyCodeMessage generation.
@@ -76,13 +77,13 @@ $root.SignalWhisperTextProtocol = (function() {
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(DeviceConsistencyCodeMessage.prototype, "_generation", {
+        $Object.defineProperty(DeviceConsistencyCodeMessage.prototype, "_generation", {
             get: $util.oneOfGetter($oneOfFields = ["generation"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(DeviceConsistencyCodeMessage.prototype, "_signature", {
+        $Object.defineProperty(DeviceConsistencyCodeMessage.prototype, "_signature", {
             get: $util.oneOfGetter($oneOfFields = ["signature"]),
             set: $util.oneOfSetter($oneOfFields)
         });
@@ -99,7 +100,7 @@ $root.SignalWhisperTextProtocol = (function() {
          *   (properties?: SignalWhisperTextProtocol.DeviceConsistencyCodeMessage.$Properties): SignalWhisperTextProtocol.DeviceConsistencyCodeMessage;
          * }}
          */
-        DeviceConsistencyCodeMessage.create = function create(properties) {
+        DeviceConsistencyCodeMessage.create = function(properties) {
             return new DeviceConsistencyCodeMessage(properties);
         };
 
@@ -112,18 +113,18 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        DeviceConsistencyCodeMessage.encode = function encode(message, writer, _depth) {
+        DeviceConsistencyCodeMessage.encode = function (message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
-            if (message.generation != null && Object.hasOwnProperty.call(message, "generation"))
+                throw $Error("max depth exceeded");
+            if (message.generation != null && $Object.hasOwnProperty.call(message, "generation"))
                 writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.generation);
-            if (message.signature != null && Object.hasOwnProperty.call(message, "signature"))
+            if (message.signature != null && $Object.hasOwnProperty.call(message, "signature"))
                 writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.signature);
-            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
             return writer;
@@ -138,7 +139,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        DeviceConsistencyCodeMessage.encodeDelimited = function encodeDelimited(message, writer) {
+        DeviceConsistencyCodeMessage.encodeDelimited = function(message, writer) {
             return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
@@ -153,19 +154,19 @@ $root.SignalWhisperTextProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        DeviceConsistencyCodeMessage.decode = function decode(reader, length, _end, _depth, _target) {
+        DeviceConsistencyCodeMessage.decode = function (reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
-                throw Error("max depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.SignalWhisperTextProtocol.DeviceConsistencyCodeMessage();
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SignalWhisperTextProtocol.DeviceConsistencyCodeMessage();
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
                 if (tag === _end) {
-                    _end = undefined;
+                    _end = $undefined;
                     break;
                 }
                 var wireType = tag & 7;
@@ -191,8 +192,8 @@ $root.SignalWhisperTextProtocol = (function() {
                     (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
             }
-            if (_end !== undefined)
-                throw Error("missing end group");
+            if (_end !== $undefined)
+                throw $Error("missing end group");
             return message;
         };
 
@@ -206,7 +207,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        DeviceConsistencyCodeMessage.decodeDelimited = function decodeDelimited(reader) {
+        DeviceConsistencyCodeMessage.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
@@ -220,20 +221,20 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        DeviceConsistencyCodeMessage.verify = function verify(message, _depth) {
+        DeviceConsistencyCodeMessage.verify = function (message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 return "max depth exceeded";
             var properties = {};
-            if (message.generation != null && message.hasOwnProperty("generation")) {
+            if (message.generation != null && $Object.hasOwnProperty.call(message, "generation")) {
                 properties._generation = 1;
                 if (!$util.isInteger(message.generation))
                     return "generation: integer expected";
             }
-            if (message.signature != null && message.hasOwnProperty("signature")) {
+            if (message.signature != null && $Object.hasOwnProperty.call(message, "signature")) {
                 properties._signature = 1;
                 if (!(message.signature && typeof message.signature.length === "number" || $util.isString(message.signature)))
                     return "signature: buffer expected";
@@ -249,15 +250,15 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {SignalWhisperTextProtocol.DeviceConsistencyCodeMessage} DeviceConsistencyCodeMessage
          */
-        DeviceConsistencyCodeMessage.fromObject = function fromObject(object, _depth) {
+        DeviceConsistencyCodeMessage.fromObject = function (object, _depth) {
             if (object instanceof $root.SignalWhisperTextProtocol.DeviceConsistencyCodeMessage)
                 return object;
             if (!$util.isObject(object))
-                throw TypeError(".SignalWhisperTextProtocol.DeviceConsistencyCodeMessage: object expected");
-            if (_depth === undefined)
+                throw $TypeError(".SignalWhisperTextProtocol.DeviceConsistencyCodeMessage: object expected");
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var message = new $root.SignalWhisperTextProtocol.DeviceConsistencyCodeMessage();
             if (object.generation != null)
                 message.generation = object.generation >>> 0;
@@ -278,18 +279,18 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        DeviceConsistencyCodeMessage.toObject = function toObject(message, options, _depth) {
+        DeviceConsistencyCodeMessage.toObject = function (message, options, _depth) {
             if (!options)
                 options = {};
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var object = {};
-            if (message.generation != null && message.hasOwnProperty("generation"))
+            if (message.generation != null && $Object.hasOwnProperty.call(message, "generation"))
                 object.generation = message.generation;
-            if (message.signature != null && message.hasOwnProperty("signature"))
-                object.signature = options.bytes === String ? $util.base64.encode(message.signature, 0, message.signature.length) : options.bytes === Array ? Array.prototype.slice.call(message.signature) : message.signature;
+            if (message.signature != null && $Object.hasOwnProperty.call(message, "signature"))
+                object.signature = options.bytes === $String ? $util.base64.encode(message.signature, 0, message.signature.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.signature) : message.signature;
             return object;
         };
 
@@ -300,8 +301,8 @@ $root.SignalWhisperTextProtocol = (function() {
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        DeviceConsistencyCodeMessage.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        DeviceConsistencyCodeMessage.prototype.toJSON = function() {
+            return DeviceConsistencyCodeMessage.toObject(this, $protobuf.util.toJSONOptions);
         };
 
         /**
@@ -312,8 +313,8 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
          * @returns {string} The type url
          */
-        DeviceConsistencyCodeMessage.getTypeUrl = function getTypeUrl(prefix) {
-            if (prefix === undefined)
+        DeviceConsistencyCodeMessage.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
                 prefix = "type.googleapis.com";
             return prefix + "/SignalWhisperTextProtocol.DeviceConsistencyCodeMessage";
         };
@@ -354,12 +355,12 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {SignalWhisperTextProtocol.SenderKeyDistributionMessage.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
-        function SenderKeyDistributionMessage(properties) {
+        var SenderKeyDistributionMessage = function (properties) {
             if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
-        }
+        };
 
         /**
          * SenderKeyDistributionMessage id.
@@ -397,25 +398,25 @@ $root.SignalWhisperTextProtocol = (function() {
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(SenderKeyDistributionMessage.prototype, "_id", {
+        $Object.defineProperty(SenderKeyDistributionMessage.prototype, "_id", {
             get: $util.oneOfGetter($oneOfFields = ["id"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(SenderKeyDistributionMessage.prototype, "_iteration", {
+        $Object.defineProperty(SenderKeyDistributionMessage.prototype, "_iteration", {
             get: $util.oneOfGetter($oneOfFields = ["iteration"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(SenderKeyDistributionMessage.prototype, "_chainKey", {
+        $Object.defineProperty(SenderKeyDistributionMessage.prototype, "_chainKey", {
             get: $util.oneOfGetter($oneOfFields = ["chainKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(SenderKeyDistributionMessage.prototype, "_signingKey", {
+        $Object.defineProperty(SenderKeyDistributionMessage.prototype, "_signingKey", {
             get: $util.oneOfGetter($oneOfFields = ["signingKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
@@ -432,7 +433,7 @@ $root.SignalWhisperTextProtocol = (function() {
          *   (properties?: SignalWhisperTextProtocol.SenderKeyDistributionMessage.$Properties): SignalWhisperTextProtocol.SenderKeyDistributionMessage;
          * }}
          */
-        SenderKeyDistributionMessage.create = function create(properties) {
+        SenderKeyDistributionMessage.create = function(properties) {
             return new SenderKeyDistributionMessage(properties);
         };
 
@@ -445,22 +446,22 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        SenderKeyDistributionMessage.encode = function encode(message, writer, _depth) {
+        SenderKeyDistributionMessage.encode = function (message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
-            if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                throw $Error("max depth exceeded");
+            if (message.id != null && $Object.hasOwnProperty.call(message, "id"))
                 writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.id);
-            if (message.iteration != null && Object.hasOwnProperty.call(message, "iteration"))
+            if (message.iteration != null && $Object.hasOwnProperty.call(message, "iteration"))
                 writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.iteration);
-            if (message.chainKey != null && Object.hasOwnProperty.call(message, "chainKey"))
+            if (message.chainKey != null && $Object.hasOwnProperty.call(message, "chainKey"))
                 writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.chainKey);
-            if (message.signingKey != null && Object.hasOwnProperty.call(message, "signingKey"))
+            if (message.signingKey != null && $Object.hasOwnProperty.call(message, "signingKey"))
                 writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.signingKey);
-            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
             return writer;
@@ -475,7 +476,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        SenderKeyDistributionMessage.encodeDelimited = function encodeDelimited(message, writer) {
+        SenderKeyDistributionMessage.encodeDelimited = function(message, writer) {
             return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
@@ -490,19 +491,19 @@ $root.SignalWhisperTextProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SenderKeyDistributionMessage.decode = function decode(reader, length, _end, _depth, _target) {
+        SenderKeyDistributionMessage.decode = function (reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
-                throw Error("max depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.SignalWhisperTextProtocol.SenderKeyDistributionMessage();
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SignalWhisperTextProtocol.SenderKeyDistributionMessage();
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
                 if (tag === _end) {
-                    _end = undefined;
+                    _end = $undefined;
                     break;
                 }
                 var wireType = tag & 7;
@@ -542,8 +543,8 @@ $root.SignalWhisperTextProtocol = (function() {
                     (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
             }
-            if (_end !== undefined)
-                throw Error("missing end group");
+            if (_end !== $undefined)
+                throw $Error("missing end group");
             return message;
         };
 
@@ -557,7 +558,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SenderKeyDistributionMessage.decodeDelimited = function decodeDelimited(reader) {
+        SenderKeyDistributionMessage.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
@@ -571,30 +572,30 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        SenderKeyDistributionMessage.verify = function verify(message, _depth) {
+        SenderKeyDistributionMessage.verify = function (message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 return "max depth exceeded";
             var properties = {};
-            if (message.id != null && message.hasOwnProperty("id")) {
+            if (message.id != null && $Object.hasOwnProperty.call(message, "id")) {
                 properties._id = 1;
                 if (!$util.isInteger(message.id))
                     return "id: integer expected";
             }
-            if (message.iteration != null && message.hasOwnProperty("iteration")) {
+            if (message.iteration != null && $Object.hasOwnProperty.call(message, "iteration")) {
                 properties._iteration = 1;
                 if (!$util.isInteger(message.iteration))
                     return "iteration: integer expected";
             }
-            if (message.chainKey != null && message.hasOwnProperty("chainKey")) {
+            if (message.chainKey != null && $Object.hasOwnProperty.call(message, "chainKey")) {
                 properties._chainKey = 1;
                 if (!(message.chainKey && typeof message.chainKey.length === "number" || $util.isString(message.chainKey)))
                     return "chainKey: buffer expected";
             }
-            if (message.signingKey != null && message.hasOwnProperty("signingKey")) {
+            if (message.signingKey != null && $Object.hasOwnProperty.call(message, "signingKey")) {
                 properties._signingKey = 1;
                 if (!(message.signingKey && typeof message.signingKey.length === "number" || $util.isString(message.signingKey)))
                     return "signingKey: buffer expected";
@@ -610,15 +611,15 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {SignalWhisperTextProtocol.SenderKeyDistributionMessage} SenderKeyDistributionMessage
          */
-        SenderKeyDistributionMessage.fromObject = function fromObject(object, _depth) {
+        SenderKeyDistributionMessage.fromObject = function (object, _depth) {
             if (object instanceof $root.SignalWhisperTextProtocol.SenderKeyDistributionMessage)
                 return object;
             if (!$util.isObject(object))
-                throw TypeError(".SignalWhisperTextProtocol.SenderKeyDistributionMessage: object expected");
-            if (_depth === undefined)
+                throw $TypeError(".SignalWhisperTextProtocol.SenderKeyDistributionMessage: object expected");
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var message = new $root.SignalWhisperTextProtocol.SenderKeyDistributionMessage();
             if (object.id != null)
                 message.id = object.id >>> 0;
@@ -646,22 +647,22 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        SenderKeyDistributionMessage.toObject = function toObject(message, options, _depth) {
+        SenderKeyDistributionMessage.toObject = function (message, options, _depth) {
             if (!options)
                 options = {};
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var object = {};
-            if (message.id != null && message.hasOwnProperty("id"))
+            if (message.id != null && $Object.hasOwnProperty.call(message, "id"))
                 object.id = message.id;
-            if (message.iteration != null && message.hasOwnProperty("iteration"))
+            if (message.iteration != null && $Object.hasOwnProperty.call(message, "iteration"))
                 object.iteration = message.iteration;
-            if (message.chainKey != null && message.hasOwnProperty("chainKey"))
-                object.chainKey = options.bytes === String ? $util.base64.encode(message.chainKey, 0, message.chainKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.chainKey) : message.chainKey;
-            if (message.signingKey != null && message.hasOwnProperty("signingKey"))
-                object.signingKey = options.bytes === String ? $util.base64.encode(message.signingKey, 0, message.signingKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.signingKey) : message.signingKey;
+            if (message.chainKey != null && $Object.hasOwnProperty.call(message, "chainKey"))
+                object.chainKey = options.bytes === $String ? $util.base64.encode(message.chainKey, 0, message.chainKey.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.chainKey) : message.chainKey;
+            if (message.signingKey != null && $Object.hasOwnProperty.call(message, "signingKey"))
+                object.signingKey = options.bytes === $String ? $util.base64.encode(message.signingKey, 0, message.signingKey.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.signingKey) : message.signingKey;
             return object;
         };
 
@@ -672,8 +673,8 @@ $root.SignalWhisperTextProtocol = (function() {
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        SenderKeyDistributionMessage.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        SenderKeyDistributionMessage.prototype.toJSON = function() {
+            return SenderKeyDistributionMessage.toObject(this, $protobuf.util.toJSONOptions);
         };
 
         /**
@@ -684,8 +685,8 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
          * @returns {string} The type url
          */
-        SenderKeyDistributionMessage.getTypeUrl = function getTypeUrl(prefix) {
-            if (prefix === undefined)
+        SenderKeyDistributionMessage.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
                 prefix = "type.googleapis.com";
             return prefix + "/SignalWhisperTextProtocol.SenderKeyDistributionMessage";
         };
@@ -725,12 +726,12 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {SignalWhisperTextProtocol.SenderKeyMessage.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
-        function SenderKeyMessage(properties) {
+        var SenderKeyMessage = function (properties) {
             if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
-        }
+        };
 
         /**
          * SenderKeyMessage id.
@@ -760,19 +761,19 @@ $root.SignalWhisperTextProtocol = (function() {
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(SenderKeyMessage.prototype, "_id", {
+        $Object.defineProperty(SenderKeyMessage.prototype, "_id", {
             get: $util.oneOfGetter($oneOfFields = ["id"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(SenderKeyMessage.prototype, "_iteration", {
+        $Object.defineProperty(SenderKeyMessage.prototype, "_iteration", {
             get: $util.oneOfGetter($oneOfFields = ["iteration"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(SenderKeyMessage.prototype, "_ciphertext", {
+        $Object.defineProperty(SenderKeyMessage.prototype, "_ciphertext", {
             get: $util.oneOfGetter($oneOfFields = ["ciphertext"]),
             set: $util.oneOfSetter($oneOfFields)
         });
@@ -789,7 +790,7 @@ $root.SignalWhisperTextProtocol = (function() {
          *   (properties?: SignalWhisperTextProtocol.SenderKeyMessage.$Properties): SignalWhisperTextProtocol.SenderKeyMessage;
          * }}
          */
-        SenderKeyMessage.create = function create(properties) {
+        SenderKeyMessage.create = function(properties) {
             return new SenderKeyMessage(properties);
         };
 
@@ -802,20 +803,20 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        SenderKeyMessage.encode = function encode(message, writer, _depth) {
+        SenderKeyMessage.encode = function (message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
-            if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                throw $Error("max depth exceeded");
+            if (message.id != null && $Object.hasOwnProperty.call(message, "id"))
                 writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.id);
-            if (message.iteration != null && Object.hasOwnProperty.call(message, "iteration"))
+            if (message.iteration != null && $Object.hasOwnProperty.call(message, "iteration"))
                 writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.iteration);
-            if (message.ciphertext != null && Object.hasOwnProperty.call(message, "ciphertext"))
+            if (message.ciphertext != null && $Object.hasOwnProperty.call(message, "ciphertext"))
                 writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.ciphertext);
-            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
             return writer;
@@ -830,7 +831,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        SenderKeyMessage.encodeDelimited = function encodeDelimited(message, writer) {
+        SenderKeyMessage.encodeDelimited = function(message, writer) {
             return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
@@ -845,19 +846,19 @@ $root.SignalWhisperTextProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SenderKeyMessage.decode = function decode(reader, length, _end, _depth, _target) {
+        SenderKeyMessage.decode = function (reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
-                throw Error("max depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.SignalWhisperTextProtocol.SenderKeyMessage();
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SignalWhisperTextProtocol.SenderKeyMessage();
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
                 if (tag === _end) {
-                    _end = undefined;
+                    _end = $undefined;
                     break;
                 }
                 var wireType = tag & 7;
@@ -890,8 +891,8 @@ $root.SignalWhisperTextProtocol = (function() {
                     (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
             }
-            if (_end !== undefined)
-                throw Error("missing end group");
+            if (_end !== $undefined)
+                throw $Error("missing end group");
             return message;
         };
 
@@ -905,7 +906,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SenderKeyMessage.decodeDelimited = function decodeDelimited(reader) {
+        SenderKeyMessage.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
@@ -919,25 +920,25 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        SenderKeyMessage.verify = function verify(message, _depth) {
+        SenderKeyMessage.verify = function (message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 return "max depth exceeded";
             var properties = {};
-            if (message.id != null && message.hasOwnProperty("id")) {
+            if (message.id != null && $Object.hasOwnProperty.call(message, "id")) {
                 properties._id = 1;
                 if (!$util.isInteger(message.id))
                     return "id: integer expected";
             }
-            if (message.iteration != null && message.hasOwnProperty("iteration")) {
+            if (message.iteration != null && $Object.hasOwnProperty.call(message, "iteration")) {
                 properties._iteration = 1;
                 if (!$util.isInteger(message.iteration))
                     return "iteration: integer expected";
             }
-            if (message.ciphertext != null && message.hasOwnProperty("ciphertext")) {
+            if (message.ciphertext != null && $Object.hasOwnProperty.call(message, "ciphertext")) {
                 properties._ciphertext = 1;
                 if (!(message.ciphertext && typeof message.ciphertext.length === "number" || $util.isString(message.ciphertext)))
                     return "ciphertext: buffer expected";
@@ -953,15 +954,15 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {SignalWhisperTextProtocol.SenderKeyMessage} SenderKeyMessage
          */
-        SenderKeyMessage.fromObject = function fromObject(object, _depth) {
+        SenderKeyMessage.fromObject = function (object, _depth) {
             if (object instanceof $root.SignalWhisperTextProtocol.SenderKeyMessage)
                 return object;
             if (!$util.isObject(object))
-                throw TypeError(".SignalWhisperTextProtocol.SenderKeyMessage: object expected");
-            if (_depth === undefined)
+                throw $TypeError(".SignalWhisperTextProtocol.SenderKeyMessage: object expected");
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var message = new $root.SignalWhisperTextProtocol.SenderKeyMessage();
             if (object.id != null)
                 message.id = object.id >>> 0;
@@ -984,20 +985,20 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        SenderKeyMessage.toObject = function toObject(message, options, _depth) {
+        SenderKeyMessage.toObject = function (message, options, _depth) {
             if (!options)
                 options = {};
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var object = {};
-            if (message.id != null && message.hasOwnProperty("id"))
+            if (message.id != null && $Object.hasOwnProperty.call(message, "id"))
                 object.id = message.id;
-            if (message.iteration != null && message.hasOwnProperty("iteration"))
+            if (message.iteration != null && $Object.hasOwnProperty.call(message, "iteration"))
                 object.iteration = message.iteration;
-            if (message.ciphertext != null && message.hasOwnProperty("ciphertext"))
-                object.ciphertext = options.bytes === String ? $util.base64.encode(message.ciphertext, 0, message.ciphertext.length) : options.bytes === Array ? Array.prototype.slice.call(message.ciphertext) : message.ciphertext;
+            if (message.ciphertext != null && $Object.hasOwnProperty.call(message, "ciphertext"))
+                object.ciphertext = options.bytes === $String ? $util.base64.encode(message.ciphertext, 0, message.ciphertext.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.ciphertext) : message.ciphertext;
             return object;
         };
 
@@ -1008,8 +1009,8 @@ $root.SignalWhisperTextProtocol = (function() {
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        SenderKeyMessage.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        SenderKeyMessage.prototype.toJSON = function() {
+            return SenderKeyMessage.toObject(this, $protobuf.util.toJSONOptions);
         };
 
         /**
@@ -1020,8 +1021,8 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
          * @returns {string} The type url
          */
-        SenderKeyMessage.getTypeUrl = function getTypeUrl(prefix) {
-            if (prefix === undefined)
+        SenderKeyMessage.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
                 prefix = "type.googleapis.com";
             return prefix + "/SignalWhisperTextProtocol.SenderKeyMessage";
         };
@@ -1063,12 +1064,12 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {SignalWhisperTextProtocol.KeyExchangeMessage.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
-        function KeyExchangeMessage(properties) {
+        var KeyExchangeMessage = function (properties) {
             if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
-        }
+        };
 
         /**
          * KeyExchangeMessage id.
@@ -1114,31 +1115,31 @@ $root.SignalWhisperTextProtocol = (function() {
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(KeyExchangeMessage.prototype, "_id", {
+        $Object.defineProperty(KeyExchangeMessage.prototype, "_id", {
             get: $util.oneOfGetter($oneOfFields = ["id"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(KeyExchangeMessage.prototype, "_baseKey", {
+        $Object.defineProperty(KeyExchangeMessage.prototype, "_baseKey", {
             get: $util.oneOfGetter($oneOfFields = ["baseKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(KeyExchangeMessage.prototype, "_ratchetKey", {
+        $Object.defineProperty(KeyExchangeMessage.prototype, "_ratchetKey", {
             get: $util.oneOfGetter($oneOfFields = ["ratchetKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(KeyExchangeMessage.prototype, "_identityKey", {
+        $Object.defineProperty(KeyExchangeMessage.prototype, "_identityKey", {
             get: $util.oneOfGetter($oneOfFields = ["identityKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(KeyExchangeMessage.prototype, "_baseKeySignature", {
+        $Object.defineProperty(KeyExchangeMessage.prototype, "_baseKeySignature", {
             get: $util.oneOfGetter($oneOfFields = ["baseKeySignature"]),
             set: $util.oneOfSetter($oneOfFields)
         });
@@ -1155,7 +1156,7 @@ $root.SignalWhisperTextProtocol = (function() {
          *   (properties?: SignalWhisperTextProtocol.KeyExchangeMessage.$Properties): SignalWhisperTextProtocol.KeyExchangeMessage;
          * }}
          */
-        KeyExchangeMessage.create = function create(properties) {
+        KeyExchangeMessage.create = function(properties) {
             return new KeyExchangeMessage(properties);
         };
 
@@ -1168,24 +1169,24 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        KeyExchangeMessage.encode = function encode(message, writer, _depth) {
+        KeyExchangeMessage.encode = function (message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
-            if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                throw $Error("max depth exceeded");
+            if (message.id != null && $Object.hasOwnProperty.call(message, "id"))
                 writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.id);
-            if (message.baseKey != null && Object.hasOwnProperty.call(message, "baseKey"))
+            if (message.baseKey != null && $Object.hasOwnProperty.call(message, "baseKey"))
                 writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.baseKey);
-            if (message.ratchetKey != null && Object.hasOwnProperty.call(message, "ratchetKey"))
+            if (message.ratchetKey != null && $Object.hasOwnProperty.call(message, "ratchetKey"))
                 writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.ratchetKey);
-            if (message.identityKey != null && Object.hasOwnProperty.call(message, "identityKey"))
+            if (message.identityKey != null && $Object.hasOwnProperty.call(message, "identityKey"))
                 writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.identityKey);
-            if (message.baseKeySignature != null && Object.hasOwnProperty.call(message, "baseKeySignature"))
+            if (message.baseKeySignature != null && $Object.hasOwnProperty.call(message, "baseKeySignature"))
                 writer.uint32(/* id 5, wireType 2 =*/42).bytes(message.baseKeySignature);
-            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
             return writer;
@@ -1200,7 +1201,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        KeyExchangeMessage.encodeDelimited = function encodeDelimited(message, writer) {
+        KeyExchangeMessage.encodeDelimited = function(message, writer) {
             return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
@@ -1215,19 +1216,19 @@ $root.SignalWhisperTextProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        KeyExchangeMessage.decode = function decode(reader, length, _end, _depth, _target) {
+        KeyExchangeMessage.decode = function (reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
-                throw Error("max depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.SignalWhisperTextProtocol.KeyExchangeMessage();
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SignalWhisperTextProtocol.KeyExchangeMessage();
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
                 if (tag === _end) {
-                    _end = undefined;
+                    _end = $undefined;
                     break;
                 }
                 var wireType = tag & 7;
@@ -1274,8 +1275,8 @@ $root.SignalWhisperTextProtocol = (function() {
                     (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
             }
-            if (_end !== undefined)
-                throw Error("missing end group");
+            if (_end !== $undefined)
+                throw $Error("missing end group");
             return message;
         };
 
@@ -1289,7 +1290,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        KeyExchangeMessage.decodeDelimited = function decodeDelimited(reader) {
+        KeyExchangeMessage.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
@@ -1303,35 +1304,35 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        KeyExchangeMessage.verify = function verify(message, _depth) {
+        KeyExchangeMessage.verify = function (message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 return "max depth exceeded";
             var properties = {};
-            if (message.id != null && message.hasOwnProperty("id")) {
+            if (message.id != null && $Object.hasOwnProperty.call(message, "id")) {
                 properties._id = 1;
                 if (!$util.isInteger(message.id))
                     return "id: integer expected";
             }
-            if (message.baseKey != null && message.hasOwnProperty("baseKey")) {
+            if (message.baseKey != null && $Object.hasOwnProperty.call(message, "baseKey")) {
                 properties._baseKey = 1;
                 if (!(message.baseKey && typeof message.baseKey.length === "number" || $util.isString(message.baseKey)))
                     return "baseKey: buffer expected";
             }
-            if (message.ratchetKey != null && message.hasOwnProperty("ratchetKey")) {
+            if (message.ratchetKey != null && $Object.hasOwnProperty.call(message, "ratchetKey")) {
                 properties._ratchetKey = 1;
                 if (!(message.ratchetKey && typeof message.ratchetKey.length === "number" || $util.isString(message.ratchetKey)))
                     return "ratchetKey: buffer expected";
             }
-            if (message.identityKey != null && message.hasOwnProperty("identityKey")) {
+            if (message.identityKey != null && $Object.hasOwnProperty.call(message, "identityKey")) {
                 properties._identityKey = 1;
                 if (!(message.identityKey && typeof message.identityKey.length === "number" || $util.isString(message.identityKey)))
                     return "identityKey: buffer expected";
             }
-            if (message.baseKeySignature != null && message.hasOwnProperty("baseKeySignature")) {
+            if (message.baseKeySignature != null && $Object.hasOwnProperty.call(message, "baseKeySignature")) {
                 properties._baseKeySignature = 1;
                 if (!(message.baseKeySignature && typeof message.baseKeySignature.length === "number" || $util.isString(message.baseKeySignature)))
                     return "baseKeySignature: buffer expected";
@@ -1347,15 +1348,15 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {SignalWhisperTextProtocol.KeyExchangeMessage} KeyExchangeMessage
          */
-        KeyExchangeMessage.fromObject = function fromObject(object, _depth) {
+        KeyExchangeMessage.fromObject = function (object, _depth) {
             if (object instanceof $root.SignalWhisperTextProtocol.KeyExchangeMessage)
                 return object;
             if (!$util.isObject(object))
-                throw TypeError(".SignalWhisperTextProtocol.KeyExchangeMessage: object expected");
-            if (_depth === undefined)
+                throw $TypeError(".SignalWhisperTextProtocol.KeyExchangeMessage: object expected");
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var message = new $root.SignalWhisperTextProtocol.KeyExchangeMessage();
             if (object.id != null)
                 message.id = object.id >>> 0;
@@ -1391,24 +1392,24 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        KeyExchangeMessage.toObject = function toObject(message, options, _depth) {
+        KeyExchangeMessage.toObject = function (message, options, _depth) {
             if (!options)
                 options = {};
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var object = {};
-            if (message.id != null && message.hasOwnProperty("id"))
+            if (message.id != null && $Object.hasOwnProperty.call(message, "id"))
                 object.id = message.id;
-            if (message.baseKey != null && message.hasOwnProperty("baseKey"))
-                object.baseKey = options.bytes === String ? $util.base64.encode(message.baseKey, 0, message.baseKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.baseKey) : message.baseKey;
-            if (message.ratchetKey != null && message.hasOwnProperty("ratchetKey"))
-                object.ratchetKey = options.bytes === String ? $util.base64.encode(message.ratchetKey, 0, message.ratchetKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.ratchetKey) : message.ratchetKey;
-            if (message.identityKey != null && message.hasOwnProperty("identityKey"))
-                object.identityKey = options.bytes === String ? $util.base64.encode(message.identityKey, 0, message.identityKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.identityKey) : message.identityKey;
-            if (message.baseKeySignature != null && message.hasOwnProperty("baseKeySignature"))
-                object.baseKeySignature = options.bytes === String ? $util.base64.encode(message.baseKeySignature, 0, message.baseKeySignature.length) : options.bytes === Array ? Array.prototype.slice.call(message.baseKeySignature) : message.baseKeySignature;
+            if (message.baseKey != null && $Object.hasOwnProperty.call(message, "baseKey"))
+                object.baseKey = options.bytes === $String ? $util.base64.encode(message.baseKey, 0, message.baseKey.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.baseKey) : message.baseKey;
+            if (message.ratchetKey != null && $Object.hasOwnProperty.call(message, "ratchetKey"))
+                object.ratchetKey = options.bytes === $String ? $util.base64.encode(message.ratchetKey, 0, message.ratchetKey.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.ratchetKey) : message.ratchetKey;
+            if (message.identityKey != null && $Object.hasOwnProperty.call(message, "identityKey"))
+                object.identityKey = options.bytes === $String ? $util.base64.encode(message.identityKey, 0, message.identityKey.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.identityKey) : message.identityKey;
+            if (message.baseKeySignature != null && $Object.hasOwnProperty.call(message, "baseKeySignature"))
+                object.baseKeySignature = options.bytes === $String ? $util.base64.encode(message.baseKeySignature, 0, message.baseKeySignature.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.baseKeySignature) : message.baseKeySignature;
             return object;
         };
 
@@ -1419,8 +1420,8 @@ $root.SignalWhisperTextProtocol = (function() {
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        KeyExchangeMessage.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        KeyExchangeMessage.prototype.toJSON = function() {
+            return KeyExchangeMessage.toObject(this, $protobuf.util.toJSONOptions);
         };
 
         /**
@@ -1431,8 +1432,8 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
          * @returns {string} The type url
          */
-        KeyExchangeMessage.getTypeUrl = function getTypeUrl(prefix) {
-            if (prefix === undefined)
+        KeyExchangeMessage.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
                 prefix = "type.googleapis.com";
             return prefix + "/SignalWhisperTextProtocol.KeyExchangeMessage";
         };
@@ -1475,12 +1476,12 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {SignalWhisperTextProtocol.PreKeySignalMessage.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
-        function PreKeySignalMessage(properties) {
+        var PreKeySignalMessage = function (properties) {
             if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
-        }
+        };
 
         /**
          * PreKeySignalMessage registrationId.
@@ -1534,37 +1535,37 @@ $root.SignalWhisperTextProtocol = (function() {
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(PreKeySignalMessage.prototype, "_registrationId", {
+        $Object.defineProperty(PreKeySignalMessage.prototype, "_registrationId", {
             get: $util.oneOfGetter($oneOfFields = ["registrationId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(PreKeySignalMessage.prototype, "_preKeyId", {
+        $Object.defineProperty(PreKeySignalMessage.prototype, "_preKeyId", {
             get: $util.oneOfGetter($oneOfFields = ["preKeyId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(PreKeySignalMessage.prototype, "_signedPreKeyId", {
+        $Object.defineProperty(PreKeySignalMessage.prototype, "_signedPreKeyId", {
             get: $util.oneOfGetter($oneOfFields = ["signedPreKeyId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(PreKeySignalMessage.prototype, "_baseKey", {
+        $Object.defineProperty(PreKeySignalMessage.prototype, "_baseKey", {
             get: $util.oneOfGetter($oneOfFields = ["baseKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(PreKeySignalMessage.prototype, "_identityKey", {
+        $Object.defineProperty(PreKeySignalMessage.prototype, "_identityKey", {
             get: $util.oneOfGetter($oneOfFields = ["identityKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(PreKeySignalMessage.prototype, "_message", {
+        $Object.defineProperty(PreKeySignalMessage.prototype, "_message", {
             get: $util.oneOfGetter($oneOfFields = ["message"]),
             set: $util.oneOfSetter($oneOfFields)
         });
@@ -1581,7 +1582,7 @@ $root.SignalWhisperTextProtocol = (function() {
          *   (properties?: SignalWhisperTextProtocol.PreKeySignalMessage.$Properties): SignalWhisperTextProtocol.PreKeySignalMessage;
          * }}
          */
-        PreKeySignalMessage.create = function create(properties) {
+        PreKeySignalMessage.create = function(properties) {
             return new PreKeySignalMessage(properties);
         };
 
@@ -1594,26 +1595,26 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        PreKeySignalMessage.encode = function encode(message, writer, _depth) {
+        PreKeySignalMessage.encode = function (message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
-            if (message.preKeyId != null && Object.hasOwnProperty.call(message, "preKeyId"))
+                throw $Error("max depth exceeded");
+            if (message.preKeyId != null && $Object.hasOwnProperty.call(message, "preKeyId"))
                 writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.preKeyId);
-            if (message.baseKey != null && Object.hasOwnProperty.call(message, "baseKey"))
+            if (message.baseKey != null && $Object.hasOwnProperty.call(message, "baseKey"))
                 writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.baseKey);
-            if (message.identityKey != null && Object.hasOwnProperty.call(message, "identityKey"))
+            if (message.identityKey != null && $Object.hasOwnProperty.call(message, "identityKey"))
                 writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.identityKey);
-            if (message.message != null && Object.hasOwnProperty.call(message, "message"))
+            if (message.message != null && $Object.hasOwnProperty.call(message, "message"))
                 writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.message);
-            if (message.registrationId != null && Object.hasOwnProperty.call(message, "registrationId"))
+            if (message.registrationId != null && $Object.hasOwnProperty.call(message, "registrationId"))
                 writer.uint32(/* id 5, wireType 0 =*/40).uint32(message.registrationId);
-            if (message.signedPreKeyId != null && Object.hasOwnProperty.call(message, "signedPreKeyId"))
+            if (message.signedPreKeyId != null && $Object.hasOwnProperty.call(message, "signedPreKeyId"))
                 writer.uint32(/* id 6, wireType 0 =*/48).uint32(message.signedPreKeyId);
-            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
             return writer;
@@ -1628,7 +1629,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        PreKeySignalMessage.encodeDelimited = function encodeDelimited(message, writer) {
+        PreKeySignalMessage.encodeDelimited = function(message, writer) {
             return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
@@ -1643,19 +1644,19 @@ $root.SignalWhisperTextProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        PreKeySignalMessage.decode = function decode(reader, length, _end, _depth, _target) {
+        PreKeySignalMessage.decode = function (reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
-                throw Error("max depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.SignalWhisperTextProtocol.PreKeySignalMessage();
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SignalWhisperTextProtocol.PreKeySignalMessage();
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
                 if (tag === _end) {
-                    _end = undefined;
+                    _end = $undefined;
                     break;
                 }
                 var wireType = tag & 7;
@@ -1709,8 +1710,8 @@ $root.SignalWhisperTextProtocol = (function() {
                     (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
             }
-            if (_end !== undefined)
-                throw Error("missing end group");
+            if (_end !== $undefined)
+                throw $Error("missing end group");
             return message;
         };
 
@@ -1724,7 +1725,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        PreKeySignalMessage.decodeDelimited = function decodeDelimited(reader) {
+        PreKeySignalMessage.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
@@ -1738,40 +1739,40 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        PreKeySignalMessage.verify = function verify(message, _depth) {
+        PreKeySignalMessage.verify = function (message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 return "max depth exceeded";
             var properties = {};
-            if (message.registrationId != null && message.hasOwnProperty("registrationId")) {
+            if (message.registrationId != null && $Object.hasOwnProperty.call(message, "registrationId")) {
                 properties._registrationId = 1;
                 if (!$util.isInteger(message.registrationId))
                     return "registrationId: integer expected";
             }
-            if (message.preKeyId != null && message.hasOwnProperty("preKeyId")) {
+            if (message.preKeyId != null && $Object.hasOwnProperty.call(message, "preKeyId")) {
                 properties._preKeyId = 1;
                 if (!$util.isInteger(message.preKeyId))
                     return "preKeyId: integer expected";
             }
-            if (message.signedPreKeyId != null && message.hasOwnProperty("signedPreKeyId")) {
+            if (message.signedPreKeyId != null && $Object.hasOwnProperty.call(message, "signedPreKeyId")) {
                 properties._signedPreKeyId = 1;
                 if (!$util.isInteger(message.signedPreKeyId))
                     return "signedPreKeyId: integer expected";
             }
-            if (message.baseKey != null && message.hasOwnProperty("baseKey")) {
+            if (message.baseKey != null && $Object.hasOwnProperty.call(message, "baseKey")) {
                 properties._baseKey = 1;
                 if (!(message.baseKey && typeof message.baseKey.length === "number" || $util.isString(message.baseKey)))
                     return "baseKey: buffer expected";
             }
-            if (message.identityKey != null && message.hasOwnProperty("identityKey")) {
+            if (message.identityKey != null && $Object.hasOwnProperty.call(message, "identityKey")) {
                 properties._identityKey = 1;
                 if (!(message.identityKey && typeof message.identityKey.length === "number" || $util.isString(message.identityKey)))
                     return "identityKey: buffer expected";
             }
-            if (message.message != null && message.hasOwnProperty("message")) {
+            if (message.message != null && $Object.hasOwnProperty.call(message, "message")) {
                 properties._message = 1;
                 if (!(message.message && typeof message.message.length === "number" || $util.isString(message.message)))
                     return "message: buffer expected";
@@ -1787,15 +1788,15 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {SignalWhisperTextProtocol.PreKeySignalMessage} PreKeySignalMessage
          */
-        PreKeySignalMessage.fromObject = function fromObject(object, _depth) {
+        PreKeySignalMessage.fromObject = function (object, _depth) {
             if (object instanceof $root.SignalWhisperTextProtocol.PreKeySignalMessage)
                 return object;
             if (!$util.isObject(object))
-                throw TypeError(".SignalWhisperTextProtocol.PreKeySignalMessage: object expected");
-            if (_depth === undefined)
+                throw $TypeError(".SignalWhisperTextProtocol.PreKeySignalMessage: object expected");
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var message = new $root.SignalWhisperTextProtocol.PreKeySignalMessage();
             if (object.registrationId != null)
                 message.registrationId = object.registrationId >>> 0;
@@ -1830,25 +1831,25 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        PreKeySignalMessage.toObject = function toObject(message, options, _depth) {
+        PreKeySignalMessage.toObject = function (message, options, _depth) {
             if (!options)
                 options = {};
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var object = {};
-            if (message.preKeyId != null && message.hasOwnProperty("preKeyId"))
+            if (message.preKeyId != null && $Object.hasOwnProperty.call(message, "preKeyId"))
                 object.preKeyId = message.preKeyId;
-            if (message.baseKey != null && message.hasOwnProperty("baseKey"))
-                object.baseKey = options.bytes === String ? $util.base64.encode(message.baseKey, 0, message.baseKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.baseKey) : message.baseKey;
-            if (message.identityKey != null && message.hasOwnProperty("identityKey"))
-                object.identityKey = options.bytes === String ? $util.base64.encode(message.identityKey, 0, message.identityKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.identityKey) : message.identityKey;
-            if (message.message != null && message.hasOwnProperty("message"))
-                object.message = options.bytes === String ? $util.base64.encode(message.message, 0, message.message.length) : options.bytes === Array ? Array.prototype.slice.call(message.message) : message.message;
-            if (message.registrationId != null && message.hasOwnProperty("registrationId"))
+            if (message.baseKey != null && $Object.hasOwnProperty.call(message, "baseKey"))
+                object.baseKey = options.bytes === $String ? $util.base64.encode(message.baseKey, 0, message.baseKey.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.baseKey) : message.baseKey;
+            if (message.identityKey != null && $Object.hasOwnProperty.call(message, "identityKey"))
+                object.identityKey = options.bytes === $String ? $util.base64.encode(message.identityKey, 0, message.identityKey.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.identityKey) : message.identityKey;
+            if (message.message != null && $Object.hasOwnProperty.call(message, "message"))
+                object.message = options.bytes === $String ? $util.base64.encode(message.message, 0, message.message.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.message) : message.message;
+            if (message.registrationId != null && $Object.hasOwnProperty.call(message, "registrationId"))
                 object.registrationId = message.registrationId;
-            if (message.signedPreKeyId != null && message.hasOwnProperty("signedPreKeyId"))
+            if (message.signedPreKeyId != null && $Object.hasOwnProperty.call(message, "signedPreKeyId"))
                 object.signedPreKeyId = message.signedPreKeyId;
             return object;
         };
@@ -1860,8 +1861,8 @@ $root.SignalWhisperTextProtocol = (function() {
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        PreKeySignalMessage.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        PreKeySignalMessage.prototype.toJSON = function() {
+            return PreKeySignalMessage.toObject(this, $protobuf.util.toJSONOptions);
         };
 
         /**
@@ -1872,8 +1873,8 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
          * @returns {string} The type url
          */
-        PreKeySignalMessage.getTypeUrl = function getTypeUrl(prefix) {
-            if (prefix === undefined)
+        PreKeySignalMessage.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
                 prefix = "type.googleapis.com";
             return prefix + "/SignalWhisperTextProtocol.PreKeySignalMessage";
         };
@@ -1914,12 +1915,12 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {SignalWhisperTextProtocol.SignalMessage.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
-        function SignalMessage(properties) {
+        var SignalMessage = function (properties) {
             if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
-        }
+        };
 
         /**
          * SignalMessage ratchetKey.
@@ -1957,25 +1958,25 @@ $root.SignalWhisperTextProtocol = (function() {
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(SignalMessage.prototype, "_ratchetKey", {
+        $Object.defineProperty(SignalMessage.prototype, "_ratchetKey", {
             get: $util.oneOfGetter($oneOfFields = ["ratchetKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(SignalMessage.prototype, "_counter", {
+        $Object.defineProperty(SignalMessage.prototype, "_counter", {
             get: $util.oneOfGetter($oneOfFields = ["counter"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(SignalMessage.prototype, "_previousCounter", {
+        $Object.defineProperty(SignalMessage.prototype, "_previousCounter", {
             get: $util.oneOfGetter($oneOfFields = ["previousCounter"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(SignalMessage.prototype, "_ciphertext", {
+        $Object.defineProperty(SignalMessage.prototype, "_ciphertext", {
             get: $util.oneOfGetter($oneOfFields = ["ciphertext"]),
             set: $util.oneOfSetter($oneOfFields)
         });
@@ -1992,7 +1993,7 @@ $root.SignalWhisperTextProtocol = (function() {
          *   (properties?: SignalWhisperTextProtocol.SignalMessage.$Properties): SignalWhisperTextProtocol.SignalMessage;
          * }}
          */
-        SignalMessage.create = function create(properties) {
+        SignalMessage.create = function(properties) {
             return new SignalMessage(properties);
         };
 
@@ -2005,22 +2006,22 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        SignalMessage.encode = function encode(message, writer, _depth) {
+        SignalMessage.encode = function (message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
-            if (message.ratchetKey != null && Object.hasOwnProperty.call(message, "ratchetKey"))
+                throw $Error("max depth exceeded");
+            if (message.ratchetKey != null && $Object.hasOwnProperty.call(message, "ratchetKey"))
                 writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.ratchetKey);
-            if (message.counter != null && Object.hasOwnProperty.call(message, "counter"))
+            if (message.counter != null && $Object.hasOwnProperty.call(message, "counter"))
                 writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.counter);
-            if (message.previousCounter != null && Object.hasOwnProperty.call(message, "previousCounter"))
+            if (message.previousCounter != null && $Object.hasOwnProperty.call(message, "previousCounter"))
                 writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.previousCounter);
-            if (message.ciphertext != null && Object.hasOwnProperty.call(message, "ciphertext"))
+            if (message.ciphertext != null && $Object.hasOwnProperty.call(message, "ciphertext"))
                 writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.ciphertext);
-            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
             return writer;
@@ -2035,7 +2036,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        SignalMessage.encodeDelimited = function encodeDelimited(message, writer) {
+        SignalMessage.encodeDelimited = function(message, writer) {
             return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
@@ -2050,19 +2051,19 @@ $root.SignalWhisperTextProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SignalMessage.decode = function decode(reader, length, _end, _depth, _target) {
+        SignalMessage.decode = function (reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
-                throw Error("max depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.SignalWhisperTextProtocol.SignalMessage();
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.SignalWhisperTextProtocol.SignalMessage();
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
                 if (tag === _end) {
-                    _end = undefined;
+                    _end = $undefined;
                     break;
                 }
                 var wireType = tag & 7;
@@ -2102,8 +2103,8 @@ $root.SignalWhisperTextProtocol = (function() {
                     (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
             }
-            if (_end !== undefined)
-                throw Error("missing end group");
+            if (_end !== $undefined)
+                throw $Error("missing end group");
             return message;
         };
 
@@ -2117,7 +2118,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SignalMessage.decodeDelimited = function decodeDelimited(reader) {
+        SignalMessage.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
@@ -2131,30 +2132,30 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        SignalMessage.verify = function verify(message, _depth) {
+        SignalMessage.verify = function (message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 return "max depth exceeded";
             var properties = {};
-            if (message.ratchetKey != null && message.hasOwnProperty("ratchetKey")) {
+            if (message.ratchetKey != null && $Object.hasOwnProperty.call(message, "ratchetKey")) {
                 properties._ratchetKey = 1;
                 if (!(message.ratchetKey && typeof message.ratchetKey.length === "number" || $util.isString(message.ratchetKey)))
                     return "ratchetKey: buffer expected";
             }
-            if (message.counter != null && message.hasOwnProperty("counter")) {
+            if (message.counter != null && $Object.hasOwnProperty.call(message, "counter")) {
                 properties._counter = 1;
                 if (!$util.isInteger(message.counter))
                     return "counter: integer expected";
             }
-            if (message.previousCounter != null && message.hasOwnProperty("previousCounter")) {
+            if (message.previousCounter != null && $Object.hasOwnProperty.call(message, "previousCounter")) {
                 properties._previousCounter = 1;
                 if (!$util.isInteger(message.previousCounter))
                     return "previousCounter: integer expected";
             }
-            if (message.ciphertext != null && message.hasOwnProperty("ciphertext")) {
+            if (message.ciphertext != null && $Object.hasOwnProperty.call(message, "ciphertext")) {
                 properties._ciphertext = 1;
                 if (!(message.ciphertext && typeof message.ciphertext.length === "number" || $util.isString(message.ciphertext)))
                     return "ciphertext: buffer expected";
@@ -2170,15 +2171,15 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {SignalWhisperTextProtocol.SignalMessage} SignalMessage
          */
-        SignalMessage.fromObject = function fromObject(object, _depth) {
+        SignalMessage.fromObject = function (object, _depth) {
             if (object instanceof $root.SignalWhisperTextProtocol.SignalMessage)
                 return object;
             if (!$util.isObject(object))
-                throw TypeError(".SignalWhisperTextProtocol.SignalMessage: object expected");
-            if (_depth === undefined)
+                throw $TypeError(".SignalWhisperTextProtocol.SignalMessage: object expected");
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var message = new $root.SignalWhisperTextProtocol.SignalMessage();
             if (object.ratchetKey != null)
                 if (typeof object.ratchetKey === "string")
@@ -2206,22 +2207,22 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        SignalMessage.toObject = function toObject(message, options, _depth) {
+        SignalMessage.toObject = function (message, options, _depth) {
             if (!options)
                 options = {};
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var object = {};
-            if (message.ratchetKey != null && message.hasOwnProperty("ratchetKey"))
-                object.ratchetKey = options.bytes === String ? $util.base64.encode(message.ratchetKey, 0, message.ratchetKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.ratchetKey) : message.ratchetKey;
-            if (message.counter != null && message.hasOwnProperty("counter"))
+            if (message.ratchetKey != null && $Object.hasOwnProperty.call(message, "ratchetKey"))
+                object.ratchetKey = options.bytes === $String ? $util.base64.encode(message.ratchetKey, 0, message.ratchetKey.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.ratchetKey) : message.ratchetKey;
+            if (message.counter != null && $Object.hasOwnProperty.call(message, "counter"))
                 object.counter = message.counter;
-            if (message.previousCounter != null && message.hasOwnProperty("previousCounter"))
+            if (message.previousCounter != null && $Object.hasOwnProperty.call(message, "previousCounter"))
                 object.previousCounter = message.previousCounter;
-            if (message.ciphertext != null && message.hasOwnProperty("ciphertext"))
-                object.ciphertext = options.bytes === String ? $util.base64.encode(message.ciphertext, 0, message.ciphertext.length) : options.bytes === Array ? Array.prototype.slice.call(message.ciphertext) : message.ciphertext;
+            if (message.ciphertext != null && $Object.hasOwnProperty.call(message, "ciphertext"))
+                object.ciphertext = options.bytes === $String ? $util.base64.encode(message.ciphertext, 0, message.ciphertext.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.ciphertext) : message.ciphertext;
             return object;
         };
 
@@ -2232,8 +2233,8 @@ $root.SignalWhisperTextProtocol = (function() {
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        SignalMessage.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        SignalMessage.prototype.toJSON = function() {
+            return SignalMessage.toObject(this, $protobuf.util.toJSONOptions);
         };
 
         /**
@@ -2244,8 +2245,8 @@ $root.SignalWhisperTextProtocol = (function() {
          * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
          * @returns {string} The type url
          */
-        SignalMessage.getTypeUrl = function getTypeUrl(prefix) {
-            if (prefix === undefined)
+        SignalMessage.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
                 prefix = "type.googleapis.com";
             return prefix + "/SignalWhisperTextProtocol.SignalMessage";
         };

@@ -5,6 +5,7 @@ var $protobuf = require("protobufjs/minimal");
 
 // Common aliases
 var $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.util;
+var $Object = $util.global.Object, $undefined = $util.global.undefined, $Error = $util.global.Error, $TypeError = $util.global.TypeError, $String = $util.global.String, $Array = $util.global.Array, $parseInt = $util.global.parseInt, $BigInt = $util.global.BigInt, $Number = $util.global.Number;
 
 // Exported root namespace
 var $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
@@ -49,12 +50,12 @@ $root.Cert = (function() {
          * @param {Cert.CertChain.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
-        function CertChain(properties) {
+        var CertChain = function (properties) {
             if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
-        }
+        };
 
         /**
          * CertChain leaf.
@@ -76,13 +77,13 @@ $root.Cert = (function() {
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(CertChain.prototype, "_leaf", {
+        $Object.defineProperty(CertChain.prototype, "_leaf", {
             get: $util.oneOfGetter($oneOfFields = ["leaf"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(CertChain.prototype, "_intermediate", {
+        $Object.defineProperty(CertChain.prototype, "_intermediate", {
             get: $util.oneOfGetter($oneOfFields = ["intermediate"]),
             set: $util.oneOfSetter($oneOfFields)
         });
@@ -99,7 +100,7 @@ $root.Cert = (function() {
          *   (properties?: Cert.CertChain.$Properties): Cert.CertChain;
          * }}
          */
-        CertChain.create = function create(properties) {
+        CertChain.create = function(properties) {
             return new CertChain(properties);
         };
 
@@ -112,18 +113,18 @@ $root.Cert = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        CertChain.encode = function encode(message, writer, _depth) {
+        CertChain.encode = function (message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
-            if (message.leaf != null && Object.hasOwnProperty.call(message, "leaf"))
+                throw $Error("max depth exceeded");
+            if (message.leaf != null && $Object.hasOwnProperty.call(message, "leaf"))
                 $root.Cert.CertChain.NoiseCertificate.encode(message.leaf, writer.uint32(/* id 1, wireType 2 =*/10).fork(), _depth + 1).ldelim();
-            if (message.intermediate != null && Object.hasOwnProperty.call(message, "intermediate"))
+            if (message.intermediate != null && $Object.hasOwnProperty.call(message, "intermediate"))
                 $root.Cert.CertChain.NoiseCertificate.encode(message.intermediate, writer.uint32(/* id 2, wireType 2 =*/18).fork(), _depth + 1).ldelim();
-            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
             return writer;
@@ -138,7 +139,7 @@ $root.Cert = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        CertChain.encodeDelimited = function encodeDelimited(message, writer) {
+        CertChain.encodeDelimited = function(message, writer) {
             return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
@@ -153,19 +154,19 @@ $root.Cert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        CertChain.decode = function decode(reader, length, _end, _depth, _target) {
+        CertChain.decode = function (reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
-                throw Error("max depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Cert.CertChain();
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Cert.CertChain();
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
                 if (tag === _end) {
-                    _end = undefined;
+                    _end = $undefined;
                     break;
                 }
                 var wireType = tag & 7;
@@ -173,14 +174,14 @@ $root.Cert = (function() {
                 case 1: {
                         if (wireType !== 2)
                             break;
-                        message.leaf = $root.Cert.CertChain.NoiseCertificate.decode(reader, reader.uint32(), undefined, _depth + 1, message.leaf);
+                        message.leaf = $root.Cert.CertChain.NoiseCertificate.decode(reader, reader.uint32(), $undefined, _depth + 1, message.leaf);
                         message._leaf = "leaf";
                         continue;
                     }
                 case 2: {
                         if (wireType !== 2)
                             break;
-                        message.intermediate = $root.Cert.CertChain.NoiseCertificate.decode(reader, reader.uint32(), undefined, _depth + 1, message.intermediate);
+                        message.intermediate = $root.Cert.CertChain.NoiseCertificate.decode(reader, reader.uint32(), $undefined, _depth + 1, message.intermediate);
                         message._intermediate = "intermediate";
                         continue;
                     }
@@ -191,8 +192,8 @@ $root.Cert = (function() {
                     (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
             }
-            if (_end !== undefined)
-                throw Error("missing end group");
+            if (_end !== $undefined)
+                throw $Error("missing end group");
             return message;
         };
 
@@ -206,7 +207,7 @@ $root.Cert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        CertChain.decodeDelimited = function decodeDelimited(reader) {
+        CertChain.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
@@ -220,15 +221,15 @@ $root.Cert = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        CertChain.verify = function verify(message, _depth) {
+        CertChain.verify = function (message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 return "max depth exceeded";
             var properties = {};
-            if (message.leaf != null && message.hasOwnProperty("leaf")) {
+            if (message.leaf != null && $Object.hasOwnProperty.call(message, "leaf")) {
                 properties._leaf = 1;
                 {
                     var error = $root.Cert.CertChain.NoiseCertificate.verify(message.leaf, _depth + 1);
@@ -236,7 +237,7 @@ $root.Cert = (function() {
                         return "leaf." + error;
                 }
             }
-            if (message.intermediate != null && message.hasOwnProperty("intermediate")) {
+            if (message.intermediate != null && $Object.hasOwnProperty.call(message, "intermediate")) {
                 properties._intermediate = 1;
                 {
                     var error = $root.Cert.CertChain.NoiseCertificate.verify(message.intermediate, _depth + 1);
@@ -255,24 +256,24 @@ $root.Cert = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Cert.CertChain} CertChain
          */
-        CertChain.fromObject = function fromObject(object, _depth) {
+        CertChain.fromObject = function (object, _depth) {
             if (object instanceof $root.Cert.CertChain)
                 return object;
             if (!$util.isObject(object))
-                throw TypeError(".Cert.CertChain: object expected");
-            if (_depth === undefined)
+                throw $TypeError(".Cert.CertChain: object expected");
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var message = new $root.Cert.CertChain();
             if (object.leaf != null) {
                 if (!$util.isObject(object.leaf))
-                    throw TypeError(".Cert.CertChain.leaf: object expected");
+                    throw $TypeError(".Cert.CertChain.leaf: object expected");
                 message.leaf = $root.Cert.CertChain.NoiseCertificate.fromObject(object.leaf, _depth + 1);
             }
             if (object.intermediate != null) {
                 if (!$util.isObject(object.intermediate))
-                    throw TypeError(".Cert.CertChain.intermediate: object expected");
+                    throw $TypeError(".Cert.CertChain.intermediate: object expected");
                 message.intermediate = $root.Cert.CertChain.NoiseCertificate.fromObject(object.intermediate, _depth + 1);
             }
             return message;
@@ -287,17 +288,17 @@ $root.Cert = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        CertChain.toObject = function toObject(message, options, _depth) {
+        CertChain.toObject = function (message, options, _depth) {
             if (!options)
                 options = {};
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var object = {};
-            if (message.leaf != null && message.hasOwnProperty("leaf"))
+            if (message.leaf != null && $Object.hasOwnProperty.call(message, "leaf"))
                 object.leaf = $root.Cert.CertChain.NoiseCertificate.toObject(message.leaf, options, _depth + 1);
-            if (message.intermediate != null && message.hasOwnProperty("intermediate"))
+            if (message.intermediate != null && $Object.hasOwnProperty.call(message, "intermediate"))
                 object.intermediate = $root.Cert.CertChain.NoiseCertificate.toObject(message.intermediate, options, _depth + 1);
             return object;
         };
@@ -309,8 +310,8 @@ $root.Cert = (function() {
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        CertChain.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        CertChain.prototype.toJSON = function() {
+            return CertChain.toObject(this, $protobuf.util.toJSONOptions);
         };
 
         /**
@@ -321,8 +322,8 @@ $root.Cert = (function() {
          * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
          * @returns {string} The type url
          */
-        CertChain.getTypeUrl = function getTypeUrl(prefix) {
-            if (prefix === undefined)
+        CertChain.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
                 prefix = "type.googleapis.com";
             return prefix + "/Cert.CertChain";
         };
@@ -358,12 +359,12 @@ $root.Cert = (function() {
              * @param {Cert.CertChain.NoiseCertificate.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
-            function NoiseCertificate(properties) {
+            var NoiseCertificate = function (properties) {
                 if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null && keys[i] !== "__proto__")
                             this[keys[i]] = properties[keys[i]];
-            }
+            };
 
             /**
              * NoiseCertificate details.
@@ -385,13 +386,13 @@ $root.Cert = (function() {
             var $oneOfFields;
 
             // Virtual OneOf for proto3 optional field
-            Object.defineProperty(NoiseCertificate.prototype, "_details", {
+            $Object.defineProperty(NoiseCertificate.prototype, "_details", {
                 get: $util.oneOfGetter($oneOfFields = ["details"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
             // Virtual OneOf for proto3 optional field
-            Object.defineProperty(NoiseCertificate.prototype, "_signature", {
+            $Object.defineProperty(NoiseCertificate.prototype, "_signature", {
                 get: $util.oneOfGetter($oneOfFields = ["signature"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
@@ -408,7 +409,7 @@ $root.Cert = (function() {
              *   (properties?: Cert.CertChain.NoiseCertificate.$Properties): Cert.CertChain.NoiseCertificate;
              * }}
              */
-            NoiseCertificate.create = function create(properties) {
+            NoiseCertificate.create = function(properties) {
                 return new NoiseCertificate(properties);
             };
 
@@ -421,18 +422,18 @@ $root.Cert = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            NoiseCertificate.encode = function encode(message, writer, _depth) {
+            NoiseCertificate.encode = function (message, writer, _depth) {
                 if (!writer)
                     writer = $Writer.create();
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
-                if (message.details != null && Object.hasOwnProperty.call(message, "details"))
+                    throw $Error("max depth exceeded");
+                if (message.details != null && $Object.hasOwnProperty.call(message, "details"))
                     writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.details);
-                if (message.signature != null && Object.hasOwnProperty.call(message, "signature"))
+                if (message.signature != null && $Object.hasOwnProperty.call(message, "signature"))
                     writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.signature);
-                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
                 return writer;
@@ -447,7 +448,7 @@ $root.Cert = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            NoiseCertificate.encodeDelimited = function encodeDelimited(message, writer) {
+            NoiseCertificate.encodeDelimited = function(message, writer) {
                 return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
             };
 
@@ -462,19 +463,19 @@ $root.Cert = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            NoiseCertificate.decode = function decode(reader, length, _end, _depth, _target) {
+            NoiseCertificate.decode = function (reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
-                    throw Error("max depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Cert.CertChain.NoiseCertificate();
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Cert.CertChain.NoiseCertificate();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
                     if (tag === _end) {
-                        _end = undefined;
+                        _end = $undefined;
                         break;
                     }
                     var wireType = tag & 7;
@@ -500,8 +501,8 @@ $root.Cert = (function() {
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
                 }
-                if (_end !== undefined)
-                    throw Error("missing end group");
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
                 return message;
             };
 
@@ -515,7 +516,7 @@ $root.Cert = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            NoiseCertificate.decodeDelimited = function decodeDelimited(reader) {
+            NoiseCertificate.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
@@ -529,20 +530,20 @@ $root.Cert = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            NoiseCertificate.verify = function verify(message, _depth) {
+            NoiseCertificate.verify = function (message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     return "max depth exceeded";
                 var properties = {};
-                if (message.details != null && message.hasOwnProperty("details")) {
+                if (message.details != null && $Object.hasOwnProperty.call(message, "details")) {
                     properties._details = 1;
                     if (!(message.details && typeof message.details.length === "number" || $util.isString(message.details)))
                         return "details: buffer expected";
                 }
-                if (message.signature != null && message.hasOwnProperty("signature")) {
+                if (message.signature != null && $Object.hasOwnProperty.call(message, "signature")) {
                     properties._signature = 1;
                     if (!(message.signature && typeof message.signature.length === "number" || $util.isString(message.signature)))
                         return "signature: buffer expected";
@@ -558,15 +559,15 @@ $root.Cert = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {Cert.CertChain.NoiseCertificate} NoiseCertificate
              */
-            NoiseCertificate.fromObject = function fromObject(object, _depth) {
+            NoiseCertificate.fromObject = function (object, _depth) {
                 if (object instanceof $root.Cert.CertChain.NoiseCertificate)
                     return object;
                 if (!$util.isObject(object))
-                    throw TypeError(".Cert.CertChain.NoiseCertificate: object expected");
-                if (_depth === undefined)
+                    throw $TypeError(".Cert.CertChain.NoiseCertificate: object expected");
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
+                    throw $Error("max depth exceeded");
                 var message = new $root.Cert.CertChain.NoiseCertificate();
                 if (object.details != null)
                     if (typeof object.details === "string")
@@ -590,18 +591,18 @@ $root.Cert = (function() {
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            NoiseCertificate.toObject = function toObject(message, options, _depth) {
+            NoiseCertificate.toObject = function (message, options, _depth) {
                 if (!options)
                     options = {};
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
+                    throw $Error("max depth exceeded");
                 var object = {};
-                if (message.details != null && message.hasOwnProperty("details"))
-                    object.details = options.bytes === String ? $util.base64.encode(message.details, 0, message.details.length) : options.bytes === Array ? Array.prototype.slice.call(message.details) : message.details;
-                if (message.signature != null && message.hasOwnProperty("signature"))
-                    object.signature = options.bytes === String ? $util.base64.encode(message.signature, 0, message.signature.length) : options.bytes === Array ? Array.prototype.slice.call(message.signature) : message.signature;
+                if (message.details != null && $Object.hasOwnProperty.call(message, "details"))
+                    object.details = options.bytes === $String ? $util.base64.encode(message.details, 0, message.details.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.details) : message.details;
+                if (message.signature != null && $Object.hasOwnProperty.call(message, "signature"))
+                    object.signature = options.bytes === $String ? $util.base64.encode(message.signature, 0, message.signature.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.signature) : message.signature;
                 return object;
             };
 
@@ -612,8 +613,8 @@ $root.Cert = (function() {
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            NoiseCertificate.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            NoiseCertificate.prototype.toJSON = function() {
+                return NoiseCertificate.toObject(this, $protobuf.util.toJSONOptions);
             };
 
             /**
@@ -624,8 +625,8 @@ $root.Cert = (function() {
              * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
              * @returns {string} The type url
              */
-            NoiseCertificate.getTypeUrl = function getTypeUrl(prefix) {
-                if (prefix === undefined)
+            NoiseCertificate.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
                     prefix = "type.googleapis.com";
                 return prefix + "/Cert.CertChain.NoiseCertificate";
             };
@@ -664,12 +665,12 @@ $root.Cert = (function() {
                  * @param {Cert.CertChain.NoiseCertificate.Details.$Properties=} [properties] Properties to set
                  * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
                  */
-                function Details(properties) {
+                var Details = function (properties) {
                     if (properties)
-                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                             if (properties[keys[i]] != null && keys[i] !== "__proto__")
                                 this[keys[i]] = properties[keys[i]];
-                }
+                };
 
                 /**
                  * Details serial.
@@ -715,31 +716,31 @@ $root.Cert = (function() {
                 var $oneOfFields;
 
                 // Virtual OneOf for proto3 optional field
-                Object.defineProperty(Details.prototype, "_serial", {
+                $Object.defineProperty(Details.prototype, "_serial", {
                     get: $util.oneOfGetter($oneOfFields = ["serial"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
                 // Virtual OneOf for proto3 optional field
-                Object.defineProperty(Details.prototype, "_issuerSerial", {
+                $Object.defineProperty(Details.prototype, "_issuerSerial", {
                     get: $util.oneOfGetter($oneOfFields = ["issuerSerial"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
                 // Virtual OneOf for proto3 optional field
-                Object.defineProperty(Details.prototype, "_key", {
+                $Object.defineProperty(Details.prototype, "_key", {
                     get: $util.oneOfGetter($oneOfFields = ["key"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
                 // Virtual OneOf for proto3 optional field
-                Object.defineProperty(Details.prototype, "_notBefore", {
+                $Object.defineProperty(Details.prototype, "_notBefore", {
                     get: $util.oneOfGetter($oneOfFields = ["notBefore"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
                 // Virtual OneOf for proto3 optional field
-                Object.defineProperty(Details.prototype, "_notAfter", {
+                $Object.defineProperty(Details.prototype, "_notAfter", {
                     get: $util.oneOfGetter($oneOfFields = ["notAfter"]),
                     set: $util.oneOfSetter($oneOfFields)
                 });
@@ -756,7 +757,7 @@ $root.Cert = (function() {
                  *   (properties?: Cert.CertChain.NoiseCertificate.Details.$Properties): Cert.CertChain.NoiseCertificate.Details;
                  * }}
                  */
-                Details.create = function create(properties) {
+                Details.create = function(properties) {
                     return new Details(properties);
                 };
 
@@ -769,24 +770,24 @@ $root.Cert = (function() {
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
-                Details.encode = function encode(message, writer, _depth) {
+                Details.encode = function (message, writer, _depth) {
                     if (!writer)
                         writer = $Writer.create();
-                    if (_depth === undefined)
+                    if (_depth === $undefined)
                         _depth = 0;
                     if (_depth > $util.recursionLimit)
-                        throw Error("max depth exceeded");
-                    if (message.serial != null && Object.hasOwnProperty.call(message, "serial"))
+                        throw $Error("max depth exceeded");
+                    if (message.serial != null && $Object.hasOwnProperty.call(message, "serial"))
                         writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.serial);
-                    if (message.issuerSerial != null && Object.hasOwnProperty.call(message, "issuerSerial"))
+                    if (message.issuerSerial != null && $Object.hasOwnProperty.call(message, "issuerSerial"))
                         writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.issuerSerial);
-                    if (message.key != null && Object.hasOwnProperty.call(message, "key"))
+                    if (message.key != null && $Object.hasOwnProperty.call(message, "key"))
                         writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.key);
-                    if (message.notBefore != null && Object.hasOwnProperty.call(message, "notBefore"))
+                    if (message.notBefore != null && $Object.hasOwnProperty.call(message, "notBefore"))
                         writer.uint32(/* id 4, wireType 0 =*/32).uint64(message.notBefore);
-                    if (message.notAfter != null && Object.hasOwnProperty.call(message, "notAfter"))
+                    if (message.notAfter != null && $Object.hasOwnProperty.call(message, "notAfter"))
                         writer.uint32(/* id 5, wireType 0 =*/40).uint64(message.notAfter);
-                    if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                    if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                         for (var i = 0; i < message.$unknowns.length; ++i)
                             writer.raw(message.$unknowns[i]);
                     return writer;
@@ -801,7 +802,7 @@ $root.Cert = (function() {
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
-                Details.encodeDelimited = function encodeDelimited(message, writer) {
+                Details.encodeDelimited = function(message, writer) {
                     return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
                 };
 
@@ -816,19 +817,19 @@ $root.Cert = (function() {
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                Details.decode = function decode(reader, length, _end, _depth, _target) {
+                Details.decode = function (reader, length, _end, _depth, _target) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
-                    if (_depth === undefined)
+                    if (_depth === $undefined)
                         _depth = 0;
                     if (_depth > $Reader.recursionLimit)
-                        throw Error("max depth exceeded");
-                    var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Cert.CertChain.NoiseCertificate.Details();
+                        throw $Error("max depth exceeded");
+                    var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Cert.CertChain.NoiseCertificate.Details();
                     while (reader.pos < end) {
                         var start = reader.pos;
                         var tag = reader.tag();
                         if (tag === _end) {
-                            _end = undefined;
+                            _end = $undefined;
                             break;
                         }
                         var wireType = tag & 7;
@@ -875,8 +876,8 @@ $root.Cert = (function() {
                             (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                         }
                     }
-                    if (_end !== undefined)
-                        throw Error("missing end group");
+                    if (_end !== $undefined)
+                        throw $Error("missing end group");
                     return message;
                 };
 
@@ -890,7 +891,7 @@ $root.Cert = (function() {
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                Details.decodeDelimited = function decodeDelimited(reader) {
+                Details.decodeDelimited = function(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
                     return this.decode(reader, reader.uint32());
@@ -904,35 +905,35 @@ $root.Cert = (function() {
                  * @param {Object.<string,*>} message Plain object to verify
                  * @returns {string|null} `null` if valid, otherwise the reason why it is not
                  */
-                Details.verify = function verify(message, _depth) {
+                Details.verify = function (message, _depth) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    if (_depth === undefined)
+                    if (_depth === $undefined)
                         _depth = 0;
                     if (_depth > $util.recursionLimit)
                         return "max depth exceeded";
                     var properties = {};
-                    if (message.serial != null && message.hasOwnProperty("serial")) {
+                    if (message.serial != null && $Object.hasOwnProperty.call(message, "serial")) {
                         properties._serial = 1;
                         if (!$util.isInteger(message.serial))
                             return "serial: integer expected";
                     }
-                    if (message.issuerSerial != null && message.hasOwnProperty("issuerSerial")) {
+                    if (message.issuerSerial != null && $Object.hasOwnProperty.call(message, "issuerSerial")) {
                         properties._issuerSerial = 1;
                         if (!$util.isInteger(message.issuerSerial))
                             return "issuerSerial: integer expected";
                     }
-                    if (message.key != null && message.hasOwnProperty("key")) {
+                    if (message.key != null && $Object.hasOwnProperty.call(message, "key")) {
                         properties._key = 1;
                         if (!(message.key && typeof message.key.length === "number" || $util.isString(message.key)))
                             return "key: buffer expected";
                     }
-                    if (message.notBefore != null && message.hasOwnProperty("notBefore")) {
+                    if (message.notBefore != null && $Object.hasOwnProperty.call(message, "notBefore")) {
                         properties._notBefore = 1;
                         if (!$util.isInteger(message.notBefore) && !(message.notBefore && $util.isInteger(message.notBefore.low) && $util.isInteger(message.notBefore.high)))
                             return "notBefore: integer|Long expected";
                     }
-                    if (message.notAfter != null && message.hasOwnProperty("notAfter")) {
+                    if (message.notAfter != null && $Object.hasOwnProperty.call(message, "notAfter")) {
                         properties._notAfter = 1;
                         if (!$util.isInteger(message.notAfter) && !(message.notAfter && $util.isInteger(message.notAfter.low) && $util.isInteger(message.notAfter.high)))
                             return "notAfter: integer|Long expected";
@@ -948,15 +949,15 @@ $root.Cert = (function() {
                  * @param {Object.<string,*>} object Plain object
                  * @returns {Cert.CertChain.NoiseCertificate.Details} Details
                  */
-                Details.fromObject = function fromObject(object, _depth) {
+                Details.fromObject = function (object, _depth) {
                     if (object instanceof $root.Cert.CertChain.NoiseCertificate.Details)
                         return object;
                     if (!$util.isObject(object))
-                        throw TypeError(".Cert.CertChain.NoiseCertificate.Details: object expected");
-                    if (_depth === undefined)
+                        throw $TypeError(".Cert.CertChain.NoiseCertificate.Details: object expected");
+                    if (_depth === $undefined)
                         _depth = 0;
                     if (_depth > $util.recursionLimit)
-                        throw Error("max depth exceeded");
+                        throw $Error("max depth exceeded");
                     var message = new $root.Cert.CertChain.NoiseCertificate.Details();
                     if (object.serial != null)
                         message.serial = object.serial >>> 0;
@@ -971,7 +972,7 @@ $root.Cert = (function() {
                         if ($util.Long)
                             message.notBefore = $util.Long.fromValue(object.notBefore, true);
                         else if (typeof object.notBefore === "string")
-                            message.notBefore = parseInt(object.notBefore, 10);
+                            message.notBefore = $parseInt(object.notBefore, 10);
                         else if (typeof object.notBefore === "number")
                             message.notBefore = object.notBefore;
                         else if (typeof object.notBefore === "object")
@@ -980,7 +981,7 @@ $root.Cert = (function() {
                         if ($util.Long)
                             message.notAfter = $util.Long.fromValue(object.notAfter, true);
                         else if (typeof object.notAfter === "string")
-                            message.notAfter = parseInt(object.notAfter, 10);
+                            message.notAfter = $parseInt(object.notAfter, 10);
                         else if (typeof object.notAfter === "number")
                             message.notAfter = object.notAfter;
                         else if (typeof object.notAfter === "object")
@@ -997,34 +998,34 @@ $root.Cert = (function() {
                  * @param {$protobuf.IConversionOptions} [options] Conversion options
                  * @returns {Object.<string,*>} Plain object
                  */
-                Details.toObject = function toObject(message, options, _depth) {
+                Details.toObject = function (message, options, _depth) {
                     if (!options)
                         options = {};
-                    if (_depth === undefined)
+                    if (_depth === $undefined)
                         _depth = 0;
                     if (_depth > $util.recursionLimit)
-                        throw Error("max depth exceeded");
+                        throw $Error("max depth exceeded");
                     var object = {};
-                    if (message.serial != null && message.hasOwnProperty("serial"))
+                    if (message.serial != null && $Object.hasOwnProperty.call(message, "serial"))
                         object.serial = message.serial;
-                    if (message.issuerSerial != null && message.hasOwnProperty("issuerSerial"))
+                    if (message.issuerSerial != null && $Object.hasOwnProperty.call(message, "issuerSerial"))
                         object.issuerSerial = message.issuerSerial;
-                    if (message.key != null && message.hasOwnProperty("key"))
-                        object.key = options.bytes === String ? $util.base64.encode(message.key, 0, message.key.length) : options.bytes === Array ? Array.prototype.slice.call(message.key) : message.key;
-                    if (message.notBefore != null && message.hasOwnProperty("notBefore"))
-                        if (typeof BigInt !== "undefined" && options.longs === BigInt)
-                            object.notBefore = typeof message.notBefore === "number" ? BigInt(message.notBefore) : $util.Long.fromBits(message.notBefore.low >>> 0, message.notBefore.high >>> 0, true).toBigInt();
+                    if (message.key != null && $Object.hasOwnProperty.call(message, "key"))
+                        object.key = options.bytes === $String ? $util.base64.encode(message.key, 0, message.key.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.key) : message.key;
+                    if (message.notBefore != null && $Object.hasOwnProperty.call(message, "notBefore"))
+                        if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                            object.notBefore = typeof message.notBefore === "number" ? $BigInt(message.notBefore) : $util.Long.fromBits(message.notBefore.low >>> 0, message.notBefore.high >>> 0, true).toBigInt();
                         else if (typeof message.notBefore === "number")
-                            object.notBefore = options.longs === String ? String(message.notBefore) : message.notBefore;
+                            object.notBefore = options.longs === $String ? $String(message.notBefore) : message.notBefore;
                         else
-                            object.notBefore = options.longs === String ? $util.Long.prototype.toString.call(message.notBefore) : options.longs === Number ? new $util.LongBits(message.notBefore.low >>> 0, message.notBefore.high >>> 0).toNumber(true) : message.notBefore;
-                    if (message.notAfter != null && message.hasOwnProperty("notAfter"))
-                        if (typeof BigInt !== "undefined" && options.longs === BigInt)
-                            object.notAfter = typeof message.notAfter === "number" ? BigInt(message.notAfter) : $util.Long.fromBits(message.notAfter.low >>> 0, message.notAfter.high >>> 0, true).toBigInt();
+                            object.notBefore = options.longs === $String ? $util.Long.prototype.toString.call(message.notBefore) : options.longs === $Number ? new $util.LongBits(message.notBefore.low >>> 0, message.notBefore.high >>> 0).toNumber(true) : message.notBefore;
+                    if (message.notAfter != null && $Object.hasOwnProperty.call(message, "notAfter"))
+                        if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                            object.notAfter = typeof message.notAfter === "number" ? $BigInt(message.notAfter) : $util.Long.fromBits(message.notAfter.low >>> 0, message.notAfter.high >>> 0, true).toBigInt();
                         else if (typeof message.notAfter === "number")
-                            object.notAfter = options.longs === String ? String(message.notAfter) : message.notAfter;
+                            object.notAfter = options.longs === $String ? $String(message.notAfter) : message.notAfter;
                         else
-                            object.notAfter = options.longs === String ? $util.Long.prototype.toString.call(message.notAfter) : options.longs === Number ? new $util.LongBits(message.notAfter.low >>> 0, message.notAfter.high >>> 0).toNumber(true) : message.notAfter;
+                            object.notAfter = options.longs === $String ? $util.Long.prototype.toString.call(message.notAfter) : options.longs === $Number ? new $util.LongBits(message.notAfter.low >>> 0, message.notAfter.high >>> 0).toNumber(true) : message.notAfter;
                     return object;
                 };
 
@@ -1035,8 +1036,8 @@ $root.Cert = (function() {
                  * @instance
                  * @returns {Object.<string,*>} JSON object
                  */
-                Details.prototype.toJSON = function toJSON() {
-                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                Details.prototype.toJSON = function() {
+                    return Details.toObject(this, $protobuf.util.toJSONOptions);
                 };
 
                 /**
@@ -1047,8 +1048,8 @@ $root.Cert = (function() {
                  * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
                  * @returns {string} The type url
                  */
-                Details.getTypeUrl = function getTypeUrl(prefix) {
-                    if (prefix === undefined)
+                Details.getTypeUrl = function(prefix) {
+                    if (prefix === $undefined)
                         prefix = "type.googleapis.com";
                     return prefix + "/Cert.CertChain.NoiseCertificate.Details";
                 };
@@ -1093,12 +1094,12 @@ $root.Cert = (function() {
          * @param {Cert.NoiseCertificate.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
-        function NoiseCertificate(properties) {
+        var NoiseCertificate = function (properties) {
             if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
-        }
+        };
 
         /**
          * NoiseCertificate details.
@@ -1120,13 +1121,13 @@ $root.Cert = (function() {
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(NoiseCertificate.prototype, "_details", {
+        $Object.defineProperty(NoiseCertificate.prototype, "_details", {
             get: $util.oneOfGetter($oneOfFields = ["details"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(NoiseCertificate.prototype, "_signature", {
+        $Object.defineProperty(NoiseCertificate.prototype, "_signature", {
             get: $util.oneOfGetter($oneOfFields = ["signature"]),
             set: $util.oneOfSetter($oneOfFields)
         });
@@ -1143,7 +1144,7 @@ $root.Cert = (function() {
          *   (properties?: Cert.NoiseCertificate.$Properties): Cert.NoiseCertificate;
          * }}
          */
-        NoiseCertificate.create = function create(properties) {
+        NoiseCertificate.create = function(properties) {
             return new NoiseCertificate(properties);
         };
 
@@ -1156,18 +1157,18 @@ $root.Cert = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        NoiseCertificate.encode = function encode(message, writer, _depth) {
+        NoiseCertificate.encode = function (message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
-            if (message.details != null && Object.hasOwnProperty.call(message, "details"))
+                throw $Error("max depth exceeded");
+            if (message.details != null && $Object.hasOwnProperty.call(message, "details"))
                 writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.details);
-            if (message.signature != null && Object.hasOwnProperty.call(message, "signature"))
+            if (message.signature != null && $Object.hasOwnProperty.call(message, "signature"))
                 writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.signature);
-            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
             return writer;
@@ -1182,7 +1183,7 @@ $root.Cert = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        NoiseCertificate.encodeDelimited = function encodeDelimited(message, writer) {
+        NoiseCertificate.encodeDelimited = function(message, writer) {
             return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
@@ -1197,19 +1198,19 @@ $root.Cert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        NoiseCertificate.decode = function decode(reader, length, _end, _depth, _target) {
+        NoiseCertificate.decode = function (reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
-                throw Error("max depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Cert.NoiseCertificate();
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Cert.NoiseCertificate();
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
                 if (tag === _end) {
-                    _end = undefined;
+                    _end = $undefined;
                     break;
                 }
                 var wireType = tag & 7;
@@ -1235,8 +1236,8 @@ $root.Cert = (function() {
                     (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
             }
-            if (_end !== undefined)
-                throw Error("missing end group");
+            if (_end !== $undefined)
+                throw $Error("missing end group");
             return message;
         };
 
@@ -1250,7 +1251,7 @@ $root.Cert = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        NoiseCertificate.decodeDelimited = function decodeDelimited(reader) {
+        NoiseCertificate.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
@@ -1264,20 +1265,20 @@ $root.Cert = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        NoiseCertificate.verify = function verify(message, _depth) {
+        NoiseCertificate.verify = function (message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 return "max depth exceeded";
             var properties = {};
-            if (message.details != null && message.hasOwnProperty("details")) {
+            if (message.details != null && $Object.hasOwnProperty.call(message, "details")) {
                 properties._details = 1;
                 if (!(message.details && typeof message.details.length === "number" || $util.isString(message.details)))
                     return "details: buffer expected";
             }
-            if (message.signature != null && message.hasOwnProperty("signature")) {
+            if (message.signature != null && $Object.hasOwnProperty.call(message, "signature")) {
                 properties._signature = 1;
                 if (!(message.signature && typeof message.signature.length === "number" || $util.isString(message.signature)))
                     return "signature: buffer expected";
@@ -1293,15 +1294,15 @@ $root.Cert = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {Cert.NoiseCertificate} NoiseCertificate
          */
-        NoiseCertificate.fromObject = function fromObject(object, _depth) {
+        NoiseCertificate.fromObject = function (object, _depth) {
             if (object instanceof $root.Cert.NoiseCertificate)
                 return object;
             if (!$util.isObject(object))
-                throw TypeError(".Cert.NoiseCertificate: object expected");
-            if (_depth === undefined)
+                throw $TypeError(".Cert.NoiseCertificate: object expected");
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var message = new $root.Cert.NoiseCertificate();
             if (object.details != null)
                 if (typeof object.details === "string")
@@ -1325,18 +1326,18 @@ $root.Cert = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        NoiseCertificate.toObject = function toObject(message, options, _depth) {
+        NoiseCertificate.toObject = function (message, options, _depth) {
             if (!options)
                 options = {};
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var object = {};
-            if (message.details != null && message.hasOwnProperty("details"))
-                object.details = options.bytes === String ? $util.base64.encode(message.details, 0, message.details.length) : options.bytes === Array ? Array.prototype.slice.call(message.details) : message.details;
-            if (message.signature != null && message.hasOwnProperty("signature"))
-                object.signature = options.bytes === String ? $util.base64.encode(message.signature, 0, message.signature.length) : options.bytes === Array ? Array.prototype.slice.call(message.signature) : message.signature;
+            if (message.details != null && $Object.hasOwnProperty.call(message, "details"))
+                object.details = options.bytes === $String ? $util.base64.encode(message.details, 0, message.details.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.details) : message.details;
+            if (message.signature != null && $Object.hasOwnProperty.call(message, "signature"))
+                object.signature = options.bytes === $String ? $util.base64.encode(message.signature, 0, message.signature.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.signature) : message.signature;
             return object;
         };
 
@@ -1347,8 +1348,8 @@ $root.Cert = (function() {
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        NoiseCertificate.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        NoiseCertificate.prototype.toJSON = function() {
+            return NoiseCertificate.toObject(this, $protobuf.util.toJSONOptions);
         };
 
         /**
@@ -1359,8 +1360,8 @@ $root.Cert = (function() {
          * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
          * @returns {string} The type url
          */
-        NoiseCertificate.getTypeUrl = function getTypeUrl(prefix) {
-            if (prefix === undefined)
+        NoiseCertificate.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
                 prefix = "type.googleapis.com";
             return prefix + "/Cert.NoiseCertificate";
         };
@@ -1399,12 +1400,12 @@ $root.Cert = (function() {
              * @param {Cert.NoiseCertificate.Details.$Properties=} [properties] Properties to set
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
              */
-            function Details(properties) {
+            var Details = function (properties) {
                 if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null && keys[i] !== "__proto__")
                             this[keys[i]] = properties[keys[i]];
-            }
+            };
 
             /**
              * Details serial.
@@ -1450,31 +1451,31 @@ $root.Cert = (function() {
             var $oneOfFields;
 
             // Virtual OneOf for proto3 optional field
-            Object.defineProperty(Details.prototype, "_serial", {
+            $Object.defineProperty(Details.prototype, "_serial", {
                 get: $util.oneOfGetter($oneOfFields = ["serial"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
             // Virtual OneOf for proto3 optional field
-            Object.defineProperty(Details.prototype, "_issuer", {
+            $Object.defineProperty(Details.prototype, "_issuer", {
                 get: $util.oneOfGetter($oneOfFields = ["issuer"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
             // Virtual OneOf for proto3 optional field
-            Object.defineProperty(Details.prototype, "_expires", {
+            $Object.defineProperty(Details.prototype, "_expires", {
                 get: $util.oneOfGetter($oneOfFields = ["expires"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
             // Virtual OneOf for proto3 optional field
-            Object.defineProperty(Details.prototype, "_subject", {
+            $Object.defineProperty(Details.prototype, "_subject", {
                 get: $util.oneOfGetter($oneOfFields = ["subject"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
             // Virtual OneOf for proto3 optional field
-            Object.defineProperty(Details.prototype, "_key", {
+            $Object.defineProperty(Details.prototype, "_key", {
                 get: $util.oneOfGetter($oneOfFields = ["key"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
@@ -1491,7 +1492,7 @@ $root.Cert = (function() {
              *   (properties?: Cert.NoiseCertificate.Details.$Properties): Cert.NoiseCertificate.Details;
              * }}
              */
-            Details.create = function create(properties) {
+            Details.create = function(properties) {
                 return new Details(properties);
             };
 
@@ -1504,24 +1505,24 @@ $root.Cert = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            Details.encode = function encode(message, writer, _depth) {
+            Details.encode = function (message, writer, _depth) {
                 if (!writer)
                     writer = $Writer.create();
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
-                if (message.serial != null && Object.hasOwnProperty.call(message, "serial"))
+                    throw $Error("max depth exceeded");
+                if (message.serial != null && $Object.hasOwnProperty.call(message, "serial"))
                     writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.serial);
-                if (message.issuer != null && Object.hasOwnProperty.call(message, "issuer"))
+                if (message.issuer != null && $Object.hasOwnProperty.call(message, "issuer"))
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.issuer);
-                if (message.expires != null && Object.hasOwnProperty.call(message, "expires"))
+                if (message.expires != null && $Object.hasOwnProperty.call(message, "expires"))
                     writer.uint32(/* id 3, wireType 0 =*/24).uint64(message.expires);
-                if (message.subject != null && Object.hasOwnProperty.call(message, "subject"))
+                if (message.subject != null && $Object.hasOwnProperty.call(message, "subject"))
                     writer.uint32(/* id 4, wireType 2 =*/34).string(message.subject);
-                if (message.key != null && Object.hasOwnProperty.call(message, "key"))
+                if (message.key != null && $Object.hasOwnProperty.call(message, "key"))
                     writer.uint32(/* id 5, wireType 2 =*/42).bytes(message.key);
-                if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+                if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
                 return writer;
@@ -1536,7 +1537,7 @@ $root.Cert = (function() {
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            Details.encodeDelimited = function encodeDelimited(message, writer) {
+            Details.encodeDelimited = function(message, writer) {
                 return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
             };
 
@@ -1551,19 +1552,19 @@ $root.Cert = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Details.decode = function decode(reader, length, _end, _depth, _target) {
+            Details.decode = function (reader, length, _end, _depth, _target) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
-                    throw Error("max depth exceeded");
-                var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.Cert.NoiseCertificate.Details();
+                    throw $Error("max depth exceeded");
+                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.Cert.NoiseCertificate.Details();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
                     if (tag === _end) {
-                        _end = undefined;
+                        _end = $undefined;
                         break;
                     }
                     var wireType = tag & 7;
@@ -1610,8 +1611,8 @@ $root.Cert = (function() {
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
                 }
-                if (_end !== undefined)
-                    throw Error("missing end group");
+                if (_end !== $undefined)
+                    throw $Error("missing end group");
                 return message;
             };
 
@@ -1625,7 +1626,7 @@ $root.Cert = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Details.decodeDelimited = function decodeDelimited(reader) {
+            Details.decodeDelimited = function(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
@@ -1639,35 +1640,35 @@ $root.Cert = (function() {
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            Details.verify = function verify(message, _depth) {
+            Details.verify = function (message, _depth) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     return "max depth exceeded";
                 var properties = {};
-                if (message.serial != null && message.hasOwnProperty("serial")) {
+                if (message.serial != null && $Object.hasOwnProperty.call(message, "serial")) {
                     properties._serial = 1;
                     if (!$util.isInteger(message.serial))
                         return "serial: integer expected";
                 }
-                if (message.issuer != null && message.hasOwnProperty("issuer")) {
+                if (message.issuer != null && $Object.hasOwnProperty.call(message, "issuer")) {
                     properties._issuer = 1;
                     if (!$util.isString(message.issuer))
                         return "issuer: string expected";
                 }
-                if (message.expires != null && message.hasOwnProperty("expires")) {
+                if (message.expires != null && $Object.hasOwnProperty.call(message, "expires")) {
                     properties._expires = 1;
                     if (!$util.isInteger(message.expires) && !(message.expires && $util.isInteger(message.expires.low) && $util.isInteger(message.expires.high)))
                         return "expires: integer|Long expected";
                 }
-                if (message.subject != null && message.hasOwnProperty("subject")) {
+                if (message.subject != null && $Object.hasOwnProperty.call(message, "subject")) {
                     properties._subject = 1;
                     if (!$util.isString(message.subject))
                         return "subject: string expected";
                 }
-                if (message.key != null && message.hasOwnProperty("key")) {
+                if (message.key != null && $Object.hasOwnProperty.call(message, "key")) {
                     properties._key = 1;
                     if (!(message.key && typeof message.key.length === "number" || $util.isString(message.key)))
                         return "key: buffer expected";
@@ -1683,31 +1684,31 @@ $root.Cert = (function() {
              * @param {Object.<string,*>} object Plain object
              * @returns {Cert.NoiseCertificate.Details} Details
              */
-            Details.fromObject = function fromObject(object, _depth) {
+            Details.fromObject = function (object, _depth) {
                 if (object instanceof $root.Cert.NoiseCertificate.Details)
                     return object;
                 if (!$util.isObject(object))
-                    throw TypeError(".Cert.NoiseCertificate.Details: object expected");
-                if (_depth === undefined)
+                    throw $TypeError(".Cert.NoiseCertificate.Details: object expected");
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
+                    throw $Error("max depth exceeded");
                 var message = new $root.Cert.NoiseCertificate.Details();
                 if (object.serial != null)
                     message.serial = object.serial >>> 0;
                 if (object.issuer != null)
-                    message.issuer = String(object.issuer);
+                    message.issuer = $String(object.issuer);
                 if (object.expires != null)
                     if ($util.Long)
                         message.expires = $util.Long.fromValue(object.expires, true);
                     else if (typeof object.expires === "string")
-                        message.expires = parseInt(object.expires, 10);
+                        message.expires = $parseInt(object.expires, 10);
                     else if (typeof object.expires === "number")
                         message.expires = object.expires;
                     else if (typeof object.expires === "object")
                         message.expires = new $util.LongBits(object.expires.low >>> 0, object.expires.high >>> 0).toNumber(true);
                 if (object.subject != null)
-                    message.subject = String(object.subject);
+                    message.subject = $String(object.subject);
                 if (object.key != null)
                     if (typeof object.key === "string")
                         $util.base64.decode(object.key, message.key = $util.newBuffer($util.base64.length(object.key)), 0);
@@ -1725,29 +1726,29 @@ $root.Cert = (function() {
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            Details.toObject = function toObject(message, options, _depth) {
+            Details.toObject = function (message, options, _depth) {
                 if (!options)
                     options = {};
-                if (_depth === undefined)
+                if (_depth === $undefined)
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
-                    throw Error("max depth exceeded");
+                    throw $Error("max depth exceeded");
                 var object = {};
-                if (message.serial != null && message.hasOwnProperty("serial"))
+                if (message.serial != null && $Object.hasOwnProperty.call(message, "serial"))
                     object.serial = message.serial;
-                if (message.issuer != null && message.hasOwnProperty("issuer"))
+                if (message.issuer != null && $Object.hasOwnProperty.call(message, "issuer"))
                     object.issuer = message.issuer;
-                if (message.expires != null && message.hasOwnProperty("expires"))
-                    if (typeof BigInt !== "undefined" && options.longs === BigInt)
-                        object.expires = typeof message.expires === "number" ? BigInt(message.expires) : $util.Long.fromBits(message.expires.low >>> 0, message.expires.high >>> 0, true).toBigInt();
+                if (message.expires != null && $Object.hasOwnProperty.call(message, "expires"))
+                    if (typeof $BigInt !== "undefined" && options.longs === $BigInt)
+                        object.expires = typeof message.expires === "number" ? $BigInt(message.expires) : $util.Long.fromBits(message.expires.low >>> 0, message.expires.high >>> 0, true).toBigInt();
                     else if (typeof message.expires === "number")
-                        object.expires = options.longs === String ? String(message.expires) : message.expires;
+                        object.expires = options.longs === $String ? $String(message.expires) : message.expires;
                     else
-                        object.expires = options.longs === String ? $util.Long.prototype.toString.call(message.expires) : options.longs === Number ? new $util.LongBits(message.expires.low >>> 0, message.expires.high >>> 0).toNumber(true) : message.expires;
-                if (message.subject != null && message.hasOwnProperty("subject"))
+                        object.expires = options.longs === $String ? $util.Long.prototype.toString.call(message.expires) : options.longs === $Number ? new $util.LongBits(message.expires.low >>> 0, message.expires.high >>> 0).toNumber(true) : message.expires;
+                if (message.subject != null && $Object.hasOwnProperty.call(message, "subject"))
                     object.subject = message.subject;
-                if (message.key != null && message.hasOwnProperty("key"))
-                    object.key = options.bytes === String ? $util.base64.encode(message.key, 0, message.key.length) : options.bytes === Array ? Array.prototype.slice.call(message.key) : message.key;
+                if (message.key != null && $Object.hasOwnProperty.call(message, "key"))
+                    object.key = options.bytes === $String ? $util.base64.encode(message.key, 0, message.key.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.key) : message.key;
                 return object;
             };
 
@@ -1758,8 +1759,8 @@ $root.Cert = (function() {
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            Details.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            Details.prototype.toJSON = function() {
+                return Details.toObject(this, $protobuf.util.toJSONOptions);
             };
 
             /**
@@ -1770,8 +1771,8 @@ $root.Cert = (function() {
              * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
              * @returns {string} The type url
              */
-            Details.getTypeUrl = function getTypeUrl(prefix) {
-                if (prefix === undefined)
+            Details.getTypeUrl = function(prefix) {
+                if (prefix === $undefined)
                     prefix = "type.googleapis.com";
                 return prefix + "/Cert.NoiseCertificate.Details";
             };

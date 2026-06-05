@@ -5,6 +5,7 @@ var $protobuf = require("protobufjs/minimal");
 
 // Common aliases
 var $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.util;
+var $Object = $util.global.Object, $undefined = $util.global.undefined, $Error = $util.global.Error, $TypeError = $util.global.TypeError, $String = $util.global.String, $Array = $util.global.Array;
 
 // Exported root namespace
 var $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
@@ -48,12 +49,12 @@ $root.MmsRetry = (function() {
          * @param {MmsRetry.ServerErrorReceipt.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
-        function ServerErrorReceipt(properties) {
+        var ServerErrorReceipt = function (properties) {
             if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
-        }
+        };
 
         /**
          * ServerErrorReceipt stanzaId.
@@ -67,7 +68,7 @@ $root.MmsRetry = (function() {
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(ServerErrorReceipt.prototype, "_stanzaId", {
+        $Object.defineProperty(ServerErrorReceipt.prototype, "_stanzaId", {
             get: $util.oneOfGetter($oneOfFields = ["stanzaId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
@@ -84,7 +85,7 @@ $root.MmsRetry = (function() {
          *   (properties?: MmsRetry.ServerErrorReceipt.$Properties): MmsRetry.ServerErrorReceipt;
          * }}
          */
-        ServerErrorReceipt.create = function create(properties) {
+        ServerErrorReceipt.create = function(properties) {
             return new ServerErrorReceipt(properties);
         };
 
@@ -97,16 +98,16 @@ $root.MmsRetry = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        ServerErrorReceipt.encode = function encode(message, writer, _depth) {
+        ServerErrorReceipt.encode = function (message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
-            if (message.stanzaId != null && Object.hasOwnProperty.call(message, "stanzaId"))
+                throw $Error("max depth exceeded");
+            if (message.stanzaId != null && $Object.hasOwnProperty.call(message, "stanzaId"))
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.stanzaId);
-            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
             return writer;
@@ -121,7 +122,7 @@ $root.MmsRetry = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        ServerErrorReceipt.encodeDelimited = function encodeDelimited(message, writer) {
+        ServerErrorReceipt.encodeDelimited = function(message, writer) {
             return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
@@ -136,19 +137,19 @@ $root.MmsRetry = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ServerErrorReceipt.decode = function decode(reader, length, _end, _depth, _target) {
+        ServerErrorReceipt.decode = function (reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
-                throw Error("max depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.MmsRetry.ServerErrorReceipt();
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.MmsRetry.ServerErrorReceipt();
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
                 if (tag === _end) {
-                    _end = undefined;
+                    _end = $undefined;
                     break;
                 }
                 var wireType = tag & 7;
@@ -167,8 +168,8 @@ $root.MmsRetry = (function() {
                     (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
             }
-            if (_end !== undefined)
-                throw Error("missing end group");
+            if (_end !== $undefined)
+                throw $Error("missing end group");
             return message;
         };
 
@@ -182,7 +183,7 @@ $root.MmsRetry = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ServerErrorReceipt.decodeDelimited = function decodeDelimited(reader) {
+        ServerErrorReceipt.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
@@ -196,15 +197,15 @@ $root.MmsRetry = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        ServerErrorReceipt.verify = function verify(message, _depth) {
+        ServerErrorReceipt.verify = function (message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 return "max depth exceeded";
             var properties = {};
-            if (message.stanzaId != null && message.hasOwnProperty("stanzaId")) {
+            if (message.stanzaId != null && $Object.hasOwnProperty.call(message, "stanzaId")) {
                 properties._stanzaId = 1;
                 if (!$util.isString(message.stanzaId))
                     return "stanzaId: string expected";
@@ -220,18 +221,18 @@ $root.MmsRetry = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {MmsRetry.ServerErrorReceipt} ServerErrorReceipt
          */
-        ServerErrorReceipt.fromObject = function fromObject(object, _depth) {
+        ServerErrorReceipt.fromObject = function (object, _depth) {
             if (object instanceof $root.MmsRetry.ServerErrorReceipt)
                 return object;
             if (!$util.isObject(object))
-                throw TypeError(".MmsRetry.ServerErrorReceipt: object expected");
-            if (_depth === undefined)
+                throw $TypeError(".MmsRetry.ServerErrorReceipt: object expected");
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var message = new $root.MmsRetry.ServerErrorReceipt();
             if (object.stanzaId != null)
-                message.stanzaId = String(object.stanzaId);
+                message.stanzaId = $String(object.stanzaId);
             return message;
         };
 
@@ -244,15 +245,15 @@ $root.MmsRetry = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        ServerErrorReceipt.toObject = function toObject(message, options, _depth) {
+        ServerErrorReceipt.toObject = function (message, options, _depth) {
             if (!options)
                 options = {};
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var object = {};
-            if (message.stanzaId != null && message.hasOwnProperty("stanzaId"))
+            if (message.stanzaId != null && $Object.hasOwnProperty.call(message, "stanzaId"))
                 object.stanzaId = message.stanzaId;
             return object;
         };
@@ -264,8 +265,8 @@ $root.MmsRetry = (function() {
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        ServerErrorReceipt.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        ServerErrorReceipt.prototype.toJSON = function() {
+            return ServerErrorReceipt.toObject(this, $protobuf.util.toJSONOptions);
         };
 
         /**
@@ -276,8 +277,8 @@ $root.MmsRetry = (function() {
          * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
          * @returns {string} The type url
          */
-        ServerErrorReceipt.getTypeUrl = function getTypeUrl(prefix) {
-            if (prefix === undefined)
+        ServerErrorReceipt.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
                 prefix = "type.googleapis.com";
             return prefix + "/MmsRetry.ServerErrorReceipt";
         };
@@ -318,12 +319,12 @@ $root.MmsRetry = (function() {
          * @param {MmsRetry.MediaRetryNotification.$Properties=} [properties] Properties to set
          * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
          */
-        function MediaRetryNotification(properties) {
+        var MediaRetryNotification = function (properties) {
             if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = $Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null && keys[i] !== "__proto__")
                         this[keys[i]] = properties[keys[i]];
-        }
+        };
 
         /**
          * MediaRetryNotification stanzaId.
@@ -361,25 +362,25 @@ $root.MmsRetry = (function() {
         var $oneOfFields;
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(MediaRetryNotification.prototype, "_stanzaId", {
+        $Object.defineProperty(MediaRetryNotification.prototype, "_stanzaId", {
             get: $util.oneOfGetter($oneOfFields = ["stanzaId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(MediaRetryNotification.prototype, "_directPath", {
+        $Object.defineProperty(MediaRetryNotification.prototype, "_directPath", {
             get: $util.oneOfGetter($oneOfFields = ["directPath"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(MediaRetryNotification.prototype, "_result", {
+        $Object.defineProperty(MediaRetryNotification.prototype, "_result", {
             get: $util.oneOfGetter($oneOfFields = ["result"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(MediaRetryNotification.prototype, "_messageSecret", {
+        $Object.defineProperty(MediaRetryNotification.prototype, "_messageSecret", {
             get: $util.oneOfGetter($oneOfFields = ["messageSecret"]),
             set: $util.oneOfSetter($oneOfFields)
         });
@@ -396,7 +397,7 @@ $root.MmsRetry = (function() {
          *   (properties?: MmsRetry.MediaRetryNotification.$Properties): MmsRetry.MediaRetryNotification;
          * }}
          */
-        MediaRetryNotification.create = function create(properties) {
+        MediaRetryNotification.create = function(properties) {
             return new MediaRetryNotification(properties);
         };
 
@@ -409,22 +410,22 @@ $root.MmsRetry = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        MediaRetryNotification.encode = function encode(message, writer, _depth) {
+        MediaRetryNotification.encode = function (message, writer, _depth) {
             if (!writer)
                 writer = $Writer.create();
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
-            if (message.stanzaId != null && Object.hasOwnProperty.call(message, "stanzaId"))
+                throw $Error("max depth exceeded");
+            if (message.stanzaId != null && $Object.hasOwnProperty.call(message, "stanzaId"))
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.stanzaId);
-            if (message.directPath != null && Object.hasOwnProperty.call(message, "directPath"))
+            if (message.directPath != null && $Object.hasOwnProperty.call(message, "directPath"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.directPath);
-            if (message.result != null && Object.hasOwnProperty.call(message, "result"))
+            if (message.result != null && $Object.hasOwnProperty.call(message, "result"))
                 writer.uint32(/* id 3, wireType 0 =*/24).int32(message.result);
-            if (message.messageSecret != null && Object.hasOwnProperty.call(message, "messageSecret"))
+            if (message.messageSecret != null && $Object.hasOwnProperty.call(message, "messageSecret"))
                 writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.messageSecret);
-            if (message.$unknowns != null && Object.hasOwnProperty.call(message, "$unknowns"))
+            if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                 for (var i = 0; i < message.$unknowns.length; ++i)
                     writer.raw(message.$unknowns[i]);
             return writer;
@@ -439,7 +440,7 @@ $root.MmsRetry = (function() {
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        MediaRetryNotification.encodeDelimited = function encodeDelimited(message, writer) {
+        MediaRetryNotification.encodeDelimited = function(message, writer) {
             return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
         };
 
@@ -454,19 +455,19 @@ $root.MmsRetry = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        MediaRetryNotification.decode = function decode(reader, length, _end, _depth, _target) {
+        MediaRetryNotification.decode = function (reader, length, _end, _depth, _target) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
-                throw Error("max depth exceeded");
-            var end = length === undefined ? reader.len : reader.pos + length, message = _target || new $root.MmsRetry.MediaRetryNotification();
+                throw $Error("max depth exceeded");
+            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.MmsRetry.MediaRetryNotification();
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
                 if (tag === _end) {
-                    _end = undefined;
+                    _end = $undefined;
                     break;
                 }
                 var wireType = tag & 7;
@@ -506,8 +507,8 @@ $root.MmsRetry = (function() {
                     (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
             }
-            if (_end !== undefined)
-                throw Error("missing end group");
+            if (_end !== $undefined)
+                throw $Error("missing end group");
             return message;
         };
 
@@ -521,7 +522,7 @@ $root.MmsRetry = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        MediaRetryNotification.decodeDelimited = function decodeDelimited(reader) {
+        MediaRetryNotification.decodeDelimited = function(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
@@ -535,25 +536,25 @@ $root.MmsRetry = (function() {
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        MediaRetryNotification.verify = function verify(message, _depth) {
+        MediaRetryNotification.verify = function (message, _depth) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
                 return "max depth exceeded";
             var properties = {};
-            if (message.stanzaId != null && message.hasOwnProperty("stanzaId")) {
+            if (message.stanzaId != null && $Object.hasOwnProperty.call(message, "stanzaId")) {
                 properties._stanzaId = 1;
                 if (!$util.isString(message.stanzaId))
                     return "stanzaId: string expected";
             }
-            if (message.directPath != null && message.hasOwnProperty("directPath")) {
+            if (message.directPath != null && $Object.hasOwnProperty.call(message, "directPath")) {
                 properties._directPath = 1;
                 if (!$util.isString(message.directPath))
                     return "directPath: string expected";
             }
-            if (message.result != null && message.hasOwnProperty("result")) {
+            if (message.result != null && $Object.hasOwnProperty.call(message, "result")) {
                 properties._result = 1;
                 switch (message.result) {
                 default:
@@ -565,7 +566,7 @@ $root.MmsRetry = (function() {
                     break;
                 }
             }
-            if (message.messageSecret != null && message.hasOwnProperty("messageSecret")) {
+            if (message.messageSecret != null && $Object.hasOwnProperty.call(message, "messageSecret")) {
                 properties._messageSecret = 1;
                 if (!(message.messageSecret && typeof message.messageSecret.length === "number" || $util.isString(message.messageSecret)))
                     return "messageSecret: buffer expected";
@@ -581,20 +582,20 @@ $root.MmsRetry = (function() {
          * @param {Object.<string,*>} object Plain object
          * @returns {MmsRetry.MediaRetryNotification} MediaRetryNotification
          */
-        MediaRetryNotification.fromObject = function fromObject(object, _depth) {
+        MediaRetryNotification.fromObject = function (object, _depth) {
             if (object instanceof $root.MmsRetry.MediaRetryNotification)
                 return object;
             if (!$util.isObject(object))
-                throw TypeError(".MmsRetry.MediaRetryNotification: object expected");
-            if (_depth === undefined)
+                throw $TypeError(".MmsRetry.MediaRetryNotification: object expected");
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var message = new $root.MmsRetry.MediaRetryNotification();
             if (object.stanzaId != null)
-                message.stanzaId = String(object.stanzaId);
+                message.stanzaId = $String(object.stanzaId);
             if (object.directPath != null)
-                message.directPath = String(object.directPath);
+                message.directPath = $String(object.directPath);
             switch (object.result) {
             default:
                 if (typeof object.result === "number") {
@@ -636,22 +637,22 @@ $root.MmsRetry = (function() {
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        MediaRetryNotification.toObject = function toObject(message, options, _depth) {
+        MediaRetryNotification.toObject = function (message, options, _depth) {
             if (!options)
                 options = {};
-            if (_depth === undefined)
+            if (_depth === $undefined)
                 _depth = 0;
             if (_depth > $util.recursionLimit)
-                throw Error("max depth exceeded");
+                throw $Error("max depth exceeded");
             var object = {};
-            if (message.stanzaId != null && message.hasOwnProperty("stanzaId"))
+            if (message.stanzaId != null && $Object.hasOwnProperty.call(message, "stanzaId"))
                 object.stanzaId = message.stanzaId;
-            if (message.directPath != null && message.hasOwnProperty("directPath"))
+            if (message.directPath != null && $Object.hasOwnProperty.call(message, "directPath"))
                 object.directPath = message.directPath;
-            if (message.result != null && message.hasOwnProperty("result"))
-                object.result = options.enums === String ? $root.MmsRetry.MediaRetryNotification.ResultType[message.result] === undefined ? message.result : $root.MmsRetry.MediaRetryNotification.ResultType[message.result] : message.result;
-            if (message.messageSecret != null && message.hasOwnProperty("messageSecret"))
-                object.messageSecret = options.bytes === String ? $util.base64.encode(message.messageSecret, 0, message.messageSecret.length) : options.bytes === Array ? Array.prototype.slice.call(message.messageSecret) : message.messageSecret;
+            if (message.result != null && $Object.hasOwnProperty.call(message, "result"))
+                object.result = options.enums === $String ? $root.MmsRetry.MediaRetryNotification.ResultType[message.result] === $undefined ? message.result : $root.MmsRetry.MediaRetryNotification.ResultType[message.result] : message.result;
+            if (message.messageSecret != null && $Object.hasOwnProperty.call(message, "messageSecret"))
+                object.messageSecret = options.bytes === $String ? $util.base64.encode(message.messageSecret, 0, message.messageSecret.length) : options.bytes === $Array ? $Array.prototype.slice.call(message.messageSecret) : message.messageSecret;
             return object;
         };
 
@@ -662,8 +663,8 @@ $root.MmsRetry = (function() {
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        MediaRetryNotification.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        MediaRetryNotification.prototype.toJSON = function() {
+            return MediaRetryNotification.toObject(this, $protobuf.util.toJSONOptions);
         };
 
         /**
@@ -674,8 +675,8 @@ $root.MmsRetry = (function() {
          * @param {string} [prefix] Custom type url prefix, defaults to `"type.googleapis.com"`
          * @returns {string} The type url
          */
-        MediaRetryNotification.getTypeUrl = function getTypeUrl(prefix) {
-            if (prefix === undefined)
+        MediaRetryNotification.getTypeUrl = function(prefix) {
+            if (prefix === $undefined)
                 prefix = "type.googleapis.com";
             return prefix + "/MmsRetry.MediaRetryNotification";
         };
@@ -690,7 +691,7 @@ $root.MmsRetry = (function() {
          * @property {number} DECRYPTION_ERROR=3 DECRYPTION_ERROR value
          */
         MediaRetryNotification.ResultType = (function() {
-            var valuesById = {}, values = Object.create(valuesById);
+            var valuesById = {}, values = $Object.create(valuesById);
             values[valuesById[0] = "GENERAL_ERROR"] = 0;
             values[valuesById[1] = "SUCCESS"] = 1;
             values[valuesById[2] = "NOT_FOUND"] = 2;
