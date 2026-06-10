@@ -35,7 +35,7 @@ $root.SyncAction = (function() {
          * @property {number|null} [numberOverride] PatchDebugData numberOverride
          * @property {SyncAction.PatchDebugData.Platform|null} [senderPlatform] PatchDebugData senderPlatform
          * @property {boolean|null} [isSenderPrimary] PatchDebugData isSenderPrimary
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -57,7 +57,7 @@ $root.SyncAction = (function() {
          * @classdesc Represents a PatchDebugData.
          * @constructor
          * @param {SyncAction.PatchDebugData.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var PatchDebugData = function (properties) {
             if (properties)
@@ -746,7 +746,7 @@ $root.SyncAction = (function() {
          * @property {SyncAction.SyncActionValue.$Properties|null} [value] SyncActionData value
          * @property {Uint8Array|null} [padding] SyncActionData padding
          * @property {number|null} [version] SyncActionData version
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -774,7 +774,7 @@ $root.SyncAction = (function() {
          * @classdesc Represents a SyncActionData.
          * @constructor
          * @param {SyncAction.SyncActionData.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var SyncActionData = function (properties) {
             if (properties)
@@ -1204,7 +1204,7 @@ $root.SyncAction = (function() {
          * @property {SyncAction.SyncActionValue.ThreadPinAction.$Properties|null} [threadPinAction] SyncActionValue threadPinAction
          * @property {SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting.$Properties|null} [autoOrganizeBusinessChatSetting] SyncActionValue autoOrganizeBusinessChatSetting
          * @property {SyncAction.SyncActionValue.BizAISettingsNudgeAction.$Properties|null} [bizAiSettingsNudgeAction] SyncActionValue bizAiSettingsNudgeAction
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -1306,7 +1306,7 @@ $root.SyncAction = (function() {
          * @classdesc Represents a SyncActionValue.
          * @constructor
          * @param {SyncAction.SyncActionValue.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var SyncActionValue = function (properties) {
             if (properties)
@@ -4488,7 +4488,7 @@ $root.SyncAction = (function() {
              * @property {string|null} [name] AgentAction name
              * @property {number|null} [deviceID] AgentAction deviceID
              * @property {boolean|null} [isDeleted] AgentAction isDeleted
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -4510,7 +4510,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents an AgentAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.AgentAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AgentAction = function (properties) {
                 if (properties)
@@ -4819,7 +4819,7 @@ $root.SyncAction = (function() {
              * Properties of an AiThreadRenameAction.
              * @typedef {Object} SyncAction.SyncActionValue.AiThreadRenameAction.$Properties
              * @property {string|null} [newTitle] AiThreadRenameAction newTitle
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -4841,7 +4841,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents an AiThreadRenameAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.AiThreadRenameAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AiThreadRenameAction = function (properties) {
                 if (properties)
@@ -5086,7 +5086,7 @@ $root.SyncAction = (function() {
              * Properties of an AndroidUnsupportedActions.
              * @typedef {Object} SyncAction.SyncActionValue.AndroidUnsupportedActions.$Properties
              * @property {boolean|null} [allowed] AndroidUnsupportedActions allowed
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -5108,7 +5108,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents an AndroidUnsupportedActions.
              * @constructor
              * @param {SyncAction.SyncActionValue.AndroidUnsupportedActions.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AndroidUnsupportedActions = function (properties) {
                 if (properties)
@@ -5354,7 +5354,7 @@ $root.SyncAction = (function() {
              * @typedef {Object} SyncAction.SyncActionValue.ArchiveChatAction.$Properties
              * @property {boolean|null} [archived] ArchiveChatAction archived
              * @property {SyncAction.SyncActionValue.SyncActionMessageRange.$Properties|null} [messageRange] ArchiveChatAction messageRange
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -5376,7 +5376,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents an ArchiveChatAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.ArchiveChatAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ArchiveChatAction = function (properties) {
                 if (properties)
@@ -5659,7 +5659,7 @@ $root.SyncAction = (function() {
              * Properties of an AutoOrganizeBusinessChatSetting.
              * @typedef {Object} SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting.$Properties
              * @property {boolean|null} [autoOrganize] AutoOrganizeBusinessChatSetting autoOrganize
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -5681,7 +5681,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents an AutoOrganizeBusinessChatSetting.
              * @constructor
              * @param {SyncAction.SyncActionValue.AutoOrganizeBusinessChatSetting.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AutoOrganizeBusinessChatSetting = function (properties) {
                 if (properties)
@@ -5927,7 +5927,7 @@ $root.SyncAction = (function() {
              * @typedef {Object} SyncAction.SyncActionValue.AvatarUpdatedAction.$Properties
              * @property {SyncAction.SyncActionValue.AvatarUpdatedAction.AvatarEventType|null} [eventType] AvatarUpdatedAction eventType
              * @property {Array.<SyncAction.SyncActionValue.StickerAction.$Properties>|null} [recentAvatarStickers] AvatarUpdatedAction recentAvatarStickers
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -5949,7 +5949,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents an AvatarUpdatedAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.AvatarUpdatedAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AvatarUpdatedAction = function (properties) {
                 this.recentAvatarStickers = [];
@@ -6282,7 +6282,7 @@ $root.SyncAction = (function() {
              * @property {SyncAction.SyncActionValue.BizAISettingsNudgeAction.BizAISettingsCategory|null} [category] BizAISettingsNudgeAction category
              * @property {number|Long|null} [version] BizAISettingsNudgeAction version
              * @property {number|Long|null} [updatedAtMs] BizAISettingsNudgeAction updatedAtMs
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -6304,7 +6304,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a BizAISettingsNudgeAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.BizAISettingsNudgeAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var BizAISettingsNudgeAction = function (properties) {
                 if (properties)
@@ -6698,7 +6698,7 @@ $root.SyncAction = (function() {
              * Properties of a BotWelcomeRequestAction.
              * @typedef {Object} SyncAction.SyncActionValue.BotWelcomeRequestAction.$Properties
              * @property {boolean|null} [isSent] BotWelcomeRequestAction isSent
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -6720,7 +6720,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a BotWelcomeRequestAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.BotWelcomeRequestAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var BotWelcomeRequestAction = function (properties) {
                 if (properties)
@@ -6966,7 +6966,7 @@ $root.SyncAction = (function() {
              * @typedef {Object} SyncAction.SyncActionValue.BroadcastListParticipant.$Properties
              * @property {string|null} [lidJid] BroadcastListParticipant lidJid
              * @property {string|null} [pnJid] BroadcastListParticipant pnJid
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -6988,7 +6988,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a BroadcastListParticipant.
              * @constructor
              * @param {SyncAction.SyncActionValue.BroadcastListParticipant.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var BroadcastListParticipant = function (properties) {
                 if (properties)
@@ -7265,7 +7265,7 @@ $root.SyncAction = (function() {
              * Properties of a BusinessBroadcastAssociationAction.
              * @typedef {Object} SyncAction.SyncActionValue.BusinessBroadcastAssociationAction.$Properties
              * @property {boolean|null} [deleted] BusinessBroadcastAssociationAction deleted
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -7287,7 +7287,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a BusinessBroadcastAssociationAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.BusinessBroadcastAssociationAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var BusinessBroadcastAssociationAction = function (properties) {
                 if (properties)
@@ -7540,7 +7540,7 @@ $root.SyncAction = (function() {
              * @property {number|Long|null} [scheduledTimestamp] BusinessBroadcastCampaignAction scheduledTimestamp
              * @property {number|Long|null} [createTimestamp] BusinessBroadcastCampaignAction createTimestamp
              * @property {SyncAction.SyncActionValue.BusinessBroadcastCampaignStatus|null} [status] BusinessBroadcastCampaignAction status
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -7562,7 +7562,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a BusinessBroadcastCampaignAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.BusinessBroadcastCampaignAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var BusinessBroadcastCampaignAction = function (properties) {
                 if (properties)
@@ -8145,7 +8145,7 @@ $root.SyncAction = (function() {
              * @property {number|null} [readCount] BusinessBroadcastInsightsAction readCount
              * @property {number|null} [repliedCount] BusinessBroadcastInsightsAction repliedCount
              * @property {number|null} [quickReplyCount] BusinessBroadcastInsightsAction quickReplyCount
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -8167,7 +8167,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a BusinessBroadcastInsightsAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.BusinessBroadcastInsightsAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var BusinessBroadcastInsightsAction = function (properties) {
                 if (properties)
@@ -8544,7 +8544,7 @@ $root.SyncAction = (function() {
              * @property {string|null} [listName] BusinessBroadcastListAction listName
              * @property {Array.<string>|null} [labelIds] BusinessBroadcastListAction labelIds
              * @property {string|null} [audienceExpression] BusinessBroadcastListAction audienceExpression
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -8566,7 +8566,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a BusinessBroadcastListAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.BusinessBroadcastListAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var BusinessBroadcastListAction = function (properties) {
                 this.participants = [];
@@ -8962,7 +8962,7 @@ $root.SyncAction = (function() {
              * Properties of a CallLogAction.
              * @typedef {Object} SyncAction.SyncActionValue.CallLogAction.$Properties
              * @property {SyncAction.CallLogRecord.$Properties|null} [callLogRecord] CallLogAction callLogRecord
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -8984,7 +8984,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a CallLogAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.CallLogAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var CallLogAction = function (properties) {
                 if (properties)
@@ -9235,7 +9235,7 @@ $root.SyncAction = (function() {
              * Properties of a ChatAssignmentAction.
              * @typedef {Object} SyncAction.SyncActionValue.ChatAssignmentAction.$Properties
              * @property {string|null} [deviceAgentID] ChatAssignmentAction deviceAgentID
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -9257,7 +9257,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a ChatAssignmentAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.ChatAssignmentAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ChatAssignmentAction = function (properties) {
                 if (properties)
@@ -9502,7 +9502,7 @@ $root.SyncAction = (function() {
              * Properties of a ChatAssignmentOpenedStatusAction.
              * @typedef {Object} SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction.$Properties
              * @property {boolean|null} [chatOpened] ChatAssignmentOpenedStatusAction chatOpened
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -9524,7 +9524,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a ChatAssignmentOpenedStatusAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.ChatAssignmentOpenedStatusAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ChatAssignmentOpenedStatusAction = function (properties) {
                 if (properties)
@@ -9769,7 +9769,7 @@ $root.SyncAction = (function() {
              * Properties of a ClearChatAction.
              * @typedef {Object} SyncAction.SyncActionValue.ClearChatAction.$Properties
              * @property {SyncAction.SyncActionValue.SyncActionMessageRange.$Properties|null} [messageRange] ClearChatAction messageRange
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -9791,7 +9791,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a ClearChatAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.ClearChatAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ClearChatAction = function (properties) {
                 if (properties)
@@ -10047,7 +10047,7 @@ $root.SyncAction = (function() {
              * @property {boolean|null} [saveOnPrimaryAddressbook] ContactAction saveOnPrimaryAddressbook
              * @property {string|null} [pnJid] ContactAction pnJid
              * @property {string|null} [username] ContactAction username
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -10069,7 +10069,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a ContactAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.ContactAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ContactAction = function (properties) {
                 if (properties)
@@ -10474,7 +10474,7 @@ $root.SyncAction = (function() {
              * Properties of a CtwaPerCustomerDataSharingAction.
              * @typedef {Object} SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction.$Properties
              * @property {boolean|null} [isCtwaPerCustomerDataSharingEnabled] CtwaPerCustomerDataSharingAction isCtwaPerCustomerDataSharingEnabled
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -10496,7 +10496,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a CtwaPerCustomerDataSharingAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.CtwaPerCustomerDataSharingAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var CtwaPerCustomerDataSharingAction = function (properties) {
                 if (properties)
@@ -10744,7 +10744,7 @@ $root.SyncAction = (function() {
              * @property {string|null} [country] CustomPaymentMethod country
              * @property {string|null} [type] CustomPaymentMethod type
              * @property {Array.<SyncAction.SyncActionValue.CustomPaymentMethodMetadata.$Properties>|null} [metadata] CustomPaymentMethod metadata
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -10766,7 +10766,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a CustomPaymentMethod.
              * @constructor
              * @param {SyncAction.SyncActionValue.CustomPaymentMethod.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var CustomPaymentMethod = function (properties) {
                 this.metadata = [];
@@ -11122,7 +11122,7 @@ $root.SyncAction = (function() {
              * @typedef {Object} SyncAction.SyncActionValue.CustomPaymentMethodMetadata.$Properties
              * @property {string|null} [key] CustomPaymentMethodMetadata key
              * @property {string|null} [value] CustomPaymentMethodMetadata value
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -11144,7 +11144,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a CustomPaymentMethodMetadata.
              * @constructor
              * @param {SyncAction.SyncActionValue.CustomPaymentMethodMetadata.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var CustomPaymentMethodMetadata = function (properties) {
                 if (properties)
@@ -11421,7 +11421,7 @@ $root.SyncAction = (function() {
              * Properties of a CustomPaymentMethodsAction.
              * @typedef {Object} SyncAction.SyncActionValue.CustomPaymentMethodsAction.$Properties
              * @property {Array.<SyncAction.SyncActionValue.CustomPaymentMethod.$Properties>|null} [customPaymentMethods] CustomPaymentMethodsAction customPaymentMethods
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -11443,7 +11443,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a CustomPaymentMethodsAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.CustomPaymentMethodsAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var CustomPaymentMethodsAction = function (properties) {
                 this.customPaymentMethods = [];
@@ -11708,7 +11708,7 @@ $root.SyncAction = (function() {
              * @property {number|Long|null} [lastOrder] CustomerDataAction lastOrder
              * @property {number|Long|null} [createdAt] CustomerDataAction createdAt
              * @property {number|Long|null} [modifiedAt] CustomerDataAction modifiedAt
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -11730,7 +11730,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a CustomerDataAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.CustomerDataAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var CustomerDataAction = function (properties) {
                 if (properties)
@@ -12343,7 +12343,7 @@ $root.SyncAction = (function() {
              * Properties of a DeleteChatAction.
              * @typedef {Object} SyncAction.SyncActionValue.DeleteChatAction.$Properties
              * @property {SyncAction.SyncActionValue.SyncActionMessageRange.$Properties|null} [messageRange] DeleteChatAction messageRange
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -12365,7 +12365,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a DeleteChatAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.DeleteChatAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var DeleteChatAction = function (properties) {
                 if (properties)
@@ -12617,7 +12617,7 @@ $root.SyncAction = (function() {
              * @typedef {Object} SyncAction.SyncActionValue.DeleteIndividualCallLogAction.$Properties
              * @property {string|null} [peerJid] DeleteIndividualCallLogAction peerJid
              * @property {boolean|null} [isIncoming] DeleteIndividualCallLogAction isIncoming
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -12639,7 +12639,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a DeleteIndividualCallLogAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.DeleteIndividualCallLogAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var DeleteIndividualCallLogAction = function (properties) {
                 if (properties)
@@ -12917,7 +12917,7 @@ $root.SyncAction = (function() {
              * @typedef {Object} SyncAction.SyncActionValue.DeleteMessageForMeAction.$Properties
              * @property {boolean|null} [deleteMedia] DeleteMessageForMeAction deleteMedia
              * @property {number|Long|null} [messageTimestamp] DeleteMessageForMeAction messageTimestamp
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -12939,7 +12939,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a DeleteMessageForMeAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.DeleteMessageForMeAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var DeleteMessageForMeAction = function (properties) {
                 if (properties)
@@ -13228,7 +13228,7 @@ $root.SyncAction = (function() {
              * Properties of a DetectedOutcomesStatusAction.
              * @typedef {Object} SyncAction.SyncActionValue.DetectedOutcomesStatusAction.$Properties
              * @property {boolean|null} [isEnabled] DetectedOutcomesStatusAction isEnabled
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -13250,7 +13250,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a DetectedOutcomesStatusAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.DetectedOutcomesStatusAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var DetectedOutcomesStatusAction = function (properties) {
                 if (properties)
@@ -13495,7 +13495,7 @@ $root.SyncAction = (function() {
              * Properties of an ExternalWebBetaAction.
              * @typedef {Object} SyncAction.SyncActionValue.ExternalWebBetaAction.$Properties
              * @property {boolean|null} [isOptIn] ExternalWebBetaAction isOptIn
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -13517,7 +13517,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents an ExternalWebBetaAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.ExternalWebBetaAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ExternalWebBetaAction = function (properties) {
                 if (properties)
@@ -13762,7 +13762,7 @@ $root.SyncAction = (function() {
              * Properties of a FavoritesAction.
              * @typedef {Object} SyncAction.SyncActionValue.FavoritesAction.$Properties
              * @property {Array.<SyncAction.SyncActionValue.FavoritesAction.Favorite.$Properties>|null} [favorites] FavoritesAction favorites
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -13784,7 +13784,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a FavoritesAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.FavoritesAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var FavoritesAction = function (properties) {
                 this.favorites = [];
@@ -14036,7 +14036,7 @@ $root.SyncAction = (function() {
                  * Properties of a Favorite.
                  * @typedef {Object} SyncAction.SyncActionValue.FavoritesAction.Favorite.$Properties
                  * @property {string|null} [id] Favorite id
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -14058,7 +14058,7 @@ $root.SyncAction = (function() {
                  * @classdesc Represents a Favorite.
                  * @constructor
                  * @param {SyncAction.SyncActionValue.FavoritesAction.Favorite.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var Favorite = function (properties) {
                     if (properties)
@@ -14307,7 +14307,7 @@ $root.SyncAction = (function() {
              * @typedef {Object} SyncAction.SyncActionValue.InteractiveMessageAction.$Properties
              * @property {SyncAction.SyncActionValue.InteractiveMessageAction.InteractiveMessageActionMode|null} [type] InteractiveMessageAction type
              * @property {string|null} [agmId] InteractiveMessageAction agmId
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -14329,7 +14329,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents an InteractiveMessageAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.InteractiveMessageAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var InteractiveMessageAction = function (properties) {
                 if (properties)
@@ -14632,7 +14632,7 @@ $root.SyncAction = (function() {
              * Properties of a KeyExpiration.
              * @typedef {Object} SyncAction.SyncActionValue.KeyExpiration.$Properties
              * @property {number|null} [expiredKeyEpoch] KeyExpiration expiredKeyEpoch
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -14654,7 +14654,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a KeyExpiration.
              * @constructor
              * @param {SyncAction.SyncActionValue.KeyExpiration.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var KeyExpiration = function (properties) {
                 if (properties)
@@ -14900,7 +14900,7 @@ $root.SyncAction = (function() {
              * @typedef {Object} SyncAction.SyncActionValue.LabelAssociationAction.$Properties
              * @property {boolean|null} [labeled] LabelAssociationAction labeled
              * @property {string|null} [modelMetaData] LabelAssociationAction modelMetaData
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -14922,7 +14922,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a LabelAssociationAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.LabelAssociationAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var LabelAssociationAction = function (properties) {
                 if (properties)
@@ -15207,7 +15207,7 @@ $root.SyncAction = (function() {
              * @property {SyncAction.SyncActionValue.LabelEditAction.ListType|null} [type] LabelEditAction type
              * @property {boolean|null} [isImmutable] LabelEditAction isImmutable
              * @property {number|Long|null} [muteEndTimeMs] LabelEditAction muteEndTimeMs
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -15229,7 +15229,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a LabelEditAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.LabelEditAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var LabelEditAction = function (properties) {
                 if (properties)
@@ -15873,7 +15873,7 @@ $root.SyncAction = (function() {
              * Properties of a LabelReorderingAction.
              * @typedef {Object} SyncAction.SyncActionValue.LabelReorderingAction.$Properties
              * @property {Array.<number>|null} [sortedLabelIds] LabelReorderingAction sortedLabelIds
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -15895,7 +15895,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a LabelReorderingAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.LabelReorderingAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var LabelReorderingAction = function (properties) {
                 this.sortedLabelIds = [];
@@ -16158,7 +16158,7 @@ $root.SyncAction = (function() {
              * @property {string|null} [fullName] LidContactAction fullName
              * @property {string|null} [firstName] LidContactAction firstName
              * @property {string|null} [username] LidContactAction username
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -16180,7 +16180,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a LidContactAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.LidContactAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var LidContactAction = function (properties) {
                 if (properties)
@@ -16489,7 +16489,7 @@ $root.SyncAction = (function() {
              * Properties of a LocaleSetting.
              * @typedef {Object} SyncAction.SyncActionValue.LocaleSetting.$Properties
              * @property {string|null} [locale] LocaleSetting locale
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -16511,7 +16511,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a LocaleSetting.
              * @constructor
              * @param {SyncAction.SyncActionValue.LocaleSetting.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var LocaleSetting = function (properties) {
                 if (properties)
@@ -16756,7 +16756,7 @@ $root.SyncAction = (function() {
              * Properties of a LockChatAction.
              * @typedef {Object} SyncAction.SyncActionValue.LockChatAction.$Properties
              * @property {boolean|null} [locked] LockChatAction locked
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -16778,7 +16778,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a LockChatAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.LockChatAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var LockChatAction = function (properties) {
                 if (properties)
@@ -17024,7 +17024,7 @@ $root.SyncAction = (function() {
              * @typedef {Object} SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.$Properties
              * @property {SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.MaibaAIFeatureStatus|null} [aiFeatureStatus] MaibaAIFeaturesControlAction aiFeatureStatus
              * @property {SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.MaibaAIReplyMode|null} [aiReplyMode] MaibaAIFeaturesControlAction aiReplyMode
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -17046,7 +17046,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a MaibaAIFeaturesControlAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.MaibaAIFeaturesControlAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var MaibaAIFeaturesControlAction = function (properties) {
                 if (properties)
@@ -17404,7 +17404,7 @@ $root.SyncAction = (function() {
              * @typedef {Object} SyncAction.SyncActionValue.MarkChatAsReadAction.$Properties
              * @property {boolean|null} [read] MarkChatAsReadAction read
              * @property {SyncAction.SyncActionValue.SyncActionMessageRange.$Properties|null} [messageRange] MarkChatAsReadAction messageRange
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -17426,7 +17426,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a MarkChatAsReadAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.MarkChatAsReadAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var MarkChatAsReadAction = function (properties) {
                 if (properties)
@@ -17715,7 +17715,7 @@ $root.SyncAction = (function() {
              * @property {number|Long|null} [lastSentAt] MarketingMessageAction lastSentAt
              * @property {boolean|null} [isDeleted] MarketingMessageAction isDeleted
              * @property {string|null} [mediaId] MarketingMessageAction mediaId
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -17737,7 +17737,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a MarketingMessageAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.MarketingMessageAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var MarketingMessageAction = function (properties) {
                 if (properties)
@@ -18224,7 +18224,7 @@ $root.SyncAction = (function() {
              * Properties of a MarketingMessageBroadcastAction.
              * @typedef {Object} SyncAction.SyncActionValue.MarketingMessageBroadcastAction.$Properties
              * @property {number|null} [repliedCount] MarketingMessageBroadcastAction repliedCount
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -18246,7 +18246,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a MarketingMessageBroadcastAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.MarketingMessageBroadcastAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var MarketingMessageBroadcastAction = function (properties) {
                 if (properties)
@@ -18494,7 +18494,7 @@ $root.SyncAction = (function() {
              * @property {string|null} [country] MerchantPaymentPartnerAction country
              * @property {string|null} [gatewayName] MerchantPaymentPartnerAction gatewayName
              * @property {string|null} [credentialId] MerchantPaymentPartnerAction credentialId
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -18516,7 +18516,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a MerchantPaymentPartnerAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.MerchantPaymentPartnerAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var MerchantPaymentPartnerAction = function (properties) {
                 if (properties)
@@ -18891,7 +18891,7 @@ $root.SyncAction = (function() {
              * @typedef {Object} SyncAction.SyncActionValue.MusicUserIdAction.$Properties
              * @property {string|null} [musicUserId] MusicUserIdAction musicUserId
              * @property {Object.<string,string>|null} [musicUserIdMap] MusicUserIdAction musicUserIdMap
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -18913,7 +18913,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a MusicUserIdAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.MusicUserIdAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var MusicUserIdAction = function (properties) {
                 this.musicUserIdMap = {};
@@ -19232,7 +19232,7 @@ $root.SyncAction = (function() {
              * @property {number|Long|null} [muteEndTimestamp] MuteAction muteEndTimestamp
              * @property {boolean|null} [autoMuted] MuteAction autoMuted
              * @property {number|Long|null} [muteEveryoneMentionEndTimestamp] MuteAction muteEveryoneMentionEndTimestamp
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -19254,7 +19254,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a MuteAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.MuteAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var MuteAction = function (properties) {
                 if (properties)
@@ -19619,7 +19619,7 @@ $root.SyncAction = (function() {
              * Properties of a NctSaltSyncAction.
              * @typedef {Object} SyncAction.SyncActionValue.NctSaltSyncAction.$Properties
              * @property {Uint8Array|null} [salt] NctSaltSyncAction salt
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -19641,7 +19641,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a NctSaltSyncAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.NctSaltSyncAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var NctSaltSyncAction = function (properties) {
                 if (properties)
@@ -19889,7 +19889,7 @@ $root.SyncAction = (function() {
              * Properties of a NewsletterSavedInterestsAction.
              * @typedef {Object} SyncAction.SyncActionValue.NewsletterSavedInterestsAction.$Properties
              * @property {string|null} [newsletterSavedInterests] NewsletterSavedInterestsAction newsletterSavedInterests
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -19911,7 +19911,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a NewsletterSavedInterestsAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.NewsletterSavedInterestsAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var NewsletterSavedInterestsAction = function (properties) {
                 if (properties)
@@ -20160,7 +20160,7 @@ $root.SyncAction = (function() {
              * @property {number|Long|null} [createdAt] NoteEditAction createdAt
              * @property {boolean|null} [deleted] NoteEditAction deleted
              * @property {string|null} [unstructuredContent] NoteEditAction unstructuredContent
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -20182,7 +20182,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a NoteEditAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.NoteEditAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var NoteEditAction = function (properties) {
                 if (properties)
@@ -20600,7 +20600,7 @@ $root.SyncAction = (function() {
              * Properties of a NotificationActivitySettingAction.
              * @typedef {Object} SyncAction.SyncActionValue.NotificationActivitySettingAction.$Properties
              * @property {SyncAction.SyncActionValue.NotificationActivitySettingAction.NotificationActivitySetting|null} [notificationActivitySetting] NotificationActivitySettingAction notificationActivitySetting
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -20622,7 +20622,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a NotificationActivitySettingAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.NotificationActivitySettingAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var NotificationActivitySettingAction = function (properties) {
                 if (properties)
@@ -20914,7 +20914,7 @@ $root.SyncAction = (function() {
              * Properties of a NuxAction.
              * @typedef {Object} SyncAction.SyncActionValue.NuxAction.$Properties
              * @property {boolean|null} [acknowledged] NuxAction acknowledged
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -20936,7 +20936,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a NuxAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.NuxAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var NuxAction = function (properties) {
                 if (properties)
@@ -21182,7 +21182,7 @@ $root.SyncAction = (function() {
              * @typedef {Object} SyncAction.SyncActionValue.OutContactAction.$Properties
              * @property {string|null} [fullName] OutContactAction fullName
              * @property {string|null} [firstName] OutContactAction firstName
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -21204,7 +21204,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents an OutContactAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.OutContactAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var OutContactAction = function (properties) {
                 if (properties)
@@ -21481,7 +21481,7 @@ $root.SyncAction = (function() {
              * Properties of a PaymentInfoAction.
              * @typedef {Object} SyncAction.SyncActionValue.PaymentInfoAction.$Properties
              * @property {string|null} [cpi] PaymentInfoAction cpi
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -21503,7 +21503,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a PaymentInfoAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.PaymentInfoAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var PaymentInfoAction = function (properties) {
                 if (properties)
@@ -21749,7 +21749,7 @@ $root.SyncAction = (function() {
              * @typedef {Object} SyncAction.SyncActionValue.PaymentTosAction.$Properties
              * @property {SyncAction.SyncActionValue.PaymentTosAction.PaymentNotice|null} [paymentNotice] PaymentTosAction paymentNotice
              * @property {boolean|null} [accepted] PaymentTosAction accepted
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -21771,7 +21771,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a PaymentTosAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.PaymentTosAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var PaymentTosAction = function (properties) {
                 if (properties)
@@ -22074,7 +22074,7 @@ $root.SyncAction = (function() {
              * Properties of a PinAction.
              * @typedef {Object} SyncAction.SyncActionValue.PinAction.$Properties
              * @property {boolean|null} [pinned] PinAction pinned
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -22096,7 +22096,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a PinAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.PinAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var PinAction = function (properties) {
                 if (properties)
@@ -22341,7 +22341,7 @@ $root.SyncAction = (function() {
              * Properties of a PnForLidChatAction.
              * @typedef {Object} SyncAction.SyncActionValue.PnForLidChatAction.$Properties
              * @property {string|null} [pnJid] PnForLidChatAction pnJid
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -22363,7 +22363,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a PnForLidChatAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.PnForLidChatAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var PnForLidChatAction = function (properties) {
                 if (properties)
@@ -22608,7 +22608,7 @@ $root.SyncAction = (function() {
              * Properties of a PrimaryFeature.
              * @typedef {Object} SyncAction.SyncActionValue.PrimaryFeature.$Properties
              * @property {Array.<string>|null} [flags] PrimaryFeature flags
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -22630,7 +22630,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a PrimaryFeature.
              * @constructor
              * @param {SyncAction.SyncActionValue.PrimaryFeature.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var PrimaryFeature = function (properties) {
                 this.flags = [];
@@ -22880,7 +22880,7 @@ $root.SyncAction = (function() {
              * Properties of a PrimaryVersionAction.
              * @typedef {Object} SyncAction.SyncActionValue.PrimaryVersionAction.$Properties
              * @property {string|null} [version] PrimaryVersionAction version
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -22902,7 +22902,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a PrimaryVersionAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.PrimaryVersionAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var PrimaryVersionAction = function (properties) {
                 if (properties)
@@ -23147,7 +23147,7 @@ $root.SyncAction = (function() {
              * Properties of a PrivacySettingChannelsPersonalisedRecommendationAction.
              * @typedef {Object} SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction.$Properties
              * @property {boolean|null} [isUserOptedOut] PrivacySettingChannelsPersonalisedRecommendationAction isUserOptedOut
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -23169,7 +23169,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a PrivacySettingChannelsPersonalisedRecommendationAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var PrivacySettingChannelsPersonalisedRecommendationAction = function (properties) {
                 if (properties)
@@ -23414,7 +23414,7 @@ $root.SyncAction = (function() {
              * Properties of a PrivacySettingDisableLinkPreviewsAction.
              * @typedef {Object} SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction.$Properties
              * @property {boolean|null} [isPreviewsDisabled] PrivacySettingDisableLinkPreviewsAction isPreviewsDisabled
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -23436,7 +23436,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a PrivacySettingDisableLinkPreviewsAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.PrivacySettingDisableLinkPreviewsAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var PrivacySettingDisableLinkPreviewsAction = function (properties) {
                 if (properties)
@@ -23681,7 +23681,7 @@ $root.SyncAction = (function() {
              * Properties of a PrivacySettingRelayAllCalls.
              * @typedef {Object} SyncAction.SyncActionValue.PrivacySettingRelayAllCalls.$Properties
              * @property {boolean|null} [isEnabled] PrivacySettingRelayAllCalls isEnabled
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -23703,7 +23703,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a PrivacySettingRelayAllCalls.
              * @constructor
              * @param {SyncAction.SyncActionValue.PrivacySettingRelayAllCalls.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var PrivacySettingRelayAllCalls = function (properties) {
                 if (properties)
@@ -23948,7 +23948,7 @@ $root.SyncAction = (function() {
              * Properties of a PrivateProcessingSettingAction.
              * @typedef {Object} SyncAction.SyncActionValue.PrivateProcessingSettingAction.$Properties
              * @property {SyncAction.SyncActionValue.PrivateProcessingSettingAction.PrivateProcessingStatus|null} [privateProcessingStatus] PrivateProcessingSettingAction privateProcessingStatus
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -23970,7 +23970,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a PrivateProcessingSettingAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.PrivateProcessingSettingAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var PrivateProcessingSettingAction = function (properties) {
                 if (properties)
@@ -24255,7 +24255,7 @@ $root.SyncAction = (function() {
              * Properties of a PushNameSetting.
              * @typedef {Object} SyncAction.SyncActionValue.PushNameSetting.$Properties
              * @property {string|null} [name] PushNameSetting name
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -24277,7 +24277,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a PushNameSetting.
              * @constructor
              * @param {SyncAction.SyncActionValue.PushNameSetting.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var PushNameSetting = function (properties) {
                 if (properties)
@@ -24527,7 +24527,7 @@ $root.SyncAction = (function() {
              * @property {number|null} [count] QuickReplyAction count
              * @property {boolean|null} [deleted] QuickReplyAction deleted
              * @property {Array.<string>|null} [associatedLabelIds] QuickReplyAction associatedLabelIds
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -24549,7 +24549,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a QuickReplyAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.QuickReplyAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var QuickReplyAction = function (properties) {
                 this.keywords = [];
@@ -24972,7 +24972,7 @@ $root.SyncAction = (function() {
              * Properties of a RecentEmojiWeightsAction.
              * @typedef {Object} SyncAction.SyncActionValue.RecentEmojiWeightsAction.$Properties
              * @property {Array.<SyncAction.RecentEmojiWeight.$Properties>|null} [weights] RecentEmojiWeightsAction weights
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -24994,7 +24994,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a RecentEmojiWeightsAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.RecentEmojiWeightsAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var RecentEmojiWeightsAction = function (properties) {
                 this.weights = [];
@@ -25249,7 +25249,7 @@ $root.SyncAction = (function() {
              * Properties of a RemoveRecentStickerAction.
              * @typedef {Object} SyncAction.SyncActionValue.RemoveRecentStickerAction.$Properties
              * @property {number|Long|null} [lastStickerSentTs] RemoveRecentStickerAction lastStickerSentTs
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -25271,7 +25271,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a RemoveRecentStickerAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.RemoveRecentStickerAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var RemoveRecentStickerAction = function (properties) {
                 if (properties)
@@ -25560,7 +25560,7 @@ $root.SyncAction = (function() {
              * @property {boolean|null} [shouldPlaySoundForCallNotification] SettingsSyncAction shouldPlaySoundForCallNotification
              * @property {string|null} [chatThemeId] SettingsSyncAction chatThemeId
              * @property {string|null} [colorSchemeId] SettingsSyncAction colorSchemeId
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -25582,7 +25582,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a SettingsSyncAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.SettingsSyncAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var SettingsSyncAction = function (properties) {
                 if (properties)
@@ -27065,7 +27065,7 @@ $root.SyncAction = (function() {
              * Properties of a StarAction.
              * @typedef {Object} SyncAction.SyncActionValue.StarAction.$Properties
              * @property {boolean|null} [starred] StarAction starred
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -27087,7 +27087,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a StarAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.StarAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var StarAction = function (properties) {
                 if (properties)
@@ -27332,7 +27332,7 @@ $root.SyncAction = (function() {
              * Properties of a StatusPostOptInNotificationPreferencesAction.
              * @typedef {Object} SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction.$Properties
              * @property {boolean|null} [enabled] StatusPostOptInNotificationPreferencesAction enabled
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -27354,7 +27354,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a StatusPostOptInNotificationPreferencesAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.StatusPostOptInNotificationPreferencesAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var StatusPostOptInNotificationPreferencesAction = function (properties) {
                 if (properties)
@@ -27604,7 +27604,7 @@ $root.SyncAction = (function() {
              * @property {boolean|null} [shareToIG] StatusPrivacyAction shareToIG
              * @property {Array.<SyncAction.SyncActionValue.StatusPrivacyAction.CustomList.$Properties>|null} [customLists] StatusPrivacyAction customLists
              * @property {Array.<SyncAction.SyncActionValue.StatusPrivacyAction.StatusDistributionMode>|null} [modes] StatusPrivacyAction modes
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -27626,7 +27626,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a StatusPrivacyAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.StatusPrivacyAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var StatusPrivacyAction = function (properties) {
                 this.userJid = [];
@@ -28142,7 +28142,7 @@ $root.SyncAction = (function() {
                  * @property {string|null} [emoji] CustomList emoji
                  * @property {boolean|null} [isSelected] CustomList isSelected
                  * @property {Array.<string>|null} [userJid] CustomList userJid
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -28164,7 +28164,7 @@ $root.SyncAction = (function() {
                  * @classdesc Represents a CustomList.
                  * @constructor
                  * @param {SyncAction.SyncActionValue.StatusPrivacyAction.CustomList.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var CustomList = function (properties) {
                     this.userJid = [];
@@ -28581,7 +28581,7 @@ $root.SyncAction = (function() {
              * @property {boolean|null} [isLottie] StickerAction isLottie
              * @property {string|null} [imageHash] StickerAction imageHash
              * @property {boolean|null} [isAvatarSticker] StickerAction isAvatarSticker
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -28603,7 +28603,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a StickerAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.StickerAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var StickerAction = function (properties) {
                 if (properties)
@@ -29252,7 +29252,7 @@ $root.SyncAction = (function() {
              * @property {boolean|null} [isDeactivated] SubscriptionAction isDeactivated
              * @property {boolean|null} [isAutoRenewing] SubscriptionAction isAutoRenewing
              * @property {number|Long|null} [expirationDate] SubscriptionAction expirationDate
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -29274,7 +29274,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a SubscriptionAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.SubscriptionAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var SubscriptionAction = function (properties) {
                 if (properties)
@@ -29596,7 +29596,7 @@ $root.SyncAction = (function() {
              * @typedef {Object} SyncAction.SyncActionValue.SubscriptionsSyncV2Action.$Properties
              * @property {Array.<SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo.$Properties>|null} [subscriptions] SubscriptionsSyncV2Action subscriptions
              * @property {Array.<SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature.$Properties>|null} [paidFeature] SubscriptionsSyncV2Action paidFeature
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -29618,7 +29618,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a SubscriptionsSyncV2Action.
              * @constructor
              * @param {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var SubscriptionsSyncV2Action = function (properties) {
                 this.subscriptions = [];
@@ -29919,7 +29919,7 @@ $root.SyncAction = (function() {
                  * @property {boolean|null} [enabled] PaidFeature enabled
                  * @property {number|null} [limit] PaidFeature limit
                  * @property {number|Long|null} [expirationTime] PaidFeature expirationTime
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -29941,7 +29941,7 @@ $root.SyncAction = (function() {
                  * @classdesc Represents a PaidFeature.
                  * @constructor
                  * @param {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.PaidFeature.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var PaidFeature = function (properties) {
                     if (properties)
@@ -30301,7 +30301,7 @@ $root.SyncAction = (function() {
                  * @property {boolean|null} [isPlatformChanged] SubscriptionInfo isPlatformChanged
                  * @property {string|null} [source] SubscriptionInfo source
                  * @property {number|Long|null} [creationTime] SubscriptionInfo creationTime
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -30323,7 +30323,7 @@ $root.SyncAction = (function() {
                  * @classdesc Represents a SubscriptionInfo.
                  * @constructor
                  * @param {SyncAction.SyncActionValue.SubscriptionsSyncV2Action.SubscriptionInfo.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var SubscriptionInfo = function (properties) {
                     if (properties)
@@ -30832,7 +30832,7 @@ $root.SyncAction = (function() {
              * @typedef {Object} SyncAction.SyncActionValue.SyncActionMessage.$Properties
              * @property {Protocol.MessageKey.$Properties|null} [key] SyncActionMessage key
              * @property {number|Long|null} [timestamp] SyncActionMessage timestamp
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -30854,7 +30854,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a SyncActionMessage.
              * @constructor
              * @param {SyncAction.SyncActionValue.SyncActionMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var SyncActionMessage = function (properties) {
                 if (properties)
@@ -31151,7 +31151,7 @@ $root.SyncAction = (function() {
              * @property {number|Long|null} [lastMessageTimestamp] SyncActionMessageRange lastMessageTimestamp
              * @property {number|Long|null} [lastSystemMessageTimestamp] SyncActionMessageRange lastSystemMessageTimestamp
              * @property {Array.<SyncAction.SyncActionValue.SyncActionMessage.$Properties>|null} [messages] SyncActionMessageRange messages
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -31173,7 +31173,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a SyncActionMessageRange.
              * @constructor
              * @param {SyncAction.SyncActionValue.SyncActionMessageRange.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var SyncActionMessageRange = function (properties) {
                 this.messages = [];
@@ -31520,7 +31520,7 @@ $root.SyncAction = (function() {
              * Properties of a ThreadPinAction.
              * @typedef {Object} SyncAction.SyncActionValue.ThreadPinAction.$Properties
              * @property {boolean|null} [pinned] ThreadPinAction pinned
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -31542,7 +31542,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a ThreadPinAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.ThreadPinAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ThreadPinAction = function (properties) {
                 if (properties)
@@ -31787,7 +31787,7 @@ $root.SyncAction = (function() {
              * Properties of a TimeFormatAction.
              * @typedef {Object} SyncAction.SyncActionValue.TimeFormatAction.$Properties
              * @property {boolean|null} [isTwentyFourHourFormatEnabled] TimeFormatAction isTwentyFourHourFormatEnabled
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -31809,7 +31809,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a TimeFormatAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.TimeFormatAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var TimeFormatAction = function (properties) {
                 if (properties)
@@ -32054,7 +32054,7 @@ $root.SyncAction = (function() {
              * Properties of a UGCBot.
              * @typedef {Object} SyncAction.SyncActionValue.UGCBot.$Properties
              * @property {Uint8Array|null} [definition] UGCBot definition
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -32076,7 +32076,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a UGCBot.
              * @constructor
              * @param {SyncAction.SyncActionValue.UGCBot.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var UGCBot = function (properties) {
                 if (properties)
@@ -32324,7 +32324,7 @@ $root.SyncAction = (function() {
              * Properties of an UnarchiveChatsSetting.
              * @typedef {Object} SyncAction.SyncActionValue.UnarchiveChatsSetting.$Properties
              * @property {boolean|null} [unarchiveChats] UnarchiveChatsSetting unarchiveChats
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -32346,7 +32346,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents an UnarchiveChatsSetting.
              * @constructor
              * @param {SyncAction.SyncActionValue.UnarchiveChatsSetting.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var UnarchiveChatsSetting = function (properties) {
                 if (properties)
@@ -32591,7 +32591,7 @@ $root.SyncAction = (function() {
              * Properties of a UserStatusMuteAction.
              * @typedef {Object} SyncAction.SyncActionValue.UserStatusMuteAction.$Properties
              * @property {boolean|null} [muted] UserStatusMuteAction muted
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -32613,7 +32613,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a UserStatusMuteAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.UserStatusMuteAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var UserStatusMuteAction = function (properties) {
                 if (properties)
@@ -32858,7 +32858,7 @@ $root.SyncAction = (function() {
              * Properties of a UsernameChatStartModeAction.
              * @typedef {Object} SyncAction.SyncActionValue.UsernameChatStartModeAction.$Properties
              * @property {SyncAction.SyncActionValue.UsernameChatStartModeAction.ChatStartMode|null} [chatStartMode] UsernameChatStartModeAction chatStartMode
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -32880,7 +32880,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a UsernameChatStartModeAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.UsernameChatStartModeAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var UsernameChatStartModeAction = function (properties) {
                 if (properties)
@@ -33158,7 +33158,7 @@ $root.SyncAction = (function() {
              * Properties of a WaffleAccountLinkStateAction.
              * @typedef {Object} SyncAction.SyncActionValue.WaffleAccountLinkStateAction.$Properties
              * @property {SyncAction.SyncActionValue.WaffleAccountLinkStateAction.AccountLinkState|null} [linkState] WaffleAccountLinkStateAction linkState
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -33180,7 +33180,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a WaffleAccountLinkStateAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.WaffleAccountLinkStateAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var WaffleAccountLinkStateAction = function (properties) {
                 if (properties)
@@ -33465,7 +33465,7 @@ $root.SyncAction = (function() {
              * Properties of a WamoUserIdentifierAction.
              * @typedef {Object} SyncAction.SyncActionValue.WamoUserIdentifierAction.$Properties
              * @property {string|null} [identifier] WamoUserIdentifierAction identifier
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -33487,7 +33487,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a WamoUserIdentifierAction.
              * @constructor
              * @param {SyncAction.SyncActionValue.WamoUserIdentifierAction.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var WamoUserIdentifierAction = function (properties) {
                 if (properties)
@@ -33749,7 +33749,7 @@ $root.SyncAction = (function() {
          * @property {string|null} [groupJid] CallLogRecord groupJid
          * @property {Array.<SyncAction.CallLogRecord.ParticipantInfo.$Properties>|null} [participants] CallLogRecord participants
          * @property {SyncAction.CallLogRecord.CallType|null} [callType] CallLogRecord callType
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -33771,7 +33771,7 @@ $root.SyncAction = (function() {
          * @classdesc Represents a CallLogRecord.
          * @constructor
          * @param {SyncAction.CallLogRecord.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var CallLogRecord = function (properties) {
             this.participants = [];
@@ -34665,7 +34665,7 @@ $root.SyncAction = (function() {
              * @typedef {Object} SyncAction.CallLogRecord.ParticipantInfo.$Properties
              * @property {string|null} [userJid] ParticipantInfo userJid
              * @property {SyncAction.CallLogRecord.CallResult|null} [callResult] ParticipantInfo callResult
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -34687,7 +34687,7 @@ $root.SyncAction = (function() {
              * @classdesc Represents a ParticipantInfo.
              * @constructor
              * @param {SyncAction.CallLogRecord.ParticipantInfo.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ParticipantInfo = function (properties) {
                 if (properties)
@@ -35050,7 +35050,7 @@ $root.SyncAction = (function() {
          * @typedef {Object} SyncAction.RecentEmojiWeight.$Properties
          * @property {string|null} [emoji] RecentEmojiWeight emoji
          * @property {number|null} [weight] RecentEmojiWeight weight
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -35072,7 +35072,7 @@ $root.SyncAction = (function() {
          * @classdesc Represents a RecentEmojiWeight.
          * @constructor
          * @param {SyncAction.RecentEmojiWeight.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var RecentEmojiWeight = function (properties) {
             if (properties)
@@ -35562,7 +35562,7 @@ $root.ChatLockSettings = (function() {
          * @typedef {Object} ChatLockSettings.ChatLockSettings.$Properties
          * @property {boolean|null} [hideLockedChats] ChatLockSettings hideLockedChats
          * @property {UserPassword.UserPassword.$Properties|null} [secretCode] ChatLockSettings secretCode
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -35588,7 +35588,7 @@ $root.ChatLockSettings = (function() {
          * @classdesc Represents a ChatLockSettings.
          * @constructor
          * @param {ChatLockSettings.ChatLockSettings.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var ChatLockSettings = function (properties) {
             if (properties)
@@ -35886,7 +35886,7 @@ $root.UserPassword = (function() {
          * @property {UserPassword.UserPassword.Transformer|null} [transformer] UserPassword transformer
          * @property {Array.<UserPassword.UserPassword.TransformerArg.$Properties>|null} [transformerArg] UserPassword transformerArg
          * @property {Uint8Array|null} [transformedData] UserPassword transformedData
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -35914,7 +35914,7 @@ $root.UserPassword = (function() {
          * @classdesc Represents a UserPassword.
          * @constructor
          * @param {UserPassword.UserPassword.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var UserPassword = function (properties) {
             this.transformerArg = [];
@@ -36343,7 +36343,7 @@ $root.UserPassword = (function() {
              * @typedef {Object} UserPassword.UserPassword.TransformerArg.$Properties
              * @property {string|null} [key] TransformerArg key
              * @property {UserPassword.UserPassword.TransformerArg.Value.$Properties|null} [value] TransformerArg value
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -36369,7 +36369,7 @@ $root.UserPassword = (function() {
              * @classdesc Represents a TransformerArg.
              * @constructor
              * @param {UserPassword.UserPassword.TransformerArg.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var TransformerArg = function (properties) {
                 if (properties)
@@ -36651,7 +36651,7 @@ $root.UserPassword = (function() {
                  * @property {Uint8Array|null} [asBlob] Value asBlob
                  * @property {number|null} [asUnsignedInteger] Value asUnsignedInteger
                  * @property {"asBlob"|"asUnsignedInteger"} [value] Value value
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -36679,7 +36679,7 @@ $root.UserPassword = (function() {
                  * @classdesc Represents a Value.
                  * @constructor
                  * @param {UserPassword.UserPassword.TransformerArg.Value.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var Value = function (properties) {
                     if (properties)
@@ -36989,7 +36989,7 @@ $root.DeviceCapabilities = (function() {
          * @property {DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Properties|null} [userHasAvatar] DeviceCapabilities userHasAvatar
          * @property {DeviceCapabilities.DeviceCapabilities.MemberNameTagPrimarySupport|null} [memberNameTagPrimarySupport] DeviceCapabilities memberNameTagPrimarySupport
          * @property {DeviceCapabilities.DeviceCapabilities.AiThread.$Properties|null} [aiThread] DeviceCapabilities aiThread
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -37011,7 +37011,7 @@ $root.DeviceCapabilities = (function() {
          * @classdesc Represents a DeviceCapabilities.
          * @constructor
          * @param {DeviceCapabilities.DeviceCapabilities.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var DeviceCapabilities = function (properties) {
             if (properties)
@@ -37485,7 +37485,7 @@ $root.DeviceCapabilities = (function() {
              * Properties of an AiThread.
              * @typedef {Object} DeviceCapabilities.DeviceCapabilities.AiThread.$Properties
              * @property {DeviceCapabilities.DeviceCapabilities.AiThread.SupportLevel|null} [supportLevel] AiThread supportLevel
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -37507,7 +37507,7 @@ $root.DeviceCapabilities = (function() {
              * @classdesc Represents an AiThread.
              * @constructor
              * @param {DeviceCapabilities.DeviceCapabilities.AiThread.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AiThread = function (properties) {
                 if (properties)
@@ -37796,7 +37796,7 @@ $root.DeviceCapabilities = (function() {
              * @property {boolean|null} [campaignSyncEnabled] BusinessBroadcast campaignSyncEnabled
              * @property {boolean|null} [insightsSyncEnabled] BusinessBroadcast insightsSyncEnabled
              * @property {number|null} [recipientLimit] BusinessBroadcast recipientLimit
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -37818,7 +37818,7 @@ $root.DeviceCapabilities = (function() {
              * @classdesc Represents a BusinessBroadcast.
              * @constructor
              * @param {DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var BusinessBroadcast = function (properties) {
                 if (properties)
@@ -38207,7 +38207,7 @@ $root.DeviceCapabilities = (function() {
              * Properties of a LIDMigration.
              * @typedef {Object} DeviceCapabilities.DeviceCapabilities.LIDMigration.$Properties
              * @property {number|Long|null} [chatDbMigrationTimestamp] LIDMigration chatDbMigrationTimestamp
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -38229,7 +38229,7 @@ $root.DeviceCapabilities = (function() {
              * @classdesc Represents a LIDMigration.
              * @constructor
              * @param {DeviceCapabilities.DeviceCapabilities.LIDMigration.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var LIDMigration = function (properties) {
                 if (properties)
@@ -38502,7 +38502,7 @@ $root.DeviceCapabilities = (function() {
              * Properties of a UserHasAvatar.
              * @typedef {Object} DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Properties
              * @property {boolean|null} [userHasAvatar] UserHasAvatar userHasAvatar
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -38524,7 +38524,7 @@ $root.DeviceCapabilities = (function() {
              * @classdesc Represents a UserHasAvatar.
              * @constructor
              * @param {DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var UserHasAvatar = function (properties) {
                 if (properties)
@@ -38787,7 +38787,7 @@ $root.Protocol = (function() {
          * @property {Protocol.LimitSharing.TriggerType|null} [trigger] LimitSharing trigger
          * @property {number|Long|null} [limitSharingSettingTimestamp] LimitSharing limitSharingSettingTimestamp
          * @property {boolean|null} [initiatedByMe] LimitSharing initiatedByMe
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -38809,7 +38809,7 @@ $root.Protocol = (function() {
          * @classdesc Represents a LimitSharing.
          * @constructor
          * @param {Protocol.LimitSharing.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var LimitSharing = function (properties) {
             if (properties)
@@ -39212,7 +39212,7 @@ $root.Protocol = (function() {
          * @property {boolean|null} [fromMe] MessageKey fromMe
          * @property {string|null} [id] MessageKey id
          * @property {string|null} [participant] MessageKey participant
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -39234,7 +39234,7 @@ $root.Protocol = (function() {
          * @classdesc Represents a MessageKey.
          * @constructor
          * @param {Protocol.MessageKey.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var MessageKey = function (properties) {
             if (properties)

@@ -25,7 +25,7 @@ $root.AICommon = (function() {
          * Properties of a BotAgentDeepLinkMetadata.
          * @typedef {Object} AICommon.BotAgentDeepLinkMetadata.$Properties
          * @property {string|null} [token] BotAgentDeepLinkMetadata token
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -47,7 +47,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotAgentDeepLinkMetadata.
          * @constructor
          * @param {AICommon.BotAgentDeepLinkMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotAgentDeepLinkMetadata = function (properties) {
             if (properties)
@@ -292,7 +292,7 @@ $root.AICommon = (function() {
          * Properties of a BotAgentMetadata.
          * @typedef {Object} AICommon.BotAgentMetadata.$Properties
          * @property {AICommon.BotAgentDeepLinkMetadata.$Properties|null} [deepLinkMetadata] BotAgentMetadata deepLinkMetadata
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -314,7 +314,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotAgentMetadata.
          * @constructor
          * @param {AICommon.BotAgentMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotAgentMetadata = function (properties) {
             if (properties)
@@ -567,7 +567,7 @@ $root.AICommon = (function() {
          * @property {AICommon.BotInfrastructureDiagnostics.BotBackend|null} [botBackend] BotInfrastructureDiagnostics botBackend
          * @property {Array.<string>|null} [toolsUsed] BotInfrastructureDiagnostics toolsUsed
          * @property {boolean|null} [isThinking] BotInfrastructureDiagnostics isThinking
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -589,7 +589,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotInfrastructureDiagnostics.
          * @constructor
          * @param {AICommon.BotInfrastructureDiagnostics.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotInfrastructureDiagnostics = function (properties) {
             this.toolsUsed = [];
@@ -942,7 +942,7 @@ $root.AICommon = (function() {
          * @property {number|Long|null} [lastFetchTime] AIHomeState lastFetchTime
          * @property {Array.<AICommon.AIHomeState.AIHomeOption.$Properties>|null} [capabilityOptions] AIHomeState capabilityOptions
          * @property {Array.<AICommon.AIHomeState.AIHomeOption.$Properties>|null} [conversationOptions] AIHomeState conversationOptions
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -964,7 +964,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a AIHomeState.
          * @constructor
          * @param {AICommon.AIHomeState.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIHomeState = function (properties) {
             this.capabilityOptions = [];
@@ -1317,7 +1317,7 @@ $root.AICommon = (function() {
              * @property {string|null} [imageTintColor] AIHomeOption imageTintColor
              * @property {string|null} [imageBackgroundColor] AIHomeOption imageBackgroundColor
              * @property {string|null} [cardTypeId] AIHomeOption cardTypeId
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -1339,7 +1339,7 @@ $root.AICommon = (function() {
              * @classdesc Represents a AIHomeOption.
              * @constructor
              * @param {AICommon.AIHomeState.AIHomeOption.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AIHomeOption = function (properties) {
                 if (properties)
@@ -1872,7 +1872,7 @@ $root.AICommon = (function() {
          * Properties of a BotDocumentMessageMetadata.
          * @typedef {Object} AICommon.BotDocumentMessageMetadata.$Properties
          * @property {AICommon.BotDocumentMessageMetadata.DocumentPluginType|null} [pluginType] BotDocumentMessageMetadata pluginType
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -1894,7 +1894,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotDocumentMessageMetadata.
          * @constructor
          * @param {AICommon.BotDocumentMessageMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotDocumentMessageMetadata = function (properties) {
             if (properties)
@@ -2174,7 +2174,7 @@ $root.AICommon = (function() {
          * @property {string|null} [disclaimerText] SessionTransparencyMetadata disclaimerText
          * @property {string|null} [hcaId] SessionTransparencyMetadata hcaId
          * @property {AICommon.SessionTransparencyType|null} [sessionTransparencyType] SessionTransparencyMetadata sessionTransparencyType
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -2196,7 +2196,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a SessionTransparencyMetadata.
          * @constructor
          * @param {AICommon.SessionTransparencyMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var SessionTransparencyMetadata = function (properties) {
             if (properties)
@@ -2525,7 +2525,7 @@ $root.AICommon = (function() {
          * @typedef {Object} AICommon.AIRegenerateMetadata.$Properties
          * @property {Protocol.MessageKey.$Properties|null} [messageKey] AIRegenerateMetadata messageKey
          * @property {number|Long|null} [responseTimestampMs] AIRegenerateMetadata responseTimestampMs
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -2547,7 +2547,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a AIRegenerateMetadata.
          * @constructor
          * @param {AICommon.AIRegenerateMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIRegenerateMetadata = function (properties) {
             if (properties)
@@ -2842,7 +2842,7 @@ $root.AICommon = (function() {
          * Properties of a AIRichResponseUnifiedResponse.
          * @typedef {Object} AICommon.AIRichResponseUnifiedResponse.$Properties
          * @property {Uint8Array|null} [data] AIRichResponseUnifiedResponse data
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -2864,7 +2864,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a AIRichResponseUnifiedResponse.
          * @constructor
          * @param {AICommon.AIRichResponseUnifiedResponse.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIRichResponseUnifiedResponse = function (properties) {
             if (properties)
@@ -3113,7 +3113,7 @@ $root.AICommon = (function() {
          * @typedef {Object} AICommon.BotMessageSharingInfo.$Properties
          * @property {AICommon.BotMetricsEntryPoint|null} [botEntryPointOrigin] BotMessageSharingInfo botEntryPointOrigin
          * @property {number|null} [forwardScore] BotMessageSharingInfo forwardScore
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -3135,7 +3135,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotMessageSharingInfo.
          * @constructor
          * @param {AICommon.BotMessageSharingInfo.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotMessageSharingInfo = function (properties) {
             if (properties)
@@ -3663,7 +3663,7 @@ $root.AICommon = (function() {
          * @property {string|null} [botName] ForwardedAIBotMessageInfo botName
          * @property {string|null} [botJid] ForwardedAIBotMessageInfo botJid
          * @property {string|null} [creatorName] ForwardedAIBotMessageInfo creatorName
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -3685,7 +3685,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a ForwardedAIBotMessageInfo.
          * @constructor
          * @param {AICommon.ForwardedAIBotMessageInfo.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var ForwardedAIBotMessageInfo = function (properties) {
             if (properties)
@@ -4000,7 +4000,7 @@ $root.AICommon = (function() {
          * @property {number|Long|null} [kindPositive] BotFeedbackMessage kindPositive
          * @property {AICommon.BotFeedbackMessage.ReportKind|null} [kindReport] BotFeedbackMessage kindReport
          * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.$Properties|null} [sideBySideSurveyMetadata] BotFeedbackMessage sideBySideSurveyMetadata
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -4022,7 +4022,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotFeedbackMessage.
          * @constructor
          * @param {AICommon.BotFeedbackMessage.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotFeedbackMessage = function (properties) {
             if (properties)
@@ -4697,7 +4697,7 @@ $root.AICommon = (function() {
              * @property {string|null} [messageIdToEdit] SideBySideSurveyMetadata messageIdToEdit
              * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.$Properties|null} [analyticsData] SideBySideSurveyMetadata analyticsData
              * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.$Properties|null} [metaAiAnalyticsData] SideBySideSurveyMetadata metaAiAnalyticsData
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -4719,7 +4719,7 @@ $root.AICommon = (function() {
              * @classdesc Represents a SideBySideSurveyMetadata.
              * @constructor
              * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var SideBySideSurveyMetadata = function (properties) {
                 if (properties)
@@ -5231,7 +5231,7 @@ $root.AICommon = (function() {
                  * @property {string|null} [tessaEvent] SideBySideSurveyAnalyticsData tessaEvent
                  * @property {string|null} [tessaSessionFbid] SideBySideSurveyAnalyticsData tessaSessionFbid
                  * @property {string|null} [simonSessionFbid] SideBySideSurveyAnalyticsData simonSessionFbid
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -5253,7 +5253,7 @@ $root.AICommon = (function() {
                  * @classdesc Represents a SideBySideSurveyAnalyticsData.
                  * @constructor
                  * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var SideBySideSurveyAnalyticsData = function (properties) {
                     if (properties)
@@ -5570,7 +5570,7 @@ $root.AICommon = (function() {
                  * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.$Properties|null} [cardImpressionEvent] SidebySideSurveyMetaAiAnalyticsData cardImpressionEvent
                  * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.$Properties|null} [responseEvent] SidebySideSurveyMetaAiAnalyticsData responseEvent
                  * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.$Properties|null} [abandonEvent] SidebySideSurveyMetaAiAnalyticsData abandonEvent
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -5592,7 +5592,7 @@ $root.AICommon = (function() {
                  * @classdesc Represents a SidebySideSurveyMetaAiAnalyticsData.
                  * @constructor
                  * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var SidebySideSurveyMetaAiAnalyticsData = function (properties) {
                     if (properties)
@@ -6120,7 +6120,7 @@ $root.AICommon = (function() {
                      * Properties of a SideBySideSurveyAbandonEventData.
                      * @typedef {Object} AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.$Properties
                      * @property {string|null} [abandonDwellTimeMsString] SideBySideSurveyAbandonEventData abandonDwellTimeMsString
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
 
                     /**
@@ -6142,7 +6142,7 @@ $root.AICommon = (function() {
                      * @classdesc Represents a SideBySideSurveyAbandonEventData.
                      * @constructor
                      * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.$Properties=} [properties] Properties to set
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
                     var SideBySideSurveyAbandonEventData = function (properties) {
                         if (properties)
@@ -6388,7 +6388,7 @@ $root.AICommon = (function() {
                      * @typedef {Object} AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.$Properties
                      * @property {boolean|null} [isSurveyExpired] SideBySideSurveyCTAClickEventData isSurveyExpired
                      * @property {string|null} [clickDwellTimeMsString] SideBySideSurveyCTAClickEventData clickDwellTimeMsString
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
 
                     /**
@@ -6410,7 +6410,7 @@ $root.AICommon = (function() {
                      * @classdesc Represents a SideBySideSurveyCTAClickEventData.
                      * @constructor
                      * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.$Properties=} [properties] Properties to set
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
                     var SideBySideSurveyCTAClickEventData = function (properties) {
                         if (properties)
@@ -6687,7 +6687,7 @@ $root.AICommon = (function() {
                      * Properties of a SideBySideSurveyCTAImpressionEventData.
                      * @typedef {Object} AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.$Properties
                      * @property {boolean|null} [isSurveyExpired] SideBySideSurveyCTAImpressionEventData isSurveyExpired
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
 
                     /**
@@ -6709,7 +6709,7 @@ $root.AICommon = (function() {
                      * @classdesc Represents a SideBySideSurveyCTAImpressionEventData.
                      * @constructor
                      * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.$Properties=} [properties] Properties to set
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
                     var SideBySideSurveyCTAImpressionEventData = function (properties) {
                         if (properties)
@@ -6953,7 +6953,7 @@ $root.AICommon = (function() {
                     /**
                      * Properties of a SideBySideSurveyCardImpressionEventData.
                      * @typedef {Object} AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.$Properties
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
 
                     /**
@@ -6975,7 +6975,7 @@ $root.AICommon = (function() {
                      * @classdesc Represents a SideBySideSurveyCardImpressionEventData.
                      * @constructor
                      * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.$Properties=} [properties] Properties to set
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
                     var SideBySideSurveyCardImpressionEventData = function (properties) {
                         if (properties)
@@ -7174,7 +7174,7 @@ $root.AICommon = (function() {
                      * @typedef {Object} AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.$Properties
                      * @property {string|null} [responseDwellTimeMsString] SideBySideSurveyResponseEventData responseDwellTimeMsString
                      * @property {string|null} [selectedResponseId] SideBySideSurveyResponseEventData selectedResponseId
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
 
                     /**
@@ -7196,7 +7196,7 @@ $root.AICommon = (function() {
                      * @classdesc Represents a SideBySideSurveyResponseEventData.
                      * @constructor
                      * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.$Properties=} [properties] Properties to set
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
                     var SideBySideSurveyResponseEventData = function (properties) {
                         if (properties)
@@ -7482,7 +7482,7 @@ $root.AICommon = (function() {
          * Properties of a BotGroupParticipantMetadata.
          * @typedef {Object} AICommon.BotGroupParticipantMetadata.$Properties
          * @property {string|null} [botFbid] BotGroupParticipantMetadata botFbid
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -7504,7 +7504,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotGroupParticipantMetadata.
          * @constructor
          * @param {AICommon.BotGroupParticipantMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotGroupParticipantMetadata = function (properties) {
             if (properties)
@@ -7750,7 +7750,7 @@ $root.AICommon = (function() {
          * @typedef {Object} AICommon.BotRenderingConfigMetadata.$Properties
          * @property {string|null} [bloksVersioningId] BotRenderingConfigMetadata bloksVersioningId
          * @property {number|null} [pixelDensity] BotRenderingConfigMetadata pixelDensity
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -7772,7 +7772,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotRenderingConfigMetadata.
          * @constructor
          * @param {AICommon.BotRenderingConfigMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotRenderingConfigMetadata = function (properties) {
             if (properties)
@@ -8049,7 +8049,7 @@ $root.AICommon = (function() {
          * Properties of a BotGroupMetadata.
          * @typedef {Object} AICommon.BotGroupMetadata.$Properties
          * @property {Array.<AICommon.BotGroupParticipantMetadata.$Properties>|null} [participantsMetadata] BotGroupMetadata participantsMetadata
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -8071,7 +8071,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotGroupMetadata.
          * @constructor
          * @param {AICommon.BotGroupMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotGroupMetadata = function (properties) {
             this.participantsMetadata = [];
@@ -8326,7 +8326,7 @@ $root.AICommon = (function() {
          * Properties of a AISubscriptionUpsellMetadata.
          * @typedef {Object} AICommon.AISubscriptionUpsellMetadata.$Properties
          * @property {AICommon.AISubscriptionRequestType|null} [requestType] AISubscriptionUpsellMetadata requestType
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -8348,7 +8348,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a AISubscriptionUpsellMetadata.
          * @constructor
          * @param {AICommon.AISubscriptionUpsellMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AISubscriptionUpsellMetadata = function (properties) {
             if (properties)
@@ -8663,7 +8663,7 @@ $root.AICommon = (function() {
          * @property {AICommon.AISubscriptionUpsellMetadata.$Properties|null} [subscriptionUpsellMetadata] BotMetadata subscriptionUpsellMetadata
          * @property {AICommon.BotPttPromptMetadata.$Properties|null} [pttPromptMetadata] BotMetadata pttPromptMetadata
          * @property {Uint8Array|null} [internalMetadata] BotMetadata internalMetadata
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -8685,7 +8685,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotMetadata.
          * @constructor
          * @param {AICommon.BotMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotMetadata = function (properties) {
             if (properties)
@@ -10452,7 +10452,7 @@ $root.AICommon = (function() {
          * Properties of a BotPttPromptMetadata.
          * @typedef {Object} AICommon.BotPttPromptMetadata.$Properties
          * @property {string|null} [transcript] BotPttPromptMetadata transcript
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -10474,7 +10474,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotPttPromptMetadata.
          * @constructor
          * @param {AICommon.BotPttPromptMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotPttPromptMetadata = function (properties) {
             if (properties)
@@ -10720,7 +10720,7 @@ $root.AICommon = (function() {
          * @typedef {Object} AICommon.BotResolvedToolCallMetadata.$Properties
          * @property {string|null} [toolCallId] BotResolvedToolCallMetadata toolCallId
          * @property {string|null} [resolutionDataSerialized] BotResolvedToolCallMetadata resolutionDataSerialized
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -10742,7 +10742,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotResolvedToolCallMetadata.
          * @constructor
          * @param {AICommon.BotResolvedToolCallMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotResolvedToolCallMetadata = function (properties) {
             if (properties)
@@ -11021,7 +11021,7 @@ $root.AICommon = (function() {
          * @property {string|null} [commandName] BotCommandMetadata commandName
          * @property {string|null} [commandDescription] BotCommandMetadata commandDescription
          * @property {string|null} [commandPrompt] BotCommandMetadata commandPrompt
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -11043,7 +11043,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotCommandMetadata.
          * @constructor
          * @param {AICommon.BotCommandMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotCommandMetadata = function (properties) {
             if (properties)
@@ -11352,7 +11352,7 @@ $root.AICommon = (function() {
          * Properties of a AIMetadataOperation.
          * @typedef {Object} AICommon.AIMetadataOperation.$Properties
          * @property {AICommon.HatchMetadataSync.$Properties|null} [hatchMetadataSync] AIMetadataOperation hatchMetadataSync
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -11374,7 +11374,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a AIMetadataOperation.
          * @constructor
          * @param {AICommon.AIMetadataOperation.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIMetadataOperation = function (properties) {
             if (properties)
@@ -11627,7 +11627,7 @@ $root.AICommon = (function() {
          * @property {Uint8Array|null} [data] HatchMetadataSync data
          * @property {number|Long|null} [timestampMs] HatchMetadataSync timestampMs
          * @property {string|null} [requestId] HatchMetadataSync requestId
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -11649,7 +11649,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a HatchMetadataSync.
          * @constructor
          * @param {AICommon.HatchMetadataSync.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var HatchMetadataSync = function (properties) {
             if (properties)
@@ -11975,7 +11975,7 @@ $root.AICommon = (function() {
          * @property {string|null} [collectionId] AIMediaCollectionMessage collectionId
          * @property {number|null} [expectedMediaCount] AIMediaCollectionMessage expectedMediaCount
          * @property {boolean|null} [hasGlobalCaption] AIMediaCollectionMessage hasGlobalCaption
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -11997,7 +11997,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a AIMediaCollectionMessage.
          * @constructor
          * @param {AICommon.AIMediaCollectionMessage.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIMediaCollectionMessage = function (properties) {
             if (properties)
@@ -12307,7 +12307,7 @@ $root.AICommon = (function() {
          * @typedef {Object} AICommon.AIMediaCollectionMetadata.$Properties
          * @property {string|null} [collectionId] AIMediaCollectionMetadata collectionId
          * @property {number|null} [uploadOrderIndex] AIMediaCollectionMetadata uploadOrderIndex
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -12329,7 +12329,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a AIMediaCollectionMetadata.
          * @constructor
          * @param {AICommon.AIMediaCollectionMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIMediaCollectionMetadata = function (properties) {
             if (properties)
@@ -12607,7 +12607,7 @@ $root.AICommon = (function() {
          * @typedef {Object} AICommon.AIThreadInfo.$Properties
          * @property {AICommon.AIThreadInfo.AIThreadServerInfo.$Properties|null} [serverInfo] AIThreadInfo serverInfo
          * @property {AICommon.AIThreadInfo.AIThreadClientInfo.$Properties|null} [clientInfo] AIThreadInfo clientInfo
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -12629,7 +12629,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a AIThreadInfo.
          * @constructor
          * @param {AICommon.AIThreadInfo.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIThreadInfo = function (properties) {
             if (properties)
@@ -12916,7 +12916,7 @@ $root.AICommon = (function() {
              * @typedef {Object} AICommon.AIThreadInfo.AIThreadClientInfo.$Properties
              * @property {AICommon.AIThreadInfo.AIThreadClientInfo.AIThreadType|null} [type] AIThreadClientInfo type
              * @property {string|null} [sourceChatJid] AIThreadClientInfo sourceChatJid
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -12938,7 +12938,7 @@ $root.AICommon = (function() {
              * @classdesc Represents a AIThreadClientInfo.
              * @constructor
              * @param {AICommon.AIThreadInfo.AIThreadClientInfo.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AIThreadClientInfo = function (properties) {
                 if (properties)
@@ -13262,7 +13262,7 @@ $root.AICommon = (function() {
              * Properties of a AIThreadServerInfo.
              * @typedef {Object} AICommon.AIThreadInfo.AIThreadServerInfo.$Properties
              * @property {string|null} [title] AIThreadServerInfo title
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -13284,7 +13284,7 @@ $root.AICommon = (function() {
              * @classdesc Represents a AIThreadServerInfo.
              * @constructor
              * @param {AICommon.AIThreadInfo.AIThreadServerInfo.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AIThreadServerInfo = function (properties) {
                 if (properties)
@@ -13533,7 +13533,7 @@ $root.AICommon = (function() {
          * @typedef {Object} AICommon.BotUnifiedResponseMutation.$Properties
          * @property {AICommon.BotUnifiedResponseMutation.SideBySideMetadata.$Properties|null} [sbsMetadata] BotUnifiedResponseMutation sbsMetadata
          * @property {Array.<AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.$Properties>|null} [mediaDetailsMetadataList] BotUnifiedResponseMutation mediaDetailsMetadataList
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -13555,7 +13555,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotUnifiedResponseMutation.
          * @constructor
          * @param {AICommon.BotUnifiedResponseMutation.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotUnifiedResponseMutation = function (properties) {
             this.mediaDetailsMetadataList = [];
@@ -13851,7 +13851,7 @@ $root.AICommon = (function() {
              * @property {string|null} [id] MediaDetailsMetadata id
              * @property {AICommon.BotMediaMetadata.$Properties|null} [highResMedia] MediaDetailsMetadata highResMedia
              * @property {AICommon.BotMediaMetadata.$Properties|null} [previewMedia] MediaDetailsMetadata previewMedia
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -13873,7 +13873,7 @@ $root.AICommon = (function() {
              * @classdesc Represents a MediaDetailsMetadata.
              * @constructor
              * @param {AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var MediaDetailsMetadata = function (properties) {
                 if (properties)
@@ -14195,7 +14195,7 @@ $root.AICommon = (function() {
              * @typedef {Object} AICommon.BotUnifiedResponseMutation.SideBySideMetadata.$Properties
              * @property {string|null} [primaryResponseId] SideBySideMetadata primaryResponseId
              * @property {boolean|null} [surveyCtaHasRendered] SideBySideMetadata surveyCtaHasRendered
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -14217,7 +14217,7 @@ $root.AICommon = (function() {
              * @classdesc Represents a SideBySideMetadata.
              * @constructor
              * @param {AICommon.BotUnifiedResponseMutation.SideBySideMetadata.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var SideBySideMetadata = function (properties) {
                 if (properties)
@@ -14497,7 +14497,7 @@ $root.AICommon = (function() {
          * Properties of a BotMessageOrigin.
          * @typedef {Object} AICommon.BotMessageOrigin.$Properties
          * @property {AICommon.BotMessageOrigin.BotMessageOriginType|null} [type] BotMessageOrigin type
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -14519,7 +14519,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotMessageOrigin.
          * @constructor
          * @param {AICommon.BotMessageOrigin.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotMessageOrigin = function (properties) {
             if (properties)
@@ -14790,7 +14790,7 @@ $root.AICommon = (function() {
          * Properties of a BotMessageOriginMetadata.
          * @typedef {Object} AICommon.BotMessageOriginMetadata.$Properties
          * @property {Array.<AICommon.BotMessageOrigin.$Properties>|null} [origins] BotMessageOriginMetadata origins
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -14812,7 +14812,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotMessageOriginMetadata.
          * @constructor
          * @param {AICommon.BotMessageOriginMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotMessageOriginMetadata = function (properties) {
             this.origins = [];
@@ -15084,7 +15084,7 @@ $root.AICommon = (function() {
          * @property {Array.<AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.$Properties>|null} [privacyStatementParts] InThreadSurveyMetadata privacyStatementParts
          * @property {string|null} [feedbackToastText] InThreadSurveyMetadata feedbackToastText
          * @property {number|null} [startQuestionIndex] InThreadSurveyMetadata startQuestionIndex
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -15106,7 +15106,7 @@ $root.AICommon = (function() {
          * @classdesc Represents an InThreadSurveyMetadata.
          * @constructor
          * @param {AICommon.InThreadSurveyMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var InThreadSurveyMetadata = function (properties) {
             this.questions = [];
@@ -15922,7 +15922,7 @@ $root.AICommon = (function() {
              * @property {string|null} [stringValue] InThreadSurveyOption stringValue
              * @property {number|null} [numericValue] InThreadSurveyOption numericValue
              * @property {string|null} [textTranslated] InThreadSurveyOption textTranslated
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -15944,7 +15944,7 @@ $root.AICommon = (function() {
              * @classdesc Represents an InThreadSurveyOption.
              * @constructor
              * @param {AICommon.InThreadSurveyMetadata.InThreadSurveyOption.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var InThreadSurveyOption = function (properties) {
                 if (properties)
@@ -16254,7 +16254,7 @@ $root.AICommon = (function() {
              * @typedef {Object} AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.$Properties
              * @property {string|null} [text] InThreadSurveyPrivacyStatementPart text
              * @property {string|null} [url] InThreadSurveyPrivacyStatementPart url
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -16276,7 +16276,7 @@ $root.AICommon = (function() {
              * @classdesc Represents an InThreadSurveyPrivacyStatementPart.
              * @constructor
              * @param {AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var InThreadSurveyPrivacyStatementPart = function (properties) {
                 if (properties)
@@ -16555,7 +16555,7 @@ $root.AICommon = (function() {
              * @property {string|null} [questionText] InThreadSurveyQuestion questionText
              * @property {string|null} [questionId] InThreadSurveyQuestion questionId
              * @property {Array.<AICommon.InThreadSurveyMetadata.InThreadSurveyOption.$Properties>|null} [questionOptions] InThreadSurveyQuestion questionOptions
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -16577,7 +16577,7 @@ $root.AICommon = (function() {
              * @classdesc Represents an InThreadSurveyQuestion.
              * @constructor
              * @param {AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var InThreadSurveyQuestion = function (properties) {
                 this.questionOptions = [];
@@ -16903,7 +16903,7 @@ $root.AICommon = (function() {
          * Properties of a BotSourcesMetadata.
          * @typedef {Object} AICommon.BotSourcesMetadata.$Properties
          * @property {Array.<AICommon.BotSourcesMetadata.BotSourceItem.$Properties>|null} [sources] BotSourcesMetadata sources
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -16925,7 +16925,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotSourcesMetadata.
          * @constructor
          * @param {AICommon.BotSourcesMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotSourcesMetadata = function (properties) {
             this.sources = [];
@@ -17183,7 +17183,7 @@ $root.AICommon = (function() {
              * @property {string|null} [faviconCdnUrl] BotSourceItem faviconCdnUrl
              * @property {number|null} [citationNumber] BotSourceItem citationNumber
              * @property {string|null} [sourceTitle] BotSourceItem sourceTitle
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -17205,7 +17205,7 @@ $root.AICommon = (function() {
              * @classdesc Represents a BotSourceItem.
              * @constructor
              * @param {AICommon.BotSourcesMetadata.BotSourceItem.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var BotSourceItem = function (properties) {
                 if (properties)
@@ -17701,7 +17701,7 @@ $root.AICommon = (function() {
          * @property {boolean|null} [ageCollectionEligible] BotAgeCollectionMetadata ageCollectionEligible
          * @property {boolean|null} [shouldTriggerAgeCollectionOnClient] BotAgeCollectionMetadata shouldTriggerAgeCollectionOnClient
          * @property {AICommon.BotAgeCollectionMetadata.AgeCollectionType|null} [ageCollectionType] BotAgeCollectionMetadata ageCollectionType
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -17723,7 +17723,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotAgeCollectionMetadata.
          * @constructor
          * @param {AICommon.BotAgeCollectionMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotAgeCollectionMetadata = function (properties) {
             if (properties)
@@ -18066,7 +18066,7 @@ $root.AICommon = (function() {
          * @typedef {Object} AICommon.BotImagineMetadata.$Properties
          * @property {AICommon.BotImagineMetadata.ImagineType|null} [imagineType] BotImagineMetadata imagineType
          * @property {string|null} [shortPrompt] BotImagineMetadata shortPrompt
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -18088,7 +18088,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotImagineMetadata.
          * @constructor
          * @param {AICommon.BotImagineMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotImagineMetadata = function (properties) {
             if (properties)
@@ -18419,7 +18419,7 @@ $root.AICommon = (function() {
          * Properties of a BotQuotaMetadata.
          * @typedef {Object} AICommon.BotQuotaMetadata.$Properties
          * @property {Array.<AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.$Properties>|null} [botFeatureQuotaMetadata] BotQuotaMetadata botFeatureQuotaMetadata
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -18441,7 +18441,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotQuotaMetadata.
          * @constructor
          * @param {AICommon.BotQuotaMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotQuotaMetadata = function (properties) {
             this.botFeatureQuotaMetadata = [];
@@ -18695,7 +18695,7 @@ $root.AICommon = (function() {
              * @property {AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.BotFeatureType|null} [featureType] BotFeatureQuotaMetadata featureType
              * @property {number|null} [remainingQuota] BotFeatureQuotaMetadata remainingQuota
              * @property {number|Long|null} [expirationTimestamp] BotFeatureQuotaMetadata expirationTimestamp
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -18717,7 +18717,7 @@ $root.AICommon = (function() {
              * @classdesc Represents a BotFeatureQuotaMetadata.
              * @constructor
              * @param {AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var BotFeatureQuotaMetadata = function (properties) {
                 if (properties)
@@ -19075,7 +19075,7 @@ $root.AICommon = (function() {
          * @typedef {Object} AICommon.BotModeSelectionMetadata.$Properties
          * @property {Array.<AICommon.BotModeSelectionMetadata.BotUserSelectionMode>|null} [mode] BotModeSelectionMetadata mode
          * @property {Array.<number>|null} [overrideMode] BotModeSelectionMetadata overrideMode
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -19097,7 +19097,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotModeSelectionMetadata.
          * @constructor
          * @param {AICommon.BotModeSelectionMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotModeSelectionMetadata = function (properties) {
             this.mode = [];
@@ -19443,7 +19443,7 @@ $root.AICommon = (function() {
          * Properties of a BotCapabilityMetadata.
          * @typedef {Object} AICommon.BotCapabilityMetadata.$Properties
          * @property {Array.<AICommon.BotCapabilityMetadata.BotCapabilityType>|null} [capabilities] BotCapabilityMetadata capabilities
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -19465,7 +19465,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotCapabilityMetadata.
          * @constructor
          * @param {AICommon.BotCapabilityMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotCapabilityMetadata = function (properties) {
             this.capabilities = [];
@@ -20209,7 +20209,7 @@ $root.AICommon = (function() {
          * @property {string|null} [progressDescription] BotProgressIndicatorMetadata progressDescription
          * @property {Array.<AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.$Properties>|null} [stepsMetadata] BotProgressIndicatorMetadata stepsMetadata
          * @property {number|Long|null} [estimatedCompletionTime] BotProgressIndicatorMetadata estimatedCompletionTime
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -20231,7 +20231,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotProgressIndicatorMetadata.
          * @constructor
          * @param {AICommon.BotProgressIndicatorMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotProgressIndicatorMetadata = function (properties) {
             this.stepsMetadata = [];
@@ -20569,7 +20569,7 @@ $root.AICommon = (function() {
              * @property {boolean|null} [isReasoning] BotPlanningStepMetadata isReasoning
              * @property {boolean|null} [isEnhancedSearch] BotPlanningStepMetadata isEnhancedSearch
              * @property {Array.<AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.$Properties>|null} [sections] BotPlanningStepMetadata sections
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -20591,7 +20591,7 @@ $root.AICommon = (function() {
              * @classdesc Represents a BotPlanningStepMetadata.
              * @constructor
              * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var BotPlanningStepMetadata = function (properties) {
                 this.sourcesMetadata = [];
@@ -21085,7 +21085,7 @@ $root.AICommon = (function() {
                  * @property {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotSearchSourceProvider|null} [provider] BotPlanningSearchSourceMetadata provider
                  * @property {string|null} [sourceUrl] BotPlanningSearchSourceMetadata sourceUrl
                  * @property {string|null} [favIconUrl] BotPlanningSearchSourceMetadata favIconUrl
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -21107,7 +21107,7 @@ $root.AICommon = (function() {
                  * @classdesc Represents a BotPlanningSearchSourceMetadata.
                  * @constructor
                  * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var BotPlanningSearchSourceMetadata = function (properties) {
                     if (properties)
@@ -21479,7 +21479,7 @@ $root.AICommon = (function() {
                  * @property {string|null} [sourceTitle] BotPlanningSearchSourcesMetadata sourceTitle
                  * @property {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.BotPlanningSearchSourceProvider|null} [provider] BotPlanningSearchSourcesMetadata provider
                  * @property {string|null} [sourceUrl] BotPlanningSearchSourcesMetadata sourceUrl
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -21501,7 +21501,7 @@ $root.AICommon = (function() {
                  * @classdesc Represents a BotPlanningSearchSourcesMetadata.
                  * @constructor
                  * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var BotPlanningSearchSourcesMetadata = function (properties) {
                     if (properties)
@@ -21859,7 +21859,7 @@ $root.AICommon = (function() {
                  * @property {string|null} [sectionTitle] BotPlanningStepSectionMetadata sectionTitle
                  * @property {string|null} [sectionBody] BotPlanningStepSectionMetadata sectionBody
                  * @property {Array.<AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.$Properties>|null} [sourcesMetadata] BotPlanningStepSectionMetadata sourcesMetadata
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -21881,7 +21881,7 @@ $root.AICommon = (function() {
                  * @classdesc Represents a BotPlanningStepSectionMetadata.
                  * @constructor
                  * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var BotPlanningStepSectionMetadata = function (properties) {
                     this.sourcesMetadata = [];
@@ -22248,7 +22248,7 @@ $root.AICommon = (function() {
          * @property {AICommon.BotModelMetadata.ModelType|null} [modelType] BotModelMetadata modelType
          * @property {AICommon.BotModelMetadata.PremiumModelStatus|null} [premiumModelStatus] BotModelMetadata premiumModelStatus
          * @property {string|null} [modelNameOverride] BotModelMetadata modelNameOverride
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -22270,7 +22270,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotModelMetadata.
          * @constructor
          * @param {AICommon.BotModelMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotModelMetadata = function (properties) {
             if (properties)
@@ -22663,7 +22663,7 @@ $root.AICommon = (function() {
          * @property {string|null} [name] BotReminderMetadata name
          * @property {number|Long|null} [nextTriggerTimestamp] BotReminderMetadata nextTriggerTimestamp
          * @property {AICommon.BotReminderMetadata.ReminderFrequency|null} [frequency] BotReminderMetadata frequency
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -22685,7 +22685,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotReminderMetadata.
          * @constructor
          * @param {AICommon.BotReminderMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotReminderMetadata = function (properties) {
             if (properties)
@@ -23177,7 +23177,7 @@ $root.AICommon = (function() {
          * Properties of a BotMemuMetadata.
          * @typedef {Object} AICommon.BotMemuMetadata.$Properties
          * @property {Array.<AICommon.BotMediaMetadata.$Properties>|null} [faceImages] BotMemuMetadata faceImages
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -23199,7 +23199,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotMemuMetadata.
          * @constructor
          * @param {AICommon.BotMemuMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotMemuMetadata = function (properties) {
             this.faceImages = [];
@@ -23460,7 +23460,7 @@ $root.AICommon = (function() {
          * @property {number|Long|null} [mediaKeyTimestamp] BotMediaMetadata mediaKeyTimestamp
          * @property {string|null} [mimetype] BotMediaMetadata mimetype
          * @property {AICommon.BotMediaMetadata.OrientationType|null} [orientationType] BotMediaMetadata orientationType
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -23482,7 +23482,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotMediaMetadata.
          * @constructor
          * @param {AICommon.BotMediaMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotMediaMetadata = function (properties) {
             if (properties)
@@ -23972,7 +23972,7 @@ $root.AICommon = (function() {
          * @typedef {Object} AICommon.BotSessionMetadata.$Properties
          * @property {string|null} [sessionId] BotSessionMetadata sessionId
          * @property {AICommon.BotSessionSource|null} [sessionSource] BotSessionMetadata sessionSource
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -23994,7 +23994,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotSessionMetadata.
          * @constructor
          * @param {AICommon.BotSessionMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotSessionMetadata = function (properties) {
             if (properties)
@@ -24322,7 +24322,7 @@ $root.AICommon = (function() {
          * @property {string|null} [destinationId] BotMetricsMetadata destinationId
          * @property {AICommon.BotMetricsEntryPoint|null} [destinationEntryPoint] BotMetricsMetadata destinationEntryPoint
          * @property {AICommon.BotMetricsThreadEntryPoint|null} [threadOrigin] BotMetricsMetadata threadOrigin
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -24344,7 +24344,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotMetricsMetadata.
          * @constructor
          * @param {AICommon.BotMetricsMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotMetricsMetadata = function (properties) {
             if (properties)
@@ -24936,7 +24936,7 @@ $root.AICommon = (function() {
          * Properties of a BotRenderingMetadata.
          * @typedef {Object} AICommon.BotRenderingMetadata.$Properties
          * @property {Array.<AICommon.BotRenderingMetadata.Keyword.$Properties>|null} [keywords] BotRenderingMetadata keywords
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -24958,7 +24958,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotRenderingMetadata.
          * @constructor
          * @param {AICommon.BotRenderingMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotRenderingMetadata = function (properties) {
             this.keywords = [];
@@ -25211,7 +25211,7 @@ $root.AICommon = (function() {
              * @typedef {Object} AICommon.BotRenderingMetadata.Keyword.$Properties
              * @property {string|null} [value] Keyword value
              * @property {Array.<string>|null} [associatedPrompts] Keyword associatedPrompts
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -25233,7 +25233,7 @@ $root.AICommon = (function() {
              * @classdesc Represents a Keyword.
              * @constructor
              * @param {AICommon.BotRenderingMetadata.Keyword.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var Keyword = function (properties) {
                 this.associatedPrompts = [];
@@ -25523,7 +25523,7 @@ $root.AICommon = (function() {
          * @typedef {Object} AICommon.BotPromotionMessageMetadata.$Properties
          * @property {AICommon.BotPromotionMessageMetadata.BotPromotionType|null} [promotionType] BotPromotionMessageMetadata promotionType
          * @property {string|null} [buttonTitle] BotPromotionMessageMetadata buttonTitle
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -25545,7 +25545,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotPromotionMessageMetadata.
          * @constructor
          * @param {AICommon.BotPromotionMessageMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotPromotionMessageMetadata = function (properties) {
             if (properties)
@@ -25865,7 +25865,7 @@ $root.AICommon = (function() {
          * @property {AICommon.BotSignatureVerificationUseCaseProof.BotSignatureUseCase|null} [useCase] BotSignatureVerificationUseCaseProof useCase
          * @property {Uint8Array|null} [signature] BotSignatureVerificationUseCaseProof signature
          * @property {Array.<Uint8Array>|null} [certificateChain] BotSignatureVerificationUseCaseProof certificateChain
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -25887,7 +25887,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotSignatureVerificationUseCaseProof.
          * @constructor
          * @param {AICommon.BotSignatureVerificationUseCaseProof.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotSignatureVerificationUseCaseProof = function (properties) {
             this.certificateChain = [];
@@ -26290,7 +26290,7 @@ $root.AICommon = (function() {
          * Properties of a BotSignatureVerificationMetadata.
          * @typedef {Object} AICommon.BotSignatureVerificationMetadata.$Properties
          * @property {Array.<AICommon.BotSignatureVerificationUseCaseProof.$Properties>|null} [proofs] BotSignatureVerificationMetadata proofs
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -26312,7 +26312,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotSignatureVerificationMetadata.
          * @constructor
          * @param {AICommon.BotSignatureVerificationMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotSignatureVerificationMetadata = function (properties) {
             this.proofs = [];
@@ -26568,7 +26568,7 @@ $root.AICommon = (function() {
          * @typedef {Object} AICommon.BotMemoryFact.$Properties
          * @property {string|null} [fact] BotMemoryFact fact
          * @property {string|null} [factId] BotMemoryFact factId
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -26590,7 +26590,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotMemoryFact.
          * @constructor
          * @param {AICommon.BotMemoryFact.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotMemoryFact = function (properties) {
             if (properties)
@@ -26869,7 +26869,7 @@ $root.AICommon = (function() {
          * @property {Array.<AICommon.BotMemoryFact.$Properties>|null} [addedFacts] BotMemoryMetadata addedFacts
          * @property {Array.<AICommon.BotMemoryFact.$Properties>|null} [removedFacts] BotMemoryMetadata removedFacts
          * @property {string|null} [disclaimer] BotMemoryMetadata disclaimer
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -26891,7 +26891,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotMemoryMetadata.
          * @constructor
          * @param {AICommon.BotMemoryMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotMemoryMetadata = function (properties) {
             this.addedFacts = [];
@@ -27228,7 +27228,7 @@ $root.AICommon = (function() {
          * Properties of a BotLinkedAccount.
          * @typedef {Object} AICommon.BotLinkedAccount.$Properties
          * @property {AICommon.BotLinkedAccount.BotLinkedAccountType|null} [type] BotLinkedAccount type
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -27250,7 +27250,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotLinkedAccount.
          * @constructor
          * @param {AICommon.BotLinkedAccount.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotLinkedAccount = function (properties) {
             if (properties)
@@ -27523,7 +27523,7 @@ $root.AICommon = (function() {
          * @property {Array.<AICommon.BotLinkedAccount.$Properties>|null} [accounts] BotLinkedAccountsMetadata accounts
          * @property {Uint8Array|null} [acAuthTokens] BotLinkedAccountsMetadata acAuthTokens
          * @property {number|null} [acErrorCode] BotLinkedAccountsMetadata acErrorCode
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -27545,7 +27545,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotLinkedAccountsMetadata.
          * @constructor
          * @param {AICommon.BotLinkedAccountsMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotLinkedAccountsMetadata = function (properties) {
             this.accounts = [];
@@ -27872,7 +27872,7 @@ $root.AICommon = (function() {
          * @typedef {Object} AICommon.BotPromptSuggestion.$Properties
          * @property {string|null} [prompt] BotPromptSuggestion prompt
          * @property {string|null} [promptId] BotPromptSuggestion promptId
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -27894,7 +27894,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotPromptSuggestion.
          * @constructor
          * @param {AICommon.BotPromptSuggestion.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotPromptSuggestion = function (properties) {
             if (properties)
@@ -28171,7 +28171,7 @@ $root.AICommon = (function() {
          * Properties of a BotPromptSuggestions.
          * @typedef {Object} AICommon.BotPromptSuggestions.$Properties
          * @property {Array.<AICommon.BotPromptSuggestion.$Properties>|null} [suggestions] BotPromptSuggestions suggestions
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -28193,7 +28193,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotPromptSuggestions.
          * @constructor
          * @param {AICommon.BotPromptSuggestions.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotPromptSuggestions = function (properties) {
             this.suggestions = [];
@@ -28451,7 +28451,7 @@ $root.AICommon = (function() {
          * @property {number|null} [selectedPromptIndex] BotSuggestedPromptMetadata selectedPromptIndex
          * @property {AICommon.BotPromptSuggestions.$Properties|null} [promptSuggestions] BotSuggestedPromptMetadata promptSuggestions
          * @property {string|null} [selectedPromptId] BotSuggestedPromptMetadata selectedPromptId
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -28473,7 +28473,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotSuggestedPromptMetadata.
          * @constructor
          * @param {AICommon.BotSuggestedPromptMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotSuggestedPromptMetadata = function (properties) {
             this.suggestedPrompts = [];
@@ -28840,7 +28840,7 @@ $root.AICommon = (function() {
          * @property {AICommon.BotPluginMetadata.PluginType|null} [deprecatedField] BotPluginMetadata deprecatedField
          * @property {AICommon.BotPluginMetadata.PluginType|null} [parentPluginType] BotPluginMetadata parentPluginType
          * @property {string|null} [faviconCdnUrl] BotPluginMetadata faviconCdnUrl
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -28862,7 +28862,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotPluginMetadata.
          * @constructor
          * @param {AICommon.BotPluginMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotPluginMetadata = function (properties) {
             if (properties)
@@ -29799,7 +29799,7 @@ $root.Protocol = (function() {
          * @property {Protocol.LimitSharing.TriggerType|null} [trigger] LimitSharing trigger
          * @property {number|Long|null} [limitSharingSettingTimestamp] LimitSharing limitSharingSettingTimestamp
          * @property {boolean|null} [initiatedByMe] LimitSharing initiatedByMe
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -29821,7 +29821,7 @@ $root.Protocol = (function() {
          * @classdesc Represents a LimitSharing.
          * @constructor
          * @param {Protocol.LimitSharing.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var LimitSharing = function (properties) {
             if (properties)
@@ -30224,7 +30224,7 @@ $root.Protocol = (function() {
          * @property {boolean|null} [fromMe] MessageKey fromMe
          * @property {string|null} [id] MessageKey id
          * @property {string|null} [participant] MessageKey participant
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -30246,7 +30246,7 @@ $root.Protocol = (function() {
          * @classdesc Represents a MessageKey.
          * @constructor
          * @param {Protocol.MessageKey.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var MessageKey = function (properties) {
             if (properties)

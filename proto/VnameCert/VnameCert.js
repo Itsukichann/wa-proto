@@ -32,7 +32,7 @@ $root.VnameCert = (function() {
          * @property {VnameCert.BizIdentityInfo.ActualActorsType|null} [actualActors] BizIdentityInfo actualActors
          * @property {number|Long|null} [privacyModeTs] BizIdentityInfo privacyModeTs
          * @property {number|Long|null} [featureControls] BizIdentityInfo featureControls
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -54,7 +54,7 @@ $root.VnameCert = (function() {
          * @classdesc Represents a BizIdentityInfo.
          * @constructor
          * @param {VnameCert.BizIdentityInfo.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BizIdentityInfo = function (properties) {
             if (properties)
@@ -663,7 +663,7 @@ $root.VnameCert = (function() {
          * @property {number|Long|null} [issueTime] BizAccountLinkInfo issueTime
          * @property {VnameCert.BizAccountLinkInfo.HostStorageType|null} [hostStorage] BizAccountLinkInfo hostStorage
          * @property {VnameCert.BizAccountLinkInfo.AccountType|null} [accountType] BizAccountLinkInfo accountType
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -685,7 +685,7 @@ $root.VnameCert = (function() {
          * @classdesc Represents a BizAccountLinkInfo.
          * @constructor
          * @param {VnameCert.BizAccountLinkInfo.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BizAccountLinkInfo = function (properties) {
             if (properties)
@@ -1142,7 +1142,7 @@ $root.VnameCert = (function() {
          * @typedef {Object} VnameCert.BizAccountPayload.$Properties
          * @property {VnameCert.VerifiedNameCertificate.$Properties|null} [vnameCert] BizAccountPayload vnameCert
          * @property {Uint8Array|null} [bizAcctLinkInfo] BizAccountPayload bizAcctLinkInfo
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -1164,7 +1164,7 @@ $root.VnameCert = (function() {
          * @classdesc Represents a BizAccountPayload.
          * @constructor
          * @param {VnameCert.BizAccountPayload.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BizAccountPayload = function (properties) {
             if (properties)
@@ -1452,7 +1452,7 @@ $root.VnameCert = (function() {
          * @property {Uint8Array|null} [details] VerifiedNameCertificate details
          * @property {Uint8Array|null} [signature] VerifiedNameCertificate signature
          * @property {Uint8Array|null} [serverSignature] VerifiedNameCertificate serverSignature
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -1474,7 +1474,7 @@ $root.VnameCert = (function() {
          * @classdesc Represents a VerifiedNameCertificate.
          * @constructor
          * @param {VnameCert.VerifiedNameCertificate.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var VerifiedNameCertificate = function (properties) {
             if (properties)
@@ -1793,7 +1793,7 @@ $root.VnameCert = (function() {
              * @property {string|null} [verifiedName] Details verifiedName
              * @property {Array.<VnameCert.LocalizedName.$Properties>|null} [localizedNames] Details localizedNames
              * @property {number|Long|null} [issueTime] Details issueTime
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -1815,7 +1815,7 @@ $root.VnameCert = (function() {
              * @classdesc Represents a Details.
              * @constructor
              * @param {VnameCert.VerifiedNameCertificate.Details.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var Details = function (properties) {
                 this.localizedNames = [];
@@ -2231,7 +2231,7 @@ $root.VnameCert = (function() {
          * @property {string|null} [lg] LocalizedName lg
          * @property {string|null} [lc] LocalizedName lc
          * @property {string|null} [verifiedName] LocalizedName verifiedName
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -2253,7 +2253,7 @@ $root.VnameCert = (function() {
          * @classdesc Represents a LocalizedName.
          * @constructor
          * @param {VnameCert.LocalizedName.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var LocalizedName = function (properties) {
             if (properties)

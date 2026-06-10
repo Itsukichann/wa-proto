@@ -26,7 +26,7 @@ $root.Cert = (function() {
          * @typedef {Object} Cert.CertChain.$Properties
          * @property {Cert.CertChain.NoiseCertificate.$Properties|null} [leaf] CertChain leaf
          * @property {Cert.CertChain.NoiseCertificate.$Properties|null} [intermediate] CertChain intermediate
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -48,7 +48,7 @@ $root.Cert = (function() {
          * @classdesc Represents a CertChain.
          * @constructor
          * @param {Cert.CertChain.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var CertChain = function (properties) {
             if (properties)
@@ -335,7 +335,7 @@ $root.Cert = (function() {
              * @typedef {Object} Cert.CertChain.NoiseCertificate.$Properties
              * @property {Uint8Array|null} [details] NoiseCertificate details
              * @property {Uint8Array|null} [signature] NoiseCertificate signature
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -357,7 +357,7 @@ $root.Cert = (function() {
              * @classdesc Represents a NoiseCertificate.
              * @constructor
              * @param {Cert.CertChain.NoiseCertificate.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var NoiseCertificate = function (properties) {
                 if (properties)
@@ -641,7 +641,7 @@ $root.Cert = (function() {
                  * @property {Uint8Array|null} [key] Details key
                  * @property {number|Long|null} [notBefore] Details notBefore
                  * @property {number|Long|null} [notAfter] Details notAfter
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -663,7 +663,7 @@ $root.Cert = (function() {
                  * @classdesc Represents a Details.
                  * @constructor
                  * @param {Cert.CertChain.NoiseCertificate.Details.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var Details = function (properties) {
                     if (properties)
@@ -1070,7 +1070,7 @@ $root.Cert = (function() {
          * @typedef {Object} Cert.NoiseCertificate.$Properties
          * @property {Uint8Array|null} [details] NoiseCertificate details
          * @property {Uint8Array|null} [signature] NoiseCertificate signature
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -1092,7 +1092,7 @@ $root.Cert = (function() {
          * @classdesc Represents a NoiseCertificate.
          * @constructor
          * @param {Cert.NoiseCertificate.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var NoiseCertificate = function (properties) {
             if (properties)
@@ -1376,7 +1376,7 @@ $root.Cert = (function() {
              * @property {number|Long|null} [expires] Details expires
              * @property {string|null} [subject] Details subject
              * @property {Uint8Array|null} [key] Details key
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -1398,7 +1398,7 @@ $root.Cert = (function() {
              * @classdesc Represents a Details.
              * @constructor
              * @param {Cert.NoiseCertificate.Details.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var Details = function (properties) {
                 if (properties)

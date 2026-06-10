@@ -25,7 +25,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * Properties of a SenderKeyRecordStructure.
          * @typedef {Object} SignalLocalStorageProtocol.SenderKeyRecordStructure.$Properties
          * @property {Array.<SignalLocalStorageProtocol.SenderKeyStateStructure.$Properties>|null} [senderKeyStates] SenderKeyRecordStructure senderKeyStates
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -47,7 +47,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @classdesc Represents a SenderKeyRecordStructure.
          * @constructor
          * @param {SignalLocalStorageProtocol.SenderKeyRecordStructure.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var SenderKeyRecordStructure = function (properties) {
             this.senderKeyStates = [];
@@ -305,7 +305,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @property {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.$Properties|null} [senderChainKey] SenderKeyStateStructure senderChainKey
          * @property {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.$Properties|null} [senderSigningKey] SenderKeyStateStructure senderSigningKey
          * @property {Array.<SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.$Properties>|null} [senderMessageKeys] SenderKeyStateStructure senderMessageKeys
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -327,7 +327,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @classdesc Represents a SenderKeyStateStructure.
          * @constructor
          * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var SenderKeyStateStructure = function (properties) {
             this.senderMessageKeys = [];
@@ -692,7 +692,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @typedef {Object} SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.$Properties
              * @property {number|null} [iteration] SenderChainKey iteration
              * @property {Uint8Array|null} [seed] SenderChainKey seed
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -714,7 +714,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @classdesc Represents a SenderChainKey.
              * @constructor
              * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderChainKey.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var SenderChainKey = function (properties) {
                 if (properties)
@@ -995,7 +995,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @typedef {Object} SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.$Properties
              * @property {number|null} [iteration] SenderMessageKey iteration
              * @property {Uint8Array|null} [seed] SenderMessageKey seed
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -1017,7 +1017,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @classdesc Represents a SenderMessageKey.
              * @constructor
              * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderMessageKey.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var SenderMessageKey = function (properties) {
                 if (properties)
@@ -1298,7 +1298,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @typedef {Object} SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.$Properties
              * @property {Uint8Array|null} ["public"] SenderSigningKey public
              * @property {Uint8Array|null} ["private"] SenderSigningKey private
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -1320,7 +1320,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @classdesc Represents a SenderSigningKey.
              * @constructor
              * @param {SignalLocalStorageProtocol.SenderKeyStateStructure.SenderSigningKey.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var SenderSigningKey = function (properties) {
                 if (properties)
@@ -1607,7 +1607,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @typedef {Object} SignalLocalStorageProtocol.IdentityKeyPairStructure.$Properties
          * @property {Uint8Array|null} [publicKey] IdentityKeyPairStructure publicKey
          * @property {Uint8Array|null} [privateKey] IdentityKeyPairStructure privateKey
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -1629,7 +1629,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @classdesc Represents an IdentityKeyPairStructure.
          * @constructor
          * @param {SignalLocalStorageProtocol.IdentityKeyPairStructure.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var IdentityKeyPairStructure = function (properties) {
             if (properties)
@@ -1916,7 +1916,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @property {Uint8Array|null} [privateKey] SignedPreKeyRecordStructure privateKey
          * @property {Uint8Array|null} [signature] SignedPreKeyRecordStructure signature
          * @property {number|Long|null} [timestamp] SignedPreKeyRecordStructure timestamp
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -1938,7 +1938,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @classdesc Represents a SignedPreKeyRecordStructure.
          * @constructor
          * @param {SignalLocalStorageProtocol.SignedPreKeyRecordStructure.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var SignedPreKeyRecordStructure = function (properties) {
             if (properties)
@@ -2334,7 +2334,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @property {number|null} [id] PreKeyRecordStructure id
          * @property {Uint8Array|null} [publicKey] PreKeyRecordStructure publicKey
          * @property {Uint8Array|null} [privateKey] PreKeyRecordStructure privateKey
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -2356,7 +2356,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @classdesc Represents a PreKeyRecordStructure.
          * @constructor
          * @param {SignalLocalStorageProtocol.PreKeyRecordStructure.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var PreKeyRecordStructure = function (properties) {
             if (properties)
@@ -2672,7 +2672,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @typedef {Object} SignalLocalStorageProtocol.RecordStructure.$Properties
          * @property {SignalLocalStorageProtocol.SessionStructure.$Properties|null} [currentSession] RecordStructure currentSession
          * @property {Array.<SignalLocalStorageProtocol.SessionStructure.$Properties>|null} [previousSessions] RecordStructure previousSessions
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -2694,7 +2694,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @classdesc Represents a RecordStructure.
          * @constructor
          * @param {SignalLocalStorageProtocol.RecordStructure.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var RecordStructure = function (properties) {
             this.previousSessions = [];
@@ -3003,7 +3003,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @property {number|null} [localRegistrationId] SessionStructure localRegistrationId
          * @property {boolean|null} [needsRefresh] SessionStructure needsRefresh
          * @property {Uint8Array|null} [aliceBaseKey] SessionStructure aliceBaseKey
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -3025,7 +3025,7 @@ $root.SignalLocalStorageProtocol = (function() {
          * @classdesc Represents a SessionStructure.
          * @constructor
          * @param {SignalLocalStorageProtocol.SessionStructure.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var SessionStructure = function (properties) {
             this.receiverChains = [];
@@ -3698,7 +3698,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @property {Uint8Array|null} [senderRatchetKeyPrivate] Chain senderRatchetKeyPrivate
              * @property {SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.$Properties|null} [chainKey] Chain chainKey
              * @property {Array.<SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.$Properties>|null} [messageKeys] Chain messageKeys
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -3720,7 +3720,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @classdesc Represents a Chain.
              * @constructor
              * @param {SignalLocalStorageProtocol.SessionStructure.Chain.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var Chain = function (properties) {
                 this.messageKeys = [];
@@ -4085,7 +4085,7 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @typedef {Object} SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.$Properties
                  * @property {number|null} [index] ChainKey index
                  * @property {Uint8Array|null} [key] ChainKey key
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -4107,7 +4107,7 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @classdesc Represents a ChainKey.
                  * @constructor
                  * @param {SignalLocalStorageProtocol.SessionStructure.Chain.ChainKey.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var ChainKey = function (properties) {
                     if (properties)
@@ -4390,7 +4390,7 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @property {Uint8Array|null} [cipherKey] MessageKey cipherKey
                  * @property {Uint8Array|null} [macKey] MessageKey macKey
                  * @property {Uint8Array|null} [iv] MessageKey iv
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -4412,7 +4412,7 @@ $root.SignalLocalStorageProtocol = (function() {
                  * @classdesc Represents a MessageKey.
                  * @constructor
                  * @param {SignalLocalStorageProtocol.SessionStructure.Chain.MessageKey.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var MessageKey = function (properties) {
                     if (properties)
@@ -4771,7 +4771,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @property {Uint8Array|null} [localRatchetKeyPrivate] PendingKeyExchange localRatchetKeyPrivate
              * @property {Uint8Array|null} [localIdentityKey] PendingKeyExchange localIdentityKey
              * @property {Uint8Array|null} [localIdentityKeyPrivate] PendingKeyExchange localIdentityKeyPrivate
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -4793,7 +4793,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @classdesc Represents a PendingKeyExchange.
              * @constructor
              * @param {SignalLocalStorageProtocol.SessionStructure.PendingKeyExchange.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var PendingKeyExchange = function (properties) {
                 if (properties)
@@ -5250,7 +5250,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @property {number|null} [preKeyId] PendingPreKey preKeyId
              * @property {number|null} [signedPreKeyId] PendingPreKey signedPreKeyId
              * @property {Uint8Array|null} [baseKey] PendingPreKey baseKey
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -5272,7 +5272,7 @@ $root.SignalLocalStorageProtocol = (function() {
              * @classdesc Represents a PendingPreKey.
              * @constructor
              * @param {SignalLocalStorageProtocol.SessionStructure.PendingPreKey.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var PendingPreKey = function (properties) {
                 if (properties)

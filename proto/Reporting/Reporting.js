@@ -29,7 +29,7 @@ $root.Reporting = (function() {
          * @property {number|null} [notReportableMinVersion] Field notReportableMinVersion
          * @property {boolean|null} [isMessage] Field isMessage
          * @property {Object.<string,Reporting.Field.$Properties>|null} [subfield] Field subfield
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -51,7 +51,7 @@ $root.Reporting = (function() {
          * @classdesc Represents a Field.
          * @constructor
          * @param {Reporting.Field.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var Field = function (properties) {
             this.subfield = {};
@@ -472,7 +472,7 @@ $root.Reporting = (function() {
          * @typedef {Object} Reporting.Config.$Properties
          * @property {Object.<string,Reporting.Field.$Properties>|null} [field] Config field
          * @property {number|null} [version] Config version
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -494,7 +494,7 @@ $root.Reporting = (function() {
          * @classdesc Represents a Config.
          * @constructor
          * @param {Reporting.Config.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var Config = function (properties) {
             this.field = {};
@@ -821,7 +821,7 @@ $root.Reporting = (function() {
          * @property {number|null} [maxVersion] Reportable maxVersion
          * @property {number|null} [notReportableMinVersion] Reportable notReportableMinVersion
          * @property {boolean|null} [never] Reportable never
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -843,7 +843,7 @@ $root.Reporting = (function() {
          * @classdesc Represents a Reportable.
          * @constructor
          * @param {Reporting.Reportable.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var Reportable = function (properties) {
             if (properties)

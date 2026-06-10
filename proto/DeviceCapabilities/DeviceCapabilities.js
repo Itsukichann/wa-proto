@@ -30,7 +30,7 @@ $root.DeviceCapabilities = (function() {
          * @property {DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Properties|null} [userHasAvatar] DeviceCapabilities userHasAvatar
          * @property {DeviceCapabilities.DeviceCapabilities.MemberNameTagPrimarySupport|null} [memberNameTagPrimarySupport] DeviceCapabilities memberNameTagPrimarySupport
          * @property {DeviceCapabilities.DeviceCapabilities.AiThread.$Properties|null} [aiThread] DeviceCapabilities aiThread
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -52,7 +52,7 @@ $root.DeviceCapabilities = (function() {
          * @classdesc Represents a DeviceCapabilities.
          * @constructor
          * @param {DeviceCapabilities.DeviceCapabilities.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var DeviceCapabilities = function (properties) {
             if (properties)
@@ -526,7 +526,7 @@ $root.DeviceCapabilities = (function() {
              * Properties of an AiThread.
              * @typedef {Object} DeviceCapabilities.DeviceCapabilities.AiThread.$Properties
              * @property {DeviceCapabilities.DeviceCapabilities.AiThread.SupportLevel|null} [supportLevel] AiThread supportLevel
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -548,7 +548,7 @@ $root.DeviceCapabilities = (function() {
              * @classdesc Represents an AiThread.
              * @constructor
              * @param {DeviceCapabilities.DeviceCapabilities.AiThread.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AiThread = function (properties) {
                 if (properties)
@@ -837,7 +837,7 @@ $root.DeviceCapabilities = (function() {
              * @property {boolean|null} [campaignSyncEnabled] BusinessBroadcast campaignSyncEnabled
              * @property {boolean|null} [insightsSyncEnabled] BusinessBroadcast insightsSyncEnabled
              * @property {number|null} [recipientLimit] BusinessBroadcast recipientLimit
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -859,7 +859,7 @@ $root.DeviceCapabilities = (function() {
              * @classdesc Represents a BusinessBroadcast.
              * @constructor
              * @param {DeviceCapabilities.DeviceCapabilities.BusinessBroadcast.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var BusinessBroadcast = function (properties) {
                 if (properties)
@@ -1248,7 +1248,7 @@ $root.DeviceCapabilities = (function() {
              * Properties of a LIDMigration.
              * @typedef {Object} DeviceCapabilities.DeviceCapabilities.LIDMigration.$Properties
              * @property {number|Long|null} [chatDbMigrationTimestamp] LIDMigration chatDbMigrationTimestamp
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -1270,7 +1270,7 @@ $root.DeviceCapabilities = (function() {
              * @classdesc Represents a LIDMigration.
              * @constructor
              * @param {DeviceCapabilities.DeviceCapabilities.LIDMigration.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var LIDMigration = function (properties) {
                 if (properties)
@@ -1543,7 +1543,7 @@ $root.DeviceCapabilities = (function() {
              * Properties of a UserHasAvatar.
              * @typedef {Object} DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Properties
              * @property {boolean|null} [userHasAvatar] UserHasAvatar userHasAvatar
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -1565,7 +1565,7 @@ $root.DeviceCapabilities = (function() {
              * @classdesc Represents a UserHasAvatar.
              * @constructor
              * @param {DeviceCapabilities.DeviceCapabilities.UserHasAvatar.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var UserHasAvatar = function (properties) {
                 if (properties)

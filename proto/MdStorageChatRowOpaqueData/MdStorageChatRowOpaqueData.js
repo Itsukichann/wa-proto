@@ -25,7 +25,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
          * Properties of a ChatRowOpaqueData.
          * @typedef {Object} MdStorageChatRowOpaqueData.ChatRowOpaqueData.$Properties
          * @property {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.$Properties|null} [draftMessage] ChatRowOpaqueData draftMessage
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -47,7 +47,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
          * @classdesc Represents a ChatRowOpaqueData.
          * @constructor
          * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var ChatRowOpaqueData = function (properties) {
             if (properties)
@@ -299,7 +299,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
              * @property {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.$Properties|null} [ctwaContextLinkData] DraftMessage ctwaContextLinkData
              * @property {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.$Properties|null} [ctwaContext] DraftMessage ctwaContext
              * @property {number|Long|null} [timestamp] DraftMessage timestamp
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -321,7 +321,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
              * @classdesc Represents a DraftMessage.
              * @constructor
              * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var DraftMessage = function (properties) {
                 if (properties)
@@ -726,7 +726,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @property {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.ContextInfoExternalAdReplyInfoMediaType|null} [mediaType] CtwaContextData mediaType
                  * @property {string|null} [mediaUrl] CtwaContextData mediaUrl
                  * @property {boolean|null} [isSuspiciousLink] CtwaContextData isSuspiciousLink
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -748,7 +748,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @classdesc Represents a CtwaContextData.
                  * @constructor
                  * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextData.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var CtwaContextData = function (properties) {
                     if (properties)
@@ -1391,7 +1391,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @property {string|null} [sourceUrl] CtwaContextLinkData sourceUrl
                  * @property {string|null} [icebreaker] CtwaContextLinkData icebreaker
                  * @property {string|null} [phone] CtwaContextLinkData phone
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -1413,7 +1413,7 @@ $root.MdStorageChatRowOpaqueData = (function() {
                  * @classdesc Represents a CtwaContextLinkData.
                  * @constructor
                  * @param {MdStorageChatRowOpaqueData.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var CtwaContextLinkData = function (properties) {
                     if (properties)

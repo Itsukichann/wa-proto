@@ -26,7 +26,7 @@ $root.LidMigrationSyncPayload = (function() {
          * @typedef {Object} LidMigrationSyncPayload.LIDMigrationMappingSyncPayload.$Properties
          * @property {Array.<LidMigrationSyncPayload.LIDMigrationMapping.$Properties>|null} [pnToLidMappings] LIDMigrationMappingSyncPayload pnToLidMappings
          * @property {number|Long|null} [chatDbMigrationTimestamp] LIDMigrationMappingSyncPayload chatDbMigrationTimestamp
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -48,7 +48,7 @@ $root.LidMigrationSyncPayload = (function() {
          * @classdesc Represents a LIDMigrationMappingSyncPayload.
          * @constructor
          * @param {LidMigrationSyncPayload.LIDMigrationMappingSyncPayload.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var LIDMigrationMappingSyncPayload = function (properties) {
             this.pnToLidMappings = [];
@@ -353,7 +353,7 @@ $root.LidMigrationSyncPayload = (function() {
          * @property {number|Long|null} [pn] LIDMigrationMapping pn
          * @property {number|Long|null} [assignedLid] LIDMigrationMapping assignedLid
          * @property {number|Long|null} [latestLid] LIDMigrationMapping latestLid
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -375,7 +375,7 @@ $root.LidMigrationSyncPayload = (function() {
          * @classdesc Represents a LIDMigrationMapping.
          * @constructor
          * @param {LidMigrationSyncPayload.LIDMigrationMapping.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var LIDMigrationMapping = function (properties) {
             if (properties)

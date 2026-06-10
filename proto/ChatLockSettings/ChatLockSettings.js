@@ -26,7 +26,7 @@ $root.ChatLockSettings = (function() {
          * @typedef {Object} ChatLockSettings.ChatLockSettings.$Properties
          * @property {boolean|null} [hideLockedChats] ChatLockSettings hideLockedChats
          * @property {UserPassword.UserPassword.$Properties|null} [secretCode] ChatLockSettings secretCode
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -52,7 +52,7 @@ $root.ChatLockSettings = (function() {
          * @classdesc Represents a ChatLockSettings.
          * @constructor
          * @param {ChatLockSettings.ChatLockSettings.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var ChatLockSettings = function (properties) {
             if (properties)
@@ -350,7 +350,7 @@ $root.UserPassword = (function() {
          * @property {UserPassword.UserPassword.Transformer|null} [transformer] UserPassword transformer
          * @property {Array.<UserPassword.UserPassword.TransformerArg.$Properties>|null} [transformerArg] UserPassword transformerArg
          * @property {Uint8Array|null} [transformedData] UserPassword transformedData
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -378,7 +378,7 @@ $root.UserPassword = (function() {
          * @classdesc Represents a UserPassword.
          * @constructor
          * @param {UserPassword.UserPassword.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var UserPassword = function (properties) {
             this.transformerArg = [];
@@ -807,7 +807,7 @@ $root.UserPassword = (function() {
              * @typedef {Object} UserPassword.UserPassword.TransformerArg.$Properties
              * @property {string|null} [key] TransformerArg key
              * @property {UserPassword.UserPassword.TransformerArg.Value.$Properties|null} [value] TransformerArg value
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -833,7 +833,7 @@ $root.UserPassword = (function() {
              * @classdesc Represents a TransformerArg.
              * @constructor
              * @param {UserPassword.UserPassword.TransformerArg.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var TransformerArg = function (properties) {
                 if (properties)
@@ -1115,7 +1115,7 @@ $root.UserPassword = (function() {
                  * @property {Uint8Array|null} [asBlob] Value asBlob
                  * @property {number|null} [asUnsignedInteger] Value asUnsignedInteger
                  * @property {"asBlob"|"asUnsignedInteger"} [value] Value value
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -1143,7 +1143,7 @@ $root.UserPassword = (function() {
                  * @classdesc Represents a Value.
                  * @constructor
                  * @param {UserPassword.UserPassword.TransformerArg.Value.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var Value = function (properties) {
                     if (properties)

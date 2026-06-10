@@ -29,7 +29,7 @@ $root.CompanionReg = (function() {
          * @property {boolean|null} [isSyncdSnapshotRecoveryEnabled] ClientPairingProps isSyncdSnapshotRecoveryEnabled
          * @property {boolean|null} [isHsThumbnailSyncEnabled] ClientPairingProps isHsThumbnailSyncEnabled
          * @property {Uint8Array|null} [subscriptionSyncPayload] ClientPairingProps subscriptionSyncPayload
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -51,7 +51,7 @@ $root.CompanionReg = (function() {
          * @classdesc Represents a ClientPairingProps.
          * @constructor
          * @param {CompanionReg.ClientPairingProps.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var ClientPairingProps = function (properties) {
             if (properties)
@@ -428,7 +428,7 @@ $root.CompanionReg = (function() {
          * @typedef {Object} CompanionReg.EncryptedPairingRequest.$Properties
          * @property {Uint8Array|null} [encryptedPayload] EncryptedPairingRequest encryptedPayload
          * @property {Uint8Array|null} [iv] EncryptedPairingRequest iv
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -450,7 +450,7 @@ $root.CompanionReg = (function() {
          * @classdesc Represents an EncryptedPairingRequest.
          * @constructor
          * @param {CompanionReg.EncryptedPairingRequest.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var EncryptedPairingRequest = function (properties) {
             if (properties)
@@ -735,7 +735,7 @@ $root.CompanionReg = (function() {
          * @property {Uint8Array|null} [companionPublicKey] PairingRequest companionPublicKey
          * @property {Uint8Array|null} [companionIdentityKey] PairingRequest companionIdentityKey
          * @property {Uint8Array|null} [advSecret] PairingRequest advSecret
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -757,7 +757,7 @@ $root.CompanionReg = (function() {
          * @classdesc Represents a PairingRequest.
          * @constructor
          * @param {CompanionReg.PairingRequest.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var PairingRequest = function (properties) {
             if (properties)
@@ -1076,7 +1076,7 @@ $root.CompanionReg = (function() {
          * @typedef {Object} CompanionReg.PrimaryEphemeralIdentity.$Properties
          * @property {Uint8Array|null} [publicKey] PrimaryEphemeralIdentity publicKey
          * @property {Uint8Array|null} [nonce] PrimaryEphemeralIdentity nonce
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -1098,7 +1098,7 @@ $root.CompanionReg = (function() {
          * @classdesc Represents a PrimaryEphemeralIdentity.
          * @constructor
          * @param {CompanionReg.PrimaryEphemeralIdentity.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var PrimaryEphemeralIdentity = function (properties) {
             if (properties)
@@ -1382,7 +1382,7 @@ $root.CompanionReg = (function() {
          * @typedef {Object} CompanionReg.ProloguePayload.$Properties
          * @property {Uint8Array|null} [companionEphemeralIdentity] ProloguePayload companionEphemeralIdentity
          * @property {CompanionReg.CompanionCommitment.$Properties|null} [commitment] ProloguePayload commitment
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -1404,7 +1404,7 @@ $root.CompanionReg = (function() {
          * @classdesc Represents a ProloguePayload.
          * @constructor
          * @param {CompanionReg.ProloguePayload.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var ProloguePayload = function (properties) {
             if (properties)
@@ -1690,7 +1690,7 @@ $root.CompanionReg = (function() {
          * Properties of a CompanionCommitment.
          * @typedef {Object} CompanionReg.CompanionCommitment.$Properties
          * @property {Uint8Array|null} [hash] CompanionCommitment hash
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -1712,7 +1712,7 @@ $root.CompanionReg = (function() {
          * @classdesc Represents a CompanionCommitment.
          * @constructor
          * @param {CompanionReg.CompanionCommitment.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var CompanionCommitment = function (properties) {
             if (properties)
@@ -1962,7 +1962,7 @@ $root.CompanionReg = (function() {
          * @property {Uint8Array|null} [publicKey] CompanionEphemeralIdentity publicKey
          * @property {CompanionReg.DeviceProps.PlatformType|null} [deviceType] CompanionEphemeralIdentity deviceType
          * @property {string|null} [ref] CompanionEphemeralIdentity ref
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -1984,7 +1984,7 @@ $root.CompanionReg = (function() {
          * @classdesc Represents a CompanionEphemeralIdentity.
          * @constructor
          * @param {CompanionReg.CompanionEphemeralIdentity.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var CompanionEphemeralIdentity = function (properties) {
             if (properties)
@@ -2434,7 +2434,7 @@ $root.CompanionReg = (function() {
          * @property {CompanionReg.DeviceProps.PlatformType|null} [platformType] DeviceProps platformType
          * @property {boolean|null} [requireFullSync] DeviceProps requireFullSync
          * @property {CompanionReg.DeviceProps.HistorySyncConfig.$Properties|null} [historySyncConfig] DeviceProps historySyncConfig
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -2456,7 +2456,7 @@ $root.CompanionReg = (function() {
          * @classdesc Represents a DeviceProps.
          * @constructor
          * @param {CompanionReg.DeviceProps.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var DeviceProps = function (properties) {
             if (properties)
@@ -2976,7 +2976,7 @@ $root.CompanionReg = (function() {
              * @property {number|null} [tertiary] AppVersion tertiary
              * @property {number|null} [quaternary] AppVersion quaternary
              * @property {number|null} [quinary] AppVersion quinary
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -2998,7 +2998,7 @@ $root.CompanionReg = (function() {
              * @classdesc Represents an AppVersion.
              * @constructor
              * @param {CompanionReg.DeviceProps.AppVersion.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AppVersion = function (properties) {
                 if (properties)
@@ -3394,7 +3394,7 @@ $root.CompanionReg = (function() {
              * @property {boolean|null} [supportHatchHistory] HistorySyncConfig supportHatchHistory
              * @property {Array.<string>|null} [supportedBotChannelFbids] HistorySyncConfig supportedBotChannelFbids
              * @property {boolean|null} [supportInlineContacts] HistorySyncConfig supportInlineContacts
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -3416,7 +3416,7 @@ $root.CompanionReg = (function() {
              * @classdesc Represents a HistorySyncConfig.
              * @constructor
              * @param {CompanionReg.DeviceProps.HistorySyncConfig.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var HistorySyncConfig = function (properties) {
                 this.supportedBotChannelFbids = [];

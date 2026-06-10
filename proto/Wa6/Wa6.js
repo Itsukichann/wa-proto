@@ -60,7 +60,7 @@ $root.Wa6 = (function() {
          * @property {number|null} [processingQueueSize] ClientPayload processingQueueSize
          * @property {Array.<string>|null} [pairedPeripherals] ClientPayload pairedPeripherals
          * @property {Uint8Array|null} [testIsolationId] ClientPayload testIsolationId
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -82,7 +82,7 @@ $root.Wa6 = (function() {
          * @classdesc Represents a ClientPayload.
          * @constructor
          * @param {Wa6.ClientPayload.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var ClientPayload = function (properties) {
             this.shards = [];
@@ -1845,7 +1845,7 @@ $root.Wa6 = (function() {
              * @typedef {Object} Wa6.ClientPayload.DNSSource.$Properties
              * @property {Wa6.ClientPayload.DNSSource.DNSResolutionMethod|null} [dnsMethod] DNSSource dnsMethod
              * @property {boolean|null} [appCached] DNSSource appCached
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -1867,7 +1867,7 @@ $root.Wa6 = (function() {
              * @classdesc Represents a DNSSource.
              * @constructor
              * @param {Wa6.ClientPayload.DNSSource.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var DNSSource = function (properties) {
                 if (properties)
@@ -2226,7 +2226,7 @@ $root.Wa6 = (function() {
              * @property {Uint8Array|null} [eSkeySig] DevicePairingRegistrationData eSkeySig
              * @property {Uint8Array|null} [buildHash] DevicePairingRegistrationData buildHash
              * @property {Uint8Array|null} [deviceProps] DevicePairingRegistrationData deviceProps
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -2248,7 +2248,7 @@ $root.Wa6 = (function() {
              * @classdesc Represents a DevicePairingRegistrationData.
              * @constructor
              * @param {Wa6.ClientPayload.DevicePairingRegistrationData.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var DevicePairingRegistrationData = function (properties) {
                 if (properties)
@@ -2759,7 +2759,7 @@ $root.Wa6 = (function() {
              * @property {number|Long|null} [accountId] InteropData accountId
              * @property {Uint8Array|null} [token] InteropData token
              * @property {boolean|null} [enableReadReceipts] InteropData enableReadReceipts
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -2781,7 +2781,7 @@ $root.Wa6 = (function() {
              * @classdesc Represents an InteropData.
              * @constructor
              * @param {Wa6.ClientPayload.InteropData.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var InteropData = function (properties) {
                 if (properties)
@@ -3155,7 +3155,7 @@ $root.Wa6 = (function() {
              * @property {Wa6.ClientPayload.UserAgent.DeviceType|null} [deviceType] UserAgent deviceType
              * @property {string|null} [deviceModelType] UserAgent deviceModelType
              * @property {Wa6.ClientPayload.UserAgent.DistributionChannel|null} [distributionChannel] UserAgent distributionChannel
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -3177,7 +3177,7 @@ $root.Wa6 = (function() {
              * @classdesc Represents a UserAgent.
              * @constructor
              * @param {Wa6.ClientPayload.UserAgent.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var UserAgent = function (properties) {
                 if (properties)
@@ -4232,7 +4232,7 @@ $root.Wa6 = (function() {
                  * @property {number|null} [tertiary] AppVersion tertiary
                  * @property {number|null} [quaternary] AppVersion quaternary
                  * @property {number|null} [quinary] AppVersion quinary
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -4254,7 +4254,7 @@ $root.Wa6 = (function() {
                  * @classdesc Represents an AppVersion.
                  * @constructor
                  * @param {Wa6.ClientPayload.UserAgent.AppVersion.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var AppVersion = function (properties) {
                     if (properties)
@@ -4777,7 +4777,7 @@ $root.Wa6 = (function() {
              * @property {Wa6.ClientPayload.WebInfo.WebSubPlatform|null} [webSubPlatform] WebInfo webSubPlatform
              * @property {string|null} [browser] WebInfo browser
              * @property {string|null} [browserVersion] WebInfo browserVersion
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -4799,7 +4799,7 @@ $root.Wa6 = (function() {
              * @classdesc Represents a WebInfo.
              * @constructor
              * @param {Wa6.ClientPayload.WebInfo.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var WebInfo = function (properties) {
                 if (properties)
@@ -5278,7 +5278,7 @@ $root.Wa6 = (function() {
                  * @property {boolean|null} [supportsE2EDocument] WebdPayload supportsE2EDocument
                  * @property {string|null} [documentTypes] WebdPayload documentTypes
                  * @property {Uint8Array|null} [features] WebdPayload features
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -5300,7 +5300,7 @@ $root.Wa6 = (function() {
                  * @classdesc Represents a WebdPayload.
                  * @constructor
                  * @param {Wa6.ClientPayload.WebInfo.WebdPayload.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var WebdPayload = function (properties) {
                     if (properties)
@@ -5876,7 +5876,7 @@ $root.Wa6 = (function() {
          * @property {Wa6.HandshakeMessage.ClientHello.$Properties|null} [clientHello] HandshakeMessage clientHello
          * @property {Wa6.HandshakeMessage.ServerHello.$Properties|null} [serverHello] HandshakeMessage serverHello
          * @property {Wa6.HandshakeMessage.ClientFinish.$Properties|null} [clientFinish] HandshakeMessage clientFinish
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -5898,7 +5898,7 @@ $root.Wa6 = (function() {
          * @classdesc Represents a HandshakeMessage.
          * @constructor
          * @param {Wa6.HandshakeMessage.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var HandshakeMessage = function (properties) {
             if (properties)
@@ -6226,7 +6226,7 @@ $root.Wa6 = (function() {
              * @property {Uint8Array|null} [extendedCiphertext] ClientFinish extendedCiphertext
              * @property {Uint8Array|null} [paddedBytes] ClientFinish paddedBytes
              * @property {boolean|null} [simulateXxkemFs] ClientFinish simulateXxkemFs
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -6248,7 +6248,7 @@ $root.Wa6 = (function() {
              * @classdesc Represents a ClientFinish.
              * @constructor
              * @param {Wa6.HandshakeMessage.ClientFinish.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ClientFinish = function (properties) {
                 if (properties)
@@ -6642,7 +6642,7 @@ $root.Wa6 = (function() {
              * @property {boolean|null} [simulateXxkemFs] ClientHello simulateXxkemFs
              * @property {Wa6.HandshakeMessage.HandshakePqMode|null} [pqMode] ClientHello pqMode
              * @property {Uint8Array|null} [extendedEphemeral] ClientHello extendedEphemeral
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -6664,7 +6664,7 @@ $root.Wa6 = (function() {
              * @classdesc Represents a ClientHello.
              * @constructor
              * @param {Wa6.HandshakeMessage.ClientHello.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ClientHello = function (properties) {
                 if (properties)
@@ -7302,7 +7302,7 @@ $root.Wa6 = (function() {
              * @property {Uint8Array|null} [extendedStatic] ServerHello extendedStatic
              * @property {Uint8Array|null} [paddingBytes] ServerHello paddingBytes
              * @property {Uint8Array|null} [extendedCiphertext] ServerHello extendedCiphertext
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -7324,7 +7324,7 @@ $root.Wa6 = (function() {
              * @classdesc Represents a ServerHello.
              * @constructor
              * @param {Wa6.HandshakeMessage.ServerHello.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ServerHello = function (properties) {
                 if (properties)

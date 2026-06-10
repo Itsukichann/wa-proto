@@ -33,7 +33,7 @@ $root.ServerSync = (function() {
          * @property {ServerSync.ExitCode.$Properties|null} [exitCode] SyncdPatch exitCode
          * @property {number|null} [deviceIndex] SyncdPatch deviceIndex
          * @property {Uint8Array|null} [clientDebugData] SyncdPatch clientDebugData
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -55,7 +55,7 @@ $root.ServerSync = (function() {
          * @classdesc Represents a SyncdPatch.
          * @constructor
          * @param {ServerSync.SyncdPatch.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var SyncdPatch = function (properties) {
             this.mutations = [];
@@ -604,7 +604,7 @@ $root.ServerSync = (function() {
          * @typedef {Object} ServerSync.SyncdMutation.$Properties
          * @property {ServerSync.SyncdMutation.SyncdOperation|null} [operation] SyncdMutation operation
          * @property {ServerSync.SyncdRecord.$Properties|null} [record] SyncdMutation record
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -626,7 +626,7 @@ $root.ServerSync = (function() {
          * @classdesc Represents a SyncdMutation.
          * @constructor
          * @param {ServerSync.SyncdMutation.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var SyncdMutation = function (properties) {
             if (properties)
@@ -942,7 +942,7 @@ $root.ServerSync = (function() {
          * Properties of a SyncdMutations.
          * @typedef {Object} ServerSync.SyncdMutations.$Properties
          * @property {Array.<ServerSync.SyncdMutation.$Properties>|null} [mutations] SyncdMutations mutations
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -964,7 +964,7 @@ $root.ServerSync = (function() {
          * @classdesc Represents a SyncdMutations.
          * @constructor
          * @param {ServerSync.SyncdMutations.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var SyncdMutations = function (properties) {
             this.mutations = [];
@@ -1222,7 +1222,7 @@ $root.ServerSync = (function() {
          * @property {Array.<ServerSync.SyncdRecord.$Properties>|null} [records] SyncdSnapshot records
          * @property {Uint8Array|null} [mac] SyncdSnapshot mac
          * @property {ServerSync.KeyId.$Properties|null} [keyId] SyncdSnapshot keyId
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -1244,7 +1244,7 @@ $root.ServerSync = (function() {
          * @classdesc Represents a SyncdSnapshot.
          * @constructor
          * @param {ServerSync.SyncdSnapshot.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var SyncdSnapshot = function (properties) {
             this.records = [];
@@ -1619,7 +1619,7 @@ $root.ServerSync = (function() {
          * @property {number|Long|null} [fileSizeBytes] ExternalBlobReference fileSizeBytes
          * @property {Uint8Array|null} [fileSha256] ExternalBlobReference fileSha256
          * @property {Uint8Array|null} [fileEncSha256] ExternalBlobReference fileEncSha256
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -1641,7 +1641,7 @@ $root.ServerSync = (function() {
          * @classdesc Represents an ExternalBlobReference.
          * @constructor
          * @param {ServerSync.ExternalBlobReference.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var ExternalBlobReference = function (properties) {
             if (properties)
@@ -2069,7 +2069,7 @@ $root.ServerSync = (function() {
          * @property {ServerSync.SyncdIndex.$Properties|null} [index] SyncdRecord index
          * @property {ServerSync.SyncdValue.$Properties|null} [value] SyncdRecord value
          * @property {ServerSync.KeyId.$Properties|null} [keyId] SyncdRecord keyId
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -2091,7 +2091,7 @@ $root.ServerSync = (function() {
          * @classdesc Represents a SyncdRecord.
          * @constructor
          * @param {ServerSync.SyncdRecord.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var SyncdRecord = function (properties) {
             if (properties)
@@ -2418,7 +2418,7 @@ $root.ServerSync = (function() {
          * Properties of a KeyId.
          * @typedef {Object} ServerSync.KeyId.$Properties
          * @property {Uint8Array|null} [id] KeyId id
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -2440,7 +2440,7 @@ $root.ServerSync = (function() {
          * @classdesc Represents a KeyId.
          * @constructor
          * @param {ServerSync.KeyId.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var KeyId = function (properties) {
             if (properties)
@@ -2688,7 +2688,7 @@ $root.ServerSync = (function() {
          * Properties of a SyncdValue.
          * @typedef {Object} ServerSync.SyncdValue.$Properties
          * @property {Uint8Array|null} [blob] SyncdValue blob
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -2710,7 +2710,7 @@ $root.ServerSync = (function() {
          * @classdesc Represents a SyncdValue.
          * @constructor
          * @param {ServerSync.SyncdValue.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var SyncdValue = function (properties) {
             if (properties)
@@ -2958,7 +2958,7 @@ $root.ServerSync = (function() {
          * Properties of a SyncdIndex.
          * @typedef {Object} ServerSync.SyncdIndex.$Properties
          * @property {Uint8Array|null} [blob] SyncdIndex blob
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -2980,7 +2980,7 @@ $root.ServerSync = (function() {
          * @classdesc Represents a SyncdIndex.
          * @constructor
          * @param {ServerSync.SyncdIndex.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var SyncdIndex = function (properties) {
             if (properties)
@@ -3229,7 +3229,7 @@ $root.ServerSync = (function() {
          * @typedef {Object} ServerSync.ExitCode.$Properties
          * @property {number|Long|null} [code] ExitCode code
          * @property {string|null} [text] ExitCode text
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -3251,7 +3251,7 @@ $root.ServerSync = (function() {
          * @classdesc Represents an ExitCode.
          * @constructor
          * @param {ServerSync.ExitCode.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var ExitCode = function (properties) {
             if (properties)
@@ -3540,7 +3540,7 @@ $root.ServerSync = (function() {
          * Properties of a SyncdVersion.
          * @typedef {Object} ServerSync.SyncdVersion.$Properties
          * @property {number|Long|null} [version] SyncdVersion version
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -3562,7 +3562,7 @@ $root.ServerSync = (function() {
          * @classdesc Represents a SyncdVersion.
          * @constructor
          * @param {ServerSync.SyncdVersion.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var SyncdVersion = function (properties) {
             if (properties)

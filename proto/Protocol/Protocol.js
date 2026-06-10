@@ -28,7 +28,7 @@ $root.Protocol = (function() {
          * @property {Protocol.LimitSharing.TriggerType|null} [trigger] LimitSharing trigger
          * @property {number|Long|null} [limitSharingSettingTimestamp] LimitSharing limitSharingSettingTimestamp
          * @property {boolean|null} [initiatedByMe] LimitSharing initiatedByMe
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -50,7 +50,7 @@ $root.Protocol = (function() {
          * @classdesc Represents a LimitSharing.
          * @constructor
          * @param {Protocol.LimitSharing.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var LimitSharing = function (properties) {
             if (properties)
@@ -453,7 +453,7 @@ $root.Protocol = (function() {
          * @property {boolean|null} [fromMe] MessageKey fromMe
          * @property {string|null} [id] MessageKey id
          * @property {string|null} [participant] MessageKey participant
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -475,7 +475,7 @@ $root.Protocol = (function() {
          * @classdesc Represents a MessageKey.
          * @constructor
          * @param {Protocol.MessageKey.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var MessageKey = function (properties) {
             if (properties)

@@ -26,7 +26,7 @@ $root.Ephemeral = (function() {
          * @typedef {Object} Ephemeral.EphemeralSetting.$Properties
          * @property {number|null} [duration] EphemeralSetting duration
          * @property {number|Long|null} [timestamp] EphemeralSetting timestamp
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -48,7 +48,7 @@ $root.Ephemeral = (function() {
          * @classdesc Represents an EphemeralSetting.
          * @constructor
          * @param {Ephemeral.EphemeralSetting.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var EphemeralSetting = function (properties) {
             if (properties)

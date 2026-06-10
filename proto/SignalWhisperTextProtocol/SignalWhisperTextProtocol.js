@@ -26,7 +26,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @typedef {Object} SignalWhisperTextProtocol.DeviceConsistencyCodeMessage.$Properties
          * @property {number|null} [generation] DeviceConsistencyCodeMessage generation
          * @property {Uint8Array|null} [signature] DeviceConsistencyCodeMessage signature
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -48,7 +48,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @classdesc Represents a DeviceConsistencyCodeMessage.
          * @constructor
          * @param {SignalWhisperTextProtocol.DeviceConsistencyCodeMessage.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var DeviceConsistencyCodeMessage = function (properties) {
             if (properties)
@@ -331,7 +331,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @property {number|null} [iteration] SenderKeyDistributionMessage iteration
          * @property {Uint8Array|null} [chainKey] SenderKeyDistributionMessage chainKey
          * @property {Uint8Array|null} [signingKey] SenderKeyDistributionMessage signingKey
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -353,7 +353,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @classdesc Represents a SenderKeyDistributionMessage.
          * @constructor
          * @param {SignalWhisperTextProtocol.SenderKeyDistributionMessage.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var SenderKeyDistributionMessage = function (properties) {
             if (properties)
@@ -702,7 +702,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @property {number|null} [id] SenderKeyMessage id
          * @property {number|null} [iteration] SenderKeyMessage iteration
          * @property {Uint8Array|null} [ciphertext] SenderKeyMessage ciphertext
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -724,7 +724,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @classdesc Represents a SenderKeyMessage.
          * @constructor
          * @param {SignalWhisperTextProtocol.SenderKeyMessage.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var SenderKeyMessage = function (properties) {
             if (properties)
@@ -1040,7 +1040,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @property {Uint8Array|null} [ratchetKey] KeyExchangeMessage ratchetKey
          * @property {Uint8Array|null} [identityKey] KeyExchangeMessage identityKey
          * @property {Uint8Array|null} [baseKeySignature] KeyExchangeMessage baseKeySignature
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -1062,7 +1062,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @classdesc Represents a KeyExchangeMessage.
          * @constructor
          * @param {SignalWhisperTextProtocol.KeyExchangeMessage.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var KeyExchangeMessage = function (properties) {
             if (properties)
@@ -1452,7 +1452,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @property {Uint8Array|null} [baseKey] PreKeySignalMessage baseKey
          * @property {Uint8Array|null} [identityKey] PreKeySignalMessage identityKey
          * @property {Uint8Array|null} [message] PreKeySignalMessage message
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -1474,7 +1474,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @classdesc Represents a PreKeySignalMessage.
          * @constructor
          * @param {SignalWhisperTextProtocol.PreKeySignalMessage.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var PreKeySignalMessage = function (properties) {
             if (properties)
@@ -1891,7 +1891,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @property {number|null} [counter] SignalMessage counter
          * @property {number|null} [previousCounter] SignalMessage previousCounter
          * @property {Uint8Array|null} [ciphertext] SignalMessage ciphertext
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -1913,7 +1913,7 @@ $root.SignalWhisperTextProtocol = (function() {
          * @classdesc Represents a SignalMessage.
          * @constructor
          * @param {SignalWhisperTextProtocol.SignalMessage.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var SignalMessage = function (properties) {
             if (properties)

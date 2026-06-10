@@ -27,7 +27,7 @@ $root.Adv = (function() {
          * @property {Uint8Array|null} [details] ADVSignedDeviceIdentityHMAC details
          * @property {Uint8Array|null} [hmac] ADVSignedDeviceIdentityHMAC hmac
          * @property {Adv.ADVEncryptionType|null} [accountType] ADVSignedDeviceIdentityHMAC accountType
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -49,7 +49,7 @@ $root.Adv = (function() {
          * @classdesc Represents a ADVSignedDeviceIdentityHMAC.
          * @constructor
          * @param {Adv.ADVSignedDeviceIdentityHMAC.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var ADVSignedDeviceIdentityHMAC = function (properties) {
             if (properties)
@@ -391,7 +391,7 @@ $root.Adv = (function() {
          * @property {Uint8Array|null} [accountSignatureKey] ADVSignedDeviceIdentity accountSignatureKey
          * @property {Uint8Array|null} [accountSignature] ADVSignedDeviceIdentity accountSignature
          * @property {Uint8Array|null} [deviceSignature] ADVSignedDeviceIdentity deviceSignature
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -413,7 +413,7 @@ $root.Adv = (function() {
          * @classdesc Represents a ADVSignedDeviceIdentity.
          * @constructor
          * @param {Adv.ADVSignedDeviceIdentity.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var ADVSignedDeviceIdentity = function (properties) {
             if (properties)
@@ -770,7 +770,7 @@ $root.Adv = (function() {
          * @property {number|null} [keyIndex] ADVDeviceIdentity keyIndex
          * @property {Adv.ADVEncryptionType|null} [accountType] ADVDeviceIdentity accountType
          * @property {Adv.ADVEncryptionType|null} [deviceType] ADVDeviceIdentity deviceType
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -792,7 +792,7 @@ $root.Adv = (function() {
          * @classdesc Represents a ADVDeviceIdentity.
          * @constructor
          * @param {Adv.ADVDeviceIdentity.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var ADVDeviceIdentity = function (properties) {
             if (properties)
@@ -1227,7 +1227,7 @@ $root.Adv = (function() {
          * @property {Uint8Array|null} [details] ADVSignedKeyIndexList details
          * @property {Uint8Array|null} [accountSignature] ADVSignedKeyIndexList accountSignature
          * @property {Uint8Array|null} [accountSignatureKey] ADVSignedKeyIndexList accountSignatureKey
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -1249,7 +1249,7 @@ $root.Adv = (function() {
          * @classdesc Represents a ADVSignedKeyIndexList.
          * @constructor
          * @param {Adv.ADVSignedKeyIndexList.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var ADVSignedKeyIndexList = function (properties) {
             if (properties)
@@ -1571,7 +1571,7 @@ $root.Adv = (function() {
          * @property {number|null} [currentIndex] ADVKeyIndexList currentIndex
          * @property {Array.<number>|null} [validIndexes] ADVKeyIndexList validIndexes
          * @property {Adv.ADVEncryptionType|null} [accountType] ADVKeyIndexList accountType
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -1593,7 +1593,7 @@ $root.Adv = (function() {
          * @classdesc Represents a ADVKeyIndexList.
          * @constructor
          * @param {Adv.ADVKeyIndexList.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var ADVKeyIndexList = function (properties) {
             this.validIndexes = [];

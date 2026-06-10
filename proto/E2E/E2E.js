@@ -28,7 +28,7 @@ $root.E2E = (function() {
          * @property {string|null} [keyId] GroupRootKeyShareEntry keyId
          * @property {number|Long|null} [expiryTimestampMs] GroupRootKeyShareEntry expiryTimestampMs
          * @property {number|Long|null} [createdTimestampMs] GroupRootKeyShareEntry createdTimestampMs
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -50,7 +50,7 @@ $root.E2E = (function() {
          * @classdesc Represents a GroupRootKeyShareEntry.
          * @constructor
          * @param {E2E.GroupRootKeyShareEntry.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var GroupRootKeyShareEntry = function (properties) {
             if (properties)
@@ -418,7 +418,7 @@ $root.E2E = (function() {
          * Properties of a GroupRootKeyShare.
          * @typedef {Object} E2E.GroupRootKeyShare.$Properties
          * @property {Array.<E2E.GroupRootKeyShareEntry.$Properties>|null} [keys] GroupRootKeyShare keys
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -440,7 +440,7 @@ $root.E2E = (function() {
          * @classdesc Represents a GroupRootKeyShare.
          * @constructor
          * @param {E2E.GroupRootKeyShare.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var GroupRootKeyShare = function (properties) {
             this.keys = [];
@@ -697,7 +697,7 @@ $root.E2E = (function() {
          * @property {Protocol.MessageKey.$Properties|null} [messageKey] AIQueryFanout messageKey
          * @property {E2E.Message.$Properties|null} [message] AIQueryFanout message
          * @property {number|Long|null} [timestamp] AIQueryFanout timestamp
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -724,7 +724,7 @@ $root.E2E = (function() {
          * @classdesc Represents a AIQueryFanout.
          * @constructor
          * @param {E2E.AIQueryFanout.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIQueryFanout = function (properties) {
             if (properties)
@@ -1060,7 +1060,7 @@ $root.E2E = (function() {
          * @property {Array.<AICommonDeprecated.AIRichResponseSubMessage.$Properties>|null} [submessages] AIRichResponseMessage submessages
          * @property {AICommon.AIRichResponseUnifiedResponse.$Properties|null} [unifiedResponse] AIRichResponseMessage unifiedResponse
          * @property {E2E.ContextInfo.$Properties|null} [contextInfo] AIRichResponseMessage contextInfo
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -1088,7 +1088,7 @@ $root.E2E = (function() {
          * @classdesc Represents a AIRichResponseMessage.
          * @constructor
          * @param {E2E.AIRichResponseMessage.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIRichResponseMessage = function (properties) {
             this.submessages = [];
@@ -1475,7 +1475,7 @@ $root.E2E = (function() {
          * @typedef {Object} E2E.MemberLabel.$Properties
          * @property {string|null} [label] MemberLabel label
          * @property {number|Long|null} [labelTimestamp] MemberLabel labelTimestamp
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -1497,7 +1497,7 @@ $root.E2E = (function() {
          * @classdesc Represents a MemberLabel.
          * @constructor
          * @param {E2E.MemberLabel.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var MemberLabel = function (properties) {
             if (properties)
@@ -1786,7 +1786,7 @@ $root.E2E = (function() {
          * Properties of an UrlTrackingMap.
          * @typedef {Object} E2E.UrlTrackingMap.$Properties
          * @property {Array.<E2E.UrlTrackingMap.UrlTrackingMapElement.$Properties>|null} [urlTrackingMapElements] UrlTrackingMap urlTrackingMapElements
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -1808,7 +1808,7 @@ $root.E2E = (function() {
          * @classdesc Represents an UrlTrackingMap.
          * @constructor
          * @param {E2E.UrlTrackingMap.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var UrlTrackingMap = function (properties) {
             this.urlTrackingMapElements = [];
@@ -2063,7 +2063,7 @@ $root.E2E = (function() {
              * @property {string|null} [unconsentedUsersUrl] UrlTrackingMapElement unconsentedUsersUrl
              * @property {string|null} [consentedUsersUrl] UrlTrackingMapElement consentedUsersUrl
              * @property {number|null} [cardIndex] UrlTrackingMapElement cardIndex
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -2085,7 +2085,7 @@ $root.E2E = (function() {
              * @classdesc Represents an UrlTrackingMapElement.
              * @constructor
              * @param {E2E.UrlTrackingMap.UrlTrackingMapElement.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var UrlTrackingMapElement = function (properties) {
                 if (properties)
@@ -2436,7 +2436,7 @@ $root.E2E = (function() {
          * @property {number|null} [bitrate] ProcessedVideo bitrate
          * @property {E2E.ProcessedVideo.VideoQuality|null} [quality] ProcessedVideo quality
          * @property {Array.<string>|null} [capabilities] ProcessedVideo capabilities
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -2458,7 +2458,7 @@ $root.E2E = (function() {
          * @classdesc Represents a ProcessedVideo.
          * @constructor
          * @param {E2E.ProcessedVideo.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var ProcessedVideo = function (properties) {
             this.capabilities = [];
@@ -2998,7 +2998,7 @@ $root.E2E = (function() {
          * Properties of a LIDMigrationMappingSyncMessage.
          * @typedef {Object} E2E.LIDMigrationMappingSyncMessage.$Properties
          * @property {Uint8Array|null} [encodedMappingPayload] LIDMigrationMappingSyncMessage encodedMappingPayload
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -3020,7 +3020,7 @@ $root.E2E = (function() {
          * @classdesc Represents a LIDMigrationMappingSyncMessage.
          * @constructor
          * @param {E2E.LIDMigrationMappingSyncMessage.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var LIDMigrationMappingSyncMessage = function (properties) {
             if (properties)
@@ -3270,7 +3270,7 @@ $root.E2E = (function() {
          * @property {string|null} [expressPathUrl] MediaNotifyMessage expressPathUrl
          * @property {Uint8Array|null} [fileEncSha256] MediaNotifyMessage fileEncSha256
          * @property {number|Long|null} [fileLength] MediaNotifyMessage fileLength
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -3292,7 +3292,7 @@ $root.E2E = (function() {
          * @classdesc Represents a MediaNotifyMessage.
          * @constructor
          * @param {E2E.MediaNotifyMessage.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var MediaNotifyMessage = function (properties) {
             if (properties)
@@ -3618,7 +3618,7 @@ $root.E2E = (function() {
          * @property {number|null} [version] MessageSecretMessage version
          * @property {Uint8Array|null} [encIv] MessageSecretMessage encIv
          * @property {Uint8Array|null} [encPayload] MessageSecretMessage encPayload
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -3640,7 +3640,7 @@ $root.E2E = (function() {
          * @classdesc Represents a MessageSecretMessage.
          * @constructor
          * @param {E2E.MessageSecretMessage.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var MessageSecretMessage = function (properties) {
             if (properties)
@@ -3956,7 +3956,7 @@ $root.E2E = (function() {
          * @typedef {Object} E2E.GroupMention.$Properties
          * @property {string|null} [groupJid] GroupMention groupJid
          * @property {string|null} [groupSubject] GroupMention groupSubject
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -3978,7 +3978,7 @@ $root.E2E = (function() {
          * @classdesc Represents a GroupMention.
          * @constructor
          * @param {E2E.GroupMention.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var GroupMention = function (properties) {
             if (properties)
@@ -4256,7 +4256,7 @@ $root.E2E = (function() {
          * @typedef {Object} E2E.ActionLink.$Properties
          * @property {string|null} [url] ActionLink url
          * @property {string|null} [buttonTitle] ActionLink buttonTitle
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -4278,7 +4278,7 @@ $root.E2E = (function() {
          * @classdesc Represents an ActionLink.
          * @constructor
          * @param {E2E.ActionLink.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var ActionLink = function (properties) {
             if (properties)
@@ -4558,7 +4558,7 @@ $root.E2E = (function() {
          * @property {E2E.DisappearingMode.Trigger|null} [trigger] DisappearingMode trigger
          * @property {string|null} [initiatorDeviceJid] DisappearingMode initiatorDeviceJid
          * @property {boolean|null} [initiatedByMe] DisappearingMode initiatedByMe
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -4580,7 +4580,7 @@ $root.E2E = (function() {
          * @classdesc Represents a DisappearingMode.
          * @constructor
          * @param {E2E.DisappearingMode.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var DisappearingMode = function (properties) {
             if (properties)
@@ -5038,7 +5038,7 @@ $root.E2E = (function() {
          * @property {number|null} [subtextArgb] PaymentBackground subtextArgb
          * @property {E2E.PaymentBackground.MediaData.$Properties|null} [mediaData] PaymentBackground mediaData
          * @property {E2E.PaymentBackground.Type|null} [type] PaymentBackground type
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -5060,7 +5060,7 @@ $root.E2E = (function() {
          * @classdesc Represents a PaymentBackground.
          * @constructor
          * @param {E2E.PaymentBackground.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var PaymentBackground = function (properties) {
             if (properties)
@@ -5631,7 +5631,7 @@ $root.E2E = (function() {
              * @property {Uint8Array|null} [fileSha256] MediaData fileSha256
              * @property {Uint8Array|null} [fileEncSha256] MediaData fileEncSha256
              * @property {string|null} [directPath] MediaData directPath
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -5653,7 +5653,7 @@ $root.E2E = (function() {
              * @classdesc Represents a MediaData.
              * @constructor
              * @param {E2E.PaymentBackground.MediaData.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var MediaData = function (properties) {
                 if (properties)
@@ -6066,7 +6066,7 @@ $root.E2E = (function() {
          * @property {number|Long|null} [value] Money value
          * @property {number|null} [offset] Money offset
          * @property {string|null} [currencyCode] Money currencyCode
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -6088,7 +6088,7 @@ $root.E2E = (function() {
          * @classdesc Represents a Money.
          * @constructor
          * @param {E2E.Money.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var Money = function (properties) {
             if (properties)
@@ -6413,7 +6413,7 @@ $root.E2E = (function() {
          * @property {E2E.HydratedTemplateButton.HydratedURLButton.$Properties|null} [urlButton] HydratedTemplateButton urlButton
          * @property {E2E.HydratedTemplateButton.HydratedCallButton.$Properties|null} [callButton] HydratedTemplateButton callButton
          * @property {"quickReplyButton"|"urlButton"|"callButton"} [hydratedButton] HydratedTemplateButton hydratedButton
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -6443,7 +6443,7 @@ $root.E2E = (function() {
          * @classdesc Represents a HydratedTemplateButton.
          * @constructor
          * @param {E2E.HydratedTemplateButton.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var HydratedTemplateButton = function (properties) {
             if (properties)
@@ -6806,7 +6806,7 @@ $root.E2E = (function() {
              * @typedef {Object} E2E.HydratedTemplateButton.HydratedCallButton.$Properties
              * @property {string|null} [displayText] HydratedCallButton displayText
              * @property {string|null} [phoneNumber] HydratedCallButton phoneNumber
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -6828,7 +6828,7 @@ $root.E2E = (function() {
              * @classdesc Represents a HydratedCallButton.
              * @constructor
              * @param {E2E.HydratedTemplateButton.HydratedCallButton.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var HydratedCallButton = function (properties) {
                 if (properties)
@@ -7106,7 +7106,7 @@ $root.E2E = (function() {
              * @typedef {Object} E2E.HydratedTemplateButton.HydratedQuickReplyButton.$Properties
              * @property {string|null} [displayText] HydratedQuickReplyButton displayText
              * @property {string|null} [id] HydratedQuickReplyButton id
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -7128,7 +7128,7 @@ $root.E2E = (function() {
              * @classdesc Represents a HydratedQuickReplyButton.
              * @constructor
              * @param {E2E.HydratedTemplateButton.HydratedQuickReplyButton.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var HydratedQuickReplyButton = function (properties) {
                 if (properties)
@@ -7408,7 +7408,7 @@ $root.E2E = (function() {
              * @property {string|null} [url] HydratedURLButton url
              * @property {string|null} [consentedUsersUrl] HydratedURLButton consentedUsersUrl
              * @property {E2E.HydratedTemplateButton.HydratedURLButton.WebviewPresentationType|null} [webviewPresentation] HydratedURLButton webviewPresentation
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -7430,7 +7430,7 @@ $root.E2E = (function() {
              * @classdesc Represents a HydratedURLButton.
              * @constructor
              * @param {E2E.HydratedTemplateButton.HydratedURLButton.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var HydratedURLButton = function (properties) {
                 if (properties)
@@ -7818,7 +7818,7 @@ $root.E2E = (function() {
          * @property {E2E.TemplateButton.URLButton.$Properties|null} [urlButton] TemplateButton urlButton
          * @property {E2E.TemplateButton.CallButton.$Properties|null} [callButton] TemplateButton callButton
          * @property {"quickReplyButton"|"urlButton"|"callButton"} [button] TemplateButton button
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -7848,7 +7848,7 @@ $root.E2E = (function() {
          * @classdesc Represents a TemplateButton.
          * @constructor
          * @param {E2E.TemplateButton.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var TemplateButton = function (properties) {
             if (properties)
@@ -8211,7 +8211,7 @@ $root.E2E = (function() {
              * @typedef {Object} E2E.TemplateButton.CallButton.$Properties
              * @property {E2E.Message.HighlyStructuredMessage.$Properties|null} [displayText] CallButton displayText
              * @property {E2E.Message.HighlyStructuredMessage.$Properties|null} [phoneNumber] CallButton phoneNumber
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -8237,7 +8237,7 @@ $root.E2E = (function() {
              * @classdesc Represents a CallButton.
              * @constructor
              * @param {E2E.TemplateButton.CallButton.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var CallButton = function (properties) {
                 if (properties)
@@ -8527,7 +8527,7 @@ $root.E2E = (function() {
              * @typedef {Object} E2E.TemplateButton.QuickReplyButton.$Properties
              * @property {E2E.Message.HighlyStructuredMessage.$Properties|null} [displayText] QuickReplyButton displayText
              * @property {string|null} [id] QuickReplyButton id
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -8553,7 +8553,7 @@ $root.E2E = (function() {
              * @classdesc Represents a QuickReplyButton.
              * @constructor
              * @param {E2E.TemplateButton.QuickReplyButton.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var QuickReplyButton = function (properties) {
                 if (properties)
@@ -8837,7 +8837,7 @@ $root.E2E = (function() {
              * @typedef {Object} E2E.TemplateButton.URLButton.$Properties
              * @property {E2E.Message.HighlyStructuredMessage.$Properties|null} [displayText] URLButton displayText
              * @property {E2E.Message.HighlyStructuredMessage.$Properties|null} [url] URLButton url
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -8863,7 +8863,7 @@ $root.E2E = (function() {
              * @classdesc Represents a URLButton.
              * @constructor
              * @param {E2E.TemplateButton.URLButton.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var URLButton = function (properties) {
                 if (properties)
@@ -9157,7 +9157,7 @@ $root.E2E = (function() {
          * @property {number|null} [degreesLatitude] Location degreesLatitude
          * @property {number|null} [degreesLongitude] Location degreesLongitude
          * @property {string|null} [name] Location name
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -9179,7 +9179,7 @@ $root.E2E = (function() {
          * @classdesc Represents a Location.
          * @constructor
          * @param {E2E.Location.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var Location = function (properties) {
             if (properties)
@@ -9491,7 +9491,7 @@ $root.E2E = (function() {
          * @property {number|null} [yDeprecated] Point yDeprecated
          * @property {number|null} [x] Point x
          * @property {number|null} [y] Point y
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -9513,7 +9513,7 @@ $root.E2E = (function() {
          * @classdesc Represents a Point.
          * @constructor
          * @param {E2E.Point.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var Point = function (properties) {
             if (properties)
@@ -9862,7 +9862,7 @@ $root.E2E = (function() {
          * @property {boolean|null} [embeddedAction] InteractiveAnnotation embeddedAction
          * @property {E2E.TapLinkAction.$Properties|null} [tapAction] InteractiveAnnotation tapAction
          * @property {"location"|"newsletter"|"embeddedAction"|"tapAction"} [action] InteractiveAnnotation action
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -9896,7 +9896,7 @@ $root.E2E = (function() {
          * @classdesc Represents an InteractiveAnnotation.
          * @constructor
          * @param {E2E.InteractiveAnnotation.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var InteractiveAnnotation = function (properties) {
             this.polygonVertices = [];
@@ -10449,7 +10449,7 @@ $root.E2E = (function() {
          * @typedef {Object} E2E.TapLinkAction.$Properties
          * @property {string|null} [title] TapLinkAction title
          * @property {string|null} [tapUrl] TapLinkAction tapUrl
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -10471,7 +10471,7 @@ $root.E2E = (function() {
          * @classdesc Represents a TapLinkAction.
          * @constructor
          * @param {E2E.TapLinkAction.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var TapLinkAction = function (properties) {
             if (properties)
@@ -10750,7 +10750,7 @@ $root.E2E = (function() {
          * @property {E2E.EmbeddedMessage.$Properties|null} [embeddedMessage] EmbeddedContent embeddedMessage
          * @property {E2E.EmbeddedMusic.$Properties|null} [embeddedMusic] EmbeddedContent embeddedMusic
          * @property {"embeddedMessage"|"embeddedMusic"} [content] EmbeddedContent content
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -10778,7 +10778,7 @@ $root.E2E = (function() {
          * @classdesc Represents an EmbeddedContent.
          * @constructor
          * @param {E2E.EmbeddedContent.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var EmbeddedContent = function (properties) {
             if (properties)
@@ -11087,7 +11087,7 @@ $root.E2E = (function() {
          * @property {number|Long|null} [musicSongStartTimeInMs] EmbeddedMusic musicSongStartTimeInMs
          * @property {number|Long|null} [derivedContentStartTimeInMs] EmbeddedMusic derivedContentStartTimeInMs
          * @property {number|Long|null} [overlapDurationInMs] EmbeddedMusic overlapDurationInMs
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -11109,7 +11109,7 @@ $root.E2E = (function() {
          * @classdesc Represents an EmbeddedMusic.
          * @constructor
          * @param {E2E.EmbeddedMusic.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var EmbeddedMusic = function (properties) {
             if (properties)
@@ -11819,7 +11819,7 @@ $root.E2E = (function() {
          * @typedef {Object} E2E.EmbeddedMessage.$Properties
          * @property {string|null} [stanzaId] EmbeddedMessage stanzaId
          * @property {E2E.Message.$Properties|null} [message] EmbeddedMessage message
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -11845,7 +11845,7 @@ $root.E2E = (function() {
          * @classdesc Represents an EmbeddedMessage.
          * @constructor
          * @param {E2E.EmbeddedMessage.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var EmbeddedMessage = function (properties) {
             if (properties)
@@ -12135,7 +12135,7 @@ $root.E2E = (function() {
          * @property {Uint8Array|null} [recipientKeyHash] DeviceListMetadata recipientKeyHash
          * @property {number|Long|null} [recipientTimestamp] DeviceListMetadata recipientTimestamp
          * @property {Array.<number>|null} [recipientKeyIndexes] DeviceListMetadata recipientKeyIndexes
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -12157,7 +12157,7 @@ $root.E2E = (function() {
          * @classdesc Represents a DeviceListMetadata.
          * @constructor
          * @param {E2E.DeviceListMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var DeviceListMetadata = function (properties) {
             this.senderKeyIndexes = [];
@@ -12760,7 +12760,7 @@ $root.E2E = (function() {
          * @property {Array.<E2E.ThreadID.$Properties>|null} [threadId] MessageContextInfo threadId
          * @property {E2E.WebLinkRenderConfig|null} [weblinkRenderConfig] MessageContextInfo weblinkRenderConfig
          * @property {Uint8Array|null} [teeBotMetadata] MessageContextInfo teeBotMetadata
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -12782,7 +12782,7 @@ $root.E2E = (function() {
          * @classdesc Represents a MessageContextInfo.
          * @constructor
          * @param {E2E.MessageContextInfo.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var MessageContextInfo = function (properties) {
             this.threadId = [];
@@ -13648,7 +13648,7 @@ $root.E2E = (function() {
          * @typedef {Object} E2E.ThreadID.$Properties
          * @property {E2E.ThreadID.ThreadType|null} [threadType] ThreadID threadType
          * @property {Protocol.MessageKey.$Properties|null} [threadKey] ThreadID threadKey
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -13670,7 +13670,7 @@ $root.E2E = (function() {
          * @classdesc Represents a ThreadID.
          * @constructor
          * @param {E2E.ThreadID.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var ThreadID = function (properties) {
             if (properties)
@@ -13995,7 +13995,7 @@ $root.E2E = (function() {
          * @property {E2E.MessageAssociation.AssociationType|null} [associationType] MessageAssociation associationType
          * @property {Protocol.MessageKey.$Properties|null} [parentMessageKey] MessageAssociation parentMessageKey
          * @property {number|null} [messageIndex] MessageAssociation messageIndex
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -14017,7 +14017,7 @@ $root.E2E = (function() {
          * @classdesc Represents a MessageAssociation.
          * @constructor
          * @param {E2E.MessageAssociation.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var MessageAssociation = function (properties) {
             if (properties)
@@ -14559,7 +14559,7 @@ $root.E2E = (function() {
          * @property {E2E.ContextInfo.CrossAppSource|null} [crossAppSource] ContextInfo crossAppSource
          * @property {E2E.ContextInfo.BusinessInteractionPills.$Properties|null} [businessInteractionPills] ContextInfo businessInteractionPills
          * @property {string|null} [posterStatusId] ContextInfo posterStatusId
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -14645,7 +14645,7 @@ $root.E2E = (function() {
          * @classdesc Represents a ContextInfo.
          * @constructor
          * @param {E2E.ContextInfo.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var ContextInfo = function (properties) {
             this.mentionedJid = [];
@@ -17228,7 +17228,7 @@ $root.E2E = (function() {
              * @property {E2E.ContextInfo.AdReplyInfo.MediaType|null} [mediaType] AdReplyInfo mediaType
              * @property {Uint8Array|null} [jpegThumbnail] AdReplyInfo jpegThumbnail
              * @property {string|null} [caption] AdReplyInfo caption
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -17250,7 +17250,7 @@ $root.E2E = (function() {
              * @classdesc Represents an AdReplyInfo.
              * @constructor
              * @param {E2E.ContextInfo.AdReplyInfo.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AdReplyInfo = function (properties) {
                 if (properties)
@@ -17638,7 +17638,7 @@ $root.E2E = (function() {
              * @property {E2E.ContextInfo.BusinessInteractionPills.EntryPoint|null} [entryPoint] BusinessInteractionPills entryPoint
              * @property {Uint8Array|null} [signedPayload] BusinessInteractionPills signedPayload
              * @property {AICommon.BotSignatureVerificationMetadata.$Properties|null} [signatureEnvelope] BusinessInteractionPills signatureEnvelope
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -17660,7 +17660,7 @@ $root.E2E = (function() {
              * @classdesc Represents a BusinessInteractionPills.
              * @constructor
              * @param {E2E.ContextInfo.BusinessInteractionPills.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var BusinessInteractionPills = function (properties) {
                 this.pills = [];
@@ -18115,7 +18115,7 @@ $root.E2E = (function() {
                  * @typedef {Object} E2E.ContextInfo.BusinessInteractionPills.Pill.$Properties
                  * @property {E2E.ContextInfo.BusinessInteractionPills.PillType|null} [pillType] Pill pillType
                  * @property {string|null} [actionUrl] Pill actionUrl
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -18137,7 +18137,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a Pill.
                  * @constructor
                  * @param {E2E.ContextInfo.BusinessInteractionPills.Pill.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var Pill = function (properties) {
                     if (properties)
@@ -18525,7 +18525,7 @@ $root.E2E = (function() {
                  * @typedef {Object} E2E.ContextInfo.BusinessInteractionPills.SignedPayload.$Properties
                  * @property {string|null} [verifiedName] SignedPayload verifiedName
                  * @property {Array.<E2E.ContextInfo.BusinessInteractionPills.Pill.$Properties>|null} [pills] SignedPayload pills
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -18547,7 +18547,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a SignedPayload.
                  * @constructor
                  * @param {E2E.ContextInfo.BusinessInteractionPills.SignedPayload.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var SignedPayload = function (properties) {
                     this.pills = [];
@@ -18841,7 +18841,7 @@ $root.E2E = (function() {
              * Properties of a BusinessMessageForwardInfo.
              * @typedef {Object} E2E.ContextInfo.BusinessMessageForwardInfo.$Properties
              * @property {string|null} [businessOwnerJid] BusinessMessageForwardInfo businessOwnerJid
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -18863,7 +18863,7 @@ $root.E2E = (function() {
              * @classdesc Represents a BusinessMessageForwardInfo.
              * @constructor
              * @param {E2E.ContextInfo.BusinessMessageForwardInfo.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var BusinessMessageForwardInfo = function (properties) {
                 if (properties)
@@ -19127,7 +19127,7 @@ $root.E2E = (function() {
              * @property {string|null} [encryptedSignalTokenConsented] DataSharingContext encryptedSignalTokenConsented
              * @property {Array.<E2E.ContextInfo.DataSharingContext.Parameters.$Properties>|null} [parameters] DataSharingContext parameters
              * @property {number|null} [dataSharingFlags] DataSharingContext dataSharingFlags
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -19149,7 +19149,7 @@ $root.E2E = (function() {
              * @classdesc Represents a DataSharingContext.
              * @constructor
              * @param {E2E.ContextInfo.DataSharingContext.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var DataSharingContext = function (properties) {
                 this.parameters = [];
@@ -19519,7 +19519,7 @@ $root.E2E = (function() {
                  * @property {number|Long|null} [intData] Parameters intData
                  * @property {number|null} [floatData] Parameters floatData
                  * @property {E2E.ContextInfo.DataSharingContext.Parameters.$Properties|null} [contents] Parameters contents
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -19541,7 +19541,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a Parameters.
                  * @constructor
                  * @param {E2E.ContextInfo.DataSharingContext.Parameters.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var Parameters = function (properties) {
                     if (properties)
@@ -19966,7 +19966,7 @@ $root.E2E = (function() {
              * @property {number|null} [agmTitleStrategy] ExternalAdReplyInfo agmTitleStrategy
              * @property {number|null} [agmSubtitleStrategy] ExternalAdReplyInfo agmSubtitleStrategy
              * @property {number|null} [agmHeaderInteractionStrategy] ExternalAdReplyInfo agmHeaderInteractionStrategy
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -19988,7 +19988,7 @@ $root.E2E = (function() {
              * @classdesc Represents an ExternalAdReplyInfo.
              * @constructor
              * @param {E2E.ContextInfo.ExternalAdReplyInfo.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ExternalAdReplyInfo = function (properties) {
                 if (properties)
@@ -21305,7 +21305,7 @@ $root.E2E = (function() {
              * @property {boolean|null} [canRequestFeedback] FeatureEligibilities canRequestFeedback
              * @property {boolean|null} [canBeReshared] FeatureEligibilities canBeReshared
              * @property {boolean|null} [canReceiveMultiReact] FeatureEligibilities canReceiveMultiReact
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -21327,7 +21327,7 @@ $root.E2E = (function() {
              * @classdesc Represents a FeatureEligibilities.
              * @constructor
              * @param {E2E.ContextInfo.FeatureEligibilities.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var FeatureEligibilities = function (properties) {
                 if (properties)
@@ -21727,7 +21727,7 @@ $root.E2E = (function() {
              * @property {E2E.ContextInfo.ForwardedNewsletterMessageInfo.ContentType|null} [contentType] ForwardedNewsletterMessageInfo contentType
              * @property {string|null} [accessibilityText] ForwardedNewsletterMessageInfo accessibilityText
              * @property {string|null} [profileName] ForwardedNewsletterMessageInfo profileName
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -21749,7 +21749,7 @@ $root.E2E = (function() {
              * @classdesc Represents a ForwardedNewsletterMessageInfo.
              * @constructor
              * @param {E2E.ContextInfo.ForwardedNewsletterMessageInfo.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ForwardedNewsletterMessageInfo = function (properties) {
                 if (properties)
@@ -22222,7 +22222,7 @@ $root.E2E = (function() {
              * Properties of a PartiallySelectedContent.
              * @typedef {Object} E2E.ContextInfo.PartiallySelectedContent.$Properties
              * @property {string|null} [text] PartiallySelectedContent text
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -22244,7 +22244,7 @@ $root.E2E = (function() {
              * @classdesc Represents a PartiallySelectedContent.
              * @constructor
              * @param {E2E.ContextInfo.PartiallySelectedContent.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var PartiallySelectedContent = function (properties) {
                 if (properties)
@@ -22491,7 +22491,7 @@ $root.E2E = (function() {
              * @property {number|null} [serverQuestionId] QuestionReplyQuotedMessage serverQuestionId
              * @property {E2E.Message.$Properties|null} [quotedQuestion] QuestionReplyQuotedMessage quotedQuestion
              * @property {E2E.Message.$Properties|null} [quotedResponse] QuestionReplyQuotedMessage quotedResponse
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -22518,7 +22518,7 @@ $root.E2E = (function() {
              * @classdesc Represents a QuestionReplyQuotedMessage.
              * @constructor
              * @param {E2E.ContextInfo.QuestionReplyQuotedMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var QuestionReplyQuotedMessage = function (properties) {
                 if (properties)
@@ -22875,7 +22875,7 @@ $root.E2E = (function() {
              * @property {E2E.ContextInfo.StatusAudienceMetadata.AudienceType|null} [audienceType] StatusAudienceMetadata audienceType
              * @property {string|null} [listName] StatusAudienceMetadata listName
              * @property {string|null} [listEmoji] StatusAudienceMetadata listEmoji
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -22897,7 +22897,7 @@ $root.E2E = (function() {
              * @classdesc Represents a StatusAudienceMetadata.
              * @constructor
              * @param {E2E.ContextInfo.StatusAudienceMetadata.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var StatusAudienceMetadata = function (properties) {
                 if (properties)
@@ -23262,7 +23262,7 @@ $root.E2E = (function() {
              * @typedef {Object} E2E.ContextInfo.UTMInfo.$Properties
              * @property {string|null} [utmSource] UTMInfo utmSource
              * @property {string|null} [utmCampaign] UTMInfo utmCampaign
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -23284,7 +23284,7 @@ $root.E2E = (function() {
              * @classdesc Represents a UTMInfo.
              * @constructor
              * @param {E2E.ContextInfo.UTMInfo.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var UTMInfo = function (properties) {
                 if (properties)
@@ -23565,7 +23565,7 @@ $root.E2E = (function() {
          * @typedef {Object} E2E.MediaDomainInfo.$Properties
          * @property {E2E.MediaKeyDomain|null} [mediaKeyDomain] MediaDomainInfo mediaKeyDomain
          * @property {Uint8Array|null} [e2EeMediaKey] MediaDomainInfo e2EeMediaKey
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -23587,7 +23587,7 @@ $root.E2E = (function() {
          * @classdesc Represents a MediaDomainInfo.
          * @constructor
          * @param {E2E.MediaDomainInfo.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var MediaDomainInfo = function (properties) {
             if (properties)
@@ -23997,7 +23997,7 @@ $root.E2E = (function() {
          * @property {E2E.Message.SplitPaymentMessage.$Properties|null} [splitPaymentMessage] Message splitPaymentMessage
          * @property {E2E.Message.FutureProofMessage.$Properties|null} [newsletterAdminProfileStatusMessage] Message newsletterAdminProfileStatusMessage
          * @property {E2E.Message.RootSecretDistributeMessage.$Properties|null} [rootSecretDistributeMessage] Message rootSecretDistributeMessage
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -24128,7 +24128,7 @@ $root.E2E = (function() {
          * @classdesc Represents a Message.
          * @constructor
          * @param {E2E.Message.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var Message = function (properties) {
             if (properties)
@@ -28400,7 +28400,7 @@ $root.E2E = (function() {
              * @property {number|null} [expectedImageCount] AlbumMessage expectedImageCount
              * @property {number|null} [expectedVideoCount] AlbumMessage expectedVideoCount
              * @property {E2E.ContextInfo.$Properties|null} [contextInfo] AlbumMessage contextInfo
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -28427,7 +28427,7 @@ $root.E2E = (function() {
              * @classdesc Represents an AlbumMessage.
              * @constructor
              * @param {E2E.Message.AlbumMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AlbumMessage = function (properties) {
                 if (properties)
@@ -28743,7 +28743,7 @@ $root.E2E = (function() {
              * @typedef {Object} E2E.Message.AppStateFatalExceptionNotification.$Properties
              * @property {Array.<string>|null} [collectionNames] AppStateFatalExceptionNotification collectionNames
              * @property {number|Long|null} [timestamp] AppStateFatalExceptionNotification timestamp
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -28765,7 +28765,7 @@ $root.E2E = (function() {
              * @classdesc Represents an AppStateFatalExceptionNotification.
              * @constructor
              * @param {E2E.Message.AppStateFatalExceptionNotification.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AppStateFatalExceptionNotification = function (properties) {
                 this.collectionNames = [];
@@ -29064,7 +29064,7 @@ $root.E2E = (function() {
              * @typedef {Object} E2E.Message.AppStateSyncKey.$Properties
              * @property {E2E.Message.AppStateSyncKeyId.$Properties|null} [keyId] AppStateSyncKey keyId
              * @property {E2E.Message.AppStateSyncKeyData.$Properties|null} [keyData] AppStateSyncKey keyData
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -29086,7 +29086,7 @@ $root.E2E = (function() {
              * @classdesc Represents an AppStateSyncKey.
              * @constructor
              * @param {E2E.Message.AppStateSyncKey.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AppStateSyncKey = function (properties) {
                 if (properties)
@@ -29377,7 +29377,7 @@ $root.E2E = (function() {
              * @property {Uint8Array|null} [keyData] AppStateSyncKeyData keyData
              * @property {E2E.Message.AppStateSyncKeyFingerprint.$Properties|null} [fingerprint] AppStateSyncKeyData fingerprint
              * @property {number|Long|null} [timestamp] AppStateSyncKeyData timestamp
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -29399,7 +29399,7 @@ $root.E2E = (function() {
              * @classdesc Represents an AppStateSyncKeyData.
              * @constructor
              * @param {E2E.Message.AppStateSyncKeyData.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AppStateSyncKeyData = function (properties) {
                 if (properties)
@@ -29731,7 +29731,7 @@ $root.E2E = (function() {
              * @property {number|null} [rawId] AppStateSyncKeyFingerprint rawId
              * @property {number|null} [currentIndex] AppStateSyncKeyFingerprint currentIndex
              * @property {Array.<number>|null} [deviceIndexes] AppStateSyncKeyFingerprint deviceIndexes
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -29753,7 +29753,7 @@ $root.E2E = (function() {
              * @classdesc Represents an AppStateSyncKeyFingerprint.
              * @constructor
              * @param {E2E.Message.AppStateSyncKeyFingerprint.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AppStateSyncKeyFingerprint = function (properties) {
                 this.deviceIndexes = [];
@@ -30082,7 +30082,7 @@ $root.E2E = (function() {
              * Properties of an AppStateSyncKeyId.
              * @typedef {Object} E2E.Message.AppStateSyncKeyId.$Properties
              * @property {Uint8Array|null} [keyId] AppStateSyncKeyId keyId
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -30104,7 +30104,7 @@ $root.E2E = (function() {
              * @classdesc Represents an AppStateSyncKeyId.
              * @constructor
              * @param {E2E.Message.AppStateSyncKeyId.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AppStateSyncKeyId = function (properties) {
                 if (properties)
@@ -30352,7 +30352,7 @@ $root.E2E = (function() {
              * Properties of an AppStateSyncKeyRequest.
              * @typedef {Object} E2E.Message.AppStateSyncKeyRequest.$Properties
              * @property {Array.<E2E.Message.AppStateSyncKeyId.$Properties>|null} [keyIds] AppStateSyncKeyRequest keyIds
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -30374,7 +30374,7 @@ $root.E2E = (function() {
              * @classdesc Represents an AppStateSyncKeyRequest.
              * @constructor
              * @param {E2E.Message.AppStateSyncKeyRequest.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AppStateSyncKeyRequest = function (properties) {
                 this.keyIds = [];
@@ -30629,7 +30629,7 @@ $root.E2E = (function() {
              * Properties of an AppStateSyncKeyShare.
              * @typedef {Object} E2E.Message.AppStateSyncKeyShare.$Properties
              * @property {Array.<E2E.Message.AppStateSyncKey.$Properties>|null} [keys] AppStateSyncKeyShare keys
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -30651,7 +30651,7 @@ $root.E2E = (function() {
              * @classdesc Represents an AppStateSyncKeyShare.
              * @constructor
              * @param {E2E.Message.AppStateSyncKeyShare.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AppStateSyncKeyShare = function (properties) {
                 this.keys = [];
@@ -30921,7 +30921,7 @@ $root.E2E = (function() {
              * @property {number|null} [backgroundArgb] AudioMessage backgroundArgb
              * @property {boolean|null} [viewOnce] AudioMessage viewOnce
              * @property {string|null} [accessibilityLabel] AudioMessage accessibilityLabel
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -30961,7 +30961,7 @@ $root.E2E = (function() {
              * @classdesc Represents an AudioMessage.
              * @constructor
              * @param {E2E.Message.AudioMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AudioMessage = function (properties) {
                 if (properties)
@@ -31734,7 +31734,7 @@ $root.E2E = (function() {
              * @property {E2E.Message.BCallMessage.MediaType|null} [mediaType] BCallMessage mediaType
              * @property {Uint8Array|null} [masterKey] BCallMessage masterKey
              * @property {string|null} [caption] BCallMessage caption
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -31756,7 +31756,7 @@ $root.E2E = (function() {
              * @classdesc Represents a BCallMessage.
              * @constructor
              * @param {E2E.Message.BCallMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var BCallMessage = function (properties) {
                 if (properties)
@@ -32150,7 +32150,7 @@ $root.E2E = (function() {
              * @property {E2E.Message.VideoMessage.$Properties|null} [videoMessage] ButtonsMessage videoMessage
              * @property {E2E.Message.LocationMessage.$Properties|null} [locationMessage] ButtonsMessage locationMessage
              * @property {"text"|"documentMessage"|"imageMessage"|"videoMessage"|"locationMessage"} [header] ButtonsMessage header
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -32186,7 +32186,7 @@ $root.E2E = (function() {
              * @classdesc Represents a ButtonsMessage.
              * @constructor
              * @param {E2E.Message.ButtonsMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ButtonsMessage = function (properties) {
                 this.buttons = [];
@@ -32811,7 +32811,7 @@ $root.E2E = (function() {
                  * @property {E2E.Message.ButtonsMessage.Button.ButtonText.$Properties|null} [buttonText] Button buttonText
                  * @property {E2E.Message.ButtonsMessage.Button.Type|null} [type] Button type
                  * @property {E2E.Message.ButtonsMessage.Button.NativeFlowInfo.$Properties|null} [nativeFlowInfo] Button nativeFlowInfo
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -32833,7 +32833,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a Button.
                  * @constructor
                  * @param {E2E.Message.ButtonsMessage.Button.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var Button = function (properties) {
                     if (properties)
@@ -33207,7 +33207,7 @@ $root.E2E = (function() {
                      * Properties of a ButtonText.
                      * @typedef {Object} E2E.Message.ButtonsMessage.Button.ButtonText.$Properties
                      * @property {string|null} [displayText] ButtonText displayText
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
 
                     /**
@@ -33229,7 +33229,7 @@ $root.E2E = (function() {
                      * @classdesc Represents a ButtonText.
                      * @constructor
                      * @param {E2E.Message.ButtonsMessage.Button.ButtonText.$Properties=} [properties] Properties to set
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
                     var ButtonText = function (properties) {
                         if (properties)
@@ -33475,7 +33475,7 @@ $root.E2E = (function() {
                      * @typedef {Object} E2E.Message.ButtonsMessage.Button.NativeFlowInfo.$Properties
                      * @property {string|null} [name] NativeFlowInfo name
                      * @property {string|null} [paramsJson] NativeFlowInfo paramsJson
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
 
                     /**
@@ -33497,7 +33497,7 @@ $root.E2E = (function() {
                      * @classdesc Represents a NativeFlowInfo.
                      * @constructor
                      * @param {E2E.Message.ButtonsMessage.Button.NativeFlowInfo.$Properties=} [properties] Properties to set
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
                     var NativeFlowInfo = function (properties) {
                         if (properties)
@@ -33824,7 +33824,7 @@ $root.E2E = (function() {
              * @property {E2E.Message.ButtonsResponseMessage.Type|null} [type] ButtonsResponseMessage type
              * @property {string|null} [selectedDisplayText] ButtonsResponseMessage selectedDisplayText
              * @property {"selectedDisplayText"} [response] ButtonsResponseMessage response
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -33854,7 +33854,7 @@ $root.E2E = (function() {
              * @classdesc Represents a ButtonsResponseMessage.
              * @constructor
              * @param {E2E.Message.ButtonsResponseMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ButtonsResponseMessage = function (properties) {
                 if (properties)
@@ -34252,7 +34252,7 @@ $root.E2E = (function() {
              * @property {string|null} [deeplinkPayload] Call deeplinkPayload
              * @property {E2E.MessageContextInfo.$Properties|null} [messageContextInfo] Call messageContextInfo
              * @property {number|null} [callEntryPoint] Call callEntryPoint
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -34287,7 +34287,7 @@ $root.E2E = (function() {
              * @classdesc Represents a Call.
              * @constructor
              * @param {E2E.Message.Call.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var Call = function (properties) {
                 if (properties)
@@ -34877,7 +34877,7 @@ $root.E2E = (function() {
              * @property {number|Long|null} [durationSecs] CallLogMessage durationSecs
              * @property {E2E.Message.CallLogMessage.CallType|null} [callType] CallLogMessage callType
              * @property {Array.<E2E.Message.CallLogMessage.CallParticipant.$Properties>|null} [participants] CallLogMessage participants
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -34899,7 +34899,7 @@ $root.E2E = (function() {
              * @classdesc Represents a CallLogMessage.
              * @constructor
              * @param {E2E.Message.CallLogMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var CallLogMessage = function (properties) {
                 this.participants = [];
@@ -35395,7 +35395,7 @@ $root.E2E = (function() {
                  * @typedef {Object} E2E.Message.CallLogMessage.CallParticipant.$Properties
                  * @property {string|null} [jid] CallParticipant jid
                  * @property {E2E.Message.CallLogMessage.CallOutcome|null} [callOutcome] CallParticipant callOutcome
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -35417,7 +35417,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a CallParticipant.
                  * @constructor
                  * @param {E2E.Message.CallLogMessage.CallParticipant.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var CallParticipant = function (properties) {
                     if (properties)
@@ -35762,7 +35762,7 @@ $root.E2E = (function() {
              * Properties of a CancelPaymentRequestMessage.
              * @typedef {Object} E2E.Message.CancelPaymentRequestMessage.$Properties
              * @property {Protocol.MessageKey.$Properties|null} [key] CancelPaymentRequestMessage key
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -35784,7 +35784,7 @@ $root.E2E = (function() {
              * @classdesc Represents a CancelPaymentRequestMessage.
              * @constructor
              * @param {E2E.Message.CancelPaymentRequestMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var CancelPaymentRequestMessage = function (properties) {
                 if (properties)
@@ -36036,7 +36036,7 @@ $root.E2E = (function() {
              * @typedef {Object} E2E.Message.Chat.$Properties
              * @property {string|null} [displayName] Chat displayName
              * @property {string|null} [id] Chat id
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -36058,7 +36058,7 @@ $root.E2E = (function() {
              * @classdesc Represents a Chat.
              * @constructor
              * @param {E2E.Message.Chat.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var Chat = function (properties) {
                 if (properties)
@@ -36339,7 +36339,7 @@ $root.E2E = (function() {
              * @property {Uint8Array|null} [fileEncSha256] ChatCustomImageWallpaper fileEncSha256
              * @property {Uint8Array|null} [fileSha256] ChatCustomImageWallpaper fileSha256
              * @property {number|null} [dimLevel] ChatCustomImageWallpaper dimLevel
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -36361,7 +36361,7 @@ $root.E2E = (function() {
              * @classdesc Represents a ChatCustomImageWallpaper.
              * @constructor
              * @param {E2E.Message.ChatCustomImageWallpaper.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ChatCustomImageWallpaper = function (properties) {
                 if (properties)
@@ -36743,7 +36743,7 @@ $root.E2E = (function() {
              * Properties of a ChatDefaultWallpaper.
              * @typedef {Object} E2E.Message.ChatDefaultWallpaper.$Properties
              * @property {boolean|null} [isDoodleEnabled] ChatDefaultWallpaper isDoodleEnabled
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -36765,7 +36765,7 @@ $root.E2E = (function() {
              * @classdesc Represents a ChatDefaultWallpaper.
              * @constructor
              * @param {E2E.Message.ChatDefaultWallpaper.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ChatDefaultWallpaper = function (properties) {
                 if (properties)
@@ -37012,7 +37012,7 @@ $root.E2E = (function() {
              * @property {string|null} [colorLight] ChatSolidColorWallpaper colorLight
              * @property {string|null} [colorDark] ChatSolidColorWallpaper colorDark
              * @property {boolean|null} [isDoodleEnabled] ChatSolidColorWallpaper isDoodleEnabled
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -37034,7 +37034,7 @@ $root.E2E = (function() {
              * @classdesc Represents a ChatSolidColorWallpaper.
              * @constructor
              * @param {E2E.Message.ChatSolidColorWallpaper.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ChatSolidColorWallpaper = function (properties) {
                 if (properties)
@@ -37344,7 +37344,7 @@ $root.E2E = (function() {
              * @typedef {Object} E2E.Message.ChatStockImageWallpaper.$Properties
              * @property {string|null} [stockImageId] ChatStockImageWallpaper stockImageId
              * @property {number|null} [dimLevel] ChatStockImageWallpaper dimLevel
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -37366,7 +37366,7 @@ $root.E2E = (function() {
              * @classdesc Represents a ChatStockImageWallpaper.
              * @constructor
              * @param {E2E.Message.ChatStockImageWallpaper.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ChatStockImageWallpaper = function (properties) {
                 if (properties)
@@ -37650,7 +37650,7 @@ $root.E2E = (function() {
              * @property {E2E.Message.ChatStockImageWallpaper.$Properties|null} [stockImage] ChatThemeSetting stockImage
              * @property {E2E.Message.ChatCustomImageWallpaper.$Properties|null} [customImage] ChatThemeSetting customImage
              * @property {"defaultWallpaper"|"solidColor"|"stockImage"|"customImage"} [wallpaper] ChatThemeSetting wallpaper
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -37683,7 +37683,7 @@ $root.E2E = (function() {
              * @classdesc Represents a ChatThemeSetting.
              * @constructor
              * @param {E2E.Message.ChatThemeSetting.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ChatThemeSetting = function (properties) {
                 if (properties)
@@ -38166,7 +38166,7 @@ $root.E2E = (function() {
              * @property {string|null} [consumerPhoneNumber] CloudAPIThreadControlNotification consumerPhoneNumber
              * @property {E2E.Message.CloudAPIThreadControlNotification.CloudAPIThreadControlNotificationContent.$Properties|null} [notificationContent] CloudAPIThreadControlNotification notificationContent
              * @property {boolean|null} [shouldSuppressNotification] CloudAPIThreadControlNotification shouldSuppressNotification
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -38188,7 +38188,7 @@ $root.E2E = (function() {
              * @classdesc Represents a CloudAPIThreadControlNotification.
              * @constructor
              * @param {E2E.Message.CloudAPIThreadControlNotification.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var CloudAPIThreadControlNotification = function (properties) {
                 if (properties)
@@ -38656,7 +38656,7 @@ $root.E2E = (function() {
                  * @typedef {Object} E2E.Message.CloudAPIThreadControlNotification.CloudAPIThreadControlNotificationContent.$Properties
                  * @property {string|null} [handoffNotificationText] CloudAPIThreadControlNotificationContent handoffNotificationText
                  * @property {string|null} [extraJson] CloudAPIThreadControlNotificationContent extraJson
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -38678,7 +38678,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a CloudAPIThreadControlNotificationContent.
                  * @constructor
                  * @param {E2E.Message.CloudAPIThreadControlNotification.CloudAPIThreadControlNotificationContent.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var CloudAPIThreadControlNotificationContent = function (properties) {
                     if (properties)
@@ -38959,7 +38959,7 @@ $root.E2E = (function() {
              * @typedef {Object} E2E.Message.CommentMessage.$Properties
              * @property {E2E.Message.$Properties|null} [message] CommentMessage message
              * @property {Protocol.MessageKey.$Properties|null} [targetMessageKey] CommentMessage targetMessageKey
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -38985,7 +38985,7 @@ $root.E2E = (function() {
              * @classdesc Represents a CommentMessage.
              * @constructor
              * @param {E2E.Message.CommentMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var CommentMessage = function (properties) {
                 if (properties)
@@ -39277,7 +39277,7 @@ $root.E2E = (function() {
              * @property {Uint8Array|null} [encIv] ConditionalRevealMessage encIv
              * @property {E2E.Message.ConditionalRevealMessage.ConditionalRevealMessageType|null} [conditionalRevealMessageType] ConditionalRevealMessage conditionalRevealMessageType
              * @property {string|null} [revealKeyId] ConditionalRevealMessage revealKeyId
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -39299,7 +39299,7 @@ $root.E2E = (function() {
              * @classdesc Represents a ConditionalRevealMessage.
              * @constructor
              * @param {E2E.Message.ConditionalRevealMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ConditionalRevealMessage = function (properties) {
                 if (properties)
@@ -39682,7 +39682,7 @@ $root.E2E = (function() {
              * @property {string|null} [vcard] ContactMessage vcard
              * @property {E2E.ContextInfo.$Properties|null} [contextInfo] ContactMessage contextInfo
              * @property {boolean|null} [isSelfContact] ContactMessage isSelfContact
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -39710,7 +39710,7 @@ $root.E2E = (function() {
              * @classdesc Represents a ContactMessage.
              * @constructor
              * @param {E2E.Message.ContactMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ContactMessage = function (properties) {
                 if (properties)
@@ -40059,7 +40059,7 @@ $root.E2E = (function() {
              * @property {string|null} [displayName] ContactsArrayMessage displayName
              * @property {Array.<E2E.Message.ContactMessage.$Properties>|null} [contacts] ContactsArrayMessage contacts
              * @property {E2E.ContextInfo.$Properties|null} [contextInfo] ContactsArrayMessage contextInfo
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -40086,7 +40086,7 @@ $root.E2E = (function() {
              * @classdesc Represents a ContactsArrayMessage.
              * @constructor
              * @param {E2E.Message.ContactsArrayMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ContactsArrayMessage = function (properties) {
                 this.contacts = [];
@@ -40415,7 +40415,7 @@ $root.E2E = (function() {
              * Properties of a DeclinePaymentRequestMessage.
              * @typedef {Object} E2E.Message.DeclinePaymentRequestMessage.$Properties
              * @property {Protocol.MessageKey.$Properties|null} [key] DeclinePaymentRequestMessage key
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -40437,7 +40437,7 @@ $root.E2E = (function() {
              * @classdesc Represents a DeclinePaymentRequestMessage.
              * @constructor
              * @param {E2E.Message.DeclinePaymentRequestMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var DeclinePaymentRequestMessage = function (properties) {
                 if (properties)
@@ -40690,7 +40690,7 @@ $root.E2E = (function() {
              * @property {string|null} [destinationJid] DeviceSentMessage destinationJid
              * @property {E2E.Message.$Properties|null} [message] DeviceSentMessage message
              * @property {string|null} [phash] DeviceSentMessage phash
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -40717,7 +40717,7 @@ $root.E2E = (function() {
              * @classdesc Represents a DeviceSentMessage.
              * @constructor
              * @param {E2E.Message.DeviceSentMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var DeviceSentMessage = function (properties) {
                 if (properties)
@@ -41052,7 +41052,7 @@ $root.E2E = (function() {
              * @property {number|null} [thumbnailWidth] DocumentMessage thumbnailWidth
              * @property {string|null} [caption] DocumentMessage caption
              * @property {string|null} [accessibilityLabel] DocumentMessage accessibilityLabel
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -41097,7 +41097,7 @@ $root.E2E = (function() {
              * @classdesc Represents a DocumentMessage.
              * @constructor
              * @param {E2E.Message.DocumentMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var DocumentMessage = function (properties) {
                 if (properties)
@@ -42032,7 +42032,7 @@ $root.E2E = (function() {
              * @property {Protocol.MessageKey.$Properties|null} [targetMessageKey] EncCommentMessage targetMessageKey
              * @property {Uint8Array|null} [encPayload] EncCommentMessage encPayload
              * @property {Uint8Array|null} [encIv] EncCommentMessage encIv
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -42054,7 +42054,7 @@ $root.E2E = (function() {
              * @classdesc Represents an EncCommentMessage.
              * @constructor
              * @param {E2E.Message.EncCommentMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var EncCommentMessage = function (properties) {
                 if (properties)
@@ -42377,7 +42377,7 @@ $root.E2E = (function() {
              * @property {Protocol.MessageKey.$Properties|null} [eventCreationMessageKey] EncEventResponseMessage eventCreationMessageKey
              * @property {Uint8Array|null} [encPayload] EncEventResponseMessage encPayload
              * @property {Uint8Array|null} [encIv] EncEventResponseMessage encIv
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -42399,7 +42399,7 @@ $root.E2E = (function() {
              * @classdesc Represents an EncEventResponseMessage.
              * @constructor
              * @param {E2E.Message.EncEventResponseMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var EncEventResponseMessage = function (properties) {
                 if (properties)
@@ -42722,7 +42722,7 @@ $root.E2E = (function() {
              * @property {Protocol.MessageKey.$Properties|null} [targetMessageKey] EncReactionMessage targetMessageKey
              * @property {Uint8Array|null} [encPayload] EncReactionMessage encPayload
              * @property {Uint8Array|null} [encIv] EncReactionMessage encIv
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -42744,7 +42744,7 @@ $root.E2E = (function() {
              * @classdesc Represents an EncReactionMessage.
              * @constructor
              * @param {E2E.Message.EncReactionMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var EncReactionMessage = function (properties) {
                 if (properties)
@@ -43073,7 +43073,7 @@ $root.E2E = (function() {
              * @property {boolean|null} [isCanceled] EventInviteMessage isCanceled
              * @property {number|Long|null} [endTime] EventInviteMessage endTime
              * @property {string|null} [callLink] EventInviteMessage callLink
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -43106,7 +43106,7 @@ $root.E2E = (function() {
              * @classdesc Represents an EventInviteMessage.
              * @constructor
              * @param {E2E.Message.EventInviteMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var EventInviteMessage = function (properties) {
                 if (properties)
@@ -43651,7 +43651,7 @@ $root.E2E = (function() {
              * @property {boolean|null} [isScheduleCall] EventMessage isScheduleCall
              * @property {boolean|null} [hasReminder] EventMessage hasReminder
              * @property {number|Long|null} [reminderOffsetSec] EventMessage reminderOffsetSec
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -43687,7 +43687,7 @@ $root.E2E = (function() {
              * @classdesc Represents an EventMessage.
              * @constructor
              * @param {E2E.Message.EventMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var EventMessage = function (properties) {
                 if (properties)
@@ -44334,7 +44334,7 @@ $root.E2E = (function() {
              * @property {E2E.Message.EventResponseMessage.EventResponseType|null} [response] EventResponseMessage response
              * @property {number|Long|null} [timestampMs] EventResponseMessage timestampMs
              * @property {number|null} [extraGuestCount] EventResponseMessage extraGuestCount
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -44356,7 +44356,7 @@ $root.E2E = (function() {
              * @classdesc Represents an EventResponseMessage.
              * @constructor
              * @param {E2E.Message.EventResponseMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var EventResponseMessage = function (properties) {
                 if (properties)
@@ -44755,7 +44755,7 @@ $root.E2E = (function() {
              * @property {string|null} [videoContentUrl] ExtendedTextMessage videoContentUrl
              * @property {E2E.EmbeddedMusic.$Properties|null} [musicMetadata] ExtendedTextMessage musicMetadata
              * @property {E2E.Message.PaymentExtendedMetadata.$Properties|null} [paymentExtendedMetadata] ExtendedTextMessage paymentExtendedMetadata
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -44811,7 +44811,7 @@ $root.E2E = (function() {
              * @classdesc Represents an ExtendedTextMessage.
              * @constructor
              * @param {E2E.Message.ExtendedTextMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ExtendedTextMessage = function (properties) {
                 this.endCardTiles = [];
@@ -46338,7 +46338,7 @@ $root.E2E = (function() {
              * @typedef {Object} E2E.Message.FullHistorySyncOnDemandConfig.$Properties
              * @property {number|Long|null} [historyFromTimestamp] FullHistorySyncOnDemandConfig historyFromTimestamp
              * @property {number|null} [historyDurationDays] FullHistorySyncOnDemandConfig historyDurationDays
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -46360,7 +46360,7 @@ $root.E2E = (function() {
              * @classdesc Represents a FullHistorySyncOnDemandConfig.
              * @constructor
              * @param {E2E.Message.FullHistorySyncOnDemandConfig.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var FullHistorySyncOnDemandConfig = function (properties) {
                 if (properties)
@@ -46651,7 +46651,7 @@ $root.E2E = (function() {
              * @property {string|null} [requestId] FullHistorySyncOnDemandRequestMetadata requestId
              * @property {string|null} [businessProduct] FullHistorySyncOnDemandRequestMetadata businessProduct
              * @property {Uint8Array|null} [opaqueClientData] FullHistorySyncOnDemandRequestMetadata opaqueClientData
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -46673,7 +46673,7 @@ $root.E2E = (function() {
              * @classdesc Represents a FullHistorySyncOnDemandRequestMetadata.
              * @constructor
              * @param {E2E.Message.FullHistorySyncOnDemandRequestMetadata.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var FullHistorySyncOnDemandRequestMetadata = function (properties) {
                 if (properties)
@@ -46985,7 +46985,7 @@ $root.E2E = (function() {
              * Properties of a FutureProofMessage.
              * @typedef {Object} E2E.Message.FutureProofMessage.$Properties
              * @property {E2E.Message.$Properties|null} [message] FutureProofMessage message
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -47010,7 +47010,7 @@ $root.E2E = (function() {
              * @classdesc Represents a FutureProofMessage.
              * @constructor
              * @param {E2E.Message.FutureProofMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var FutureProofMessage = function (properties) {
                 if (properties)
@@ -47268,7 +47268,7 @@ $root.E2E = (function() {
              * @property {string|null} [caption] GroupInviteMessage caption
              * @property {E2E.ContextInfo.$Properties|null} [contextInfo] GroupInviteMessage contextInfo
              * @property {E2E.Message.GroupInviteMessage.GroupType|null} [groupType] GroupInviteMessage groupType
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -47300,7 +47300,7 @@ $root.E2E = (function() {
              * @classdesc Represents a GroupInviteMessage.
              * @constructor
              * @param {E2E.Message.GroupInviteMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var GroupInviteMessage = function (properties) {
                 if (properties)
@@ -47831,7 +47831,7 @@ $root.E2E = (function() {
              * @property {string|null} [deterministicLg] HighlyStructuredMessage deterministicLg
              * @property {string|null} [deterministicLc] HighlyStructuredMessage deterministicLc
              * @property {E2E.Message.TemplateMessage.$Properties|null} [hydratedHsm] HighlyStructuredMessage hydratedHsm
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -47864,7 +47864,7 @@ $root.E2E = (function() {
              * @classdesc Represents a HighlyStructuredMessage.
              * @constructor
              * @param {E2E.Message.HighlyStructuredMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var HighlyStructuredMessage = function (properties) {
                 this.params = [];
@@ -48394,7 +48394,7 @@ $root.E2E = (function() {
                  * @property {E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMCurrency.$Properties|null} [currency] HSMLocalizableParameter currency
                  * @property {E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.$Properties|null} [dateTime] HSMLocalizableParameter dateTime
                  * @property {"currency"|"dateTime"} [paramOneof] HSMLocalizableParameter paramOneof
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -48423,7 +48423,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a HSMLocalizableParameter.
                  * @constructor
                  * @param {E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var HSMLocalizableParameter = function (properties) {
                     if (properties)
@@ -48749,7 +48749,7 @@ $root.E2E = (function() {
                      * @typedef {Object} E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMCurrency.$Properties
                      * @property {string|null} [currencyCode] HSMCurrency currencyCode
                      * @property {number|Long|null} [amount1000] HSMCurrency amount1000
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
 
                     /**
@@ -48771,7 +48771,7 @@ $root.E2E = (function() {
                      * @classdesc Represents a HSMCurrency.
                      * @constructor
                      * @param {E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMCurrency.$Properties=} [properties] Properties to set
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
                     var HSMCurrency = function (properties) {
                         if (properties)
@@ -49062,7 +49062,7 @@ $root.E2E = (function() {
                      * @property {E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent.$Properties|null} [component] HSMDateTime component
                      * @property {E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeUnixEpoch.$Properties|null} [unixEpoch] HSMDateTime unixEpoch
                      * @property {"component"|"unixEpoch"} [datetimeOneof] HSMDateTime datetimeOneof
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
 
                     /**
@@ -49090,7 +49090,7 @@ $root.E2E = (function() {
                      * @classdesc Represents a HSMDateTime.
                      * @constructor
                      * @param {E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.$Properties=} [properties] Properties to set
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
                     var HSMDateTime = function (properties) {
                         if (properties)
@@ -49389,7 +49389,7 @@ $root.E2E = (function() {
                          * @property {number|null} [hour] HSMDateTimeComponent hour
                          * @property {number|null} [minute] HSMDateTimeComponent minute
                          * @property {E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent.CalendarType|null} [calendar] HSMDateTimeComponent calendar
-                         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                          */
 
                         /**
@@ -49411,7 +49411,7 @@ $root.E2E = (function() {
                          * @classdesc Represents a HSMDateTimeComponent.
                          * @constructor
                          * @param {E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent.$Properties=} [properties] Properties to set
-                         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                          */
                         var HSMDateTimeComponent = function (properties) {
                             if (properties)
@@ -49949,7 +49949,7 @@ $root.E2E = (function() {
                          * Properties of a HSMDateTimeUnixEpoch.
                          * @typedef {Object} E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeUnixEpoch.$Properties
                          * @property {number|Long|null} [timestamp] HSMDateTimeUnixEpoch timestamp
-                         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                          */
 
                         /**
@@ -49971,7 +49971,7 @@ $root.E2E = (function() {
                          * @classdesc Represents a HSMDateTimeUnixEpoch.
                          * @constructor
                          * @param {E2E.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeUnixEpoch.$Properties=} [properties] Properties to set
-                         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                          */
                         var HSMDateTimeUnixEpoch = function (properties) {
                             if (properties)
@@ -50237,7 +50237,7 @@ $root.E2E = (function() {
              * Properties of a HistorySyncMessageAccessStatus.
              * @typedef {Object} E2E.Message.HistorySyncMessageAccessStatus.$Properties
              * @property {boolean|null} [completeAccessGranted] HistorySyncMessageAccessStatus completeAccessGranted
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -50259,7 +50259,7 @@ $root.E2E = (function() {
              * @classdesc Represents a HistorySyncMessageAccessStatus.
              * @constructor
              * @param {E2E.Message.HistorySyncMessageAccessStatus.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var HistorySyncMessageAccessStatus = function (properties) {
                 if (properties)
@@ -50518,7 +50518,7 @@ $root.E2E = (function() {
              * @property {E2E.Message.FullHistorySyncOnDemandRequestMetadata.$Properties|null} [fullHistorySyncOnDemandRequestMetadata] HistorySyncNotification fullHistorySyncOnDemandRequestMetadata
              * @property {string|null} [encHandle] HistorySyncNotification encHandle
              * @property {E2E.Message.HistorySyncMessageAccessStatus.$Properties|null} [messageAccessStatus] HistorySyncNotification messageAccessStatus
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -50540,7 +50540,7 @@ $root.E2E = (function() {
              * @classdesc Represents a HistorySyncNotification.
              * @constructor
              * @param {E2E.Message.HistorySyncNotification.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var HistorySyncNotification = function (properties) {
                 if (properties)
@@ -51392,7 +51392,7 @@ $root.E2E = (function() {
              * @property {E2E.Message.ImageMessage.ImageSourceType|null} [imageSourceType] ImageMessage imageSourceType
              * @property {string|null} [accessibilityLabel] ImageMessage accessibilityLabel
              * @property {string|null} [qrUrl] ImageMessage qrUrl
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -51446,7 +51446,7 @@ $root.E2E = (function() {
              * @classdesc Represents an ImageMessage.
              * @constructor
              * @param {E2E.Message.ImageMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ImageMessage = function (properties) {
                 this.interactiveAnnotations = [];
@@ -52773,7 +52773,7 @@ $root.E2E = (function() {
              * Properties of an InitialSecurityNotificationSettingSync.
              * @typedef {Object} E2E.Message.InitialSecurityNotificationSettingSync.$Properties
              * @property {boolean|null} [securityNotificationEnabled] InitialSecurityNotificationSettingSync securityNotificationEnabled
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -52795,7 +52795,7 @@ $root.E2E = (function() {
              * @classdesc Represents an InitialSecurityNotificationSettingSync.
              * @constructor
              * @param {E2E.Message.InitialSecurityNotificationSettingSync.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var InitialSecurityNotificationSettingSync = function (properties) {
                 if (properties)
@@ -53070,7 +53070,7 @@ $root.E2E = (function() {
              * @property {E2E.Message.InteractiveMessage.NativeFlowMessage.$Properties|null} [nativeFlowMessage] InteractiveMessage nativeFlowMessage
              * @property {E2E.Message.InteractiveMessage.CarouselMessage.$Properties|null} [carouselMessage] InteractiveMessage carouselMessage
              * @property {"shopStorefrontMessage"|"collectionMessage"|"nativeFlowMessage"|"carouselMessage"} [interactiveMessage] InteractiveMessage interactiveMessage
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -53106,7 +53106,7 @@ $root.E2E = (function() {
              * @classdesc Represents an InteractiveMessage.
              * @constructor
              * @param {E2E.Message.InteractiveMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var InteractiveMessage = function (properties) {
                 if (properties)
@@ -53704,7 +53704,7 @@ $root.E2E = (function() {
                  * @property {string|null} [data] BloksWidget data
                  * @property {string|null} [type] BloksWidget type
                  * @property {string|null} [fallback] BloksWidget fallback
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -53726,7 +53726,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a BloksWidget.
                  * @constructor
                  * @param {E2E.Message.InteractiveMessage.BloksWidget.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var BloksWidget = function (properties) {
                     if (properties)
@@ -54067,7 +54067,7 @@ $root.E2E = (function() {
                  * Properties of a Body.
                  * @typedef {Object} E2E.Message.InteractiveMessage.Body.$Properties
                  * @property {string|null} [text] Body text
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -54089,7 +54089,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a Body.
                  * @constructor
                  * @param {E2E.Message.InteractiveMessage.Body.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var Body = function (properties) {
                     if (properties)
@@ -54336,7 +54336,7 @@ $root.E2E = (function() {
                  * @property {Array.<E2E.Message.InteractiveMessage.$Properties>|null} [cards] CarouselMessage cards
                  * @property {number|null} [messageVersion] CarouselMessage messageVersion
                  * @property {E2E.Message.InteractiveMessage.CarouselMessage.CarouselCardType|null} [carouselCardType] CarouselMessage carouselCardType
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -54363,7 +54363,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a CarouselMessage.
                  * @constructor
                  * @param {E2E.Message.InteractiveMessage.CarouselMessage.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var CarouselMessage = function (properties) {
                     this.cards = [];
@@ -54728,7 +54728,7 @@ $root.E2E = (function() {
                  * @property {string|null} [bizJid] CollectionMessage bizJid
                  * @property {string|null} [id] CollectionMessage id
                  * @property {number|null} [messageVersion] CollectionMessage messageVersion
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -54750,7 +54750,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a CollectionMessage.
                  * @constructor
                  * @param {E2E.Message.InteractiveMessage.CollectionMessage.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var CollectionMessage = function (properties) {
                     if (properties)
@@ -55062,7 +55062,7 @@ $root.E2E = (function() {
                  * @property {boolean|null} [hasMediaAttachment] Footer hasMediaAttachment
                  * @property {E2E.Message.AudioMessage.$Properties|null} [audioMessage] Footer audioMessage
                  * @property {"audioMessage"} [media] Footer media
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -55091,7 +55091,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a Footer.
                  * @constructor
                  * @param {E2E.Message.InteractiveMessage.Footer.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var Footer = function (properties) {
                     if (properties)
@@ -55424,7 +55424,7 @@ $root.E2E = (function() {
                  * @property {E2E.Message.LocationMessage.$Properties|null} [locationMessage] Header locationMessage
                  * @property {E2E.Message.ProductMessage.$Properties|null} [productMessage] Header productMessage
                  * @property {"documentMessage"|"imageMessage"|"jpegThumbnail"|"videoMessage"|"locationMessage"|"productMessage"} [media] Header media
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -55460,7 +55460,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a Header.
                  * @constructor
                  * @param {E2E.Message.InteractiveMessage.Header.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var Header = function (properties) {
                     if (properties)
@@ -56037,7 +56037,7 @@ $root.E2E = (function() {
                  * @property {Array.<E2E.Message.InteractiveMessage.NativeFlowMessage.NativeFlowButton.$Properties>|null} [buttons] NativeFlowMessage buttons
                  * @property {string|null} [messageParamsJson] NativeFlowMessage messageParamsJson
                  * @property {number|null} [messageVersion] NativeFlowMessage messageVersion
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -56059,7 +56059,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a NativeFlowMessage.
                  * @constructor
                  * @param {E2E.Message.InteractiveMessage.NativeFlowMessage.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var NativeFlowMessage = function (properties) {
                     this.buttons = [];
@@ -56380,7 +56380,7 @@ $root.E2E = (function() {
                      * @typedef {Object} E2E.Message.InteractiveMessage.NativeFlowMessage.NativeFlowButton.$Properties
                      * @property {string|null} [name] NativeFlowButton name
                      * @property {string|null} [buttonParamsJson] NativeFlowButton buttonParamsJson
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
 
                     /**
@@ -56402,7 +56402,7 @@ $root.E2E = (function() {
                      * @classdesc Represents a NativeFlowButton.
                      * @constructor
                      * @param {E2E.Message.InteractiveMessage.NativeFlowMessage.NativeFlowButton.$Properties=} [properties] Properties to set
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
                     var NativeFlowButton = function (properties) {
                         if (properties)
@@ -56684,7 +56684,7 @@ $root.E2E = (function() {
                  * @property {string|null} [id] ShopMessage id
                  * @property {E2E.Message.InteractiveMessage.ShopMessage.Surface|null} [surface] ShopMessage surface
                  * @property {number|null} [messageVersion] ShopMessage messageVersion
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -56706,7 +56706,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a ShopMessage.
                  * @constructor
                  * @param {E2E.Message.InteractiveMessage.ShopMessage.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var ShopMessage = function (properties) {
                     if (properties)
@@ -57068,7 +57068,7 @@ $root.E2E = (function() {
              * @property {E2E.ContextInfo.$Properties|null} [contextInfo] InteractiveResponseMessage contextInfo
              * @property {E2E.Message.InteractiveResponseMessage.NativeFlowResponseMessage.$Properties|null} [nativeFlowResponseMessage] InteractiveResponseMessage nativeFlowResponseMessage
              * @property {"nativeFlowResponseMessage"} [interactiveResponseMessage] InteractiveResponseMessage interactiveResponseMessage
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -57097,7 +57097,7 @@ $root.E2E = (function() {
              * @classdesc Represents an InteractiveResponseMessage.
              * @constructor
              * @param {E2E.Message.InteractiveResponseMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var InteractiveResponseMessage = function (properties) {
                 if (properties)
@@ -57430,7 +57430,7 @@ $root.E2E = (function() {
                  * @typedef {Object} E2E.Message.InteractiveResponseMessage.Body.$Properties
                  * @property {string|null} [text] Body text
                  * @property {E2E.Message.InteractiveResponseMessage.Body.Format|null} [format] Body format
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -57452,7 +57452,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a Body.
                  * @constructor
                  * @param {E2E.Message.InteractiveResponseMessage.Body.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var Body = function (properties) {
                     if (properties)
@@ -57764,7 +57764,7 @@ $root.E2E = (function() {
                  * @property {string|null} [name] NativeFlowResponseMessage name
                  * @property {string|null} [paramsJson] NativeFlowResponseMessage paramsJson
                  * @property {number|null} [version] NativeFlowResponseMessage version
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -57786,7 +57786,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a NativeFlowResponseMessage.
                  * @constructor
                  * @param {E2E.Message.InteractiveResponseMessage.NativeFlowResponseMessage.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var NativeFlowResponseMessage = function (properties) {
                     if (properties)
@@ -58107,7 +58107,7 @@ $root.E2E = (function() {
              * @property {Uint8Array|null} [attachmentFileEncSha256] InvoiceMessage attachmentFileEncSha256
              * @property {string|null} [attachmentDirectPath] InvoiceMessage attachmentDirectPath
              * @property {Uint8Array|null} [attachmentJpegThumbnail] InvoiceMessage attachmentJpegThumbnail
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -58129,7 +58129,7 @@ $root.E2E = (function() {
              * @classdesc Represents an InvoiceMessage.
              * @constructor
              * @param {E2E.Message.InvoiceMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var InvoiceMessage = function (properties) {
                 if (properties)
@@ -58721,7 +58721,7 @@ $root.E2E = (function() {
              * @property {Protocol.MessageKey.$Properties|null} [key] KeepInChatMessage key
              * @property {E2E.KeepType|null} [keepType] KeepInChatMessage keepType
              * @property {number|Long|null} [timestampMs] KeepInChatMessage timestampMs
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -58743,7 +58743,7 @@ $root.E2E = (function() {
              * @classdesc Represents a KeepInChatMessage.
              * @constructor
              * @param {E2E.Message.KeepInChatMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var KeepInChatMessage = function (properties) {
                 if (properties)
@@ -59102,7 +59102,7 @@ $root.E2E = (function() {
              * @property {string|null} [videoContentUrl] LinkPreviewMetadata videoContentUrl
              * @property {E2E.EmbeddedMusic.$Properties|null} [musicMetadata] LinkPreviewMetadata musicMetadata
              * @property {string|null} [videoContentCaption] LinkPreviewMetadata videoContentCaption
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -59124,7 +59124,7 @@ $root.E2E = (function() {
              * @classdesc Represents a LinkPreviewMetadata.
              * @constructor
              * @param {E2E.Message.LinkPreviewMetadata.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var LinkPreviewMetadata = function (properties) {
                 if (properties)
@@ -59711,7 +59711,7 @@ $root.E2E = (function() {
              * @property {E2E.Message.ListMessage.ProductListInfo.$Properties|null} [productListInfo] ListMessage productListInfo
              * @property {string|null} [footerText] ListMessage footerText
              * @property {E2E.ContextInfo.$Properties|null} [contextInfo] ListMessage contextInfo
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -59743,7 +59743,7 @@ $root.E2E = (function() {
              * @classdesc Represents a ListMessage.
              * @constructor
              * @param {E2E.Message.ListMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ListMessage = function (properties) {
                 this.sections = [];
@@ -60275,7 +60275,7 @@ $root.E2E = (function() {
                  * Properties of a Product.
                  * @typedef {Object} E2E.Message.ListMessage.Product.$Properties
                  * @property {string|null} [productId] Product productId
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -60297,7 +60297,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a Product.
                  * @constructor
                  * @param {E2E.Message.ListMessage.Product.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var Product = function (properties) {
                     if (properties)
@@ -60543,7 +60543,7 @@ $root.E2E = (function() {
                  * @typedef {Object} E2E.Message.ListMessage.ProductListHeaderImage.$Properties
                  * @property {string|null} [productId] ProductListHeaderImage productId
                  * @property {Uint8Array|null} [jpegThumbnail] ProductListHeaderImage jpegThumbnail
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -60565,7 +60565,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a ProductListHeaderImage.
                  * @constructor
                  * @param {E2E.Message.ListMessage.ProductListHeaderImage.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var ProductListHeaderImage = function (properties) {
                     if (properties)
@@ -60847,7 +60847,7 @@ $root.E2E = (function() {
                  * @property {Array.<E2E.Message.ListMessage.ProductSection.$Properties>|null} [productSections] ProductListInfo productSections
                  * @property {E2E.Message.ListMessage.ProductListHeaderImage.$Properties|null} [headerImage] ProductListInfo headerImage
                  * @property {string|null} [businessOwnerJid] ProductListInfo businessOwnerJid
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -60869,7 +60869,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a ProductListInfo.
                  * @constructor
                  * @param {E2E.Message.ListMessage.ProductListInfo.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var ProductListInfo = function (properties) {
                     this.productSections = [];
@@ -61199,7 +61199,7 @@ $root.E2E = (function() {
                  * @typedef {Object} E2E.Message.ListMessage.ProductSection.$Properties
                  * @property {string|null} [title] ProductSection title
                  * @property {Array.<E2E.Message.ListMessage.Product.$Properties>|null} [products] ProductSection products
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -61221,7 +61221,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a ProductSection.
                  * @constructor
                  * @param {E2E.Message.ListMessage.ProductSection.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var ProductSection = function (properties) {
                     this.products = [];
@@ -61514,7 +61514,7 @@ $root.E2E = (function() {
                  * @property {string|null} [title] Row title
                  * @property {string|null} [description] Row description
                  * @property {string|null} [rowId] Row rowId
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -61536,7 +61536,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a Row.
                  * @constructor
                  * @param {E2E.Message.ListMessage.Row.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var Row = function (properties) {
                     if (properties)
@@ -61846,7 +61846,7 @@ $root.E2E = (function() {
                  * @typedef {Object} E2E.Message.ListMessage.Section.$Properties
                  * @property {string|null} [title] Section title
                  * @property {Array.<E2E.Message.ListMessage.Row.$Properties>|null} [rows] Section rows
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -61868,7 +61868,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a Section.
                  * @constructor
                  * @param {E2E.Message.ListMessage.Section.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var Section = function (properties) {
                     this.rows = [];
@@ -62166,7 +62166,7 @@ $root.E2E = (function() {
              * @property {E2E.Message.ListResponseMessage.SingleSelectReply.$Properties|null} [singleSelectReply] ListResponseMessage singleSelectReply
              * @property {E2E.ContextInfo.$Properties|null} [contextInfo] ListResponseMessage contextInfo
              * @property {string|null} [description] ListResponseMessage description
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -62195,7 +62195,7 @@ $root.E2E = (function() {
              * @classdesc Represents a ListResponseMessage.
              * @constructor
              * @param {E2E.Message.ListResponseMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ListResponseMessage = function (properties) {
                 if (properties)
@@ -62610,7 +62610,7 @@ $root.E2E = (function() {
                  * Properties of a SingleSelectReply.
                  * @typedef {Object} E2E.Message.ListResponseMessage.SingleSelectReply.$Properties
                  * @property {string|null} [selectedRowId] SingleSelectReply selectedRowId
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -62632,7 +62632,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a SingleSelectReply.
                  * @constructor
                  * @param {E2E.Message.ListResponseMessage.SingleSelectReply.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var SingleSelectReply = function (properties) {
                     if (properties)
@@ -62889,7 +62889,7 @@ $root.E2E = (function() {
              * @property {number|null} [timeOffset] LiveLocationMessage timeOffset
              * @property {Uint8Array|null} [jpegThumbnail] LiveLocationMessage jpegThumbnail
              * @property {E2E.ContextInfo.$Properties|null} [contextInfo] LiveLocationMessage contextInfo
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -62923,7 +62923,7 @@ $root.E2E = (function() {
              * @classdesc Represents a LiveLocationMessage.
              * @constructor
              * @param {E2E.Message.LiveLocationMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var LiveLocationMessage = function (properties) {
                 if (properties)
@@ -63488,7 +63488,7 @@ $root.E2E = (function() {
              * @property {string|null} [comment] LocationMessage comment
              * @property {Uint8Array|null} [jpegThumbnail] LocationMessage jpegThumbnail
              * @property {E2E.ContextInfo.$Properties|null} [contextInfo] LocationMessage contextInfo
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -63524,7 +63524,7 @@ $root.E2E = (function() {
              * @classdesc Represents a LocationMessage.
              * @constructor
              * @param {E2E.Message.LocationMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var LocationMessage = function (properties) {
                 if (properties)
@@ -64136,7 +64136,7 @@ $root.E2E = (function() {
              * @property {number|Long|null} [mediaKeyTimestamp] MMSThumbnailMetadata mediaKeyTimestamp
              * @property {number|null} [thumbnailHeight] MMSThumbnailMetadata thumbnailHeight
              * @property {number|null} [thumbnailWidth] MMSThumbnailMetadata thumbnailWidth
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -64158,7 +64158,7 @@ $root.E2E = (function() {
              * @classdesc Represents a MMSThumbnailMetadata.
              * @constructor
              * @param {E2E.Message.MMSThumbnailMetadata.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var MMSThumbnailMetadata = function (properties) {
                 if (properties)
@@ -64623,7 +64623,7 @@ $root.E2E = (function() {
              * @property {number|Long|null} [mediaKeyTimestamp] MessageHistoryBundle mediaKeyTimestamp
              * @property {E2E.ContextInfo.$Properties|null} [contextInfo] MessageHistoryBundle contextInfo
              * @property {E2E.Message.MessageHistoryMetadata.$Properties|null} [messageHistoryMetadata] MessageHistoryBundle messageHistoryMetadata
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -64655,7 +64655,7 @@ $root.E2E = (function() {
              * @classdesc Represents a MessageHistoryBundle.
              * @constructor
              * @param {E2E.Message.MessageHistoryBundle.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var MessageHistoryBundle = function (properties) {
                 if (properties)
@@ -65161,7 +65161,7 @@ $root.E2E = (function() {
              * @property {number|Long|null} [messageCount] MessageHistoryMetadata messageCount
              * @property {Array.<string>|null} [nonHistoryReceivers] MessageHistoryMetadata nonHistoryReceivers
              * @property {number|Long|null} [oldestMessageTimestampInBundle] MessageHistoryMetadata oldestMessageTimestampInBundle
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -65183,7 +65183,7 @@ $root.E2E = (function() {
              * @classdesc Represents a MessageHistoryMetadata.
              * @constructor
              * @param {E2E.Message.MessageHistoryMetadata.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var MessageHistoryMetadata = function (properties) {
                 this.historyReceivers = [];
@@ -65611,7 +65611,7 @@ $root.E2E = (function() {
              * @typedef {Object} E2E.Message.MessageHistoryNotice.$Properties
              * @property {E2E.ContextInfo.$Properties|null} [contextInfo] MessageHistoryNotice contextInfo
              * @property {E2E.Message.MessageHistoryMetadata.$Properties|null} [messageHistoryMetadata] MessageHistoryNotice messageHistoryMetadata
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -65637,7 +65637,7 @@ $root.E2E = (function() {
              * @classdesc Represents a MessageHistoryNotice.
              * @constructor
              * @param {E2E.Message.MessageHistoryNotice.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var MessageHistoryNotice = function (properties) {
                 if (properties)
@@ -65931,7 +65931,7 @@ $root.E2E = (function() {
              * @property {string|null} [caption] NewsletterAdminInviteMessage caption
              * @property {number|Long|null} [inviteExpiration] NewsletterAdminInviteMessage inviteExpiration
              * @property {E2E.ContextInfo.$Properties|null} [contextInfo] NewsletterAdminInviteMessage contextInfo
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -65961,7 +65961,7 @@ $root.E2E = (function() {
              * @classdesc Represents a NewsletterAdminInviteMessage.
              * @constructor
              * @param {E2E.Message.NewsletterAdminInviteMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var NewsletterAdminInviteMessage = function (properties) {
                 if (properties)
@@ -66391,7 +66391,7 @@ $root.E2E = (function() {
              * @property {Uint8Array|null} [jpegThumbnail] NewsletterFollowerInviteMessage jpegThumbnail
              * @property {string|null} [caption] NewsletterFollowerInviteMessage caption
              * @property {E2E.ContextInfo.$Properties|null} [contextInfo] NewsletterFollowerInviteMessage contextInfo
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -66420,7 +66420,7 @@ $root.E2E = (function() {
              * @classdesc Represents a NewsletterFollowerInviteMessage.
              * @constructor
              * @param {E2E.Message.NewsletterFollowerInviteMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var NewsletterFollowerInviteMessage = function (properties) {
                 if (properties)
@@ -66816,7 +66816,7 @@ $root.E2E = (function() {
              * @property {number|null} [messageVersion] OrderMessage messageVersion
              * @property {Protocol.MessageKey.$Properties|null} [orderRequestMessageId] OrderMessage orderRequestMessageId
              * @property {string|null} [catalogType] OrderMessage catalogType
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -66855,7 +66855,7 @@ $root.E2E = (function() {
              * @classdesc Represents an OrderMessage.
              * @constructor
              * @param {E2E.Message.OrderMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var OrderMessage = function (properties) {
                 if (properties)
@@ -67642,7 +67642,7 @@ $root.E2E = (function() {
              * @typedef {Object} E2E.Message.PaymentExtendedMetadata.$Properties
              * @property {number|null} [type] PaymentExtendedMetadata type
              * @property {string|null} [platform] PaymentExtendedMetadata platform
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -67664,7 +67664,7 @@ $root.E2E = (function() {
              * @classdesc Represents a PaymentExtendedMetadata.
              * @constructor
              * @param {E2E.Message.PaymentExtendedMetadata.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var PaymentExtendedMetadata = function (properties) {
                 if (properties)
@@ -67945,7 +67945,7 @@ $root.E2E = (function() {
              * @property {boolean|null} [incentiveEligible] PaymentInviteMessage incentiveEligible
              * @property {string|null} [referralId] PaymentInviteMessage referralId
              * @property {E2E.Message.PaymentInviteMessage.InviteType|null} [inviteType] PaymentInviteMessage inviteType
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -67967,7 +67967,7 @@ $root.E2E = (function() {
              * @classdesc Represents a PaymentInviteMessage.
              * @constructor
              * @param {E2E.Message.PaymentInviteMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var PaymentInviteMessage = function (properties) {
                 if (properties)
@@ -68434,7 +68434,7 @@ $root.E2E = (function() {
              * @property {E2E.Message.PaymentLinkMetadata.PaymentLinkButton.$Properties|null} [button] PaymentLinkMetadata button
              * @property {E2E.Message.PaymentLinkMetadata.PaymentLinkHeader.$Properties|null} [header] PaymentLinkMetadata header
              * @property {E2E.Message.PaymentLinkMetadata.PaymentLinkProvider.$Properties|null} [provider] PaymentLinkMetadata provider
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -68456,7 +68456,7 @@ $root.E2E = (function() {
              * @classdesc Represents a PaymentLinkMetadata.
              * @constructor
              * @param {E2E.Message.PaymentLinkMetadata.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var PaymentLinkMetadata = function (properties) {
                 if (properties)
@@ -68780,7 +68780,7 @@ $root.E2E = (function() {
                  * Properties of a PaymentLinkButton.
                  * @typedef {Object} E2E.Message.PaymentLinkMetadata.PaymentLinkButton.$Properties
                  * @property {string|null} [displayText] PaymentLinkButton displayText
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -68802,7 +68802,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a PaymentLinkButton.
                  * @constructor
                  * @param {E2E.Message.PaymentLinkMetadata.PaymentLinkButton.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var PaymentLinkButton = function (properties) {
                     if (properties)
@@ -69047,7 +69047,7 @@ $root.E2E = (function() {
                  * Properties of a PaymentLinkHeader.
                  * @typedef {Object} E2E.Message.PaymentLinkMetadata.PaymentLinkHeader.$Properties
                  * @property {E2E.Message.PaymentLinkMetadata.PaymentLinkHeader.PaymentLinkHeaderType|null} [headerType] PaymentLinkHeader headerType
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -69069,7 +69069,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a PaymentLinkHeader.
                  * @constructor
                  * @param {E2E.Message.PaymentLinkMetadata.PaymentLinkHeader.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var PaymentLinkHeader = function (properties) {
                     if (properties)
@@ -69347,7 +69347,7 @@ $root.E2E = (function() {
                  * Properties of a PaymentLinkProvider.
                  * @typedef {Object} E2E.Message.PaymentLinkMetadata.PaymentLinkProvider.$Properties
                  * @property {string|null} [paramsJson] PaymentLinkProvider paramsJson
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -69369,7 +69369,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a PaymentLinkProvider.
                  * @constructor
                  * @param {E2E.Message.PaymentLinkMetadata.PaymentLinkProvider.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var PaymentLinkProvider = function (properties) {
                     if (properties)
@@ -69625,7 +69625,7 @@ $root.E2E = (function() {
              * @property {string|null} [payeeJid] PaymentReminderMessage payeeJid
              * @property {string|null} [payerJid] PaymentReminderMessage payerJid
              * @property {E2E.Money.$Properties|null} [amount] PaymentReminderMessage amount
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -69647,7 +69647,7 @@ $root.E2E = (function() {
              * @classdesc Represents a PaymentReminderMessage.
              * @constructor
              * @param {E2E.Message.PaymentReminderMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var PaymentReminderMessage = function (properties) {
                 if (properties)
@@ -70280,7 +70280,7 @@ $root.E2E = (function() {
              * @property {E2E.Message.PeerDataOperationRequestMessage.CompanionCanonicalUserNonceFetchRequest.$Properties|null} [companionCanonicalUserNonceFetchRequest] PeerDataOperationRequestMessage companionCanonicalUserNonceFetchRequest
              * @property {E2E.Message.PeerDataOperationRequestMessage.BizBroadcastInsightsContactListRequest.$Properties|null} [bizBroadcastInsightsContactListRequest] PeerDataOperationRequestMessage bizBroadcastInsightsContactListRequest
              * @property {E2E.Message.PeerDataOperationRequestMessage.BizBroadcastInsightsRefreshRequest.$Properties|null} [bizBroadcastInsightsRefreshRequest] PeerDataOperationRequestMessage bizBroadcastInsightsRefreshRequest
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -70302,7 +70302,7 @@ $root.E2E = (function() {
              * @classdesc Represents a PeerDataOperationRequestMessage.
              * @constructor
              * @param {E2E.Message.PeerDataOperationRequestMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var PeerDataOperationRequestMessage = function (properties) {
                 this.requestStickerReupload = [];
@@ -71064,7 +71064,7 @@ $root.E2E = (function() {
                  * Properties of a BizBroadcastInsightsContactListRequest.
                  * @typedef {Object} E2E.Message.PeerDataOperationRequestMessage.BizBroadcastInsightsContactListRequest.$Properties
                  * @property {string|null} [campaignId] BizBroadcastInsightsContactListRequest campaignId
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -71086,7 +71086,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a BizBroadcastInsightsContactListRequest.
                  * @constructor
                  * @param {E2E.Message.PeerDataOperationRequestMessage.BizBroadcastInsightsContactListRequest.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var BizBroadcastInsightsContactListRequest = function (properties) {
                     if (properties)
@@ -71331,7 +71331,7 @@ $root.E2E = (function() {
                  * Properties of a BizBroadcastInsightsRefreshRequest.
                  * @typedef {Object} E2E.Message.PeerDataOperationRequestMessage.BizBroadcastInsightsRefreshRequest.$Properties
                  * @property {string|null} [campaignId] BizBroadcastInsightsRefreshRequest campaignId
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -71353,7 +71353,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a BizBroadcastInsightsRefreshRequest.
                  * @constructor
                  * @param {E2E.Message.PeerDataOperationRequestMessage.BizBroadcastInsightsRefreshRequest.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var BizBroadcastInsightsRefreshRequest = function (properties) {
                     if (properties)
@@ -71598,7 +71598,7 @@ $root.E2E = (function() {
                  * Properties of a CompanionCanonicalUserNonceFetchRequest.
                  * @typedef {Object} E2E.Message.PeerDataOperationRequestMessage.CompanionCanonicalUserNonceFetchRequest.$Properties
                  * @property {string|null} [registrationTraceId] CompanionCanonicalUserNonceFetchRequest registrationTraceId
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -71620,7 +71620,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a CompanionCanonicalUserNonceFetchRequest.
                  * @constructor
                  * @param {E2E.Message.PeerDataOperationRequestMessage.CompanionCanonicalUserNonceFetchRequest.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var CompanionCanonicalUserNonceFetchRequest = function (properties) {
                     if (properties)
@@ -71867,7 +71867,7 @@ $root.E2E = (function() {
                  * @property {E2E.Message.FullHistorySyncOnDemandRequestMetadata.$Properties|null} [requestMetadata] FullHistorySyncOnDemandRequest requestMetadata
                  * @property {CompanionReg.DeviceProps.HistorySyncConfig.$Properties|null} [historySyncConfig] FullHistorySyncOnDemandRequest historySyncConfig
                  * @property {E2E.Message.FullHistorySyncOnDemandConfig.$Properties|null} [fullHistorySyncOnDemandConfig] FullHistorySyncOnDemandRequest fullHistorySyncOnDemandConfig
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -71889,7 +71889,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a FullHistorySyncOnDemandRequest.
                  * @constructor
                  * @param {E2E.Message.PeerDataOperationRequestMessage.FullHistorySyncOnDemandRequest.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var FullHistorySyncOnDemandRequest = function (properties) {
                     if (properties)
@@ -72220,7 +72220,7 @@ $root.E2E = (function() {
                  * @property {string|null} [stanzaId] GalaxyFlowAction stanzaId
                  * @property {string|null} [galaxyFlowDownloadRequestId] GalaxyFlowAction galaxyFlowDownloadRequestId
                  * @property {string|null} [agmId] GalaxyFlowAction agmId
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -72242,7 +72242,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a GalaxyFlowAction.
                  * @constructor
                  * @param {E2E.Message.PeerDataOperationRequestMessage.GalaxyFlowAction.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var GalaxyFlowAction = function (properties) {
                     if (properties)
@@ -72651,7 +72651,7 @@ $root.E2E = (function() {
                  * @property {number|null} [chunkOrder] HistorySyncChunkRetryRequest chunkOrder
                  * @property {string|null} [chunkNotificationId] HistorySyncChunkRetryRequest chunkNotificationId
                  * @property {boolean|null} [regenerateChunk] HistorySyncChunkRetryRequest regenerateChunk
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -72673,7 +72673,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a HistorySyncChunkRetryRequest.
                  * @constructor
                  * @param {E2E.Message.PeerDataOperationRequestMessage.HistorySyncChunkRetryRequest.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var HistorySyncChunkRetryRequest = function (properties) {
                     if (properties)
@@ -73074,7 +73074,7 @@ $root.E2E = (function() {
                  * @property {number|Long|null} [oldestMsgTimestampMs] HistorySyncOnDemandRequest oldestMsgTimestampMs
                  * @property {string|null} [accountLid] HistorySyncOnDemandRequest accountLid
                  * @property {boolean|null} [supportInlineResponse] HistorySyncOnDemandRequest supportInlineResponse
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -73096,7 +73096,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a HistorySyncOnDemandRequest.
                  * @constructor
                  * @param {E2E.Message.PeerDataOperationRequestMessage.HistorySyncOnDemandRequest.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var HistorySyncOnDemandRequest = function (properties) {
                     if (properties)
@@ -73545,7 +73545,7 @@ $root.E2E = (function() {
                  * Properties of a PlaceholderMessageResendRequest.
                  * @typedef {Object} E2E.Message.PeerDataOperationRequestMessage.PlaceholderMessageResendRequest.$Properties
                  * @property {Protocol.MessageKey.$Properties|null} [messageKey] PlaceholderMessageResendRequest messageKey
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -73567,7 +73567,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a PlaceholderMessageResendRequest.
                  * @constructor
                  * @param {E2E.Message.PeerDataOperationRequestMessage.PlaceholderMessageResendRequest.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var PlaceholderMessageResendRequest = function (properties) {
                     if (properties)
@@ -73818,7 +73818,7 @@ $root.E2E = (function() {
                  * Properties of a RequestStickerReupload.
                  * @typedef {Object} E2E.Message.PeerDataOperationRequestMessage.RequestStickerReupload.$Properties
                  * @property {string|null} [fileSha256] RequestStickerReupload fileSha256
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -73840,7 +73840,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a RequestStickerReupload.
                  * @constructor
                  * @param {E2E.Message.PeerDataOperationRequestMessage.RequestStickerReupload.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var RequestStickerReupload = function (properties) {
                     if (properties)
@@ -74086,7 +74086,7 @@ $root.E2E = (function() {
                  * @typedef {Object} E2E.Message.PeerDataOperationRequestMessage.RequestUrlPreview.$Properties
                  * @property {string|null} [url] RequestUrlPreview url
                  * @property {boolean|null} [includeHqThumbnail] RequestUrlPreview includeHqThumbnail
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -74108,7 +74108,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a RequestUrlPreview.
                  * @constructor
                  * @param {E2E.Message.PeerDataOperationRequestMessage.RequestUrlPreview.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var RequestUrlPreview = function (properties) {
                     if (properties)
@@ -74386,7 +74386,7 @@ $root.E2E = (function() {
                  * @typedef {Object} E2E.Message.PeerDataOperationRequestMessage.SyncDCollectionFatalRecoveryRequest.$Properties
                  * @property {string|null} [collectionName] SyncDCollectionFatalRecoveryRequest collectionName
                  * @property {number|Long|null} [timestamp] SyncDCollectionFatalRecoveryRequest timestamp
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -74408,7 +74408,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a SyncDCollectionFatalRecoveryRequest.
                  * @constructor
                  * @param {E2E.Message.PeerDataOperationRequestMessage.SyncDCollectionFatalRecoveryRequest.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var SyncDCollectionFatalRecoveryRequest = function (properties) {
                     if (properties)
@@ -74702,7 +74702,7 @@ $root.E2E = (function() {
              * @property {E2E.Message.PeerDataOperationRequestType|null} [peerDataOperationRequestType] PeerDataOperationRequestResponseMessage peerDataOperationRequestType
              * @property {string|null} [stanzaId] PeerDataOperationRequestResponseMessage stanzaId
              * @property {Array.<E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.$Properties>|null} [peerDataOperationResult] PeerDataOperationRequestResponseMessage peerDataOperationResult
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -74729,7 +74729,7 @@ $root.E2E = (function() {
              * @classdesc Represents a PeerDataOperationRequestResponseMessage.
              * @constructor
              * @param {E2E.Message.PeerDataOperationRequestResponseMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var PeerDataOperationRequestResponseMessage = function (properties) {
                 this.peerDataOperationResult = [];
@@ -75139,7 +75139,7 @@ $root.E2E = (function() {
                  * @property {E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.HistorySyncChunkRetryResponse.$Properties|null} [historySyncChunkRetryResponse] PeerDataOperationResult historySyncChunkRetryResponse
                  * @property {E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.FlowResponsesCsvBundle.$Properties|null} [flowResponsesCsvBundle] PeerDataOperationResult flowResponsesCsvBundle
                  * @property {E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.BizBroadcastInsightsContactListResponse.$Properties|null} [bizBroadcastInsightsContactListResponse] PeerDataOperationResult bizBroadcastInsightsContactListResponse
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -75175,7 +75175,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a PeerDataOperationResult.
                  * @constructor
                  * @param {E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var PeerDataOperationResult = function (properties) {
                     if (properties)
@@ -75866,7 +75866,7 @@ $root.E2E = (function() {
                      * @property {string|null} [campaignId] BizBroadcastInsightsContactListResponse campaignId
                      * @property {number|Long|null} [timestampMs] BizBroadcastInsightsContactListResponse timestampMs
                      * @property {Array.<E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.BizBroadcastInsightsContactState.$Properties>|null} [contacts] BizBroadcastInsightsContactListResponse contacts
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
 
                     /**
@@ -75888,7 +75888,7 @@ $root.E2E = (function() {
                      * @classdesc Represents a BizBroadcastInsightsContactListResponse.
                      * @constructor
                      * @param {E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.BizBroadcastInsightsContactListResponse.$Properties=} [properties] Properties to set
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
                     var BizBroadcastInsightsContactListResponse = function (properties) {
                         this.contacts = [];
@@ -76224,7 +76224,7 @@ $root.E2E = (function() {
                      * @typedef {Object} E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.BizBroadcastInsightsContactState.$Properties
                      * @property {string|null} [contactJid] BizBroadcastInsightsContactState contactJid
                      * @property {E2E.Message.InsightDeliveryState|null} [state] BizBroadcastInsightsContactState state
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
 
                     /**
@@ -76246,7 +76246,7 @@ $root.E2E = (function() {
                      * @classdesc Represents a BizBroadcastInsightsContactState.
                      * @constructor
                      * @param {E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.BizBroadcastInsightsContactState.$Properties=} [properties] Properties to set
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
                     var BizBroadcastInsightsContactState = function (properties) {
                         if (properties)
@@ -76559,7 +76559,7 @@ $root.E2E = (function() {
                      * @property {string|null} [nonce] CompanionCanonicalUserNonceFetchResponse nonce
                      * @property {string|null} [waFbid] CompanionCanonicalUserNonceFetchResponse waFbid
                      * @property {boolean|null} [forceRefresh] CompanionCanonicalUserNonceFetchResponse forceRefresh
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
 
                     /**
@@ -76581,7 +76581,7 @@ $root.E2E = (function() {
                      * @classdesc Represents a CompanionCanonicalUserNonceFetchResponse.
                      * @constructor
                      * @param {E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.CompanionCanonicalUserNonceFetchResponse.$Properties=} [properties] Properties to set
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
                     var CompanionCanonicalUserNonceFetchResponse = function (properties) {
                         if (properties)
@@ -76890,7 +76890,7 @@ $root.E2E = (function() {
                      * Properties of a CompanionMetaNonceFetchResponse.
                      * @typedef {Object} E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.CompanionMetaNonceFetchResponse.$Properties
                      * @property {string|null} [nonce] CompanionMetaNonceFetchResponse nonce
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
 
                     /**
@@ -76912,7 +76912,7 @@ $root.E2E = (function() {
                      * @classdesc Represents a CompanionMetaNonceFetchResponse.
                      * @constructor
                      * @param {E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.CompanionMetaNonceFetchResponse.$Properties=} [properties] Properties to set
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
                     var CompanionMetaNonceFetchResponse = function (properties) {
                         if (properties)
@@ -77166,7 +77166,7 @@ $root.E2E = (function() {
                      * @property {string|null} [directPath] FlowResponsesCsvBundle directPath
                      * @property {number|Long|null} [mediaKeyTimestamp] FlowResponsesCsvBundle mediaKeyTimestamp
                      * @property {number|Long|null} [fileLength] FlowResponsesCsvBundle fileLength
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
 
                     /**
@@ -77188,7 +77188,7 @@ $root.E2E = (function() {
                      * @classdesc Represents a FlowResponsesCsvBundle.
                      * @constructor
                      * @param {E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.FlowResponsesCsvBundle.$Properties=} [properties] Properties to set
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
                     var FlowResponsesCsvBundle = function (properties) {
                         if (properties)
@@ -77755,7 +77755,7 @@ $root.E2E = (function() {
                      * @typedef {Object} E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.FullHistorySyncOnDemandRequestResponse.$Properties
                      * @property {E2E.Message.FullHistorySyncOnDemandRequestMetadata.$Properties|null} [requestMetadata] FullHistorySyncOnDemandRequestResponse requestMetadata
                      * @property {E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.FullHistorySyncOnDemandResponseCode|null} [responseCode] FullHistorySyncOnDemandRequestResponse responseCode
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
 
                     /**
@@ -77777,7 +77777,7 @@ $root.E2E = (function() {
                      * @classdesc Represents a FullHistorySyncOnDemandRequestResponse.
                      * @constructor
                      * @param {E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.FullHistorySyncOnDemandRequestResponse.$Properties=} [properties] Properties to set
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
                     var FullHistorySyncOnDemandRequestResponse = function (properties) {
                         if (properties)
@@ -78139,7 +78139,7 @@ $root.E2E = (function() {
                      * @property {string|null} [requestId] HistorySyncChunkRetryResponse requestId
                      * @property {E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.HistorySyncChunkRetryResponseCode|null} [responseCode] HistorySyncChunkRetryResponse responseCode
                      * @property {boolean|null} [canRecover] HistorySyncChunkRetryResponse canRecover
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
 
                     /**
@@ -78161,7 +78161,7 @@ $root.E2E = (function() {
                      * @classdesc Represents a HistorySyncChunkRetryResponse.
                      * @constructor
                      * @param {E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.HistorySyncChunkRetryResponse.$Properties=} [properties] Properties to set
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
                     var HistorySyncChunkRetryResponse = function (properties) {
                         if (properties)
@@ -78656,7 +78656,7 @@ $root.E2E = (function() {
                      * @property {string|null} [previewType] LinkPreviewResponse previewType
                      * @property {E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.LinkPreviewHighQualityThumbnail.$Properties|null} [hqThumbnail] LinkPreviewResponse hqThumbnail
                      * @property {E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.PaymentLinkPreviewMetadata.$Properties|null} [previewMetadata] LinkPreviewResponse previewMetadata
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
 
                     /**
@@ -78678,7 +78678,7 @@ $root.E2E = (function() {
                      * @classdesc Represents a LinkPreviewResponse.
                      * @constructor
                      * @param {E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.$Properties=} [properties] Properties to set
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
                     var LinkPreviewResponse = function (properties) {
                         if (properties)
@@ -79165,7 +79165,7 @@ $root.E2E = (function() {
                          * @property {number|Long|null} [mediaKeyTimestampMs] LinkPreviewHighQualityThumbnail mediaKeyTimestampMs
                          * @property {number|null} [thumbWidth] LinkPreviewHighQualityThumbnail thumbWidth
                          * @property {number|null} [thumbHeight] LinkPreviewHighQualityThumbnail thumbHeight
-                         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                          */
 
                         /**
@@ -79187,7 +79187,7 @@ $root.E2E = (function() {
                          * @classdesc Represents a LinkPreviewHighQualityThumbnail.
                          * @constructor
                          * @param {E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.LinkPreviewHighQualityThumbnail.$Properties=} [properties] Properties to set
-                         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                          */
                         var LinkPreviewHighQualityThumbnail = function (properties) {
                             if (properties)
@@ -79643,7 +79643,7 @@ $root.E2E = (function() {
                          * @property {string|null} [amount] PaymentLinkPreviewMetadata amount
                          * @property {string|null} [offset] PaymentLinkPreviewMetadata offset
                          * @property {string|null} [currency] PaymentLinkPreviewMetadata currency
-                         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                          */
 
                         /**
@@ -79665,7 +79665,7 @@ $root.E2E = (function() {
                          * @classdesc Represents a PaymentLinkPreviewMetadata.
                          * @constructor
                          * @param {E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.PaymentLinkPreviewMetadata.$Properties=} [properties] Properties to set
-                         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                          */
                         var PaymentLinkPreviewMetadata = function (properties) {
                             if (properties)
@@ -80041,7 +80041,7 @@ $root.E2E = (function() {
                      * Properties of a PlaceholderMessageResendResponse.
                      * @typedef {Object} E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.PlaceholderMessageResendResponse.$Properties
                      * @property {Uint8Array|null} [webMessageInfoBytes] PlaceholderMessageResendResponse webMessageInfoBytes
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
 
                     /**
@@ -80063,7 +80063,7 @@ $root.E2E = (function() {
                      * @classdesc Represents a PlaceholderMessageResendResponse.
                      * @constructor
                      * @param {E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.PlaceholderMessageResendResponse.$Properties=} [properties] Properties to set
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
                     var PlaceholderMessageResendResponse = function (properties) {
                         if (properties)
@@ -80312,7 +80312,7 @@ $root.E2E = (function() {
                      * @typedef {Object} E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.SyncDSnapshotFatalRecoveryResponse.$Properties
                      * @property {Uint8Array|null} [collectionSnapshot] SyncDSnapshotFatalRecoveryResponse collectionSnapshot
                      * @property {boolean|null} [isCompressed] SyncDSnapshotFatalRecoveryResponse isCompressed
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
 
                     /**
@@ -80334,7 +80334,7 @@ $root.E2E = (function() {
                      * @classdesc Represents a SyncDSnapshotFatalRecoveryResponse.
                      * @constructor
                      * @param {E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.SyncDSnapshotFatalRecoveryResponse.$Properties=} [properties] Properties to set
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
                     var SyncDSnapshotFatalRecoveryResponse = function (properties) {
                         if (properties)
@@ -80615,7 +80615,7 @@ $root.E2E = (function() {
                      * @typedef {Object} E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.WaffleNonceFetchResponse.$Properties
                      * @property {string|null} [nonce] WaffleNonceFetchResponse nonce
                      * @property {string|null} [waEntFbid] WaffleNonceFetchResponse waEntFbid
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
 
                     /**
@@ -80637,7 +80637,7 @@ $root.E2E = (function() {
                      * @classdesc Represents a WaffleNonceFetchResponse.
                      * @constructor
                      * @param {E2E.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.WaffleNonceFetchResponse.$Properties=} [properties] Properties to set
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
                     var WaffleNonceFetchResponse = function (properties) {
                         if (properties)
@@ -80960,7 +80960,7 @@ $root.E2E = (function() {
              * @property {Protocol.MessageKey.$Properties|null} [key] PinInChatMessage key
              * @property {E2E.Message.PinInChatMessage.Type|null} [type] PinInChatMessage type
              * @property {number|Long|null} [senderTimestampMs] PinInChatMessage senderTimestampMs
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -80982,7 +80982,7 @@ $root.E2E = (function() {
              * @classdesc Represents a PinInChatMessage.
              * @constructor
              * @param {E2E.Message.PinInChatMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var PinInChatMessage = function (properties) {
                 if (properties)
@@ -81349,7 +81349,7 @@ $root.E2E = (function() {
              * Properties of a PlaceholderMessage.
              * @typedef {Object} E2E.Message.PlaceholderMessage.$Properties
              * @property {E2E.Message.PlaceholderMessage.PlaceholderType|null} [type] PlaceholderMessage type
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -81371,7 +81371,7 @@ $root.E2E = (function() {
              * @classdesc Represents a PlaceholderMessage.
              * @constructor
              * @param {E2E.Message.PlaceholderMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var PlaceholderMessage = function (properties) {
                 if (properties)
@@ -81644,7 +81644,7 @@ $root.E2E = (function() {
              * @property {Protocol.MessageKey.$Properties|null} [pollCreationMessageKey] PollAddOptionMessage pollCreationMessageKey
              * @property {E2E.Message.PollCreationMessage.Option.$Properties|null} [addOption] PollAddOptionMessage addOption
              * @property {E2E.Message.PollUpdateMessageMetadata.$Properties|null} [metadata] PollAddOptionMessage metadata
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -81666,7 +81666,7 @@ $root.E2E = (function() {
              * @classdesc Represents a PollAddOptionMessage.
              * @constructor
              * @param {E2E.Message.PollAddOptionMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var PollAddOptionMessage = function (properties) {
                 if (properties)
@@ -82019,7 +82019,7 @@ $root.E2E = (function() {
              * @property {number|Long|null} [endTime] PollCreationMessage endTime
              * @property {boolean|null} [hideParticipantName] PollCreationMessage hideParticipantName
              * @property {boolean|null} [allowAddOption] PollCreationMessage allowAddOption
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -82054,7 +82054,7 @@ $root.E2E = (function() {
              * @classdesc Represents a PollCreationMessage.
              * @constructor
              * @param {E2E.Message.PollCreationMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var PollCreationMessage = function (properties) {
                 this.options = [];
@@ -82701,7 +82701,7 @@ $root.E2E = (function() {
                  * @typedef {Object} E2E.Message.PollCreationMessage.Option.$Properties
                  * @property {string|null} [optionName] Option optionName
                  * @property {string|null} [optionHash] Option optionHash
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -82723,7 +82723,7 @@ $root.E2E = (function() {
                  * @classdesc Represents an Option.
                  * @constructor
                  * @param {E2E.Message.PollCreationMessage.Option.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var Option = function (properties) {
                     if (properties)
@@ -83004,7 +83004,7 @@ $root.E2E = (function() {
              * @typedef {Object} E2E.Message.PollEncValue.$Properties
              * @property {Uint8Array|null} [encPayload] PollEncValue encPayload
              * @property {Uint8Array|null} [encIv] PollEncValue encIv
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -83026,7 +83026,7 @@ $root.E2E = (function() {
              * @classdesc Represents a PollEncValue.
              * @constructor
              * @param {E2E.Message.PollEncValue.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var PollEncValue = function (properties) {
                 if (properties)
@@ -83312,7 +83312,7 @@ $root.E2E = (function() {
              * @property {Array.<E2E.Message.PollResultSnapshotMessage.PollVote.$Properties>|null} [pollVotes] PollResultSnapshotMessage pollVotes
              * @property {E2E.ContextInfo.$Properties|null} [contextInfo] PollResultSnapshotMessage contextInfo
              * @property {E2E.Message.PollType|null} [pollType] PollResultSnapshotMessage pollType
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -83340,7 +83340,7 @@ $root.E2E = (function() {
              * @classdesc Represents a PollResultSnapshotMessage.
              * @constructor
              * @param {E2E.Message.PollResultSnapshotMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var PollResultSnapshotMessage = function (properties) {
                 this.pollVotes = [];
@@ -83718,7 +83718,7 @@ $root.E2E = (function() {
                  * @typedef {Object} E2E.Message.PollResultSnapshotMessage.PollVote.$Properties
                  * @property {string|null} [optionName] PollVote optionName
                  * @property {number|Long|null} [optionVoteCount] PollVote optionVoteCount
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -83740,7 +83740,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a PollVote.
                  * @constructor
                  * @param {E2E.Message.PollResultSnapshotMessage.PollVote.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var PollVote = function (properties) {
                     if (properties)
@@ -84049,7 +84049,7 @@ $root.E2E = (function() {
              * @property {E2E.Message.PollEncValue.$Properties|null} [vote] PollUpdateMessage vote
              * @property {E2E.Message.PollUpdateMessageMetadata.$Properties|null} [metadata] PollUpdateMessage metadata
              * @property {number|Long|null} [senderTimestampMs] PollUpdateMessage senderTimestampMs
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -84071,7 +84071,7 @@ $root.E2E = (function() {
              * @classdesc Represents a PollUpdateMessage.
              * @constructor
              * @param {E2E.Message.PollUpdateMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var PollUpdateMessage = function (properties) {
                 if (properties)
@@ -84443,7 +84443,7 @@ $root.E2E = (function() {
              * @typedef {Object} E2E.Message.PollUpdateMessageMetadata.$Properties
              * @property {Uint8Array|null} [pollNameHash] PollUpdateMessageMetadata pollNameHash
              * @property {string|null} [lastEditStanzaId] PollUpdateMessageMetadata lastEditStanzaId
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -84465,7 +84465,7 @@ $root.E2E = (function() {
              * @classdesc Represents a PollUpdateMessageMetadata.
              * @constructor
              * @param {E2E.Message.PollUpdateMessageMetadata.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var PollUpdateMessageMetadata = function (properties) {
                 if (properties)
@@ -84745,7 +84745,7 @@ $root.E2E = (function() {
              * Properties of a PollVoteMessage.
              * @typedef {Object} E2E.Message.PollVoteMessage.$Properties
              * @property {Array.<Uint8Array>|null} [selectedOptions] PollVoteMessage selectedOptions
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -84767,7 +84767,7 @@ $root.E2E = (function() {
              * @classdesc Represents a PollVoteMessage.
              * @constructor
              * @param {E2E.Message.PollVoteMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var PollVoteMessage = function (properties) {
                 this.selectedOptions = [];
@@ -85025,7 +85025,7 @@ $root.E2E = (function() {
              * @property {string|null} [body] ProductMessage body
              * @property {string|null} [footer] ProductMessage footer
              * @property {E2E.ContextInfo.$Properties|null} [contextInfo] ProductMessage contextInfo
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -85055,7 +85055,7 @@ $root.E2E = (function() {
              * @classdesc Represents a ProductMessage.
              * @constructor
              * @param {E2E.Message.ProductMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ProductMessage = function (properties) {
                 if (properties)
@@ -85477,7 +85477,7 @@ $root.E2E = (function() {
                  * @property {E2E.Message.ImageMessage.$Properties|null} [catalogImage] CatalogSnapshot catalogImage
                  * @property {string|null} [title] CatalogSnapshot title
                  * @property {string|null} [description] CatalogSnapshot description
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -85504,7 +85504,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a CatalogSnapshot.
                  * @constructor
                  * @param {E2E.Message.ProductMessage.CatalogSnapshot.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var CatalogSnapshot = function (properties) {
                     if (properties)
@@ -85830,7 +85830,7 @@ $root.E2E = (function() {
                  * @property {string|null} [firstImageId] ProductSnapshot firstImageId
                  * @property {number|Long|null} [salePriceAmount1000] ProductSnapshot salePriceAmount1000
                  * @property {string|null} [signedUrl] ProductSnapshot signedUrl
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -85866,7 +85866,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a ProductSnapshot.
                  * @constructor
                  * @param {E2E.Message.ProductMessage.ProductSnapshot.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var ProductSnapshot = function (properties) {
                     if (properties)
@@ -86523,7 +86523,7 @@ $root.E2E = (function() {
              * @property {number|null} [afterReadDuration] ProtocolMessage afterReadDuration
              * @property {E2E.Message.ChatThemeSetting.$Properties|null} [chatThemeSetting] ProtocolMessage chatThemeSetting
              * @property {AICommon.AIMetadataOperation.$Properties|null} [aiMetadataOperation] ProtocolMessage aiMetadataOperation
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -86575,7 +86575,7 @@ $root.E2E = (function() {
              * @classdesc Represents a ProtocolMessage.
              * @constructor
              * @param {E2E.Message.ProtocolMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ProtocolMessage = function (properties) {
                 if (properties)
@@ -88067,7 +88067,7 @@ $root.E2E = (function() {
              * @typedef {Object} E2E.Message.QuestionResponseMessage.$Properties
              * @property {Protocol.MessageKey.$Properties|null} [key] QuestionResponseMessage key
              * @property {string|null} [text] QuestionResponseMessage text
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -88089,7 +88089,7 @@ $root.E2E = (function() {
              * @classdesc Represents a QuestionResponseMessage.
              * @constructor
              * @param {E2E.Message.QuestionResponseMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var QuestionResponseMessage = function (properties) {
                 if (properties)
@@ -88375,7 +88375,7 @@ $root.E2E = (function() {
              * @property {string|null} [text] ReactionMessage text
              * @property {string|null} [groupingKey] ReactionMessage groupingKey
              * @property {number|Long|null} [senderTimestampMs] ReactionMessage senderTimestampMs
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -88397,7 +88397,7 @@ $root.E2E = (function() {
              * @classdesc Represents a ReactionMessage.
              * @constructor
              * @param {E2E.Message.ReactionMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ReactionMessage = function (properties) {
                 if (properties)
@@ -88762,7 +88762,7 @@ $root.E2E = (function() {
              * @property {number|Long|null} [expiryTimestamp] RequestPaymentMessage expiryTimestamp
              * @property {E2E.Money.$Properties|null} [amount] RequestPaymentMessage amount
              * @property {E2E.PaymentBackground.$Properties|null} [background] RequestPaymentMessage background
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -88793,7 +88793,7 @@ $root.E2E = (function() {
              * @classdesc Represents a RequestPaymentMessage.
              * @constructor
              * @param {E2E.Message.RequestPaymentMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var RequestPaymentMessage = function (properties) {
                 if (properties)
@@ -89272,7 +89272,7 @@ $root.E2E = (function() {
              * Properties of a RequestPhoneNumberMessage.
              * @typedef {Object} E2E.Message.RequestPhoneNumberMessage.$Properties
              * @property {E2E.ContextInfo.$Properties|null} [contextInfo] RequestPhoneNumberMessage contextInfo
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -89297,7 +89297,7 @@ $root.E2E = (function() {
              * @classdesc Represents a RequestPhoneNumberMessage.
              * @constructor
              * @param {E2E.Message.RequestPhoneNumberMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var RequestPhoneNumberMessage = function (properties) {
                 if (properties)
@@ -89550,7 +89550,7 @@ $root.E2E = (function() {
              * @property {E2E.Message.RequestWelcomeMessageMetadata.LocalChatState|null} [localChatState] RequestWelcomeMessageMetadata localChatState
              * @property {E2E.Message.RequestWelcomeMessageMetadata.WelcomeTrigger|null} [welcomeTrigger] RequestWelcomeMessageMetadata welcomeTrigger
              * @property {AICommon.BotAgentMetadata.$Properties|null} [botAgentMetadata] RequestWelcomeMessageMetadata botAgentMetadata
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -89572,7 +89572,7 @@ $root.E2E = (function() {
              * @classdesc Represents a RequestWelcomeMessageMetadata.
              * @constructor
              * @param {E2E.Message.RequestWelcomeMessageMetadata.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var RequestWelcomeMessageMetadata = function (properties) {
                 if (properties)
@@ -89953,7 +89953,7 @@ $root.E2E = (function() {
              * Properties of a RootSecretDistributeMessage.
              * @typedef {Object} E2E.Message.RootSecretDistributeMessage.$Properties
              * @property {string|null} [chatJid] RootSecretDistributeMessage chatJid
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -89975,7 +89975,7 @@ $root.E2E = (function() {
              * @classdesc Represents a RootSecretDistributeMessage.
              * @constructor
              * @param {E2E.Message.RootSecretDistributeMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var RootSecretDistributeMessage = function (properties) {
                 if (properties)
@@ -90222,7 +90222,7 @@ $root.E2E = (function() {
              * @property {number|Long|null} [scheduledTimestampMs] ScheduledCallCreationMessage scheduledTimestampMs
              * @property {E2E.Message.ScheduledCallCreationMessage.CallType|null} [callType] ScheduledCallCreationMessage callType
              * @property {string|null} [title] ScheduledCallCreationMessage title
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -90244,7 +90244,7 @@ $root.E2E = (function() {
              * @classdesc Represents a ScheduledCallCreationMessage.
              * @constructor
              * @param {E2E.Message.ScheduledCallCreationMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ScheduledCallCreationMessage = function (properties) {
                 if (properties)
@@ -90606,7 +90606,7 @@ $root.E2E = (function() {
              * @typedef {Object} E2E.Message.ScheduledCallEditMessage.$Properties
              * @property {Protocol.MessageKey.$Properties|null} [key] ScheduledCallEditMessage key
              * @property {E2E.Message.ScheduledCallEditMessage.EditType|null} [editType] ScheduledCallEditMessage editType
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -90628,7 +90628,7 @@ $root.E2E = (function() {
              * @classdesc Represents a ScheduledCallEditMessage.
              * @constructor
              * @param {E2E.Message.ScheduledCallEditMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ScheduledCallEditMessage = function (properties) {
                 if (properties)
@@ -90948,7 +90948,7 @@ $root.E2E = (function() {
              * @property {Uint8Array|null} [encIv] SecretEncryptedMessage encIv
              * @property {E2E.Message.SecretEncryptedMessage.SecretEncType|null} [secretEncType] SecretEncryptedMessage secretEncType
              * @property {string|null} [remoteKeyId] SecretEncryptedMessage remoteKeyId
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -90970,7 +90970,7 @@ $root.E2E = (function() {
              * @classdesc Represents a SecretEncryptedMessage.
              * @constructor
              * @param {E2E.Message.SecretEncryptedMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var SecretEncryptedMessage = function (properties) {
                 if (properties)
@@ -91419,7 +91419,7 @@ $root.E2E = (function() {
              * @property {Protocol.MessageKey.$Properties|null} [requestMessageKey] SendPaymentMessage requestMessageKey
              * @property {E2E.PaymentBackground.$Properties|null} [background] SendPaymentMessage background
              * @property {string|null} [transactionData] SendPaymentMessage transactionData
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -91447,7 +91447,7 @@ $root.E2E = (function() {
              * @classdesc Represents a SendPaymentMessage.
              * @constructor
              * @param {E2E.Message.SendPaymentMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var SendPaymentMessage = function (properties) {
                 if (properties)
@@ -91807,7 +91807,7 @@ $root.E2E = (function() {
              * @typedef {Object} E2E.Message.SenderKeyDistributionMessage.$Properties
              * @property {string|null} [groupId] SenderKeyDistributionMessage groupId
              * @property {Uint8Array|null} [axolotlSenderKeyDistributionMessage] SenderKeyDistributionMessage axolotlSenderKeyDistributionMessage
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -91829,7 +91829,7 @@ $root.E2E = (function() {
              * @classdesc Represents a SenderKeyDistributionMessage.
              * @constructor
              * @param {E2E.Message.SenderKeyDistributionMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var SenderKeyDistributionMessage = function (properties) {
                 if (properties)
@@ -92115,7 +92115,7 @@ $root.E2E = (function() {
              * @property {Array.<E2E.Message.SplitPaymentParticipant.$Properties>|null} [participants] SplitPaymentMessage participants
              * @property {number|Long|null} [createdAtMs] SplitPaymentMessage createdAtMs
              * @property {E2E.ContextInfo.$Properties|null} [contextInfo] SplitPaymentMessage contextInfo
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -92146,7 +92146,7 @@ $root.E2E = (function() {
              * @classdesc Represents a SplitPaymentMessage.
              * @constructor
              * @param {E2E.Message.SplitPaymentMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var SplitPaymentMessage = function (properties) {
                 this.participants = [];
@@ -92623,7 +92623,7 @@ $root.E2E = (function() {
              * @property {string|null} [jid] SplitPaymentParticipant jid
              * @property {E2E.Money.$Properties|null} [amount] SplitPaymentParticipant amount
              * @property {E2E.Message.SplitPaymentParticipant.SplitPaymentStatus|null} [status] SplitPaymentParticipant status
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -92645,7 +92645,7 @@ $root.E2E = (function() {
              * @classdesc Represents a SplitPaymentParticipant.
              * @constructor
              * @param {E2E.Message.SplitPaymentParticipant.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var SplitPaymentParticipant = function (properties) {
                 if (properties)
@@ -92995,7 +92995,7 @@ $root.E2E = (function() {
              * @property {Protocol.MessageKey.$Properties|null} [responseMessageKey] StatusNotificationMessage responseMessageKey
              * @property {Protocol.MessageKey.$Properties|null} [originalMessageKey] StatusNotificationMessage originalMessageKey
              * @property {E2E.Message.StatusNotificationMessage.StatusNotificationType|null} [type] StatusNotificationMessage type
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -93017,7 +93017,7 @@ $root.E2E = (function() {
              * @classdesc Represents a StatusNotificationMessage.
              * @constructor
              * @param {E2E.Message.StatusNotificationMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var StatusNotificationMessage = function (properties) {
                 if (properties)
@@ -93386,7 +93386,7 @@ $root.E2E = (function() {
              * @typedef {Object} E2E.Message.StatusQuestionAnswerMessage.$Properties
              * @property {Protocol.MessageKey.$Properties|null} [key] StatusQuestionAnswerMessage key
              * @property {string|null} [text] StatusQuestionAnswerMessage text
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -93408,7 +93408,7 @@ $root.E2E = (function() {
              * @classdesc Represents a StatusQuestionAnswerMessage.
              * @constructor
              * @param {E2E.Message.StatusQuestionAnswerMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var StatusQuestionAnswerMessage = function (properties) {
                 if (properties)
@@ -93694,7 +93694,7 @@ $root.E2E = (function() {
              * @property {string|null} [text] StatusQuotedMessage text
              * @property {Uint8Array|null} [thumbnail] StatusQuotedMessage thumbnail
              * @property {Protocol.MessageKey.$Properties|null} [originalStatusId] StatusQuotedMessage originalStatusId
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -93716,7 +93716,7 @@ $root.E2E = (function() {
              * @classdesc Represents a StatusQuotedMessage.
              * @constructor
              * @param {E2E.Message.StatusQuotedMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var StatusQuotedMessage = function (properties) {
                 if (properties)
@@ -94094,7 +94094,7 @@ $root.E2E = (function() {
              * @property {Protocol.MessageKey.$Properties|null} [key] StatusStickerInteractionMessage key
              * @property {string|null} [stickerKey] StatusStickerInteractionMessage stickerKey
              * @property {E2E.Message.StatusStickerInteractionMessage.StatusStickerType|null} [type] StatusStickerInteractionMessage type
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -94116,7 +94116,7 @@ $root.E2E = (function() {
              * @classdesc Represents a StatusStickerInteractionMessage.
              * @constructor
              * @param {E2E.Message.StatusStickerInteractionMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var StatusStickerInteractionMessage = function (properties) {
                 if (properties)
@@ -94485,7 +94485,7 @@ $root.E2E = (function() {
              * @property {string|null} [accessibilityLabel] StickerMessage accessibilityLabel
              * @property {number|null} [premium] StickerMessage premium
              * @property {string|null} [emojis] StickerMessage emojis
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -94531,7 +94531,7 @@ $root.E2E = (function() {
              * @classdesc Represents a StickerMessage.
              * @constructor
              * @param {E2E.Message.StickerMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var StickerMessage = function (properties) {
                 if (properties)
@@ -95526,7 +95526,7 @@ $root.E2E = (function() {
              * @property {string|null} [imageDataHash] StickerPackMessage imageDataHash
              * @property {number|Long|null} [stickerPackSize] StickerPackMessage stickerPackSize
              * @property {E2E.Message.StickerPackMessage.StickerPackOrigin|null} [stickerPackOrigin] StickerPackMessage stickerPackOrigin
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -95572,7 +95572,7 @@ $root.E2E = (function() {
              * @classdesc Represents a StickerPackMessage.
              * @constructor
              * @param {E2E.Message.StickerPackMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var StickerPackMessage = function (properties) {
                 this.stickers = [];
@@ -96587,7 +96587,7 @@ $root.E2E = (function() {
                  * @property {boolean|null} [isLottie] Sticker isLottie
                  * @property {string|null} [mimetype] Sticker mimetype
                  * @property {number|null} [premium] Sticker premium
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -96609,7 +96609,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a Sticker.
                  * @constructor
                  * @param {E2E.Message.StickerPackMessage.Sticker.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var Sticker = function (properties) {
                     this.emojis = [];
@@ -97076,7 +97076,7 @@ $root.E2E = (function() {
              * @property {Array.<string>|null} [filehash] StickerSyncRMRMessage filehash
              * @property {string|null} [rmrSource] StickerSyncRMRMessage rmrSource
              * @property {number|Long|null} [requestTimestamp] StickerSyncRMRMessage requestTimestamp
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -97098,7 +97098,7 @@ $root.E2E = (function() {
              * @classdesc Represents a StickerSyncRMRMessage.
              * @constructor
              * @param {E2E.Message.StickerSyncRMRMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var StickerSyncRMRMessage = function (properties) {
                 this.filehash = [];
@@ -97432,7 +97432,7 @@ $root.E2E = (function() {
              * @property {E2E.ContextInfo.$Properties|null} [contextInfo] TemplateButtonReplyMessage contextInfo
              * @property {number|null} [selectedIndex] TemplateButtonReplyMessage selectedIndex
              * @property {number|null} [selectedCarouselCardIndex] TemplateButtonReplyMessage selectedCarouselCardIndex
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -97461,7 +97461,7 @@ $root.E2E = (function() {
              * @classdesc Represents a TemplateButtonReplyMessage.
              * @constructor
              * @param {E2E.Message.TemplateButtonReplyMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var TemplateButtonReplyMessage = function (properties) {
                 if (properties)
@@ -97846,7 +97846,7 @@ $root.E2E = (function() {
              * @property {E2E.Message.TemplateMessage.HydratedFourRowTemplate.$Properties|null} [hydratedFourRowTemplate] TemplateMessage hydratedFourRowTemplate
              * @property {E2E.Message.InteractiveMessage.$Properties|null} [interactiveMessageTemplate] TemplateMessage interactiveMessageTemplate
              * @property {"fourRowTemplate"|"hydratedFourRowTemplate"|"interactiveMessageTemplate"} [format] TemplateMessage format
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -97878,7 +97878,7 @@ $root.E2E = (function() {
              * @classdesc Represents a TemplateMessage.
              * @constructor
              * @param {E2E.Message.TemplateMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var TemplateMessage = function (properties) {
                 if (properties)
@@ -98324,7 +98324,7 @@ $root.E2E = (function() {
                  * @property {E2E.Message.VideoMessage.$Properties|null} [videoMessage] FourRowTemplate videoMessage
                  * @property {E2E.Message.LocationMessage.$Properties|null} [locationMessage] FourRowTemplate locationMessage
                  * @property {"documentMessage"|"highlyStructuredMessage"|"imageMessage"|"videoMessage"|"locationMessage"} [title] FourRowTemplate title
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -98358,7 +98358,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a FourRowTemplate.
                  * @constructor
                  * @param {E2E.Message.TemplateMessage.FourRowTemplate.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var FourRowTemplate = function (properties) {
                     this.buttons = [];
@@ -98897,7 +98897,7 @@ $root.E2E = (function() {
                  * @property {E2E.Message.VideoMessage.$Properties|null} [videoMessage] HydratedFourRowTemplate videoMessage
                  * @property {E2E.Message.LocationMessage.$Properties|null} [locationMessage] HydratedFourRowTemplate locationMessage
                  * @property {"documentMessage"|"hydratedTitleText"|"imageMessage"|"videoMessage"|"locationMessage"} [title] HydratedFourRowTemplate title
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -98933,7 +98933,7 @@ $root.E2E = (function() {
                  * @classdesc Represents a HydratedFourRowTemplate.
                  * @constructor
                  * @param {E2E.Message.TemplateMessage.HydratedFourRowTemplate.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var HydratedFourRowTemplate = function (properties) {
                     this.hydratedButtons = [];
@@ -99511,7 +99511,7 @@ $root.E2E = (function() {
              * Properties of a URLMetadata.
              * @typedef {Object} E2E.Message.URLMetadata.$Properties
              * @property {number|null} [fbExperimentId] URLMetadata fbExperimentId
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -99533,7 +99533,7 @@ $root.E2E = (function() {
              * @classdesc Represents a URLMetadata.
              * @constructor
              * @param {E2E.Message.URLMetadata.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var URLMetadata = function (properties) {
                 if (properties)
@@ -99781,7 +99781,7 @@ $root.E2E = (function() {
              * @property {string|null} [caption] VideoEndCard caption
              * @property {string|null} [thumbnailImageUrl] VideoEndCard thumbnailImageUrl
              * @property {string|null} [profilePictureUrl] VideoEndCard profilePictureUrl
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -99803,7 +99803,7 @@ $root.E2E = (function() {
              * @classdesc Represents a VideoEndCard.
              * @constructor
              * @param {E2E.Message.VideoEndCard.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var VideoEndCard = function (properties) {
                 if (properties)
@@ -100173,7 +100173,7 @@ $root.E2E = (function() {
              * @property {number|Long|null} [motionPhotoPresentationOffsetMs] VideoMessage motionPhotoPresentationOffsetMs
              * @property {string|null} [metadataUrl] VideoMessage metadataUrl
              * @property {E2E.Message.VideoMessage.VideoSourceType|null} [videoSourceType] VideoMessage videoSourceType
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -100227,7 +100227,7 @@ $root.E2E = (function() {
              * @classdesc Represents a VideoMessage.
              * @constructor
              * @param {E2E.Message.VideoMessage.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var VideoMessage = function (properties) {
                 this.interactiveAnnotations = [];
@@ -101648,7 +101648,7 @@ $root.Protocol = (function() {
          * @property {Protocol.LimitSharing.TriggerType|null} [trigger] LimitSharing trigger
          * @property {number|Long|null} [limitSharingSettingTimestamp] LimitSharing limitSharingSettingTimestamp
          * @property {boolean|null} [initiatedByMe] LimitSharing initiatedByMe
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -101670,7 +101670,7 @@ $root.Protocol = (function() {
          * @classdesc Represents a LimitSharing.
          * @constructor
          * @param {Protocol.LimitSharing.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var LimitSharing = function (properties) {
             if (properties)
@@ -102073,7 +102073,7 @@ $root.Protocol = (function() {
          * @property {boolean|null} [fromMe] MessageKey fromMe
          * @property {string|null} [id] MessageKey id
          * @property {string|null} [participant] MessageKey participant
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -102095,7 +102095,7 @@ $root.Protocol = (function() {
          * @classdesc Represents a MessageKey.
          * @constructor
          * @param {Protocol.MessageKey.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var MessageKey = function (properties) {
             if (properties)
@@ -102457,7 +102457,7 @@ $root.AICommonDeprecated = (function() {
          * @property {AICommonDeprecated.AIRichResponseLatexMetadata.$Properties|null} [latexMetadata] AIRichResponseSubMessage latexMetadata
          * @property {AICommonDeprecated.AIRichResponseMapMetadata.$Properties|null} [mapMetadata] AIRichResponseSubMessage mapMetadata
          * @property {AICommonDeprecated.AIRichResponseContentItemsMetadata.$Properties|null} [contentItemsMetadata] AIRichResponseSubMessage contentItemsMetadata
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -102491,7 +102491,7 @@ $root.AICommonDeprecated = (function() {
          * @classdesc Represents a AIRichResponseSubMessage.
          * @constructor
          * @param {AICommonDeprecated.AIRichResponseSubMessage.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIRichResponseSubMessage = function (properties) {
             if (properties)
@@ -103132,7 +103132,7 @@ $root.AICommonDeprecated = (function() {
          * @typedef {Object} AICommonDeprecated.AIRichResponseContentItemsMetadata.$Properties
          * @property {Array.<AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.$Properties>|null} [itemsMetadata] AIRichResponseContentItemsMetadata itemsMetadata
          * @property {AICommonDeprecated.AIRichResponseContentItemsMetadata.ContentType|null} [contentType] AIRichResponseContentItemsMetadata contentType
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -103158,7 +103158,7 @@ $root.AICommonDeprecated = (function() {
          * @classdesc Represents a AIRichResponseContentItemsMetadata.
          * @constructor
          * @param {AICommonDeprecated.AIRichResponseContentItemsMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIRichResponseContentItemsMetadata = function (properties) {
             this.itemsMetadata = [];
@@ -103466,7 +103466,7 @@ $root.AICommonDeprecated = (function() {
              * @typedef {Object} AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.$Properties
              * @property {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.$Properties|null} [reelItem] AIRichResponseContentItemMetadata reelItem
              * @property {"reelItem"} [aIRichResponseContentItem] AIRichResponseContentItemMetadata aIRichResponseContentItem
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -103493,7 +103493,7 @@ $root.AICommonDeprecated = (function() {
              * @classdesc Represents a AIRichResponseContentItemMetadata.
              * @constructor
              * @param {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AIRichResponseContentItemMetadata = function (properties) {
                 if (properties)
@@ -103755,7 +103755,7 @@ $root.AICommonDeprecated = (function() {
              * @property {string|null} [profileIconUrl] AIRichResponseReelItem profileIconUrl
              * @property {string|null} [thumbnailUrl] AIRichResponseReelItem thumbnailUrl
              * @property {string|null} [videoUrl] AIRichResponseReelItem videoUrl
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -103777,7 +103777,7 @@ $root.AICommonDeprecated = (function() {
              * @classdesc Represents a AIRichResponseReelItem.
              * @constructor
              * @param {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AIRichResponseReelItem = function (properties) {
                 if (properties)
@@ -104140,7 +104140,7 @@ $root.AICommonDeprecated = (function() {
          * @property {number|null} [longitudeDelta] AIRichResponseMapMetadata longitudeDelta
          * @property {Array.<AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.$Properties>|null} [annotations] AIRichResponseMapMetadata annotations
          * @property {boolean|null} [showInfoList] AIRichResponseMapMetadata showInfoList
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -104162,7 +104162,7 @@ $root.AICommonDeprecated = (function() {
          * @classdesc Represents a AIRichResponseMapMetadata.
          * @constructor
          * @param {AICommonDeprecated.AIRichResponseMapMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIRichResponseMapMetadata = function (properties) {
             this.annotations = [];
@@ -104582,7 +104582,7 @@ $root.AICommonDeprecated = (function() {
              * @property {number|null} [longitude] AIRichResponseMapAnnotation longitude
              * @property {string|null} [title] AIRichResponseMapAnnotation title
              * @property {string|null} [body] AIRichResponseMapAnnotation body
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -104604,7 +104604,7 @@ $root.AICommonDeprecated = (function() {
              * @classdesc Represents a AIRichResponseMapAnnotation.
              * @constructor
              * @param {AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AIRichResponseMapAnnotation = function (properties) {
                 if (properties)
@@ -104981,7 +104981,7 @@ $root.AICommonDeprecated = (function() {
          * @typedef {Object} AICommonDeprecated.AIRichResponseLatexMetadata.$Properties
          * @property {string|null} [text] AIRichResponseLatexMetadata text
          * @property {Array.<AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.$Properties>|null} [expressions] AIRichResponseLatexMetadata expressions
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -105003,7 +105003,7 @@ $root.AICommonDeprecated = (function() {
          * @classdesc Represents a AIRichResponseLatexMetadata.
          * @constructor
          * @param {AICommonDeprecated.AIRichResponseLatexMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIRichResponseLatexMetadata = function (properties) {
             this.expressions = [];
@@ -105299,7 +105299,7 @@ $root.AICommonDeprecated = (function() {
              * @property {number|null} [imageLeadingPadding] AIRichResponseLatexExpression imageLeadingPadding
              * @property {number|null} [imageBottomPadding] AIRichResponseLatexExpression imageBottomPadding
              * @property {number|null} [imageTrailingPadding] AIRichResponseLatexExpression imageTrailingPadding
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -105321,7 +105321,7 @@ $root.AICommonDeprecated = (function() {
              * @classdesc Represents a AIRichResponseLatexExpression.
              * @constructor
              * @param {AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AIRichResponseLatexExpression = function (properties) {
                 if (properties)
@@ -105828,7 +105828,7 @@ $root.AICommonDeprecated = (function() {
          * @property {number|Long|null} [version] AIRichResponseDynamicMetadata version
          * @property {string|null} [url] AIRichResponseDynamicMetadata url
          * @property {number|null} [loopCount] AIRichResponseDynamicMetadata loopCount
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -105850,7 +105850,7 @@ $root.AICommonDeprecated = (function() {
          * @classdesc Represents a AIRichResponseDynamicMetadata.
          * @constructor
          * @param {AICommonDeprecated.AIRichResponseDynamicMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIRichResponseDynamicMetadata = function (properties) {
             if (properties)
@@ -106244,7 +106244,7 @@ $root.AICommonDeprecated = (function() {
          * @typedef {Object} AICommonDeprecated.AIRichResponseTableMetadata.$Properties
          * @property {Array.<AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.$Properties>|null} [rows] AIRichResponseTableMetadata rows
          * @property {string|null} [title] AIRichResponseTableMetadata title
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -106266,7 +106266,7 @@ $root.AICommonDeprecated = (function() {
          * @classdesc Represents a AIRichResponseTableMetadata.
          * @constructor
          * @param {AICommonDeprecated.AIRichResponseTableMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIRichResponseTableMetadata = function (properties) {
             this.rows = [];
@@ -106555,7 +106555,7 @@ $root.AICommonDeprecated = (function() {
              * @typedef {Object} AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.$Properties
              * @property {Array.<string>|null} [items] AIRichResponseTableRow items
              * @property {boolean|null} [isHeading] AIRichResponseTableRow isHeading
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -106577,7 +106577,7 @@ $root.AICommonDeprecated = (function() {
              * @classdesc Represents a AIRichResponseTableRow.
              * @constructor
              * @param {AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AIRichResponseTableRow = function (properties) {
                 this.items = [];
@@ -106867,7 +106867,7 @@ $root.AICommonDeprecated = (function() {
          * @typedef {Object} AICommonDeprecated.AIRichResponseCodeMetadata.$Properties
          * @property {string|null} [codeLanguage] AIRichResponseCodeMetadata codeLanguage
          * @property {Array.<AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.$Properties>|null} [codeBlocks] AIRichResponseCodeMetadata codeBlocks
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -106889,7 +106889,7 @@ $root.AICommonDeprecated = (function() {
          * @classdesc Represents a AIRichResponseCodeMetadata.
          * @constructor
          * @param {AICommonDeprecated.AIRichResponseCodeMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIRichResponseCodeMetadata = function (properties) {
             this.codeBlocks = [];
@@ -107178,7 +107178,7 @@ $root.AICommonDeprecated = (function() {
              * @typedef {Object} AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.$Properties
              * @property {AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeHighlightType|null} [highlightType] AIRichResponseCodeBlock highlightType
              * @property {string|null} [codeContent] AIRichResponseCodeBlock codeContent
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -107200,7 +107200,7 @@ $root.AICommonDeprecated = (function() {
              * @classdesc Represents a AIRichResponseCodeBlock.
              * @constructor
              * @param {AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AIRichResponseCodeBlock = function (properties) {
                 if (properties)
@@ -107544,7 +107544,7 @@ $root.AICommonDeprecated = (function() {
          * @property {string|null} [imageText] AIRichResponseInlineImageMetadata imageText
          * @property {AICommonDeprecated.AIRichResponseInlineImageMetadata.AIRichResponseImageAlignment|null} [alignment] AIRichResponseInlineImageMetadata alignment
          * @property {string|null} [tapLinkUrl] AIRichResponseInlineImageMetadata tapLinkUrl
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -107566,7 +107566,7 @@ $root.AICommonDeprecated = (function() {
          * @classdesc Represents a AIRichResponseInlineImageMetadata.
          * @constructor
          * @param {AICommonDeprecated.AIRichResponseInlineImageMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIRichResponseInlineImageMetadata = function (properties) {
             if (properties)
@@ -107954,7 +107954,7 @@ $root.AICommonDeprecated = (function() {
          * @typedef {Object} AICommonDeprecated.AIRichResponseGridImageMetadata.$Properties
          * @property {AICommonDeprecated.AIRichResponseImageURL.$Properties|null} [gridImageUrl] AIRichResponseGridImageMetadata gridImageUrl
          * @property {Array.<AICommonDeprecated.AIRichResponseImageURL.$Properties>|null} [imageUrls] AIRichResponseGridImageMetadata imageUrls
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -107976,7 +107976,7 @@ $root.AICommonDeprecated = (function() {
          * @classdesc Represents a AIRichResponseGridImageMetadata.
          * @constructor
          * @param {AICommonDeprecated.AIRichResponseGridImageMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIRichResponseGridImageMetadata = function (properties) {
             this.imageUrls = [];
@@ -108275,7 +108275,7 @@ $root.AICommonDeprecated = (function() {
          * @property {string|null} [imagePreviewUrl] AIRichResponseImageURL imagePreviewUrl
          * @property {string|null} [imageHighResUrl] AIRichResponseImageURL imageHighResUrl
          * @property {string|null} [sourceUrl] AIRichResponseImageURL sourceUrl
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -108297,7 +108297,7 @@ $root.AICommonDeprecated = (function() {
          * @classdesc Represents a AIRichResponseImageURL.
          * @constructor
          * @param {AICommonDeprecated.AIRichResponseImageURL.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIRichResponseImageURL = function (properties) {
             if (properties)
@@ -108670,7 +108670,7 @@ $root.StatusAttributions = (function() {
          * @property {StatusAttributions.StatusAttribution.RLAttribution.$Properties|null} [rlAttribution] StatusAttribution rlAttribution
          * @property {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties|null} [aiCreatedAttribution] StatusAttribution aiCreatedAttribution
          * @property {"statusReshare"|"externalShare"|"music"|"groupStatus"|"rlAttribution"|"aiCreatedAttribution"} [attributionData] StatusAttribution attributionData
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -108704,7 +108704,7 @@ $root.StatusAttributions = (function() {
          * @classdesc Represents a StatusAttribution.
          * @constructor
          * @param {StatusAttributions.StatusAttribution.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var StatusAttribution = function (properties) {
             if (properties)
@@ -109278,7 +109278,7 @@ $root.StatusAttributions = (function() {
              * Properties of an AiCreatedAttribution.
              * @typedef {Object} StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties
              * @property {StatusAttributions.StatusAttribution.AiCreatedAttribution.Source|null} [source] AiCreatedAttribution source
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -109300,7 +109300,7 @@ $root.StatusAttributions = (function() {
              * @classdesc Represents an AiCreatedAttribution.
              * @constructor
              * @param {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AiCreatedAttribution = function (properties) {
                 if (properties)
@@ -109581,7 +109581,7 @@ $root.StatusAttributions = (function() {
              * @property {StatusAttributions.StatusAttribution.ExternalShare.Source|null} [source] ExternalShare source
              * @property {number|null} [duration] ExternalShare duration
              * @property {string|null} [actionFallbackUrl] ExternalShare actionFallbackUrl
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -109603,7 +109603,7 @@ $root.StatusAttributions = (function() {
              * @classdesc Represents an ExternalShare.
              * @constructor
              * @param {StatusAttributions.StatusAttribution.ExternalShare.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ExternalShare = function (properties) {
                 if (properties)
@@ -110054,7 +110054,7 @@ $root.StatusAttributions = (function() {
              * Properties of a GroupStatus.
              * @typedef {Object} StatusAttributions.StatusAttribution.GroupStatus.$Properties
              * @property {string|null} [authorJid] GroupStatus authorJid
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -110076,7 +110076,7 @@ $root.StatusAttributions = (function() {
              * @classdesc Represents a GroupStatus.
              * @constructor
              * @param {StatusAttributions.StatusAttribution.GroupStatus.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var GroupStatus = function (properties) {
                 if (properties)
@@ -110326,7 +110326,7 @@ $root.StatusAttributions = (function() {
              * @property {string|null} [author] Music author
              * @property {string|null} [artistAttribution] Music artistAttribution
              * @property {boolean|null} [isExplicit] Music isExplicit
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -110348,7 +110348,7 @@ $root.StatusAttributions = (function() {
              * @classdesc Represents a Music.
              * @constructor
              * @param {StatusAttributions.StatusAttribution.Music.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var Music = function (properties) {
                 if (properties)
@@ -110753,7 +110753,7 @@ $root.StatusAttributions = (function() {
              * Properties of a RLAttribution.
              * @typedef {Object} StatusAttributions.StatusAttribution.RLAttribution.$Properties
              * @property {StatusAttributions.StatusAttribution.RLAttribution.Source|null} [source] RLAttribution source
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -110775,7 +110775,7 @@ $root.StatusAttributions = (function() {
              * @classdesc Represents a RLAttribution.
              * @constructor
              * @param {StatusAttributions.StatusAttribution.RLAttribution.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var RLAttribution = function (properties) {
                 if (properties)
@@ -111068,7 +111068,7 @@ $root.StatusAttributions = (function() {
              * @typedef {Object} StatusAttributions.StatusAttribution.StatusReshare.$Properties
              * @property {StatusAttributions.StatusAttribution.StatusReshare.Source|null} [source] StatusReshare source
              * @property {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties|null} [metadata] StatusReshare metadata
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -111090,7 +111090,7 @@ $root.StatusAttributions = (function() {
              * @classdesc Represents a StatusReshare.
              * @constructor
              * @param {StatusAttributions.StatusAttribution.StatusReshare.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var StatusReshare = function (properties) {
                 if (properties)
@@ -111407,7 +111407,7 @@ $root.StatusAttributions = (function() {
                  * @property {string|null} [channelJid] Metadata channelJid
                  * @property {number|null} [channelMessageId] Metadata channelMessageId
                  * @property {boolean|null} [hasMultipleReshares] Metadata hasMultipleReshares
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -111429,7 +111429,7 @@ $root.StatusAttributions = (function() {
                  * @classdesc Represents a Metadata.
                  * @constructor
                  * @param {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var Metadata = function (properties) {
                     if (properties)
@@ -111842,7 +111842,7 @@ $root.AICommon = (function() {
          * Properties of a BotAgentDeepLinkMetadata.
          * @typedef {Object} AICommon.BotAgentDeepLinkMetadata.$Properties
          * @property {string|null} [token] BotAgentDeepLinkMetadata token
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -111864,7 +111864,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotAgentDeepLinkMetadata.
          * @constructor
          * @param {AICommon.BotAgentDeepLinkMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotAgentDeepLinkMetadata = function (properties) {
             if (properties)
@@ -112109,7 +112109,7 @@ $root.AICommon = (function() {
          * Properties of a BotAgentMetadata.
          * @typedef {Object} AICommon.BotAgentMetadata.$Properties
          * @property {AICommon.BotAgentDeepLinkMetadata.$Properties|null} [deepLinkMetadata] BotAgentMetadata deepLinkMetadata
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -112131,7 +112131,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotAgentMetadata.
          * @constructor
          * @param {AICommon.BotAgentMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotAgentMetadata = function (properties) {
             if (properties)
@@ -112384,7 +112384,7 @@ $root.AICommon = (function() {
          * @property {AICommon.BotInfrastructureDiagnostics.BotBackend|null} [botBackend] BotInfrastructureDiagnostics botBackend
          * @property {Array.<string>|null} [toolsUsed] BotInfrastructureDiagnostics toolsUsed
          * @property {boolean|null} [isThinking] BotInfrastructureDiagnostics isThinking
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -112406,7 +112406,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotInfrastructureDiagnostics.
          * @constructor
          * @param {AICommon.BotInfrastructureDiagnostics.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotInfrastructureDiagnostics = function (properties) {
             this.toolsUsed = [];
@@ -112759,7 +112759,7 @@ $root.AICommon = (function() {
          * @property {number|Long|null} [lastFetchTime] AIHomeState lastFetchTime
          * @property {Array.<AICommon.AIHomeState.AIHomeOption.$Properties>|null} [capabilityOptions] AIHomeState capabilityOptions
          * @property {Array.<AICommon.AIHomeState.AIHomeOption.$Properties>|null} [conversationOptions] AIHomeState conversationOptions
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -112781,7 +112781,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a AIHomeState.
          * @constructor
          * @param {AICommon.AIHomeState.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIHomeState = function (properties) {
             this.capabilityOptions = [];
@@ -113134,7 +113134,7 @@ $root.AICommon = (function() {
              * @property {string|null} [imageTintColor] AIHomeOption imageTintColor
              * @property {string|null} [imageBackgroundColor] AIHomeOption imageBackgroundColor
              * @property {string|null} [cardTypeId] AIHomeOption cardTypeId
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -113156,7 +113156,7 @@ $root.AICommon = (function() {
              * @classdesc Represents a AIHomeOption.
              * @constructor
              * @param {AICommon.AIHomeState.AIHomeOption.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AIHomeOption = function (properties) {
                 if (properties)
@@ -113689,7 +113689,7 @@ $root.AICommon = (function() {
          * Properties of a BotDocumentMessageMetadata.
          * @typedef {Object} AICommon.BotDocumentMessageMetadata.$Properties
          * @property {AICommon.BotDocumentMessageMetadata.DocumentPluginType|null} [pluginType] BotDocumentMessageMetadata pluginType
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -113711,7 +113711,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotDocumentMessageMetadata.
          * @constructor
          * @param {AICommon.BotDocumentMessageMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotDocumentMessageMetadata = function (properties) {
             if (properties)
@@ -113991,7 +113991,7 @@ $root.AICommon = (function() {
          * @property {string|null} [disclaimerText] SessionTransparencyMetadata disclaimerText
          * @property {string|null} [hcaId] SessionTransparencyMetadata hcaId
          * @property {AICommon.SessionTransparencyType|null} [sessionTransparencyType] SessionTransparencyMetadata sessionTransparencyType
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -114013,7 +114013,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a SessionTransparencyMetadata.
          * @constructor
          * @param {AICommon.SessionTransparencyMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var SessionTransparencyMetadata = function (properties) {
             if (properties)
@@ -114342,7 +114342,7 @@ $root.AICommon = (function() {
          * @typedef {Object} AICommon.AIRegenerateMetadata.$Properties
          * @property {Protocol.MessageKey.$Properties|null} [messageKey] AIRegenerateMetadata messageKey
          * @property {number|Long|null} [responseTimestampMs] AIRegenerateMetadata responseTimestampMs
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -114364,7 +114364,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a AIRegenerateMetadata.
          * @constructor
          * @param {AICommon.AIRegenerateMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIRegenerateMetadata = function (properties) {
             if (properties)
@@ -114659,7 +114659,7 @@ $root.AICommon = (function() {
          * Properties of a AIRichResponseUnifiedResponse.
          * @typedef {Object} AICommon.AIRichResponseUnifiedResponse.$Properties
          * @property {Uint8Array|null} [data] AIRichResponseUnifiedResponse data
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -114681,7 +114681,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a AIRichResponseUnifiedResponse.
          * @constructor
          * @param {AICommon.AIRichResponseUnifiedResponse.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIRichResponseUnifiedResponse = function (properties) {
             if (properties)
@@ -114930,7 +114930,7 @@ $root.AICommon = (function() {
          * @typedef {Object} AICommon.BotMessageSharingInfo.$Properties
          * @property {AICommon.BotMetricsEntryPoint|null} [botEntryPointOrigin] BotMessageSharingInfo botEntryPointOrigin
          * @property {number|null} [forwardScore] BotMessageSharingInfo forwardScore
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -114952,7 +114952,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotMessageSharingInfo.
          * @constructor
          * @param {AICommon.BotMessageSharingInfo.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotMessageSharingInfo = function (properties) {
             if (properties)
@@ -115480,7 +115480,7 @@ $root.AICommon = (function() {
          * @property {string|null} [botName] ForwardedAIBotMessageInfo botName
          * @property {string|null} [botJid] ForwardedAIBotMessageInfo botJid
          * @property {string|null} [creatorName] ForwardedAIBotMessageInfo creatorName
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -115502,7 +115502,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a ForwardedAIBotMessageInfo.
          * @constructor
          * @param {AICommon.ForwardedAIBotMessageInfo.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var ForwardedAIBotMessageInfo = function (properties) {
             if (properties)
@@ -115817,7 +115817,7 @@ $root.AICommon = (function() {
          * @property {number|Long|null} [kindPositive] BotFeedbackMessage kindPositive
          * @property {AICommon.BotFeedbackMessage.ReportKind|null} [kindReport] BotFeedbackMessage kindReport
          * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.$Properties|null} [sideBySideSurveyMetadata] BotFeedbackMessage sideBySideSurveyMetadata
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -115839,7 +115839,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotFeedbackMessage.
          * @constructor
          * @param {AICommon.BotFeedbackMessage.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotFeedbackMessage = function (properties) {
             if (properties)
@@ -116514,7 +116514,7 @@ $root.AICommon = (function() {
              * @property {string|null} [messageIdToEdit] SideBySideSurveyMetadata messageIdToEdit
              * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.$Properties|null} [analyticsData] SideBySideSurveyMetadata analyticsData
              * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.$Properties|null} [metaAiAnalyticsData] SideBySideSurveyMetadata metaAiAnalyticsData
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -116536,7 +116536,7 @@ $root.AICommon = (function() {
              * @classdesc Represents a SideBySideSurveyMetadata.
              * @constructor
              * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var SideBySideSurveyMetadata = function (properties) {
                 if (properties)
@@ -117048,7 +117048,7 @@ $root.AICommon = (function() {
                  * @property {string|null} [tessaEvent] SideBySideSurveyAnalyticsData tessaEvent
                  * @property {string|null} [tessaSessionFbid] SideBySideSurveyAnalyticsData tessaSessionFbid
                  * @property {string|null} [simonSessionFbid] SideBySideSurveyAnalyticsData simonSessionFbid
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -117070,7 +117070,7 @@ $root.AICommon = (function() {
                  * @classdesc Represents a SideBySideSurveyAnalyticsData.
                  * @constructor
                  * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SideBySideSurveyAnalyticsData.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var SideBySideSurveyAnalyticsData = function (properties) {
                     if (properties)
@@ -117387,7 +117387,7 @@ $root.AICommon = (function() {
                  * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.$Properties|null} [cardImpressionEvent] SidebySideSurveyMetaAiAnalyticsData cardImpressionEvent
                  * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.$Properties|null} [responseEvent] SidebySideSurveyMetaAiAnalyticsData responseEvent
                  * @property {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.$Properties|null} [abandonEvent] SidebySideSurveyMetaAiAnalyticsData abandonEvent
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -117409,7 +117409,7 @@ $root.AICommon = (function() {
                  * @classdesc Represents a SidebySideSurveyMetaAiAnalyticsData.
                  * @constructor
                  * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var SidebySideSurveyMetaAiAnalyticsData = function (properties) {
                     if (properties)
@@ -117937,7 +117937,7 @@ $root.AICommon = (function() {
                      * Properties of a SideBySideSurveyAbandonEventData.
                      * @typedef {Object} AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.$Properties
                      * @property {string|null} [abandonDwellTimeMsString] SideBySideSurveyAbandonEventData abandonDwellTimeMsString
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
 
                     /**
@@ -117959,7 +117959,7 @@ $root.AICommon = (function() {
                      * @classdesc Represents a SideBySideSurveyAbandonEventData.
                      * @constructor
                      * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyAbandonEventData.$Properties=} [properties] Properties to set
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
                     var SideBySideSurveyAbandonEventData = function (properties) {
                         if (properties)
@@ -118205,7 +118205,7 @@ $root.AICommon = (function() {
                      * @typedef {Object} AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.$Properties
                      * @property {boolean|null} [isSurveyExpired] SideBySideSurveyCTAClickEventData isSurveyExpired
                      * @property {string|null} [clickDwellTimeMsString] SideBySideSurveyCTAClickEventData clickDwellTimeMsString
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
 
                     /**
@@ -118227,7 +118227,7 @@ $root.AICommon = (function() {
                      * @classdesc Represents a SideBySideSurveyCTAClickEventData.
                      * @constructor
                      * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAClickEventData.$Properties=} [properties] Properties to set
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
                     var SideBySideSurveyCTAClickEventData = function (properties) {
                         if (properties)
@@ -118504,7 +118504,7 @@ $root.AICommon = (function() {
                      * Properties of a SideBySideSurveyCTAImpressionEventData.
                      * @typedef {Object} AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.$Properties
                      * @property {boolean|null} [isSurveyExpired] SideBySideSurveyCTAImpressionEventData isSurveyExpired
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
 
                     /**
@@ -118526,7 +118526,7 @@ $root.AICommon = (function() {
                      * @classdesc Represents a SideBySideSurveyCTAImpressionEventData.
                      * @constructor
                      * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCTAImpressionEventData.$Properties=} [properties] Properties to set
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
                     var SideBySideSurveyCTAImpressionEventData = function (properties) {
                         if (properties)
@@ -118770,7 +118770,7 @@ $root.AICommon = (function() {
                     /**
                      * Properties of a SideBySideSurveyCardImpressionEventData.
                      * @typedef {Object} AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.$Properties
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
 
                     /**
@@ -118792,7 +118792,7 @@ $root.AICommon = (function() {
                      * @classdesc Represents a SideBySideSurveyCardImpressionEventData.
                      * @constructor
                      * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyCardImpressionEventData.$Properties=} [properties] Properties to set
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
                     var SideBySideSurveyCardImpressionEventData = function (properties) {
                         if (properties)
@@ -118991,7 +118991,7 @@ $root.AICommon = (function() {
                      * @typedef {Object} AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.$Properties
                      * @property {string|null} [responseDwellTimeMsString] SideBySideSurveyResponseEventData responseDwellTimeMsString
                      * @property {string|null} [selectedResponseId] SideBySideSurveyResponseEventData selectedResponseId
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
 
                     /**
@@ -119013,7 +119013,7 @@ $root.AICommon = (function() {
                      * @classdesc Represents a SideBySideSurveyResponseEventData.
                      * @constructor
                      * @param {AICommon.BotFeedbackMessage.SideBySideSurveyMetadata.SidebySideSurveyMetaAiAnalyticsData.SideBySideSurveyResponseEventData.$Properties=} [properties] Properties to set
-                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                     * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                      */
                     var SideBySideSurveyResponseEventData = function (properties) {
                         if (properties)
@@ -119299,7 +119299,7 @@ $root.AICommon = (function() {
          * Properties of a BotGroupParticipantMetadata.
          * @typedef {Object} AICommon.BotGroupParticipantMetadata.$Properties
          * @property {string|null} [botFbid] BotGroupParticipantMetadata botFbid
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -119321,7 +119321,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotGroupParticipantMetadata.
          * @constructor
          * @param {AICommon.BotGroupParticipantMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotGroupParticipantMetadata = function (properties) {
             if (properties)
@@ -119567,7 +119567,7 @@ $root.AICommon = (function() {
          * @typedef {Object} AICommon.BotRenderingConfigMetadata.$Properties
          * @property {string|null} [bloksVersioningId] BotRenderingConfigMetadata bloksVersioningId
          * @property {number|null} [pixelDensity] BotRenderingConfigMetadata pixelDensity
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -119589,7 +119589,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotRenderingConfigMetadata.
          * @constructor
          * @param {AICommon.BotRenderingConfigMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotRenderingConfigMetadata = function (properties) {
             if (properties)
@@ -119866,7 +119866,7 @@ $root.AICommon = (function() {
          * Properties of a BotGroupMetadata.
          * @typedef {Object} AICommon.BotGroupMetadata.$Properties
          * @property {Array.<AICommon.BotGroupParticipantMetadata.$Properties>|null} [participantsMetadata] BotGroupMetadata participantsMetadata
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -119888,7 +119888,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotGroupMetadata.
          * @constructor
          * @param {AICommon.BotGroupMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotGroupMetadata = function (properties) {
             this.participantsMetadata = [];
@@ -120143,7 +120143,7 @@ $root.AICommon = (function() {
          * Properties of a AISubscriptionUpsellMetadata.
          * @typedef {Object} AICommon.AISubscriptionUpsellMetadata.$Properties
          * @property {AICommon.AISubscriptionRequestType|null} [requestType] AISubscriptionUpsellMetadata requestType
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -120165,7 +120165,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a AISubscriptionUpsellMetadata.
          * @constructor
          * @param {AICommon.AISubscriptionUpsellMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AISubscriptionUpsellMetadata = function (properties) {
             if (properties)
@@ -120480,7 +120480,7 @@ $root.AICommon = (function() {
          * @property {AICommon.AISubscriptionUpsellMetadata.$Properties|null} [subscriptionUpsellMetadata] BotMetadata subscriptionUpsellMetadata
          * @property {AICommon.BotPttPromptMetadata.$Properties|null} [pttPromptMetadata] BotMetadata pttPromptMetadata
          * @property {Uint8Array|null} [internalMetadata] BotMetadata internalMetadata
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -120502,7 +120502,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotMetadata.
          * @constructor
          * @param {AICommon.BotMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotMetadata = function (properties) {
             if (properties)
@@ -122269,7 +122269,7 @@ $root.AICommon = (function() {
          * Properties of a BotPttPromptMetadata.
          * @typedef {Object} AICommon.BotPttPromptMetadata.$Properties
          * @property {string|null} [transcript] BotPttPromptMetadata transcript
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -122291,7 +122291,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotPttPromptMetadata.
          * @constructor
          * @param {AICommon.BotPttPromptMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotPttPromptMetadata = function (properties) {
             if (properties)
@@ -122537,7 +122537,7 @@ $root.AICommon = (function() {
          * @typedef {Object} AICommon.BotResolvedToolCallMetadata.$Properties
          * @property {string|null} [toolCallId] BotResolvedToolCallMetadata toolCallId
          * @property {string|null} [resolutionDataSerialized] BotResolvedToolCallMetadata resolutionDataSerialized
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -122559,7 +122559,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotResolvedToolCallMetadata.
          * @constructor
          * @param {AICommon.BotResolvedToolCallMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotResolvedToolCallMetadata = function (properties) {
             if (properties)
@@ -122838,7 +122838,7 @@ $root.AICommon = (function() {
          * @property {string|null} [commandName] BotCommandMetadata commandName
          * @property {string|null} [commandDescription] BotCommandMetadata commandDescription
          * @property {string|null} [commandPrompt] BotCommandMetadata commandPrompt
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -122860,7 +122860,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotCommandMetadata.
          * @constructor
          * @param {AICommon.BotCommandMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotCommandMetadata = function (properties) {
             if (properties)
@@ -123169,7 +123169,7 @@ $root.AICommon = (function() {
          * Properties of a AIMetadataOperation.
          * @typedef {Object} AICommon.AIMetadataOperation.$Properties
          * @property {AICommon.HatchMetadataSync.$Properties|null} [hatchMetadataSync] AIMetadataOperation hatchMetadataSync
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -123191,7 +123191,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a AIMetadataOperation.
          * @constructor
          * @param {AICommon.AIMetadataOperation.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIMetadataOperation = function (properties) {
             if (properties)
@@ -123444,7 +123444,7 @@ $root.AICommon = (function() {
          * @property {Uint8Array|null} [data] HatchMetadataSync data
          * @property {number|Long|null} [timestampMs] HatchMetadataSync timestampMs
          * @property {string|null} [requestId] HatchMetadataSync requestId
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -123466,7 +123466,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a HatchMetadataSync.
          * @constructor
          * @param {AICommon.HatchMetadataSync.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var HatchMetadataSync = function (properties) {
             if (properties)
@@ -123792,7 +123792,7 @@ $root.AICommon = (function() {
          * @property {string|null} [collectionId] AIMediaCollectionMessage collectionId
          * @property {number|null} [expectedMediaCount] AIMediaCollectionMessage expectedMediaCount
          * @property {boolean|null} [hasGlobalCaption] AIMediaCollectionMessage hasGlobalCaption
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -123814,7 +123814,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a AIMediaCollectionMessage.
          * @constructor
          * @param {AICommon.AIMediaCollectionMessage.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIMediaCollectionMessage = function (properties) {
             if (properties)
@@ -124124,7 +124124,7 @@ $root.AICommon = (function() {
          * @typedef {Object} AICommon.AIMediaCollectionMetadata.$Properties
          * @property {string|null} [collectionId] AIMediaCollectionMetadata collectionId
          * @property {number|null} [uploadOrderIndex] AIMediaCollectionMetadata uploadOrderIndex
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -124146,7 +124146,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a AIMediaCollectionMetadata.
          * @constructor
          * @param {AICommon.AIMediaCollectionMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIMediaCollectionMetadata = function (properties) {
             if (properties)
@@ -124424,7 +124424,7 @@ $root.AICommon = (function() {
          * @typedef {Object} AICommon.AIThreadInfo.$Properties
          * @property {AICommon.AIThreadInfo.AIThreadServerInfo.$Properties|null} [serverInfo] AIThreadInfo serverInfo
          * @property {AICommon.AIThreadInfo.AIThreadClientInfo.$Properties|null} [clientInfo] AIThreadInfo clientInfo
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -124446,7 +124446,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a AIThreadInfo.
          * @constructor
          * @param {AICommon.AIThreadInfo.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIThreadInfo = function (properties) {
             if (properties)
@@ -124733,7 +124733,7 @@ $root.AICommon = (function() {
              * @typedef {Object} AICommon.AIThreadInfo.AIThreadClientInfo.$Properties
              * @property {AICommon.AIThreadInfo.AIThreadClientInfo.AIThreadType|null} [type] AIThreadClientInfo type
              * @property {string|null} [sourceChatJid] AIThreadClientInfo sourceChatJid
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -124755,7 +124755,7 @@ $root.AICommon = (function() {
              * @classdesc Represents a AIThreadClientInfo.
              * @constructor
              * @param {AICommon.AIThreadInfo.AIThreadClientInfo.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AIThreadClientInfo = function (properties) {
                 if (properties)
@@ -125079,7 +125079,7 @@ $root.AICommon = (function() {
              * Properties of a AIThreadServerInfo.
              * @typedef {Object} AICommon.AIThreadInfo.AIThreadServerInfo.$Properties
              * @property {string|null} [title] AIThreadServerInfo title
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -125101,7 +125101,7 @@ $root.AICommon = (function() {
              * @classdesc Represents a AIThreadServerInfo.
              * @constructor
              * @param {AICommon.AIThreadInfo.AIThreadServerInfo.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AIThreadServerInfo = function (properties) {
                 if (properties)
@@ -125350,7 +125350,7 @@ $root.AICommon = (function() {
          * @typedef {Object} AICommon.BotUnifiedResponseMutation.$Properties
          * @property {AICommon.BotUnifiedResponseMutation.SideBySideMetadata.$Properties|null} [sbsMetadata] BotUnifiedResponseMutation sbsMetadata
          * @property {Array.<AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.$Properties>|null} [mediaDetailsMetadataList] BotUnifiedResponseMutation mediaDetailsMetadataList
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -125372,7 +125372,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotUnifiedResponseMutation.
          * @constructor
          * @param {AICommon.BotUnifiedResponseMutation.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotUnifiedResponseMutation = function (properties) {
             this.mediaDetailsMetadataList = [];
@@ -125668,7 +125668,7 @@ $root.AICommon = (function() {
              * @property {string|null} [id] MediaDetailsMetadata id
              * @property {AICommon.BotMediaMetadata.$Properties|null} [highResMedia] MediaDetailsMetadata highResMedia
              * @property {AICommon.BotMediaMetadata.$Properties|null} [previewMedia] MediaDetailsMetadata previewMedia
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -125690,7 +125690,7 @@ $root.AICommon = (function() {
              * @classdesc Represents a MediaDetailsMetadata.
              * @constructor
              * @param {AICommon.BotUnifiedResponseMutation.MediaDetailsMetadata.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var MediaDetailsMetadata = function (properties) {
                 if (properties)
@@ -126012,7 +126012,7 @@ $root.AICommon = (function() {
              * @typedef {Object} AICommon.BotUnifiedResponseMutation.SideBySideMetadata.$Properties
              * @property {string|null} [primaryResponseId] SideBySideMetadata primaryResponseId
              * @property {boolean|null} [surveyCtaHasRendered] SideBySideMetadata surveyCtaHasRendered
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -126034,7 +126034,7 @@ $root.AICommon = (function() {
              * @classdesc Represents a SideBySideMetadata.
              * @constructor
              * @param {AICommon.BotUnifiedResponseMutation.SideBySideMetadata.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var SideBySideMetadata = function (properties) {
                 if (properties)
@@ -126314,7 +126314,7 @@ $root.AICommon = (function() {
          * Properties of a BotMessageOrigin.
          * @typedef {Object} AICommon.BotMessageOrigin.$Properties
          * @property {AICommon.BotMessageOrigin.BotMessageOriginType|null} [type] BotMessageOrigin type
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -126336,7 +126336,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotMessageOrigin.
          * @constructor
          * @param {AICommon.BotMessageOrigin.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotMessageOrigin = function (properties) {
             if (properties)
@@ -126607,7 +126607,7 @@ $root.AICommon = (function() {
          * Properties of a BotMessageOriginMetadata.
          * @typedef {Object} AICommon.BotMessageOriginMetadata.$Properties
          * @property {Array.<AICommon.BotMessageOrigin.$Properties>|null} [origins] BotMessageOriginMetadata origins
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -126629,7 +126629,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotMessageOriginMetadata.
          * @constructor
          * @param {AICommon.BotMessageOriginMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotMessageOriginMetadata = function (properties) {
             this.origins = [];
@@ -126901,7 +126901,7 @@ $root.AICommon = (function() {
          * @property {Array.<AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.$Properties>|null} [privacyStatementParts] InThreadSurveyMetadata privacyStatementParts
          * @property {string|null} [feedbackToastText] InThreadSurveyMetadata feedbackToastText
          * @property {number|null} [startQuestionIndex] InThreadSurveyMetadata startQuestionIndex
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -126923,7 +126923,7 @@ $root.AICommon = (function() {
          * @classdesc Represents an InThreadSurveyMetadata.
          * @constructor
          * @param {AICommon.InThreadSurveyMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var InThreadSurveyMetadata = function (properties) {
             this.questions = [];
@@ -127739,7 +127739,7 @@ $root.AICommon = (function() {
              * @property {string|null} [stringValue] InThreadSurveyOption stringValue
              * @property {number|null} [numericValue] InThreadSurveyOption numericValue
              * @property {string|null} [textTranslated] InThreadSurveyOption textTranslated
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -127761,7 +127761,7 @@ $root.AICommon = (function() {
              * @classdesc Represents an InThreadSurveyOption.
              * @constructor
              * @param {AICommon.InThreadSurveyMetadata.InThreadSurveyOption.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var InThreadSurveyOption = function (properties) {
                 if (properties)
@@ -128071,7 +128071,7 @@ $root.AICommon = (function() {
              * @typedef {Object} AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.$Properties
              * @property {string|null} [text] InThreadSurveyPrivacyStatementPart text
              * @property {string|null} [url] InThreadSurveyPrivacyStatementPart url
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -128093,7 +128093,7 @@ $root.AICommon = (function() {
              * @classdesc Represents an InThreadSurveyPrivacyStatementPart.
              * @constructor
              * @param {AICommon.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var InThreadSurveyPrivacyStatementPart = function (properties) {
                 if (properties)
@@ -128372,7 +128372,7 @@ $root.AICommon = (function() {
              * @property {string|null} [questionText] InThreadSurveyQuestion questionText
              * @property {string|null} [questionId] InThreadSurveyQuestion questionId
              * @property {Array.<AICommon.InThreadSurveyMetadata.InThreadSurveyOption.$Properties>|null} [questionOptions] InThreadSurveyQuestion questionOptions
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -128394,7 +128394,7 @@ $root.AICommon = (function() {
              * @classdesc Represents an InThreadSurveyQuestion.
              * @constructor
              * @param {AICommon.InThreadSurveyMetadata.InThreadSurveyQuestion.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var InThreadSurveyQuestion = function (properties) {
                 this.questionOptions = [];
@@ -128720,7 +128720,7 @@ $root.AICommon = (function() {
          * Properties of a BotSourcesMetadata.
          * @typedef {Object} AICommon.BotSourcesMetadata.$Properties
          * @property {Array.<AICommon.BotSourcesMetadata.BotSourceItem.$Properties>|null} [sources] BotSourcesMetadata sources
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -128742,7 +128742,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotSourcesMetadata.
          * @constructor
          * @param {AICommon.BotSourcesMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotSourcesMetadata = function (properties) {
             this.sources = [];
@@ -129000,7 +129000,7 @@ $root.AICommon = (function() {
              * @property {string|null} [faviconCdnUrl] BotSourceItem faviconCdnUrl
              * @property {number|null} [citationNumber] BotSourceItem citationNumber
              * @property {string|null} [sourceTitle] BotSourceItem sourceTitle
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -129022,7 +129022,7 @@ $root.AICommon = (function() {
              * @classdesc Represents a BotSourceItem.
              * @constructor
              * @param {AICommon.BotSourcesMetadata.BotSourceItem.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var BotSourceItem = function (properties) {
                 if (properties)
@@ -129518,7 +129518,7 @@ $root.AICommon = (function() {
          * @property {boolean|null} [ageCollectionEligible] BotAgeCollectionMetadata ageCollectionEligible
          * @property {boolean|null} [shouldTriggerAgeCollectionOnClient] BotAgeCollectionMetadata shouldTriggerAgeCollectionOnClient
          * @property {AICommon.BotAgeCollectionMetadata.AgeCollectionType|null} [ageCollectionType] BotAgeCollectionMetadata ageCollectionType
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -129540,7 +129540,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotAgeCollectionMetadata.
          * @constructor
          * @param {AICommon.BotAgeCollectionMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotAgeCollectionMetadata = function (properties) {
             if (properties)
@@ -129883,7 +129883,7 @@ $root.AICommon = (function() {
          * @typedef {Object} AICommon.BotImagineMetadata.$Properties
          * @property {AICommon.BotImagineMetadata.ImagineType|null} [imagineType] BotImagineMetadata imagineType
          * @property {string|null} [shortPrompt] BotImagineMetadata shortPrompt
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -129905,7 +129905,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotImagineMetadata.
          * @constructor
          * @param {AICommon.BotImagineMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotImagineMetadata = function (properties) {
             if (properties)
@@ -130236,7 +130236,7 @@ $root.AICommon = (function() {
          * Properties of a BotQuotaMetadata.
          * @typedef {Object} AICommon.BotQuotaMetadata.$Properties
          * @property {Array.<AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.$Properties>|null} [botFeatureQuotaMetadata] BotQuotaMetadata botFeatureQuotaMetadata
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -130258,7 +130258,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotQuotaMetadata.
          * @constructor
          * @param {AICommon.BotQuotaMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotQuotaMetadata = function (properties) {
             this.botFeatureQuotaMetadata = [];
@@ -130512,7 +130512,7 @@ $root.AICommon = (function() {
              * @property {AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.BotFeatureType|null} [featureType] BotFeatureQuotaMetadata featureType
              * @property {number|null} [remainingQuota] BotFeatureQuotaMetadata remainingQuota
              * @property {number|Long|null} [expirationTimestamp] BotFeatureQuotaMetadata expirationTimestamp
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -130534,7 +130534,7 @@ $root.AICommon = (function() {
              * @classdesc Represents a BotFeatureQuotaMetadata.
              * @constructor
              * @param {AICommon.BotQuotaMetadata.BotFeatureQuotaMetadata.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var BotFeatureQuotaMetadata = function (properties) {
                 if (properties)
@@ -130892,7 +130892,7 @@ $root.AICommon = (function() {
          * @typedef {Object} AICommon.BotModeSelectionMetadata.$Properties
          * @property {Array.<AICommon.BotModeSelectionMetadata.BotUserSelectionMode>|null} [mode] BotModeSelectionMetadata mode
          * @property {Array.<number>|null} [overrideMode] BotModeSelectionMetadata overrideMode
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -130914,7 +130914,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotModeSelectionMetadata.
          * @constructor
          * @param {AICommon.BotModeSelectionMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotModeSelectionMetadata = function (properties) {
             this.mode = [];
@@ -131260,7 +131260,7 @@ $root.AICommon = (function() {
          * Properties of a BotCapabilityMetadata.
          * @typedef {Object} AICommon.BotCapabilityMetadata.$Properties
          * @property {Array.<AICommon.BotCapabilityMetadata.BotCapabilityType>|null} [capabilities] BotCapabilityMetadata capabilities
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -131282,7 +131282,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotCapabilityMetadata.
          * @constructor
          * @param {AICommon.BotCapabilityMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotCapabilityMetadata = function (properties) {
             this.capabilities = [];
@@ -132026,7 +132026,7 @@ $root.AICommon = (function() {
          * @property {string|null} [progressDescription] BotProgressIndicatorMetadata progressDescription
          * @property {Array.<AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.$Properties>|null} [stepsMetadata] BotProgressIndicatorMetadata stepsMetadata
          * @property {number|Long|null} [estimatedCompletionTime] BotProgressIndicatorMetadata estimatedCompletionTime
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -132048,7 +132048,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotProgressIndicatorMetadata.
          * @constructor
          * @param {AICommon.BotProgressIndicatorMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotProgressIndicatorMetadata = function (properties) {
             this.stepsMetadata = [];
@@ -132386,7 +132386,7 @@ $root.AICommon = (function() {
              * @property {boolean|null} [isReasoning] BotPlanningStepMetadata isReasoning
              * @property {boolean|null} [isEnhancedSearch] BotPlanningStepMetadata isEnhancedSearch
              * @property {Array.<AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.$Properties>|null} [sections] BotPlanningStepMetadata sections
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -132408,7 +132408,7 @@ $root.AICommon = (function() {
              * @classdesc Represents a BotPlanningStepMetadata.
              * @constructor
              * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var BotPlanningStepMetadata = function (properties) {
                 this.sourcesMetadata = [];
@@ -132902,7 +132902,7 @@ $root.AICommon = (function() {
                  * @property {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotSearchSourceProvider|null} [provider] BotPlanningSearchSourceMetadata provider
                  * @property {string|null} [sourceUrl] BotPlanningSearchSourceMetadata sourceUrl
                  * @property {string|null} [favIconUrl] BotPlanningSearchSourceMetadata favIconUrl
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -132924,7 +132924,7 @@ $root.AICommon = (function() {
                  * @classdesc Represents a BotPlanningSearchSourceMetadata.
                  * @constructor
                  * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var BotPlanningSearchSourceMetadata = function (properties) {
                     if (properties)
@@ -133296,7 +133296,7 @@ $root.AICommon = (function() {
                  * @property {string|null} [sourceTitle] BotPlanningSearchSourcesMetadata sourceTitle
                  * @property {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.BotPlanningSearchSourceProvider|null} [provider] BotPlanningSearchSourcesMetadata provider
                  * @property {string|null} [sourceUrl] BotPlanningSearchSourcesMetadata sourceUrl
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -133318,7 +133318,7 @@ $root.AICommon = (function() {
                  * @classdesc Represents a BotPlanningSearchSourcesMetadata.
                  * @constructor
                  * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourcesMetadata.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var BotPlanningSearchSourcesMetadata = function (properties) {
                     if (properties)
@@ -133676,7 +133676,7 @@ $root.AICommon = (function() {
                  * @property {string|null} [sectionTitle] BotPlanningStepSectionMetadata sectionTitle
                  * @property {string|null} [sectionBody] BotPlanningStepSectionMetadata sectionBody
                  * @property {Array.<AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata.$Properties>|null} [sourcesMetadata] BotPlanningStepSectionMetadata sourcesMetadata
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -133698,7 +133698,7 @@ $root.AICommon = (function() {
                  * @classdesc Represents a BotPlanningStepSectionMetadata.
                  * @constructor
                  * @param {AICommon.BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningStepSectionMetadata.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var BotPlanningStepSectionMetadata = function (properties) {
                     this.sourcesMetadata = [];
@@ -134065,7 +134065,7 @@ $root.AICommon = (function() {
          * @property {AICommon.BotModelMetadata.ModelType|null} [modelType] BotModelMetadata modelType
          * @property {AICommon.BotModelMetadata.PremiumModelStatus|null} [premiumModelStatus] BotModelMetadata premiumModelStatus
          * @property {string|null} [modelNameOverride] BotModelMetadata modelNameOverride
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -134087,7 +134087,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotModelMetadata.
          * @constructor
          * @param {AICommon.BotModelMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotModelMetadata = function (properties) {
             if (properties)
@@ -134480,7 +134480,7 @@ $root.AICommon = (function() {
          * @property {string|null} [name] BotReminderMetadata name
          * @property {number|Long|null} [nextTriggerTimestamp] BotReminderMetadata nextTriggerTimestamp
          * @property {AICommon.BotReminderMetadata.ReminderFrequency|null} [frequency] BotReminderMetadata frequency
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -134502,7 +134502,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotReminderMetadata.
          * @constructor
          * @param {AICommon.BotReminderMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotReminderMetadata = function (properties) {
             if (properties)
@@ -134994,7 +134994,7 @@ $root.AICommon = (function() {
          * Properties of a BotMemuMetadata.
          * @typedef {Object} AICommon.BotMemuMetadata.$Properties
          * @property {Array.<AICommon.BotMediaMetadata.$Properties>|null} [faceImages] BotMemuMetadata faceImages
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -135016,7 +135016,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotMemuMetadata.
          * @constructor
          * @param {AICommon.BotMemuMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotMemuMetadata = function (properties) {
             this.faceImages = [];
@@ -135277,7 +135277,7 @@ $root.AICommon = (function() {
          * @property {number|Long|null} [mediaKeyTimestamp] BotMediaMetadata mediaKeyTimestamp
          * @property {string|null} [mimetype] BotMediaMetadata mimetype
          * @property {AICommon.BotMediaMetadata.OrientationType|null} [orientationType] BotMediaMetadata orientationType
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -135299,7 +135299,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotMediaMetadata.
          * @constructor
          * @param {AICommon.BotMediaMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotMediaMetadata = function (properties) {
             if (properties)
@@ -135789,7 +135789,7 @@ $root.AICommon = (function() {
          * @typedef {Object} AICommon.BotSessionMetadata.$Properties
          * @property {string|null} [sessionId] BotSessionMetadata sessionId
          * @property {AICommon.BotSessionSource|null} [sessionSource] BotSessionMetadata sessionSource
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -135811,7 +135811,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotSessionMetadata.
          * @constructor
          * @param {AICommon.BotSessionMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotSessionMetadata = function (properties) {
             if (properties)
@@ -136139,7 +136139,7 @@ $root.AICommon = (function() {
          * @property {string|null} [destinationId] BotMetricsMetadata destinationId
          * @property {AICommon.BotMetricsEntryPoint|null} [destinationEntryPoint] BotMetricsMetadata destinationEntryPoint
          * @property {AICommon.BotMetricsThreadEntryPoint|null} [threadOrigin] BotMetricsMetadata threadOrigin
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -136161,7 +136161,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotMetricsMetadata.
          * @constructor
          * @param {AICommon.BotMetricsMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotMetricsMetadata = function (properties) {
             if (properties)
@@ -136753,7 +136753,7 @@ $root.AICommon = (function() {
          * Properties of a BotRenderingMetadata.
          * @typedef {Object} AICommon.BotRenderingMetadata.$Properties
          * @property {Array.<AICommon.BotRenderingMetadata.Keyword.$Properties>|null} [keywords] BotRenderingMetadata keywords
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -136775,7 +136775,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotRenderingMetadata.
          * @constructor
          * @param {AICommon.BotRenderingMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotRenderingMetadata = function (properties) {
             this.keywords = [];
@@ -137028,7 +137028,7 @@ $root.AICommon = (function() {
              * @typedef {Object} AICommon.BotRenderingMetadata.Keyword.$Properties
              * @property {string|null} [value] Keyword value
              * @property {Array.<string>|null} [associatedPrompts] Keyword associatedPrompts
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -137050,7 +137050,7 @@ $root.AICommon = (function() {
              * @classdesc Represents a Keyword.
              * @constructor
              * @param {AICommon.BotRenderingMetadata.Keyword.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var Keyword = function (properties) {
                 this.associatedPrompts = [];
@@ -137340,7 +137340,7 @@ $root.AICommon = (function() {
          * @typedef {Object} AICommon.BotPromotionMessageMetadata.$Properties
          * @property {AICommon.BotPromotionMessageMetadata.BotPromotionType|null} [promotionType] BotPromotionMessageMetadata promotionType
          * @property {string|null} [buttonTitle] BotPromotionMessageMetadata buttonTitle
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -137362,7 +137362,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotPromotionMessageMetadata.
          * @constructor
          * @param {AICommon.BotPromotionMessageMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotPromotionMessageMetadata = function (properties) {
             if (properties)
@@ -137682,7 +137682,7 @@ $root.AICommon = (function() {
          * @property {AICommon.BotSignatureVerificationUseCaseProof.BotSignatureUseCase|null} [useCase] BotSignatureVerificationUseCaseProof useCase
          * @property {Uint8Array|null} [signature] BotSignatureVerificationUseCaseProof signature
          * @property {Array.<Uint8Array>|null} [certificateChain] BotSignatureVerificationUseCaseProof certificateChain
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -137704,7 +137704,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotSignatureVerificationUseCaseProof.
          * @constructor
          * @param {AICommon.BotSignatureVerificationUseCaseProof.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotSignatureVerificationUseCaseProof = function (properties) {
             this.certificateChain = [];
@@ -138107,7 +138107,7 @@ $root.AICommon = (function() {
          * Properties of a BotSignatureVerificationMetadata.
          * @typedef {Object} AICommon.BotSignatureVerificationMetadata.$Properties
          * @property {Array.<AICommon.BotSignatureVerificationUseCaseProof.$Properties>|null} [proofs] BotSignatureVerificationMetadata proofs
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -138129,7 +138129,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotSignatureVerificationMetadata.
          * @constructor
          * @param {AICommon.BotSignatureVerificationMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotSignatureVerificationMetadata = function (properties) {
             this.proofs = [];
@@ -138385,7 +138385,7 @@ $root.AICommon = (function() {
          * @typedef {Object} AICommon.BotMemoryFact.$Properties
          * @property {string|null} [fact] BotMemoryFact fact
          * @property {string|null} [factId] BotMemoryFact factId
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -138407,7 +138407,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotMemoryFact.
          * @constructor
          * @param {AICommon.BotMemoryFact.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotMemoryFact = function (properties) {
             if (properties)
@@ -138686,7 +138686,7 @@ $root.AICommon = (function() {
          * @property {Array.<AICommon.BotMemoryFact.$Properties>|null} [addedFacts] BotMemoryMetadata addedFacts
          * @property {Array.<AICommon.BotMemoryFact.$Properties>|null} [removedFacts] BotMemoryMetadata removedFacts
          * @property {string|null} [disclaimer] BotMemoryMetadata disclaimer
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -138708,7 +138708,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotMemoryMetadata.
          * @constructor
          * @param {AICommon.BotMemoryMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotMemoryMetadata = function (properties) {
             this.addedFacts = [];
@@ -139045,7 +139045,7 @@ $root.AICommon = (function() {
          * Properties of a BotLinkedAccount.
          * @typedef {Object} AICommon.BotLinkedAccount.$Properties
          * @property {AICommon.BotLinkedAccount.BotLinkedAccountType|null} [type] BotLinkedAccount type
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -139067,7 +139067,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotLinkedAccount.
          * @constructor
          * @param {AICommon.BotLinkedAccount.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotLinkedAccount = function (properties) {
             if (properties)
@@ -139340,7 +139340,7 @@ $root.AICommon = (function() {
          * @property {Array.<AICommon.BotLinkedAccount.$Properties>|null} [accounts] BotLinkedAccountsMetadata accounts
          * @property {Uint8Array|null} [acAuthTokens] BotLinkedAccountsMetadata acAuthTokens
          * @property {number|null} [acErrorCode] BotLinkedAccountsMetadata acErrorCode
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -139362,7 +139362,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotLinkedAccountsMetadata.
          * @constructor
          * @param {AICommon.BotLinkedAccountsMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotLinkedAccountsMetadata = function (properties) {
             this.accounts = [];
@@ -139689,7 +139689,7 @@ $root.AICommon = (function() {
          * @typedef {Object} AICommon.BotPromptSuggestion.$Properties
          * @property {string|null} [prompt] BotPromptSuggestion prompt
          * @property {string|null} [promptId] BotPromptSuggestion promptId
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -139711,7 +139711,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotPromptSuggestion.
          * @constructor
          * @param {AICommon.BotPromptSuggestion.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotPromptSuggestion = function (properties) {
             if (properties)
@@ -139988,7 +139988,7 @@ $root.AICommon = (function() {
          * Properties of a BotPromptSuggestions.
          * @typedef {Object} AICommon.BotPromptSuggestions.$Properties
          * @property {Array.<AICommon.BotPromptSuggestion.$Properties>|null} [suggestions] BotPromptSuggestions suggestions
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -140010,7 +140010,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotPromptSuggestions.
          * @constructor
          * @param {AICommon.BotPromptSuggestions.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotPromptSuggestions = function (properties) {
             this.suggestions = [];
@@ -140268,7 +140268,7 @@ $root.AICommon = (function() {
          * @property {number|null} [selectedPromptIndex] BotSuggestedPromptMetadata selectedPromptIndex
          * @property {AICommon.BotPromptSuggestions.$Properties|null} [promptSuggestions] BotSuggestedPromptMetadata promptSuggestions
          * @property {string|null} [selectedPromptId] BotSuggestedPromptMetadata selectedPromptId
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -140290,7 +140290,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotSuggestedPromptMetadata.
          * @constructor
          * @param {AICommon.BotSuggestedPromptMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotSuggestedPromptMetadata = function (properties) {
             this.suggestedPrompts = [];
@@ -140657,7 +140657,7 @@ $root.AICommon = (function() {
          * @property {AICommon.BotPluginMetadata.PluginType|null} [deprecatedField] BotPluginMetadata deprecatedField
          * @property {AICommon.BotPluginMetadata.PluginType|null} [parentPluginType] BotPluginMetadata parentPluginType
          * @property {string|null} [faviconCdnUrl] BotPluginMetadata faviconCdnUrl
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -140679,7 +140679,7 @@ $root.AICommon = (function() {
          * @classdesc Represents a BotPluginMetadata.
          * @constructor
          * @param {AICommon.BotPluginMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var BotPluginMetadata = function (properties) {
             if (properties)
@@ -141615,7 +141615,7 @@ $root.Adv = (function() {
          * @property {Uint8Array|null} [details] ADVSignedDeviceIdentityHMAC details
          * @property {Uint8Array|null} [hmac] ADVSignedDeviceIdentityHMAC hmac
          * @property {Adv.ADVEncryptionType|null} [accountType] ADVSignedDeviceIdentityHMAC accountType
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -141637,7 +141637,7 @@ $root.Adv = (function() {
          * @classdesc Represents a ADVSignedDeviceIdentityHMAC.
          * @constructor
          * @param {Adv.ADVSignedDeviceIdentityHMAC.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var ADVSignedDeviceIdentityHMAC = function (properties) {
             if (properties)
@@ -141979,7 +141979,7 @@ $root.Adv = (function() {
          * @property {Uint8Array|null} [accountSignatureKey] ADVSignedDeviceIdentity accountSignatureKey
          * @property {Uint8Array|null} [accountSignature] ADVSignedDeviceIdentity accountSignature
          * @property {Uint8Array|null} [deviceSignature] ADVSignedDeviceIdentity deviceSignature
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -142001,7 +142001,7 @@ $root.Adv = (function() {
          * @classdesc Represents a ADVSignedDeviceIdentity.
          * @constructor
          * @param {Adv.ADVSignedDeviceIdentity.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var ADVSignedDeviceIdentity = function (properties) {
             if (properties)
@@ -142358,7 +142358,7 @@ $root.Adv = (function() {
          * @property {number|null} [keyIndex] ADVDeviceIdentity keyIndex
          * @property {Adv.ADVEncryptionType|null} [accountType] ADVDeviceIdentity accountType
          * @property {Adv.ADVEncryptionType|null} [deviceType] ADVDeviceIdentity deviceType
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -142380,7 +142380,7 @@ $root.Adv = (function() {
          * @classdesc Represents a ADVDeviceIdentity.
          * @constructor
          * @param {Adv.ADVDeviceIdentity.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var ADVDeviceIdentity = function (properties) {
             if (properties)
@@ -142815,7 +142815,7 @@ $root.Adv = (function() {
          * @property {Uint8Array|null} [details] ADVSignedKeyIndexList details
          * @property {Uint8Array|null} [accountSignature] ADVSignedKeyIndexList accountSignature
          * @property {Uint8Array|null} [accountSignatureKey] ADVSignedKeyIndexList accountSignatureKey
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -142837,7 +142837,7 @@ $root.Adv = (function() {
          * @classdesc Represents a ADVSignedKeyIndexList.
          * @constructor
          * @param {Adv.ADVSignedKeyIndexList.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var ADVSignedKeyIndexList = function (properties) {
             if (properties)
@@ -143159,7 +143159,7 @@ $root.Adv = (function() {
          * @property {number|null} [currentIndex] ADVKeyIndexList currentIndex
          * @property {Array.<number>|null} [validIndexes] ADVKeyIndexList validIndexes
          * @property {Adv.ADVEncryptionType|null} [accountType] ADVKeyIndexList accountType
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -143181,7 +143181,7 @@ $root.Adv = (function() {
          * @classdesc Represents a ADVKeyIndexList.
          * @constructor
          * @param {Adv.ADVKeyIndexList.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var ADVKeyIndexList = function (properties) {
             this.validIndexes = [];
@@ -143642,7 +143642,7 @@ $root.CompanionReg = (function() {
          * @property {boolean|null} [isSyncdSnapshotRecoveryEnabled] ClientPairingProps isSyncdSnapshotRecoveryEnabled
          * @property {boolean|null} [isHsThumbnailSyncEnabled] ClientPairingProps isHsThumbnailSyncEnabled
          * @property {Uint8Array|null} [subscriptionSyncPayload] ClientPairingProps subscriptionSyncPayload
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -143664,7 +143664,7 @@ $root.CompanionReg = (function() {
          * @classdesc Represents a ClientPairingProps.
          * @constructor
          * @param {CompanionReg.ClientPairingProps.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var ClientPairingProps = function (properties) {
             if (properties)
@@ -144041,7 +144041,7 @@ $root.CompanionReg = (function() {
          * @typedef {Object} CompanionReg.EncryptedPairingRequest.$Properties
          * @property {Uint8Array|null} [encryptedPayload] EncryptedPairingRequest encryptedPayload
          * @property {Uint8Array|null} [iv] EncryptedPairingRequest iv
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -144063,7 +144063,7 @@ $root.CompanionReg = (function() {
          * @classdesc Represents an EncryptedPairingRequest.
          * @constructor
          * @param {CompanionReg.EncryptedPairingRequest.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var EncryptedPairingRequest = function (properties) {
             if (properties)
@@ -144348,7 +144348,7 @@ $root.CompanionReg = (function() {
          * @property {Uint8Array|null} [companionPublicKey] PairingRequest companionPublicKey
          * @property {Uint8Array|null} [companionIdentityKey] PairingRequest companionIdentityKey
          * @property {Uint8Array|null} [advSecret] PairingRequest advSecret
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -144370,7 +144370,7 @@ $root.CompanionReg = (function() {
          * @classdesc Represents a PairingRequest.
          * @constructor
          * @param {CompanionReg.PairingRequest.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var PairingRequest = function (properties) {
             if (properties)
@@ -144689,7 +144689,7 @@ $root.CompanionReg = (function() {
          * @typedef {Object} CompanionReg.PrimaryEphemeralIdentity.$Properties
          * @property {Uint8Array|null} [publicKey] PrimaryEphemeralIdentity publicKey
          * @property {Uint8Array|null} [nonce] PrimaryEphemeralIdentity nonce
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -144711,7 +144711,7 @@ $root.CompanionReg = (function() {
          * @classdesc Represents a PrimaryEphemeralIdentity.
          * @constructor
          * @param {CompanionReg.PrimaryEphemeralIdentity.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var PrimaryEphemeralIdentity = function (properties) {
             if (properties)
@@ -144995,7 +144995,7 @@ $root.CompanionReg = (function() {
          * @typedef {Object} CompanionReg.ProloguePayload.$Properties
          * @property {Uint8Array|null} [companionEphemeralIdentity] ProloguePayload companionEphemeralIdentity
          * @property {CompanionReg.CompanionCommitment.$Properties|null} [commitment] ProloguePayload commitment
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -145017,7 +145017,7 @@ $root.CompanionReg = (function() {
          * @classdesc Represents a ProloguePayload.
          * @constructor
          * @param {CompanionReg.ProloguePayload.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var ProloguePayload = function (properties) {
             if (properties)
@@ -145303,7 +145303,7 @@ $root.CompanionReg = (function() {
          * Properties of a CompanionCommitment.
          * @typedef {Object} CompanionReg.CompanionCommitment.$Properties
          * @property {Uint8Array|null} [hash] CompanionCommitment hash
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -145325,7 +145325,7 @@ $root.CompanionReg = (function() {
          * @classdesc Represents a CompanionCommitment.
          * @constructor
          * @param {CompanionReg.CompanionCommitment.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var CompanionCommitment = function (properties) {
             if (properties)
@@ -145575,7 +145575,7 @@ $root.CompanionReg = (function() {
          * @property {Uint8Array|null} [publicKey] CompanionEphemeralIdentity publicKey
          * @property {CompanionReg.DeviceProps.PlatformType|null} [deviceType] CompanionEphemeralIdentity deviceType
          * @property {string|null} [ref] CompanionEphemeralIdentity ref
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -145597,7 +145597,7 @@ $root.CompanionReg = (function() {
          * @classdesc Represents a CompanionEphemeralIdentity.
          * @constructor
          * @param {CompanionReg.CompanionEphemeralIdentity.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var CompanionEphemeralIdentity = function (properties) {
             if (properties)
@@ -146047,7 +146047,7 @@ $root.CompanionReg = (function() {
          * @property {CompanionReg.DeviceProps.PlatformType|null} [platformType] DeviceProps platformType
          * @property {boolean|null} [requireFullSync] DeviceProps requireFullSync
          * @property {CompanionReg.DeviceProps.HistorySyncConfig.$Properties|null} [historySyncConfig] DeviceProps historySyncConfig
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -146069,7 +146069,7 @@ $root.CompanionReg = (function() {
          * @classdesc Represents a DeviceProps.
          * @constructor
          * @param {CompanionReg.DeviceProps.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var DeviceProps = function (properties) {
             if (properties)
@@ -146589,7 +146589,7 @@ $root.CompanionReg = (function() {
              * @property {number|null} [tertiary] AppVersion tertiary
              * @property {number|null} [quaternary] AppVersion quaternary
              * @property {number|null} [quinary] AppVersion quinary
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -146611,7 +146611,7 @@ $root.CompanionReg = (function() {
              * @classdesc Represents an AppVersion.
              * @constructor
              * @param {CompanionReg.DeviceProps.AppVersion.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AppVersion = function (properties) {
                 if (properties)
@@ -147007,7 +147007,7 @@ $root.CompanionReg = (function() {
              * @property {boolean|null} [supportHatchHistory] HistorySyncConfig supportHatchHistory
              * @property {Array.<string>|null} [supportedBotChannelFbids] HistorySyncConfig supportedBotChannelFbids
              * @property {boolean|null} [supportInlineContacts] HistorySyncConfig supportInlineContacts
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -147029,7 +147029,7 @@ $root.CompanionReg = (function() {
              * @classdesc Represents a HistorySyncConfig.
              * @constructor
              * @param {CompanionReg.DeviceProps.HistorySyncConfig.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var HistorySyncConfig = function (properties) {
                 this.supportedBotChannelFbids = [];
@@ -148094,7 +148094,7 @@ $root.MmsRetry = (function() {
          * Properties of a ServerErrorReceipt.
          * @typedef {Object} MmsRetry.ServerErrorReceipt.$Properties
          * @property {string|null} [stanzaId] ServerErrorReceipt stanzaId
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -148116,7 +148116,7 @@ $root.MmsRetry = (function() {
          * @classdesc Represents a ServerErrorReceipt.
          * @constructor
          * @param {MmsRetry.ServerErrorReceipt.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var ServerErrorReceipt = function (properties) {
             if (properties)
@@ -148364,7 +148364,7 @@ $root.MmsRetry = (function() {
          * @property {string|null} [directPath] MediaRetryNotification directPath
          * @property {MmsRetry.MediaRetryNotification.ResultType|null} [result] MediaRetryNotification result
          * @property {Uint8Array|null} [messageSecret] MediaRetryNotification messageSecret
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -148386,7 +148386,7 @@ $root.MmsRetry = (function() {
          * @classdesc Represents a MediaRetryNotification.
          * @constructor
          * @param {MmsRetry.MediaRetryNotification.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var MediaRetryNotification = function (properties) {
             if (properties)

@@ -34,7 +34,7 @@ $root.AICommonDeprecated = (function() {
          * @property {AICommonDeprecated.AIRichResponseLatexMetadata.$Properties|null} [latexMetadata] AIRichResponseSubMessage latexMetadata
          * @property {AICommonDeprecated.AIRichResponseMapMetadata.$Properties|null} [mapMetadata] AIRichResponseSubMessage mapMetadata
          * @property {AICommonDeprecated.AIRichResponseContentItemsMetadata.$Properties|null} [contentItemsMetadata] AIRichResponseSubMessage contentItemsMetadata
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -68,7 +68,7 @@ $root.AICommonDeprecated = (function() {
          * @classdesc Represents a AIRichResponseSubMessage.
          * @constructor
          * @param {AICommonDeprecated.AIRichResponseSubMessage.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIRichResponseSubMessage = function (properties) {
             if (properties)
@@ -709,7 +709,7 @@ $root.AICommonDeprecated = (function() {
          * @typedef {Object} AICommonDeprecated.AIRichResponseContentItemsMetadata.$Properties
          * @property {Array.<AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.$Properties>|null} [itemsMetadata] AIRichResponseContentItemsMetadata itemsMetadata
          * @property {AICommonDeprecated.AIRichResponseContentItemsMetadata.ContentType|null} [contentType] AIRichResponseContentItemsMetadata contentType
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -735,7 +735,7 @@ $root.AICommonDeprecated = (function() {
          * @classdesc Represents a AIRichResponseContentItemsMetadata.
          * @constructor
          * @param {AICommonDeprecated.AIRichResponseContentItemsMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIRichResponseContentItemsMetadata = function (properties) {
             this.itemsMetadata = [];
@@ -1043,7 +1043,7 @@ $root.AICommonDeprecated = (function() {
              * @typedef {Object} AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.$Properties
              * @property {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.$Properties|null} [reelItem] AIRichResponseContentItemMetadata reelItem
              * @property {"reelItem"} [aIRichResponseContentItem] AIRichResponseContentItemMetadata aIRichResponseContentItem
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -1070,7 +1070,7 @@ $root.AICommonDeprecated = (function() {
              * @classdesc Represents a AIRichResponseContentItemMetadata.
              * @constructor
              * @param {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseContentItemMetadata.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AIRichResponseContentItemMetadata = function (properties) {
                 if (properties)
@@ -1332,7 +1332,7 @@ $root.AICommonDeprecated = (function() {
              * @property {string|null} [profileIconUrl] AIRichResponseReelItem profileIconUrl
              * @property {string|null} [thumbnailUrl] AIRichResponseReelItem thumbnailUrl
              * @property {string|null} [videoUrl] AIRichResponseReelItem videoUrl
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -1354,7 +1354,7 @@ $root.AICommonDeprecated = (function() {
              * @classdesc Represents a AIRichResponseReelItem.
              * @constructor
              * @param {AICommonDeprecated.AIRichResponseContentItemsMetadata.AIRichResponseReelItem.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AIRichResponseReelItem = function (properties) {
                 if (properties)
@@ -1717,7 +1717,7 @@ $root.AICommonDeprecated = (function() {
          * @property {number|null} [longitudeDelta] AIRichResponseMapMetadata longitudeDelta
          * @property {Array.<AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.$Properties>|null} [annotations] AIRichResponseMapMetadata annotations
          * @property {boolean|null} [showInfoList] AIRichResponseMapMetadata showInfoList
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -1739,7 +1739,7 @@ $root.AICommonDeprecated = (function() {
          * @classdesc Represents a AIRichResponseMapMetadata.
          * @constructor
          * @param {AICommonDeprecated.AIRichResponseMapMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIRichResponseMapMetadata = function (properties) {
             this.annotations = [];
@@ -2159,7 +2159,7 @@ $root.AICommonDeprecated = (function() {
              * @property {number|null} [longitude] AIRichResponseMapAnnotation longitude
              * @property {string|null} [title] AIRichResponseMapAnnotation title
              * @property {string|null} [body] AIRichResponseMapAnnotation body
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -2181,7 +2181,7 @@ $root.AICommonDeprecated = (function() {
              * @classdesc Represents a AIRichResponseMapAnnotation.
              * @constructor
              * @param {AICommonDeprecated.AIRichResponseMapMetadata.AIRichResponseMapAnnotation.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AIRichResponseMapAnnotation = function (properties) {
                 if (properties)
@@ -2558,7 +2558,7 @@ $root.AICommonDeprecated = (function() {
          * @typedef {Object} AICommonDeprecated.AIRichResponseLatexMetadata.$Properties
          * @property {string|null} [text] AIRichResponseLatexMetadata text
          * @property {Array.<AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.$Properties>|null} [expressions] AIRichResponseLatexMetadata expressions
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -2580,7 +2580,7 @@ $root.AICommonDeprecated = (function() {
          * @classdesc Represents a AIRichResponseLatexMetadata.
          * @constructor
          * @param {AICommonDeprecated.AIRichResponseLatexMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIRichResponseLatexMetadata = function (properties) {
             this.expressions = [];
@@ -2876,7 +2876,7 @@ $root.AICommonDeprecated = (function() {
              * @property {number|null} [imageLeadingPadding] AIRichResponseLatexExpression imageLeadingPadding
              * @property {number|null} [imageBottomPadding] AIRichResponseLatexExpression imageBottomPadding
              * @property {number|null} [imageTrailingPadding] AIRichResponseLatexExpression imageTrailingPadding
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -2898,7 +2898,7 @@ $root.AICommonDeprecated = (function() {
              * @classdesc Represents a AIRichResponseLatexExpression.
              * @constructor
              * @param {AICommonDeprecated.AIRichResponseLatexMetadata.AIRichResponseLatexExpression.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AIRichResponseLatexExpression = function (properties) {
                 if (properties)
@@ -3405,7 +3405,7 @@ $root.AICommonDeprecated = (function() {
          * @property {number|Long|null} [version] AIRichResponseDynamicMetadata version
          * @property {string|null} [url] AIRichResponseDynamicMetadata url
          * @property {number|null} [loopCount] AIRichResponseDynamicMetadata loopCount
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -3427,7 +3427,7 @@ $root.AICommonDeprecated = (function() {
          * @classdesc Represents a AIRichResponseDynamicMetadata.
          * @constructor
          * @param {AICommonDeprecated.AIRichResponseDynamicMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIRichResponseDynamicMetadata = function (properties) {
             if (properties)
@@ -3821,7 +3821,7 @@ $root.AICommonDeprecated = (function() {
          * @typedef {Object} AICommonDeprecated.AIRichResponseTableMetadata.$Properties
          * @property {Array.<AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.$Properties>|null} [rows] AIRichResponseTableMetadata rows
          * @property {string|null} [title] AIRichResponseTableMetadata title
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -3843,7 +3843,7 @@ $root.AICommonDeprecated = (function() {
          * @classdesc Represents a AIRichResponseTableMetadata.
          * @constructor
          * @param {AICommonDeprecated.AIRichResponseTableMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIRichResponseTableMetadata = function (properties) {
             this.rows = [];
@@ -4132,7 +4132,7 @@ $root.AICommonDeprecated = (function() {
              * @typedef {Object} AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.$Properties
              * @property {Array.<string>|null} [items] AIRichResponseTableRow items
              * @property {boolean|null} [isHeading] AIRichResponseTableRow isHeading
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -4154,7 +4154,7 @@ $root.AICommonDeprecated = (function() {
              * @classdesc Represents a AIRichResponseTableRow.
              * @constructor
              * @param {AICommonDeprecated.AIRichResponseTableMetadata.AIRichResponseTableRow.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AIRichResponseTableRow = function (properties) {
                 this.items = [];
@@ -4444,7 +4444,7 @@ $root.AICommonDeprecated = (function() {
          * @typedef {Object} AICommonDeprecated.AIRichResponseCodeMetadata.$Properties
          * @property {string|null} [codeLanguage] AIRichResponseCodeMetadata codeLanguage
          * @property {Array.<AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.$Properties>|null} [codeBlocks] AIRichResponseCodeMetadata codeBlocks
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -4466,7 +4466,7 @@ $root.AICommonDeprecated = (function() {
          * @classdesc Represents a AIRichResponseCodeMetadata.
          * @constructor
          * @param {AICommonDeprecated.AIRichResponseCodeMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIRichResponseCodeMetadata = function (properties) {
             this.codeBlocks = [];
@@ -4755,7 +4755,7 @@ $root.AICommonDeprecated = (function() {
              * @typedef {Object} AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.$Properties
              * @property {AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeHighlightType|null} [highlightType] AIRichResponseCodeBlock highlightType
              * @property {string|null} [codeContent] AIRichResponseCodeBlock codeContent
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -4777,7 +4777,7 @@ $root.AICommonDeprecated = (function() {
              * @classdesc Represents a AIRichResponseCodeBlock.
              * @constructor
              * @param {AICommonDeprecated.AIRichResponseCodeMetadata.AIRichResponseCodeBlock.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AIRichResponseCodeBlock = function (properties) {
                 if (properties)
@@ -5121,7 +5121,7 @@ $root.AICommonDeprecated = (function() {
          * @property {string|null} [imageText] AIRichResponseInlineImageMetadata imageText
          * @property {AICommonDeprecated.AIRichResponseInlineImageMetadata.AIRichResponseImageAlignment|null} [alignment] AIRichResponseInlineImageMetadata alignment
          * @property {string|null} [tapLinkUrl] AIRichResponseInlineImageMetadata tapLinkUrl
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -5143,7 +5143,7 @@ $root.AICommonDeprecated = (function() {
          * @classdesc Represents a AIRichResponseInlineImageMetadata.
          * @constructor
          * @param {AICommonDeprecated.AIRichResponseInlineImageMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIRichResponseInlineImageMetadata = function (properties) {
             if (properties)
@@ -5531,7 +5531,7 @@ $root.AICommonDeprecated = (function() {
          * @typedef {Object} AICommonDeprecated.AIRichResponseGridImageMetadata.$Properties
          * @property {AICommonDeprecated.AIRichResponseImageURL.$Properties|null} [gridImageUrl] AIRichResponseGridImageMetadata gridImageUrl
          * @property {Array.<AICommonDeprecated.AIRichResponseImageURL.$Properties>|null} [imageUrls] AIRichResponseGridImageMetadata imageUrls
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -5553,7 +5553,7 @@ $root.AICommonDeprecated = (function() {
          * @classdesc Represents a AIRichResponseGridImageMetadata.
          * @constructor
          * @param {AICommonDeprecated.AIRichResponseGridImageMetadata.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIRichResponseGridImageMetadata = function (properties) {
             this.imageUrls = [];
@@ -5852,7 +5852,7 @@ $root.AICommonDeprecated = (function() {
          * @property {string|null} [imagePreviewUrl] AIRichResponseImageURL imagePreviewUrl
          * @property {string|null} [imageHighResUrl] AIRichResponseImageURL imageHighResUrl
          * @property {string|null} [sourceUrl] AIRichResponseImageURL sourceUrl
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -5874,7 +5874,7 @@ $root.AICommonDeprecated = (function() {
          * @classdesc Represents a AIRichResponseImageURL.
          * @constructor
          * @param {AICommonDeprecated.AIRichResponseImageURL.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var AIRichResponseImageURL = function (properties) {
             if (properties)
@@ -6247,7 +6247,7 @@ $root.StatusAttributions = (function() {
          * @property {StatusAttributions.StatusAttribution.RLAttribution.$Properties|null} [rlAttribution] StatusAttribution rlAttribution
          * @property {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties|null} [aiCreatedAttribution] StatusAttribution aiCreatedAttribution
          * @property {"statusReshare"|"externalShare"|"music"|"groupStatus"|"rlAttribution"|"aiCreatedAttribution"} [attributionData] StatusAttribution attributionData
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -6281,7 +6281,7 @@ $root.StatusAttributions = (function() {
          * @classdesc Represents a StatusAttribution.
          * @constructor
          * @param {StatusAttributions.StatusAttribution.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var StatusAttribution = function (properties) {
             if (properties)
@@ -6855,7 +6855,7 @@ $root.StatusAttributions = (function() {
              * Properties of an AiCreatedAttribution.
              * @typedef {Object} StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties
              * @property {StatusAttributions.StatusAttribution.AiCreatedAttribution.Source|null} [source] AiCreatedAttribution source
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -6877,7 +6877,7 @@ $root.StatusAttributions = (function() {
              * @classdesc Represents an AiCreatedAttribution.
              * @constructor
              * @param {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AiCreatedAttribution = function (properties) {
                 if (properties)
@@ -7158,7 +7158,7 @@ $root.StatusAttributions = (function() {
              * @property {StatusAttributions.StatusAttribution.ExternalShare.Source|null} [source] ExternalShare source
              * @property {number|null} [duration] ExternalShare duration
              * @property {string|null} [actionFallbackUrl] ExternalShare actionFallbackUrl
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -7180,7 +7180,7 @@ $root.StatusAttributions = (function() {
              * @classdesc Represents an ExternalShare.
              * @constructor
              * @param {StatusAttributions.StatusAttribution.ExternalShare.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ExternalShare = function (properties) {
                 if (properties)
@@ -7631,7 +7631,7 @@ $root.StatusAttributions = (function() {
              * Properties of a GroupStatus.
              * @typedef {Object} StatusAttributions.StatusAttribution.GroupStatus.$Properties
              * @property {string|null} [authorJid] GroupStatus authorJid
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -7653,7 +7653,7 @@ $root.StatusAttributions = (function() {
              * @classdesc Represents a GroupStatus.
              * @constructor
              * @param {StatusAttributions.StatusAttribution.GroupStatus.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var GroupStatus = function (properties) {
                 if (properties)
@@ -7903,7 +7903,7 @@ $root.StatusAttributions = (function() {
              * @property {string|null} [author] Music author
              * @property {string|null} [artistAttribution] Music artistAttribution
              * @property {boolean|null} [isExplicit] Music isExplicit
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -7925,7 +7925,7 @@ $root.StatusAttributions = (function() {
              * @classdesc Represents a Music.
              * @constructor
              * @param {StatusAttributions.StatusAttribution.Music.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var Music = function (properties) {
                 if (properties)
@@ -8330,7 +8330,7 @@ $root.StatusAttributions = (function() {
              * Properties of a RLAttribution.
              * @typedef {Object} StatusAttributions.StatusAttribution.RLAttribution.$Properties
              * @property {StatusAttributions.StatusAttribution.RLAttribution.Source|null} [source] RLAttribution source
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -8352,7 +8352,7 @@ $root.StatusAttributions = (function() {
              * @classdesc Represents a RLAttribution.
              * @constructor
              * @param {StatusAttributions.StatusAttribution.RLAttribution.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var RLAttribution = function (properties) {
                 if (properties)
@@ -8645,7 +8645,7 @@ $root.StatusAttributions = (function() {
              * @typedef {Object} StatusAttributions.StatusAttribution.StatusReshare.$Properties
              * @property {StatusAttributions.StatusAttribution.StatusReshare.Source|null} [source] StatusReshare source
              * @property {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties|null} [metadata] StatusReshare metadata
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -8667,7 +8667,7 @@ $root.StatusAttributions = (function() {
              * @classdesc Represents a StatusReshare.
              * @constructor
              * @param {StatusAttributions.StatusAttribution.StatusReshare.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var StatusReshare = function (properties) {
                 if (properties)
@@ -8984,7 +8984,7 @@ $root.StatusAttributions = (function() {
                  * @property {string|null} [channelJid] Metadata channelJid
                  * @property {number|null} [channelMessageId] Metadata channelMessageId
                  * @property {boolean|null} [hasMultipleReshares] Metadata hasMultipleReshares
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -9006,7 +9006,7 @@ $root.StatusAttributions = (function() {
                  * @classdesc Represents a Metadata.
                  * @constructor
                  * @param {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var Metadata = function (properties) {
                     if (properties)

@@ -33,7 +33,7 @@ $root.StatusAttributions = (function() {
          * @property {StatusAttributions.StatusAttribution.RLAttribution.$Properties|null} [rlAttribution] StatusAttribution rlAttribution
          * @property {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties|null} [aiCreatedAttribution] StatusAttribution aiCreatedAttribution
          * @property {"statusReshare"|"externalShare"|"music"|"groupStatus"|"rlAttribution"|"aiCreatedAttribution"} [attributionData] StatusAttribution attributionData
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -67,7 +67,7 @@ $root.StatusAttributions = (function() {
          * @classdesc Represents a StatusAttribution.
          * @constructor
          * @param {StatusAttributions.StatusAttribution.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var StatusAttribution = function (properties) {
             if (properties)
@@ -641,7 +641,7 @@ $root.StatusAttributions = (function() {
              * Properties of an AiCreatedAttribution.
              * @typedef {Object} StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties
              * @property {StatusAttributions.StatusAttribution.AiCreatedAttribution.Source|null} [source] AiCreatedAttribution source
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -663,7 +663,7 @@ $root.StatusAttributions = (function() {
              * @classdesc Represents an AiCreatedAttribution.
              * @constructor
              * @param {StatusAttributions.StatusAttribution.AiCreatedAttribution.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var AiCreatedAttribution = function (properties) {
                 if (properties)
@@ -944,7 +944,7 @@ $root.StatusAttributions = (function() {
              * @property {StatusAttributions.StatusAttribution.ExternalShare.Source|null} [source] ExternalShare source
              * @property {number|null} [duration] ExternalShare duration
              * @property {string|null} [actionFallbackUrl] ExternalShare actionFallbackUrl
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -966,7 +966,7 @@ $root.StatusAttributions = (function() {
              * @classdesc Represents an ExternalShare.
              * @constructor
              * @param {StatusAttributions.StatusAttribution.ExternalShare.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var ExternalShare = function (properties) {
                 if (properties)
@@ -1417,7 +1417,7 @@ $root.StatusAttributions = (function() {
              * Properties of a GroupStatus.
              * @typedef {Object} StatusAttributions.StatusAttribution.GroupStatus.$Properties
              * @property {string|null} [authorJid] GroupStatus authorJid
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -1439,7 +1439,7 @@ $root.StatusAttributions = (function() {
              * @classdesc Represents a GroupStatus.
              * @constructor
              * @param {StatusAttributions.StatusAttribution.GroupStatus.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var GroupStatus = function (properties) {
                 if (properties)
@@ -1689,7 +1689,7 @@ $root.StatusAttributions = (function() {
              * @property {string|null} [author] Music author
              * @property {string|null} [artistAttribution] Music artistAttribution
              * @property {boolean|null} [isExplicit] Music isExplicit
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -1711,7 +1711,7 @@ $root.StatusAttributions = (function() {
              * @classdesc Represents a Music.
              * @constructor
              * @param {StatusAttributions.StatusAttribution.Music.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var Music = function (properties) {
                 if (properties)
@@ -2116,7 +2116,7 @@ $root.StatusAttributions = (function() {
              * Properties of a RLAttribution.
              * @typedef {Object} StatusAttributions.StatusAttribution.RLAttribution.$Properties
              * @property {StatusAttributions.StatusAttribution.RLAttribution.Source|null} [source] RLAttribution source
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -2138,7 +2138,7 @@ $root.StatusAttributions = (function() {
              * @classdesc Represents a RLAttribution.
              * @constructor
              * @param {StatusAttributions.StatusAttribution.RLAttribution.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var RLAttribution = function (properties) {
                 if (properties)
@@ -2431,7 +2431,7 @@ $root.StatusAttributions = (function() {
              * @typedef {Object} StatusAttributions.StatusAttribution.StatusReshare.$Properties
              * @property {StatusAttributions.StatusAttribution.StatusReshare.Source|null} [source] StatusReshare source
              * @property {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties|null} [metadata] StatusReshare metadata
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
             /**
@@ -2453,7 +2453,7 @@ $root.StatusAttributions = (function() {
              * @classdesc Represents a StatusReshare.
              * @constructor
              * @param {StatusAttributions.StatusAttribution.StatusReshare.$Properties=} [properties] Properties to set
-             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+             * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
             var StatusReshare = function (properties) {
                 if (properties)
@@ -2770,7 +2770,7 @@ $root.StatusAttributions = (function() {
                  * @property {string|null} [channelJid] Metadata channelJid
                  * @property {number|null} [channelMessageId] Metadata channelMessageId
                  * @property {boolean|null} [hasMultipleReshares] Metadata hasMultipleReshares
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
 
                 /**
@@ -2792,7 +2792,7 @@ $root.StatusAttributions = (function() {
                  * @classdesc Represents a Metadata.
                  * @constructor
                  * @param {StatusAttributions.StatusAttribution.StatusReshare.Metadata.$Properties=} [properties] Properties to set
-                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+                 * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
                  */
                 var Metadata = function (properties) {
                     if (properties)

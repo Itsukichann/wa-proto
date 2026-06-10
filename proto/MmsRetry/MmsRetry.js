@@ -25,7 +25,7 @@ $root.MmsRetry = (function() {
          * Properties of a ServerErrorReceipt.
          * @typedef {Object} MmsRetry.ServerErrorReceipt.$Properties
          * @property {string|null} [stanzaId] ServerErrorReceipt stanzaId
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -47,7 +47,7 @@ $root.MmsRetry = (function() {
          * @classdesc Represents a ServerErrorReceipt.
          * @constructor
          * @param {MmsRetry.ServerErrorReceipt.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var ServerErrorReceipt = function (properties) {
             if (properties)
@@ -295,7 +295,7 @@ $root.MmsRetry = (function() {
          * @property {string|null} [directPath] MediaRetryNotification directPath
          * @property {MmsRetry.MediaRetryNotification.ResultType|null} [result] MediaRetryNotification result
          * @property {Uint8Array|null} [messageSecret] MediaRetryNotification messageSecret
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
 
         /**
@@ -317,7 +317,7 @@ $root.MmsRetry = (function() {
          * @classdesc Represents a MediaRetryNotification.
          * @constructor
          * @param {MmsRetry.MediaRetryNotification.$Properties=} [properties] Properties to set
-         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding
+         * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
          */
         var MediaRetryNotification = function (properties) {
             if (properties)
